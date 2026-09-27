@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Louie's Diner — Where Good Friends Meet | Milton, ON</title>
+<meta name="description" content="Louie's Diner in Milton, ON: all-day breakfast, lunch specials, kids menu and catering. Where good friends meet. 466 Steeles Ave E, (905) 693-0404.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf4e8;
+  --paper:#fffdf7;
+  --cherry:#b02a30;
+  --cherry-dark:#8c1f24;
+  --brown:#2e2018;
+  --muted:#6f5f4e;
+  --line:#e8dcc4;
+  --check:repeating-conic-gradient(#b02a30 0 25%, #faf4e8 0 50%) 0 0/44px 44px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--cream);color:var(--brown);line-height:1.65;font-size:17px}
+h1,h2,h3,.slab{font-family:'Alfa Slab One',serif;font-weight:400;text-wrap:balance;letter-spacing:.01em}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.checker{height:22px;background:var(--check)}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(250,244,232,.95);backdrop-filter:blur(8px);border-bottom:3px solid var(--cherry)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1140px;margin:0 auto}
+.brand{font-family:'Alfa Slab One';font-size:23px;text-decoration:none;color:var(--cherry)}
+.brand small{font-family:'Barlow';font-weight:600;font-size:12px;letter-spacing:.28em;color:var(--brown);display:block;margin-top:-2px}
+.nav-links{display:flex;gap:24px;list-style:none;font-weight:600;font-size:15.5px}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--cherry)}
+.nav-call{background:var(--cherry);color:#fff;text-decoration:none;font-weight:600;padding:9px 18px;border-radius:999px;font-size:15.5px}
+.nav-call:hover{background:var(--cherry-dark)}
+.burger{display:none;background:none;border:0;color:var(--brown);font-size:26px;cursor:pointer}
+/* hero */
+.hero{text-align:center;padding:86px 22px 70px;position:relative}
+.hero .sign{display:inline-block;background:var(--brown);color:var(--cream);font-weight:600;letter-spacing:.3em;text-transform:uppercase;font-size:13px;padding:10px 22px;border-radius:999px;margin-bottom:24px}
+.hero h1{font-size:clamp(46px,8vw,96px);color:var(--cherry);line-height:1.02}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:2px var(--cherry)}
+.hero p.lede{font-size:20px;max-width:600px;margin:22px auto 0;color:var(--muted)}
+.starburst{display:inline-flex;align-items:center;justify-content:center;width:150px;height:150px;background:var(--cherry);color:#fff;font-family:'Alfa Slab One';font-size:15px;line-height:1.3;text-align:center;border-radius:50%;margin-top:30px;transform:rotate(-8deg);box-shadow:0 10px 0 rgba(176,42,48,.18)}
+.hero-ctas{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:14px 30px;border-radius:999px;font-size:17px}
+.btn-red{background:var(--cherry);color:#fff}
+.btn-red:hover{background:var(--cherry-dark)}
+.btn-line{border:2px solid var(--brown);color:var(--brown)}
+.btn-line:hover{background:var(--brown);color:var(--cream)}
+/* sections */
+section.block{padding:72px 0}
+section.paper{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2.sec{font-size:clamp(30px,4.4vw,50px);color:var(--cherry);margin-bottom:14px}
+.sec-sub{max-width:620px;color:var(--muted);font-size:18px;margin-bottom:38px}
+/* story */
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.story-grid p{font-size:18.5px;color:#433527}
+.story-grid p+p{margin-top:16px}
+.plate-card{background:var(--brown);color:var(--cream);border-radius:14px;padding:40px 36px;position:relative;overflow:hidden}
+.plate-card::after{content:"";position:absolute;inset:12px;border:2px dashed rgba(250,244,232,.35);border-radius:8px;pointer-events:none}
+.plate-card h3{font-size:25px;margin-bottom:12px;color:#ffd9a8}
+.plate-card p{color:#e8dcc4;font-size:16.5px}
+.plate-card p+p{margin-top:10px}
+/* menu */
+.menu-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.tab{border:2px solid var(--brown);background:transparent;border-radius:999px;padding:9px 22px;font-weight:600;font-size:15.5px;cursor:pointer;font-family:'Barlow'}
+.tab.active,.tab:hover{background:var(--brown);color:var(--cream)}
+.menu-panel{display:none}
+.menu-panel.active{display:block}
+.dish{display:flex;justify-content:space-between;gap:18px;padding:16px 4px;border-bottom:2px dotted var(--line);align-items:baseline}
+.dish:last-child{border-bottom:0}
+.dish h3{font-family:'Barlow';font-weight:600;font-size:19px}
+.dish p{color:var(--muted);font-size:15.5px;margin-top:3px;max-width:520px}
+.dish .dot-price{font-family:'Alfa Slab One';font-size:14px;color:var(--cherry);white-space:nowrap}
+.menu-note{margin-top:26px;background:#fdf3df;border:2px dashed var(--cherry);border-radius:10px;padding:18px 22px;font-size:16px;color:#433527}
+/* catering banner */
+.cater{background:var(--cherry);color:#fff;border-radius:14px;padding:46px 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.cater h2{font-size:clamp(28px,3.8vw,42px);margin-bottom:10px}
+.cater p{color:#ffe9d6;font-size:17.5px}
+.cater .btn{background:#fff;color:var(--cherry)}
+.cater .btn:hover{background:var(--cream)}
+.cater .big{font-family:'Alfa Slab One';font-size:clamp(24px,3vw,34px);text-align:right;line-height:1.3}
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.hours{width:100%;border-collapse:collapse;font-size:17px}
+.hours td{padding:11px 4px;border-bottom:2px dotted var(--line)}
+.hours td:last-child{text-align:right;font-weight:600}
+.info-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:32px}
+.info-card h3{font-size:23px;color:var(--cherry);margin-bottom:10px}
+.info-card address{font-style:normal;font-size:17px;margin-bottom:16px}
+.big-phone{font-family:'Alfa Slab One';font-size:34px;color:var(--cherry);text-decoration:none;display:block;margin-bottom:4px}
+.big-phone:hover{color:var(--cherry-dark)}
+/* sticky mobile call */
+.stickycall{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--cherry);color:#fff;text-align:center;font-weight:700;font-size:18px;padding:15px;text-decoration:none}
+/* footer */
+footer{background:var(--brown);color:#b7a88f;font-size:14.5px;padding:34px 0 90px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:840px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#faf4e8;flex-direction:column;padding:18px 22px;gap:14px;border-bottom:3px solid var(--cherry)}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .nav-call{display:none}
+  .story-grid,.visit-grid,.cater{grid-template-columns:1fr}
+  .cater .big{text-align:left}
+  .stickycall{display:block}
+  section.block{padding:56px 0}
+  .starburst{width:128px;height:128px;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="checker" aria-hidden="true"></div>
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top">Louie's<small>DINER &middot; MILTON</small></a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#story">Our story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#catering">Catering</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+19056930404">(905) 693-0404</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <span class="sign">Milton, Ontario</span>
+  <h1>Where good<br><span class="outline">friends</span> meet</h1>
+  <p class="lede">All-day breakfast, hearty lunches, and the kind of welcome that makes a diner feel like home. Come hungry &mdash; leave as a regular.</p>
+  <div><span class="starburst">ALL-DAY<br>BREAKFAST</span></div>
+  <div class="hero-ctas">
+    <a class="btn btn-red" href="tel:+19056930404">Call (905) 693-0404</a>
+    <a class="btn btn-line" href="#menu">See the menu</a>
+  </div>
+</header>
+<div class="checker" aria-hidden="true"></div>
+
+<section class="block" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div>
+        <h2 class="sec">Your home away from home</h2>
+        <p>Walk into Louie's and you're greeted by name &mdash; that's just how Dina and Louie run things. This is a family diner in the truest sense: the food is home-cooked, the servings are generous, and the room is full of neighbours who came in for breakfast years ago and never really left.</p>
+        <p>From a proper eggs benedict to start your morning, to burgers and sandwiches at lunch, everything comes out hot, fast, and made with care. Small room, big heart &mdash; that's Louie's.</p>
+      </div>
+      <div class="plate-card">
+        <h3>The Louie's promise</h3>
+        <p>Delicious and affordable all-day breakfast, lunch specials with real home cooking, and a kids' menu that makes the whole family happy.</p>
+        <p>Good friends, great food, and the very best home-cooked meal away from home in Milton.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block paper" id="menu">
+  <div class="wrap">
+    <h2 class="sec">The menu</h2>
+    <p class="sec-sub">Made fresh every morning. Ask your server about today's specials &mdash; there's always something good on.</p>
+    <div class="menu-tabs" role="tablist">
+      <button class="tab active" onclick="showMenu('breakfast',this)">All-Day Breakfast</button>
+      <button class="tab" onclick="showMenu('lunch',this)">Lunch</button>
+      <button class="tab" onclick="showMenu('kids',this)">Kids</button>
+    </div>
+
+    <div class="menu-panel active" id="m-breakfast">
+      <div class="dish"><div><h3>The Classic</h3><p>Two eggs any style with home fried potatoes, toast and your choice of bacon, sausage or peameal.</p></div><span class="dot-price">ask in store</span></div>
+      <div class="dish"><div><h3>Deli Benny</h3><p>Our take on eggs benedict &mdash; a house favourite regulars swear by.</p></div><span class="dot-price">ask in store</span></div>
+      <div class="dish"><div><h3>Greek Omelette</h3><p>Fluffy three-egg omelette with feta, tomatoes and olives, served with home fries and toast.</p></div><span class="dot-price">ask in store</span></div>
+      <div class="dish"><div><h3>Blueberry Pancakes</h3><p>A tall stack of buttermilk pancakes loaded with blueberries.</p></div><span class="dot-price">ask in store</span></div>
+      <div class="dish"><div><h3>Brunch Special</h3><p>A little bit of everything for the serious breakfast lover.</p></div><span class="dot-price">ask in store</span></div>
+    </div>
+
+    <div class="menu-panel" id="m-lunch">
+      <div class="dish"><div><h3>Burgers</h3><p>Hand-formed patties, cooked to order, served with fries.</p></div><span class="dot-price">ask in store</span></div>
+      <div class="dish"><div><h3>Sandwiches</h3><p>Stacked high on fresh bread &mdash; club, grilled chicken and daily specials.</p></div><span class="dot-price">ask in store</span></div>
+      <div class="dish"><div><h3>Salads</h3><p>Crisp, fresh and generous &mdash; a lighter way to do lunch.</p></div><span class="dot-price">ask in store</span></div>
+    </div>
+
+    <div class="menu-panel" id="m-kids">
+      <div class="dish"><div><h3>Kids' Menu</h3><p>Smaller portions of diner favourites, made for little appetites &mdash; dining with the whole family is a delight here.</p></div><span class="dot-price">ask in store</span></div>
+    </div>
+
+    <div class="menu-note"><strong>A note on prices:</strong> our menu changes with the seasons and the market &mdash; call <a href="tel:+19056930404">(905) 693-0404</a> for today's prices and specials.</div>
+  </div>
+</section>
+
+<section class="block" id="catering">
+  <div class="wrap">
+    <div class="cater">
+      <div>
+        <h2>Let Louie's cater your next event</h2>
+        <p>Our full catering menu can turn any gathering &mdash; office lunch, family party, you name it &mdash; into a time you won't soon forget. Tell us the headcount and we'll handle the rest.</p>
+        <p style="margin-top:18px"><a class="btn" href="tel:+19056930404">Call about catering</a></p>
+      </div>
+      <div class="big">Full catering<br>menu available<br>in store</div>
+    </div>
+  </div>
+</section>
+
+<section class="block paper" id="visit">
+  <div class="wrap">
+    <h2 class="sec">Come say hi</h2>
+    <p class="sec-sub">Open for dine-in and takeout. The coffee's hot and the booths are waiting.</p>
+    <div class="visit-grid">
+      <div>
+        <table class="hours">
+          <tr><td>Monday &ndash; Saturday</td><td>7:00 am &ndash; 3:00 pm</td></tr>
+          <tr><td>Sunday</td><td>7:00 am &ndash; 2:00 pm</td></tr>
+        </table>
+      </div>
+      <div class="info-card">
+        <h3>Find us</h3>
+        <address>466 Steeles Avenue East<br>Milton, ON L9T 3P7</address>
+        <a class="big-phone" href="tel:+19056930404">(905) 693-0404</a>
+        <div style="color:var(--muted);font-size:15.5px">Dine-in &amp; takeout</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Louie's Diner, Milton ON</span>
+    <span>Concept preview &mdash; a free website mock-up, not the business's official site.</span>
+  </div>
+</footer>
+
+<a class="stickycall" href="tel:+19056930404">Call Louie's &mdash; (905) 693-0404</a>
+
+<script>
+function showMenu(id, btn){
+  document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('m-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Brick Cafe — Guelph's Favourite Social Hub Since 2006</title>
+<meta name="description" content="Red Brick Cafe, 8 Douglas St, Guelph: organic fair-trade coffee, house-roasted blends, live music, two licensed patios. Call (519) 836-1126.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7f1e6;
+  --paper:#fffdf8;
+  --brick:#a8412a;
+  --brick-dark:#83301f;
+  --espresso:#2c2119;
+  --muted:#75655a;
+  --line:#e5d9c2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Karla',system-ui,sans-serif;background:var(--cream);color:var(--espresso);line-height:1.65;font-size:17px}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:600;text-wrap:balance}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1140px;margin:0 auto}
+.brand{font-family:'Fraunces';font-weight:700;font-size:22px;text-decoration:none}
+.brand .dot{color:var(--brick)}
+.nav-links{display:flex;gap:24px;list-style:none;font-weight:600;font-size:15.5px}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--brick)}
+.nav-call{background:var(--brick);color:#fff;text-decoration:none;font-weight:600;padding:9px 18px;border-radius:999px;font-size:15.5px}
+.nav-call:hover{background:var(--brick-dark)}
+.burger{display:none;background:none;border:0;color:var(--espresso);font-size:26px;cursor:pointer}
+/* hero */
+.hero{padding:90px 22px 74px;text-align:center;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 22%,rgba(168,65,42,.10),transparent);pointer-events:none}
+.hero-in{position:relative;z-index:1}
+.hero .est{font-weight:600;letter-spacing:.26em;text-transform:uppercase;font-size:13px;color:var(--brick);margin-bottom:18px}
+.hero h1{font-size:clamp(44px,7.6vw,88px);line-height:1.04}
+.hero h1 em{font-style:italic;color:var(--brick)}
+.hero p.lede{font-size:19.5px;max-width:620px;margin:20px auto 0;color:var(--muted)}
+.hero-ctas{margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:14px 30px;border-radius:999px;font-size:17px}
+.btn-brick{background:var(--brick);color:#fff}
+.btn-brick:hover{background:var(--brick-dark)}
+.btn-line{border:2px solid var(--espresso);color:var(--espresso)}
+.btn-line:hover{background:var(--espresso);color:var(--cream)}
+.values{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:38px}
+.values span{border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 18px;font-size:14.5px;font-weight:600;color:#5c4f42}
+/* sections */
+section.block{padding:72px 0}
+section.paper{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2.sec{font-size:clamp(32px,4.6vw,52px);margin-bottom:14px}
+h2.sec em{font-style:italic;color:var(--brick)}
+.sec-sub{max-width:640px;color:var(--muted);font-size:18px;margin-bottom:38px}
+/* roasts */
+.roast-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.roast{background:var(--espresso);color:var(--cream);border-radius:14px;padding:32px 28px;position:relative;overflow:hidden}
+.roast::after{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--brick)}
+.roast .bean{font-size:34px;display:block;margin-bottom:12px}
+.roast h3{font-size:24px;margin-bottom:4px}
+.roast .origin{color:#cdbfa9;font-size:14.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;display:block}
+.roast p{color:#d8c9b2;font-size:16px}
+.roast-note{margin-top:26px;font-size:16px;color:var(--muted);max-width:720px}
+/* menu */
+.menu-two{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.menu-col h3{font-size:24px;margin-bottom:14px;color:var(--brick)}
+.dish{padding:14px 0;border-bottom:1px dotted var(--line)}
+.dish:last-child{border-bottom:0}
+.dish h4{font-family:'Karla';font-weight:600;font-size:18px}
+.dish p{color:var(--muted);font-size:15.5px;margin-top:2px}
+/* events band */
+.events{background:var(--brick);color:#fff;border-radius:16px;padding:48px 42px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.events h2{font-size:clamp(30px,4vw,46px);margin-bottom:12px}
+.events p{color:#ffe6d6;font-size:17.5px}
+.events ul{list-style:none;display:grid;gap:12px}
+.events ul li{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:14px 18px;font-size:16.5px}
+.events ul li b{color:#ffd9b8}
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.hours{width:100%;border-collapse:collapse;font-size:17px}
+.hours td{padding:11px 4px;border-bottom:1px dotted var(--line)}
+.hours td:last-child{text-align:right;font-weight:600}
+.info-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:32px}
+.info-card h3{font-size:23px;margin-bottom:10px;color:var(--brick)}
+.info-card address{font-style:normal;font-size:17px;margin-bottom:16px}
+.big-phone{font-family:'Fraunces';font-weight:700;font-size:32px;color:var(--brick);text-decoration:none;display:block;margin-bottom:4px}
+.big-phone:hover{color:var(--brick-dark)}
+.info-card .mail{color:var(--espresso);font-size:16.5px}
+/* sticky mobile call */
+.stickycall{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--brick);color:#fff;text-align:center;font-weight:700;font-size:18px;padding:15px;text-decoration:none}
+/* footer */
+footer{background:var(--espresso);color:#a7957f;font-size:14.5px;padding:34px 0 90px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:840px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#f7f1e6;flex-direction:column;padding:18px 22px;gap:14px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .nav-call{display:none}
+  .roast-grid,.menu-two,.visit-grid,.events{grid-template-columns:1fr}
+  .stickycall{display:block}
+  section.block{padding:56px 0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top">Red Brick<span class="dot">.</span> Cafe</a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#roasts">Our roasts</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#events">Music &amp; patios</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+15198361126">(519) 836-1126</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-in">
+    <p class="est">Est. 2006 &middot; Downtown Guelph</p>
+    <h1>Guelph's favourite <em>social hub</em>, one cup at a time</h1>
+    <p class="lede">A warm, rustic gathering place in the heart of downtown &mdash; organic fair-trade coffee roasted for us, homemade food, live music, and two licensed patios.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-brick" href="tel:+15198361126">Call (519) 836-1126</a>
+      <a class="btn btn-line" href="#menu">See the menu</a>
+    </div>
+    <div class="values">
+      <span>Organic &amp; fair trade</span>
+      <span>House-roasted blends</span>
+      <span>Live music</span>
+      <span>Two licensed patios</span>
+      <span>Swiss Water decaf</span>
+    </div>
+  </div>
+</header>
+
+<section class="block paper" id="roasts">
+  <div class="wrap">
+    <h2 class="sec">Roasted for Red Brick, <em>named for Guelph</em></h2>
+    <p class="sec-sub">Our beans are roasted by Planet Bean and served as certified organic and fair-trade coffee &mdash; including Swiss Water Process decaf. Each blend carries a name from our neighbourhood.</p>
+    <div class="roast-grid">
+      <div class="roast"><span class="bean">&#9749;</span><h3>Blue Dog</h3><span class="origin">Medium roast</span><p>Our signature medium &mdash; smooth, balanced, and the backbone of our espresso drinks.</p></div>
+      <div class="roast"><span class="bean">&#9749;</span><h3>Douglas St.</h3><span class="origin">Dark roast</span><p>Named for our own street. Bold and deep for those who like their coffee with backbone.</p></div>
+      <div class="roast"><span class="bean">&#9749;</span><h3>Speed River</h3><span class="origin">Espresso</span><p>Our espresso blend &mdash; rich and lively, built for flat whites, lattes and cappuccinos.</p></div>
+    </div>
+    <p class="roast-note">Fair trade means the farmers are paid properly for their work. Organic means the coffee is grown without synthetic pesticides. We think you can taste the difference &mdash; and so can the planet.</p>
+  </div>
+</section>
+
+<section class="block" id="menu">
+  <div class="wrap">
+    <h2 class="sec">Made with <em>love</em>, served with warmth</h2>
+    <p class="sec-sub">Breakfast, lunch and everything in between &mdash; much of it made in-house.</p>
+    <div class="menu-two">
+      <div class="menu-col">
+        <h3>Coffee &amp; drinks</h3>
+        <div class="dish"><h4>Flat white</h4><p>Velvety micro-foam over a double shot of Speed River espresso.</p></div>
+        <div class="dish"><h4>Maple cinnamon latte</h4><p>A cozy house favourite &mdash; real maple, warm cinnamon, steamed milk.</p></div>
+        <div class="dish"><h4>Matcha latte</h4><p>Whisked matcha, your choice of milk, lightly sweetened.</p></div>
+        <div class="dish"><h4>London fog</h4><p>Earl grey, vanilla and steamed milk &mdash; comfort in a cup.</p></div>
+        <div class="dish"><h4>Swiss Water decaf</h4><p>All the flavour, none of the buzz &mdash; chemical-free decaffeination.</p></div>
+      </div>
+      <div class="menu-col">
+        <h3>Kitchen</h3>
+        <div class="dish"><h4>Pesto grilled cheese</h4><p>The sandwich regulars rave about &mdash; golden, gooey, gone fast.</p></div>
+        <div class="dish"><h4>Breakfast sandwiches</h4><p>Morning fuel, made to order on fresh bread.</p></div>
+        <div class="dish"><h4>Soups &amp; salads</h4><p>Rotating homemade soups and crisp salads, always fresh.</p></div>
+        <div class="dish"><h4>Lemon blueberry scone</h4><p>Baked in-house &mdash; bright, buttery, perfect with a flat white.</p></div>
+        <div class="dish"><h4>Gluten-free &amp; vegan options</h4><p>Plenty of choices for every diet &mdash; just ask.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block paper" id="events">
+  <div class="wrap">
+    <div class="events">
+      <div>
+        <h2>Live music &amp; two sunny patios</h2>
+        <p>Red Brick isn't just a caf&eacute; &mdash; it's where downtown Guelph comes together. Catch local musicians on our stage, then linger on one of our two licensed patios with something cold.</p>
+      </div>
+      <ul>
+        <li><b>Live music</b> &mdash; regular performances from local artists</li>
+        <li><b>Two licensed patios</b> &mdash; sunshine, fresh air, good company</li>
+        <li><b>Community events</b> &mdash; the neighbourhood's living room since 2006</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="visit">
+  <div class="wrap">
+    <h2 class="sec">Come <em>say hi</em></h2>
+    <p class="sec-sub">Right on Douglas Street in downtown Guelph &mdash; walk in, grab a table, stay a while.</p>
+    <div class="visit-grid">
+      <div>
+        <table class="hours">
+          <tr><td>Monday &ndash; Friday</td><td>7:00 am &ndash; 6:00 pm</td></tr>
+          <tr><td>Saturday</td><td>8:00 am &ndash; 6:00 pm</td></tr>
+          <tr><td>Sunday</td><td>9:00 am &ndash; 5:00 pm</td></tr>
+        </table>
+      </div>
+      <div class="info-card">
+        <h3>Find us</h3>
+        <address>8 Douglas St<br>Guelph, ON N1H 2S9</address>
+        <a class="big-phone" href="tel:+15198361126">(519) 836-1126</a>
+        <a class="mail" href="mailto:manager@redbrickcafe.ca">manager@redbrickcafe.ca</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Red Brick Cafe, Guelph ON</span>
+    <span>Concept preview &mdash; a free website mock-up, not the business's official site.</span>
+  </div>
+</footer>
+
+<a class="stickycall" href="tel:+15198361126">Call Red Brick &mdash; (519) 836-1126</a>
+
+</body>
+</html>

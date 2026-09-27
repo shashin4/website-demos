@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troy's Diner — Milton's Retro Diner | Milkshakes, Pancakes &amp; Catering</title>
+<meta name="description" content="Troy's Diner, 295 Main St E, Milton: famous thick milkshakes, 21 pancake flavours, all-day breakfast and full-service catering. Call (905) 878-8783.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#c2202b;
+  --red-dark:#8f151d;
+  --cream:#fbf3e4;
+  --paper:#fffcf4;
+  --chrome:#d8d4cc;
+  --ink:#201816;
+  --muted:#6d5f52;
+  --line:#e7dcc4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;font-size:17px}
+h1,h2,h3,.anton{font-family:'Anton',sans-serif;font-weight:400;text-wrap:balance;letter-spacing:.02em}
+.script{font-family:'Pacifico',cursive;font-weight:400}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+/* chrome strip */
+.chrome-bar{height:12px;background:linear-gradient(180deg,#efebe2 0%,#b9b3a6 45%,#efebe2 55%,#9d978a 100%)}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:var(--red);color:#fff;box-shadow:0 2px 0 var(--red-dark)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:11px 22px;max-width:1140px;margin:0 auto}
+.brand{font-family:'Anton';font-size:24px;letter-spacing:.05em;text-decoration:none}
+.brand .script{font-size:17px;letter-spacing:0;display:block;line-height:1;color:#ffe3a8}
+.nav-links{display:flex;gap:24px;list-style:none;font-weight:600;font-size:15.5px}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:#ffe3a8}
+.nav-call{background:#fff;color:var(--red);text-decoration:none;font-weight:700;padding:9px 18px;border-radius:999px;font-size:15.5px}
+.nav-call:hover{background:var(--cream)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+/* hero */
+.hero{background:radial-gradient(circle at 50% 30%,#d5303a 0%,var(--red) 55%,var(--red-dark) 100%);color:#fff;text-align:center;padding:80px 22px 66px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.045) 0 22px,transparent 22px 44px);pointer-events:none}
+.hero-in{position:relative;z-index:1}
+.hero .script{font-size:clamp(26px,4.4vw,44px);color:#ffe3a8;display:block;margin-bottom:6px;transform:rotate(-2deg)}
+.hero h1{font-size:clamp(52px,9.5vw,112px);line-height:.98;text-transform:uppercase;text-shadow:4px 4px 0 var(--red-dark)}
+.hero p.lede{font-size:19px;max-width:600px;margin:20px auto 0;color:#ffe9d2}
+.rating{display:inline-flex;align-items:center;gap:10px;margin-top:20px;background:rgba(0,0,0,.22);padding:9px 20px;border-radius:999px;font-size:15.5px;font-weight:600}
+.rating .stars{color:#ffd166;letter-spacing:2px}
+.hero-ctas{margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:17px}
+.btn-white{background:#fff;color:var(--red)}
+.btn-white:hover{background:var(--cream)}
+.btn-ghost{border:2px solid #fff;color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.shake-badge{display:inline-block;margin-top:34px;background:#ffe3a8;color:var(--red-dark);font-family:'Anton';font-size:17px;letter-spacing:.06em;padding:14px 26px;border-radius:12px;transform:rotate(2deg);box-shadow:0 6px 0 rgba(0,0,0,.2);text-transform:uppercase}
+/* sections */
+section.block{padding:72px 0}
+section.paper{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2.sec{font-size:clamp(32px,4.6vw,54px);text-transform:uppercase;margin-bottom:12px}
+h2.sec .script{text-transform:none;font-size:.62em;color:var(--red);display:block;margin-bottom:2px}
+.sec-sub{max-width:640px;color:var(--muted);font-size:18px;margin-bottom:38px}
+/* faves */
+.fave-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.fave{background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:30px 28px;box-shadow:6px 6px 0 var(--ink);transition:transform .2s}
+.fave:hover{transform:translate(-2px,-2px)}
+.fave .tag{display:inline-block;background:var(--red);color:#fff;font-family:'Anton';font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.fave h3{font-size:25px;margin-bottom:8px}
+.fave p{color:var(--muted);font-size:16px}
+/* pancakes strip */
+.pancake{background:var(--ink);color:var(--cream);border-radius:14px;padding:44px 40px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;margin-top:44px}
+.pancake h2{font-size:clamp(30px,4vw,46px);color:#ffd166;text-transform:uppercase;line-height:1.05}
+.pancake p{color:#d9cbb2;font-size:17px;margin-top:12px}
+.pancake ul{list-style:none;display:grid;gap:10px;font-size:16.5px}
+.pancake ul li{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:12px 18px;border-radius:8px}
+.pancake ul li b{color:#ffd166}
+/* catering */
+.cater-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pkg{border:2px solid var(--ink);border-radius:14px;padding:30px 28px;background:var(--paper);box-shadow:6px 6px 0 var(--ink)}
+.pkg h3{font-size:26px;margin-bottom:6px}
+.pkg .price{font-family:'Anton';font-size:30px;color:var(--red);margin:8px 0 12px}
+.pkg ul{list-style:none;display:grid;gap:7px;color:var(--muted);font-size:16px}
+.pkg ul li::before{content:"\2713  ";color:var(--red);font-weight:700}
+.cater-note{margin-top:24px;font-size:16.5px;color:var(--muted)}
+.cater-note a{color:var(--red);font-weight:600}
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.hours{width:100%;border-collapse:collapse;font-size:17px}
+.hours td{padding:11px 4px;border-bottom:2px dotted var(--line)}
+.hours td:last-child{text-align:right;font-weight:600}
+.info-card{background:var(--paper);border:2px solid var(--ink);border-radius:12px;padding:32px;box-shadow:6px 6px 0 var(--ink)}
+.info-card h3{font-size:24px;margin-bottom:10px}
+.info-card address{font-style:normal;font-size:17px;margin-bottom:16px}
+.big-phone{font-family:'Anton';font-size:34px;color:var(--red);text-decoration:none;display:block;margin-bottom:4px;letter-spacing:.02em}
+.big-phone:hover{color:var(--red-dark)}
+.info-card .mail{font-size:16.5px;color:var(--ink)}
+/* sticky mobile call */
+.stickycall{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--red);color:#fff;text-align:center;font-weight:700;font-size:18px;padding:15px;text-decoration:none}
+/* footer */
+footer{background:var(--ink);color:#a89880;font-size:14.5px;padding:34px 0 90px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#d9cbb2}
+@media(max-width:840px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--red);flex-direction:column;padding:18px 22px;gap:14px}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .nav-call{display:none}
+  .fave-grid,.cater-grid,.visit-grid,.pancake{grid-template-columns:1fr}
+  .stickycall{display:block}
+  section.block{padding:56px 0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.fave:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="chrome-bar" aria-hidden="true"></div>
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top">TROY'S<span class="script">diner &middot; milton</span></a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#faves">Favourites</a></li>
+      <li><a href="#pancakes">Pancakes</a></li>
+      <li><a href="#catering">Catering</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+19058788783">(905) 878-8783</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-in">
+    <span class="script">There's nothin' finer&hellip;</span>
+    <h1>Troy's<br>Diner</h1>
+    <p class="lede">Milton's retro diner on Main Street &mdash; an open kitchen, loud music, classic Coca-Cola charm, and the famous thick milkshakes everyone talks about.</p>
+    <div class="rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.8 from 100+ Google reviews</div>
+    <div class="hero-ctas">
+      <a class="btn btn-white" href="tel:+19058788783">Call (905) 878-8783</a>
+      <a class="btn btn-ghost" href="#faves">See the favourites</a>
+    </div>
+    <div><span class="shake-badge">&#9733; Famous Thick Milkshakes &#9733;</span></div>
+  </div>
+</header>
+<div class="chrome-bar" aria-hidden="true"></div>
+
+<section class="block" id="faves">
+  <div class="wrap">
+    <h2 class="sec"><span class="script">don't miss</span>House favourites</h2>
+    <p class="sec-sub">The dishes that made Troy's a Milton landmark &mdash; hearty, classic, and made to order.</p>
+    <div class="fave-grid">
+      <div class="fave"><span class="tag">Legendary</span><h3>Thick Milkshakes</h3><p>The famous shakes everyone recommends &mdash; Oreo, Reese, Skor, peanut butter banana and more. Thick enough to stand a spoon in.</p></div>
+      <div class="fave"><span class="tag">Breakfast</span><h3>The Breakfast Club</h3><p>Our beloved all-day breakfast plate &mdash; the reason half of Milton knows our name.</p></div>
+      <div class="fave"><span class="tag">Breakfast</span><h3>Canadian Skillet</h3><p>A hearty skillet with all the Canadian fixings, straight from the open grill.</p></div>
+      <div class="fave"><span class="tag">Twist</span><h3>Grilled Cheese Eggs Benny</h3><p>Classic benedict meets grilled cheese &mdash; indulgent, golden, unforgettable.</p></div>
+      <div class="fave"><span class="tag">Lunch</span><h3>Burgers &amp; Fries</h3><p>Diner burgers done right &mdash; juicy, classic, and always a good idea.</p></div>
+      <div class="fave"><span class="tag">Groups</span><h3>Full Catering Menu</h3><p>Bringing Troy's to your event? Our catering packages serve offices, parties and celebrations of every size.</p></div>
+    </div>
+
+    <div class="pancake" id="pancakes">
+      <div>
+        <h2>21 flavours of pancakes</h2>
+        <p>Yes, twenty-one. From the classics to the creations people drive across town for &mdash; there's a stack here with your name on it.</p>
+      </div>
+      <ul>
+        <li><b>Strawberry Cheesecake</b> &mdash; creamy, sweet, a house favourite</li>
+        <li><b>Mac and Cheese</b> &mdash; the wild one you'll tell your friends about</li>
+        <li><b>Blueberry Cheesecake</b> &mdash; berries and cheesecake in every bite</li>
+        <li><b>Oreo</b> &mdash; cookies-and-cream stack, because why not</li>
+        <li>Plus <b>17 more</b> &mdash; ask your server for the full list</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block paper" id="catering">
+  <div class="wrap">
+    <h2 class="sec"><span class="script">for your event</span>Catering</h2>
+    <p class="sec-sub">Troy's Catering &mdash; our BBQ with a smile. Full-service, experienced, professional, from small gatherings to big celebrations.</p>
+    <div class="cater-grid">
+      <div class="pkg">
+        <h3>AAA New York Griller</h3>
+        <div class="price">$18.95 <span style="font-size:16px;color:var(--muted)">per person</span></div>
+        <ul>
+          <li>AAA New York striploin, grilled to order</li>
+          <li>Baked potato with all the fixings</li>
+          <li>Seasonal vegetables and garden salad</li>
+          <li>Fresh dinner rolls and butter</li>
+        </ul>
+      </div>
+      <div class="pkg">
+        <h3>Troynados</h3>
+        <div class="price">$3.50 <span style="font-size:16px;color:var(--muted)">per person</span></div>
+        <ul>
+          <li>Bite-sized treats for parties and events</li>
+          <li>Easy for guests to grab and enjoy</li>
+          <li>Great alongside any main package</li>
+          <li>Minimum orders may apply &mdash; ask us</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cater-note">Need the full menu or a custom quote for your event? Email us at <a href="mailto:catering@troysdiner.com">catering@troysdiner.com</a> or call <a href="tel:+19058788783">(905) 878-8783</a>.</p>
+  </div>
+</section>
+
+<section class="block" id="visit">
+  <div class="wrap">
+    <h2 class="sec"><span class="script">come hungry</span>Visit us</h2>
+    <p class="sec-sub">Right on Main Street East in Milton &mdash; look for the retro sign. Dine in or take out.</p>
+    <div class="visit-grid">
+      <div>
+        <table class="hours">
+          <tr><td>Monday &ndash; Friday</td><td>8:00 am &ndash; 8:00 pm</td></tr>
+          <tr><td>Saturday &ndash; Sunday</td><td>8:00 am &ndash; 3:00 pm</td></tr>
+        </table>
+        <p style="margin-top:22px;color:var(--muted)">Community-minded and locally loved &mdash; follow us for fundraisers, specials and diner news.</p>
+      </div>
+      <div class="info-card">
+        <h3>Find us</h3>
+        <address>295 Main St E<br>Milton, ON L9T 1P1</address>
+        <a class="big-phone" href="tel:+19058788783">(905) 878-8783</a>
+        <a class="mail" href="mailto:catering@troysdiner.com">catering@troysdiner.com</a>
+        <div style="color:var(--muted);font-size:15.5px;margin-top:6px">Dine-in &middot; Takeout &middot; Catering</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="chrome-bar" aria-hidden="true"></div>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Troy's Diner, Milton ON</span>
+    <span>Concept preview &mdash; a free website mock-up, not the business's official site.</span>
+  </div>
+</footer>
+
+<a class="stickycall" href="tel:+19058788783">Call Troy's &mdash; (905) 878-8783</a>
+
+</body>
+</html>
