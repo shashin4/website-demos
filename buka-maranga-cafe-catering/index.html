@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buka Maranga Cafe &amp; Catering — Mississauga ON</title>
+<meta name="description" content="Buka Maranga Cafe & Catering — independent café, bakery & caterer at 6465 Millcreek Dr, Unit 105, Mississauga ON. Bagel sammies, lavender blue matcha lattes, power bowls. Call (905) 812-8777.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1e1510;
+  --ink-soft:#3a2d22;
+  --cream:#f8f2e7;
+  --cream-deep:#efe4d0;
+  --brown:#7a5230;
+  --brown-deep:#4a3421;
+  --red:#d9483b;
+  --red-deep:#b63a2e;
+  --matcha:#7c9a4e;
+  --line:rgba(30,21,16,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.serif{font-family:'Fraunces',Georgia,serif}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.25rem;transition:background .3s,box-shadow .3s,padding .3s}
+.nav.scrolled{background:rgba(248,242,231,.96);backdrop-filter:blur(8px);box-shadow:0 2px 18px rgba(30,21,16,.12);padding:.7rem 1.25rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800}
+.brand-mark{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:900;font-size:1.15rem}
+.nav:not(.scrolled) .brand-mark{background:var(--cream);color:var(--ink)}
+.brand-name{font-size:1.02rem;letter-spacing:.01em;line-height:1.15}
+.brand-name small{display:block;font-weight:600;font-size:.72rem;opacity:.75;letter-spacing:.14em;text-transform:uppercase}
+.nav:not(.scrolled) .brand-name{color:var(--cream)}
+.nav-links{display:none;gap:1.6rem;list-style:none}
+.nav-links a{text-decoration:none;font-weight:700;font-size:.95rem;opacity:.85;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--red)}
+.nav:not(.scrolled) .nav-links a{color:var(--cream)}
+.nav-call{display:none;background:var(--red);color:#fff!important;text-decoration:none;font-weight:800;padding:.6rem 1.2rem;border-radius:999px;font-size:.92rem;transition:transform .2s,background .2s}
+.nav-call:hover{background:var(--red-deep);transform:translateY(-1px)}
+.burger{display:flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:.5rem;z-index:101}
+.burger span{width:26px;height:3px;border-radius:2px;background:var(--cream);transition:.3s}
+.nav.scrolled .burger span{background:var(--ink)}
+.burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:var(--ink);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{color:var(--cream);text-decoration:none;font-family:'Fraunces',serif;font-size:2rem;font-weight:700}
+.mobile-menu a.cta{font-family:'Nunito',sans-serif;font-size:1.1rem;background:var(--red);padding:.8rem 2rem;border-radius:999px;font-weight:800}
+@media(min-width:860px){
+  .nav{padding:1.2rem 2.5rem}
+  .nav.scrolled{padding:.75rem 2.5rem}
+  .nav-links{display:flex}
+  .nav-call{display:inline-block}
+  .burger{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:flex-end;position:relative;color:#fff;overflow:hidden;background:#241a12}
+.hero-bg{position:absolute;inset:0;background:#241a12 url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=2000&q=80&auto=format&fit=crop') center/cover no-repeat;transform:scale(1.06);animation:heroDrift 22s ease-in-out infinite alternate}
+@keyframes heroDrift{from{transform:scale(1.06) translateY(0)}to{transform:scale(1.12) translateY(-14px)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,8,.55) 0%,rgba(20,12,8,.15) 40%,rgba(20,12,8,.78) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:7rem 1.25rem 3.2rem}
+.hero-kicker{display:inline-flex;align-items:center;gap:.5rem;background:rgba(248,242,231,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);border-radius:999px;padding:.42rem .95rem;font-size:.82rem;font-weight:800;letter-spacing:.06em;margin-bottom:1.2rem}
+.hero-kicker .stars{color:#ffd47e;letter-spacing:.1em}
+.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.7rem,9.5vw,6.2rem);line-height:1.02;letter-spacing:-.01em;margin-bottom:1.1rem;text-wrap:balance}
+.hero h1 .accent{color:#ffb3a8}
+.hero-sub{font-size:clamp(1.02rem,2.4vw,1.25rem);font-weight:600;max-width:34rem;opacity:.94;margin-bottom:1.6rem}
+.hero-facts{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:1.8rem}
+.fact{display:inline-flex;align-items:center;gap:.55rem;background:rgba(248,242,231,.12);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(6px);border-radius:14px;padding:.7rem 1rem;font-size:.92rem;font-weight:700;text-decoration:none;transition:background .2s}
+a.fact:hover{background:rgba(248,242,231,.24)}
+.fact svg{flex:none}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;font-weight:800;border-radius:999px;padding:.9rem 1.7rem;font-size:1rem;transition:transform .2s,background .2s;cursor:pointer;border:0}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-deep)}
+.btn-ghost{background:rgba(248,242,231,.14);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(248,242,231,.28)}
+
+/* ---------- section shell ---------- */
+section{padding:4.5rem 0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:.7rem}
+h2.section-title{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin-bottom:1rem;text-wrap:balance}
+.section-lede{font-size:1.08rem;max-width:42rem;color:var(--ink-soft);margin-bottom:2.4rem}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero-bg{animation:none}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;gap:2rem;align-items:center}
+@media(min-width:860px){.about-grid{grid-template-columns:1.05fr .95fr;gap:3.5rem}}
+.about-img{border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(30,21,16,.22);background:#3a2d22;aspect-ratio:4/3.4}
+.about-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.about-img:hover img{transform:scale(1.05)}
+.about-copy p{margin-bottom:1.1rem;color:var(--ink-soft);font-size:1.05rem}
+.stat-row{display:flex;gap:2.2rem;margin-top:1.6rem;flex-wrap:wrap}
+.stat b{font-family:'Fraunces',serif;font-size:2rem;display:block;line-height:1}
+.stat span{font-size:.82rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brown)}
+
+/* ---------- menu ---------- */
+#menu{background:var(--ink);color:var(--cream)}
+#menu .section-lede{color:rgba(248,242,231,.75)}
+.tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem}
+.tab{background:transparent;border:1.5px solid rgba(248,242,231,.35);color:var(--cream);font-family:'Nunito',sans-serif;font-weight:800;font-size:.95rem;padding:.7rem 1.4rem;border-radius:999px;cursor:pointer;transition:.25s}
+.tab:hover{border-color:var(--cream)}
+.tab.active{background:var(--red);border-color:var(--red);color:#fff}
+.menu-panel{display:none;grid-template-columns:1fr;gap:1.2rem;animation:fadeUp .45s ease}
+.menu-panel.active{display:grid}
+@media(min-width:700px){.menu-panel{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.menu-panel{grid-template-columns:1fr 1fr 1fr}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.dish{background:#2b2018;border:1px solid rgba(248,242,231,.12);border-radius:20px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.dish:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(0,0,0,.4)}
+.dish-img{height:210px;overflow:hidden;background:#3a2d22}
+.dish-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.dish:hover .dish-img img{transform:scale(1.07)}
+.dish-body{padding:1.3rem 1.35rem 1.45rem}
+.dish-tag{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#ffb3a8;margin-bottom:.5rem}
+.dish h3{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;margin-bottom:.45rem}
+.dish p{font-size:.94rem;color:rgba(248,242,231,.72);margin-bottom:.9rem}
+.dish .price-note{font-size:.85rem;font-weight:800;color:var(--cream);display:flex;align-items:center;gap:.5rem}
+.dish .price-note a{color:#ffb3a8;text-decoration:none}
+.dish .price-note a:hover{text-decoration:underline}
+.menu-foot{margin-top:2.2rem;text-align:center;color:rgba(248,242,231,.65);font-size:.95rem}
+.menu-foot a{color:#ffb3a8;font-weight:800;text-decoration:none}
+.menu-foot a:hover{text-decoration:underline}
+
+/* ---------- gallery ---------- */
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+@media(min-width:700px){.gallery-grid{grid-template-columns:repeat(4,1fr);gap:.9rem}}
+.g-item{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1;background:#3a2d22;cursor:pointer}
+.g-item.tall{grid-row:span 2;aspect-ratio:auto}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.g-item:hover img{transform:scale(1.09)}
+.g-cap{position:absolute;inset:0;display:flex;align-items:flex-end;padding:1rem;background:linear-gradient(180deg,transparent 45%,rgba(20,12,8,.75));opacity:0;transition:opacity .35s}
+.g-item:hover .g-cap{opacity:1}
+.g-cap span{color:#fff;font-weight:800;font-size:.92rem}
+
+/* ---------- catering ---------- */
+#catering{background:var(--cream-deep)}
+.cater-card{background:var(--ink);color:var(--cream);border-radius:26px;overflow:hidden;display:grid}
+@media(min-width:900px){.cater-card{grid-template-columns:1fr 1fr}}
+.cater-img{min-height:280px;background:#3a2d22 url('https://images.unsplash.com/photo-1555244162-803834f70033?w=1400&q=80&auto=format&fit=crop') center/cover}
+.cater-body{padding:2.4rem}
+@media(min-width:900px){.cater-body{padding:3.2rem}}
+.cater-body h3{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.12;margin:.8rem 0 1rem}
+.cater-body p{color:rgba(248,242,231,.78);margin-bottom:1.2rem}
+.cater-list{list-style:none;margin:0 0 1.8rem;display:grid;gap:.6rem}
+.cater-list li{display:flex;gap:.7rem;align-items:flex-start;font-weight:700;font-size:.96rem}
+.cater-list li::before{content:"✓";color:var(--red);font-weight:900;flex:none}
+
+/* ---------- visit ---------- */
+.visit-grid{display:grid;gap:1.2rem}
+@media(min-width:860px){.visit-grid{grid-template-columns:1fr 1fr 1fr}}
+.visit-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.8rem;transition:transform .3s,box-shadow .3s}
+.visit-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(30,21,16,.12)}
+.visit-card .icon{width:46px;height:46px;border-radius:14px;background:var(--ink);color:var(--cream);display:grid;place-items:center;margin-bottom:1rem}
+.visit-card h3{font-family:'Fraunces',serif;font-size:1.25rem;margin-bottom:.5rem}
+.visit-card p{color:var(--ink-soft);font-size:.98rem;margin-bottom:1rem}
+.visit-card a.link{font-weight:800;color:var(--red);text-decoration:none}
+.visit-card a.link:hover{text-decoration:underline}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:rgba(248,242,231,.72);padding:3rem 0 7rem}
+@media(min-width:768px){footer{padding-bottom:3rem}}
+.foot-grid{display:flex;flex-direction:column;gap:1.6rem}
+@media(min-width:860px){.foot-grid{flex-direction:row;justify-content:space-between;align-items:flex-start}}
+.foot-brand{font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--cream)}
+.foot-note{font-size:.8rem;opacity:.6;max-width:36rem;margin-top:1rem}
+.foot-contact{font-size:.95rem;line-height:2}
+.foot-contact a{color:var(--cream);text-decoration:none;font-weight:700}
+.foot-contact a:hover{color:#ffb3a8}
+
+/* ---------- sticky call bar (mobile) ---------- */
+.call-bar{position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--ink);padding:.65rem .9rem calc(.65rem + env(safe-area-inset-bottom));display:flex;gap:.7rem;box-shadow:0 -6px 24px rgba(0,0,0,.3)}
+.call-bar a{flex:1;text-align:center;text-decoration:none;font-weight:800;border-radius:12px;padding:.85rem;font-size:1rem}
+.call-bar .call-now{background:var(--red);color:#fff}
+.call-bar .call-dir{background:rgba(248,242,231,.14);color:var(--cream)}
+@media(min-width:768px){.call-bar{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <a class="brand" href="#top">
+    <span class="brand-mark">B</span>
+    <span class="brand-name">Buka Maranga<small>Café &amp; Catering</small></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#catering">Catering</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a class="nav-call" href="tel:+19058128777">Call (905) 812-8777</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#menu">Menu</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#catering">Catering</a>
+  <a href="#visit">Visit</a>
+  <a class="cta" href="tel:+19058128777">Call (905) 812-8777</a>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="Latte art in a ceramic cup"></div>
+  <div class="hero-inner">
+    <span class="hero-kicker"><span class="stars">★★★★★</span> 4.7 · 1,400+ Google reviews</span>
+    <h1>Bagels, matcha &amp; <span class="accent">good mornings.</span></h1>
+    <p class="hero-sub">Buka Maranga is Mississauga's independent café &amp; caterer — pouring lavender blue matcha lattes, stacking bagel sammies, and fuelling the neighbourhood one power bowl at a time.</p>
+    <div class="hero-facts">
+      <span class="fact">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        6465 Millcreek Dr, Unit 105, Mississauga ON
+      </span>
+      <a class="fact" href="tel:+19058128777">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        (905) 812-8777 · call for hours
+      </a>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn btn-red" href="#menu">See the menu</a>
+      <a class="btn btn-ghost" href="#visit">Get directions</a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-img reveal">
+      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1400&q=80&auto=format&fit=crop" alt="Warm café interior" loading="lazy" style="background-color:#3a2d22">
+    </div>
+    <div class="about-copy reveal reveal-d1">
+      <span class="eyebrow">Our story</span>
+      <h2 class="section-title">An independent café with a cult following.</h2>
+      <p>Tucked into Millcreek Drive, Buka Maranga is the kind of neighbourhood spot people drive across Mississauga for — a café, bakery and caterer all under one roof.</p>
+      <p>The signatures say it all: the <strong>Buka Bagel Sammie</strong>, the show-stopping <strong>Lavender Blue Matcha Latte</strong>, hearty lentil soup and power bowls built for real appetites. Everything is made fresh, in-house, by people who genuinely love feeding people.</p>
+      <div class="stat-row">
+        <div class="stat"><b>4.7★</b><span>Google rating</span></div>
+        <div class="stat"><b>1.4K</b><span>reviews &amp; counting</span></div>
+        <div class="stat"><b>100%</b><span>independent</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">The menu</span>
+      <h2 class="section-title">Made fresh. Poured pretty.</h2>
+      <p class="section-lede">The signatures the neighbourhood keeps coming back for. Menus rotate and prices change — call ahead and we'll sort you out.</p>
+    </div>
+    <div class="tabs reveal" role="tablist" aria-label="Menu categories">
+      <button class="tab active" data-tab="drinks" role="tab" aria-selected="true">Coffee &amp; Matcha</button>
+      <button class="tab" data-tab="food" role="tab" aria-selected="false">Bagels &amp; Food</button>
+      <button class="tab" data-tab="catering" role="tab" aria-selected="false">Catering</button>
+    </div>
+
+    <div class="menu-panel active" id="panel-drinks" role="tabpanel">
+      <article class="dish">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=900&q=80&auto=format&fit=crop" alt="Matcha latte" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">House signature</span>
+          <h3>Lavender Blue Matcha Latte</h3>
+          <p>The one everyone photographs. Ceremonial-style matcha layered into a lavender-blue pour — equal parts drink and art piece.</p>
+          <div class="price-note">Call for pricing · <a href="tel:+19058128777">order ahead</a></div>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80&auto=format&fit=crop" alt="Latte art" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">Barista craft</span>
+          <h3>Specialty Lattes</h3>
+          <p>Classic espresso drinks poured with care — smooth, balanced, and finished with latte art every single time.</p>
+          <div class="price-note">Call for pricing · <a href="tel:+19058128777">order ahead</a></div>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80&auto=format&fit=crop" alt="Fresh brewed coffee" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">Daily fuel</span>
+          <h3>Brewed Coffee &amp; Tea</h3>
+          <p>Proper coffee and a proper tea selection for the purists — the dependable start to any Mississauga morning.</p>
+          <div class="price-note">Call for pricing · <a href="tel:+19058128777">order ahead</a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="menu-panel" id="panel-food" role="tabpanel">
+      <article class="dish">
+        <div class="dish-img"><img src="https://img.hellofresh.com/hellofresh_s3/image/61e4b851c0f289428227bdb9-e613d989.jpg?w=900&q=80&auto=format&fit=crop" alt="Fresh bagel sandwich" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">Fan favourite</span>
+          <h3>Buka Bagel Sammie</h3>
+          <p>The signature. A loaded bagel sandwich that regulars swear by — ask what's on the board today.</p>
+          <div class="price-note">Call for pricing · <a href="tel:+19058128777">order ahead</a></div>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="dish-img"><img src="https://img.hellofresh.com/hellofresh_s3/image/61e4b851c0f289428227bdb9-e613d989.jpg?w=900&q=80&auto=format&fit=crop&crop=top" alt="Fresh bagel with creamy topping" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">Light &amp; fresh</span>
+          <h3>Hummus Bagel</h3>
+          <p>Creamy hummus on a fresh bagel — simple, satisfying, and harder to stop eating than it looks.</p>
+          <div class="price-note">Call for pricing · <a href="tel:+19058128777">order ahead</a></div>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=80&auto=format&fit=crop" alt="Colourful power bowl" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">Fresh daily</span>
+          <h3>Power Bowl</h3>
+          <p>A big, colourful bowl built to actually fill you up — fresh veg, grains and good things in every bite.</p>
+          <div class="price-note">Call for pricing · <a href="tel:+19058128777">order ahead</a></div>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=900&q=80&auto=format&fit=crop" alt="Hearty lentil soup" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">Comfort in a bowl</span>
+          <h3>Lentil Soup</h3>
+          <p>Slow, hearty, warming — the kind of soup that fixes a cold Mississauga afternoon.</p>
+          <div class="price-note">Call for pricing · <a href="tel:+19058128777">order ahead</a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="menu-panel" id="panel-catering" role="tabpanel">
+      <article class="dish">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=900&q=80&auto=format&fit=crop" alt="Catering spread" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">Events &amp; offices</span>
+          <h3>Catering Platters</h3>
+          <p>Bagel spreads, sandwich platters and sweet trays for meetings, birthdays and everything in between — made to order.</p>
+          <div class="price-note"><a href="tel:+19058128777">Call (905) 812-8777 to plan your spread</a></div>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80&auto=format&fit=crop" alt="Coffee for a crowd" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">Morning meetings</span>
+          <h3>Coffee &amp; Breakfast Catering</h3>
+          <p>Big-batch coffee and fresh breakfast bakes delivered for your team — because nobody thinks well before coffee.</p>
+          <div class="price-note"><a href="tel:+19058128777">Call (905) 812-8777 for a quote</a></div>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=900&q=80&auto=format&fit=crop" alt="Fresh baked goods" loading="lazy" style="background-color:#3a2d22"></div>
+        <div class="dish-body">
+          <span class="dish-tag">Baked in-house</span>
+          <h3>Bakery Boxes</h3>
+          <p>Fresh bakes boxed up for the office, the family, or yourself — no judgement on the last one.</p>
+          <div class="price-note"><a href="tel:+19058128777">Call (905) 812-8777 to order</a></div>
+        </div>
+      </article>
+    </div>
+
+    <p class="menu-foot reveal">Hungry already? <a href="tel:+19058128777">Call (905) 812-8777</a> to order ahead for pickup.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Fresh from the counter</span>
+      <h2 class="section-title">Shot on a regular Tuesday.</h2>
+      <p class="section-lede">The kind of food that makes your camera roll jealous. (Representative imagery — come see the real thing.)</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <figure class="g-item tall">
+        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=800&q=80&auto=format&fit=crop" alt="Matcha latte" loading="lazy" style="background-color:#5a6b3f">
+        <figcaption class="g-cap"><span>Lavender Blue Matcha Latte</span></figcaption>
+      </figure>
+      <figure class="g-item">
+        <img src="https://img.hellofresh.com/hellofresh_s3/image/61e4b851c0f289428227bdb9-e613d989.jpg?w=800&q=80&auto=format&fit=crop" alt="Bagel sandwich" loading="lazy" style="background-color:#3a2d22">
+        <figcaption class="g-cap"><span>The Buka Bagel Sammie</span></figcaption>
+      </figure>
+      <figure class="g-item">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80&auto=format&fit=crop" alt="Power bowl" loading="lazy" style="background-color:#3a2d22">
+        <figcaption class="g-cap"><span>Power Bowl</span></figcaption>
+      </figure>
+      <figure class="g-item">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80&auto=format&fit=crop" alt="Latte art" loading="lazy" style="background-color:#3a2d22">
+        <figcaption class="g-cap"><span>Latte art, every pour</span></figcaption>
+      </figure>
+      <figure class="g-item">
+        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80&auto=format&fit=crop" alt="Lentil soup" loading="lazy" style="background-color:#3a2d22">
+        <figcaption class="g-cap"><span>Lentil Soup</span></figcaption>
+      </figure>
+      <figure class="g-item">
+        <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=800&q=80&auto=format&fit=crop" alt="Fresh baked pastry with coffee" loading="lazy" style="background-color:#3a2d22">
+        <figcaption class="g-cap"><span>Baked in-house</span></figcaption>
+      </figure>
+      <figure class="g-item tall">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80&auto=format&fit=crop" alt="Café interior" loading="lazy" style="background-color:#3a2d22">
+        <figcaption class="g-cap"><span>Your new regular spot</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section id="catering">
+  <div class="wrap">
+    <div class="cater-card reveal">
+      <div class="cater-img" role="img" aria-label="Catering spread"></div>
+      <div class="cater-body">
+        <span class="eyebrow">Catering</span>
+        <h3>Feeding the whole office? We've got you.</h3>
+        <p>It's in the name — Buka Maranga Cafe <em>&amp; Catering</em>. From morning meetings to family celebrations, we pack up our signatures and deliver the good stuff.</p>
+        <ul class="cater-list">
+          <li>Bagel &amp; sandwich platters for meetings and events</li>
+          <li>Coffee and breakfast catering for early starts</li>
+          <li>Fresh-baked boxes for the office or the family</li>
+        </ul>
+        <a class="btn btn-red" href="tel:+19058128777">Call (905) 812-8777 to plan your spread</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section id="visit">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Find us</span>
+      <h2 class="section-title">Come say hi.</h2>
+      <p class="section-lede">No reservations, no fuss — just walk in. Give us a call if you want to check hours or order ahead for pickup.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card reveal">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Address</h3>
+        <p>6465 Millcreek Dr, Unit 105<br>Mississauga, ON L5N 5R3</p>
+        <a class="link" href="https://www.google.com/maps/search/?api=1&query=Buka+Maranga+Cafe+%26+Catering+6465+Millcreek+Dr+Unit+105+Mississauga+ON" target="_blank" rel="noopener">Get directions →</a>
+      </div>
+      <div class="visit-card reveal reveal-d1">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        </div>
+        <h3>Call us</h3>
+        <p>Order ahead, plan catering,<br>or just say hello.</p>
+        <a class="link" href="tel:+19058128777">(905) 812-8777 →</a>
+      </div>
+      <div class="visit-card reveal reveal-d2">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Hours</h3>
+        <p>Hours vary —<br>call ahead to confirm.</p>
+        <a class="link" href="tel:+19058128777">Call for hours →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-brand">Buka Maranga Café &amp; Catering</div>
+      <p class="foot-note">Independent café, bakery &amp; caterer in Mississauga, ON.<br><br>Concept preview by Shashin Pillay — not affiliated with Buka Maranga Cafe &amp; Catering.</p>
+    </div>
+    <div class="foot-contact">
+      <a href="tel:+19058128777">(905) 812-8777</a><br>
+      6465 Millcreek Dr, Unit 105<br>
+      Mississauga, ON L5N 5R3
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile call bar -->
+<div class="call-bar">
+  <a class="call-now" href="tel:+19058128777">📞 Call Now</a>
+  <a class="call-dir" href="https://www.google.com/maps/search/?api=1&query=Buka+Maranga+Cafe+%26+Catering+6465+Millcreek+Dr+Unit+105+Mississauga+ON" target="_blank" rel="noopener">Directions</a>
+</div>
+
+<script>
+// sticky nav
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+nav.classList.toggle('scrolled', scrollY > 40);
+
+// mobile menu
+const burger = document.getElementById('burger');
+const mMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => {
+  const open = mMenu.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+mMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mMenu.classList.remove('open'); burger.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+
+// scroll reveal
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// menu tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+    const panel = document.getElementById('panel-' + tab.dataset.tab);
+    panel.classList.add('active');
+    // retrigger reveal on panel items
+    panel.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#101316">
+  <meta name="description" content="Westport Truck Repair in Oakville. Truck repair, auto body work and commercial fleet service. Call for a quote.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Westport Truck Repair | Oakville, Ontario</title>
+  <style>
+    :root{
+      --bg:#f2f3f3;
+      --surface:#ffffff;
+      --surface-2:#e6e8e8;
+      --ink:#15191c;
+      --muted:#525b61;
+      --steel:#20262b;
+      --steel-2:#101316;
+      --line:#cbd0d2;
+      --accent:#f25b18;
+      --accent-2:#c84209;
+      --on-accent:#130d09;
+      --inverse:#f7f8f8;
+      --shadow:0 18px 50px rgba(13,18,22,.16);
+      --display:"Barlow Condensed",Impact,sans-serif;
+      --body:"IBM Plex Sans",sans-serif;
+      --nav-h:74px;
+      color-scheme:light dark;
+    }
+    @media (prefers-color-scheme:dark){
+      :root{
+        --bg:#111417;
+        --surface:#191e22;
+        --surface-2:#232a2f;
+        --ink:#f0f2f3;
+        --muted:#aab2b7;
+        --steel:#20262b;
+        --steel-2:#090b0d;
+        --line:#343c42;
+        --shadow:0 18px 52px rgba(0,0,0,.38);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body.menu-open{overflow:hidden}
+    img{display:block;width:100%;height:auto}
+    a{color:inherit}
+    button{font:inherit}
+    .wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+    .section{padding:96px 0}
+    .display{font-family:var(--display);text-transform:uppercase;letter-spacing:-.025em;line-height:.92;margin:0}
+    .eyebrow{font-size:.74rem;line-height:1.3;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 16px;display:flex;align-items:center;gap:10px}
+    .eyebrow::before{content:"";width:34px;height:3px;background:var(--accent)}
+    .section-title{font-size:clamp(2.6rem,6vw,5.2rem);max-width:720px}
+    .lede{font-size:clamp(1.02rem,1.6vw,1.18rem);color:var(--muted);max-width:640px;margin:22px 0 0}
+    .btn{min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:0 24px;border:1px solid transparent;text-decoration:none;font-weight:800;letter-spacing:.045em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s,transform .2s;clip-path:polygon(0 0,calc(100% - 11px) 0,100% 11px,100% 100%,11px 100%,0 calc(100% - 11px))}
+    .btn svg{width:19px;height:19px;flex:none}
+    .btn-primary{background:var(--accent);color:var(--on-accent)}
+    .btn-primary:hover,.btn-primary:focus-visible{background:#ff7636;transform:translateY(-2px)}
+    .btn-outline{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(8,10,11,.22)}
+    .btn-outline:hover,.btn-outline:focus-visible{border-color:var(--accent);color:var(--accent);background:rgba(8,10,11,.72)}
+    :focus-visible{outline:3px solid #ffb28f;outline-offset:4px}
+
+    .site-nav{position:fixed;inset:0 0 auto;z-index:50;height:var(--nav-h);display:flex;align-items:center;background:rgba(10,12,14,.12);border-bottom:1px solid rgba(255,255,255,.1);transition:background .25s,box-shadow .25s,height .25s}
+    .site-nav.scrolled{height:66px;background:rgba(10,12,14,.96);box-shadow:0 10px 36px rgba(0,0,0,.26);border-bottom-color:#30363b}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .nav-locator{color:#fff;text-decoration:none;font:700 .88rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:10px;white-space:nowrap}
+    .nav-locator svg{width:18px;color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:30px;margin:0;padding:0;list-style:none}
+    .nav-links a:not(.btn){color:#eef1f2;text-decoration:none;font:700 .88rem/1 var(--display);letter-spacing:.09em;text-transform:uppercase;position:relative;padding:12px 0}
+    .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:5px;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .2s}
+    .nav-links a:not(.btn):hover::after,.nav-links a:not(.btn):focus-visible::after{transform:scaleX(1);transform-origin:left}
+    .nav-call{min-height:42px;padding:0 17px;font-size:.78rem}
+    .menu-toggle{display:none;width:46px;height:46px;padding:0;border:0;background:transparent;color:#fff;position:relative;cursor:pointer}
+    .menu-toggle span{position:absolute;left:10px;width:26px;height:2px;background:currentColor;transition:transform .25s,top .25s,opacity .2s}
+    .menu-toggle span:nth-child(1){top:14px}.menu-toggle span:nth-child(2){top:22px}.menu-toggle span:nth-child(3){top:30px}
+    .menu-toggle[aria-expanded="true"] span:nth-child(1){top:22px;transform:rotate(45deg)}
+    .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .menu-toggle[aria-expanded="true"] span:nth-child(3){top:22px;transform:rotate(-45deg)}
+
+    .hero{min-height:720px;height:100svh;position:relative;display:flex;align-items:flex-end;background:#0c1013;isolation:isolate;color:#fff;padding:calc(var(--nav-h) + 70px) 0 80px}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/hero.jpg") 67% center/cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,9,11,.96) 0%,rgba(7,9,11,.8) 42%,rgba(7,9,11,.18) 78%),linear-gradient(0deg,rgba(7,9,11,.74),transparent 45%)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,770px) 1fr;align-items:end;gap:50px}
+    .hero-tag{color:#f3f5f6;font-size:.82rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin:0 0 18px;display:flex;align-items:center;gap:12px}
+    .hero-tag::before{content:"";width:42px;height:4px;background:var(--accent)}
+    .hero h1{font-size:clamp(4.3rem,9.7vw,8.8rem);line-height:.98;max-width:760px;text-wrap:balance}
+    .hero h1 span{display:block;color:var(--accent)}
+    .hero-sub{font:600 clamp(1.05rem,2vw,1.45rem)/1.45 var(--body);margin:24px 0 0;max-width:625px;color:#e0e4e6}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .hero-rail{border-left:1px solid rgba(255,255,255,.3);padding-left:24px;color:#e2e6e8;margin-bottom:4px}
+    .hero-rail strong{display:block;color:var(--accent);font:800 2.2rem/1 var(--display);text-transform:uppercase;margin-bottom:8px}
+    .hero-rail span{display:block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;max-width:130px}
+    .proof-strip{background:var(--accent);color:var(--on-accent)}
+    .proof-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .proof-item{padding:26px 34px;border-right:1px solid rgba(20,13,9,.28);display:flex;gap:18px;align-items:center}
+    .proof-item:last-child{border-right:0}
+    .proof-item svg{width:30px;height:30px;flex:none}
+    .proof-item strong{font:800 1.2rem/1 var(--display);text-transform:uppercase;letter-spacing:.04em;display:block}
+    .proof-item span{font-size:.83rem;font-weight:600;display:block;margin-top:4px}
+
+    .about{position:relative}
+    .about-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:clamp(40px,7vw,92px);align-items:center}
+    .about-copy{padding-block:22px}
+    .about-copy p:not(.eyebrow){color:var(--muted);font-size:1.08rem;margin:22px 0 0}
+    .about-visual{position:relative;padding:0 0 34px 34px}
+    .about-visual::before{content:"";position:absolute;left:0;bottom:0;width:74%;height:75%;background:repeating-linear-gradient(135deg,var(--accent) 0 5px,transparent 5px 16px);opacity:.22}
+    .about-visual img{position:relative;aspect-ratio:4/3;object-fit:cover;box-shadow:var(--shadow)}
+    .about-stamp{position:absolute;right:-12px;bottom:0;background:var(--steel-2);color:#fff;padding:18px 22px;border-top:4px solid var(--accent);font:800 1.12rem/1.1 var(--display);letter-spacing:.07em;text-transform:uppercase}
+
+    .services{background:var(--steel-2);color:#fff;overflow:hidden;position:relative}
+    .services::before{content:"SERVICE";position:absolute;right:-24px;top:50px;font:800 clamp(8rem,18vw,16rem)/.8 var(--display);color:rgba(255,255,255,.025);pointer-events:none}
+    .services .lede{color:#b0b8bd}
+    .services-head{display:flex;justify-content:space-between;align-items:end;gap:38px;margin-bottom:40px}
+    .tabs{display:flex;gap:0;border-bottom:1px solid #3a4247;margin-bottom:0;position:relative;z-index:2}
+    .tab{border:0;border-top:3px solid transparent;background:transparent;color:#9da7ad;padding:18px 26px;cursor:pointer;font:800 1rem/1 var(--display);text-transform:uppercase;letter-spacing:.08em;transition:color .2s,background .2s,border-color .2s}
+    .tab:hover{color:#fff;background:rgba(255,255,255,.04)}
+    .tab[aria-selected="true"]{color:var(--accent);border-top-color:var(--accent);background:#1a1f23}
+    .panel{display:none;background:#1a1f23;grid-template-columns:1.05fr .95fr;min-height:470px}
+    .panel.active{display:grid}
+    .panel-image{min-height:390px;overflow:hidden}
+    .panel-image img{height:100%;object-fit:cover;filter:saturate(.82) contrast(1.06);transition:transform .7s ease}
+    .panel:hover .panel-image img{transform:scale(1.025)}
+    .panel-copy{padding:clamp(34px,5vw,68px);display:flex;flex-direction:column;justify-content:center}
+    .panel-index{font:800 .76rem/1 var(--body);letter-spacing:.18em;color:var(--accent);text-transform:uppercase}
+    .panel h3{font-size:clamp(2.5rem,5vw,4.6rem);margin:16px 0 18px}
+    .panel p{color:#bbc2c7;margin:0 0 25px;max-width:480px;font-size:1.02rem}
+    .service-list{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:11px 22px}
+    .service-list li{display:flex;gap:9px;align-items:flex-start;font-weight:600;font-size:.92rem}
+    .service-list li::before{content:"";width:8px;height:8px;margin-top:8px;flex:none;background:var(--accent);transform:rotate(45deg)}
+    .panel .btn{align-self:flex-start;margin-top:30px}
+
+    .why{position:relative}
+    .why-head{display:grid;grid-template-columns:1fr .85fr;gap:60px;align-items:end;margin-bottom:54px}
+    .why-list{border-top:1px solid var(--line)}
+    .why-row{display:grid;grid-template-columns:80px 1fr minmax(220px,430px);gap:30px;align-items:center;padding:30px 6px;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+    .why-row:hover{background:var(--surface);padding-inline:20px}
+    .why-num{font:800 1rem/1 var(--display);color:var(--accent);letter-spacing:.08em}
+    .why-row h3{font:800 clamp(1.6rem,3vw,2.25rem)/1 var(--display);text-transform:uppercase;margin:0}
+    .why-row p{margin:0;color:var(--muted)}
+
+    .visit{background:var(--surface-2);padding-bottom:110px}
+    .visit-grid{display:grid;grid-template-columns:1.04fr .96fr;box-shadow:var(--shadow)}
+    .visit-main{background:var(--surface);padding:clamp(34px,6vw,74px)}
+    .visit-main address{font:800 clamp(2.4rem,5vw,4.8rem)/1.02 var(--display);text-transform:uppercase;font-style:normal;letter-spacing:-.02em;margin:28px 0 24px}
+    .visit-main .phone{font-size:1.14rem;font-weight:700;color:var(--accent);text-decoration:none;display:inline-block;margin-bottom:30px}
+    .visit-main .phone:hover{text-decoration:underline}
+    .visit-actions{display:flex;flex-wrap:wrap;gap:13px}
+    .visit-actions .btn-outline{color:var(--ink);border-color:var(--line);background:transparent}
+    .visit-actions .btn-outline:hover{color:var(--accent);border-color:var(--accent)}
+    .visit-aside{background:var(--steel-2);color:#fff;padding:clamp(34px,5vw,64px);display:flex;flex-direction:column;justify-content:space-between;min-height:390px;position:relative;overflow:hidden}
+    .visit-aside::after{content:"";position:absolute;width:190px;height:190px;border:38px solid rgba(242,91,24,.13);right:-70px;bottom:-80px;transform:rotate(18deg)}
+    .visit-aside svg{width:50px;color:var(--accent)}
+    .visit-aside h3{font-size:clamp(2.1rem,4vw,3.4rem);margin:26px 0 15px}
+    .visit-aside p{color:#b7c0c5;max-width:370px;margin:0;position:relative;z-index:1}
+
+    footer{background:#080a0c;color:#8e989e;padding:34px 0 calc(34px + env(safe-area-inset-bottom));font-size:.78rem}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    footer a{color:#bcc4c8;text-decoration:none}
+    footer a:hover{color:var(--accent)}
+    .photo-credits{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:flex-end}
+
+    .mobile-call{display:none;position:fixed;z-index:45;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));height:56px;align-items:center;justify-content:center;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:800;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 10px 32px rgba(0,0,0,.35);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+    .mobile-call svg{width:21px;margin-right:10px}
+    .reveal{opacity:1;transform:none;transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+    .js-ready .reveal:not(.in){opacity:.82;transform:translateY(14px)}
+    .reveal.in{opacity:1;transform:none}
+
+    @media(max-width:900px){
+      .site-nav{height:66px;background:rgba(10,12,14,.92)}
+      .menu-toggle{display:block}
+      .nav-links{position:fixed;top:0;right:0;width:min(330px,84vw);height:100dvh;padding:100px 30px 30px;background:#0b0e10;display:none;flex-direction:column;align-items:stretch;gap:8px;box-shadow:-18px 0 50px rgba(0,0,0,.45)}
+      .nav-links.open{display:flex;animation:menuIn .28s ease both}
+      @keyframes menuIn{from{opacity:0;transform:translateX(34px)}to{opacity:1;transform:none}}
+      .nav-links a:not(.btn){padding:17px 6px;font-size:1.1rem;border-bottom:1px solid #252b2f}
+      .nav-call{margin-top:15px}
+      .hero-grid{grid-template-columns:1fr}
+      .hero-rail{display:none}
+      .about-grid,.why-head,.visit-grid{grid-template-columns:1fr}
+      .services-head{display:block}
+      .tabs{margin-top:28px;overflow:visible}
+      .tab{flex:1;padding-inline:10px}
+      .panel{grid-template-columns:1fr}
+      .panel-image{min-height:330px;max-height:430px}
+      .why-row{grid-template-columns:60px 1fr}
+      .why-row p{grid-column:2}
+      .mobile-call{display:flex}
+      footer{padding-bottom:100px}
+    }
+    @media(max-width:640px){
+      .wrap{width:min(100% - 28px,1180px)}
+      .section{padding:72px 0}
+      .nav-locator span{display:none}
+      .hero{min-height:680px;padding-bottom:54px}
+      .hero::before{background-position:57% center}
+      .hero::after{background:linear-gradient(90deg,rgba(7,9,11,.96),rgba(7,9,11,.56)),linear-gradient(0deg,rgba(7,9,11,.9),transparent 52%)}
+      .hero h1{font-size:clamp(3.45rem,17vw,5.4rem);letter-spacing:-.045em}
+      .hero-sub{font-size:1rem}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .proof-grid{grid-template-columns:1fr}
+      .proof-item{padding:19px 10px;border-right:0;border-bottom:1px solid rgba(20,13,9,.24)}
+      .proof-item:last-child{border-bottom:0}
+      .proof-item svg{width:25px;height:25px}
+      .about-visual{padding:0 0 22px 20px}
+      .about-stamp{right:-4px;font-size:.95rem}
+      .tabs{display:grid;grid-template-columns:repeat(3,1fr)}
+      .tab{font-size:.82rem;line-height:1.1;padding:15px 4px}
+      .panel-image{min-height:240px}
+      .panel-copy{padding:30px 23px 36px}
+      .service-list{grid-template-columns:1fr}
+      .why-row{grid-template-columns:42px 1fr;gap:14px;padding-block:24px}
+      .why-row p{grid-column:1 / -1}
+      .visit-main,.visit-aside{min-height:auto}
+      .visit-actions{flex-direction:column}
+      .footer-row{align-items:flex-start;flex-direction:column}
+      .photo-credits{justify-content:flex-start}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;animation-iteration-count:1!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav" id="siteNav">
+    <div class="wrap nav-inner">
+      <a class="nav-locator" href="#visit" aria-label="Go to Westport Truck Repair location details">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span>Oakville · 1090 Industry St</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Westport</a></li>
+          <li><a href="#visit">Visit</a></li>
+          <li><a class="btn btn-primary nav-call" href="tel:+14168856200">Call for a quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="hero-tag reveal">Truck Repair · Auto Body · Fleet Service</p>
+          <h1 class="display reveal">Westport <span>Truck Repair</span></h1>
+          <p class="hero-sub reveal">Commercial truck service in Oakville, from repair work to body work and fleet support.</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="tel:+14168856200">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c1 .4 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9Z"/></svg>
+              Call for a quote
+            </a>
+            <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=Westport%20Truck%20Repair%2C%201090%20Industry%20St%2C%20Oakville%2C%20ON%20L6J%202X4%2C%20Canada" target="_blank" rel="noopener">
+              Get directions
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-rail reveal" aria-label="Service focus">
+          <strong>Commercial</strong>
+          <span>Service for working trucks and fleets</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="proof-strip" aria-label="Main service categories">
+      <div class="wrap proof-grid">
+        <div class="proof-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          <div><strong>Truck Repair</strong><span>Commercial vehicle service</span></div>
+        </div>
+        <div class="proof-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m14.7 6.3 3-3 3 3-3 3M4 20l7.8-7.8M7 4h4l2 3h4l3 9H4L7 4Z"/></svg>
+          <div><strong>Auto Body</strong><span>Body work and refinishing</span></div>
+        </div>
+        <div class="proof-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 9h18M8 14h3M13 14h3"/></svg>
+          <div><strong>Fleet Service</strong><span>Support for commercial fleets</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section about" id="about">
+      <div class="wrap about-grid">
+        <div class="about-copy reveal">
+          <p class="eyebrow">Commercial-minded service</p>
+          <h2 class="display section-title">Your truck works hard. So should your repair shop.</h2>
+          <p>Westport Truck Repair serves commercial vehicles in Oakville with truck repair, auto body work and fleet service in one place.</p>
+          <p>When a working vehicle is off the road, clear communication matters. Call the shop to discuss the job, the vehicle and the next step.</p>
+        </div>
+        <div class="about-visual reveal">
+          <img src="assets/truck-repair.webp" alt="Technicians working around commercial trucks in a heavy-duty service shop" loading="lazy">
+          <div class="about-stamp">Built around<br>working vehicles</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="wrap">
+        <div class="services-head reveal">
+          <div>
+            <p class="eyebrow">Service areas</p>
+            <h2 class="display section-title">One shop. Three ways to keep moving.</h2>
+          </div>
+          <p class="lede">Choose a category to see how Westport can support your truck or commercial fleet.</p>
+        </div>
+
+        <div class="tabs reveal" role="tablist" aria-label="Service categories">
+          <button class="tab" id="tab-repair" role="tab" aria-selected="true" aria-controls="panel-repair" tabindex="0" data-tab="repair">Truck Repair</button>
+          <button class="tab" id="tab-body" role="tab" aria-selected="false" aria-controls="panel-body" tabindex="-1" data-tab="body">Auto Body</button>
+          <button class="tab" id="tab-fleet" role="tab" aria-selected="false" aria-controls="panel-fleet" tabindex="-1" data-tab="fleet">Fleet</button>
+        </div>
+
+        <div class="panel active" id="panel-repair" role="tabpanel" aria-labelledby="tab-repair" data-panel="repair">
+          <div class="panel-image"><img src="assets/hero.jpg" alt="Mechanic preparing tools beside a commercial truck in a service bay" loading="lazy"></div>
+          <div class="panel-copy">
+            <span class="panel-index">01 · Mechanical</span>
+            <h3 class="display">Truck repair</h3>
+            <p>Repair and service support for commercial trucks and work vehicles. Call with the vehicle details and the issue you are seeing.</p>
+            <ul class="service-list">
+              <li>Commercial trucks</li>
+              <li>Work vehicles</li>
+              <li>Repair assessment</li>
+              <li>Service support</li>
+            </ul>
+            <a class="btn btn-primary" href="tel:+14168856200">Call for a quote</a>
+          </div>
+        </div>
+
+        <div class="panel" id="panel-body" role="tabpanel" aria-labelledby="tab-body" data-panel="body" hidden>
+          <div class="panel-image"><img src="assets/body-shop.jpg" alt="Technician carrying out body preparation work on a commercial truck" loading="lazy"></div>
+          <div class="panel-copy">
+            <span class="panel-index">02 · Body</span>
+            <h3 class="display">Auto body work</h3>
+            <p>Body repair and finishing support for trucks and commercial vehicles. Speak directly with the shop about the damage and the work required.</p>
+            <ul class="service-list">
+              <li>Commercial vehicle body work</li>
+              <li>Panel repair</li>
+              <li>Body preparation</li>
+              <li>Refinishing support</li>
+            </ul>
+            <a class="btn btn-primary" href="tel:+14168856200">Call for a quote</a>
+          </div>
+        </div>
+
+        <div class="panel" id="panel-fleet" role="tabpanel" aria-labelledby="tab-fleet" data-panel="fleet" hidden>
+          <div class="panel-image"><img src="assets/fleet.jpg" alt="Commercial fleet vehicles lined up in a service facility" loading="lazy"></div>
+          <div class="panel-copy">
+            <span class="panel-index">03 · Commercial</span>
+            <h3 class="display">Fleet service</h3>
+            <p>Service coordination for businesses operating multiple commercial vehicles. Call to discuss your fleet, service needs and availability.</p>
+            <ul class="service-list">
+              <li>Commercial fleets</li>
+              <li>Multiple vehicle service</li>
+              <li>Maintenance coordination</li>
+              <li>Direct shop communication</li>
+            </ul>
+            <a class="btn btn-primary" href="tel:+14168856200">Call for a quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why" id="why">
+      <div class="wrap">
+        <div class="why-head reveal">
+          <div>
+            <p class="eyebrow">Why Westport</p>
+            <h2 class="display section-title">A commercial focus from the first call.</h2>
+          </div>
+          <p class="lede">Truck repair, body work and fleet support shaped around the needs of working vehicles.</p>
+        </div>
+        <div class="why-list">
+          <div class="why-row reveal">
+            <span class="why-num">01</span>
+            <h3>Commercial truck focus</h3>
+            <p>A service mix centred on trucks, work vehicles and the businesses that depend on them.</p>
+          </div>
+          <div class="why-row reveal">
+            <span class="why-num">02</span>
+            <h3>Mechanical and body work</h3>
+            <p>Two essential service areas available through one local shop.</p>
+          </div>
+          <div class="why-row reveal">
+            <span class="why-num">03</span>
+            <h3>Fleet-friendly support</h3>
+            <p>A direct contact point for operators managing more than one commercial vehicle.</p>
+          </div>
+          <div class="why-row reveal">
+            <span class="why-num">04</span>
+            <h3>Local in Oakville</h3>
+            <p>Located on Industry Street with phone and directions one tap away.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section visit" id="visit">
+      <div class="wrap">
+        <div class="visit-grid reveal">
+          <div class="visit-main">
+            <p class="eyebrow">Visit the shop</p>
+            <address>1090 Industry St<br>Oakville, ON<br>L6J 2X4</address>
+            <a class="phone" href="tel:+14168856200">+1 416-885-6200</a>
+            <div class="visit-actions">
+              <a class="btn btn-primary" href="tel:+14168856200">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c1 .4 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9Z"/></svg>
+                Call for a quote
+              </a>
+              <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=Westport%20Truck%20Repair%2C%201090%20Industry%20St%2C%20Oakville%2C%20ON%20L6J%202X4%2C%20Canada" target="_blank" rel="noopener">Get directions</a>
+            </div>
+          </div>
+          <div class="visit-aside">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <div>
+              <h3 class="display">Oakville, Ontario</h3>
+              <p>Call ahead to discuss the vehicle, the work needed and your visit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>Concept preview — demo built for Westport Truck Repair</span>
+      <span class="photo-credits">Service photography: <a href="https://AMPRIDECORP.COM/" target="_blank" rel="noopener">AmPride</a> <a href="https://heavydutyjournal.com/truck-shop-management-software-guide-for-heavy-duty-repair-facilities/" target="_blank" rel="noopener">Heavy Duty Journal</a> <a href="https://csrepair.com/truck-body-paint-shop-atlanta/" target="_blank" rel="noopener">CS Truck &amp; Trailer</a> <a href="https://www.motowatchdog.com/blog?2eaedfda_page=16&amp;6b433d46_page=36" target="_blank" rel="noopener">Moto Watchdog</a></span>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:+14168856200" aria-label="Call Westport Truck Repair for a quote">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c1 .4 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9Z"/></svg>
+    Call for a quote
+  </a>
+
+  <script>
+    (function(){
+      document.documentElement.classList.add('js-ready');
+      var nav=document.getElementById('siteNav');
+      var menuButton=document.getElementById('menuToggle');
+      var menu=document.getElementById('navLinks');
+      function setScrolled(){nav.classList.toggle('scrolled',window.scrollY>24)}
+      function closeMenu(){menu.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open navigation');document.body.classList.remove('menu-open')}
+      window.addEventListener('scroll',setScrolled,{passive:true});
+      setScrolled();
+      menuButton.addEventListener('click',function(){
+        var opening=!menu.classList.contains('open');
+        menu.classList.toggle('open',opening);
+        menuButton.setAttribute('aria-expanded',String(opening));
+        menuButton.setAttribute('aria-label',opening?'Close navigation':'Open navigation');
+        document.body.classList.toggle('menu-open',opening);
+      });
+      menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',closeMenu)});
+      document.addEventListener('keydown',function(event){if(event.key==='Escape')closeMenu()});
+
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      var panels=Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+      function activateTab(tab){
+        tabs.forEach(function(item){var active=item===tab;item.setAttribute('aria-selected',String(active));item.tabIndex=active?0:-1});
+        panels.forEach(function(panel){var active=panel.dataset.panel===tab.dataset.tab;panel.hidden=!active;panel.classList.toggle('active',active)});
+      }
+      tabs.forEach(function(tab,index){
+        tab.addEventListener('click',function(){activateTab(tab)});
+        tab.addEventListener('keydown',function(event){
+          if(event.key!=='ArrowLeft'&&event.key!=='ArrowRight'&&event.key!=='Home'&&event.key!=='End')return;
+          event.preventDefault();
+          var next=index;
+          if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+          if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
+          if(event.key==='Home')next=0;
+          if(event.key==='End')next=tabs.length-1;
+          activateTab(tabs[next]);tabs[next].focus();
+        });
+      });
+
+      var reveals=document.querySelectorAll('.reveal');
+      if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');observer.unobserve(entry.target)}})},{threshold:.12,rootMargin:'0px 0px -30px'});
+        reveals.forEach(function(item){observer.observe(item)});
+      }else{reveals.forEach(function(item){item.classList.add('in')})}
+    })();
+  </script>
+</body>
+</html>

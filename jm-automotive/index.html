@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#211b17">
+  <meta name="description" content="JM Automotive in Oakville, Ontario. Personal auto service, repairs and tire work for all makes and models. Call for a quote.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+  <title>JM Automotive | Auto Repair in Oakville, Ontario</title>
+  <style>
+    :root{
+      --paper:#f4eee4;--paper-2:#fffaf2;--ink:#201b17;--muted:#675e56;
+      --copper:#ad5d28;--copper-deep:#86441e;--line:#d9cbb9;--charcoal:#211b17;
+      --inverse:#fff8ed;--surface:#fffdf8;--dark-panel:#2a221d;
+      --shadow:0 22px 55px rgba(47,33,24,.16);--nav:rgba(33,27,23,.94);
+      --serif:"Newsreader",Georgia,serif;--sans:"IBM Plex Sans","Segoe UI",sans-serif;
+    }
+    @media(prefers-color-scheme:dark){:root{
+      --paper:#171412;--paper-2:#1d1916;--ink:#f5ede2;--muted:#c7b9aa;
+      --copper:#d47a3e;--copper-deep:#ea9153;--line:#463b33;--charcoal:#100e0c;
+      --inverse:#fff8ed;--surface:#211c18;--dark-panel:#0e0c0a;
+      --shadow:0 22px 55px rgba(0,0,0,.3);--nav:rgba(16,14,12,.95);
+    }}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:76px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body.menu-open{overflow:hidden}
+    img{display:block;width:100%}
+    a{color:inherit}
+    button{font:inherit}
+    .wrap{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+    .site-nav{position:fixed;inset:0 0 auto;z-index:50;color:#fff;padding:18px 0;transition:background .25s,padding .25s,box-shadow .25s}
+    .site-nav.scrolled,.site-nav.menu-open{padding:10px 0;background:var(--nav);box-shadow:0 10px 32px rgba(0,0,0,.22)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .wordmark{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+    .wordmark strong{font-family:var(--serif);font-size:1.5rem;line-height:1;letter-spacing:-.04em}
+    .wordmark span{font-size:.69rem;line-height:1.15;letter-spacing:.12em;text-transform:uppercase;color:#d9ccbd;border-left:1px solid rgba(255,255,255,.3);padding-left:12px}
+    .nav-links{display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:600;font-size:.91rem;transition:color .18s}
+    .nav-links a:not(.nav-call):hover{color:#e89a63}
+    .nav-call{display:inline-flex;align-items:center;gap:8px;padding:10px 17px;background:var(--copper);border-radius:3px}
+    .nav-call:hover{background:#c56c31}
+    .menu-toggle{display:none;width:44px;height:44px;border:0;background:transparent;color:#fff;padding:9px;cursor:pointer}
+    .menu-toggle i{display:block;width:25px;height:2px;background:currentColor;margin:5px auto;transition:transform .25s,opacity .25s}
+    .menu-toggle.active i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menu-toggle.active i:nth-child(2){opacity:0}
+    .menu-toggle.active i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    .hero{min-height:760px;height:100svh;max-height:940px;position:relative;background:var(--charcoal);color:#fff;display:grid;align-items:end;overflow:hidden}
+    .hero-media{position:absolute;inset:0}
+    .hero-media img{height:100%;object-fit:cover;object-position:65% center}
+    .hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,15,12,.94) 0%,rgba(19,15,12,.72) 47%,rgba(19,15,12,.25) 80%),linear-gradient(0deg,rgba(19,15,12,.82),transparent 43%)}
+    .hero-content{position:relative;z-index:1;padding:150px 0 86px;max-width:700px}
+    .eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 18px;color:var(--copper-deep);font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:34px;height:2px;background:currentColor}
+    .hero .eyebrow{color:#f2a36d}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:var(--serif);font-weight:600}
+    h1{font-size:clamp(3.25rem,7vw,6.3rem);line-height:.91;letter-spacing:-.055em;margin-bottom:24px;max-width:11.4ch;padding-right:.18em}
+    h1 span{display:block;color:#eca06c;font-style:italic;font-weight:500;font-size:.71em;line-height:.95;margin-top:.12em}
+    .hero-lead{font-size:clamp(1.05rem,2vw,1.28rem);color:#eee3d6;max-width:590px;line-height:1.6;margin-bottom:30px}
+    .hero-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:13px 21px;border:1px solid transparent;border-radius:3px;text-decoration:none;font-weight:700;transition:transform .18s,background .18s,border-color .18s,box-shadow .18s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--copper);color:#fff;box-shadow:0 10px 25px rgba(126,60,24,.32)}
+    .btn-primary:hover{background:#c16b33;box-shadow:0 13px 28px rgba(126,60,24,.4)}
+    .btn-quiet{color:#fff;border-color:rgba(255,255,255,.48);background:rgba(15,12,10,.18)}
+    .btn-quiet:hover{background:rgba(255,255,255,.1);border-color:#fff}
+    .hero-foot{display:flex;align-items:center;gap:16px;margin-top:42px;color:#d7cbbd;font-size:.86rem}
+    .hero-foot:before{content:"";width:62px;height:1px;background:var(--copper)}
+
+    .trust-strip{background:var(--charcoal);color:#fff;border-top:1px solid rgba(255,255,255,.11)}
+    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .trust-point{padding:28px 30px;border-right:1px solid rgba(255,255,255,.12)}
+    .trust-point:first-child{border-left:1px solid rgba(255,255,255,.12)}
+    .trust-point b{font-family:var(--serif);font-size:1.4rem;color:#f2a36d;font-weight:600}
+    .trust-point span{display:block;color:#cfc1b1;font-size:.86rem;margin-top:1px}
+
+    section{padding:100px 0}
+    h2{font-size:clamp(2.5rem,5.2vw,4.5rem);line-height:1;letter-spacing:-.045em;margin-bottom:24px}
+    .intro{max-width:650px;color:var(--muted);font-size:1.08rem}
+    .about-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(42px,7vw,90px);align-items:center}
+    .portrait{position:relative;padding:0 0 30px 30px}
+    .portrait:before{content:"";position:absolute;left:0;bottom:0;width:72%;height:74%;background:var(--copper)}
+    .portrait img{position:relative;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--shadow);filter:saturate(.78) contrast(1.06)}
+    .about-copy .eyebrow{margin-bottom:14px}
+    .about-copy blockquote{font-family:var(--serif);font-size:clamp(1.45rem,3vw,2.1rem);line-height:1.25;margin:32px 0 0;padding:26px 0 0;border-top:1px solid var(--line)}
+    .direct-list{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:15px}
+    .direct-list li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;font-weight:600}
+    .direct-list svg{margin-top:2px;color:var(--copper)}
+
+    .services{background:var(--paper-2);border-block:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:44px}
+    .section-head h2{margin-bottom:0}
+    .section-head .intro{max-width:450px;margin-bottom:7px}
+    .service-shell{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:470px;background:var(--surface);box-shadow:var(--shadow)}
+    .tab-list{background:var(--dark-panel);padding:32px 0;display:flex;flex-direction:column;align-items:stretch}
+    .tab-label{color:#ae9e8d;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;padding:0 28px 18px}
+    .tab-btn{appearance:none;border:0;border-left:4px solid transparent;background:transparent;color:#d8cdc0;text-align:left;padding:21px 28px;font-weight:700;font-size:1.04rem;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+    .tab-btn small{display:block;font-weight:400;color:#94877b;font-size:.8rem;margin-top:3px}
+    .tab-btn:hover{background:rgba(255,255,255,.05);color:#fff}
+    .tab-btn[aria-selected="true"]{background:rgba(255,255,255,.08);border-left-color:#e68b51;color:#fff}
+    .service-stage{position:relative;overflow:hidden}
+    .service-panel{display:none;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);min-height:470px}
+    .service-panel.active{display:grid;animation:panelIn .36s ease}
+    @keyframes panelIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+    .service-copy{padding:clamp(36px,5vw,66px);align-self:center}
+    .service-number{font-family:var(--serif);color:var(--copper);font-size:1rem;font-style:italic}
+    .service-copy h3{font-size:clamp(2rem,3.5vw,3rem);line-height:1.05;margin:10px 0 17px}
+    .service-copy p{color:var(--muted);font-size:1.02rem}
+    .service-points{list-style:none;padding:0;margin:25px 0 30px;display:grid;gap:10px}
+    .service-points li{display:flex;align-items:center;gap:10px;font-weight:600}
+    .service-points li:before{content:"";width:17px;height:2px;background:var(--copper);flex:none}
+    .text-link{display:inline-flex;align-items:center;gap:9px;color:var(--copper-deep);font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+    .text-link:hover{gap:13px}
+    .service-photo{min-height:100%}
+    .service-photo img{height:100%;object-fit:cover;filter:saturate(.8) contrast(1.05)}
+
+    .why{position:relative;overflow:hidden}
+    .why:after{content:"JM";position:absolute;right:-.02em;top:10px;font-family:var(--serif);font-size:min(32vw,410px);line-height:1;color:transparent;-webkit-text-stroke:1px var(--line);opacity:.7;pointer-events:none}
+    .why .wrap{position:relative;z-index:1}
+    .why-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(40px,8vw,110px);align-items:start}
+    .why-copy{position:sticky;top:115px}
+    .principles{border-top:1px solid var(--line)}
+    .principle{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:31px 0;border-bottom:1px solid var(--line);transition:padding-left .22s}
+    .principle:hover{padding-left:10px}
+    .principle .num{font-family:var(--serif);font-size:1.3rem;color:var(--copper);font-style:italic}
+    .principle h3{font-size:1.45rem;margin-bottom:7px}
+    .principle p{color:var(--muted);margin:0}
+
+    .visit{background:var(--charcoal);color:#fff;position:relative}
+    .visit-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(44px,8vw,100px);align-items:start}
+    .visit h2{color:#fff}
+    .visit .eyebrow{color:#f2a36d}
+    .visit .intro{color:#cfc1b1}
+    .address{font-family:var(--serif);font-size:clamp(1.45rem,3vw,2.25rem);line-height:1.25;margin:32px 0 24px}
+    .contact-row{display:flex;gap:12px;flex-wrap:wrap}
+    .hours{border-top:1px solid rgba(255,255,255,.22)}
+    .hours-row{display:grid;grid-template-columns:1fr auto;gap:20px;padding:21px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+    .hours-row span{color:#bdae9d}
+    .hours-row strong{text-align:right}
+    .closed{color:#dd8952!important}
+
+    footer{background:#120f0d;color:#8f8378;padding:30px 0 calc(30px + env(safe-area-inset-bottom));font-size:.78rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footer-inner a{color:#c5b7a8;text-decoration:none}
+    .concept{margin:0}
+    .mobile-call{display:none;position:fixed;z-index:55;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));padding:13px 18px;background:var(--copper);color:#fff;text-decoration:none;text-align:center;font-weight:700;border-radius:4px;box-shadow:0 12px 34px rgba(0,0,0,.35)}
+    .reveal{opacity:1;transform:none;transition:opacity .65s ease,transform .65s ease}
+
+    @media(max-width:860px){
+      .wrap{width:min(100% - 30px,720px)}
+      .menu-toggle{display:block}
+      .nav-links{position:fixed;inset:0 0 0 auto;width:min(84vw,340px);height:100svh;background:var(--charcoal);display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:100px 30px 100px;gap:5px;transform:translateX(103%);visibility:hidden;pointer-events:none;transition:transform .28s,visibility 0s linear .28s;box-shadow:-18px 0 46px rgba(0,0,0,.36)}
+      .nav-links.open{transform:none;visibility:visible;pointer-events:auto;transition:transform .28s}
+      .nav-links a{display:block;font-family:var(--serif);font-size:1.55rem;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+      .nav-links .nav-call{font-family:var(--sans);font-size:.92rem;text-align:center;margin-top:18px;border:0;padding:14px 18px}
+      .hero{height:auto;min-height:760px}
+      .hero-media img{object-position:62% center}
+      .hero-media:after{background:linear-gradient(90deg,rgba(19,15,12,.92),rgba(19,15,12,.55)),linear-gradient(0deg,rgba(19,15,12,.84),transparent 50%)}
+      .hero-content{padding:140px 0 70px}
+      .trust-grid{grid-template-columns:1fr}
+      .trust-point{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 4px;border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+      .trust-point:first-child{border-left:0}
+      .trust-point span{text-align:right}
+      section{padding:76px 0}
+      .about-grid,.why-layout,.visit-grid{grid-template-columns:1fr}
+      .portrait{max-width:620px}
+      .why-copy{position:static}
+      .section-head{display:block}
+      .section-head h2{margin-bottom:18px}
+      .service-shell{grid-template-columns:1fr}
+      .tab-list{padding:0;display:grid;grid-template-columns:repeat(3,1fr)}
+      .tab-label{display:none}
+      .tab-btn{border-left:0;border-bottom:4px solid transparent;padding:17px 10px;text-align:center;font-size:.94rem}
+      .tab-btn small{display:none}
+      .tab-btn[aria-selected="true"]{border-left:0;border-bottom-color:#e68b51}
+      .service-panel{grid-template-columns:1fr;min-height:0}
+      .service-copy{padding:38px 28px 34px}
+      .service-photo{height:330px;grid-row:1}
+      .why:after{display:none}
+      .mobile-call{display:block}
+      footer{padding-bottom:100px}
+    }
+    @media(max-width:520px){
+      .wordmark span{display:none}
+      h1{font-size:clamp(3rem,15vw,4.35rem);max-width:100%;padding-right:.22em}
+      .hero-actions{align-items:stretch;flex-direction:column}
+      .hero-actions .btn{width:100%}
+      .hero-foot{align-items:flex-start}
+      .hero-foot:before{width:35px;margin-top:.65em}
+      .portrait{padding:0 0 19px 19px}
+      .service-photo{height:240px}
+      .principle{grid-template-columns:45px 1fr;gap:12px}
+      .contact-row{flex-direction:column}
+      .contact-row .btn{width:100%}
+      .footer-inner{display:block}
+      .footer-inner a{display:inline-block;margin-top:9px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+<header class="site-nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="#home" aria-label="JM Automotive home"><strong>JM</strong><span>Automotive<br>Oakville</span></a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why JM</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a class="nav-call" href="tel:+19054699427">Call for a Quote</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-media"><img src="assets/hero-workshop-2.jpg" alt="Mechanic carefully working underneath a vehicle on a lift"></div>
+    <div class="wrap">
+      <div class="hero-content">
+        <p class="eyebrow reveal">Auto repair in Oakville</p>
+        <h1 class="reveal">JM Automotive <span>One Mechanic.<br>Personal Accountability.</span></h1>
+        <p class="hero-lead reveal">Personal accountability from the first conversation to the final check. Service, repairs and tire work for all makes and models.</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="tel:+19054699427" aria-label="Call JM Automotive for a quote at 905 469 9427">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.2 3.5 4.6 4.8c-.9.5-1.3 1.5-1 2.5 1.8 6.1 6.6 10.9 12.7 12.7 1 .3 2-.1 2.5-1l1.3-2.6c.4-.8.2-1.8-.6-2.3l-2.8-1.9c-.7-.5-1.6-.4-2.2.2l-1.2 1.2a14.1 14.1 0 0 1-3.1-3.1l1.2-1.2c.6-.6.7-1.5.2-2.2L9.5 4.1c-.5-.8-1.5-1-2.3-.6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Call for a Quote
+          </a>
+          <a class="btn btn-quiet" href="https://www.google.com/maps/dir/?api=1&amp;destination=JM%20Automotive%2C%201490%20Speers%20Rd%20Unit%207%2C%20Oakville%2C%20ON%20L6L%202X6" target="_blank" rel="noopener">Get Directions <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="hero-foot reveal">1490 Speers Rd, Unit 7 · Oakville, Ontario</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip" aria-label="JM Automotive highlights">
+    <div class="wrap trust-grid">
+      <div class="trust-point reveal"><b>One expert</b><span>Your mechanic, start to finish</span></div>
+      <div class="trust-point reveal"><b>All makes</b><span>Service and repair</span></div>
+      <div class="trust-point reveal"><b>Local trust</b><span>Praised by Halton drivers</span></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="portrait reveal"><img src="assets/mechanic-at-work.webp" alt="A mechanic inspecting a car on a workshop lift" loading="lazy"></div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">A one-man shop</p>
+        <h2>You speak to the person doing the work.</h2>
+        <p class="intro">JM Automotive keeps things direct. There is no chain of service writers and no hand-off between departments. One mechanic listens, looks after the car and remains accountable for the result.</p>
+        <ul class="direct-list">
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Clear conversations about what your car needs</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The same experienced hands on every job</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Personal responsibility from diagnosis to pickup</span></li>
+        </ul>
+        <blockquote>“No runaround. Just careful work and an answer you can understand.”</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">What JM does</p><h2>Work built around your car.</h2></div>
+        <p class="intro">From ongoing care to mechanical repairs and tires, call to talk through the issue and get a quote.</p>
+      </div>
+      <div class="service-shell reveal">
+        <div class="tab-list" role="tablist" aria-label="Service categories">
+          <span class="tab-label">Choose a category</span>
+          <button class="tab-btn" id="tab-service" role="tab" aria-selected="true" aria-controls="panel-service" tabindex="0" data-tab="service">Service <small>Routine care</small></button>
+          <button class="tab-btn" id="tab-repairs" role="tab" aria-selected="false" aria-controls="panel-repairs" tabindex="-1" data-tab="repairs">Repairs <small>Mechanical work</small></button>
+          <button class="tab-btn" id="tab-tires" role="tab" aria-selected="false" aria-controls="panel-tires" tabindex="-1" data-tab="tires">Tires <small>Tire service</small></button>
+        </div>
+        <div class="service-stage">
+          <article class="service-panel active" id="panel-service" role="tabpanel" aria-labelledby="tab-service" data-panel="service">
+            <div class="service-copy"><span class="service-number">01 / Service</span><h3>Stay ahead of the next problem.</h3><p>General automotive service for all makes and models, handled directly by one mechanic who gets to know the vehicle in front of him.</p><ul class="service-points"><li>General vehicle service</li><li>All makes and models</li><li>Direct, personal advice</li></ul><a class="text-link" href="tel:+19054699427">Call for a quote <span aria-hidden="true">→</span></a></div>
+            <div class="service-photo"><img src="assets/hero-workshop-2.jpg" alt="Mechanic inspecting the underside of a vehicle" loading="lazy"></div>
+          </article>
+          <article class="service-panel" id="panel-repairs" role="tabpanel" aria-labelledby="tab-repairs" data-panel="repairs" hidden>
+            <div class="service-copy"><span class="service-number">02 / Repairs</span><h3>One mechanic takes responsibility.</h3><p>General repairs for all makes and models. Explain what the car is doing, then speak directly with the person investigating and repairing it.</p><ul class="service-points"><li>General automotive repairs</li><li>All makes and models</li><li>One point of accountability</li></ul><a class="text-link" href="tel:+19054699427">Call for a quote <span aria-hidden="true">→</span></a></div>
+            <div class="service-photo"><img src="assets/mechanic-at-work.webp" alt="Mechanic carrying out hands-on repair work beneath a lifted car" loading="lazy"></div>
+          </article>
+          <article class="service-panel" id="panel-tires" role="tabpanel" aria-labelledby="tab-tires" data-panel="tires" hidden>
+            <div class="service-copy"><span class="service-number">03 / Tires</span><h3>Tire service, without the shuffle.</h3><p>Call JM Automotive to discuss the tire work your vehicle needs and arrange a time that works with the shop schedule.</p><ul class="service-points"><li>Tire services</li><li>All makes and models</li><li>Call ahead for availability</li></ul><a class="text-link" href="tel:+19054699427">Call for a quote <span aria-hidden="true">→</span></a></div>
+            <div class="service-photo"><img src="assets/tire-service.jpg" alt="Mechanic servicing a wheel and tire in a workshop" loading="lazy"></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap why-layout">
+      <div class="why-copy reveal"><p class="eyebrow">The one-mechanic difference</p><h2>A shop where accountability is personal.</h2><p class="intro">Customers deal with the mechanic, not a layer of staff between them and their vehicle.</p></div>
+      <div class="principles">
+        <article class="principle reveal"><span class="num">01</span><div><h3>Direct from the source</h3><p>Ask a question and get the answer from the person who inspected the car and will carry out the work.</p></div></article>
+        <article class="principle reveal"><span class="num">02</span><div><h3>One standard of work</h3><p>No rotating team and no lost context. One mechanic owns the job from start to finish.</p></div></article>
+        <article class="principle reveal"><span class="num">03</span><div><h3>Trusted by local drivers</h3><p>JM Automotive has earned the kind of reputation that has customers describing it as one of Halton’s best.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap visit-grid">
+      <div class="reveal"><p class="eyebrow">Visit the shop</p><h2>Call first. Then bring it by.</h2><p class="intro">Talk directly with JM about your vehicle, the work it needs and a quote.</p><p class="address">1490 Speers Rd, Unit 7<br>Oakville, ON L6L 2X6</p><div class="contact-row"><a class="btn btn-primary" href="tel:+19054699427">(905) 469-9427</a><a class="btn btn-quiet" href="https://www.google.com/maps/dir/?api=1&amp;destination=JM%20Automotive%2C%201490%20Speers%20Rd%20Unit%207%2C%20Oakville%2C%20ON%20L6L%202X6" target="_blank" rel="noopener">Get Directions <span aria-hidden="true">↗</span></a></div></div>
+      <div class="reveal" aria-label="Opening hours"><div class="hours"><div class="hours-row"><span>Monday – Friday</span><strong>8:30 AM – 5:30 PM</strong></div><div class="hours-row"><span>Saturday</span><strong>8:30 AM – 3:30 PM</strong></div><div class="hours-row"><span>Sunday</span><strong class="closed">Closed</strong></div></div></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-inner"><p class="concept">Concept preview — demo built for JM Automotive</p><a href="tel:+19054699427">(905) 469-9427</a></div></footer>
+<a class="mobile-call" href="tel:+19054699427" aria-label="Call JM Automotive for a quote">Call for a Quote · (905) 469-9427</a>
+
+<script>
+(function(){
+  var siteNav=document.getElementById('siteNav');
+  var menu=document.getElementById('menuToggle');
+  var links=document.getElementById('navLinks');
+  var navHost=links.parentNode;
+  var mobileQuery=window.matchMedia('(max-width:860px)');
+  function setScrolled(){siteNav.classList.toggle('scrolled',window.scrollY>28)}
+  function syncNav(){if(mobileQuery.matches&&!links.classList.contains('open')&&links.isConnected){links.remove()}else if(!mobileQuery.matches&&!links.isConnected){navHost.appendChild(links)}}
+  function closeMenu(){links.classList.remove('open');menu.classList.remove('active');siteNav.classList.remove('menu-open');document.body.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open menu');if(mobileQuery.matches&&links.isConnected){links.remove()}}
+  menu.addEventListener('click',function(){var open=!links.classList.contains('open');if(open){if(!links.isConnected){navHost.appendChild(links)}links.classList.add('open');menu.classList.add('active');siteNav.classList.add('menu-open');document.body.classList.add('menu-open');menu.setAttribute('aria-expanded','true');menu.setAttribute('aria-label','Close menu')}else{closeMenu()}});
+  links.querySelectorAll('a').forEach(function(link){link.addEventListener('click',closeMenu)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+  if(mobileQuery.addEventListener){mobileQuery.addEventListener('change',function(){closeMenu();syncNav()})}
+  syncNav();
+  window.addEventListener('scroll',setScrolled,{passive:true});setScrolled();
+
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels=Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+  function activate(tab){
+    tabs.forEach(function(item){var active=item===tab;item.setAttribute('aria-selected',String(active));item.tabIndex=active?0:-1});
+    panels.forEach(function(panel){var active=panel.dataset.panel===tab.dataset.tab;panel.hidden=!active;panel.classList.toggle('active',active)});
+  }
+  tabs.forEach(function(tab,index){tab.addEventListener('click',function(){activate(tab)});tab.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();var next=tabs[(index+1)%tabs.length];activate(next);next.focus()}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();var prev=tabs[(index-1+tabs.length)%tabs.length];activate(prev);prev.focus()}if(e.key==='Home'){e.preventDefault();activate(tabs[0]);tabs[0].focus()}if(e.key==='End'){e.preventDefault();activate(tabs[tabs.length-1]);tabs[tabs.length-1].focus()}})});
+
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.13,rootMargin:'0px 0px -24px'});
+    document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
+  }else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible')})}
+})();
+</script>
+</body>
+</html>

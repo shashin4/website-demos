@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#17191c">
+<meta name="description" content="Al's Auto Repairs Inc. in Oakville, Ontario. Brakes, tires, general repairs, computer diagnostics and wheel alignments. Call for a quote.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Al's Auto Repairs Inc. | Oakville Auto Repair</title>
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:#f3f3f1;--surface:#ffffff;--surface-2:#e8e9e7;--ink:#17191c;--muted:#585d63;
+  --dark:#17191c;--dark-2:#22252a;--white:#fff;--red:#d72d24;--red-dark:#af1e18;--line:#d3d5d3;
+  --header:rgba(20,22,25,.96);--shadow:0 18px 46px rgba(18,20,22,.16);
+  --head:'Barlow Condensed','Arial Narrow',sans-serif;--body:'Public Sans',Helvetica,sans-serif;
+}
+@media(prefers-color-scheme:dark){:root{--bg:#111315;--surface:#1c1f22;--surface-2:#262a2e;--ink:#f2f3f1;--muted:#b7bcc0;--line:#363b40;--shadow:0 18px 46px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}body.nav-open{overflow:hidden}a{color:inherit}img{display:block;width:100%}button{font:inherit}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.section{padding:clamp(72px,9vw,118px) 0}.section-head{max-width:710px}.section-head.center{text-align:center;margin-inline:auto}.kicker{display:flex;align-items:center;gap:10px;color:var(--red);font-weight:800;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase}.kicker:before{content:"";width:30px;height:3px;background:currentColor}.section-head.center .kicker{justify-content:center}.section-head h2{font:800 clamp(2.45rem,5vw,4.25rem)/.96 var(--head);letter-spacing:-.025em;text-transform:uppercase;margin:12px 0 18px}.section-head p{font-size:1.06rem;color:var(--muted);margin:0}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:4px;border:0;text-decoration:none;font-weight:800;letter-spacing:.01em;transition:background .2s,transform .2s,color .2s}.btn svg{width:19px;height:19px}.btn:hover{transform:translateY(-2px)}.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 26px rgba(215,45,36,.27)}.btn-red:hover{background:var(--red-dark)}.btn-outline{border:1px solid rgba(255,255,255,.65);color:#fff;background:rgba(0,0,0,.12)}.btn-outline:hover{background:#fff;color:#17191c}.btn-dark{background:var(--dark);color:#fff}.btn-dark:hover{background:#000}
+.header{position:fixed;inset:0 0 auto;z-index:50;color:#fff;padding:18px 0;transition:padding .25s,background .25s,box-shadow .25s}.header.scrolled,.header.menu-open{padding:10px 0;background:var(--header);box-shadow:0 8px 26px rgba(0,0,0,.28)}.header-row{display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{text-decoration:none;display:flex;align-items:baseline;gap:8px;font:800 1.7rem/1 var(--head);letter-spacing:.01em;text-transform:uppercase}.brand em{color:var(--red);font-style:normal}.brand small{font:600 .68rem/1 var(--body);letter-spacing:.08em;color:#bec2c6}.nav{display:flex;align-items:center;gap:26px}.nav a:not(.btn){text-decoration:none;font-size:.9rem;font-weight:700;color:#e4e6e7}.nav a:not(.btn):hover{color:#fff}.nav .btn{min-height:44px;padding-inline:18px}.menu-button{display:none;width:46px;height:46px;border:0;border-radius:3px;background:#272a2e;color:#fff;position:relative}.menu-button span{position:absolute;left:11px;width:24px;height:2px;background:currentColor;transition:.25s}.menu-button span:nth-child(1){top:15px}.menu-button span:nth-child(2){top:22px}.menu-button span:nth-child(3){top:29px}.menu-button[aria-expanded="true"] span:nth-child(1){top:22px;transform:rotate(45deg)}.menu-button[aria-expanded="true"] span:nth-child(2){opacity:0}.menu-button[aria-expanded="true"] span:nth-child(3){top:22px;transform:rotate(-45deg)}
+.hero{min-height:720px;height:96svh;position:relative;display:grid;align-items:end;color:#fff;padding:140px 0 86px;background:#1a1c1f url('assets/hero.jpg') center/cover no-repeat;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,14,.96) 0%,rgba(10,12,14,.83) 43%,rgba(10,12,14,.2) 73%),linear-gradient(0deg,rgba(10,12,14,.82),transparent 45%)}.hero-content{position:relative;max-width:690px}.hero-loc{display:flex;align-items:center;gap:9px;font-size:.88rem;font-weight:700;color:#d4d6d7}.hero-loc svg{width:18px;color:var(--red)}.hero h1{font:800 clamp(4rem,7vw,6.35rem)/.82 var(--head);letter-spacing:-.035em;text-transform:uppercase;margin:26px 0 24px;max-width:100%}.hero h1 span{display:block;color:var(--red)}.hero-copy{font-size:clamp(1.05rem,2vw,1.25rem);max-width:560px;color:#e5e6e7;margin:0}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.hero-hours{position:absolute;right:max(20px,calc((100vw - 1160px)/2));bottom:86px;background:rgba(23,25,28,.92);border-left:4px solid var(--red);padding:18px 22px;min-width:245px}.hero-hours span{display:block;color:#aeb2b6;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700}.hero-hours strong{font:700 1.35rem var(--head);text-transform:uppercase}.quick{background:var(--red);color:#fff}.quick .wrap{display:grid;grid-template-columns:repeat(3,1fr)}.quick-item{padding:25px 26px;display:flex;gap:14px;align-items:center;border-right:1px solid rgba(255,255,255,.24)}.quick-item:last-child{border:0}.quick-item svg{width:29px;flex:none}.quick-item strong{display:block;font:700 1.25rem/1.1 var(--head);text-transform:uppercase}.quick-item span{font-size:.78rem;color:#ffd9d7}
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(42px,7vw,86px);align-items:center}.photo-stack{position:relative;padding:0 34px 34px 0}.photo-stack:after{content:"";position:absolute;right:0;bottom:0;width:72%;height:70%;background:var(--red);z-index:-1}.photo-stack img{aspect-ratio:4/3;object-fit:cover;box-shadow:var(--shadow)}.about-copy p{color:var(--muted);font-size:1.06rem;margin:0 0 18px}.plain-list{display:grid;grid-template-columns:1fr 1fr;gap:11px 22px;list-style:none;padding:0;margin:28px 0 0}.plain-list li{display:flex;align-items:center;gap:9px;font-weight:700;font-size:.92rem}.plain-list svg{width:20px;color:var(--red);flex:none}
+.services{background:var(--surface)}.tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin:42px 0 36px}.tab{border:0;border-bottom:4px solid transparent;background:transparent;color:var(--muted);padding:15px 24px;font:700 1.15rem var(--head);text-transform:uppercase;cursor:pointer}.tab:hover{color:var(--ink)}.tab.active{color:var(--red);border-color:var(--red)}.panel{display:none;grid-template-columns:1.05fr .95fr;gap:34px;align-items:stretch}.panel.active{display:grid}.panel-copy{background:var(--surface-2);padding:clamp(28px,5vw,52px)}.panel-copy h3{font:800 clamp(2.2rem,4vw,3.2rem)/1 var(--head);text-transform:uppercase;margin:0 0 12px}.panel-copy>p{color:var(--muted);max-width:580px}.service-list{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:0}.service-list li{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px 0;border-top:1px solid var(--line);font-weight:700}.service-list svg{width:20px;color:var(--red);flex:none}.panel-visual{min-height:380px;background:var(--dark);color:#fff;padding:38px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}.panel-visual.photo{background:url('assets/brakes.jpg') center/cover}.panel-visual.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,11,13,.9),rgba(10,11,13,.05) 70%)}.panel-visual>*{position:relative;z-index:1}.big-num{font:800 7rem/.8 var(--head);color:var(--red)}.panel-visual h4{font:700 1.55rem/1 var(--head);text-transform:uppercase;margin:14px 0 8px}.panel-visual p{color:#c7cace;margin:0}.diagnostic-lines{position:absolute;inset:22px 22px auto;display:grid;gap:10px}.diagnostic-lines i{display:block;height:5px;background:#353a3f}.diagnostic-lines i:nth-child(2){width:76%}.diagnostic-lines i:nth-child(3){width:56%;background:var(--red)}.service-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}.service-bottom p{margin:0;color:var(--muted)}
+.why{background:var(--dark);color:#fff;overflow:hidden}.why .section-head p{color:#b9bdc1}.why-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:48px;border-top:1px solid #3a3d41;border-bottom:1px solid #3a3d41}.reason{padding:38px 34px;border-right:1px solid #3a3d41}.reason:last-child{border:0}.reason b{font:800 4rem/1 var(--head);color:var(--red)}.reason h3{font:700 1.55rem/1.05 var(--head);text-transform:uppercase;margin:20px 0 12px}.reason p{margin:0;color:#b9bdc1}.why-call{margin-top:40px;display:flex;align-items:center;justify-content:space-between;gap:24px}.why-call p{margin:0;color:#d8dadd;font-weight:600}
+.visit-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(38px,7vw,84px);align-items:start}.address-label{font:800 2.1rem/1 var(--head);text-transform:uppercase;margin:28px 0 14px}.address{font-size:1.08rem;color:var(--muted);margin:0}.contact-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hours{background:var(--surface);border-top:5px solid var(--red);box-shadow:var(--shadow);padding:10px 30px}.hours-row{display:flex;justify-content:space-between;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}.hours-row:last-child{border:0}.hours-row span{color:var(--muted)}.hours-row strong{text-align:right}.landmark{margin-top:18px;color:var(--muted);font-size:.9rem}.final-cta{background:var(--red);color:#fff;padding:58px 0}.final-row{display:flex;align-items:center;justify-content:space-between;gap:32px}.final-row h2{font:800 clamp(2.4rem,5vw,4.2rem)/.95 var(--head);text-transform:uppercase;margin:0;max-width:670px}.final-row .btn{background:#fff;color:#17191c;flex:none}.final-row .btn:hover{background:#17191c;color:#fff}
+footer{background:#0d0f11;color:#aeb2b5;padding:42px 0 100px}.footer-row{display:flex;align-items:flex-end;justify-content:space-between;gap:28px}.footer-brand{font:800 1.35rem var(--head);text-transform:uppercase;color:#fff;margin-bottom:7px}.footer-row p{margin:0;font-size:.82rem}.footer-links{display:flex;gap:20px}.footer-links a{text-decoration:none;font-size:.84rem;color:#d6d8da}.footer-links a:hover{color:#fff}.mobile-call{display:none;position:fixed;z-index:60;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:#111315;box-shadow:0 -5px 24px rgba(0,0,0,.3)}.mobile-call .btn{width:100%;min-height:50px}
+.reveal{opacity:1;transform:translateY(18px);transition:transform .65s ease}.reveal.visible{transform:none}.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}
+@media(max-width:1000px){.header-row>*{min-width:0}.brand{max-width:calc(100% - 64px)}.brand span{white-space:nowrap}.nav{position:fixed;top:0;right:0;width:min(360px,88vw);height:100dvh;background:#15171a;display:flex;flex-direction:column;align-items:stretch;padding:102px 30px 36px;gap:0;transform:translateX(105%);transition:transform .28s;box-shadow:-20px 0 50px rgba(0,0,0,.4)}.nav.open{transform:none}.nav a:not(.btn){font:700 1.45rem var(--head);text-transform:uppercase;padding:15px 0;border-bottom:1px solid #32353a}.nav .btn{margin-top:24px}.menu-button{display:block;z-index:1}.hero{min-height:700px;height:auto;padding-top:160px}.hero-hours{position:relative;right:auto;bottom:auto;margin-top:34px;width:max-content}.about-grid,.panel,.visit-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.reason{border-right:0;border-bottom:1px solid #3a3d41}.reason:last-child{border:0}.panel-visual{min-height:320px}.final-row{align-items:flex-start;flex-direction:column}.mobile-call{display:block}body{padding-bottom:70px}.header .brand small{display:none}}
+@media(max-width:640px){.wrap{width:min(calc(100% - 28px),1160px)}.section{padding:68px 0}.header{padding:11px 0}.brand{font-size:clamp(1.08rem,5.5vw,1.4rem);letter-spacing:-.01em}.hero{padding:132px 0 54px;min-height:690px;background-position:61% center}.hero:before{background:linear-gradient(90deg,rgba(10,12,14,.95),rgba(10,12,14,.66)),linear-gradient(0deg,rgba(10,12,14,.86),transparent 50%)}.hero h1{font-size:clamp(2rem,9.3vw,2.35rem);line-height:.9;letter-spacing:-.02em;overflow-wrap:normal;word-break:normal}.hero-copy{font-size:1rem;max-width:100%;overflow-wrap:anywhere}.hero-content{min-width:0;width:100%;max-width:100%}.hero-actions{display:grid}.hero-actions .btn{width:100%}.hero-hours{width:100%;min-width:0}.quick .wrap{grid-template-columns:1fr}.quick-item{border-right:0;border-bottom:1px solid rgba(255,255,255,.24);padding:18px 6px}.plain-list{grid-template-columns:1fr}.photo-stack{padding:0 18px 18px 0}.tabs{display:grid;grid-template-columns:1fr;margin:34px 0 28px;border:1px solid var(--line)}.tab{border-bottom:1px solid var(--line);text-align:left;padding:13px 16px}.tab:last-child{border-bottom:0}.tab.active{background:var(--red);color:#fff;border-color:var(--red)}.panel-copy{padding:26px 20px}.panel-visual{min-height:280px;padding:26px}.service-bottom{align-items:stretch;flex-direction:column}.service-bottom .btn{width:100%}.why-call{align-items:stretch;flex-direction:column}.why-call .btn{width:100%}.contact-links{display:grid}.contact-links .btn{width:100%}.hours{padding:8px 20px}.hours-row{flex-direction:column;gap:4px}.hours-row strong{text-align:left}.footer-row{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}.footer-row p{max-width:360px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<header class="header" id="header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="Al's Auto Repairs home"><span>Al's <em>Auto Repairs</em></span><small>Oakville</small></a>
+    <nav class="nav" id="nav" aria-label="Primary navigation">
+      <a href="#about">About</a><a href="#services">Services</a><a href="#why">Why us</a><a href="#visit">Visit</a>
+      <a class="btn btn-red" href="tel:+19054696103" aria-label="Call Al's Auto Repairs for a quote">Call for a Quote</a>
+    </nav>
+    <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-content">
+        <div class="hero-loc reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Speers Road, Oakville</div>
+        <h1 class="reveal delay-1" id="hero-title">Straightforward <span>auto repair.</span></h1>
+        <p class="hero-copy reveal delay-2">Brakes, tires, general repairs, computer diagnostics and wheel alignments for all makes and models.</p>
+        <div class="hero-actions reveal delay-2">
+          <a class="btn btn-red" href="tel:+19054696103"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Call for a Quote</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=Al%27s%20Auto%20Repairs%20Inc.%2C%20427%20Speers%20Rd%20Unit%2016%2C%20Oakville%2C%20ON%20L6K%203S8" target="_blank" rel="noopener">Get Directions</a>
+        </div>
+      </div>
+      <div class="hero-hours reveal"><span>Shop hours</span><strong>Mon–Fri · 8 AM–5 PM</strong></div>
+    </div>
+  </section>
+  <div class="quick" aria-label="Shop highlights">
+    <div class="wrap">
+      <div class="quick-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m14.7 6.3-1-3-2.4 2.4a4 4 0 0 0-5 5L2 15l4 4 4.3-4.3a4 4 0 0 0 5-5l2.4-2.4-3-1Z"/></svg><div><strong>General repair</strong><span>All makes and models</span></div></div>
+      <div class="quick-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3m0 12v3M3 12h3m12 0h3"/></svg><div><strong>Brakes &amp; tires</strong><span>Service and repairs</span></div></div>
+      <div class="quick-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4M7 10l2 2 3-4 2 4 3-2"/></svg><div><strong>Diagnostics</strong><span>Find the cause of the problem</span></div></div>
+    </div>
+  </div>
+  <section class="section" id="about">
+    <div class="wrap about-grid">
+      <div class="photo-stack reveal"><img src="assets/garage.jpg" alt="Mechanic inspecting the underside of a car raised on a lift" loading="lazy"></div>
+      <div class="about-copy reveal delay-1">
+        <div class="section-head"><div class="kicker">About the shop</div><h2>Good work. Clear answers.</h2></div>
+        <p>Al's Auto Repairs is an Oakville shop for drivers who want the problem explained plainly and the job handled properly.</p>
+        <p>From everyday maintenance to troubleshooting, the focus stays on practical repairs and getting your vehicle back on the road.</p>
+        <ul class="plain-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 4 4L19 6"/></svg>Straightforward service</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 4 4L19 6"/></svg>Experienced repair work</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 4 4L19 6"/></svg>All makes and models</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 4 4L19 6"/></svg>Local Oakville shop</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="section services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal"><div class="kicker">Services</div><h2>The work your car needs.</h2><p>Choose a category to see the services available. For details or a quote, give the shop a call.</p></div>
+      <div class="tabs reveal" role="tablist" aria-label="Service categories">
+        <button class="tab active" type="button" role="tab" id="tab-brakes" aria-selected="true" aria-controls="panel-brakes" data-target="brakes">Brakes &amp; Tires</button>
+        <button class="tab" type="button" role="tab" id="tab-repair" aria-selected="false" aria-controls="panel-repair" data-target="repair">General Repair</button>
+        <button class="tab" type="button" role="tab" id="tab-diagnostics" aria-selected="false" aria-controls="panel-diagnostics" data-target="diagnostics">Diagnostics</button>
+      </div>
+      <div class="panel active" id="panel-brakes" role="tabpanel" aria-labelledby="tab-brakes" data-panel="brakes">
+        <div class="panel-copy"><h3>Brakes &amp; Tires</h3><p>Essential work for stopping, steering and keeping proper contact with the road.</p><ul class="service-list"><li>Brake services &amp; repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></li><li>Tire service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></li><li>Wheel alignment <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></li></ul></div>
+        <div class="panel-visual photo"><h4>Questions about your brakes or tires?</h4><p>Call the shop and describe what your vehicle is doing.</p></div>
+      </div>
+      <div class="panel" id="panel-repair" role="tabpanel" aria-labelledby="tab-repair" data-panel="repair" hidden>
+        <div class="panel-copy"><h3>General Repair</h3><p>Mechanical repairs and routine service for cars across a wide range of makes and models.</p><ul class="service-list"><li>General mechanical repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></li><li>Maintenance service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></li><li>All makes and models <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></li></ul></div>
+        <div class="panel-visual"><span class="big-num">01</span><h4>Start with a conversation.</h4><p>Tell the shop what's happening and ask about the next step.</p></div>
+      </div>
+      <div class="panel" id="panel-diagnostics" role="tabpanel" aria-labelledby="tab-diagnostics" data-panel="diagnostics" hidden>
+        <div class="panel-copy"><h3>Diagnostics</h3><p>Testing that helps identify the source of a problem before repair work begins.</p><ul class="service-list"><li>Computer diagnostics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></li><li>Warning-light investigation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></li><li>Mechanical troubleshooting <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></li></ul></div>
+        <div class="panel-visual"><div class="diagnostic-lines" aria-hidden="true"><i></i><i></i><i></i></div><span class="big-num">02</span><h4>Find the issue first.</h4><p>Diagnostics help narrow down what needs attention.</p></div>
+      </div>
+      <div class="service-bottom reveal"><p>Not sure which service you need? Describe the symptoms when you call.</p><a class="btn btn-dark" href="tel:+19054696103">Call for a Quote</a></div>
+    </div>
+  </section>
+  <section class="section why" id="why">
+    <div class="wrap">
+      <div class="section-head center reveal"><div class="kicker">Why choose Al's</div><h2>No-nonsense auto repair.</h2><p>What matters is simple: experienced work, clear service and a shop that can handle the vehicle you drive.</p></div>
+      <div class="why-grid">
+        <article class="reason reveal"><b>01</b><h3>Straightforward</h3><p>Talk through the issue, understand the work and call for a quote without unnecessary extras.</p></article>
+        <article class="reason reveal delay-1"><b>02</b><h3>Experienced</h3><p>Practical knowledge for common maintenance, mechanical repairs and vehicle troubleshooting.</p></article>
+        <article class="reason reveal delay-2"><b>03</b><h3>All makes &amp; models</h3><p>Service for a wide range of vehicles, from daily drivers to older cars that need attention.</p></article>
+      </div>
+      <div class="why-call reveal"><p>Have a noise, warning light or repair question?</p><a class="btn btn-red" href="tel:+19054696103">Call (905) 469-6103</a></div>
+    </div>
+  </section>
+  <section class="section" id="visit">
+    <div class="wrap visit-grid">
+      <div class="reveal">
+        <div class="section-head"><div class="kicker">Visit the shop</div><h2>Find us on Speers Road.</h2></div>
+        <h3 class="address-label">Al's Auto Repairs Inc.</h3>
+        <p class="address">16–427 Speers Rd<br>Oakville, ON L6K 3S8</p>
+        <div class="contact-links"><a class="btn btn-red" href="tel:+19054696103">Call for a Quote</a><a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Al%27s%20Auto%20Repairs%20Inc.%2C%20427%20Speers%20Rd%20Unit%2016%2C%20Oakville%2C%20ON%20L6K%203S8" target="_blank" rel="noopener">Get Directions</a></div>
+      </div>
+      <div class="reveal delay-1">
+        <div class="hours" aria-label="Opening hours"><div class="hours-row"><span>Monday–Friday</span><strong>8:00 AM–5:00 PM</strong></div><div class="hours-row"><span>Phone</span><strong><a href="tel:+19054696103">(905) 469-6103</a></strong></div><div class="hours-row"><span>Address</span><strong>Unit 16, 427 Speers Rd</strong></div></div>
+        <p class="landmark">Call ahead for a quote or to discuss your vehicle.</p>
+      </div>
+    </div>
+  </section>
+  <section class="final-cta"><div class="wrap final-row reveal"><h2>Ready to get your car looked at?</h2><a class="btn" href="tel:+19054696103"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Call for a Quote</a></div></section>
+</main>
+<footer><div class="wrap footer-row"><div><div class="footer-brand">Al's Auto Repairs Inc.</div><p>Concept preview — demo built for Al's Auto Repairs Inc.</p></div><div class="footer-links"><a href="#services">Services</a><a href="#visit">Hours &amp; location</a><a href="tel:+19054696103">(905) 469-6103</a></div></div></footer>
+<div class="mobile-call"><a class="btn btn-red" href="tel:+19054696103"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Call for a Quote</a></div>
+<script>
+(function(){
+  var header=document.getElementById('header'),menu=document.getElementById('menuButton'),nav=document.getElementById('nav');
+  function scrollState(){header.classList.toggle('scrolled',window.scrollY>24)}
+  window.addEventListener('scroll',scrollState,{passive:true});scrollState();
+  function isMobile(){return window.matchMedia('(max-width:1000px)').matches}
+  function closeMenu(){nav.classList.remove('open');header.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open menu');document.body.classList.remove('nav-open');nav.inert=isMobile()}
+  menu.addEventListener('click',function(){var open=!nav.classList.contains('open');nav.classList.toggle('open',open);header.classList.toggle('menu-open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close menu':'Open menu');document.body.classList.toggle('nav-open',open);nav.inert=!open});
+  window.addEventListener('resize',function(){if(!isMobile()){nav.inert=false;closeMenu();nav.inert=false}else if(!nav.classList.contains('open')){nav.inert=true}});nav.inert=isMobile();
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu)});
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  tabs.forEach(function(tab,index){tab.addEventListener('click',function(){activate(tab)});tab.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var next=(index+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[next].focus();activate(tabs[next])}})});
+  function activate(tab){tabs.forEach(function(t){var on=t===tab;t.classList.toggle('active',on);t.setAttribute('aria-selected',String(on))});document.querySelectorAll('.panel').forEach(function(p){var on=p.getAttribute('data-panel')===tab.getAttribute('data-target');p.classList.toggle('active',on);p.hidden=!on})}
+  if('IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target)}})},{threshold:.12,rootMargin:'0px 0px -40px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)})}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible')})}
+})();
+</script>
+</body>
+</html>

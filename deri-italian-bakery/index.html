@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deri Italian Bakery — Mississauga's Italian Bakery, Deli & Caterer Since 1976</title>
+<meta name="description" content="Deri Italian Bakery — family-run Italian bakery, deli and caterer at 640 Bloor St, Mississauga since 1976. Lasagna, penne alla vodka, wedding cakes, focaccia and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf5ea;
+    --cream-2:#f2e9d6;
+    --ink:#2c2018;
+    --ink-soft:#5c4b3b;
+    --terra:#b8502c;
+    --terra-deep:#93391d;
+    --green:#2e4a38;
+    --green-deep:#22382b;
+    --gold:#c9a25e;
+    --line:rgba(44,32,24,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:560;line-height:1.08;letter-spacing:-.01em}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{width:min(1180px,92vw);margin:0 auto}
+
+  /* ---------- eyebrow / shared ---------- */
+  .eyebrow{
+    display:flex;align-items:center;gap:14px;
+    font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--terra-deep);
+  }
+  .eyebrow::after{content:"";height:1px;width:56px;background:var(--terra);opacity:.55}
+  .sec-title{font-size:clamp(2rem,4.6vw,3.4rem);margin:14px 0 18px}
+  .sec-lede{max-width:62ch;color:var(--ink-soft);font-size:1.05rem}
+  section{padding:clamp(64px,9vw,120px) 0}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:60;
+    transition:background .35s ease,box-shadow .35s ease;
+  }
+  .nav-inner{
+    width:min(1180px,94vw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 0;
+    transition:padding .35s ease;
+  }
+  .brand{text-decoration:none;display:flex;align-items:baseline;gap:10px}
+  .brand .name{font-family:'Fraunces',serif;font-size:1.75rem;font-weight:640;color:var(--cream)}
+  .brand .est{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:#efe3cd;opacity:.85}
+  .nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+  .nav-links a{color:var(--cream);text-decoration:none;font-size:.92rem;font-weight:500;letter-spacing:.02em;opacity:.92;position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:width .3s ease}
+  .nav-links a:hover::after{width:100%}
+  .nav-call{
+    border:1px solid rgba(250,245,234,.6);padding:10px 20px;border-radius:999px;
+    font-size:.88rem !important;transition:background .3s ease,color .3s ease;
+  }
+  .nav-call::after{display:none}
+  .nav-call:hover{background:var(--cream);color:var(--ink) !important}
+  header.scrolled{background:rgba(250,245,234,.96);box-shadow:0 6px 24px rgba(44,32,24,.1)}
+  header.scrolled .nav-inner{padding:12px 0}
+  header.scrolled .brand .name{color:var(--ink)}
+  header.scrolled .brand .est{color:var(--terra-deep)}
+  header.scrolled .nav-links a{color:var(--ink)}
+  header.scrolled .nav-call{border-color:var(--terra-deep);color:var(--terra-deep) !important}
+  header.scrolled .nav-call:hover{background:var(--terra-deep);color:var(--cream) !important}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{display:block;width:26px;height:2px;background:var(--cream);margin:6px 0;transition:.3s ease}
+  header.scrolled .burger span{background:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100svh;display:flex;align-items:flex-end;
+    position:relative;color:var(--cream);overflow:hidden;
+    background:#3a2c21;
+  }
+  .hero-bg{position:absolute;inset:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(20,12,6,.55) 0%,rgba(20,12,6,.18) 38%,rgba(20,12,6,.72) 100%);
+  }
+  .hero-content{position:relative;z-index:2;width:min(1180px,92vw);margin:0 auto;padding:22vh 0 16vh}
+  .hero-est{
+    font-size:.75rem;letter-spacing:.34em;text-transform:uppercase;color:#f0dfb9;margin-bottom:18px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .hero-est::before{content:"";width:44px;height:1px;background:#f0dfb9}
+  .hero h1{font-size:clamp(2.9rem,8.4vw,6.4rem);font-weight:600;color:#fff}
+  .hero h1 em{font-style:italic;font-weight:400;color:#f2dcb0}
+  .hero p{max-width:46ch;margin:22px 0 34px;font-size:1.12rem;color:#f3e9d4;opacity:.95}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    text-decoration:none;font-weight:600;font-size:.95rem;
+    padding:15px 30px;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+  }
+  .btn-terra{background:var(--terra);color:#fff}
+  .btn-terra:hover{background:var(--terra-deep);transform:translateY(-2px);box-shadow:0 12px 26px rgba(147,57,29,.35)}
+  .btn-ghost{border:1px solid rgba(250,245,234,.7);color:#fff}
+  .btn-ghost:hover{background:rgba(250,245,234,.14)}
+  .hero-scroll{
+    position:absolute;right:4vw;bottom:32px;z-index:2;
+    writing-mode:vertical-rl;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:#e9d9b8;opacity:.8;
+    display:flex;align-items:center;gap:12px;
+  }
+  .hero-scroll::after{content:"";width:1px;height:56px;background:#e9d9b8;display:block}
+
+  /* ---------- marquee ---------- */
+  .marquee{background:var(--green-deep);color:#efe6d2;overflow:hidden;white-space:nowrap;padding:15px 0}
+  .marquee-track{display:inline-flex;gap:0;animation:scroll 26s linear infinite}
+  .marquee span{font-family:'Fraunces',serif;font-size:1.02rem;letter-spacing:.12em;text-transform:uppercase;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
+  .marquee span::after{content:"✦";color:var(--gold);font-size:.8rem}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- story ---------- */
+  .story{background:var(--cream)}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,84px);align-items:center;margin-top:44px}
+  .story-photos{position:relative}
+  .story-photos .main{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px;background:#d8c6a6}
+  .story-photos .inset{
+    position:absolute;right:-8%;bottom:-9%;width:52%;aspect-ratio:1/1;object-fit:cover;
+    border-radius:6px;border:8px solid var(--cream);background:#cbb894;
+    box-shadow:0 20px 50px rgba(44,32,24,.18);
+  }
+  .story-badge{
+    position:absolute;left:-16px;top:-16px;background:var(--terra);color:#fff;border-radius:50%;
+    width:108px;height:108px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;box-shadow:0 12px 30px rgba(147,57,29,.4);
+  }
+  .story-badge b{font-size:1.7rem;line-height:1}
+  .story-badge small{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-family:'Inter',sans-serif}
+  .story-copy p{color:var(--ink-soft);margin:16px 0}
+  .story-copy p strong{color:var(--ink)}
+  .story-sign{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--terra-deep);margin-top:8px}
+  .heritage-row{display:flex;gap:34px;margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
+  .heritage-row .stat b{display:block;font-family:'Fraunces',serif;font-size:2rem;color:var(--green)}
+  .heritage-row .stat span{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* ---------- products / tabs ---------- */
+  .products{background:var(--cream-2)}
+  .tabs-head{margin-top:34px}
+  .tab-list{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:0}
+  .tab-btn{
+    background:none;border:0;cursor:pointer;font-family:'Fraunces',serif;font-size:1.12rem;
+    padding:14px 22px;color:var(--ink-soft);position:relative;transition:color .25s ease;
+  }
+  .tab-btn::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+  .tab-btn.active{color:var(--ink)}
+  .tab-btn.active::after{transform:scaleX(1)}
+  .tab-panel{display:none;padding-top:38px}
+  .tab-panel.active{display:block;animation:fadeUp .55s cubic-bezier(.2,.7,.2,1)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{background:var(--cream);border-radius:8px;overflow:hidden;border:1px solid var(--line);transition:transform .35s ease,box-shadow .35s ease}
+  .card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(44,32,24,.14)}
+  .card-img{aspect-ratio:4/3;overflow:hidden;background:#e0d3b8;position:relative}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .card-img img{transform:scale(1.06)}
+  .card-num{
+    position:absolute;top:14px;left:14px;background:rgba(250,245,234,.92);color:var(--terra-deep);
+    font-family:'Fraunces',serif;font-size:.85rem;padding:4px 12px;border-radius:999px;
+  }
+  .card-body{padding:24px 24px 26px}
+  .card-body h3{font-size:1.42rem;margin-bottom:8px}
+  .card-body p{color:var(--ink-soft);font-size:.96rem;margin-bottom:14px}
+  .pricing{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-deep);font-weight:600}
+  .products-note{margin-top:34px;padding:20px 24px;background:rgba(46,74,56,.07);border-left:3px solid var(--green);color:var(--ink-soft);font-size:.95rem;border-radius:0 6px 6px 0}
+
+  /* ---------- gallery ---------- */
+  .gallery{background:var(--green-deep);color:#f3ecdc}
+  .gallery .eyebrow{color:#f0dfb9}
+  .gallery .sec-title{color:#fff}
+  .gallery .sec-lede{color:#d8cbb2}
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .gal-item{position:relative;overflow:hidden;border-radius:6px;aspect-ratio:1/1;background:#3a4a3f;cursor:pointer}
+  .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s ease}
+  .gal-item .cap{
+    position:absolute;inset:auto 0 0 0;padding:40px 20px 18px;
+    background:linear-gradient(180deg,transparent,rgba(18,26,21,.82));
+    font-family:'Fraunces',serif;font-size:1.15rem;color:#fff;
+    opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease;
+  }
+  .gal-item:hover img{transform:scale(1.08)}
+  .gal-item:hover .cap,.gal-item:focus-within .cap{opacity:1;transform:none}
+
+  /* ---------- visit ---------- */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:start;margin-top:44px}
+  .visit-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:38px}
+  .visit-card h3{font-size:1.5rem;margin-bottom:20px}
+  .v-row{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+  .v-row:first-of-type{border-top:0;padding-top:0}
+  .v-ico{
+    flex:0 0 44px;width:44px;height:44px;border-radius:50%;background:rgba(184,80,44,.1);
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  }
+  .v-row b{display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-deep);margin-bottom:4px}
+  .v-row p{color:var(--ink);font-size:1.02rem}
+  .v-row a{color:var(--terra-deep);font-weight:600;text-decoration:none;border-bottom:2px solid rgba(184,80,44,.4)}
+  .v-row a:hover{border-bottom-color:var(--terra-deep)}
+  .visit-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+  .map-frame{border-radius:8px;overflow:hidden;border:1px solid var(--line);min-height:420px;background:#e7dcc4}
+  .map-frame iframe{width:100%;height:100%;min-height:420px;border:0;display:block;filter:sepia(.28) saturate(.85)}
+  .hours-note{margin-top:18px;font-size:.9rem;color:var(--ink-soft)}
+
+  /* ---------- footer ---------- */
+  footer{background:#221a13;color:#d9cbb1;padding:64px 0 34px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:44px}
+  .foot-brand{font-family:'Fraunces',serif;font-size:2rem;color:#fff;margin-bottom:12px}
+  .foot-tag{font-size:.95rem;max-width:36ch}
+  .foot-col h4{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:#a89574;margin-bottom:16px;font-family:'Inter',sans-serif}
+  .foot-col a{display:block;color:#d9cbb1;text-decoration:none;margin:9px 0;font-size:.94rem}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{border-top:1px solid rgba(217,203,177,.18);padding-top:26px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.82rem;color:#9d8c6f}
+  .preview-line{font-size:.76rem;color:#7d6f58;font-style:italic}
+
+  /* ---------- sticky mobile call bar ---------- */
+  .call-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+    background:var(--terra-deep);color:#fff;
+    text-decoration:none;align-items:center;justify-content:center;gap:12px;
+    padding:17px 16px;font-weight:600;font-size:1.02rem;letter-spacing:.02em;
+    box-shadow:0 -6px 24px rgba(0,0,0,.25);
+  }
+  .call-bar .dot{width:10px;height:10px;border-radius:50%;background:#7fe08a;animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:960px){
+    .cards{grid-template-columns:1fr 1fr}
+    .gal-grid{grid-template-columns:1fr 1fr}
+    .visit-grid{grid-template-columns:1fr}
+    .story-grid{grid-template-columns:1fr}
+    .story-photos .inset{right:2%}
+  }
+  @media(max-width:720px){
+    .nav-links{
+      position:fixed;top:0;right:-100%;width:min(78vw,340px);height:100svh;
+      background:var(--cream);flex-direction:column;align-items:flex-start;gap:6px;
+      padding:110px 34px 34px;transition:right .4s cubic-bezier(.2,.7,.2,1),visibility 0s linear .4s;
+      box-shadow:-12px 0 40px rgba(0,0,0,.25);visibility:hidden;
+    }
+    .nav-links.open{right:0;visibility:visible;transition-delay:0s}
+    .nav-links a{color:var(--ink) !important;font-size:1.2rem;font-family:'Fraunces',serif;padding:10px 0}
+    .nav-links a::after{display:none}
+    .nav-call{border:1px solid var(--terra-deep);color:var(--terra-deep) !important;margin-top:14px;font-family:'Inter',sans-serif !important;font-size:1rem !important}
+    .burger{display:block;z-index:71;position:relative}
+    .burger.open span{background:var(--ink)}
+    .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+    .cards{grid-template-columns:1fr}
+    .gal-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .call-bar{display:flex}
+    body{padding-bottom:60px}
+    .foot-grid{grid-template-columns:1fr}
+    .hero-content{padding:26vh 0 18vh}
+    .hero-scroll{display:none}
+    .story-badge{width:88px;height:88px}
+    .story-badge b{font-size:1.35rem}
+    .tab-btn{font-size:1rem;padding:12px 14px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Deri Italian Bakery — home">
+      <span class="name">Deri</span>
+      <span class="est">Italian Bakery · Est. 1976</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#visit">Visit Us</a></li>
+        <li><a class="nav-call" href="tel:+19052721837">Call (905) 272-1837</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" style="padding:0">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2000&q=80"
+         alt="Fresh rustic Italian loaves cooling on a wooden table" style="background-color:#3a2c21">
+  </div>
+  <div class="hero-content">
+    <div class="hero-est">Est. 1976 · Mississauga, Ontario</div>
+    <h1>Baking for Mississauga<br><em>since 1976.</em></h1>
+    <p>A family-run Italian bakery, deli and caterer on Bloor Street — old-world recipes, made fresh in-store every day.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-terra" href="tel:+19052721837">Call (905) 272-1837</a>
+      <a class="btn btn-ghost" href="#products">See What We Bake</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Bakery</span><span>Deli</span><span>Catering</span><span>Wedding Cakes</span><span>Fresh Pasta</span><span>Since 1976</span>
+    <span>Bakery</span><span>Deli</span><span>Catering</span><span>Wedding Cakes</span><span>Fresh Pasta</span><span>Since 1976</span>
+  </div>
+</div>
+
+<!-- ============ STORY ============ -->
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-photos reveal">
+        <div class="story-badge"><b>1976</b><small>Est.</small></div>
+        <img class="main" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80"
+             alt="Baker's hands kneading fresh dough" style="background-color:#d8c6a6">
+        <img class="inset" src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=700&q=80"
+             alt="Rows of fresh artisan loaves on bakery shelves" style="background-color:#cbb894">
+      </div>
+      <div class="story-copy">
+        <div class="eyebrow reveal">Our Story</div>
+        <h2 class="sec-title reveal d1">Three generations of <em class="serif" style="font-style:italic;color:var(--terra-deep)">Italian baking</em> on Bloor Street.</h2>
+        <p class="reveal d2">Since <strong>1976</strong>, Deri has been a family-run bakery, deli and caterer serving Mississauga — baking the old way, with flour, time and patience.</p>
+        <p class="reveal d2">Our ovens turn out fresh <strong>focaccia</strong> and breads every morning. Our kitchen rolls out <strong>lasagna, penne alla vodka and cannelloni</strong> the way Nonna made them. And our deli counter and cake studio have been at the centre of birthdays, weddings and Sunday dinners for nearly five decades.</p>
+        <p class="reveal d2">We're not a chain — we're your neighbours. When you call, you talk to family.</p>
+        <div class="story-sign reveal d3">— The Deri Family</div>
+        <div class="heritage-row reveal d3">
+          <div class="stat"><b>1976</b><span>Founded</span></div>
+          <div class="stat"><b>3</b><span>Under one roof</span></div>
+          <div class="stat"><b>50<span style="font-size:1.2rem">th</span></b><span>Year approaching</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS (TABBED) ============ -->
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="eyebrow reveal">What We Make</div>
+    <h2 class="sec-title reveal d1">From the oven, the kitchen<br>&amp; the cake studio.</h2>
+    <p class="sec-lede reveal d2">Everything below is made in-store. Prices aren't published — call us and we'll happily talk you through it.</p>
+
+    <div class="tabs-head reveal d2">
+      <div class="tab-list" role="tablist" aria-label="Product categories">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-bakery">Bakery</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-deli">Deli &amp; Prepared Foods</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-cakes">Cakes &amp; Catering</button>
+      </div>
+
+      <!-- BAKERY -->
+      <div class="tab-panel active" id="tab-bakery" role="tabpanel">
+        <div class="cards">
+          <article class="card">
+            <div class="card-img">
+              <span class="card-num">01</span>
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=75"
+                   alt="Fresh rustic Italian bread loaves" style="background-color:#e0d3b8" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Breads &amp; Rolls</h3>
+              <p>Crusty loaves and soft rolls baked fresh in-store daily — the foundation of every Italian table.</p>
+              <div class="pricing">Call for pricing</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img">
+              <span class="card-num">02</span>
+              <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=75"
+                   alt="Golden focaccia-style flatbread baking in a wood oven" style="background-color:#e0d3b8" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Focaccia &amp; Flatbreads</h3>
+              <p>Our signature focaccia — olive oil, sea salt and rosemary, baked golden in a hot oven.</p>
+              <div class="pricing">Call for pricing</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img">
+              <span class="card-num">03</span>
+              <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=800&q=75"
+                   alt="Homestyle fruit pies with lattice crusts" style="background-color:#e0d3b8" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Pies &amp; Pastries</h3>
+              <p>Flaky pies and old-country pastries — baked in small batches, sold warm out of the oven.</p>
+              <div class="pricing">Call for pricing</div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- DELI & PREPARED -->
+      <div class="tab-panel" id="tab-deli" role="tabpanel">
+        <div class="cards">
+          <article class="card">
+            <div class="card-img">
+              <span class="card-num">01</span>
+              <img src="https://images.unsplash.com/photo-1619895092538-128341789043?auto=format&fit=crop&w=800&q=75"
+                   alt="Homemade lasagna with fresh basil and melted cheese" style="background-color:#e0d3b8" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Lasagna</h3>
+              <p>Our most-loved tray — layers of fresh pasta, slow-cooked ragù and béchamel, ready to take home and bake.</p>
+              <div class="pricing">Call for pricing</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img">
+              <span class="card-num">02</span>
+              <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=75"
+                   alt="Penne in a rich tomato sauce with fresh herbs" style="background-color:#e0d3b8" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Penne alla Vodka</h3>
+              <p>A creamy tomato-vodka sauce over perfect penne — a Deri kitchen classic, made in-house.</p>
+              <div class="pricing">Call for pricing</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img">
+              <span class="card-num">03</span>
+              <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=800&q=75"
+                   alt="Italian deli board with cured meats, cheeses and olives" style="background-color:#e0d3b8" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Deli Counter</h3>
+              <p>Cured meats, imported cheeses, olives and antipasti — sliced to order, plus cannelloni and empanadas from our kitchen.</p>
+              <div class="pricing">Call for pricing</div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- CAKES & CATERING -->
+      <div class="tab-panel" id="tab-cakes" role="tabpanel">
+        <div class="cards">
+          <article class="card">
+            <div class="card-img">
+              <span class="card-num">01</span>
+              <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=800&q=75"
+                   alt="Elegant tiered wedding cake decorated with flowers" style="background-color:#e0d3b8" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Wedding Cakes</h3>
+              <p>Custom tiered cakes designed with you — classic Italian flavours for the biggest day of your life.</p>
+              <div class="pricing">Call for pricing</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img">
+              <span class="card-num">02</span>
+              <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=800&q=75"
+                   alt="Celebration birthday cake with sprinkles and star toppers" style="background-color:#e0d3b8" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Birthday Cakes</h3>
+              <p>From first birthdays to fiftieths — custom cakes made to order for every celebration.</p>
+              <div class="pricing">Call for pricing</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img">
+              <span class="card-num">03</span>
+              <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=800&q=75"
+                   alt="Assorted frosted cupcakes" style="background-color:#e0d3b8" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Cupcakes &amp; Catering Trays</h3>
+              <p>Sweet trays for parties and full catering — bakery, deli and prepared dishes for your event.</p>
+              <div class="pricing">Call for pricing</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-note reveal">Planning a wedding, christening or family gathering? Our catering team builds custom trays of baked goods, deli and prepared foods. <strong><a href="tel:+19052721837" style="color:var(--terra-deep)">Call (905) 272-1837</a></strong> to plan your order.</div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="eyebrow reveal">Fresh From Our Ovens</div>
+    <h2 class="sec-title reveal d1">A taste of Deri.</h2>
+    <p class="sec-lede reveal d2">Baked, sliced and served fresh at 640 Bloor Street — stop in and smell it for yourself.</p>
+    <div class="gal-grid">
+      <figure class="gal-item reveal" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=700&q=75"
+             alt="Baskets of fresh bread rolls in the bakery" style="background-color:#3a4a3f" loading="lazy">
+        <figcaption class="cap">Morning rolls</figcaption>
+      </figure>
+      <figure class="gal-item reveal d1" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=75"
+             alt="Fresh croissants and pastries in the bakery case" style="background-color:#3a4a3f" loading="lazy">
+        <figcaption class="cap">From the pastry case</figcaption>
+      </figure>
+      <figure class="gal-item reveal d2" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=700&q=75"
+             alt="The Deri bakery display filled with artisan loaves" style="background-color:#3a4a3f" loading="lazy">
+        <figcaption class="cap">The bread wall</figcaption>
+      </figure>
+      <figure class="gal-item reveal" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=700&q=75"
+             alt="Italian cured meats, cheeses and olives at the deli counter" style="background-color:#3a4a3f" loading="lazy">
+        <figcaption class="cap">The deli counter</figcaption>
+      </figure>
+      <figure class="gal-item reveal d1" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1619895092538-128341789043?auto=format&fit=crop&w=700&q=75"
+             alt="Homemade lasagna ready to serve" style="background-color:#3a4a3f" loading="lazy">
+        <figcaption class="cap">Sunday lasagna</figcaption>
+      </figure>
+      <figure class="gal-item reveal d2" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=75"
+             alt="Fresh frosted cupcakes from the cake studio" style="background-color:#3a4a3f" loading="lazy">
+        <figcaption class="cap">The cake studio</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="eyebrow reveal">Visit Us</div>
+    <h2 class="sec-title reveal d1">Come say ciao.</h2>
+    <p class="sec-lede reveal d2">We're on Bloor Street in Mississauga — drop in for something fresh, or call ahead and we'll have it ready.</p>
+    <div class="visit-grid">
+      <div class="visit-card reveal d1">
+        <h3>Find us</h3>
+        <div class="v-row">
+          <div class="v-ico">📍</div>
+          <div>
+            <b>Address</b>
+            <p>640 Bloor St<br>Mississauga, ON L5A 3V9</p>
+          </div>
+        </div>
+        <div class="v-row">
+          <div class="v-ico">☎</div>
+          <div>
+            <b>Phone</b>
+            <p><a href="tel:+19052721837">(905) 272-1837</a></p>
+          </div>
+        </div>
+        <div class="v-row">
+          <div class="v-ico">🕰</div>
+          <div>
+            <b>Hours</b>
+            <p>Call for hours</p>
+          </div>
+        </div>
+        <div class="visit-cta">
+          <a class="btn btn-terra" href="tel:+19052721837">Call Us</a>
+          <a class="btn" style="border:1px solid var(--terra-deep);color:var(--terra-deep)"
+             href="https://www.google.com/maps/search/?api=1&query=Deri+Italian+Bakery+640+Bloor+St+Mississauga+ON+L5A+3V9"
+             target="_blank" rel="noopener">Get Directions</a>
+        </div>
+        <p class="hours-note">Order a custom cake or catering tray? A quick phone call is all it takes — no online ordering, just real people.</p>
+      </div>
+      <div class="map-frame reveal d2">
+        <iframe title="Map — Deri Italian Bakery, 640 Bloor St, Mississauga"
+                src="https://www.google.com/maps?q=Deri+Italian+Bakery+640+Bloor+St+Mississauga+ON+L5A+3V9&output=embed"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Deri Italian Bakery</div>
+        <p class="foot-tag">Family-run Italian bakery, deli and caterer in Mississauga since 1976.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#story">Our Story</a>
+        <a href="#products">Products</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#visit">Visit Us</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+19052721837">(905) 272-1837</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Deri+Italian+Bakery+640+Bloor+St+Mississauga+ON+L5A+3V9" target="_blank" rel="noopener">640 Bloor St, Mississauga, ON</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Deri Italian Bakery · 640 Bloor St, Mississauga, ON L5A 3V9</span>
+      <span class="preview-line">Concept preview by Shashin Pillay — not affiliated with Deri Italian Bakery.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="call-bar" href="tel:+19052721837" aria-label="Call Deri Italian Bakery">
+  <span class="dot"></span> Tap to Call — (905) 272-1837
+</a>
+
+<script>
+(function(){
+  // sticky header state
+  var header = document.getElementById('siteHeader');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 60); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // hamburger
+  var burger = document.getElementById('burger'),
+      navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open'); burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // tabs
+  var btns = document.querySelectorAll('.tab-btn');
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btns.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+      var panel = document.getElementById(btn.getAttribute('data-tab'));
+      if(panel){ panel.classList.add('active'); }
+    });
+  });
+
+  // scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

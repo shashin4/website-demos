@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orchard Family Restaurant — Serving Mississauga since 1966</title>
+<meta name="description" content="Orchard Family Restaurant: family-owned diner on Hurontario St, Mississauga. All-day breakfast, classic lunches, roast beef dinners and homemade pies. Open daily 7 AM – 8 PM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF2DC; --cream2:#F5E7C4; --paper:#FFFDF4;
+  --red:#D1411F; --red-deep:#A62B12; --yellow:#FFC93C; --yellow-soft:#FFE9A8;
+  --ink:#221E17; --muted:#6E6252;
+  --radius:20px; --shadow:6px 6px 0 var(--ink);
+  --nav-bg:rgba(251,242,220,.96);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.display{font-family:'Baloo 2',cursive;line-height:1.02;letter-spacing:.005em}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:84px 0;position:relative}
+.eyebrow{display:inline-block;font-weight:800;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;background:var(--ink);color:var(--yellow);padding:8px 18px;border-radius:999px;margin-bottom:18px}
+.sec-title{font-size:clamp(2rem,5.5vw,3.4rem);font-weight:800;margin-bottom:14px}
+.sec-sub{color:var(--muted);max-width:620px;font-size:1.05rem;margin-bottom:38px;font-weight:600}
+/* subtle dot texture */
+.dots{background-image:radial-gradient(rgba(34,30,23,.10) 1.6px,transparent 1.6px);background-size:26px 26px}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,box-shadow .3s,padding .3s;padding:20px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 4px 0 var(--ink);padding:10px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Baloo 2',cursive;font-weight:800;font-size:1.35rem;line-height:1}
+.brand .mark{width:42px;height:42px;flex-shrink:0;background:var(--yellow);border:3px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 var(--ink)}
+.brand em{font-style:normal;color:var(--red)}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-weight:800;font-size:.98rem;transition:color .2s}
+.nav-links a:hover{color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--red);color:#fff;border:3px solid var(--ink);border-radius:999px;padding:13px 28px;font-weight:800;font-size:.98rem;text-decoration:none;cursor:pointer;transition:transform .18s,box-shadow .18s;box-shadow:var(--shadow);font-family:inherit}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn.yellow{background:var(--yellow);color:var(--ink)}
+.btn.ghost{background:transparent;color:inherit}
+.btn.nav-cta{padding:10px 22px}
+.hamburger{display:none;background:var(--yellow);border:3px solid var(--ink);border-radius:12px;cursor:pointer;padding:9px 11px;z-index:102;box-shadow:3px 3px 0 var(--ink)}
+.hamburger span{display:block;width:24px;height:3px;background:var(--ink);border-radius:2px;margin:4px 0;transition:.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* HERO */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;color:#fff;padding:130px 0 110px;overflow:hidden;background:var(--ink)}
+.hero-bg{position:absolute;inset:0;background-color:#4a3a28;background-image:url('https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center;transform:scale(1.06);animation:heroDrift 22s ease-in-out infinite alternate}
+@keyframes heroDrift{from{transform:scale(1.06)}to{transform:scale(1.14) translate(-1.5%,1%)}}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,4,.55) 0%,rgba(20,12,4,.30) 45%,rgba(20,12,4,.78) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--ink);border:3px solid var(--ink);border-radius:999px;padding:9px 20px;font-weight:800;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;box-shadow:4px 4px 0 rgba(0,0,0,.55);margin-bottom:24px}
+.hero h1{font-size:clamp(3rem,10.5vw,7rem);font-weight:800;max-width:12ch;text-shadow:0 3px 0 rgba(0,0,0,.35);margin-bottom:18px}
+.hero h1 .hl{color:var(--yellow)}
+.hero p.lead{font-size:clamp(1.05rem,2.8vw,1.35rem);max-width:52ch;font-weight:600;opacity:.95;margin-bottom:32px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.hero .btn.ghost{color:#fff;border-color:#fff;box-shadow:5px 5px 0 rgba(0,0,0,.5)}
+.hero .btn.ghost:hover{box-shadow:7px 7px 0 rgba(0,0,0,.5)}
+.hero .btn.yellow{box-shadow:5px 5px 0 rgba(0,0,0,.5)}
+.spin-badge{position:absolute;right:6%;bottom:12%;width:132px;height:132px;z-index:2;animation:spin 16s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;font-size:.75rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;opacity:.8}
+/* TICKER */
+.ticker{background:var(--ink);color:var(--yellow);overflow:hidden;white-space:nowrap;padding:14px 0;border-top:4px solid var(--ink);border-bottom:4px solid var(--ink)}
+.ticker-track{display:inline-block;animation:tick 26s linear infinite;font-family:'Baloo 2',cursive;font-weight:800;font-size:1.15rem;letter-spacing:.06em}
+.ticker-track span{margin:0 26px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* STORY */
+.story{background:var(--cream)}
+.story-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+.story-img{border:4px solid var(--ink);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background-color:#8a6f4d;position:relative}
+.story-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .7s ease}
+.story-img:hover img{transform:scale(1.05)}
+.story-img .tag{position:absolute;top:16px;left:16px;background:var(--yellow);border:3px solid var(--ink);border-radius:999px;padding:6px 16px;font-weight:800;font-size:.78rem;letter-spacing:.14em;box-shadow:3px 3px 0 var(--ink)}
+.story-copy p{margin-bottom:18px;font-size:1.06rem;font-weight:600;color:#3d352a}
+.story-copy p:first-of-type::first-letter{font-family:'Baloo 2',cursive;font-size:3.2em;font-weight:800;float:left;line-height:.9;padding-right:10px;color:var(--red)}
+.story-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.fact{background:var(--paper);border:3px solid var(--ink);border-radius:16px;padding:18px 12px;text-align:center;box-shadow:4px 4px 0 var(--ink)}
+.fact .n{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.7rem;color:var(--red);line-height:1}
+.fact .l{font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+/* MENU */
+.menu-sec{background:var(--red);color:#fff}
+.menu-sec .eyebrow{background:var(--yellow);color:var(--ink)}
+.menu-sec .sec-sub{color:rgba(255,255,255,.85)}
+.tab-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.tab-btn{border:3px solid var(--ink);background:var(--cream);color:var(--ink);border-radius:999px;padding:12px 26px;font-weight:800;font-size:1rem;cursor:pointer;transition:.22s;font-family:'Baloo 2',cursive;box-shadow:4px 4px 0 var(--ink)}
+.tab-btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.tab-btn.active{background:var(--yellow);box-shadow:2px 2px 0 var(--ink);transform:translate(2px,2px)}
+.tab-panel{display:none;grid-template-columns:1fr;gap:16px}
+.tab-panel.active{display:grid;animation:fadeUp .45s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.dish{background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:16px;padding:22px;display:flex;gap:18px;align-items:center;box-shadow:5px 5px 0 rgba(0,0,0,.35);transition:transform .25s}
+.dish:hover{transform:translateY(-4px) rotate(-.4deg)}
+.dish .thumb{width:84px;height:84px;flex-shrink:0;border-radius:50%;border:3px solid var(--ink);overflow:hidden;background-color:var(--yellow-soft)}
+.dish .thumb img{width:100%;height:100%;object-fit:cover}
+.dish h3{font-size:1.25rem;font-weight:800;margin-bottom:4px}
+.dish p{color:var(--muted);font-size:.93rem;font-weight:600}
+.dish .star{margin-left:auto;flex-shrink:0;background:var(--yellow);border:3px solid var(--ink);border-radius:12px;padding:6px 12px;font-weight:800;font-size:.78rem;letter-spacing:.08em;transform:rotate(4deg);box-shadow:3px 3px 0 var(--ink)}
+.tab-note{margin-top:28px;background:rgba(0,0,0,.22);border:2px dashed rgba(255,255,255,.6);border-radius:14px;padding:18px 22px;font-size:.95rem;font-weight:600}
+.tab-note a{color:var(--yellow);font-weight:800}
+/* GALLERY */
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gal-item{position:relative;border:4px solid var(--ink);border-radius:var(--radius);overflow:hidden;aspect-ratio:1/1;cursor:pointer;background-color:var(--yellow-soft);box-shadow:var(--shadow)}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.gal-item:hover img{transform:scale(1.09) rotate(.6deg)}
+.gal-cap{position:absolute;inset:auto 0 0 0;padding:40px 18px 16px;background:linear-gradient(transparent,rgba(20,12,4,.82));color:#fff;font-family:'Baloo 2',cursive;font-weight:700;font-size:1.05rem;opacity:0;transform:translateY(10px);transition:.35s}
+.gal-item:hover .gal-cap{opacity:1;transform:none}
+/* VISIT */
+.visit-sec{background:var(--cream2)}
+.visit-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.visit-card{background:var(--paper);border:3px solid var(--ink);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+.visit-card h3{font-size:1.5rem;font-weight:800;margin-bottom:16px}
+.visit-card h3 .ico{color:var(--red)}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table td{padding:9px 0;border-bottom:2px dashed rgba(34,30,23,.15);font-size:.98rem;font-weight:600}
+.hours-table tr:last-child td{border-bottom:none}
+.hours-table td:last-child{text-align:right;font-weight:800;color:var(--red-deep)}
+.addr{font-size:1.06rem;font-weight:700;margin-bottom:4px}
+.plaza{color:var(--muted);font-weight:700;margin-bottom:18px}
+.visit-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.big-phone{font-family:'Baloo 2',cursive;font-size:1.7rem;font-weight:800;color:var(--red);text-decoration:none}
+.big-phone:hover{text-decoration:underline}
+.map-note{margin-top:14px;font-size:.9rem;color:var(--muted);font-weight:600}
+/* FOOTER */
+footer{background:var(--ink);color:var(--cream);padding:56px 0 120px;text-align:center}
+footer .fbrand{font-family:'Baloo 2',cursive;font-size:1.8rem;font-weight:800;margin-bottom:6px}
+footer .fbrand em{font-style:normal;color:var(--yellow)}
+footer .ftag{font-weight:700;color:var(--yellow);letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;margin-bottom:20px}
+footer .flinks{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+footer .flinks a{text-decoration:none;font-weight:700;opacity:.85}
+footer .flinks a:hover{opacity:1;color:var(--yellow)}
+.demo-note{margin:26px auto 0;font-size:.78rem;opacity:.6;max-width:560px;line-height:1.5}
+/* CALL BAR (mobile) */
+.call-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:99;display:flex;gap:10px}
+.call-bar a{flex:1;text-align:center;padding:15px 8px;border:3px solid var(--ink);border-radius:16px;font-weight:800;text-decoration:none;font-size:.98rem;box-shadow:4px 4px 0 var(--ink)}
+.call-bar .call{background:var(--red);color:#fff}
+.call-bar .dir{background:var(--yellow);color:var(--ink)}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+@media(min-width:700px){
+  .story-grid{grid-template-columns:1fr 1fr}
+  .tab-panel{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
+  .visit-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:1024px){
+  .call-bar{display:none}
+  footer{padding-bottom:56px}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:860px){
+  .nav-links{position:fixed;top:0;right:-110%;width:min(320px,82vw);height:100dvh;background:var(--paper);border-left:4px solid var(--ink);flex-direction:column;align-items:flex-start;justify-content:center;padding:40px 34px;gap:26px;transition:right .35s ease;box-shadow:-8px 0 30px rgba(0,0,0,.2)}
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1.3rem;font-family:'Baloo 2',cursive}
+  .hamburger{display:block}
+  .spin-badge{width:104px;height:104px;right:5%;bottom:8%}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .hero-bg{transform:none}
+}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Orchard Family Restaurant — home">
+      <span class="mark" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9z" fill="#D1411F" stroke="#221E17" stroke-width="1.8"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17" stroke="#221E17" stroke-width="1.8"/><path d="M8 5.5c0-1 .8-1 .8-2M12 5.5c0-1 .8-1 .8-2" stroke="#221E17" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </span>
+      Orchard <em>Family</em> Restaurant
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#visit">Visit Us</a></li>
+      <li><a class="btn nav-cta" href="tel:+19052798220">Call to Order</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="A big appetizing breakfast spread: eggs, toast and all the fixings"></div>
+  <div class="hero-veil"></div>
+  <div class="wrap">
+    <span class="hero-badge">★ Mississauga, Ontario ★</span>
+    <h1>Serving Mississauga <span class="hl">since&nbsp;1966.</span></h1>
+    <p class="lead">A family-owned diner where breakfast never ends, the pies come out of the oven daily, and everybody gets the regular treatment.</p>
+    <div class="hero-ctas">
+      <a class="btn yellow" href="#menu">See the Menu</a>
+      <a class="btn ghost" href="tel:+19052798220">Call (905) 279-8220</a>
+    </div>
+  </div>
+  <svg class="spin-badge" viewBox="0 0 120 120" aria-hidden="true">
+    <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+    <circle cx="60" cy="60" r="58" fill="#FFC93C" stroke="#221E17" stroke-width="3"/>
+    <text font-family="Baloo 2, sans-serif" font-weight="800" font-size="12.5" letter-spacing="2.5" fill="#221E17">
+      <textPath href="#circ">FAMILY OWNED ★ SINCE 1966 ★</textPath>
+    </text>
+    <path d="M48 52h20v10a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6V52z" fill="#D1411F" stroke="#221E17" stroke-width="2"/>
+    <path d="M68 54h3a4 4 0 0 1 0 8h-3" stroke="#221E17" stroke-width="2" fill="none"/>
+  </svg>
+  <div class="scroll-hint">Scroll for the good stuff</div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span>ALL-DAY BREAKFAST ★</span><span>HOMEMADE PIES BAKED DAILY ★</span><span>SERVING MISSISSAUGA SINCE 1966 ★</span><span>OPEN DAILY 7 AM – 8 PM ★</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story dots" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-img reveal">
+        <span class="tag">EST. 1966</span>
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Warm, welcoming diner dining room" loading="lazy">
+      </div>
+      <div class="story-copy reveal d1">
+        <span class="eyebrow">Our Story</span>
+        <h2 class="sec-title">Sixty years. One family. Zero shortcuts.</h2>
+        <p>Orchard Family Restaurant opened its doors in 1966 — and Mississauga has been coming back ever since. What started as a family dream is still family-run today by Tom Velianou, son and nephew of the founders, who keeps the same promise the first generation made: honest food, generous portions, fair prices.</p>
+        <p>This is the kind of place where breakfast is served all day, the coffee is always hot, and the pies and pastries come out of the oven every single morning. A true Mississauga institution — the family table the whole city shares.</p>
+        <div class="story-facts">
+          <div class="fact"><div class="n">1966</div><div class="l">Founded</div></div>
+          <div class="fact"><div class="n">Family</div><div class="l">Owned &amp; run</div></div>
+          <div class="fact"><div class="n">7&nbsp;days</div><div class="l">7 AM – 8 PM</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">The Menu</span>
+      <h2 class="sec-title">Good food, every day.</h2>
+      <p class="sec-sub">All-day breakfast, stacked lunches and hearty dinners — everything made the old-fashioned way. Ask about the $5.95 supper option.</p>
+    </div>
+    <div class="tab-bar reveal" role="tablist" aria-label="Menu categories">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="breakfast">Breakfast</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="lunch">Lunch</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="dinner">Dinner &amp; Specials</button>
+    </div>
+
+    <div class="tab-panel active" id="panel-breakfast" role="tabpanel">
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=400&q=70" alt="French toast" loading="lazy"></div>
+        <div><h3>'Cinny' Raisin French Toast Combo</h3><p>Our signature sweet start — cinnamon-raisin french toast, griddled golden.</p></div>
+        <span class="star">HOUSE ★ FAVE</span>
+      </div>
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=400&q=70" alt="Eggs benedict style breakfast" loading="lazy"></div>
+        <div><h3>Traditional &amp; Canadian Eggs Benedict</h3><p>Poached eggs and hollandaise, two classic ways.</p></div>
+      </div>
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=400&q=70" alt="Omelette breakfast plate" loading="lazy"></div>
+        <div><h3>Spanish Omelette</h3><p>Fluffy, loaded, and served with home fries.</p></div>
+      </div>
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=400&q=70" alt="Hearty breakfast spread" loading="lazy"></div>
+        <div><h3>Corned Beef Hash</h3><p>A diner classic — crispy, hearty, gone fast.</p></div>
+      </div>
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=70" alt="Breakfast plate with pancakes" loading="lazy"></div>
+        <div><h3>Ham &amp; Eggs with Home Fries</h3><p>The no-nonsense morning plate, done right.</p></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-lunch" role="tabpanel">
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&q=70" alt="Stacked sandwich" loading="lazy"></div>
+        <div><h3>Reuben Sandwich</h3><p>Grilled, melty, and stacked high.</p></div>
+        <span class="star">CLASSIC</span>
+      </div>
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=70" alt="Beef dip on a bun" loading="lazy"></div>
+        <div><h3>Beef Dip on a Bun</h3><p>Tender beef, warm bun, plenty of dip.</p></div>
+      </div>
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=70" alt="Turkey club sandwich" loading="lazy"></div>
+        <div><h3>Turkey Clubs</h3><p>Triple-stacked the way a club should be.</p></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-dinner" role="tabpanel">
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=70" alt="Roast beef dinner" loading="lazy"></div>
+        <div><h3>Roast Beef Dinner</h3><p>Slow-roasted, served with all the trimmings.</p></div>
+        <span class="star">SUNDAY ★ STYLE</span>
+      </div>
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=400&q=70" alt="Prime rib special dinner plate" loading="lazy"></div>
+        <div><h3>Prime Rib Special</h3><p>The one the regulars plan their week around.</p></div>
+      </div>
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=400&q=70" alt="Homemade pie and dessert" loading="lazy"></div>
+        <div><h3>Homemade Pies &amp; Pastries</h3><p>Baked fresh in-house every single day — plus old-fashioned rice pudding.</p></div>
+        <span class="star">BAKED ★ DAILY</span>
+      </div>
+      <div class="dish">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=400&q=70" alt="Evening supper plate" loading="lazy"></div>
+        <div><h3>Supper Option — $5.95</h3><p>Our famous value supper. Yes, really — $5.95.</p></div>
+        <span class="star">$5.95</span>
+      </div>
+    </div>
+
+    <div class="tab-note reveal">
+      Menu prices are posted in the restaurant — for today's pricing, just <a href="tel:+19052798220">call (905) 279-8220</a>. Breakfast is served all day, every day.
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Fresh from the kitchen</span>
+      <h2 class="sec-title">Come hungry.</h2>
+      <p class="sec-sub">A taste of what's cooking at Orchard — every plate made to order.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=800&q=70" alt="Golden french toast" loading="lazy"><div class="gal-cap">Fresh off the griddle</div></div>
+      <div class="gal-item reveal d1"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=70" alt="Stacked club sandwich" loading="lazy"><div class="gal-cap">Stacked and toasted</div></div>
+      <div class="gal-item reveal d2"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=70" alt="Roast beef dinner" loading="lazy"><div class="gal-cap">Roast beef dinner</div></div>
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=70" alt="Homemade pies and pastries" loading="lazy"><div class="gal-cap">Homemade pies &amp; pastries</div></div>
+      <div class="gal-item reveal d1"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=70" alt="The dining room" loading="lazy"><div class="gal-cap">Pull up a chair</div></div>
+      <div class="gal-item reveal d2"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=70" alt="Hot morning coffee" loading="lazy"><div class="gal-cap">Morning coffee</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit-sec dots" id="visit">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Visit Us</span>
+      <h2 class="sec-title">Find your table.</h2>
+      <p class="sec-sub">On Hurontario in the King 10 Plaza — open every day from 7 in the morning till 8 at night.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card reveal">
+        <h3><span class="ico">📍</span> Where we are</h3>
+        <p class="addr">2550 Hurontario St</p>
+        <p class="plaza">King 10 Plaza, Mississauga, ON L5B 1N5</p>
+        <p><a class="big-phone" href="tel:+19052798220">(905) 279-8220</a></p>
+        <div class="visit-actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Orchard+Family+Restaurant+2550+Hurontario+St+Mississauga+ON" target="_blank" rel="noopener">Get Directions</a>
+          <a class="btn yellow" href="tel:+19052798220">Call Us</a>
+        </div>
+        <p class="map-note">No online ordering — just call ahead or walk in. We'll save you a seat.</p>
+      </div>
+      <div class="visit-card reveal d1">
+        <h3><span class="ico">🕖</span> Hours</h3>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>7:00 AM – 8:00 PM</td></tr>
+          <tr><td>Tuesday</td><td>7:00 AM – 8:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>7:00 AM – 8:00 PM</td></tr>
+          <tr><td>Thursday</td><td>7:00 AM – 8:00 PM</td></tr>
+          <tr><td>Friday</td><td>7:00 AM – 8:00 PM</td></tr>
+          <tr><td>Saturday</td><td>7:00 AM – 8:00 PM</td></tr>
+          <tr><td>Sunday</td><td>7:00 AM – 8:00 PM</td></tr>
+        </table>
+        <p class="map-note">Breakfast is served all day, every day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fbrand">Orchard <em>Family</em> Restaurant</div>
+    <div class="ftag">Serving Mississauga since 1966</div>
+    <div class="flinks">
+      <a href="#story">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit Us</a>
+      <a href="tel:+19052798220">(905) 279-8220</a>
+    </div>
+    <p class="demo-note">Concept preview by Shashin Pillay — not affiliated with Orchard Family Restaurant.</p>
+  </div>
+</footer>
+
+<!-- MOBILE CALL BAR -->
+<div class="call-bar">
+  <a class="call" href="tel:+19052798220">📞 Call (905) 279-8220</a>
+  <a class="dir" href="https://www.google.com/maps/search/?api=1&query=Orchard+Family+Restaurant+2550+Hurontario+St+Mississauga+ON" target="_blank" rel="noopener">📍 Directions</a>
+</div>
+
+<script>
+// Sticky nav on scroll
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+// Mobile hamburger
+const burger = document.getElementById('hamburger');
+const links = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  links.classList.remove('open');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
+}));
+
+// Scroll reveals
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Menu tabs
+const tabBtns = document.querySelectorAll('.tab-btn');
+tabBtns.forEach(btn => btn.addEventListener('click', () => {
+  tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+  document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+}));
+
+// Duplicate ticker content for a seamless loop
+const track = document.getElementById('tickerTrack');
+track.innerHTML += track.innerHTML;
+</script>
+</body>
+</html>

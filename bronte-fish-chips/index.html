@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#10283f">
+  <link rel="icon" href="data:,">
+  <title>Bronte Fish &amp; Chips — Family-run in Oakville since 1968</title>
+  <meta name="description" content="Bronte Fish & Chips in Oakville. British fish and chips, family-run since 1968. Call to order or find us on Lakeshore Road West.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --ink:#162536;
+      --muted:#536171;
+      --paper:#f7f1e3;
+      --paper-deep:#ede2c9;
+      --surface:#fffaf0;
+      --navy:#10283f;
+      --navy-2:#173b5c;
+      --gold:#c99a43;
+      --gold-strong:#a87822;
+      --red:#b34636;
+      --rule:#d8c9aa;
+      --white:#fffdf7;
+      --shadow:0 26px 70px rgba(16,40,63,.17);
+      --content:1180px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink:#f2eadb;
+        --muted:#c2b8a6;
+        --paper:#101b25;
+        --paper-deep:#172635;
+        --surface:#1b2b3a;
+        --navy:#081929;
+        --navy-2:#d6b56f;
+        --gold:#e1b55f;
+        --gold-strong:#efc36c;
+        --red:#cf5d4b;
+        --rule:#405160;
+        --white:#fffaf0;
+        --shadow:0 26px 70px rgba(0,0,0,.36);
+      }
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:78px; }
+    body { margin:0; min-width:320px; overflow-x:hidden; background:var(--paper); color:var(--ink); font-family:"IBM Plex Sans",sans-serif; line-height:1.65; }
+    body.nav-open { overflow:hidden; }
+    img { display:block; width:100%; }
+    a,button { -webkit-tap-highlight-color:transparent; }
+    a { color:inherit; }
+    button { font:inherit; }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2,h3 { font-family:"Libre Baskerville",serif; line-height:1.12; }
+    .shell { width:min(var(--content),calc(100% - 40px)); margin-inline:auto; }
+    .eyebrow { display:flex; align-items:center; gap:12px; margin:0 0 15px; color:var(--red); font-size:.78rem; font-weight:700; letter-spacing:.17em; text-transform:uppercase; }
+    .eyebrow::before { content:""; width:34px; height:2px; background:currentColor; }
+    .section-title { max-width:720px; margin-bottom:18px; color:var(--navy-2); font-size:clamp(2rem,5vw,4rem); letter-spacing:-.035em; }
+    .section-lead { max-width:650px; margin-bottom:0; color:var(--muted); font-size:clamp(1rem,2vw,1.13rem); }
+    .button { display:inline-flex; min-height:50px; align-items:center; justify-content:center; gap:10px; padding:13px 22px; border:1px solid transparent; border-radius:3px; background:var(--red); color:#fff; font-weight:700; line-height:1.2; text-decoration:none; transition:background .2s ease,transform .2s ease,box-shadow .2s ease; box-shadow:0 10px 28px rgba(89,25,17,.22); }
+    .button:hover { background:#913427; transform:translateY(-2px); }
+    .button:focus-visible,.menu-tab:focus-visible,.menu-toggle:focus-visible,.nav-links a:focus-visible { outline:3px solid var(--gold); outline-offset:4px; }
+    .button.outline { border-color:rgba(255,255,255,.72); background:transparent; box-shadow:none; color:#fff; }
+    .button.outline:hover { background:rgba(255,255,255,.12); }
+    .button.gold { background:var(--gold); color:#142438; box-shadow:none; }
+    .button.gold:hover { background:#e0b968; }
+    .icon { width:19px; height:19px; flex:0 0 auto; fill:none; stroke:currentColor; stroke-width:2; }
+
+    /* Navigation */
+    .site-header { position:fixed; inset:0 0 auto; z-index:40; background:rgba(7,21,34,.22); color:#fff; transition:background .28s ease,box-shadow .28s ease,color .28s ease; }
+    .site-header.scrolled { background:rgba(7,21,34,.96); color:#fff; box-shadow:0 10px 32px rgba(3,12,20,.25); backdrop-filter:blur(14px); }
+    .nav { width:min(1240px,calc(100% - 32px)); min-height:82px; margin:auto; display:flex; align-items:center; justify-content:space-between; gap:24px; transition:min-height .28s ease; }
+    .scrolled .nav { min-height:66px; }
+    .nav-mark { display:inline-flex; align-items:center; gap:11px; color:inherit; font-size:.78rem; font-weight:700; letter-spacing:.12em; text-decoration:none; text-transform:uppercase; }
+    .nav-mark::before { content:"1968"; display:grid; place-items:center; width:44px; height:44px; border:1px solid var(--gold); border-radius:50%; color:var(--gold); font-family:"Libre Baskerville",serif; font-size:.68rem; }
+    .nav-links { display:flex; align-items:center; gap:28px; margin:0; padding:0; list-style:none; }
+    .nav-links a { position:relative; color:inherit; font-size:.92rem; font-weight:600; text-decoration:none; }
+    .nav-links a:not(.nav-call)::after { content:""; position:absolute; left:0; right:100%; bottom:-7px; height:2px; background:var(--gold); transition:right .2s ease; }
+    .nav-links a:hover::after { right:0; }
+    .nav-call { padding:10px 15px; border:1px solid currentColor; border-radius:3px; }
+    .menu-toggle { display:none; width:46px; height:46px; border:0; background:transparent; color:inherit; cursor:pointer; }
+    .menu-toggle span { display:block; width:25px; height:2px; margin:6px auto; background:currentColor; transition:transform .25s ease,opacity .25s ease; }
+
+    /* Hero */
+    .hero { position:relative; min-height:100svh; display:grid; align-items:end; overflow:hidden; background:var(--navy); color:#fff; }
+    .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(5,18,30,.94) 0%,rgba(6,22,36,.78) 42%,rgba(6,22,36,.14) 76%),url("assets/fish-platter.webp") center 58%/cover no-repeat; transform:scale(1.02); }
+    .hero::after { content:""; position:absolute; inset:auto 0 0; height:180px; background:linear-gradient(transparent,rgba(6,22,36,.58)); }
+    .hero-content { position:relative; z-index:1; width:min(var(--content),calc(100% - 40px)); margin:auto; padding:150px 0 96px; }
+    .since { display:inline-flex; align-items:center; gap:12px; margin-bottom:25px; color:#f1c973; font-size:.8rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+    .since::before,.since::after { content:""; width:30px; height:1px; background:currentColor; }
+    .hero h1 { max-width:780px; margin-bottom:21px; font-size:clamp(3.2rem,8.5vw,7.1rem); letter-spacing:-.06em; text-wrap:balance; }
+    .hero h1 em { color:#efc66f; font-weight:400; }
+    .hero-copy { max-width:590px; margin-bottom:31px; color:#e9e4dc; font-size:clamp(1.05rem,2.2vw,1.24rem); }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .hero-lower { display:flex; flex-wrap:wrap; gap:22px 38px; margin-top:48px; color:#f3ece0; font-size:.92rem; }
+    .hero-lower span { display:flex; align-items:center; gap:9px; }
+    .hero-side-note { position:absolute; z-index:2; right:30px; bottom:36px; writing-mode:vertical-rl; color:rgba(255,255,255,.78); font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; }
+
+    /* Legacy bar */
+    .legacy { position:relative; z-index:3; background:var(--gold); color:#17283a; }
+    .legacy-inner { display:grid; grid-template-columns:170px 1fr auto; align-items:center; gap:38px; min-height:126px; }
+    .legacy-year { font-family:"Libre Baskerville",serif; font-size:clamp(2.7rem,6vw,5rem); font-weight:700; letter-spacing:-.08em; }
+    .legacy-copy { max-width:660px; margin:0; font-family:"Libre Baskerville",serif; font-size:clamp(1rem,2vw,1.25rem); line-height:1.5; }
+    .legacy-link { color:#17283a; font-weight:700; white-space:nowrap; text-underline-offset:5px; }
+
+    /* Story */
+    .story { padding:120px 0; }
+    .story-grid { display:grid; grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr); align-items:center; gap:clamp(50px,8vw,100px); }
+    .story-collage { position:relative; min-height:660px; }
+    .story-main { position:absolute; inset:0 13% 54px 0; height:calc(100% - 54px); object-fit:cover; box-shadow:var(--shadow); }
+    .story-small { position:absolute; right:0; bottom:0; width:47%; height:42%; border:9px solid var(--paper); object-fit:cover; box-shadow:var(--shadow); }
+    .story-stamp { position:absolute; top:38px; right:1%; display:grid; place-items:center; width:132px; aspect-ratio:1; border:2px solid var(--gold); border-radius:50%; background:var(--navy); color:#f4cc75; font-family:"Libre Baskerville",serif; text-align:center; transform:rotate(8deg); box-shadow:var(--shadow); }
+    .story-stamp strong { display:block; font-size:1.55rem; }
+    .story-stamp small { display:block; max-width:84px; margin:auto; font-family:"IBM Plex Sans",sans-serif; font-size:.58rem; font-weight:700; letter-spacing:.13em; line-height:1.35; text-transform:uppercase; }
+    .story-copy p { color:var(--muted); font-size:1.05rem; }
+    .story-note { margin:30px 0; padding:21px 0; border-block:1px solid var(--rule); display:grid; grid-template-columns:45px 1fr; align-items:center; gap:15px; }
+    .story-note .icon { width:36px; height:36px; color:var(--red); }
+    .story-note strong { display:block; color:var(--ink); font-family:"Libre Baskerville",serif; font-size:1.04rem; }
+    .story-note span { color:var(--muted); font-size:.92rem; }
+
+    /* Menu */
+    .menu-section { position:relative; padding:118px 0 130px; background:var(--navy); color:#fff; overflow:hidden; }
+    .menu-section::before { content:""; position:absolute; width:420px; height:420px; right:-240px; top:70px; border:1px solid rgba(201,154,67,.24); border-radius:50%; box-shadow:0 0 0 70px rgba(201,154,67,.04),0 0 0 140px rgba(201,154,67,.03); }
+    .menu-head { display:grid; grid-template-columns:1fr .8fr; align-items:end; gap:50px; }
+    .menu-section .eyebrow { color:var(--gold); }
+    .menu-section .section-title { color:#fff; margin-bottom:0; }
+    .menu-intro { color:#c9d0d6; margin:0; }
+    .tabs-wrap { margin-top:54px; }
+    .menu-tabs { display:flex; gap:3px; border-bottom:1px solid rgba(255,255,255,.22); }
+    .menu-tab { position:relative; min-height:55px; padding:0 24px; border:0; background:transparent; color:#bac4ce; font-weight:700; cursor:pointer; }
+    .menu-tab::after { content:""; position:absolute; left:0; right:0; bottom:-1px; height:3px; background:var(--gold); transform:scaleX(0); transition:transform .23s ease; }
+    .menu-tab:hover,.menu-tab[aria-selected="true"] { color:#fff; }
+    .menu-tab[aria-selected="true"]::after { transform:scaleX(1); }
+    .menu-panel { display:none; padding-top:28px; }
+    .menu-panel.active { display:grid; }
+    @keyframes panelIn { from{transform:translateY(8px)} to{transform:none} }
+    .menu-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,.14); }
+    .menu-row h3 { margin-bottom:5px; color:#fff; font-size:clamp(1.02rem,2vw,1.24rem); }
+    .menu-row p { margin:0; color:#aeb9c4; font-size:.91rem; }
+    .menu-price { color:#f0c76e; font-family:"Libre Baskerville",serif; font-size:1.22rem; font-weight:700; }
+    .special-pill { display:inline-block; margin-left:10px; padding:4px 8px; border:1px solid rgba(240,199,110,.55); color:#f0c76e; font-family:"IBM Plex Sans",sans-serif; font-size:.62rem; font-weight:700; letter-spacing:.11em; text-transform:uppercase; vertical-align:3px; }
+    .menu-foot { display:flex; justify-content:space-between; align-items:center; gap:28px; margin-top:38px; color:#aeb9c4; font-size:.86rem; }
+
+    /* Gallery */
+    .gallery { padding:118px 0; }
+    .gallery-head { display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:43px; }
+    .gallery-grid { display:grid; grid-template-columns:1.35fr .65fr 1fr; grid-template-rows:290px 290px; gap:15px; }
+    .gallery-item { position:relative; overflow:hidden; margin:0; background:var(--paper-deep); }
+    .gallery-item:first-child { grid-row:span 2; }
+    .gallery-item:nth-child(4) { grid-column:span 2; }
+    .gallery-item img { height:100%; object-fit:cover; transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .55s ease; }
+    .gallery-item::after { content:""; position:absolute; inset:auto 0 0; height:48%; background:linear-gradient(transparent,rgba(8,25,41,.83)); pointer-events:none; }
+    .gallery-item figcaption { position:absolute; z-index:1; left:18px; right:18px; bottom:15px; color:#fff; font-weight:600; transform:translateY(6px); opacity:.9; transition:transform .3s ease,opacity .3s ease; }
+    .gallery-item:hover img { transform:scale(1.055); filter:saturate(1.08); }
+    .gallery-item:hover figcaption { transform:none; opacity:1; }
+
+    /* Visit */
+    .visit { padding:112px 0; background:var(--paper-deep); }
+    .visit-grid { display:grid; grid-template-columns:.83fr 1.17fr; gap:clamp(46px,8vw,100px); }
+    .address-block { padding-top:13px; }
+    .address { margin:27px 0 22px; font-family:"Libre Baskerville",serif; font-size:clamp(1.18rem,2vw,1.48rem); line-height:1.65; }
+    .phone { display:inline-block; margin-bottom:30px; color:var(--red); font-size:1.12rem; font-weight:700; text-underline-offset:5px; }
+    .visit-actions { display:flex; flex-wrap:wrap; gap:11px; }
+    .visit .button.outline { border-color:var(--navy-2); color:var(--navy-2); }
+    .visit .button.outline:hover { background:var(--navy-2); color:#fff; }
+    .hours { border-top:2px solid var(--navy-2); }
+    .hours h3 { margin:0; padding:22px 0 16px; color:var(--navy-2); font-size:1.35rem; }
+    .hours-row { display:grid; grid-template-columns:1fr auto; gap:20px; padding:16px 0; border-top:1px solid var(--rule); }
+    .hours-row span:last-child { font-weight:700; text-align:right; }
+    .closed { color:var(--red); }
+    .today-note { display:flex; gap:12px; align-items:flex-start; margin:24px 0 0; color:var(--muted); font-size:.9rem; }
+    .today-note .icon { color:var(--gold-strong); }
+
+    /* Footer */
+    footer { padding:50px 0 105px; background:#071522; color:#a9b2bc; }
+    .footer-grid { display:grid; grid-template-columns:1fr auto; gap:28px; align-items:end; }
+    .footer-name { margin-bottom:7px; color:#fff; font-family:"Libre Baskerville",serif; font-size:1.35rem; }
+    .footer-meta { margin:0; font-size:.86rem; }
+    .footer-meta a { color:inherit; }
+    .demo-note { margin:0; font-size:.74rem; text-align:right; opacity:.66; }
+    .photo-credit { margin:16px 0 0; font-size:.67rem; opacity:.48; }
+    .photo-credit a { color:inherit; text-underline-offset:3px; }
+    .mobile-call { position:fixed; z-index:50; left:12px; right:12px; bottom:max(12px,env(safe-area-inset-bottom)); display:none; min-height:56px; align-items:center; justify-content:center; gap:10px; border:1px solid rgba(255,255,255,.22); border-radius:4px; background:var(--red); color:#fff; font-weight:700; text-decoration:none; box-shadow:0 12px 32px rgba(0,0,0,.32); }
+
+    /* Reveal */
+    .reveal { opacity:1; transform:translateY(8px); transition:transform .7s cubic-bezier(.2,.75,.2,1); }
+    .reveal.visible { transform:none; }
+    .delay-1 { transition-delay:.1s; }
+    .delay-2 { transition-delay:.2s; }
+
+    @media (max-width:900px) {
+      .story-grid,.visit-grid,.menu-head { grid-template-columns:1fr; }
+      .story-collage { min-height:570px; max-width:650px; }
+      .menu-head { gap:12px; }
+      .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:350px 260px 260px; }
+      .gallery-item:first-child { grid-row:auto; grid-column:span 2; }
+      .gallery-item:nth-child(4) { grid-column:span 2; }
+    }
+    @media (max-width:760px) {
+      .shell { width:min(100% - 32px,var(--content)); }
+      .site-header { color:#fff; }
+      .site-header.scrolled { color:var(--ink); }
+      .nav { width:calc(100% - 24px); min-height:70px; }
+      .scrolled .nav { min-height:62px; }
+      .nav-mark { font-size:.68rem; }
+      .nav-mark::before { width:39px; height:39px; font-size:.59rem; }
+      .menu-toggle { display:block; }
+      .nav-open .menu-toggle span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
+      .nav-open .menu-toggle span:nth-child(2) { opacity:0; }
+      .nav-open .menu-toggle span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
+      body.nav-open .site-header { bottom:0; background:var(--navy); color:#fff; backdrop-filter:none; }
+      .nav-links { position:absolute; inset:0; display:none; flex-direction:column; justify-content:center; gap:26px; background:var(--navy); }
+      .nav-links.open { display:flex; }
+      .nav-links a { color:#fff; font-family:"Libre Baskerville",serif; font-size:1.45rem; }
+      .nav-call { padding:13px 20px; border-color:var(--gold); }
+      .hero { min-height:860px; }
+      .hero::before { background:linear-gradient(180deg,rgba(6,22,36,.28),rgba(6,22,36,.94) 70%),url("assets/fish-platter.webp") 58% center/cover no-repeat; }
+      .hero-content { width:calc(100% - 32px); padding:130px 0 92px; }
+      .hero h1 { font-size:clamp(3rem,16vw,4.7rem); }
+      .hero-side-note { display:none; }
+      .hero-lower { margin-top:35px; gap:14px; flex-direction:column; }
+      .legacy-inner { grid-template-columns:1fr; gap:5px; padding:32px 0 34px; }
+      .legacy-year { font-size:3.5rem; }
+      .legacy-link { margin-top:7px; }
+      .story,.gallery,.visit { padding:80px 0; }
+      .menu-section { padding:82px 0 92px; }
+      .story-collage { min-height:480px; }
+      .story-stamp { width:108px; right:-5px; top:22px; }
+      .tabs-wrap { margin-top:38px; }
+      .menu-tabs { display:grid; grid-template-columns:1fr; gap:0; border:1px solid rgba(255,255,255,.18); }
+      .menu-tab { min-height:48px; border-bottom:1px solid rgba(255,255,255,.11); }
+      .menu-tab:last-child { border-bottom:0; }
+      .menu-tab::after { inset:0 auto 0 -1px; width:4px; height:auto; transform:scaleY(0); }
+      .menu-tab[aria-selected="true"]::after { transform:scaleY(1); }
+      .menu-foot { align-items:flex-start; flex-direction:column; }
+      .gallery-head { align-items:flex-start; flex-direction:column; }
+      .gallery-grid { grid-template-columns:1fr; grid-template-rows:380px repeat(3,250px); }
+      .gallery-item:first-child,.gallery-item:nth-child(4) { grid-column:auto; }
+      .footer-grid { grid-template-columns:1fr; }
+      .demo-note { text-align:left; }
+      .mobile-call { display:flex; }
+      footer { padding-bottom:95px; }
+    }
+    @media (max-width:460px) {
+      .hero-actions,.visit-actions { display:grid; grid-template-columns:1fr; }
+      .button { width:100%; }
+      .story-collage { min-height:405px; }
+      .story-main { inset:0 10% 44px 0; }
+      .story-small { border-width:6px; }
+      .menu-row { grid-template-columns:1fr auto; }
+      .menu-row p { grid-column:1/-1; }
+      .special-pill { display:block; width:max-content; margin:8px 0 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
+      .reveal { opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-mark" href="#top">Family-run · Oakville</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a class="nav-call" href="tel:+19058271644">Call to order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <div class="since reveal visible">Family-run since 1968</div>
+        <h1 class="reveal visible delay-1">Bronte Fish <em>&amp;</em> Chips</h1>
+        <p class="hero-copy reveal visible delay-2">A British classic on Lakeshore Road. Golden fish, crisp chips and more than half a century of family tradition in Oakville.</p>
+        <div class="hero-actions reveal visible delay-2">
+          <a class="button" href="tel:+19058271644"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.9Z"/></svg>Call to order</a>
+          <a class="button outline" href="#menu">View the menu</a>
+        </div>
+        <div class="hero-lower reveal visible delay-2">
+          <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>2313 Lakeshore Rd W, Oakville</span>
+          <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Open Tuesday through Saturday</span>
+        </div>
+      </div>
+      <div class="hero-side-note">A Bronte tradition · Oakville, Ontario</div>
+    </section>
+
+    <aside class="legacy" aria-label="Our heritage">
+      <div class="shell legacy-inner">
+        <div class="legacy-year reveal">1968</div>
+        <p class="legacy-copy reveal delay-1">— Family-run since 1968</p>
+        <a class="legacy-link reveal delay-2" href="#story">Read our story ↓</a>
+      </div>
+    </aside>
+
+    <section class="story" id="story">
+      <div class="shell story-grid">
+        <div class="story-collage reveal">
+          <img class="story-main" src="assets/hero.jpg" alt="Golden battered fish with chips from Bronte Fish and Chips">
+          <img class="story-small" src="assets/heritage.jpg" alt="A freshly served seafood dinner" loading="lazy">
+          <div class="story-stamp"><span><strong>Since ’68</strong><small>Family-run in Oakville</small></span></div>
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow reveal">Our story</p>
+          <h2 class="section-title reveal">Good fish. Proper chips. A familiar welcome.</h2>
+          <p class="reveal">Bronte Fish &amp; Chips has been family-run since 1968 and welcomes Oakville diners at 2313 Lakeshore Road West.</p>
+          <p class="reveal">The menu keeps the focus where it belongs: British fish-and-chip favourites, seafood dinners and a classic dessert to finish.</p>
+          <div class="story-note reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="9"/></svg>
+            <div><strong>Tuesday tradition</strong><span>Haddock &amp; chips for $16.95 every Tuesday.</span></div>
+          </div>
+          <a class="button reveal" href="tel:+19058271644">Call (905) 827-1644</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="shell">
+        <div class="menu-head">
+          <div>
+            <p class="eyebrow reveal">The menu</p>
+            <h2 class="section-title reveal">The classics you came for.</h2>
+          </div>
+          <p class="menu-intro reveal">Choose a category to browse. Call ahead and your order can be waiting for pickup.</p>
+        </div>
+        <div class="tabs-wrap reveal">
+          <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+            <button class="menu-tab" id="tab-fish" type="button" role="tab" aria-controls="panel-fish" aria-selected="true" data-panel="fish">Fish &amp; Chips</button>
+            <button class="menu-tab" id="tab-seafood" type="button" role="tab" aria-controls="panel-seafood" aria-selected="false" data-panel="seafood">Seafood Dinners</button>
+            <button class="menu-tab" id="tab-desserts" type="button" role="tab" aria-controls="panel-desserts" aria-selected="false" data-panel="desserts">Desserts</button>
+          </div>
+          <div class="menu-panel active" id="panel-fish" role="tabpanel" aria-labelledby="tab-fish">
+            <article class="menu-row"><div><h3>Halibut &amp; Chips</h3><p>Golden battered halibut with chips.</p></div><span class="menu-price">$23.95</span></article>
+            <article class="menu-row"><div><h3>Haddock &amp; Chips</h3><p>Classic battered haddock with chips.</p></div><span class="menu-price">$19.95</span></article>
+            <article class="menu-row"><div><h3>Cod &amp; Chips</h3><p>Flaky battered cod with chips.</p></div><span class="menu-price">$19.95</span></article>
+            <article class="menu-row"><div><h3>Tuesday Special: Haddock <span class="special-pill">Tuesday</span></h3><p>Haddock &amp; chips at the Tuesday special price.</p></div><span class="menu-price">$16.95</span></article>
+          </div>
+          <div class="menu-panel" id="panel-seafood" role="tabpanel" aria-labelledby="tab-seafood" hidden>
+            <article class="menu-row"><div><h3>Shrimp Dinner</h3><p>Fried shrimp served as a seafood dinner.</p></div><span class="menu-price">$19.95</span></article>
+            <article class="menu-row"><div><h3>Scallop Dinner</h3><p>Fried scallops served as a seafood dinner.</p></div><span class="menu-price">$19.95</span></article>
+            <article class="menu-row"><div><h3>Seafood Platter</h3><p>A generous selection for seafood lovers.</p></div><span class="menu-price">$35.95</span></article>
+          </div>
+          <div class="menu-panel" id="panel-desserts" role="tabpanel" aria-labelledby="tab-desserts" hidden>
+            <article class="menu-row"><div><h3>Cherry Cheesecake</h3><p>A sweet finish topped with cherries.</p></div><span class="menu-price">$6.25</span></article>
+          </div>
+          <div class="menu-foot">
+            <span>Prices may change. Please call to confirm current availability.</span>
+            <a class="button gold" href="tel:+19058271644">Call to order</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="shell">
+        <div class="gallery-head">
+          <div>
+            <p class="eyebrow reveal">From the fryer</p>
+            <h2 class="section-title reveal">Golden, crisp &amp; ready.</h2>
+          </div>
+          <p class="section-lead reveal">Fish-and-chip classics, seafood favourites and something sweet.</p>
+        </div>
+        <div class="gallery-grid reveal">
+          <figure class="gallery-item"><img src="assets/fish-platter.webp" alt="British-style battered fish with chips"><figcaption>British-style fish &amp; chips</figcaption></figure>
+          <figure class="gallery-item"><img src="assets/fish-peas.jpg" alt="Battered fish and chips served with peas"><figcaption>A proper plate</figcaption></figure>
+          <figure class="gallery-item"><img src="assets/cherry-cheesecake.png" alt="A slice of cherry cheesecake"><figcaption>Cherry cheesecake</figcaption></figure>
+          <figure class="gallery-item"><img src="assets/seafood-platter.jpg" alt="A fried seafood platter with shrimp"><figcaption>Seafood favourites</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="shell visit-grid">
+        <div class="address-block">
+          <p class="eyebrow reveal">Visit us</p>
+          <h2 class="section-title reveal">Find us in Bronte.</h2>
+          <p class="address reveal"><strong>2313 Lakeshore Rd W</strong><br>Oakville, ON L6L 1H2</p>
+          <a class="phone reveal" href="tel:+19058271644">(905) 827-1644</a>
+          <div class="visit-actions reveal">
+            <a class="button" href="tel:+19058271644">Call to order</a>
+            <a class="button outline" href="https://www.google.com/maps/search/?api=1&amp;query=2313+Lakeshore+Rd+W+Oakville+ON+L6L+1H2" target="_blank" rel="noopener">Get directions <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="hours reveal">
+          <h3>Opening hours</h3>
+          <div class="hours-row"><span>Tuesday – Wednesday</span><span>11:00 AM – 7:00 PM</span></div>
+          <div class="hours-row"><span>Thursday – Friday</span><span>11:00 AM – 8:00 PM</span></div>
+          <div class="hours-row"><span>Saturday</span><span>11:00 AM – 7:30 PM</span></div>
+          <div class="hours-row"><span>Sunday – Monday</span><span class="closed">Closed</span></div>
+          <p class="today-note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Holiday hours can vary. Call ahead before making a special trip.</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-name">Bronte Fish &amp; Chips</div>
+          <p class="footer-meta">2313 Lakeshore Rd W, Oakville · <a href="tel:+19058271644">(905) 827-1644</a> · Family-run since 1968</p>
+        </div>
+        <p class="demo-note">Concept preview — demo built for Bronte Fish &amp; Chips</p>
+      </div>
+      <p class="photo-credit">Supporting food photography: <a href="https://www.brittany-ferries.fr/blog/article/quartiers-emblematiques-de-londres" target="_blank" rel="noopener">Brittany Ferries</a>, <a href="https://www.stockfood.fr/image/12568970-Fish-and-chips-peas-and-mayonaise" target="_blank" rel="noopener">StockFood</a>, <a href="https://www.vecteezy.com/free-photos/seafood-platter" target="_blank" rel="noopener">Vecteezy</a>.</p>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:+19058271644"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.9Z"/></svg>Tap to call &amp; order</a>
+
+  <script>
+    (function(){
+      var header=document.getElementById('siteHeader');
+      var toggle=document.getElementById('menuToggle');
+      var links=document.getElementById('navLinks');
+      function onScroll(){ header.classList.toggle('scrolled',window.scrollY>32); }
+      onScroll();
+      window.addEventListener('scroll',onScroll,{passive:true});
+      toggle.addEventListener('click',function(){
+        var open=links.classList.toggle('open');
+        document.body.classList.toggle('nav-open',open);
+        toggle.setAttribute('aria-expanded',String(open));
+        toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+      });
+      links.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){
+        links.classList.remove('open'); document.body.classList.remove('nav-open'); toggle.setAttribute('aria-expanded','false'); toggle.setAttribute('aria-label','Open navigation');
+      });});
+
+      var tabs=Array.from(document.querySelectorAll('.menu-tab'));
+      tabs.forEach(function(tab,index){
+        tab.addEventListener('click',function(){
+          tabs.forEach(function(t){t.setAttribute('aria-selected','false');});
+          document.querySelectorAll('.menu-panel').forEach(function(panel){panel.classList.remove('active');panel.hidden=true;});
+          tab.setAttribute('aria-selected','true');
+          var panel=document.getElementById('panel-'+tab.dataset.panel);
+          panel.hidden=false; panel.classList.add('active');
+        });
+        tab.addEventListener('keydown',function(event){
+          if(event.key==='ArrowRight'||event.key==='ArrowLeft'){
+            event.preventDefault();
+            var next=event.key==='ArrowRight'?(index+1)%tabs.length:(index-1+tabs.length)%tabs.length;
+            tabs[next].focus(); tabs[next].click();
+          }
+        });
+      });
+
+      if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        var observer=new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});
+        },{threshold:.12,rootMargin:'0px 0px -25px'});
+        document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){observer.observe(el);});
+      } else {
+        document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible');});
+      }
+    }());
+  </script>
+</body>
+</html>

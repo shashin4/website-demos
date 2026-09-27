@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0b0a08">
+  <link rel="icon" href="data:,">
+  <title>Hashtag Modern Kitchen &amp; Lounge | Oakville</title>
+  <meta name="description" content="Modern Middle Eastern kitchen and late-night lounge in Oakville. 100% halal. Call to order.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:light dark;
+      --bg:#12100d;
+      --bg-deep:#090806;
+      --surface:#1b1712;
+      --surface-2:#241e17;
+      --text:#f4eee3;
+      --muted:#b9ad9c;
+      --line:rgba(225,184,104,.19);
+      --amber:#e3b867;
+      --amber-bright:#f2cf88;
+      --ink:#15100a;
+      --header:rgba(11,10,8,.9);
+      --shadow:0 28px 70px rgba(0,0,0,.34);
+      --font-display:"Cormorant Garamond",Georgia,serif;
+      --font-body:"Jost",Verdana,sans-serif;
+    }
+    @media(prefers-color-scheme:light){
+      :root{
+        --bg:#18140f;
+        --bg-deep:#0d0b08;
+        --surface:#221c15;
+        --surface-2:#2b2319;
+        --text:#fff9ee;
+        --muted:#c8bcab;
+        --line:rgba(231,192,119,.23);
+        --amber:#e7ba67;
+        --amber-bright:#f6d99d;
+        --header:rgba(18,15,11,.91);
+        --shadow:0 28px 70px rgba(0,0,0,.3);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:76px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    body.nav-open{overflow:hidden}
+    img{display:block;width:100%;height:auto}
+    a{color:inherit}
+    button{font:inherit}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 20px;color:var(--amber-bright);font-size:.76rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+    .eyebrow::before{content:"";width:38px;height:1px;background:var(--amber)}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:.98}
+    h2{font-size:clamp(3rem,6vw,5.6rem);letter-spacing:-.035em;margin-bottom:22px}
+    h2 em{color:var(--amber-bright);font-weight:500}
+    .lede{max-width:620px;color:var(--muted);font-size:clamp(1rem,1.7vw,1.15rem);font-weight:300}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border:1px solid var(--amber);background:var(--amber);color:var(--ink);font-size:.8rem;font-weight:600;letter-spacing:.15em;text-decoration:none;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s,transform .25s}
+    .btn:hover,.btn:focus-visible{background:var(--amber-bright);border-color:var(--amber-bright);transform:translateY(-2px)}
+    .btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .btn-outline{background:transparent;color:var(--text);border-color:rgba(255,255,255,.4)}
+    .btn-outline:hover,.btn-outline:focus-visible{background:rgba(255,255,255,.07);border-color:var(--amber);color:var(--amber-bright)}
+    .reveal{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+    .reveal.entering{animation:revealIn .7s ease both}
+    @keyframes revealIn{from{opacity:.25;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+    /* Navigation */
+    .site-header{position:fixed;z-index:100;top:0;left:0;right:0;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,transform .3s}
+    .site-header.scrolled{background:var(--header);border-color:var(--line);backdrop-filter:blur(16px)}
+    .nav{height:84px;display:flex;align-items:center;justify-content:flex-end;gap:28px;transition:height .3s}
+    .site-header.scrolled .nav{height:68px}
+    .nav-links{display:flex;align-items:center;gap:32px;margin:0;padding:0;list-style:none}
+    .nav-links a{position:relative;color:#f5eee2;text-decoration:none;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase}
+    .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:-8px;height:1px;background:var(--amber);transition:right .25s}
+    .nav-links a:hover::after,.nav-links a.active::after{right:0}
+    .nav-links .btn{min-height:44px;padding:0 19px;color:var(--ink)}
+    .menu-toggle{display:none;width:44px;height:44px;border:0;background:transparent;color:#fff;padding:10px;cursor:pointer}
+    .menu-toggle span{display:block;height:1px;background:currentColor;margin:7px 0;transition:transform .25s,opacity .25s}
+
+    /* Hero */
+    .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:160px 0 76px;background:var(--bg-deep);isolation:isolate;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/lounge-hero.jpg") center 56%/cover no-repeat;transform:scale(1.02)}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,7,6,.94) 0%,rgba(8,7,6,.67) 46%,rgba(8,7,6,.22) 78%),linear-gradient(0deg,rgba(8,7,6,.88) 0%,transparent 48%,rgba(8,7,6,.28) 100%)}
+    .hero-content{max-width:860px}
+    .hero .eyebrow{margin-bottom:22px}
+    .hero h1{font-size:clamp(4.2rem,10vw,8.7rem);letter-spacing:-.055em;margin-bottom:12px;text-wrap:balance}
+    .hero h1 span{display:block;color:var(--amber-bright);font-size:.52em;font-style:italic;letter-spacing:-.015em;margin-top:8px}
+    .hero-sub{max-width:670px;color:#ded4c5;font-size:clamp(1.04rem,1.8vw,1.22rem);font-weight:300;margin-bottom:30px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-meta{display:flex;gap:34px;flex-wrap:wrap;margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.2);max-width:670px;color:#e0d6c7}
+    .hero-meta div{display:flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+    .hero-meta svg{width:18px;height:18px;stroke:var(--amber);fill:none;stroke-width:1.7}
+    .scroll-mark{position:absolute;right:36px;bottom:74px;display:flex;align-items:center;gap:11px;color:#d7cab7;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;writing-mode:vertical-rl}
+    .scroll-mark::after{content:"";height:54px;width:1px;background:linear-gradient(var(--amber),transparent)}
+
+    /* Intro strip */
+    .ticker{overflow:hidden;border-block:1px solid var(--line);background:var(--surface);padding:17px 0}
+    .ticker-track{display:flex;width:max-content;animation:ticker 28s linear infinite}
+    .ticker span{color:var(--amber-bright);font-family:var(--font-display);font-size:1.18rem;font-style:italic;white-space:nowrap}
+    .ticker i{font-style:normal;color:var(--muted);margin:0 24px}
+    @keyframes ticker{to{transform:translateX(-50%)}}
+
+    /* About */
+    .about{padding:130px 0}
+    .about-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:clamp(50px,8vw,110px)}
+    .image-composition{position:relative;padding:0 58px 58px 0}
+    .image-composition::before{content:"";position:absolute;inset:45px 6px 10px 52px;border:1px solid var(--amber);opacity:.55}
+    .image-main{position:relative;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--shadow);filter:saturate(.82) contrast(1.03)}
+    .image-small{position:absolute;right:0;bottom:0;width:48%;aspect-ratio:1.25;object-fit:cover;border:7px solid var(--bg);box-shadow:var(--shadow)}
+    .about-copy p{color:var(--muted);font-weight:300;margin-bottom:18px}
+    .about-copy strong{color:var(--text);font-weight:500}
+    .facts{display:grid;grid-template-columns:repeat(2,1fr);margin-top:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .fact{padding:22px 14px 22px 0}
+    .fact:nth-child(even){padding-left:24px;border-left:1px solid var(--line)}
+    .fact b{display:block;font-family:var(--font-display);font-size:1.35rem;color:var(--amber-bright);font-weight:500}
+    .fact span{color:var(--muted);font-size:.78rem;letter-spacing:.11em;text-transform:uppercase}
+
+    /* Menu */
+    .menu-section{padding:120px 0;background:var(--bg-deep);border-block:1px solid var(--line)}
+    .menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
+    .menu-head h2{margin-bottom:0}
+    .tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-top:56px}
+    .tab{position:relative;flex:1;border:0;background:transparent;color:var(--muted);padding:20px 18px;cursor:pointer;font-size:.82rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:color .2s,background .2s}
+    .tab::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:transparent}
+    .tab:hover{color:var(--text);background:rgba(255,255,255,.025)}
+    .tab[aria-selected="true"]{color:var(--amber-bright)}
+    .tab[aria-selected="true"]::after{background:var(--amber)}
+    .tab-num{display:inline-block;margin-right:9px;color:var(--amber);font-family:var(--font-display);font-size:1.05rem}
+    .menu-panel{display:none;padding-top:20px}
+    .menu-panel.active{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:68px;animation:panelIn .35s ease}
+    @keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .dish{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:25px 0;border-bottom:1px solid rgba(227,184,103,.15)}
+    .dish-name{font-family:var(--font-display);font-size:clamp(1.45rem,2.2vw,1.8rem);font-weight:500;line-height:1.1}
+    .dish-line{height:1px;background-image:linear-gradient(90deg,var(--line) 50%,transparent 50%);background-size:8px 1px}
+    .dish-price{font-family:var(--font-display);font-size:1.4rem;color:var(--amber-bright)}
+    .menu-bottom{display:flex;justify-content:space-between;align-items:center;gap:28px;margin-top:38px}
+    .menu-note{margin:0;color:var(--muted);font-size:.88rem;font-weight:300}
+
+    /* Gallery */
+    .gallery{padding:130px 0}
+    .gallery-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:42px}
+    .gallery-head .lede{justify-self:end;margin-bottom:13px}
+    .gallery-grid{display:grid;grid-template-columns:1.18fr .82fr .82fr;grid-template-rows:280px 280px;gap:12px}
+    .shot{position:relative;overflow:hidden;margin:0;background:var(--surface);isolation:isolate}
+    .shot:first-child{grid-row:1/3}
+    .shot:last-child{grid-column:2/4}
+    .shot img{height:100%;object-fit:cover;transition:transform .7s ease,filter .7s ease;filter:saturate(.82)}
+    .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(5,4,3,.83));opacity:.68;transition:opacity .35s}
+    .shot figcaption{position:absolute;z-index:1;left:20px;bottom:16px;color:#fff;font-family:var(--font-display);font-size:1.28rem;font-style:italic;transform:translateY(7px);opacity:.88;transition:transform .35s,opacity .35s}
+    .shot:hover img{transform:scale(1.055);filter:saturate(1)}
+    .shot:hover::after{opacity:.9}
+    .shot:hover figcaption{transform:none;opacity:1;color:var(--amber-bright)}
+
+    /* Visit */
+    .visit{padding:120px 0;background:var(--surface);border-top:1px solid var(--line)}
+    .visit-shell{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,8vw,100px)}
+    .visit-details{padding-top:14px}
+    .detail{display:grid;grid-template-columns:95px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}
+    .detail:first-child{padding-top:0}
+    .detail-label{color:var(--amber);font-size:.72rem;font-weight:600;letter-spacing:.17em;text-transform:uppercase}
+    .detail p,.detail address{margin:0;color:var(--text);font-style:normal;font-weight:300}
+    .detail a{text-decoration:none;border-bottom:1px solid var(--amber);transition:color .2s}
+    .detail a:hover{color:var(--amber-bright)}
+    .hours-callout{margin:26px 0 0;padding:22px 24px;background:var(--surface-2);border-left:2px solid var(--amber)}
+    .hours-callout b{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:500;color:var(--amber-bright)}
+    .hours-callout span{color:var(--muted);font-size:.86rem}
+    .visit-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+    /* Footer */
+    footer{background:var(--bg-deep);border-top:1px solid var(--line);padding:50px 0 100px;color:var(--muted);font-size:.82rem}
+    .footer-row{display:flex;justify-content:space-between;align-items:flex-end;gap:28px}
+    .footer-call{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);color:var(--text);text-decoration:none;line-height:1}
+    .footer-call:hover{color:var(--amber-bright)}
+    .demo-note{margin:0;max-width:430px;text-align:right;color:#827768;font-size:.75rem}
+    .mobile-call{display:none;position:fixed;z-index:120;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));height:54px;align-items:center;justify-content:center;gap:10px;background:var(--amber);color:var(--ink);text-decoration:none;font-size:.83rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+    .mobile-call svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.9}
+
+    @media(max-width:900px){
+      .about-grid{grid-template-columns:1fr;gap:70px}
+      .image-composition{max-width:640px}
+      .menu-panel.active{column-gap:32px}
+      .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:410px 240px 240px}
+      .shot:first-child{grid-column:1/3;grid-row:auto}
+      .shot:last-child{grid-column:1/3}
+      .visit-shell{grid-template-columns:1fr}
+    }
+    @media(max-width:720px){
+      .wrap{width:min(100% - 28px,1180px)}
+      h2{font-size:clamp(2.8rem,13vw,4.35rem)}
+      .nav{height:68px}
+      .site-header.scrolled{backdrop-filter:none}
+      .menu-toggle{display:block;position:relative;z-index:2}
+      .nav-links{position:fixed;inset:0;display:none;flex-direction:column;justify-content:center;gap:30px;background:rgba(9,8,6,.98)}
+      .nav-links.open{display:flex;animation:menuIn .28s ease both}
+      @keyframes menuIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+      .nav-links a{font-family:var(--font-display);font-size:1.75rem;letter-spacing:0;text-transform:none}
+      .nav-links .btn{font-family:var(--font-body);font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;min-height:52px}
+      .nav-open .menu-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+      .nav-open .menu-toggle span:nth-child(2){opacity:0}
+      .nav-open .menu-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+      .hero{min-height:92svh;padding:130px 0 62px}
+      .hero::before{background-position:62% center}
+      .hero::after{background:linear-gradient(90deg,rgba(8,7,6,.91),rgba(8,7,6,.49)),linear-gradient(0deg,rgba(8,7,6,.92),transparent 58%)}
+      .hero h1{font-size:clamp(4rem,21vw,6rem)}
+      .hero-sub{font-size:1rem}
+      .hero-meta{gap:18px;margin-top:34px}
+      .scroll-mark{display:none}
+      .about,.gallery{padding:88px 0}
+      .menu-section,.visit{padding:84px 0}
+      .image-composition{padding:0 34px 38px 0}
+      .image-composition::before{inset:34px 3px 7px 33px}
+      .image-small{border-width:5px}
+      .facts{grid-template-columns:1fr}
+      .fact:nth-child(even){padding-left:0;border-left:0;border-top:1px solid var(--line)}
+      .menu-head,.gallery-head{display:block}
+      .tabs{margin-top:38px}
+      .tab{padding:16px 8px;font-size:.72rem;letter-spacing:.1em}
+      .tab-num{display:block;margin:0 0 3px}
+      .menu-panel.active{grid-template-columns:1fr}
+      .dish{padding:20px 0}
+      .menu-bottom{align-items:flex-start;flex-direction:column}
+      .gallery-head .lede{margin:0}
+      .gallery-grid{grid-template-columns:1fr;grid-template-rows:none}
+      .shot,.shot:first-child,.shot:last-child{grid-column:auto;grid-row:auto;aspect-ratio:4/3}
+      .shot:first-child{aspect-ratio:4/5}
+      .detail{grid-template-columns:1fr;gap:7px}
+      .visit-actions .btn{width:100%}
+      .footer-row{display:block}
+      .demo-note{text-align:left;margin-top:24px}
+      footer{padding-bottom:94px}
+      .mobile-call{display:flex}
+      .nav-open .mobile-call{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <nav class="nav wrap" aria-label="Primary navigation">
+      <button class="menu-toggle" id="menuToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">The lounge</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a class="btn" href="tel:+19052085222">Call to order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-content">
+        <p class="eyebrow">Oakville · 100% Halal · Open late</p>
+        <h1 id="hero-title">Hashtag<span>Modern Kitchen &amp; Lounge</span></h1>
+        <p class="hero-sub">Modern Middle Eastern plates, fire-grilled favourites and a late-night lounge atmosphere in Oakville.</p>
+        <div class="hero-actions">
+          <a class="btn" href="tel:+19052085222">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6A2 2 0 0 1 22 16.9Z"/></svg>
+            Call to order
+          </a>
+          <a class="btn btn-outline" href="#menu">Explore the menu</a>
+        </div>
+        <div class="hero-meta" aria-label="Restaurant highlights">
+          <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+            100% halal
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg>
+            Serving until 2–3 AM typically
+          </div>
+        </div>
+      </div>
+      <div class="scroll-mark" aria-hidden="true">Discover</div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Mezze <i>◆</i> Fire-grilled BBQ <i>◆</i> Late-night lounge <i>◆</i> 100% Halal <i>◆</i> Oakville nights <i>◆</i>&nbsp;</span>
+        <span>Mezze <i>◆</i> Fire-grilled BBQ <i>◆</i> Late-night lounge <i>◆</i> 100% Halal <i>◆</i> Oakville nights <i>◆</i>&nbsp;</span>
+      </div>
+    </div>
+
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div class="image-composition reveal">
+          <img class="image-main" src="assets/fire-grill.webp" alt="Grilled dishes being prepared over flame" loading="lazy">
+          <img class="image-small" src="assets/mezze-spread.webp" alt="A table spread with mezze and fresh accompaniments" loading="lazy">
+        </div>
+        <div class="about-copy reveal">
+          <p class="eyebrow">The lounge</p>
+          <h2>Dinner flows into <em>after dark.</em></h2>
+          <p>Hashtag brings Middle Eastern flavours into a modern, low-lit lounge setting. Start with mezze, move to a plate from the grill, then settle in as Oakville’s evening stretches later.</p>
+          <p><strong>Open late and 100% halal,</strong> it is a place built for shared tables, unhurried nights and food well past the usual dinner hour.</p>
+          <div class="facts">
+            <div class="fact"><b>Late-night</b><span>Lounge atmosphere</span></div>
+            <div class="fact"><b>100%</b><span>Halal kitchen</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <div class="menu-head reveal">
+          <div>
+            <p class="eyebrow">At the table</p>
+            <h2 id="menu-title">A menu made to <em>share.</em></h2>
+          </div>
+          <p class="lede">Begin with familiar mezze, stay for satisfying mains, and finish at the grill.</p>
+        </div>
+
+        <div class="tabs reveal" role="tablist" aria-label="Menu categories">
+          <button class="tab" id="tab-mezze" type="button" role="tab" aria-selected="true" aria-controls="panel-mezze" tabindex="0" data-panel="panel-mezze"><span class="tab-num">01</span> Mezze</button>
+          <button class="tab" id="tab-mains" type="button" role="tab" aria-selected="false" aria-controls="panel-mains" tabindex="-1" data-panel="panel-mains"><span class="tab-num">02</span> Mains</button>
+          <button class="tab" id="tab-bbq" type="button" role="tab" aria-selected="false" aria-controls="panel-bbq" tabindex="-1" data-panel="panel-bbq"><span class="tab-num">03</span> BBQ</button>
+        </div>
+
+        <div class="menu-panel active" id="panel-mezze" role="tabpanel" aria-labelledby="tab-mezze">
+          <div class="dish"><span class="dish-name">Hummus</span><span class="dish-line"></span><span class="dish-price">$9.99</span></div>
+          <div class="dish"><span class="dish-name">Mutabal</span><span class="dish-line"></span><span class="dish-price">$10.99</span></div>
+          <div class="dish"><span class="dish-name">Yalanji</span><span class="dish-line"></span><span class="dish-price">$12.99</span></div>
+          <div class="dish"><span class="dish-name">Muhamara</span><span class="dish-line"></span><span class="dish-price">$11.99</span></div>
+          <div class="dish"><span class="dish-name">Fattoush</span><span class="dish-line"></span><span class="dish-price">$14.99</span></div>
+        </div>
+        <div class="menu-panel" id="panel-mains" role="tabpanel" aria-labelledby="tab-mains" hidden>
+          <div class="dish"><span class="dish-name">Fried Kibbeh</span><span class="dish-line"></span><span class="dish-price">$15.99</span></div>
+          <div class="dish"><span class="dish-name">Falafel Plate</span><span class="dish-line"></span><span class="dish-price">$18.99</span></div>
+          <div class="dish"><span class="dish-name">Shakshuka</span><span class="dish-line"></span><span class="dish-price">$15.99</span></div>
+        </div>
+        <div class="menu-panel" id="panel-bbq" role="tabpanel" aria-labelledby="tab-bbq" hidden>
+          <div class="dish"><span class="dish-name">Mix BBQ for One</span><span class="dish-line"></span><span class="dish-price">$33.99</span></div>
+        </div>
+        <div class="menu-bottom reveal">
+          <p class="menu-note">Menu availability may vary late at night. Call ahead to confirm.</p>
+          <a class="btn" href="tel:+19052085222">Call to order</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <div class="gallery-head reveal">
+          <div>
+            <p class="eyebrow">After dark</p>
+            <h2 id="gallery-title">Come hungry. <em>Stay late.</em></h2>
+          </div>
+          <p class="lede">Big plates, shared tables and the warmth of the grill, all in a room that gets better as the evening settles in.</p>
+        </div>
+        <div class="gallery-grid reveal">
+          <figure class="shot"><img src="assets/grill-feast.webp" alt="Middle Eastern mixed grill feast with hummus and grilled vegetables"><figcaption>From the grill</figcaption></figure>
+          <figure class="shot"><img src="assets/mezze-spread.webp" alt="Middle Eastern mezze spread"><figcaption>Pass the mezze</figcaption></figure>
+          <figure class="shot"><img src="assets/mixed-grill.jpg" alt="Mixed kebab platter with grilled bread"><figcaption>Plated for the night</figcaption></figure>
+          <figure class="shot"><img src="assets/lounge-detail.jpg" alt="Warm Middle Eastern lounge with mosaic lanterns and low seating"><figcaption>Your table, after dark</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="wrap visit-shell">
+        <div class="reveal">
+          <p class="eyebrow">Visit us</p>
+          <h2 id="visit-title">Oakville, <em>late.</em></h2>
+          <p class="lede">Find us on Cross Avenue. For tonight’s hours or to place an order, give us a call.</p>
+        </div>
+        <div class="visit-details reveal">
+          <div class="detail">
+            <span class="detail-label">Address</span>
+            <address>177 Cross Ave, Unit 1<br>Oakville, ON L6J 3J3</address>
+          </div>
+          <div class="detail">
+            <span class="detail-label">Phone</span>
+            <p><a href="tel:+19052085222">(905) 208-5222</a></p>
+          </div>
+          <div class="hours-callout">
+            <b>Open until 2–3 AM, typically</b>
+            <span>Hours can vary by night. Please call to confirm before visiting.</span>
+          </div>
+          <div class="visit-actions">
+            <a class="btn" href="tel:+19052085222">Call to order</a>
+            <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hashtag%20Modern%20Kitchen%20%26%20Lounge%2C%20177%20Cross%20Ave%20Unit%201%2C%20Oakville%2C%20ON%20L6J%203J3" target="_blank" rel="noopener noreferrer">
+              Get directions
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <a class="footer-call" href="tel:+19052085222">(905) 208-5222</a>
+      <p class="demo-note">Concept preview — demo built for Hashtag Modern Kitchen &amp; Lounge</p>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:+19052085222">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6A2 2 0 0 1 22 16.9Z"/></svg>
+    Tap to call
+  </a>
+
+  <script>
+    (function(){
+      var header=document.getElementById('siteHeader');
+      var toggle=document.getElementById('menuToggle');
+      var nav=document.getElementById('navLinks');
+      var links=Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+      var sections=Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+
+      function onScroll(){
+        header.classList.toggle('scrolled',window.scrollY>26);
+        var current='';
+        sections.forEach(function(section){if(window.scrollY>=section.offsetTop-130){current=section.id;}});
+        links.forEach(function(link){link.classList.toggle('active',link.getAttribute('href')==='#'+current);});
+      }
+      window.addEventListener('scroll',onScroll,{passive:true});
+      onScroll();
+
+      function closeNav(){
+        nav.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded','false');
+        toggle.setAttribute('aria-label','Open navigation');
+      }
+      toggle.addEventListener('click',function(){
+        var open=nav.classList.toggle('open');
+        document.body.classList.toggle('nav-open',open);
+        toggle.setAttribute('aria-expanded',String(open));
+        toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+      });
+      nav.querySelectorAll('a').forEach(function(link){link.addEventListener('click',closeNav);});
+      document.addEventListener('keydown',function(event){if(event.key==='Escape'){closeNav();}});
+
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      function activateTab(tab){
+        tabs.forEach(function(item){
+          var selected=item===tab;
+          item.setAttribute('aria-selected',String(selected));
+          item.tabIndex=selected?0:-1;
+          var panel=document.getElementById(item.dataset.panel);
+          panel.hidden=!selected;
+          panel.classList.toggle('active',selected);
+        });
+      }
+      tabs.forEach(function(tab,index){
+        tab.addEventListener('click',function(){activateTab(tab);});
+        tab.addEventListener('keydown',function(event){
+          if(event.key!=='ArrowRight'&&event.key!=='ArrowLeft'&&event.key!=='Home'&&event.key!=='End'){return;}
+          event.preventDefault();
+          var next=index;
+          if(event.key==='ArrowRight'){next=(index+1)%tabs.length;}
+          if(event.key==='ArrowLeft'){next=(index-1+tabs.length)%tabs.length;}
+          if(event.key==='Home'){next=0;}
+          if(event.key==='End'){next=tabs.length-1;}
+          activateTab(tabs[next]);
+          tabs[next].focus();
+        });
+      });
+
+      var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reveals=document.querySelectorAll('.reveal');
+      if(!reduce&&'IntersectionObserver' in window){
+        var observer=new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('entering');observer.unobserve(entry.target);}});
+        },{threshold:.12});
+        reveals.forEach(function(el){observer.observe(el);});
+      }
+    })();
+  </script>
+</body>
+</html>
