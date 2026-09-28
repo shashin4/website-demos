@@ -23,216 +23,212 @@
   html{scroll-behavior:smooth}
   body{
     font-family:'Karla',system-ui,sans-serif;
-    background:var(--bone);
-    color:var(--ink);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
+    background:var(--bone);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
   }
   ::selection{background:var(--amber);color:var(--ink)}
-  img{max-width:100%}
   a{color:inherit}
+  img{max-width:100%}
 
-  /* ---------- utility bar ---------- */
-  .utility{
+  /* ---------- slim top line ---------- */
+  .topline{
     background:var(--ink);color:var(--bone);
-    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
     display:flex;justify-content:space-between;gap:1rem;
     padding:.55rem 1.25rem;
   }
-  .utility a{text-decoration:none;border-bottom:1px solid var(--amber)}
-  @media(max-width:640px){.utility .u-addr{display:none}}
+  .topline a{text-decoration:none;border-bottom:1px solid var(--amber)}
+  .topline .t-hours{color:var(--amber)}
+  @media(max-width:700px){.topline .t-addr{display:none}.topline{justify-content:center}}
 
   /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:var(--bone);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:.9rem 1.25rem;max-width:1200px;margin:0 auto;
-  }
-  .brand{
-    font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.06em;
-    text-decoration:none;line-height:1;
-  }
-  .brand small{
-    display:block;font-family:'Karla',sans-serif;font-size:.6rem;font-weight:700;
-    letter-spacing:.42em;color:var(--amber-deep);margin-top:.1rem;
-  }
+  header{position:sticky;top:0;z-index:50;background:var(--bone);border-bottom:2px solid var(--ink)}
+  .nav{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.25rem}
+  .brand{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.06em;text-decoration:none;line-height:1}
+  .brand small{display:block;font-family:'Karla',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.42em;color:var(--amber-deep);margin-top:.1rem}
   .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
-  .nav-links a{
-    text-decoration:none;font-size:.8rem;font-weight:700;
-    letter-spacing:.18em;text-transform:uppercase;
-  }
+  .nav-links a{text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
   .nav-links a:hover{color:var(--amber-deep)}
-  .nav-call{
-    border:2px solid var(--ink);padding:.55rem 1.1rem;border-radius:999px;
-    text-decoration:none;transition:background .2s,color .2s;
-  }
+  .nav-call{border:2px solid var(--ink);padding:.55rem 1.1rem;border-radius:999px;text-decoration:none}
   .nav-call:hover{background:var(--ink);color:var(--bone)}
   .burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem}
   .burger span{display:block;width:26px;height:2px;background:var(--ink);margin:6px 0;transition:.25s}
   @media(max-width:760px){
     .burger{display:block}
-    .nav-links{
-      position:absolute;top:100%;left:0;right:0;background:var(--bone);
-      flex-direction:column;align-items:stretch;gap:0;
-      border-bottom:1px solid var(--line);display:none;
-    }
+    .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--bone);flex-direction:column;align-items:stretch;gap:0;border-bottom:2px solid var(--ink);display:none}
     .nav-links.open{display:flex}
     .nav-links li{border-top:1px solid var(--line)}
     .nav-links a{display:block;padding:1rem 1.25rem}
-    .nav-links .nav-call{border:0;border-radius:0;padding:1rem 1.25rem}
-    .nav-links .nav-call:hover{background:var(--ink);color:var(--bone)}
+    .nav-links .nav-call{border:0;border-radius:0}
     body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
     body.menu-open .burger span:nth-child(2){opacity:0}
     body.menu-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
   }
 
-  /* ---------- hero ---------- */
-  .hero{
-    max-width:1200px;margin:0 auto;padding:3.5rem 1.25rem 2.5rem;
-    display:grid;grid-template-columns:1.5fr 1fr;gap:2.5rem;align-items:end;
+  /* ---------- hero: split headline + ticket ---------- */
+  .hero{position:relative;overflow:hidden}
+  .hero-inner{
+    max-width:1240px;margin:0 auto;padding:3.5rem 1.25rem 0;
+    display:grid;grid-template-columns:1.35fr 1fr;gap:3rem;align-items:start;
   }
-  @media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:2.5rem}}
+  @media(max-width:920px){.hero-inner{grid-template-columns:1fr;padding-top:2.5rem}}
   .hero-kicker{
-    font-size:.75rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
-    color:var(--amber-deep);margin-bottom:1rem;
-    display:flex;align-items:center;gap:.75rem;
+    font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--amber-deep);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;
   }
   .hero-kicker::before{content:"";width:2.5rem;height:2px;background:var(--amber-deep)}
   .hero h1{
     font-family:'Bebas Neue',sans-serif;
-    font-size:clamp(4.5rem,17vw,12rem);
+    font-size:clamp(4.2rem,15vw,11rem);
     line-height:.86;letter-spacing:.01em;
   }
-  .hero h1 .outline{
-    color:transparent;-webkit-text-stroke:2px var(--ink);
+  .hero h1 .outline{color:transparent;-webkit-text-stroke:2px var(--ink)}
+  .walkin{
+    display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;
+    border:2px solid var(--ink);border-radius:999px;padding:.5rem 1rem;
+    font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    background:var(--bone);
   }
-  .hero-sub{
-    margin-top:1.25rem;font-size:1.05rem;max-width:34rem;
-  }
-  .hero-sub strong{font-weight:700}
-  .ticket{
-    background:var(--ink);color:var(--bone);border-radius:6px;
-    padding:1.6rem;position:relative;
-    box-shadow:8px 8px 0 var(--amber);
-  }
-  .ticket h2{
-    font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.08em;
-    border-bottom:1px dashed var(--line-light);padding-bottom:.7rem;margin-bottom:.9rem;
-  }
-  .ticket dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem .9rem;font-size:.92rem}
-  .ticket dt{color:var(--bone-dim);opacity:.75;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
-  .ticket dd{margin:0;text-align:right;font-weight:600}
-  .ticket .t-cta{margin-top:1.2rem;display:flex;flex-direction:column;gap:.6rem}
+  .walkin .dot{width:.6rem;height:.6rem;border-radius:50%;background:#2e7d32;flex:none;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero-sub{margin-top:1.3rem;font-size:1.05rem;max-width:34rem}
+  .hero-ctas{margin-top:1.7rem;display:flex;gap:.8rem;flex-wrap:wrap}
   .btn{
-    display:inline-block;text-align:center;text-decoration:none;font-weight:700;
-    letter-spacing:.14em;text-transform:uppercase;font-size:.82rem;
-    padding:.9rem 1.4rem;border-radius:4px;transition:transform .15s,background .2s;
+    display:inline-block;text-decoration:none;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;font-size:.82rem;padding:.95rem 1.5rem;border-radius:4px;
+    transition:background .2s,color .2s,transform .15s;
   }
   .btn:active{transform:scale(.98)}
-  .btn-amber{background:var(--amber);color:var(--ink)}
-  .btn-amber:hover{background:var(--bone)}
-  .btn-ghost{border:1px solid var(--line-light);color:var(--bone)}
-  .btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
   .btn-ink{background:var(--ink);color:var(--bone)}
   .btn-ink:hover{background:var(--amber-deep)}
+  .btn-line{border:2px solid var(--ink)}
+  .btn-line:hover{background:var(--ink);color:var(--bone)}
+  .btn-amber{background:var(--amber);color:var(--ink)}
+  .btn-amber:hover{background:var(--bone)}
 
-  /* ---------- marquee ---------- */
-  .marquee{
-    background:var(--ink);color:var(--bone);overflow:hidden;white-space:nowrap;
-    border-top:3px solid var(--amber);border-bottom:3px solid var(--amber);
-    padding:.8rem 0;margin:1rem 0 0;
+  /* barber pole */
+  .pole{
+    position:absolute;top:0;bottom:0;left:0;width:30px;
+    background:repeating-linear-gradient(-45deg,var(--bone) 0 14px,var(--amber-deep) 14px 28px,var(--bone) 28px 42px,#8f2b1d 42px 56px);
+    border-right:2px solid var(--ink);
+    animation:poleslide 6s linear infinite;
   }
-  .marquee-track{display:inline-block;animation:scroll 30s linear infinite}
-  .marquee span{
-    font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.12em;
-    margin:0 1.4rem;
-  }
-  .marquee .dot{color:var(--amber)}
-  @keyframes scroll{to{transform:translateX(-50%)}}
-  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+  @keyframes poleslide{to{background-position:0 79.2px}}
+  @media(max-width:1100px){.pole{display:none}}
+  @media(prefers-reduced-motion:reduce){.pole{animation:none}.walkin .dot{animation:none}}
 
-  /* ---------- sections ---------- */
-  section.block{max-width:1200px;margin:0 auto;padding:4rem 1.25rem}
-  .sec-head{display:flex;align-items:baseline;gap:1.25rem;margin-bottom:2.2rem;flex-wrap:wrap}
-  .sec-num{
-    font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--amber-deep);
-    border:2px solid var(--amber-deep);border-radius:50%;
-    width:2.6rem;height:2.6rem;display:grid;place-items:center;flex:none;
+  /* price ticket overlapping the hero */
+  .ticket{
+    background:var(--ink);color:var(--bone);border-radius:8px;
+    padding:1.7rem 1.6rem;position:relative;z-index:2;
+    margin-bottom:-6rem;
+    box-shadow:10px 10px 0 var(--amber);
+    outline:1px solid var(--line-light);
   }
-  .sec-head h2{
-    font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,3.4rem);
-    letter-spacing:.04em;line-height:1;
+  @media(max-width:920px){.ticket{margin-bottom:0}}
+  .ticket h2{
+    font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.08em;
+    display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:1px dashed var(--line-light);padding-bottom:.7rem;margin-bottom:.4rem;
   }
-  .sec-head p{width:100%;max-width:40rem;color:#4a4132}
+  .ticket h2 span:last-child{font-size:.85rem;font-family:'Karla',sans-serif;font-weight:700;letter-spacing:.2em;color:var(--amber)}
+  .ticket ul{list-style:none}
+  .ticket li{
+    display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+    padding:.62rem 0;border-bottom:1px dotted var(--line-light);font-size:.95rem;
+  }
+  .ticket li .svc{font-weight:600}
+  .ticket li .pr{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+  .ticket .t-note{margin-top:1rem;font-size:.82rem;color:#cfc4ab;line-height:1.6}
+  .ticket .t-cta{margin-top:1.1rem}
+  .ticket .t-cta .btn{width:100%;text-align:center}
 
-  /* ---------- services: shop wall menu ---------- */
-  .menu-list{border-top:2px solid var(--ink)}
-  .menu-row{
-    display:grid;grid-template-columns:3.2rem 1fr auto;gap:1.2rem;align-items:baseline;
-    padding:1.05rem .25rem;border-bottom:1px solid var(--line);
+  /* ---------- chairs: horizontal roster ---------- */
+  .chairs-band{background:var(--ink);color:var(--bone);padding:9rem 0 4.5rem}
+  @media(max-width:920px){.chairs-band{padding:4rem 0}}
+  .band-inner{max-width:1240px;margin:0 auto;padding:0 1.25rem}
+  .band-kicker{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--amber);margin-bottom:.9rem}
+  .band-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,7vw,4.5rem);line-height:.95;letter-spacing:.03em}
+  .band-inner .band-sub{margin-top:.9rem;color:#cfc4ab;max-width:38rem}
+  .roster{
+    margin-top:2.2rem;display:flex;gap:1rem;overflow-x:auto;padding-bottom:1rem;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
   }
-  .menu-row .n{
-    font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--amber-deep);
+  .roster::-webkit-scrollbar{height:8px}
+  .roster::-webkit-scrollbar-thumb{background:var(--amber);border-radius:4px}
+  .roster::-webkit-scrollbar-track{background:var(--ink-soft)}
+  .barber-card{
+    flex:0 0 250px;scroll-snap-align:start;
+    border:1px solid var(--line-light);border-radius:8px;padding:1.4rem 1.3rem;
+    background:var(--ink-soft);transition:border-color .2s,transform .2s;
   }
-  .menu-row .name{font-weight:700;font-size:1.12rem;letter-spacing:.02em}
-  .menu-row .price{
-    font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-    color:#6b5f49;white-space:nowrap;
-  }
-  .menu-note{
-    margin-top:1.4rem;font-size:.9rem;color:#4a4132;
-    border-left:3px solid var(--amber);padding-left:1rem;max-width:42rem;
-  }
-  @media(min-width:900px){
-    .menu-list{columns:2;column-gap:3rem}
-    .menu-row{break-inside:avoid}
-  }
+  .barber-card:hover{border-color:var(--amber);transform:translateY(-4px)}
+  .barber-card .b-num{font-family:'Bebas Neue',sans-serif;color:var(--amber);font-size:1rem;letter-spacing:.1em}
+  .barber-card .b-handle{font-family:'Bebas Neue',sans-serif;font-size:1.65rem;letter-spacing:.04em;margin:.5rem 0 .2rem;word-break:break-all}
+  .barber-card .b-role{font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#9d917a}
+  .barber-card .b-note{margin-top:.9rem;font-size:.82rem;color:#cfc4ab}
+  .scroll-hint{margin-top:1rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#9d917a}
+  .chairs-note{margin-top:1.6rem;font-size:.9rem;color:#cfc4ab;max-width:44rem}
+  .chairs-note a{color:var(--amber)}
 
-  /* ---------- team ---------- */
-  .dark{background:var(--ink);color:var(--bone)}
-  .dark .sec-head p{color:#cfc4ab}
-  .dark .sec-num{color:var(--amber);border-color:var(--amber)}
-  .chairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;background:var(--line-light);border:1px solid var(--line-light)}
-  .chair{background:var(--ink);padding:1.4rem 1.2rem;transition:background .2s}
-  .chair:hover{background:var(--ink-soft)}
-  .chair .handle{font-weight:700;letter-spacing:.04em;font-size:1.02rem}
-  .chair .role{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-top:.35rem}
-  .chairs-note{margin-top:1.4rem;font-size:.9rem;color:#cfc4ab;max-width:42rem}
-
-  /* ---------- visit ---------- */
-  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
-  @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
-  .hours{width:100%;border-collapse:collapse;font-size:.98rem}
-  .hours caption{
-    text-align:left;font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
-    letter-spacing:.06em;padding-bottom:.8rem;
+  /* ---------- cuts gallery strip ---------- */
+  .cuts{padding:4.5rem 0}
+  .cuts-head{max-width:1240px;margin:0 auto 2rem;padding:0 1.25rem;display:flex;align-items:end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+  .cuts-head h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,7vw,4.5rem);line-height:.95;letter-spacing:.03em}
+  .cuts-head .k{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:.9rem}
+  .cuts-head p{max-width:30rem;color:#4a4132}
+  .cut-strip{
+    display:flex;gap:1rem;overflow-x:auto;padding:.5rem 1.25rem 1.2rem;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
   }
-  .hours td{padding:.7rem .25rem;border-bottom:1px solid var(--line)}
+  .cut-strip::-webkit-scrollbar{height:8px}
+  .cut-strip::-webkit-scrollbar-thumb{background:var(--amber-deep);border-radius:4px}
+  .cut-strip::-webkit-scrollbar-track{background:var(--bone-dim)}
+  .cut{
+    flex:0 0 190px;scroll-snap-align:start;text-decoration:none;
+    border:2px solid var(--ink);border-radius:8px;background:var(--bone);
+    padding:1.5rem 1.2rem;display:flex;flex-direction:column;gap:.9rem;min-height:250px;
+    transition:background .2s,color .2s,transform .2s;
+  }
+  .cut:hover{background:var(--ink);color:var(--bone);transform:translateY(-4px)}
+  .cut svg{width:44px;height:44px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .cut .c-name{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.04em;line-height:1.05}
+  .cut .c-price{margin-top:auto;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-deep)}
+  .cut:hover .c-price{color:var(--amber)}
+  .cut .c-call{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------- visit card ---------- */
+  .visit{padding:1rem 1.25rem 5rem;max-width:1240px;margin:0 auto}
+  .visit-card{
+    background:var(--ink);color:var(--bone);border-radius:10px;
+    box-shadow:10px 10px 0 var(--amber);
+    padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;
+  }
+  @media(max-width:860px){.visit-card{grid-template-columns:1fr;padding:1.8rem}}
+  .visit-card h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,3.2rem);letter-spacing:.04em;line-height:1;margin-bottom:1.4rem}
+  .hours{width:100%;border-collapse:collapse;font-size:.95rem}
+  .hours td{padding:.65rem .25rem;border-bottom:1px solid var(--line-light)}
   .hours td:last-child{text-align:right;font-weight:600}
-  .hours tr.today td{background:rgba(201,143,31,.14);font-weight:700}
+  .hours tr.today td{background:rgba(201,143,31,.16)}
   .hours tr.today td:first-child::after{
-    content:"TODAY";font-size:.62rem;letter-spacing:.18em;color:var(--amber-deep);
-    border:1px solid var(--amber-deep);border-radius:3px;padding:.1rem .4rem;margin-left:.7rem;
-    vertical-align:middle;
+    content:"TODAY";font-size:.6rem;letter-spacing:.18em;color:var(--amber);
+    border:1px solid var(--amber);border-radius:3px;padding:.1rem .4rem;margin-left:.7rem;vertical-align:middle;
   }
-  .visit-card h3{
-    font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.06em;margin-bottom:.6rem;
-  }
-  .visit-card address{font-style:normal;font-size:1.02rem;margin-bottom:1.2rem}
-  .visit-actions{display:flex;flex-direction:column;gap:.7rem;margin-top:1.4rem}
-  .btn-row{display:flex;gap:.7rem;flex-wrap:wrap}
-  .btn-row .btn{flex:1;min-width:140px}
+  .visit-info address{font-style:normal;font-size:1.02rem;margin-bottom:1rem;line-height:1.7}
+  .visit-info p{margin-bottom:.5rem}
+  .visit-info a.cta-link{color:var(--amber)}
+  .visit-actions{margin-top:1.5rem;display:flex;flex-direction:column;gap:.7rem}
+  .visit-actions .btn-row{display:flex;gap:.7rem;flex-wrap:wrap}
+  .visit-actions .btn-row .btn{flex:1;min-width:140px;text-align:center}
+  .btn-ghostlight{border:1px solid var(--line-light);color:var(--bone);text-align:center}
+  .btn-ghostlight:hover{border-color:var(--amber);color:var(--amber)}
 
   /* ---------- footer ---------- */
-  footer{background:var(--ink);color:var(--bone);padding:2.5rem 1.25rem 6.5rem}
-  .foot-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:flex-start}
+  footer{background:var(--ink);color:var(--bone);padding:2.5rem 1.25rem 6.5rem;border-top:3px solid var(--amber)}
+  .foot-inner{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:flex-start}
   .foot-brand{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.06em}
-  .foot-brand small{display:block;font-family:'Karla',sans-serif;font-size:.62rem;letter-spacing:.4em;color:var(--amber);font-weight:700}
-  .disclosure{font-size:.75rem;color:#9d917a;max-width:26rem;line-height:1.7}
+  .foot-brand small{display:block;font-family:'Karla',sans-serif;font-size:.6rem;letter-spacing:.4em;color:var(--amber);font-weight:700;margin-top:.2rem}
+  .disclosure{font-size:.75rem;color:#9d917a;max-width:28rem;line-height:1.7}
   .disclosure strong{color:#cfc4ab}
 
   /* ---------- sticky mobile call bar ---------- */
@@ -242,17 +238,15 @@
     padding:1rem;text-align:center;font-weight:700;letter-spacing:.16em;
     text-transform:uppercase;font-size:.85rem;border-top:3px solid var(--amber);
   }
-  @media(max-width:760px){
-    .sticky-call{display:block}
-    body{padding-bottom:0}
-  }
+  @media(max-width:760px){.sticky-call{display:block}}
 </style>
 </head>
 <body>
 
-<div class="utility">
-  <span class="u-addr">7900 Hurontario St Unit 10, Brampton ON</span>
-  <span>Mon–Thu 9–8 &nbsp;·&nbsp; Fri 9–6 &nbsp;·&nbsp; Sat 9–3 &nbsp;·&nbsp; <a href="tel:+19054975006">Call (905) 497-5006</a></span>
+<div class="topline">
+  <span class="t-addr">7900 Hurontario St Unit 10, Brampton ON</span>
+  <span class="t-hours">Mon–Thu 9–8 &nbsp;·&nbsp; Fri 9–6 &nbsp;·&nbsp; Sat 9–3</span>
+  <span><a href="tel:+19054975006">Call (905) 497-5006</a></span>
 </div>
 
 <header>
@@ -262,7 +256,7 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
+      <li><a href="#menu">The Menu</a></li>
       <li><a href="#chairs">Barbers</a></li>
       <li><a href="#visit">Visit</a></li>
       <li><a class="nav-call" href="tel:+19054975006">Call to Book</a></li>
@@ -271,125 +265,161 @@
 </header>
 
 <main id="top">
-  <!-- HERO -->
+  <!-- HERO: split headline + walk-in badge | price ticket -->
   <div class="hero">
-    <div>
-      <p class="hero-kicker">Brampton, Ontario</p>
-      <h1>BLURRY<br><span class="outline">BARBER</span>SHOP</h1>
-      <p class="hero-sub">
-        Sharp, edgy, precision cuts in the heart of Brampton. Hot towel shaves,
-        beard detailing, scissor work — <strong>where precision meets style</strong>.
-        Walk-ins welcome, or call ahead to lock in your chair.
-      </p>
-      <div class="btn-row" style="margin-top:1.6rem;max-width:26rem">
-        <a class="btn btn-ink" href="tel:+19054975006">Call (905) 497-5006</a>
-        <a class="btn" style="border:2px solid var(--ink)" href="#services">See Services</a>
+    <div class="pole" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div>
+        <p class="hero-kicker">Barbershop · Brampton, Ontario</p>
+        <h1>BLURRY<br><span class="outline">BARBERSHOP</span></h1>
+        <p class="walkin"><span class="dot" aria-hidden="true"></span> Walk-ins welcome · <span id="walkinToday">Today</span></p>
+        <p class="hero-sub">
+          Sharp, edgy, precision cuts in the heart of Brampton. Hot towel shaves,
+          beard detailing, scissor work — <strong>where precision meets style</strong>.
+          Walk-ins welcome, or call ahead to lock in your chair.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-ink" href="tel:+19054975006">Call (905) 497-5006</a>
+          <a class="btn btn-line" href="#cuts">See the Services</a>
+        </div>
       </div>
+      <aside class="ticket" id="menu" aria-label="Shop price list">
+        <h2><span>The Shop Menu</span><span>12 Services</span></h2>
+        <ul>
+          <li><span class="svc">Haircut</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Scissor Cut</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Hot Towel Shave</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Beard Detailing</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Beard Detail + Enhancement</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Haircut, Beard &amp; Black Mask</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Haircut &amp; Black Mask</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Black Mask &amp; Facial</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Facial Wash</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Facial Wax</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Eyebrows</span><span class="pr">Call for price</span></li>
+          <li><span class="svc">Nose Wax</span><span class="pr">Call for price</span></li>
+        </ul>
+        <p class="t-note">Prices vary for each groomer — when you call to book, we confirm your price up front. No surprises in the chair.</p>
+        <div class="t-cta"><a class="btn btn-amber" href="tel:+19054975006">Book by Phone</a></div>
+      </aside>
     </div>
-    <aside class="ticket" aria-label="Quick info">
-      <h2>Good to know</h2>
-      <dl>
-        <dt>Address</dt><dd>7900 Hurontario St, Unit 10</dd>
-        <dt>Phone</dt><dd><a href="tel:+19054975006" style="color:var(--amber)">(905) 497-5006</a></dd>
-        <dt>Email</dt><dd><a href="mailto:theblurrybarbershop@gmail.com" style="color:var(--amber);font-size:.82rem">theblurrybarbershop@gmail.com</a></dd>
-        <dt>Today</dt><dd id="ticketToday">—</dd>
-      </dl>
-      <div class="t-cta">
-        <a class="btn btn-amber" href="tel:+19054975006">Book by Phone</a>
-        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Blurry+Barbershop+7900+Hurontario+St+Unit+10+Brampton+ON" target="_blank" rel="noopener">Get Directions</a>
-      </div>
-    </aside>
   </div>
 
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track" id="marqueeTrack">
-      <span>Haircut</span><span class="dot">✦</span><span>Hot Towel Shave</span><span class="dot">✦</span><span>Beard Detailing</span><span class="dot">✦</span><span>Scissor Cut</span><span class="dot">✦</span><span>Black Mask</span><span class="dot">✦</span><span>Facial Wax</span><span class="dot">✦</span><span>Eyebrows</span><span class="dot">✦</span><span>Nose Wax</span><span class="dot">✦</span>
+  <!-- IN THE CHAIRS: horizontal barber roster -->
+  <div class="chairs-band" id="chairs">
+    <div class="band-inner">
+      <p class="band-kicker">The Roster</p>
+      <h2>IN THE CHAIRS</h2>
+      <p class="band-sub">Nine barbers, nine styles. Ask for yours by name when you call — each barber sets their own pricing.</p>
+      <div class="roster" aria-label="Barber roster">
+        <div class="barber-card"><div class="b-num">01</div><div class="b-handle">@BLURRYMANE</div><div class="b-role">Barber</div><div class="b-note">Book by name when you call.</div></div>
+        <div class="barber-card"><div class="b-num">02</div><div class="b-handle">@TLINER</div><div class="b-role">Barber</div><div class="b-note">Book by name when you call.</div></div>
+        <div class="barber-card"><div class="b-num">03</div><div class="b-handle">@SANGHA.BLENDZ</div><div class="b-role">Barber</div><div class="b-note">Book by name when you call.</div></div>
+        <div class="barber-card"><div class="b-num">04</div><div class="b-handle">@ANHIMOSITY</div><div class="b-role">Barber</div><div class="b-note">Book by name when you call.</div></div>
+        <div class="barber-card"><div class="b-num">05</div><div class="b-handle">@BRYAN.BLENDZ</div><div class="b-role">Barber</div><div class="b-note">Book by name when you call.</div></div>
+        <div class="barber-card"><div class="b-num">06</div><div class="b-handle">@FINESSE.FADES</div><div class="b-role">Barber</div><div class="b-note">Book by name when you call.</div></div>
+        <div class="barber-card"><div class="b-num">07</div><div class="b-handle">@KEV.POINT.CUTS</div><div class="b-role">Barber</div><div class="b-note">Book by name when you call.</div></div>
+        <div class="barber-card"><div class="b-num">08</div><div class="b-handle">@CUTS.BY.HANI</div><div class="b-role">Barber</div><div class="b-note">Book by name when you call.</div></div>
+        <div class="barber-card"><div class="b-num">09</div><div class="b-handle">@BRAR.CUTZ</div><div class="b-role">Barber</div><div class="b-note">Book by name when you call.</div></div>
+      </div>
+      <p class="scroll-hint">Scroll sideways →</p>
+      <p class="chairs-note">Find their work on Instagram under these handles, then call the shop at <a href="tel:+19054975006">(905) 497-5006</a> to book with the barber you want.</p>
     </div>
   </div>
 
-  <!-- SERVICES -->
-  <section class="block" id="services">
-    <div class="sec-head">
-      <span class="sec-num">01</span>
-      <h2>The Service Menu</h2>
-      <p>Every service off the shop wall. Prices vary by barber — call ahead and we'll quote you straight.</p>
+  <!-- OFF THE WALL: cuts gallery strip -->
+  <section class="cuts" id="cuts" aria-label="Services gallery">
+    <div class="cuts-head">
+      <div>
+        <p class="k">The Lineup</p>
+        <h2>OFF THE WALL</h2>
+      </div>
+      <p>Every service the shop offers, straight off the wall menu. Tap any card to call and book it.</p>
     </div>
-    <div class="menu-list">
-      <div class="menu-row"><span class="n">01</span><span class="name">Haircut</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">02</span><span class="name">Scissor Cut</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">03</span><span class="name">Hot Towel Shave</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">04</span><span class="name">Beard Detailing</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">05</span><span class="name">Beard Detail + Enhancement</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">06</span><span class="name">Haircut, Beard &amp; Black Mask</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">07</span><span class="name">Haircut &amp; Black Mask</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">08</span><span class="name">Black Mask &amp; Facial</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">09</span><span class="name">Facial Wash</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">10</span><span class="name">Facial Wax</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">11</span><span class="name">Eyebrows</span><span class="price">Call for price</span></div>
-      <div class="menu-row"><span class="n">12</span><span class="name">Nose Wax</span><span class="price">Call for price</span></div>
+    <div class="cut-strip">
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><circle cx="9" cy="24" r="3.2"/><circle cx="9" cy="8" r="3.2"/><path d="M11.5 10.5 27 24M11.5 21.5 27 8"/></svg>
+        <span class="c-name">Haircut</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><path d="M5 9h22M7 9v5M11 9v9M15 9v9M19 9v9M23 9v9M27 9v5"/></svg>
+        <span class="c-name">Scissor Cut</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><path d="M11 5c-1.2 2 1.2 3 0 5M17 5c-1.2 2 1.2 3 0 5M23 5c-1.2 2 1.2 3 0 5"/><rect x="6" y="13" width="20" height="13" rx="2"/><path d="M6 18h20M11 13v13"/></svg>
+        <span class="c-name">Hot Towel Shave</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><path d="M4 27 16 15"/><rect x="14" y="4" width="14" height="6" rx="1.5" transform="rotate(38 21 7)"/><path d="M20 12l3 3"/></svg>
+        <span class="c-name">Beard Detailing</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><path d="M16 4l1.8 7.2L25 13l-7.2 1.8L16 22l-1.8-7.2L7 13l7.2-1.8z"/><path d="M25 20l.9 3.1L29 24l-3.1.9L25 28l-.9-3.1L21 24l3.1-.9z"/></svg>
+        <span class="c-name">Beard Detail + Enhancement</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><rect x="11" y="9" width="10" height="17" rx="2.5"/><path d="M9 9L7 4h18l-2 5M14 14h4M14 17.5h4M14 21h4"/></svg>
+        <span class="c-name">Haircut, Beard &amp; Black Mask</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><path d="M5 13c5-7 17-7 22 0-2 7-6 11-11 11s-9-4-11-11z"/><circle cx="12" cy="14" r="1.4"/><circle cx="20" cy="14" r="1.4"/><path d="M13 20c2 1.4 4 1.4 6 0"/></svg>
+        <span class="c-name">Haircut &amp; Black Mask</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><path d="M5 13c5-7 17-7 22 0-2 7-6 11-11 11s-9-4-11-11z"/><path d="M16 8c4 5 5.5 8.5 5.5 11.5a5.5 5.5 0 1 1-11 0C10.5 16.5 12 13 16 8z"/></svg>
+        <span class="c-name">Black Mask &amp; Facial</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><path d="M16 5c5.5 7 7.5 10.5 7.5 14a7.5 7.5 0 1 1-15 0c0-3.5 2-7 7.5-14z"/></svg>
+        <span class="c-name">Facial Wash</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><rect x="9" y="7" width="13" height="19" rx="2" transform="rotate(10 15 16)"/><path d="M23 8c3-1 5-3 6-5"/></svg>
+        <span class="c-name">Facial Wax</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><path d="M5 20c7-9 15-9 22-3"/><path d="M8 24c6-6 12-6 17-2"/></svg>
+        <span class="c-name">Eyebrows</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
+      <a class="cut" href="tel:+19054975006">
+        <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="3.5"/></svg>
+        <span class="c-name">Nose Wax</span><span class="c-price">Call for price</span><span class="c-call">Tap to call</span>
+      </a>
     </div>
-    <p class="menu-note">Note from the shop: prices vary for each groomer. When you call to book, we'll confirm your price up front — no surprises in the chair.</p>
   </section>
 
-  <!-- TEAM -->
-  <div class="dark">
-    <section class="block" id="chairs">
-      <div class="sec-head">
-        <span class="sec-num">02</span>
-        <h2>In the Chairs</h2>
-        <p>Nine barbers, nine styles. Ask for yours by name when you call — each barber sets their own pricing.</p>
-      </div>
-      <div class="chairs">
-        <div class="chair"><div class="handle">@BLURRYMANE</div><div class="role">Barber</div></div>
-        <div class="chair"><div class="handle">@TLINER</div><div class="role">Barber</div></div>
-        <div class="chair"><div class="handle">@SANGHA.BLENDZ</div><div class="role">Barber</div></div>
-        <div class="chair"><div class="handle">@ANHIMOSITY</div><div class="role">Barber</div></div>
-        <div class="chair"><div class="handle">@BRYAN.BLENDZ</div><div class="role">Barber</div></div>
-        <div class="chair"><div class="handle">@FINESSE.FADES</div><div class="role">Barber</div></div>
-        <div class="chair"><div class="handle">@KEV.POINT.CUTS</div><div class="role">Barber</div></div>
-        <div class="chair"><div class="handle">@CUTS.BY.HANI</div><div class="role">Barber</div></div>
-        <div class="chair"><div class="handle">@BRAR.CUTZ</div><div class="role">Barber</div></div>
-      </div>
-      <p class="chairs-note">Find their work on Instagram under these handles, then call the shop to book with the barber you want.</p>
-    </section>
-  </div>
-
   <!-- VISIT -->
-  <section class="block" id="visit">
-    <div class="sec-head">
-      <span class="sec-num">03</span>
-      <h2>Visit the Shop</h2>
-      <p>On Hurontario Street in Brampton — walk in or call ahead.</p>
-    </div>
-    <div class="visit-grid">
-      <table class="hours" id="hoursTable">
-        <caption>Shop Hours</caption>
-        <tbody>
-          <tr data-day="1"><td>Monday</td><td>9:00 AM – 8:00 PM</td></tr>
-          <tr data-day="2"><td>Tuesday</td><td>9:00 AM – 8:00 PM</td></tr>
-          <tr data-day="3"><td>Wednesday</td><td>9:00 AM – 8:00 PM</td></tr>
-          <tr data-day="4"><td>Thursday</td><td>9:00 AM – 8:00 PM</td></tr>
-          <tr data-day="5"><td>Friday</td><td>9:00 AM – 6:00 PM</td></tr>
-          <tr data-day="6"><td>Saturday</td><td>9:00 AM – 3:00 PM</td></tr>
-          <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
-        </tbody>
-      </table>
-      <div class="visit-card">
-        <h3>Find Us</h3>
+  <section class="visit" id="visit" aria-label="Visit the shop">
+    <div class="visit-card">
+      <div>
+        <h2>VISIT THE SHOP</h2>
+        <table class="hours" id="hoursTable">
+          <tbody>
+            <tr data-day="1" data-hours="9:00 AM – 8:00 PM"><td>Monday</td><td>9:00 AM – 8:00 PM</td></tr>
+            <tr data-day="2" data-hours="9:00 AM – 8:00 PM"><td>Tuesday</td><td>9:00 AM – 8:00 PM</td></tr>
+            <tr data-day="3" data-hours="9:00 AM – 8:00 PM"><td>Wednesday</td><td>9:00 AM – 8:00 PM</td></tr>
+            <tr data-day="4" data-hours="9:00 AM – 8:00 PM"><td>Thursday</td><td>9:00 AM – 8:00 PM</td></tr>
+            <tr data-day="5" data-hours="9:00 AM – 6:00 PM"><td>Friday</td><td>9:00 AM – 6:00 PM</td></tr>
+            <tr data-day="6" data-hours="9:00 AM – 3:00 PM"><td>Saturday</td><td>9:00 AM – 3:00 PM</td></tr>
+            <tr data-day="0" data-hours="Closed"><td>Sunday</td><td>Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="visit-info">
+        <h2 style="font-size:1.4rem;letter-spacing:.06em">FIND US</h2>
         <address>
           Blurry Barbershop<br>
           7900 Hurontario St, Unit 10<br>
           Brampton, ON L6Y 0P6
         </address>
-        <p><strong>Phone:</strong> <a href="tel:+19054975006">(905) 497-5006</a><br>
-        <strong>Email:</strong> <a href="mailto:theblurrybarbershop@gmail.com">theblurrybarbershop@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a class="cta-link" href="tel:+19054975006">(905) 497-5006</a></p>
+        <p><strong>Email:</strong> <a class="cta-link" href="mailto:theblurrybarbershop@gmail.com">theblurrybarbershop@gmail.com</a></p>
         <div class="visit-actions">
           <div class="btn-row">
-            <a class="btn btn-ink" href="tel:+19054975006">Call Now</a>
-            <a class="btn" style="border:2px solid var(--ink)" href="https://www.google.com/maps/search/?api=1&query=Blurry+Barbershop+7900+Hurontario+St+Unit+10+Brampton+ON" target="_blank" rel="noopener">Directions</a>
+            <a class="btn btn-amber" href="tel:+19054975006">Call Now</a>
+            <a class="btn btn-ghostlight" href="https://www.google.com/maps/search/?api=1&query=Blurry+Barbershop+7900+Hurontario+St+Unit+10+Brampton+ON" target="_blank" rel="noopener">Directions</a>
           </div>
-          <a class="btn btn-amber" href="mailto:theblurrybarbershop@gmail.com">Email the Shop</a>
+          <a class="btn btn-ghostlight" href="mailto:theblurrybarbershop@gmail.com">Email the Shop</a>
         </div>
       </div>
     </div>
@@ -400,9 +430,10 @@
   <div class="foot-inner">
     <div class="foot-brand">BLURRY<small>BARBERSHOP · BRAMPTON</small></div>
     <p class="disclosure">
-      <strong>Concept preview.</strong> This is a demo website built to show what a
-      new Blurry Barbershop site could look like — it is not the shop's official site.
-      Business details shown here come from the shop's public listings.
+      <strong>Concept preview.</strong> This is a demo website built by Shashin Pillay,
+      a Seneca IT student, to show what a new Blurry Barbershop site could look like —
+      it is not the shop's official site. Business details shown here come from the
+      shop's public listings.
     </p>
   </div>
 </footer>
@@ -411,7 +442,6 @@
 
 <script>
 (function(){
-  // Mobile menu
   var burger = document.getElementById('burger');
   var navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', function(){
@@ -426,21 +456,17 @@
       burger.setAttribute('aria-expanded','false');
     });
   });
-
-  // Seamless marquee: duplicate track content once
-  var track = document.getElementById('marqueeTrack');
-  track.innerHTML += track.innerHTML;
-
-  // Highlight today's hours + ticket line
   var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   var today = new Date().getDay();
-  var rows = document.querySelectorAll('#hoursTable tr[data-day]');
-  rows.forEach(function(r){
-    if (parseInt(r.getAttribute('data-day'),10) === today) r.classList.add('today');
+  var todayHours = '';
+  document.querySelectorAll('#hoursTable tr[data-day]').forEach(function(r){
+    if (parseInt(r.getAttribute('data-day'),10) === today){
+      r.classList.add('today');
+      todayHours = r.getAttribute('data-hours');
+    }
   });
-  var ticketToday = document.getElementById('ticketToday');
-  var todayRow = document.querySelector('#hoursTable tr.today td:last-child');
-  if (ticketToday && todayRow) ticketToday.textContent = days[today] + ' ' + todayRow.textContent;
+  var walkin = document.getElementById('walkinToday');
+  if (walkin) walkin.textContent = 'Today ' + (todayHours === 'Closed' ? 'closed' : todayHours);
 })();
 </script>
 </body>

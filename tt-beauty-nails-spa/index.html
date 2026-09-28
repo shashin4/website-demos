@@ -11,13 +11,14 @@
 <style>
   :root{
     --ivory:#faf7f0;
+    --blush:#f3e2d5;
     --cream:#f1eadd;
     --espresso:#2a2118;
     --espresso-soft:#3a2e20;
     --clay:#a8502c;
     --clay-deep:#8a3e20;
     --line:rgba(42,33,24,.16);
-    --line-light:rgba(250,247,240,.16);
+    --line-light:rgba(250,247,240,.18);
     --muted:#6f6252;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -31,254 +32,440 @@
   a{color:inherit}
   .serif{font-family:'Playfair Display',Georgia,serif}
 
-  /* utility bar */
-  .utility{
-    background:var(--espresso);color:var(--ivory);
-    font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-    display:flex;justify-content:space-between;gap:1rem;padding:.55rem 1.25rem;
-  }
-  .utility a{text-decoration:none;border-bottom:1px solid var(--clay)}
-  @media(max-width:640px){.utility .u-addr{display:none}.utility{justify-content:center}}
-
-  /* header */
+  /* ---------- centered masthead ---------- */
   header{position:sticky;top:0;z-index:50;background:var(--ivory);border-bottom:1px solid var(--line)}
-  .nav{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
-  .brand{text-decoration:none;line-height:1.1}
-  .brand .b-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.45rem;letter-spacing:.02em}
+  .masthead{max-width:1180px;margin:0 auto;padding:.9rem 1.25rem .7rem;text-align:center}
+  .brand{text-decoration:none;display:inline-block;line-height:1.1}
+  .brand .b-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.7rem;letter-spacing:.02em}
   .brand .b-name em{font-style:italic;color:var(--clay)}
-  .brand small{display:block;font-size:.58rem;font-weight:700;letter-spacing:.4em;color:var(--muted);margin-top:.15rem}
-  .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
-  .nav-links a{text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+  .brand small{display:block;font-size:.58rem;font-weight:700;letter-spacing:.42em;color:var(--muted);margin-top:.2rem}
+  .masthead nav{margin-top:.7rem}
+  .nav-links{display:flex;gap:2rem;list-style:none;justify-content:center;align-items:center;flex-wrap:wrap}
+  .nav-links a{text-decoration:none;font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
   .nav-links a:hover{color:var(--clay)}
-  .nav-call{border:2px solid var(--espresso);padding:.55rem 1.1rem;border-radius:999px;text-decoration:none;transition:.2s}
-  .nav-call:hover{background:var(--espresso);color:var(--ivory)}
-  .burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem}
+  .nav-book{
+    background:var(--espresso);color:var(--ivory)!important;
+    padding:.6rem 1.3rem;border-radius:999px;
+  }
+  .nav-book:hover{background:var(--clay)}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem;position:absolute;right:1rem;top:1.1rem}
   .burger span{display:block;width:26px;height:2px;background:var(--espresso);margin:6px 0;transition:.25s}
-  @media(max-width:760px){
+  @media(max-width:640px){
     .burger{display:block}
-    .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--ivory);flex-direction:column;align-items:stretch;gap:0;border-bottom:1px solid var(--line);display:none}
-    .nav-links.open{display:flex}
+    .masthead nav{display:none}
+    .masthead nav.open{display:block}
+    .nav-links{flex-direction:column;gap:0;align-items:stretch;margin-top:.6rem}
     .nav-links li{border-top:1px solid var(--line)}
-    .nav-links a{display:block;padding:1rem 1.25rem}
-    .nav-links .nav-call{border:0;border-radius:0}
+    .nav-links a{display:block;padding:.9rem}
+    .nav-links .nav-book{border-radius:0}
     body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
     body.menu-open .burger span:nth-child(2){opacity:0}
     body.menu-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
   }
 
-  /* hero */
-  .hero{max-width:1180px;margin:0 auto;padding:4rem 1.25rem 3rem;display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:center}
-  @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:2.75rem}}
-  .hero-kicker{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:1.2rem;display:flex;align-items:center;gap:.75rem}
-  .hero-kicker::before{content:"";width:2.5rem;height:1px;background:var(--clay)}
-  .hero h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2.9rem,7.5vw,5.2rem);line-height:1.04;letter-spacing:-.01em}
-  .hero h1 em{font-style:italic;color:var(--clay)}
-  .hero-sub{margin-top:1.4rem;font-size:1.05rem;color:var(--espresso-soft);max-width:32rem}
+  /* ---------- lookbook hero ---------- */
+  .hero{background:var(--blush);position:relative;overflow:hidden}
+  .hero-inner{
+    max-width:1180px;margin:0 auto;padding:4rem 1.25rem 0;
+    display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;
+  }
+  @media(max-width:900px){.hero-inner{grid-template-columns:1fr;padding-top:3rem;gap:2rem}}
+  .hero-kicker{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:1.2rem}
+  .hero h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2.8rem,7vw,5rem);line-height:1.06;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--clay-deep)}
+  .hero-sub{margin-top:1.4rem;font-size:1.05rem;color:var(--espresso-soft);max-width:30rem}
   .hero-ctas{margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap}
-  .btn{display:inline-block;text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;padding:.95rem 1.5rem;border-radius:4px;transition:.2s}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;padding:.95rem 1.5rem;border-radius:999px;transition:.2s}
   .btn:active{transform:scale(.98)}
   .btn-solid{background:var(--espresso);color:var(--ivory)}
   .btn-solid:hover{background:var(--clay)}
   .btn-line{border:2px solid var(--espresso)}
   .btn-line:hover{border-color:var(--clay);color:var(--clay)}
-  .btn-clay{background:var(--clay);color:var(--ivory)}
-  .btn-clay:hover{background:var(--clay-deep)}
-  .info-card{background:var(--espresso);color:var(--ivory);border-radius:8px;padding:1.8rem;position:relative}
-  .info-card::before{content:"";position:absolute;inset:10px;border:1px solid var(--line-light);border-radius:5px;pointer-events:none}
-  .info-card h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:1.5rem;margin-bottom:1rem;position:relative}
-  .info-card dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1rem;font-size:.92rem;position:relative}
-  .info-card dt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;opacity:.65}
-  .info-card dd{margin:0;text-align:right;font-weight:600}
-  .info-card dd a{color:#f0c9a8;text-decoration:none;border-bottom:1px solid var(--clay)}
-  .info-card .ic-cta{margin-top:1.3rem;display:grid;gap:.6rem;position:relative}
 
-  /* ribbon */
-  .ribbon{background:var(--clay);color:var(--ivory);text-align:center;padding:.85rem 1.25rem;font-size:.8rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+  /* arch illustration panel */
+  .arch{
+    background:var(--ivory);border:1px solid var(--line);
+    border-radius:999px 999px 18px 18px;
+    padding:2.5rem 2rem 0;overflow:hidden;position:relative;
+    max-width:420px;margin:0 auto;width:100%;
+  }
+  .arch svg{display:block;width:100%;height:auto}
+  .arch figcaption{
+    text-align:center;font-family:'Playfair Display',serif;font-style:italic;
+    font-size:1rem;color:var(--muted);padding:1rem 0 1.4rem;
+  }
 
-  /* sections */
-  section.block{max-width:1180px;margin:0 auto;padding:4rem 1.25rem}
-  .sec-head{margin-bottom:2.4rem;max-width:44rem}
-  .sec-label{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:.8rem}
-  .sec-head h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.1}
-  .sec-head p{margin-top:.8rem;color:var(--muted)}
+  /* floating booking card */
+  .book-float-wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem;position:relative;z-index:2}
+  .book-card{
+    background:var(--espresso);color:var(--ivory);border-radius:14px;
+    margin-top:-3.5rem;padding:1.8rem 2rem;
+    display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;
+    box-shadow:0 18px 40px rgba(42,33,24,.22);
+  }
+  @media(max-width:860px){.book-card{grid-template-columns:1fr;text-align:center;gap:1.2rem;margin-top:-2.5rem}}
+  .book-card .bc-label{font-family:'Playfair Display',serif;font-style:italic;font-size:1.5rem;font-weight:600}
+  .book-card .bc-label small{display:block;font-family:'Karla',sans-serif;font-style:normal;font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#d8a276;margin-bottom:.4rem}
+  .book-card .bc-mid{font-size:.92rem;color:#e8dcc8;line-height:1.7}
+  .book-card .bc-mid strong{color:#fff}
+  .book-card .bc-cta .btn{background:var(--clay);color:var(--ivory);font-size:.9rem;padding:1.05rem 2rem;white-space:nowrap}
+  .book-card .bc-cta .btn:hover{background:var(--clay-deep)}
+  .book-card .bc-cta p{margin-top:.6rem;font-size:.75rem;color:#a89a85}
 
-  /* services */
-  .svc-groups{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 3rem}
-  @media(max-width:820px){.svc-groups{grid-template-columns:1fr}}
-  .svc-group h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:1.45rem;padding-bottom:.6rem;border-bottom:2px solid var(--espresso);margin-bottom:.4rem}
-  .svc-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.8rem 0;border-bottom:1px dotted var(--line)}
-  .svc-row .s-name{font-weight:600}
-  .svc-row .s-price{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-  .svc-note{margin-top:2rem;font-size:.9rem;color:var(--muted);border-left:3px solid var(--clay);padding-left:1rem;max-width:44rem}
+  /* ---------- services: the menu, by mood ---------- */
+  section.block{max-width:1180px;margin:0 auto;padding:4.5rem 1.25rem 1rem}
+  .sec-head{text-align:center;max-width:40rem;margin:0 auto 2.8rem}
+  .sec-label{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:.9rem}
+  .sec-head h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.1}
+  .sec-head h2 em{font-style:italic;color:var(--clay)}
+  .sec-head p{margin-top:.9rem;color:var(--muted)}
+  .mood-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+  @media(max-width:820px){.mood-grid{grid-template-columns:1fr}}
+  .mood{
+    background:var(--cream);border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;display:flex;flex-direction:column;
+  }
+  .mood-wide{grid-column:1/-1;flex-direction:row}
+  @media(max-width:820px){.mood-wide{flex-direction:column}}
+  .mood-art{background:var(--blush);padding:1.6rem;display:grid;place-items:center;min-height:190px}
+  .mood-wide .mood-art{flex:0 0 300px;min-height:220px}
+  @media(max-width:820px){.mood-wide .mood-art{flex:none}}
+  .mood-art svg{width:150px;height:150px}
+  .mood-wide .mood-art svg{width:190px;height:190px}
+  .mood-body{padding:1.8rem;flex:1}
+  .mood-body h3{font-family:'Playfair Display',serif;font-weight:600;font-size:1.7rem;margin-bottom:.3rem}
+  .mood-body h3 em{font-style:italic;color:var(--clay)}
+  .mood-body .m-tag{font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+  .mood-body ul{list-style:none;margin-bottom:1.2rem}
+  .mood-body li{
+    padding:.5rem 0;border-bottom:1px dotted var(--line);
+    display:flex;justify-content:space-between;gap:1rem;align-items:baseline;font-size:.95rem;
+  }
+  .mood-body li .s-name{font-weight:600}
+  .mood-body li .s-price{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .mood-note{font-size:.85rem;color:var(--muted);font-style:italic}
+  .mood-note a{color:var(--clay);font-style:normal;font-weight:700}
+  .menu-foot{grid-column:1/-1;text-align:center;margin-top:.6rem;color:var(--muted);font-size:.92rem;max-width:44rem;margin-left:auto;margin-right:auto}
+  .menu-foot a{color:var(--clay);font-weight:700}
 
-  /* about band */
-  .band{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .band-inner{max-width:1180px;margin:0 auto;padding:4rem 1.25rem;display:grid;grid-template-columns:1fr 2fr;gap:2.5rem;align-items:start}
-  @media(max-width:820px){.band-inner{grid-template-columns:1fr}}
-  .band-inner .big{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.2;font-weight:600}
-  .band-inner .big em{color:var(--clay)}
-  .band-inner p+p{margin-top:1rem}
-  .treat-list{list-style:none;margin-top:1.4rem;display:grid;gap:.7rem}
-  .treat-list li{display:flex;gap:.7rem;align-items:baseline}
-  .treat-list li::before{content:"✦";color:var(--clay);flex:none}
+  /* ---------- ritual: your visit, step by step ---------- */
+  .ritual{max-width:1180px;margin:0 auto;padding:4.5rem 1.25rem 1rem}
+  .ritual-inner{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:3.5rem 0;display:grid;grid-template-columns:280px 1fr;gap:3rem;
+  }
+  @media(max-width:860px){.ritual-inner{grid-template-columns:1fr;gap:2rem}}
+  .ritual-side h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.9rem,4.5vw,2.7rem);line-height:1.15}
+  .ritual-side h2 em{font-style:italic;color:var(--clay)}
+  .ritual-side p{margin-top:1rem;color:var(--muted)}
+  .steps{list-style:none;position:relative}
+  .steps::before{content:"";position:absolute;left:27px;top:12px;bottom:12px;width:1px;background:var(--line)}
+  .step{position:relative;padding:0 0 2.2rem 4.5rem}
+  .step:last-child{padding-bottom:0}
+  .step .n{
+    position:absolute;left:0;top:0;width:56px;height:56px;border-radius:50%;
+    background:var(--ivory);border:1px solid var(--clay);
+    font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--clay);
+    display:grid;place-items:center;
+  }
+  .step h3{font-family:'Playfair Display',serif;font-weight:600;font-size:1.35rem;margin-bottom:.3rem}
+  .step p{color:var(--espresso-soft);font-size:.95rem;max-width:34rem}
+  .step p a{color:var(--clay);font-weight:700}
 
-  /* visit */
-  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-  @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+  /* ---------- visit ---------- */
+  .visit{max-width:1180px;margin:0 auto;padding:4.5rem 1.25rem 5rem}
+  .salon-card{
+    border:1px solid var(--espresso);border-radius:6px;position:relative;
+    padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;background:var(--ivory);
+  }
+  .salon-card::before{content:"";position:absolute;inset:8px;border:1px solid var(--line);border-radius:3px;pointer-events:none}
+  @media(max-width:860px){.salon-card{grid-template-columns:1fr;padding:2rem 1.5rem}}
+  .salon-card h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2rem,5vw,2.9rem);line-height:1.1;margin-bottom:.4rem}
+  .salon-card h2 em{font-style:italic;color:var(--clay)}
+  .salon-card .v-sub{color:var(--muted);margin-bottom:1.8rem}
   .hours{width:100%;border-collapse:collapse}
-  .hours caption{text-align:left;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;padding-bottom:.8rem}
-  .hours td{padding:.7rem .25rem;border-bottom:1px solid var(--line)}
+  .hours td{padding:.65rem .25rem;border-bottom:1px dotted var(--line);font-size:.95rem}
   .hours td:last-child{text-align:right;font-weight:600}
   .hours tr.today td{background:rgba(168,80,44,.1)}
-  .hours tr.today td:first-child::after{content:"TODAY";font-size:.6rem;letter-spacing:.18em;color:var(--clay);border:1px solid var(--clay);border-radius:3px;padding:.1rem .4rem;margin-left:.7rem;vertical-align:middle;font-weight:700}
-  .visit-card h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;margin-bottom:.6rem}
-  .visit-card address{font-style:normal;font-size:1.02rem;margin-bottom:1.1rem}
-  .visit-card p{margin-bottom:.4rem}
-  .visit-actions{margin-top:1.5rem;display:grid;gap:.7rem}
+  .hours tr.today td:first-child::after{
+    content:"TODAY";font-size:.6rem;letter-spacing:.18em;color:var(--clay);font-weight:700;
+    border:1px solid var(--clay);border-radius:3px;padding:.1rem .4rem;margin-left:.7rem;vertical-align:middle;
+  }
+  .visit-info{position:relative}
+  .visit-info h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;margin-bottom:.6rem}
+  .visit-info address{font-style:normal;font-size:1.02rem;margin-bottom:1rem;line-height:1.7}
+  .visit-info p{margin-bottom:.4rem}
+  .visit-actions{margin-top:1.6rem;display:grid;gap:.7rem}
   .btn-row{display:flex;gap:.7rem;flex-wrap:wrap}
   .btn-row .btn{flex:1;min-width:140px;text-align:center}
+  .btn-clay{background:var(--clay);color:var(--ivory)}
+  .btn-clay:hover{background:var(--clay-deep)}
 
   footer{background:var(--espresso);color:var(--ivory);padding:2.5rem 1.25rem 6.5rem}
   .foot-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
   .foot-brand{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700}
   .foot-brand small{display:block;font-family:'Karla',sans-serif;font-size:.6rem;letter-spacing:.4em;color:#d8a276;font-weight:700;margin-top:.2rem}
-  .disclosure{font-size:.75rem;color:#a89a85;max-width:26rem;line-height:1.7}
+  .disclosure{font-size:.75rem;color:#a89a85;max-width:28rem;line-height:1.7}
   .disclosure strong{color:#e8dcc8}
 
-  .sticky-call{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:var(--espresso);color:var(--ivory);text-decoration:none;padding:1rem;text-align:center;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.85rem;border-top:3px solid var(--clay)}
+  .sticky-call{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+    background:var(--espresso);color:var(--ivory);text-decoration:none;
+    padding:1rem;text-align:center;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;font-size:.85rem;border-top:3px solid var(--clay);
+  }
   @media(max-width:760px){.sticky-call{display:block}}
 </style>
 </head>
 <body>
 
-<div class="utility">
-  <span class="u-addr">2011 Plains Road East, Burlington ON</span>
-  <span><a href="tel:+19056338778">Call 905-633-8778</a> &nbsp;·&nbsp; Walk-ins Welcome</span>
-</div>
-
 <header>
-  <nav class="nav" aria-label="Main navigation">
+  <div class="masthead">
     <a class="brand" href="#top"><span class="b-name">TT <em>Beauty</em></span><small>NAILS SPA · BURLINGTON</small></a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#visit">Visit</a></li>
-      <li><a class="nav-call" href="tel:+19056338778">Book Now</a></li>
-    </ul>
-  </nav>
+    <nav aria-label="Main navigation" id="mastNav">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#ritual">The Ritual</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a class="nav-book" href="tel:+19056338778">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <main id="top">
+  <!-- LOOKBOOK HERO -->
   <div class="hero">
-    <div>
-      <p class="hero-kicker">Nail Salon · Burlington, Ontario</p>
-      <h1>You will look <em>gorgeous</em> every day.</h1>
-      <p class="hero-sub">
-        TT Beauty Nails Spa in the heart of Burlington — manicures, pedicures,
-        sculpted extensions and spa services, finished with the detail your
-        nails deserve.
-      </p>
-      <div class="hero-ctas">
-        <a class="btn btn-solid" href="tel:+19056338778">Call 905-633-8778</a>
-        <a class="btn btn-line" href="#services">View Services</a>
+    <div class="hero-inner">
+      <div>
+        <p class="hero-kicker">Nail Spa · Burlington, Ontario</p>
+        <h1>You will look <em>gorgeous</em> every day.</h1>
+        <p class="hero-sub">
+          TT Beauty Nails Spa in the heart of Burlington — manicures, pedicures,
+          sculpted extensions and spa services, finished with the detail your
+          nails deserve.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="tel:+19056338778">Call 905-633-8778</a>
+          <a class="btn btn-line" href="#services">Browse the Menu</a>
+        </div>
       </div>
+      <figure class="arch" aria-label="Illustration of nail polish bottles">
+        <svg viewBox="0 0 300 260" role="img" aria-hidden="true">
+          <g fill="none" stroke="#2a2118" stroke-width="2">
+            <!-- bottle 1 -->
+            <rect x="52" y="118" width="56" height="104" rx="14" fill="#a8502c" stroke="none"/>
+            <rect x="66" y="86" width="28" height="34" rx="6" fill="#2a2118" stroke="none"/>
+            <rect x="76" y="66" width="8" height="22" fill="#2a2118" stroke="none"/>
+            <path d="M62 140h36" stroke="#faf7f0" stroke-width="3"/>
+            <!-- bottle 2 -->
+            <rect x="126" y="140" width="48" height="82" rx="12" fill="#c97b4a" stroke="none"/>
+            <rect x="138" y="112" width="24" height="30" rx="5" fill="#2a2118" stroke="none"/>
+            <path d="M134 160h32" stroke="#faf7f0" stroke-width="3"/>
+            <!-- bottle 3 -->
+            <rect x="192" y="104" width="60" height="118" rx="14" fill="#8a3e20" stroke="none"/>
+            <rect x="207" y="72" width="30" height="34" rx="6" fill="#2a2118" stroke="none"/>
+            <rect x="218" y="52" width="8" height="22" fill="#2a2118" stroke="none"/>
+            <path d="M202 128h40" stroke="#faf7f0" stroke-width="3"/>
+            <!-- petals -->
+            <ellipse cx="40" cy="70" rx="14" ry="8" fill="#d8a276" stroke="none" transform="rotate(-24 40 70)"/>
+            <ellipse cx="262" cy="60" rx="14" ry="8" fill="#d8a276" stroke="none" transform="rotate(20 262 60)"/>
+            <ellipse cx="252" cy="200" rx="12" ry="7" fill="#e5b98d" stroke="none" transform="rotate(-30 252 200)"/>
+            <ellipse cx="34" cy="196" rx="12" ry="7" fill="#e5b98d" stroke="none" transform="rotate(28 34 196)"/>
+            <!-- sparkles -->
+            <path d="M150 40l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#a8502c" stroke="none"/>
+            <path d="M228 180l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#c97b4a" stroke="none"/>
+            <!-- ground line -->
+            <path d="M30 236h240" stroke-width="2.5"/>
+          </g>
+        </svg>
+        <figcaption>The TT Beauty shelf — pick your shade when you visit.</figcaption>
+      </figure>
     </div>
-    <aside class="info-card" aria-label="Quick info">
-      <h2>Plan your visit</h2>
-      <dl>
-        <dt>Address</dt><dd>2011 Plains Rd E, Burlington</dd>
-        <dt>Phone</dt><dd><a href="tel:+19056338778">905-633-8778</a></dd>
-        <dt>Email</dt><dd><a href="mailto:ttbeautynailspa@gmail.com">ttbeautynailspa@gmail.com</a></dd>
-        <dt>Today</dt><dd id="cardToday">—</dd>
-      </dl>
-      <div class="ic-cta">
-        <a class="btn btn-clay" href="tel:+19056338778">Book an Appointment</a>
-        <a class="btn" style="border:1px solid var(--line-light);color:var(--ivory)" href="https://www.google.com/maps/search/?api=1&query=TT+Beauty+Nails+Spa+2011+Plains+Road+East+Burlington+ON" target="_blank" rel="noopener">Get Directions</a>
-      </div>
-    </aside>
   </div>
 
-  <div class="ribbon">Manicures &nbsp;✦&nbsp; Pedicures &nbsp;✦&nbsp; Bio Sculpture &nbsp;✦&nbsp; Acrylics &nbsp;✦&nbsp; Waxing &nbsp;✦&nbsp; Lashes</div>
+  <!-- floating booking card -->
+  <div class="book-float-wrap">
+    <div class="book-card">
+      <div class="bc-label"><small>Appointments</small>Book your visit</div>
+      <div class="bc-mid">
+        <strong>Call <a href="tel:+19056338778" style="color:#fff">905-633-8778</a></strong> or email
+        <a href="mailto:ttbeautynailspa@gmail.com" style="color:#f0c9a8">ttbeautynailspa@gmail.com</a><br>
+        2011 Plains Road East, Burlington · <span id="cardToday">Open today</span> · Walk-ins welcome
+      </div>
+      <div class="bc-cta">
+        <a class="btn" href="tel:+19056338778">Call to Book</a>
+        <p>No online forms — a real person answers.</p>
+      </div>
+    </div>
+  </div>
 
+  <!-- SERVICES: the menu, by mood -->
   <section class="block" id="services">
     <div class="sec-head">
-      <p class="sec-label">Our Menu</p>
-      <h2>Services</h2>
-      <p>Pricing isn't listed online — call or email and we'll quote you before we begin, so there are never surprises.</p>
+      <p class="sec-label">The Menu</p>
+      <h2>Choose your <em>mood</em></h2>
+      <p>Four ways to spend an hour at TT Beauty. Pricing isn't listed online — we confirm every price with you before we begin.</p>
     </div>
-    <div class="svc-groups">
-      <div class="svc-group">
-        <h3>Manicure</h3>
-        <div class="svc-row"><span class="s-name">Classic Manicure</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Signature Manicure</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Deluxe Manicure</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Shellac Manicure</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Nail Art &amp; Design</span><span class="s-price">Call for price</span></div>
+    <div class="mood-grid">
+      <div class="mood">
+        <div class="mood-art" aria-hidden="true">
+          <svg viewBox="0 0 150 150">
+            <g fill="none" stroke="#2a2118" stroke-width="2.5">
+              <rect x="52" y="58" width="46" height="72" rx="12" fill="#a8502c" stroke="none"/>
+              <rect x="63" y="32" width="24" height="28" rx="5" fill="#2a2118" stroke="none"/>
+              <rect x="71" y="16" width="8" height="18" fill="#2a2118" stroke="none"/>
+              <path d="M60 78h30" stroke="#faf7f0" stroke-width="3"/>
+              <path d="M118 40l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#a8502c" stroke="none"/>
+              <path d="M30 112l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#c97b4a" stroke="none"/>
+            </g>
+          </svg>
+        </div>
+        <div class="mood-body">
+          <h3>Manicure <em>bar</em></h3>
+          <p class="m-tag">Hands · Shape · Colour</p>
+          <ul>
+            <li><span class="s-name">Classic Manicure</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Signature Manicure</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Deluxe Manicure</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Shellac Manicure</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Nail Art &amp; Design</span><span class="s-price">Call for price</span></li>
+          </ul>
+          <p class="mood-note">Bring reference photos — nail art is matched to the look you want. Questions? <a href="tel:+19056338778">Call the salon</a>.</p>
+        </div>
       </div>
-      <div class="svc-group">
-        <h3>Pedicure</h3>
-        <div class="svc-row"><span class="s-name">Classic Pedicure</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Signature Pedicure</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Deluxe Pedicure</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Shellac Pedicure</span><span class="s-price">Call for price</span></div>
+      <div class="mood">
+        <div class="mood-art" aria-hidden="true">
+          <svg viewBox="0 0 150 150">
+            <g fill="none" stroke="#2a2118" stroke-width="2.5">
+              <path d="M28 70h94c0 30-20 52-47 52S28 100 28 70z" fill="#faf7f0"/>
+              <path d="M34 78c14-6 28 6 42 0s28 6 40 0" stroke="#a8502c"/>
+              <path d="M40 92c12-5 24 5 36 0s24 5 34 0" stroke="#c97b4a"/>
+              <ellipse cx="62" cy="60" rx="12" ry="7" fill="#d8a276" stroke="none" transform="rotate(-18 62 60)"/>
+              <ellipse cx="94" cy="52" rx="12" ry="7" fill="#e5b98d" stroke="none" transform="rotate(14 94 52)"/>
+              <path d="M112 108l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#a8502c" stroke="none"/>
+            </g>
+          </svg>
+        </div>
+        <div class="mood-body">
+          <h3>Pedicure <em>soak</em></h3>
+          <p class="m-tag">Feet · Soak · Finish</p>
+          <ul>
+            <li><span class="s-name">Classic Pedicure</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Signature Pedicure</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Deluxe Pedicure</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Shellac Pedicure</span><span class="s-price">Call for price</span></li>
+          </ul>
+          <p class="mood-note">Sink in, soak, and let the week go. <a href="tel:+19056338778">Call to reserve a chair</a>.</p>
+        </div>
       </div>
-      <div class="svc-group">
-        <h3>Extensions &amp; Enhancements</h3>
-        <div class="svc-row"><span class="s-name">Bio Sculpture — Full Set</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Bio Sculpture — Refill</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Acrylic — Full Set</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">UV Powder Gel</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Extension Removal</span><span class="s-price">Call for price</span></div>
+      <div class="mood mood-wide">
+        <div class="mood-art" aria-hidden="true">
+          <svg viewBox="0 0 190 190">
+            <g fill="none" stroke="#2a2118" stroke-width="2.5">
+              <path d="M30 110c0-24 10-44 22-44s22 20 22 44z" fill="#a8502c" stroke="none"/>
+              <path d="M84 110c0-24 10-44 22-44s22 20 22 44z" fill="#c97b4a" stroke="none"/>
+              <path d="M138 110c0-24 10-44 22-44s22 20 22 44z" fill="#8a3e20" stroke="none"/>
+              <path d="M22 128h146" stroke-width="3"/>
+              <path d="M40 60l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#a8502c" stroke="none"/>
+              <path d="M150 46l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#c97b4a" stroke="none"/>
+            </g>
+          </svg>
+        </div>
+        <div class="mood-body">
+          <h3>Extensions <em>&amp; sculpting</em></h3>
+          <p class="m-tag">Length · Shape · Strength</p>
+          <ul>
+            <li><span class="s-name">Bio Sculpture — Full Set</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Bio Sculpture — Refill</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Acrylic — Full Set</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">UV Powder Gel</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Extension Removal</span><span class="s-price">Call for price</span></li>
+          </ul>
+          <p class="mood-note">Built with quality professional products, shaped to your hands. <a href="tel:+19056338778">Call for today's pricing</a>.</p>
+        </div>
       </div>
-      <div class="svc-group">
-        <h3>Finishing Touches</h3>
-        <div class="svc-row"><span class="s-name">Shellac on Hands / Feet</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Waxing</span><span class="s-price">Call for price</span></div>
-        <div class="svc-row"><span class="s-name">Lash Enhancements</span><span class="s-price">Call for price</span></div>
+      <div class="mood mood-wide">
+        <div class="mood-art" aria-hidden="true">
+          <svg viewBox="0 0 190 190">
+            <g fill="none" stroke="#2a2118" stroke-width="2.5">
+              <path d="M40 100c30-26 80-26 110 0" stroke-width="4"/>
+              <path d="M58 88l-6-12M76 80l-3-13M95 77v-13M114 80l3-13M132 88l6-12" stroke-width="3"/>
+              <path d="M40 128c30 18 80 18 110 0" stroke-width="2.5"/>
+              <path d="M150 52l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#a8502c" stroke="none"/>
+            </g>
+          </svg>
+        </div>
+        <div class="mood-body">
+          <h3>Lashes <em>&amp; waxing</em></h3>
+          <p class="m-tag">Finishing touches</p>
+          <ul>
+            <li><span class="s-name">Shellac on Hands / Feet</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Waxing</span><span class="s-price">Call for price</span></li>
+            <li><span class="s-name">Lash Enhancements</span><span class="s-price">Call for price</span></li>
+          </ul>
+          <p class="mood-note">The details that complete the look. <a href="tel:+19056338778">Call the salon</a>.</p>
+        </div>
       </div>
+      <p class="menu-foot">Service list gathered from the salon's public listings. For today's pricing and availability, call <a href="tel:+19056338778">905-633-8778</a> — the team confirms costs with you before any work begins.</p>
     </div>
-    <p class="svc-note">Service list gathered from the salon's public listings. For today's pricing and availability, call <a href="tel:+19056338778">905-633-8778</a> — the team confirms costs with you before any nail art begins.</p>
   </section>
 
-  <div class="band" id="about">
-    <div class="band-inner">
-      <p class="big">A Burlington salon built on <em>careful work</em> and a spotless space.</p>
-      <div>
-        <p>Located in the heart of Burlington, TT Beauty Nails Spa has become a go-to for nail and spa services across the area — known for friendly, skilled staff, a clean and inviting salon, and clear, upfront communication about pricing.</p>
-        <p>Treatments are created with quality professional products, and every appointment starts with what you want — including nail art matched to your own reference photos.</p>
-        <ul class="treat-list">
-          <li>Manicures, pedicures &amp; sculpted nail extensions</li>
-          <li>Shellac, UV powder gel &amp; Bio Sculpture systems</li>
-          <li>Waxing and lash enhancements</li>
-          <li>Online booking and walk-ins welcome</li>
-        </ul>
+  <!-- RITUAL -->
+  <div class="ritual" id="ritual">
+    <div class="ritual-inner">
+      <div class="ritual-side">
+        <p class="sec-label">The Ritual</p>
+        <h2>Your visit, <em>step by step</em></h2>
+        <p>A Burlington salon built on careful work, a spotless space, and clear, upfront communication about pricing.</p>
       </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="n">1</span>
+          <h3>Say hello</h3>
+          <p>Call <a href="tel:+19056338778">905-633-8778</a> to book, or just walk in — walk-ins are always welcome at 2011 Plains Road East.</p>
+        </li>
+        <li class="step">
+          <span class="n">2</span>
+          <h3>Bring your inspiration</h3>
+          <p>Every appointment starts with what you want. Bring reference photos and the team matches your nail art to them.</p>
+        </li>
+        <li class="step">
+          <span class="n">3</span>
+          <h3>Settle in</h3>
+          <p>A clean, inviting salon, quality professional products, and friendly, skilled staff — then put your feet up.</p>
+        </li>
+        <li class="step">
+          <span class="n">4</span>
+          <h3>Know the price first</h3>
+          <p>The team confirms every cost with you before any work begins. No surprises, just gorgeous nails.</p>
+        </li>
+      </ol>
     </div>
   </div>
 
-  <section class="block" id="visit">
-    <div class="sec-head">
-      <p class="sec-label">Find Us</p>
-      <h2>Visit the Salon</h2>
-      <p>On Plains Road East in Burlington — call ahead or just walk in.</p>
-    </div>
-    <div class="visit-grid">
-      <table class="hours" id="hoursTable">
-        <caption>Salon Hours</caption>
-        <tbody>
-          <tr data-day="1"><td>Monday</td><td>10:00 AM – 8:00 PM</td></tr>
-          <tr data-day="2"><td>Tuesday</td><td>10:00 AM – 8:00 PM</td></tr>
-          <tr data-day="3"><td>Wednesday</td><td>10:00 AM – 8:00 PM</td></tr>
-          <tr data-day="4"><td>Thursday</td><td>10:00 AM – 8:00 PM</td></tr>
-          <tr data-day="5"><td>Friday</td><td>10:00 AM – 8:00 PM</td></tr>
-          <tr data-day="6"><td>Saturday</td><td>10:00 AM – 5:00 PM</td></tr>
-          <tr data-day="0"><td>Sunday</td><td>10:00 AM – 5:00 PM</td></tr>
-        </tbody>
-      </table>
-      <div class="visit-card">
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="salon-card">
+      <div>
+        <h2>Visit <em>the salon</em></h2>
+        <p class="v-sub">On Plains Road East in Burlington — call ahead or just walk in.</p>
+        <table class="hours" id="hoursTable">
+          <tbody>
+            <tr data-day="1" data-hours="10:00 AM – 8:00 PM"><td>Monday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr data-day="2" data-hours="10:00 AM – 8:00 PM"><td>Tuesday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr data-day="3" data-hours="10:00 AM – 8:00 PM"><td>Wednesday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr data-day="4" data-hours="10:00 AM – 8:00 PM"><td>Thursday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr data-day="5" data-hours="10:00 AM – 8:00 PM"><td>Friday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr data-day="6" data-hours="10:00 AM – 5:00 PM"><td>Saturday</td><td>10:00 AM – 5:00 PM</td></tr>
+            <tr data-day="0" data-hours="10:00 AM – 5:00 PM"><td>Sunday</td><td>10:00 AM – 5:00 PM</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="visit-info">
         <h3>TT Beauty Nails Spa</h3>
         <address>
           2011 Plains Road East<br>
@@ -302,9 +489,10 @@
   <div class="foot-inner">
     <div class="foot-brand">TT Beauty<small>NAILS SPA · BURLINGTON</small></div>
     <p class="disclosure">
-      <strong>Concept preview.</strong> This is a demo website built to show what a
-      new TT Beauty Nails Spa site could look like — it is not the salon's official site.
-      Business details shown here come from the salon's public listings.
+      <strong>Concept preview.</strong> This is a demo website built by Shashin Pillay,
+      a Seneca IT student, to show what a new TT Beauty Nails Spa site could look like —
+      it is not the salon's official site. Business details shown here come from the
+      salon's public listings.
     </p>
   </div>
 </footer>
@@ -314,27 +502,30 @@
 <script>
 (function(){
   var burger = document.getElementById('burger');
-  var navLinks = document.getElementById('navLinks');
+  var mastNav = document.getElementById('mastNav');
   burger.addEventListener('click', function(){
-    var open = navLinks.classList.toggle('open');
+    var open = mastNav.classList.toggle('open');
     document.body.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-  navLinks.querySelectorAll('a').forEach(function(a){
+  mastNav.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){
-      navLinks.classList.remove('open');
+      mastNav.classList.remove('open');
       document.body.classList.remove('menu-open');
       burger.setAttribute('aria-expanded','false');
     });
   });
   var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   var today = new Date().getDay();
+  var todayHours = '';
   document.querySelectorAll('#hoursTable tr[data-day]').forEach(function(r){
-    if (parseInt(r.getAttribute('data-day'),10) === today) r.classList.add('today');
+    if (parseInt(r.getAttribute('data-day'),10) === today){
+      r.classList.add('today');
+      todayHours = r.getAttribute('data-hours');
+    }
   });
   var cardToday = document.getElementById('cardToday');
-  var todayCell = document.querySelector('#hoursTable tr.today td:last-child');
-  if (cardToday && todayCell) cardToday.textContent = days[today] + ' ' + todayCell.textContent;
+  if (cardToday && todayHours) cardToday.textContent = 'Open today ' + todayHours;
 })();
 </script>
 </body>
