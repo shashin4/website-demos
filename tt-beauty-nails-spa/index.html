@@ -10,16 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ivory:#faf7f0;
-    --blush:#f3e2d5;
-    --cream:#f1eadd;
-    --espresso:#2a2118;
-    --espresso-soft:#3a2e20;
-    --clay:#a8502c;
-    --clay-deep:#8a3e20;
-    --line:rgba(42,33,24,.16);
-    --line-light:rgba(250,247,240,.18);
-    --muted:#6f6252;
+    --ivory:#faf5f1;
+    --blush:#f6e3e1;
+    --cream:#f4e9e6;
+    --espresso:#38282a;
+    --espresso-soft:#4d3a3c;
+    --clay:#b76e79;
+    --clay-deep:#8a4a55;
+    --clay-ink:#753a44;
+    --line:rgba(56,40,42,.14);
+    --line-light:rgba(250,245,241,.16);
+    --muted:#8a7570;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -42,12 +43,12 @@
   .masthead nav{margin-top:.7rem}
   .nav-links{display:flex;gap:2rem;list-style:none;justify-content:center;align-items:center;flex-wrap:wrap}
   .nav-links a{text-decoration:none;font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
-  .nav-links a:hover{color:var(--clay)}
+  .nav-links a:hover{color:var(--clay-deep)}
   .nav-book{
     background:var(--espresso);color:var(--ivory)!important;
     padding:.6rem 1.3rem;border-radius:999px;
   }
-  .nav-book:hover{background:var(--clay)}
+  .nav-book:hover{background:var(--clay-deep)}
   .burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem;position:absolute;right:1rem;top:1.1rem}
   .burger span{display:block;width:26px;height:2px;background:var(--espresso);margin:6px 0;transition:.25s}
   @media(max-width:640px){
@@ -70,7 +71,7 @@
     display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;
   }
   @media(max-width:900px){.hero-inner{grid-template-columns:1fr;padding-top:3rem;gap:2rem}}
-  .hero-kicker{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:1.2rem}
+  .hero-kicker{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:1.2rem}
   .hero h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2.8rem,7vw,5rem);line-height:1.06;letter-spacing:-.01em}
   .hero h1 em{font-style:italic;color:var(--clay-deep)}
   .hero-sub{margin-top:1.4rem;font-size:1.05rem;color:var(--espresso-soft);max-width:30rem}
@@ -78,9 +79,9 @@
   .btn{display:inline-block;text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;padding:.95rem 1.5rem;border-radius:999px;transition:.2s}
   .btn:active{transform:scale(.98)}
   .btn-solid{background:var(--espresso);color:var(--ivory)}
-  .btn-solid:hover{background:var(--clay)}
+  .btn-solid:hover{background:var(--clay-deep)}
   .btn-line{border:2px solid var(--espresso)}
-  .btn-line:hover{border-color:var(--clay);color:var(--clay)}
+  .btn-line:hover{border-color:var(--clay-deep);color:var(--clay-deep)}
 
   /* arch illustration panel */
   .arch{
@@ -101,21 +102,21 @@
     background:var(--espresso);color:var(--ivory);border-radius:14px;
     margin-top:-3.5rem;padding:1.8rem 2rem;
     display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;
-    box-shadow:0 18px 40px rgba(42,33,24,.22);
+    box-shadow:0 18px 40px rgba(56,40,42,.25);
   }
   @media(max-width:860px){.book-card{grid-template-columns:1fr;text-align:center;gap:1.2rem;margin-top:-2.5rem}}
   .book-card .bc-label{font-family:'Playfair Display',serif;font-style:italic;font-size:1.5rem;font-weight:600}
-  .book-card .bc-label small{display:block;font-family:'Karla',sans-serif;font-style:normal;font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#d8a276;margin-bottom:.4rem}
-  .book-card .bc-mid{font-size:.92rem;color:#e8dcc8;line-height:1.7}
+  .book-card .bc-label small{display:block;font-family:'Karla',sans-serif;font-style:normal;font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#dfa9a2;margin-bottom:.4rem}
+  .book-card .bc-mid{font-size:.92rem;color:#ead9d6;line-height:1.7}
   .book-card .bc-mid strong{color:#fff}
-  .book-card .bc-cta .btn{background:var(--clay);color:var(--ivory);font-size:.9rem;padding:1.05rem 2rem;white-space:nowrap}
-  .book-card .bc-cta .btn:hover{background:var(--clay-deep)}
-  .book-card .bc-cta p{margin-top:.6rem;font-size:.75rem;color:#a89a85}
+  .book-card .bc-cta .btn{background:var(--clay-deep);color:var(--ivory);font-size:.9rem;padding:1.05rem 2rem;white-space:nowrap}
+  .book-card .bc-cta .btn:hover{background:var(--clay-ink)}
+  .book-card .bc-cta p{margin-top:.6rem;font-size:.75rem;color:#b39a95}
 
   /* ---------- services: the menu, by mood ---------- */
   section.block{max-width:1180px;margin:0 auto;padding:4.5rem 1.25rem 1rem}
   .sec-head{text-align:center;max-width:40rem;margin:0 auto 2.8rem}
-  .sec-label{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:.9rem}
+  .sec-label{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:.9rem}
   .sec-head h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.1}
   .sec-head h2 em{font-style:italic;color:var(--clay)}
   .sec-head p{margin-top:.9rem;color:var(--muted)}
@@ -144,9 +145,9 @@
   .mood-body li .s-name{font-weight:600}
   .mood-body li .s-price{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
   .mood-note{font-size:.85rem;color:var(--muted);font-style:italic}
-  .mood-note a{color:var(--clay);font-style:normal;font-weight:700}
+  .mood-note a{color:var(--clay-deep);font-style:normal;font-weight:700}
   .menu-foot{grid-column:1/-1;text-align:center;margin-top:.6rem;color:var(--muted);font-size:.92rem;max-width:44rem;margin-left:auto;margin-right:auto}
-  .menu-foot a{color:var(--clay);font-weight:700}
+  .menu-foot a{color:var(--clay-deep);font-weight:700}
 
   /* ---------- ritual: your visit, step by step ---------- */
   .ritual{max-width:1180px;margin:0 auto;padding:4.5rem 1.25rem 1rem}
@@ -170,7 +171,7 @@
   }
   .step h3{font-family:'Playfair Display',serif;font-weight:600;font-size:1.35rem;margin-bottom:.3rem}
   .step p{color:var(--espresso-soft);font-size:.95rem;max-width:34rem}
-  .step p a{color:var(--clay);font-weight:700}
+  .step p a{color:var(--clay-deep);font-weight:700}
 
   /* ---------- visit ---------- */
   .visit{max-width:1180px;margin:0 auto;padding:4.5rem 1.25rem 5rem}
@@ -186,10 +187,10 @@
   .hours{width:100%;border-collapse:collapse}
   .hours td{padding:.65rem .25rem;border-bottom:1px dotted var(--line);font-size:.95rem}
   .hours td:last-child{text-align:right;font-weight:600}
-  .hours tr.today td{background:rgba(168,80,44,.1)}
+  .hours tr.today td{background:rgba(183,110,121,.12)}
   .hours tr.today td:first-child::after{
-    content:"TODAY";font-size:.6rem;letter-spacing:.18em;color:var(--clay);font-weight:700;
-    border:1px solid var(--clay);border-radius:3px;padding:.1rem .4rem;margin-left:.7rem;vertical-align:middle;
+    content:"TODAY";font-size:.6rem;letter-spacing:.18em;color:var(--clay-deep);font-weight:700;
+    border:1px solid var(--clay-deep);border-radius:3px;padding:.1rem .4rem;margin-left:.7rem;vertical-align:middle;
   }
   .visit-info{position:relative}
   .visit-info h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;margin-bottom:.6rem}
@@ -198,15 +199,15 @@
   .visit-actions{margin-top:1.6rem;display:grid;gap:.7rem}
   .btn-row{display:flex;gap:.7rem;flex-wrap:wrap}
   .btn-row .btn{flex:1;min-width:140px;text-align:center}
-  .btn-clay{background:var(--clay);color:var(--ivory)}
-  .btn-clay:hover{background:var(--clay-deep)}
+  .btn-clay{background:var(--clay-deep);color:var(--ivory)}
+  .btn-clay:hover{background:var(--clay-ink)}
 
   footer{background:var(--espresso);color:var(--ivory);padding:2.5rem 1.25rem 6.5rem}
   .foot-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
   .foot-brand{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700}
-  .foot-brand small{display:block;font-family:'Karla',sans-serif;font-size:.6rem;letter-spacing:.4em;color:#d8a276;font-weight:700;margin-top:.2rem}
-  .disclosure{font-size:.75rem;color:#a89a85;max-width:28rem;line-height:1.7}
-  .disclosure strong{color:#e8dcc8}
+  .foot-brand small{display:block;font-family:'Karla',sans-serif;font-size:.6rem;letter-spacing:.4em;color:#dfa9a2;font-weight:700;margin-top:.2rem}
+  .disclosure{font-size:.75rem;color:#b39a95;max-width:28rem;line-height:1.7}
+  .disclosure strong{color:#ead9d6}
 
   .sticky-call{
     position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
@@ -255,29 +256,29 @@
       </div>
       <figure class="arch" aria-label="Illustration of nail polish bottles">
         <svg viewBox="0 0 300 260" role="img" aria-hidden="true">
-          <g fill="none" stroke="#2a2118" stroke-width="2">
+          <g fill="none" stroke="#38282a" stroke-width="2">
             <!-- bottle 1 -->
-            <rect x="52" y="118" width="56" height="104" rx="14" fill="#a8502c" stroke="none"/>
-            <rect x="66" y="86" width="28" height="34" rx="6" fill="#2a2118" stroke="none"/>
-            <rect x="76" y="66" width="8" height="22" fill="#2a2118" stroke="none"/>
-            <path d="M62 140h36" stroke="#faf7f0" stroke-width="3"/>
+            <rect x="52" y="118" width="56" height="104" rx="14" fill="#b76e79" stroke="none"/>
+            <rect x="66" y="86" width="28" height="34" rx="6" fill="#38282a" stroke="none"/>
+            <rect x="76" y="66" width="8" height="22" fill="#38282a" stroke="none"/>
+            <path d="M62 140h36" stroke="#faf5f1" stroke-width="3"/>
             <!-- bottle 2 -->
-            <rect x="126" y="140" width="48" height="82" rx="12" fill="#c97b4a" stroke="none"/>
-            <rect x="138" y="112" width="24" height="30" rx="5" fill="#2a2118" stroke="none"/>
-            <path d="M134 160h32" stroke="#faf7f0" stroke-width="3"/>
+            <rect x="126" y="140" width="48" height="82" rx="12" fill="#cf8f96" stroke="none"/>
+            <rect x="138" y="112" width="24" height="30" rx="5" fill="#38282a" stroke="none"/>
+            <path d="M134 160h32" stroke="#faf5f1" stroke-width="3"/>
             <!-- bottle 3 -->
-            <rect x="192" y="104" width="60" height="118" rx="14" fill="#8a3e20" stroke="none"/>
-            <rect x="207" y="72" width="30" height="34" rx="6" fill="#2a2118" stroke="none"/>
-            <rect x="218" y="52" width="8" height="22" fill="#2a2118" stroke="none"/>
-            <path d="M202 128h40" stroke="#faf7f0" stroke-width="3"/>
+            <rect x="192" y="104" width="60" height="118" rx="14" fill="#8a4a55" stroke="none"/>
+            <rect x="207" y="72" width="30" height="34" rx="6" fill="#38282a" stroke="none"/>
+            <rect x="218" y="52" width="8" height="22" fill="#38282a" stroke="none"/>
+            <path d="M202 128h40" stroke="#faf5f1" stroke-width="3"/>
             <!-- petals -->
-            <ellipse cx="40" cy="70" rx="14" ry="8" fill="#d8a276" stroke="none" transform="rotate(-24 40 70)"/>
-            <ellipse cx="262" cy="60" rx="14" ry="8" fill="#d8a276" stroke="none" transform="rotate(20 262 60)"/>
-            <ellipse cx="252" cy="200" rx="12" ry="7" fill="#e5b98d" stroke="none" transform="rotate(-30 252 200)"/>
-            <ellipse cx="34" cy="196" rx="12" ry="7" fill="#e5b98d" stroke="none" transform="rotate(28 34 196)"/>
+            <ellipse cx="40" cy="70" rx="14" ry="8" fill="#dfa9a2" stroke="none" transform="rotate(-24 40 70)"/>
+            <ellipse cx="262" cy="60" rx="14" ry="8" fill="#dfa9a2" stroke="none" transform="rotate(20 262 60)"/>
+            <ellipse cx="252" cy="200" rx="12" ry="7" fill="#ecc3bb" stroke="none" transform="rotate(-30 252 200)"/>
+            <ellipse cx="34" cy="196" rx="12" ry="7" fill="#ecc3bb" stroke="none" transform="rotate(28 34 196)"/>
             <!-- sparkles -->
-            <path d="M150 40l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#a8502c" stroke="none"/>
-            <path d="M228 180l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#c97b4a" stroke="none"/>
+            <path d="M150 40l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#b76e79" stroke="none"/>
+            <path d="M228 180l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#cf8f96" stroke="none"/>
             <!-- ground line -->
             <path d="M30 236h240" stroke-width="2.5"/>
           </g>
@@ -293,7 +294,7 @@
       <div class="bc-label"><small>Appointments</small>Book your visit</div>
       <div class="bc-mid">
         <strong>Call <a href="tel:+19056338778" style="color:#fff">905-633-8778</a></strong> or email
-        <a href="mailto:ttbeautynailspa@gmail.com" style="color:#f0c9a8">ttbeautynailspa@gmail.com</a><br>
+        <a href="mailto:ttbeautynailspa@gmail.com" style="color:#f2c4bd">ttbeautynailspa@gmail.com</a><br>
         2011 Plains Road East, Burlington · <span id="cardToday">Open today</span> · Walk-ins welcome
       </div>
       <div class="bc-cta">
@@ -314,13 +315,13 @@
       <div class="mood">
         <div class="mood-art" aria-hidden="true">
           <svg viewBox="0 0 150 150">
-            <g fill="none" stroke="#2a2118" stroke-width="2.5">
-              <rect x="52" y="58" width="46" height="72" rx="12" fill="#a8502c" stroke="none"/>
-              <rect x="63" y="32" width="24" height="28" rx="5" fill="#2a2118" stroke="none"/>
-              <rect x="71" y="16" width="8" height="18" fill="#2a2118" stroke="none"/>
-              <path d="M60 78h30" stroke="#faf7f0" stroke-width="3"/>
-              <path d="M118 40l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#a8502c" stroke="none"/>
-              <path d="M30 112l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#c97b4a" stroke="none"/>
+            <g fill="none" stroke="#38282a" stroke-width="2.5">
+              <rect x="52" y="58" width="46" height="72" rx="12" fill="#b76e79" stroke="none"/>
+              <rect x="63" y="32" width="24" height="28" rx="5" fill="#38282a" stroke="none"/>
+              <rect x="71" y="16" width="8" height="18" fill="#38282a" stroke="none"/>
+              <path d="M60 78h30" stroke="#faf5f1" stroke-width="3"/>
+              <path d="M118 40l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#b76e79" stroke="none"/>
+              <path d="M30 112l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#cf8f96" stroke="none"/>
             </g>
           </svg>
         </div>
@@ -340,13 +341,13 @@
       <div class="mood">
         <div class="mood-art" aria-hidden="true">
           <svg viewBox="0 0 150 150">
-            <g fill="none" stroke="#2a2118" stroke-width="2.5">
-              <path d="M28 70h94c0 30-20 52-47 52S28 100 28 70z" fill="#faf7f0"/>
-              <path d="M34 78c14-6 28 6 42 0s28 6 40 0" stroke="#a8502c"/>
-              <path d="M40 92c12-5 24 5 36 0s24 5 34 0" stroke="#c97b4a"/>
-              <ellipse cx="62" cy="60" rx="12" ry="7" fill="#d8a276" stroke="none" transform="rotate(-18 62 60)"/>
-              <ellipse cx="94" cy="52" rx="12" ry="7" fill="#e5b98d" stroke="none" transform="rotate(14 94 52)"/>
-              <path d="M112 108l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#a8502c" stroke="none"/>
+            <g fill="none" stroke="#38282a" stroke-width="2.5">
+              <path d="M28 70h94c0 30-20 52-47 52S28 100 28 70z" fill="#faf5f1"/>
+              <path d="M34 78c14-6 28 6 42 0s28 6 40 0" stroke="#b76e79"/>
+              <path d="M40 92c12-5 24 5 36 0s24 5 34 0" stroke="#cf8f96"/>
+              <ellipse cx="62" cy="60" rx="12" ry="7" fill="#dfa9a2" stroke="none" transform="rotate(-18 62 60)"/>
+              <ellipse cx="94" cy="52" rx="12" ry="7" fill="#ecc3bb" stroke="none" transform="rotate(14 94 52)"/>
+              <path d="M112 108l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#b76e79" stroke="none"/>
             </g>
           </svg>
         </div>
@@ -365,13 +366,13 @@
       <div class="mood mood-wide">
         <div class="mood-art" aria-hidden="true">
           <svg viewBox="0 0 190 190">
-            <g fill="none" stroke="#2a2118" stroke-width="2.5">
-              <path d="M30 110c0-24 10-44 22-44s22 20 22 44z" fill="#a8502c" stroke="none"/>
-              <path d="M84 110c0-24 10-44 22-44s22 20 22 44z" fill="#c97b4a" stroke="none"/>
-              <path d="M138 110c0-24 10-44 22-44s22 20 22 44z" fill="#8a3e20" stroke="none"/>
+            <g fill="none" stroke="#38282a" stroke-width="2.5">
+              <path d="M30 110c0-24 10-44 22-44s22 20 22 44z" fill="#b76e79" stroke="none"/>
+              <path d="M84 110c0-24 10-44 22-44s22 20 22 44z" fill="#cf8f96" stroke="none"/>
+              <path d="M138 110c0-24 10-44 22-44s22 20 22 44z" fill="#8a4a55" stroke="none"/>
               <path d="M22 128h146" stroke-width="3"/>
-              <path d="M40 60l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#a8502c" stroke="none"/>
-              <path d="M150 46l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#c97b4a" stroke="none"/>
+              <path d="M40 60l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#b76e79" stroke="none"/>
+              <path d="M150 46l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z" fill="#cf8f96" stroke="none"/>
             </g>
           </svg>
         </div>
@@ -391,11 +392,11 @@
       <div class="mood mood-wide">
         <div class="mood-art" aria-hidden="true">
           <svg viewBox="0 0 190 190">
-            <g fill="none" stroke="#2a2118" stroke-width="2.5">
+            <g fill="none" stroke="#38282a" stroke-width="2.5">
               <path d="M40 100c30-26 80-26 110 0" stroke-width="4"/>
               <path d="M58 88l-6-12M76 80l-3-13M95 77v-13M114 80l3-13M132 88l6-12" stroke-width="3"/>
               <path d="M40 128c30 18 80 18 110 0" stroke-width="2.5"/>
-              <path d="M150 52l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#a8502c" stroke="none"/>
+              <path d="M150 52l2.5 8 8 2.5-8 2.5-2.5 8-2.5-8-8-2.5 8-2.5z" fill="#b76e79" stroke="none"/>
             </g>
           </svg>
         </div>
