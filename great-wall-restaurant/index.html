@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Great Wall Restaurant — Cantonese &amp; Szechuan | 190 Kenilworth Ave N, Hamilton</title>
-<meta name="description" content="Great Wall Restaurant — family-run Cantonese and Szechuan cooking on Kenilworth Ave N, Hamilton. Call (905) 549-2229 to order pickup or delivery.">
+<title>Great Wall Restaurant — Dinner for the Whole Table | 190 Kenilworth Ave N, Hamilton</title>
+<meta name="description" content="Great Wall Restaurant — family-run Cantonese and Szechuan cooking on Kenilworth Ave N, Hamilton. Singapore noodles, cheese wontons, BBQ pork. Call (905) 549-2229 to order pickup or delivery.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Karla:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
@@ -35,12 +35,7 @@
   ::selection{background:var(--accent);color:#fff}
 
   /* ---------- nav ---------- */
-  .nav{
-    position:fixed;inset:0 0 auto 0;z-index:50;
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    background:rgba(251,244,232,.87);
-    border-bottom:1px solid transparent;transition:border-color .25s;
-  }
+  .nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid transparent;transition:border-color .25s}
   .nav.scrolled{border-bottom-color:var(--line)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
   .brand{font-family:'Bitter',serif;font-weight:700;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:10px}
@@ -65,11 +60,8 @@
   .burger{display:none;background:none;border:0;cursor:pointer;padding:10px}
   .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.25s}
   @media(max-width:820px){
-    .nav-links{
-      position:fixed;top:68px;right:0;left:0;flex-direction:column;align-items:flex-start;
-      background:var(--paper);border-bottom:1px solid var(--line);
-      padding:18px 22px 26px;gap:18px;display:none;
-    }
+    .nav-links{position:fixed;top:68px;right:0;left:0;flex-direction:column;align-items:flex-start;
+      background:var(--paper);border-bottom:1px solid var(--line);padding:18px 22px 26px;gap:18px;display:none}
     .nav-links.open{display:flex}
     .burger{display:block}
     .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -77,75 +69,86 @@
     .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   }
 
-  /* ---------- hero ---------- */
-  .hero{padding:150px 0 70px;position:relative;overflow:hidden}
-  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
-  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:120px}}
+  /* ---------- hero: the family dinner ---------- */
+  .hero{padding:96px 0 76px;position:relative;overflow:hidden;background:var(--paper-deep);border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:64px}}
   .kicker{
     font-size:.8rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
     color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px;
   }
   .kicker::before{content:"";width:34px;height:2px;background:var(--accent)}
-  .hero h1{font-size:clamp(2.6rem,5.4vw,4.2rem);font-weight:700;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.7rem,5.6vw,4.4rem);font-weight:700;margin-bottom:20px}
   .hero h1 .hanzi{color:var(--accent)}
-  .lede{font-size:1.12rem;color:#4d3a2a;max-width:34rem;margin-bottom:30px}
+  .lede{font-size:1.12rem;color:#4d3a2a;max-width:34rem;margin-bottom:28px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
   .open-badge{
     display:inline-flex;align-items:center;gap:9px;
     font-size:.88rem;font-weight:700;padding:.5rem 1rem;border-radius:999px;
-    border:1.5px solid var(--line);background:var(--paper-deep);color:var(--ink);
+    border:1.5px solid var(--line);background:#fff;color:var(--ink);
   }
   .open-badge .dot{width:9px;height:9px;border-radius:50%;background:#3d8b4f}
   .open-badge.closed .dot{background:#b3402e}
-
-  /* seal stamp — the memorable detail */
   .seal-wrap{display:flex;justify-content:center}
   .seal{
-    width:min(340px,80%);aspect-ratio:1/1;background:var(--accent);color:#FBF4E8;
+    width:min(330px,82%);aspect-ratio:1/1;background:var(--accent);color:#FBF4E8;
     border-radius:22px;transform:rotate(3deg);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
     box-shadow:0 30px 60px -25px rgba(163,22,33,.55);
     position:relative;
   }
-  .seal::before{
-    content:"";position:absolute;inset:14px;border:2px solid rgba(251,244,232,.5);
-    border-radius:12px;pointer-events:none;
-  }
+  .seal::before{content:"";position:absolute;inset:14px;border:2px solid rgba(251,244,232,.5);border-radius:12px;pointer-events:none}
   .seal .hanzi-big{font-size:5.2rem;font-weight:700;line-height:1.15;letter-spacing:.06em}
   .seal .seal-sub{font-size:.82rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;opacity:.85}
   .seal .seal-dish{font-family:'Bitter',serif;font-style:italic;font-size:1.02rem;opacity:.9}
 
   /* ---------- sections ---------- */
-  section{padding:74px 0}
+  section{padding:76px 0}
   .sec-head{max-width:44rem;margin-bottom:44px}
   .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;margin-bottom:14px}
   .sec-head p{color:#4d3a2a;font-size:1.06rem}
 
-  /* favourites — editorial dish rows */
-  .dish-list{list-style:none;border-top:2px solid var(--ink)}
+  /* feed the table — how a family dinner works */
+  .table-steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:8px}
+  @media(max-width:760px){.table-steps{grid-template-columns:1fr}}
+  .table-steps li{padding:26px 30px;border-left:2px solid var(--line);position:relative}
+  .table-steps li:first-child{border-left:0}
+  @media(max-width:760px){.table-steps li{border-left:0;border-top:2px solid var(--line);padding-left:0}.table-steps li:first-child{border-top:0}}
+  .step-n{font-family:'Bitter',serif;font-size:2.4rem;font-weight:700;color:var(--accent);display:block;margin-bottom:8px}
+  .table-steps h3{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+  .table-steps p{color:var(--muted);font-size:1rem}
+  .table-callout{
+    margin-top:40px;background:var(--ink);color:#F5EAD6;border-radius:var(--radius);
+    padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+  }
+  .table-callout p{font-size:1.08rem;max-width:38rem}
+  .table-callout strong{color:#fff}
+  .table-callout .btn{flex-shrink:0}
+
+  /* menu by category */
+  .menu-cats{max-width:1000px;margin:0 auto}
+  .menu-cat{margin-bottom:46px}
+  .menu-cat:last-child{margin-bottom:0}
+  .cat-head{display:flex;align-items:baseline;gap:18px;margin-bottom:6px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+  .cat-head h3{font-size:1.55rem;font-weight:700}
+  .cat-head .hanzi{color:var(--accent);font-size:1.15rem;font-weight:700}
+  .cat-head .cat-note{margin-left:auto;font-size:.92rem;color:var(--muted);font-style:italic}
+  .dish-list{list-style:none}
   .dish-list li{
-    display:grid;grid-template-columns:auto 1fr auto;gap:6px 22px;align-items:baseline;
-    padding:24px 4px;border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:1fr auto;gap:4px 22px;align-items:baseline;
+    padding:20px 4px;border-bottom:1px solid var(--line);
     transition:background .2s,padding-left .2s;
   }
-  @media(max-width:640px){.dish-list li{grid-template-columns:1fr auto}}
   .dish-list li:hover{background:var(--paper-deep);padding-left:14px}
-  .dish-hanzi{
-    font-family:'Noto Serif SC',serif;color:var(--accent);font-weight:700;font-size:1.5rem;
-    grid-row:span 2;line-height:1.2;
-  }
-  @media(max-width:640px){.dish-hanzi{grid-row:auto}}
-  .dish-name{font-family:'Bitter',serif;font-size:1.4rem;font-weight:700}
-  .dish-price{font-weight:700;font-size:1.05rem;white-space:nowrap;color:var(--accent-deep)}
-  .dish-desc{color:var(--muted);font-size:.99rem;grid-column:2/-1}
-  .menu-note{margin-top:20px;font-size:.95rem;color:var(--muted);font-style:italic}
+  .dish-name{font-family:'Bitter',serif;font-size:1.3rem;font-weight:700}
+  .dish-name .flag{font-style:normal;font-size:.75em;color:var(--accent);font-weight:700;letter-spacing:.08em}
+  .dish-price{font-weight:700;font-size:1.02rem;white-space:nowrap;color:var(--accent-deep)}
+  .dish-desc{color:var(--muted);font-size:.98rem;grid-column:1/-1}
+  .menu-note{margin-top:26px;font-size:.95rem;color:var(--muted);font-style:italic;text-align:center}
   .menu-note a{color:var(--accent-deep);font-weight:700;font-style:normal}
 
   /* pickup special — red panel */
-  .special{
-    background:var(--accent);color:#FDF3E3;border-radius:var(--radius);
-    padding:54px 48px;position:relative;overflow:hidden;
-  }
+  .special{background:var(--accent);color:#FDF3E3;border-radius:var(--radius);padding:54px 48px;position:relative;overflow:hidden}
   @media(max-width:640px){.special{padding:38px 28px}}
   .special::after{
     content:"\798F";font-family:'Noto Serif SC',serif;
@@ -173,39 +176,30 @@
   .hours tr.today td{background:var(--paper-deep)}
   .hours tr.today td:first-child{border-left:3px solid var(--accent);padding-left:10px}
   .pay-list{list-style:none;margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
-  .pay-list li{
-    font-size:.88rem;font-weight:700;padding:.45rem 1rem;border-radius:999px;
-    border:1.5px solid var(--line);background:#fff;
+  .pay-list li{font-size:.88rem;font-weight:700;padding:.45rem 1rem;border-radius:999px;border:1.5px solid var(--line);background:#fff}
+  .takeout-banner{
+    margin-top:36px;background:var(--accent);color:#FDF3E3;border-radius:var(--radius);
+    padding:40px 38px;text-align:center;position:relative;overflow:hidden;
   }
-  .order-strip{
-    margin-top:34px;background:var(--ink);color:#F5EAD6;
-    border-radius:var(--radius);padding:26px 30px;
-    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
-  }
-  .order-strip p{font-size:1.05rem;max-width:38rem}
-  .order-strip strong{color:#fff}
-  .order-strip .btn{flex-shrink:0}
+  .takeout-banner h2{font-size:clamp(1.7rem,3.2vw,2.4rem);margin-bottom:12px}
+  .takeout-banner p{font-size:1.08rem;opacity:.95;max-width:36rem;margin:0 auto 24px}
+  .takeout-banner .btn{background:#FDF3E3;color:var(--accent-deep)!important;border-color:#FDF3E3}
+  .takeout-banner .btn:hover{background:#fff;border-color:#fff}
+  .takeout-banner a.tel-num{font-family:'Bitter',serif;font-size:1.9rem;font-weight:700;color:#fff;text-decoration:none;display:block;margin-bottom:20px}
 
   /* footer */
   footer{border-top:1px solid var(--line);padding:44px 0 110px;margin-top:20px}
   .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
   .foot-grid .brand{margin-bottom:10px}
   footer p{font-size:.95rem;color:var(--muted);max-width:30rem}
-  .concept{
-    margin-top:26px;padding-top:20px;border-top:1px dashed var(--line);
-    font-size:.82rem;color:var(--muted);font-style:italic;
-  }
+  .concept{margin-top:26px;padding-top:20px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted);font-style:italic}
 
-  /* mobile call button */
   .call-fab{
-    position:fixed;left:16px;right:16px;bottom:16px;z-index:60;
-    display:none;text-align:center;
+    position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;text-align:center;
     background:var(--ink);color:#FFF7EA;text-decoration:none;font-weight:700;font-size:1.05rem;
-    padding:1rem;border-radius:999px;
-    box-shadow:0 12px 30px -8px rgba(42,27,18,.5);
+    padding:1rem;border-radius:999px;box-shadow:0 12px 30px -8px rgba(42,27,18,.5);
   }
   @media(max-width:820px){.call-fab{display:block}}
-
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
 </style>
@@ -214,14 +208,13 @@
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top"><span class="seal-mini hanzi">&#38263;</span> Great Wall</a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#favourites">House favourites</a></li>
+        <li><a href="#table">The table</a></li>
+        <li><a href="#menu">Menu</a></li>
         <li><a href="#special">Pickup special</a></li>
-        <li><a href="#visit">Order &amp; visit</a></li>
+        <li><a href="#visit">Visit</a></li>
         <li><a class="btn" href="tel:+19055492229">Call to order</a></li>
       </ul>
     </nav>
@@ -229,15 +222,15 @@
 </header>
 
 <main id="top">
-  <!-- HERO -->
+  <!-- HERO: the family dinner -->
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="kicker">Cantonese &amp; Szechuan &middot; Kenilworth Ave N</p>
-        <h1>Family-run Chinese cooking, <span class="hanzi">&#29694;&#40670;&#29694;&#20570;</span> made to order.</h1>
-        <p class="lede">Great Wall has been feeding Hamilton&rsquo;s east end with hearty Cantonese and Szechuan dishes &mdash; Singapore noodles, cheese wontons, minced pork with green beans. Call it in, pick it up hot.</p>
+        <p class="kicker">Cantonese &amp; Szechuan &middot; Kenilworth Ave N, Hamilton</p>
+        <h1>Dinner for the <span class="hanzi">whole table.</span></h1>
+        <p class="lede">Great Wall Restaurant is family-run Chinese cooking on Kenilworth Ave N &mdash; Singapore noodles, cheese wontons, minced pork with green beans, BBQ pork. Ordered for the middle of the table, passed around, and gone too fast.</p>
         <div class="hero-cta">
-          <a class="btn" href="tel:+19055492229">Call (905) 549-2229</a>
+          <a class="btn" href="tel:+19055492229">Call (905) 549-2229 to order</a>
           <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Great+Wall+Restaurant+190+Kenilworth+Ave+N+Hamilton+ON" target="_blank" rel="noopener">Get directions</a>
         </div>
         <span class="open-badge" id="openBadge"><span class="dot"></span><span id="openText">Checking hours&hellip;</span></span>
@@ -252,41 +245,101 @@
     </div>
   </div>
 
-  <!-- HOUSE FAVOURITES -->
-  <section id="favourites">
+  <!-- FEED THE TABLE -->
+  <section id="table">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="kicker">House favourites</p>
-        <h2>The dishes regulars come back for.</h2>
-        <p>Big flavours, generous portions, made fresh when you order. This is just a taste &mdash; there&rsquo;s a full menu waiting on the phone line.</p>
+        <p class="kicker">The family table</p>
+        <h2>How a Great Wall dinner works.</h2>
+        <p>Chinese dinner is a team sport. Here's the play:</p>
       </div>
-      <ul class="dish-list reveal">
+      <ol class="table-steps reveal">
         <li>
-          <span class="dish-hanzi hanzi">&#26143;&#27954;&#28818;&#31859;&#31881;</span>
-          <span class="dish-name">Singapore Noodle</span>
-          <span class="dish-price"><a href="tel:+19055492229" style="text-decoration:none">Call for price</a></span>
-          <span class="dish-desc">Curry, pork, shrimp &mdash; a house favourite, in the owner&rsquo;s own words.</span>
+          <span class="step-n">1</span>
+          <h3>Order for the middle</h3>
+          <p>One dish per person, plus rice &mdash; but nothing belongs to anyone. It all lands in the middle.</p>
         </li>
         <li>
-          <span class="dish-hanzi hanzi">&#33469;&#22763;&#38642;&#21534;</span>
-          <span class="dish-name">Cheese Wontons <em style="font-style:normal;font-size:.8em;color:var(--accent)">&#183; NEW</em></span>
-          <span class="dish-price">10 for $7.99</span>
-          <span class="dish-desc">Yummy, golden, and gone fast. Ten pieces, one very good decision.</span>
+          <span class="step-n">2</span>
+          <h3>Mix Cantonese with Szechuan</h3>
+          <p>Silky BBQ pork next to something with heat. The contrast is the point.</p>
         </li>
         <li>
-          <span class="dish-hanzi hanzi">&#32905;&#26411;&#22235;&#23395;&#35946;</span>
-          <span class="dish-name">Minced Pork &amp; Green Beans</span>
-          <span class="dish-price"><a href="tel:+19055492229" style="text-decoration:none">Call for price</a></span>
-          <span class="dish-desc">Savory combination of minced pork and green beans in a black bean sauce.</span>
+          <span class="step-n">3</span>
+          <h3>Pass it around</h3>
+          <p>Everyone tastes everything. The best bite at a Chinese table is always someone else's dish.</p>
         </li>
-        <li>
-          <span class="dish-hanzi hanzi">&#21489;&#29038;</span>
-          <span class="dish-name">BBQ Pork</span>
-          <span class="dish-price"><a href="tel:+19055492229" style="text-decoration:none">Call for price</a></span>
-          <span class="dish-desc">Classic Cantonese-style BBQ pork, lacquered and sliced to order.</span>
-        </li>
-      </ul>
-      <p class="menu-note reveal">Full menu and today&rsquo;s prices are a phone call away &mdash; <a href="tel:+19055492229">(905) 549-2229</a>.</p>
+      </ol>
+      <div class="table-callout reveal">
+        <p><strong>Feeding a crowd?</strong> Call ahead and we'll have it hot and ready when you arrive &mdash; dine in or takeout.</p>
+        <a class="btn" href="tel:+19055492229">Call (905) 549-2229</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU BY CATEGORY -->
+  <section id="menu" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">From the kitchen</p>
+        <h2>The menu, by craving.</h2>
+        <p>Made fresh when you order, in portions built for sharing.</p>
+      </div>
+      <div class="menu-cats">
+        <div class="menu-cat reveal">
+          <div class="cat-head">
+            <h3>To start</h3><span class="hanzi">&#22836;&#30424;</span>
+            <span class="cat-note">Open the table right.</span>
+          </div>
+          <ul class="dish-list">
+            <li>
+              <span class="dish-name">Cheese Wontons <span class="hanzi" style="font-size:1rem;color:var(--accent)">&#33469;&#22763;&#38642;&#21534;</span> <em class="flag">&middot; NEW</em></span>
+              <span class="dish-price">10 for $7.99</span>
+              <span class="dish-desc">Yummy, golden, and gone fast. Ten pieces, one very good decision.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-cat reveal">
+          <div class="cat-head">
+            <h3>BBQ &amp; roast</h3><span class="hanzi">&#28900;&#32905;</span>
+            <span class="cat-note">Lacquered and sliced to order.</span>
+          </div>
+          <ul class="dish-list">
+            <li>
+              <span class="dish-name">BBQ Pork <span class="hanzi" style="font-size:1rem;color:var(--accent)">&#21489;&#29038;</span></span>
+              <span class="dish-price"><a href="tel:+19055492229" style="text-decoration:none">Call for price</a></span>
+              <span class="dish-desc">Classic Cantonese-style BBQ pork, lacquered and sliced to order.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-cat reveal">
+          <div class="cat-head">
+            <h3>Noodles</h3><span class="hanzi">&#38754;&#26465;</span>
+            <span class="cat-note">The wok's main event.</span>
+          </div>
+          <ul class="dish-list">
+            <li>
+              <span class="dish-name">Singapore Noodle <span class="hanzi" style="font-size:1rem;color:var(--accent)">&#26143;&#27954;&#28818;&#31859;&#31881;</span></span>
+              <span class="dish-price"><a href="tel:+19055492229" style="text-decoration:none">Call for price</a></span>
+              <span class="dish-desc">Curry, pork, shrimp &mdash; a house favourite, in the owner&rsquo;s own words.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-cat reveal">
+          <div class="cat-head">
+            <h3>From the wok</h3><span class="hanzi">&#28818;&#33756;</span>
+            <span class="cat-note">Hot, fast, savory.</span>
+          </div>
+          <ul class="dish-list">
+            <li>
+              <span class="dish-name">Minced Pork &amp; Green Beans <span class="hanzi" style="font-size:1rem;color:var(--accent)">&#32905;&#26411;&#22235;&#23395;&#35946;</span></span>
+              <span class="dish-price"><a href="tel:+19055492229" style="text-decoration:none">Call for price</a></span>
+              <span class="dish-desc">Savory combination of minced pork and green beans in a black bean sauce.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="menu-note reveal">This is just a taste &mdash; the full menu and today&rsquo;s prices are a phone call away: <a href="tel:+19055492229">(905) 549-2229</a>.</p>
     </div>
   </section>
 
@@ -311,12 +364,12 @@
     </div>
   </section>
 
-  <!-- ORDER & VISIT -->
+  <!-- VISIT -->
   <section id="visit" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="kicker">Order &amp; visit</p>
-        <h2>Call it in &mdash; we&rsquo;ll have it hot.</h2>
+        <h2>Come to the table.</h2>
       </div>
       <div class="visit-grid reveal">
         <div class="v-block">
@@ -344,9 +397,11 @@
           </table>
         </div>
       </div>
-      <div class="order-strip reveal">
-        <p><strong>Ordering for pickup or delivery?</strong> Call <strong>(905) 549-2229</strong> &mdash; tell us wings or pop with your $60 pickup order, and mention e-transfer if that&rsquo;s how you&rsquo;d like to pay.</p>
-        <a class="btn" href="tel:+19055492229">Call now</a>
+      <div class="takeout-banner reveal">
+        <h2>Tonight's dinner is one call away.</h2>
+        <p>Dine in on Kenilworth, or call it in and pick it up hot. Tell us wings or pop with your $60 pickup order.</p>
+        <a class="tel-num" href="tel:+19055492229">(905) 549-2229</a>
+        <a class="btn" href="tel:+19055492229">Call to order takeout</a>
       </div>
     </div>
   </section>
@@ -370,35 +425,22 @@
 <a class="call-fab" href="tel:+19055492229">Call (905) 549-2229</a>
 <script>
 (function(){
-  // Sticky nav border on scroll
   var nav = document.getElementById('nav');
-  addEventListener('scroll', function(){
-    nav.classList.toggle('scrolled', scrollY > 12);
-  }, {passive:true});
-
-  // Mobile menu
-  var burger = document.getElementById('burger'),
-      links  = document.getElementById('navLinks');
+  addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 12); }, {passive:true});
+  var burger = document.getElementById('burger'), links = document.getElementById('navLinks');
   burger.addEventListener('click', function(){
     var open = links.classList.toggle('open');
     burger.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open);
   });
   links.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){
-      links.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
-    }
+    if(e.target.tagName === 'A'){ links.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
   });
-
-  // Live open/closed badge + "today" row
   // Real hours: Sun-Thu 3pm-10pm, Fri-Sat 3pm-midnight
   var now = new Date(), day = now.getDay(), h = now.getHours() + now.getMinutes()/60;
   var closeH = (day === 5 || day === 6) ? 24 : 22;
   var open = (h >= 15 && h < closeH);
-  var badge = document.getElementById('openBadge'),
-      txt = document.getElementById('openText');
+  var badge = document.getElementById('openBadge'), txt = document.getElementById('openText');
   badge.classList.toggle('closed', !open);
   txt.textContent = open
     ? 'Open now · until ' + (closeH === 24 ? 'midnight' : '10pm')
@@ -406,13 +448,9 @@
   document.querySelectorAll('#hoursTable tr').forEach(function(tr){
     if(parseInt(tr.getAttribute('data-day'),10) === day) tr.classList.add('today');
   });
-
-  // Gentle scroll reveals — section content only, never primary hero text
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, {threshold:.12});
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   } else {

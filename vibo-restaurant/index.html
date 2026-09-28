@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ViBo Restaurant — Cucina Italiana in the Kingsway | 2995 Bloor St W, Etobicoke</title>
+<title>ViBo Restaurant — Three Generations, One Kitchen | 2995 Bloor St W, Etobicoke</title>
 <meta name="description" content="ViBo Restaurant — family-run Italian kitchen in the Kingsway since 1972. Linguine vongole, lasagna bolognese, veal chop. 2995 Bloor St W. Call 416-239-1286.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,12 +34,7 @@
   ::selection{background:var(--accent);color:#fff}
 
   /* ---------- nav ---------- */
-  .nav{
-    position:fixed;inset:0 0 auto 0;z-index:50;
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    background:rgba(250,246,238,.87);
-    border-bottom:1px solid transparent;transition:border-color .25s;
-  }
+  .nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid transparent;transition:border-color .25s}
   .nav.scrolled{border-bottom-color:var(--line)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
   .brand{font-family:'DM Serif Display',serif;font-size:1.5rem;text-decoration:none}
@@ -60,11 +55,8 @@
   .burger{display:none;background:none;border:0;cursor:pointer;padding:10px}
   .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.25s}
   @media(max-width:820px){
-    .nav-links{
-      position:fixed;top:68px;right:0;left:0;flex-direction:column;align-items:flex-start;
-      background:var(--paper);border-bottom:1px solid var(--line);
-      padding:18px 22px 26px;gap:18px;display:none;
-    }
+    .nav-links{position:fixed;top:68px;right:0;left:0;flex-direction:column;align-items:flex-start;
+      background:var(--paper);border-bottom:1px solid var(--line);padding:18px 22px 26px;gap:18px;display:none}
     .nav-links.open{display:flex}
     .burger{display:block}
     .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -72,53 +64,58 @@
     .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   }
 
-  /* ---------- hero ---------- */
-  .hero{padding:150px 0 80px;position:relative;overflow:hidden}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:120px}}
+  /* ---------- story-first hero ---------- */
+  .hero{padding:104px 0 88px;position:relative;overflow:hidden;background:var(--paper-deep);border-bottom:1px solid var(--line)}
+  .hero-inner{max-width:56rem;margin:0 auto;text-align:center}
+  .dal{
+    display:inline-block;font-family:'DM Serif Display',serif;font-style:italic;
+    font-size:1rem;color:var(--accent);border:1.5px solid var(--accent);
+    padding:.4rem 1.3rem;border-radius:999px;margin-bottom:26px;letter-spacing:.06em;
+  }
+  .hero h1{font-size:clamp(2.9rem,6.4vw,5rem);margin-bottom:24px}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .lede{font-size:1.15rem;color:#4d3f30;max-width:40rem;margin:0 auto 32px}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+  .open-badge{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.88rem;font-weight:700;padding:.5rem 1rem;border-radius:999px;
+    border:1.5px solid var(--line);background:#fff;color:var(--ink);
+  }
+  .open-badge .dot{width:9px;height:9px;border-radius:50%;background:#3d8b4f}
+  .open-badge.closed .dot{background:#b3402e}
+
+  /* ---------- la storia ---------- */
+  section{padding:76px 0}
   .kicker{
     font-size:.8rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
     color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px;
   }
   .kicker::before{content:"";width:34px;height:2px;background:var(--accent)}
-  .hero h1{font-size:clamp(2.7rem,5.6vw,4.4rem);margin-bottom:22px}
-  .hero h1 em{font-style:italic;color:var(--accent)}
-  .lede{font-size:1.12rem;color:#4d3f30;max-width:34rem;margin-bottom:30px}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
-  .open-badge{
-    display:inline-flex;align-items:center;gap:9px;
-    font-size:.88rem;font-weight:700;padding:.5rem 1rem;border-radius:999px;
-    border:1.5px solid var(--line);background:var(--paper-deep);color:var(--ink);
-  }
-  .open-badge .dot{width:9px;height:9px;border-radius:50%;background:#3d8b4f}
-  .open-badge.closed .dot{background:#b3402e}
-
-  /* heritage card — the memorable detail */
-  .heritage-card{
-    background:var(--ink);color:#F5EDDC;border-radius:var(--radius);
-    padding:40px 38px;position:relative;transform:rotate(-1.2deg);
-    box-shadow:0 24px 50px -22px rgba(43,33,24,.5);
-  }
-  .heritage-card .dal{
-    display:inline-block;font-family:'DM Serif Display',serif;font-style:italic;
-    font-size:1rem;color:var(--paper);border:1.5px solid var(--accent);
-    padding:.35rem 1.1rem;border-radius:999px;margin-bottom:20px;letter-spacing:.06em;
-  }
-  .heritage-card h3{font-size:1.65rem;margin-bottom:14px;line-height:1.25}
-  .heritage-card h3 em{color:var(--accent);font-style:italic}
-  .heritage-card p{font-size:1rem;color:#D8CBB2;margin-bottom:10px}
-  .timeline{list-style:none;margin-top:22px;border-top:1px solid rgba(245,237,220,.2)}
-  .timeline li{display:flex;gap:18px;padding:13px 0;border-bottom:1px solid rgba(245,237,220,.2);align-items:baseline}
+  .story-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+  @media(max-width:900px){.story-grid{grid-template-columns:1fr}}
+  .story-copy h2{font-size:clamp(2rem,3.8vw,2.9rem);margin-bottom:22px}
+  .story-copy h2 em{font-style:italic;color:var(--accent)}
+  .story-copy p{font-size:1.08rem;color:#4d3f30;margin-bottom:18px}
+  .story-copy p.lead{font-family:'DM Serif Display',serif;font-size:1.45rem;line-height:1.45;color:var(--ink);margin-bottom:22px}
+  .story-copy p.lead::first-letter{font-size:3.2em;float:left;line-height:.85;padding-right:10px;color:var(--accent)}
+  .timeline-card{background:var(--ink);color:#F5EDDC;border-radius:var(--radius);padding:40px 36px;transform:rotate(-1.2deg);box-shadow:0 24px 50px -22px rgba(43,33,24,.5)}
+  .timeline-card h3{font-size:1.5rem;margin-bottom:8px}
+  .timeline-card h3 em{color:var(--accent);font-style:italic}
+  .timeline-card > p{font-size:.98rem;color:#D8CBB2;margin-bottom:6px}
+  .timeline{list-style:none;margin-top:20px;border-top:1px solid rgba(245,237,220,.2)}
+  .timeline li{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid rgba(245,237,220,.2);align-items:baseline}
   .timeline .yr{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--accent);min-width:64px}
   .timeline .ev{font-size:.98rem;color:#EDE2C8}
 
-  /* ---------- sections ---------- */
-  section{padding:74px 0}
-  .sec-head{max-width:44rem;margin-bottom:44px}
-  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:14px}
-  .sec-head p{color:#4d3f30;font-size:1.06rem}
-
-  /* kitchen list — editorial rows */
+  /* ---------- menu in chapters ---------- */
+  .chapters{max-width:960px;margin:0 auto}
+  .chapter{margin-bottom:60px}
+  .chapter:last-child{margin-bottom:0}
+  .chapter-head{display:flex;align-items:baseline;gap:20px;margin-bottom:10px}
+  .chapter-head .roman{font-family:'DM Serif Display',serif;font-style:italic;color:var(--accent);font-size:1.2rem;min-width:2.4rem}
+  .chapter-head h3{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+  .chapter-head .it-sub{margin-left:auto;font-family:'DM Serif Display',serif;font-style:italic;color:var(--muted);font-size:1.05rem;white-space:nowrap}
+  .chapter-desc{color:var(--muted);font-size:1rem;margin-bottom:16px;max-width:42rem}
   .dish-list{list-style:none;border-top:2px solid var(--ink)}
   .dish-list li{
     display:grid;grid-template-columns:1fr auto;gap:4px 20px;align-items:baseline;
@@ -128,15 +125,11 @@
   .dish-list li:hover{background:var(--paper-deep);padding-left:14px}
   .dish-name{font-family:'DM Serif Display',serif;font-size:1.35rem}
   .dish-name .it{font-style:italic;color:var(--accent);font-size:.95rem;display:block;margin-top:2px}
-  .dish-cat{
-    font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--accent);white-space:nowrap;
-  }
   .dish-desc{color:var(--muted);font-size:.98rem;grid-column:1/-1;max-width:40rem}
-  .menu-note{margin-top:20px;font-size:.95rem;color:var(--muted);font-style:italic}
+  .menu-note{margin-top:30px;font-size:.95rem;color:var(--muted);font-style:italic;text-align:center}
   .menu-note a{color:var(--accent-deep);font-weight:700;font-style:normal}
 
-  /* visit */
+  /* ---------- visit ---------- */
   .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
   @media(max-width:820px){.visit-grid{grid-template-columns:1fr}}
   .v-block h3{font-size:1.25rem;margin-bottom:16px}
@@ -147,36 +140,28 @@
   .hours td:last-child{text-align:right;font-weight:600}
   .hours tr.today td{background:var(--paper-deep)}
   .hours tr.today td:first-child{border-left:3px solid var(--accent);padding-left:10px}
-  .order-strip{
-    margin-top:34px;background:var(--accent);color:#FFF3E8;
-    border-radius:var(--radius);padding:26px 30px;
-    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  .reserve-strip{
+    margin-top:34px;background:var(--ink);color:#F5EDDC;border-radius:var(--radius);
+    padding:38px 36px;text-align:center;
   }
-  .order-strip p{font-size:1.05rem;max-width:36rem}
-  .order-strip strong{color:#fff}
-  .order-strip .btn{background:#FFF3E8;color:var(--accent-deep)!important;border-color:#FFF3E8}
-  .order-strip .btn:hover{background:#fff;border-color:#fff}
+  .reserve-strip h2{font-size:clamp(1.6rem,3.2vw,2.3rem);margin-bottom:12px}
+  .reserve-strip h2 em{color:var(--accent);font-style:italic}
+  .reserve-strip p{color:#D8CBB2;font-size:1.05rem;max-width:38rem;margin:0 auto 22px}
+  .reserve-strip a.tel-num{font-family:'DM Serif Display',serif;font-size:1.8rem;color:#fff;text-decoration:none;display:block;margin-bottom:22px}
 
-  /* footer */
+  /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);padding:44px 0 110px;margin-top:20px}
   .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
   .foot-grid .brand{margin-bottom:10px;display:inline-block}
   footer p{font-size:.95rem;color:var(--muted);max-width:30rem}
-  .concept{
-    margin-top:26px;padding-top:20px;border-top:1px dashed var(--line);
-    font-size:.82rem;color:var(--muted);font-style:italic;
-  }
+  .concept{margin-top:26px;padding-top:20px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted);font-style:italic}
 
-  /* mobile call button */
   .call-fab{
-    position:fixed;left:16px;right:16px;bottom:16px;z-index:60;
-    display:none;text-align:center;
+    position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;text-align:center;
     background:var(--ink);color:#FFF7EA;text-decoration:none;font-weight:700;font-size:1.05rem;
-    padding:1rem;border-radius:999px;
-    box-shadow:0 12px 30px -8px rgba(43,33,24,.5);
+    padding:1rem;border-radius:999px;box-shadow:0 12px 30px -8px rgba(43,33,24,.5);
   }
   @media(max-width:820px){.call-fab{display:block}}
-
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
 </style>
@@ -185,13 +170,11 @@
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top">Vi<em>Bo</em></a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#kitchen">From the kitchen</a></li>
         <li><a href="#story">Our story</a></li>
+        <li><a href="#menu">The menu</a></li>
         <li><a href="#visit">Visit</a></li>
         <li><a class="btn" href="tel:+14162391286">Call us</a></li>
       </ul>
@@ -200,74 +183,110 @@
 </header>
 
 <main id="top">
-  <!-- HERO -->
+  <!-- STORY-FIRST HERO -->
   <div class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="kicker">Kingsway &middot; Etobicoke</p>
-        <h1>Cucina italiana, <em>family-run since 1972.</em></h1>
-        <p class="lede">Our family has been feeding the Kingsway for over fifty years &mdash; first as Villa Borghese, now as ViBo. Same recipes, same welcome, casual fine dining on Bloor West.</p>
-        <div class="hero-cta">
-          <a class="btn" href="tel:+14162391286">Call 416-239-1286</a>
-          <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=ViBo+Restaurant+2995+Bloor+St+W+Etobicoke" target="_blank" rel="noopener">Get directions</a>
-        </div>
-        <span class="open-badge" id="openBadge"><span class="dot"></span><span id="openText">Checking hours&hellip;</span></span>
+    <div class="wrap hero-inner">
+      <span class="dal">Dal 1972 &middot; The Kingsway, Etobicoke</span>
+      <h1>Three generations.<br><em>One kitchen.</em></h1>
+      <p class="lede">ViBo Restaurant has been feeding the Kingsway for over fifty years &mdash; first as Villa Borghese, now as ViBo. Same family, same recipes, casual fine dining on Bloor West.</p>
+      <div class="hero-cta">
+        <a class="btn" href="tel:+14162391286">Call 416-239-1286</a>
+        <a class="btn ghost" href="#story">Read our story</a>
       </div>
-      <aside class="heritage-card" id="story" aria-label="Our story">
-        <span class="dal">Dal 1972</span>
-        <h3>Three generations, <em>one kitchen.</em></h3>
-        <p>We opened our doors as Villa Borghese in 1972 and became ViBo in 2012 &mdash; but the philosophy never changed: real Italian cooking, generous portions, and a room that feels like family.</p>
-        <ul class="timeline">
-          <li><span class="yr">1972</span><span class="ev">Villa Borghese opens its doors in the Kingsway.</span></li>
-          <li><span class="yr">2012</span><span class="ev">Reborn as ViBo &mdash; same family, same recipes, new name.</span></li>
-          <li><span class="yr">Today</span><span class="ev">Handmade pasta, veal chops, and branzino, seven days a week.</span></li>
-        </ul>
-      </aside>
+      <span class="open-badge" id="openBadge"><span class="dot"></span><span id="openText">Checking hours&hellip;</span></span>
     </div>
   </div>
 
-  <!-- FROM THE KITCHEN -->
-  <section id="kitchen">
+  <!-- LA STORIA -->
+  <section id="story">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="kicker">From the kitchen</p>
-        <h2>The plates we're known for.</h2>
-        <p>Pasta made in house, sauces that simmer all afternoon, and a few dishes the neighbourhood would riot over if we ever took them off.</p>
+      <div class="story-grid">
+        <div class="story-copy reveal">
+          <p class="kicker">La storia</p>
+          <h2>Fifty years at the <em>same stove.</em></h2>
+          <p class="lead">In 1972, our family opened its doors in the Kingsway as Villa Borghese. In 2012 we became ViBo &mdash; but the philosophy never changed.</p>
+          <p>Real Italian cooking, generous portions, and a room that feels like family. Pasta made in house, sauces that simmer all afternoon, and recipes carried across three generations without losing a thing.</p>
+          <p>Casual fine dining on Bloor West: the white-tablecloth care of a special occasion, the warmth of a neighbourhood spot where the staff knows your name.</p>
+        </div>
+        <aside class="timeline-card reveal" aria-label="ViBo through the years">
+          <h3>ViBo, <em>through the years.</em></h3>
+          <p>The name changed once. The kitchen never did.</p>
+          <ul class="timeline">
+            <li><span class="yr">1972</span><span class="ev">Villa Borghese opens its doors in the Kingsway.</span></li>
+            <li><span class="yr">2012</span><span class="ev">Reborn as ViBo &mdash; same family, same recipes, new name.</span></li>
+            <li><span class="yr">Today</span><span class="ev">Handmade pasta, veal chops, and branzino, seven days a week.</span></li>
+          </ul>
+        </aside>
       </div>
-      <ul class="dish-list reveal">
-        <li>
-          <span class="dish-name">Linguine Vongole<span class="it">with fresh clams, garlic &amp; white wine</span></span><span class="dish-cat">Primi</span>
-          <span class="dish-desc">The one regulars call the best pasta they've ever had. Briny, garlicky, gone too fast.</span>
-        </li>
-        <li>
-          <span class="dish-name">Old School Lasagna Bolognese<span class="it">layered by hand, baked to order</span></span><span class="dish-cat">Primi</span>
-          <span class="dish-desc">Our slow-cooked rag&ugrave;, b&eacute;chamel, and no shortcuts &mdash; the way it's been made since 1972.</span>
-        </li>
-        <li>
-          <span class="dish-name">Homemade Gnocchi<span class="it">pillowy potato gnocchi</span></span><span class="dish-cat">Primi</span>
-          <span class="dish-desc">Rolled fresh in our kitchen. Light, delicate, and dangerously easy to finish.</span>
-        </li>
-        <li>
-          <span class="dish-name">Penne alla Vodka<span class="it">tomato, cream &amp; a whisper of vodka</span></span><span class="dish-cat">Primi</span>
-          <span class="dish-desc">Silky, pink, and unapologetically rich &mdash; a Kingsway classic.</span>
-        </li>
-        <li>
-          <span class="dish-name">Sicilian Eggplant Parmigiana<span class="it">baked, not fried</span></span><span class="dish-cat">Secondi</span>
-          <span class="dish-desc">Layers of eggplant, tomato sugo, and mozzarella, baked until it bubbles.</span>
-        </li>
-        <li>
-          <span class="dish-name">Veal Chop<span class="it">thick-cut, simply prepared</span></span><span class="dish-cat">Secondi</span>
-          <span class="dish-desc">For the serious appetite &mdash; a proper chop, treated with respect.</span>
-        </li>
-        <li>
-          <span class="dish-name">Branzino<span class="it">Mediterranean sea bass</span></span><span class="dish-cat">Secondi</span>
-          <span class="dish-desc">Light, lemony, and grilled &mdash; the counterpoint to a rich pasta starter.</span>
-        </li>
-        <li>
-          <span class="dish-name">Fried Calamari<span class="it">crisp, with lemon &amp; marinara</span></span><span class="dish-cat">Antipasti</span>
-          <span class="dish-desc">The table order. Golden, tender, and always the first plate emptied.</span>
-        </li>
-      </ul>
+    </div>
+  </section>
+
+  <!-- MENU IN CHAPTERS -->
+  <section id="menu" style="padding-top:0">
+    <div class="wrap">
+      <div class="story-copy reveal" style="max-width:44rem;margin-bottom:48px">
+        <p class="kicker">The menu</p>
+        <h2 style="font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:14px">An Italian dinner, <em style="font-style:italic;color:var(--accent)">in order.</em></h2>
+        <p style="font-size:1.06rem;color:#4d3f30">Start small, then the pasta, then the main &mdash; the way dinner has always worked at our table.</p>
+      </div>
+      <div class="chapters">
+        <div class="chapter reveal">
+          <div class="chapter-head">
+            <span class="roman">i.</span><h3>To begin</h3><span class="it-sub">antipasti</span>
+          </div>
+          <p class="chapter-desc">Something for the middle of the table while you decide.</p>
+          <ul class="dish-list">
+            <li>
+              <span class="dish-name">Fried Calamari<span class="it">crisp, with lemon &amp; marinara</span></span>
+              <span class="dish-desc">Golden and tender &mdash; the first plate emptied.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="chapter reveal">
+          <div class="chapter-head">
+            <span class="roman">ii.</span><h3>The pasta</h3><span class="it-sub">primi</span>
+          </div>
+          <p class="chapter-desc">Made in house. The lasagna has been made the same way since 1972.</p>
+          <ul class="dish-list">
+            <li>
+              <span class="dish-name">Linguine Vongole<span class="it">with fresh clams, garlic &amp; white wine</span></span>
+              <span class="dish-desc">Briny, garlicky, gone too fast.</span>
+            </li>
+            <li>
+              <span class="dish-name">Old School Lasagna Bolognese<span class="it">layered by hand, baked to order</span></span>
+              <span class="dish-desc">Slow-cooked rag&ugrave; and b&eacute;chamel &mdash; no shortcuts.</span>
+            </li>
+            <li>
+              <span class="dish-name">Homemade Gnocchi<span class="it">pillowy potato gnocchi</span></span>
+              <span class="dish-desc">Rolled fresh in our kitchen. Light, delicate, and dangerously easy to finish.</span>
+            </li>
+            <li>
+              <span class="dish-name">Penne alla Vodka<span class="it">tomato, cream &amp; a whisper of vodka</span></span>
+              <span class="dish-desc">Silky, pink, and unapologetically rich.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="chapter reveal">
+          <div class="chapter-head">
+            <span class="roman">iii.</span><h3>The mains</h3><span class="it-sub">secondi</span>
+          </div>
+          <p class="chapter-desc">For the serious appetite &mdash; and for the lighter one too.</p>
+          <ul class="dish-list">
+            <li>
+              <span class="dish-name">Sicilian Eggplant Parmigiana<span class="it">baked, not fried</span></span>
+              <span class="dish-desc">Layers of eggplant, tomato sugo, and mozzarella, baked until it bubbles.</span>
+            </li>
+            <li>
+              <span class="dish-name">Veal Chop<span class="it">thick-cut, simply prepared</span></span>
+              <span class="dish-desc">A proper chop, treated with respect.</span>
+            </li>
+            <li>
+              <span class="dish-name">Branzino<span class="it">Mediterranean sea bass</span></span>
+              <span class="dish-desc">Light, lemony, and grilled &mdash; the counterpoint to a rich pasta starter.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
       <p class="menu-note reveal">Menus change with the seasons &mdash; call <a href="tel:+14162391286">416-239-1286</a> for tonight's menu &amp; prices.</p>
     </div>
   </section>
@@ -275,9 +294,9 @@
   <!-- VISIT -->
   <section id="visit" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="story-copy reveal" style="max-width:44rem;margin-bottom:44px">
         <p class="kicker">Visit us</p>
-        <h2>Come hungry, leave family.</h2>
+        <h2 style="font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:14px">Come hungry, <em style="font-style:italic;color:var(--accent)">leave family.</em></h2>
       </div>
       <div class="visit-grid reveal">
         <div class="v-block">
@@ -304,8 +323,10 @@
           </table>
         </div>
       </div>
-      <div class="order-strip reveal">
-        <p><strong>Join us for lunch or dinner.</strong> Call <strong>416-239-1286</strong> to reserve &mdash; weekends fill up, and the lasagna waits for no one.</p>
+      <div class="reserve-strip reveal">
+        <h2>Join us for <em>lunch or dinner.</em></h2>
+        <p>Call to reserve &mdash; weekends fill up, and the lasagna waits for no one.</p>
+        <a class="tel-num" href="tel:+14162391286">416-239-1286</a>
         <a class="btn" href="tel:+14162391286">Call now</a>
       </div>
     </div>
@@ -330,29 +351,17 @@
 <a class="call-fab" href="tel:+14162391286">Call 416-239-1286</a>
 <script>
 (function(){
-  // Sticky nav border on scroll
   var nav = document.getElementById('nav');
-  addEventListener('scroll', function(){
-    nav.classList.toggle('scrolled', scrollY > 12);
-  }, {passive:true});
-
-  // Mobile menu
-  var burger = document.getElementById('burger'),
-      links  = document.getElementById('navLinks');
+  addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 12); }, {passive:true});
+  var burger = document.getElementById('burger'), links = document.getElementById('navLinks');
   burger.addEventListener('click', function(){
     var open = links.classList.toggle('open');
     burger.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open);
   });
   links.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){
-      links.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
-    }
+    if(e.target.tagName === 'A'){ links.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
   });
-
-  // Live open/closed badge + "today" row
   // Real hours: Mon closed; Tue-Fri lunch 11:30am-3pm + dinner 5pm-11pm;
   // Sat dinner 5pm-11pm; Sun dinner 5pm-10pm
   var schedule = {
@@ -366,8 +375,7 @@
     if(h >= w[0] && h < w[1]) cur = w;
     else if(h < w[0] && !next) next = w;
   });
-  var badge = document.getElementById('openBadge'),
-      txt = document.getElementById('openText');
+  var badge = document.getElementById('openBadge'), txt = document.getElementById('openText');
   badge.classList.toggle('closed', !cur);
   function fmt(t){
     var hh = Math.floor(t), mm = Math.round((t-hh)*60);
@@ -379,13 +387,9 @@
   document.querySelectorAll('#hoursTable tr').forEach(function(tr){
     if(parseInt(tr.getAttribute('data-day'),10) === day) tr.classList.add('today');
   });
-
-  // Gentle scroll reveals — section content only, never primary hero text
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, {threshold:.12});
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   } else {

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harry's Steak House — Etobicoke's Old Hollywood Steakhouse | 3277 Bloor St W</title>
-<meta name="description" content="Harry's Steak House — a longstanding independent steakhouse in Etobicoke. Dry-aged rib steaks, filet mignon, baked Alaska. 3277 Bloor Street West. Call 416.551.5864 for reservations.">
+<title>Harry's Steak House — Reserve Your Table | 3277 Bloor St W, Etobicoke</title>
+<meta name="description" content="Harry's Steak House — a longstanding independent steakhouse in Etobicoke. Dry-aged rib steaks, filet mignon, baked Alaska. Call 416.551.5864 to reserve your table.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -33,17 +33,16 @@
   a{color:inherit}
   ::selection{background:var(--gold);color:var(--ink)}
 
-  /* thin double gold rule — the deco divider */
   .rule{border:0;border-top:1px solid var(--gold);position:relative;margin:0}
   .rule::after{content:"";display:block;border-top:1px solid var(--gold);margin-top:3px;opacity:.55}
 
+  /* slim utility bar — hours + phone, nothing else */
+  .utility{background:#0d0a07;color:var(--cream-dim);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+  .utility .wrap{display:flex;justify-content:space-between;gap:14px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+  .utility a{color:var(--gold);text-decoration:none;font-weight:500}
+
   /* ---------- nav ---------- */
-  .nav{
-    position:fixed;inset:0 0 auto 0;z-index:50;
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    background:rgba(20,16,12,.82);
-    border-bottom:1px solid transparent;transition:border-color .25s;
-  }
+  .nav{position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:1px solid transparent;transition:border-color .25s}
   .nav.scrolled{border-bottom-color:var(--line)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
   .brand{font-family:'Cinzel',serif;font-weight:700;font-size:1.15rem;text-decoration:none;letter-spacing:.12em}
@@ -64,11 +63,8 @@
   .burger{display:none;background:none;border:0;cursor:pointer;padding:10px}
   .burger span{display:block;width:24px;height:2px;background:var(--cream);margin:5px 0;transition:.25s}
   @media(max-width:860px){
-    .nav-links{
-      position:fixed;top:70px;right:0;left:0;flex-direction:column;align-items:flex-start;
-      background:var(--ink-soft);border-bottom:1px solid var(--line);
-      padding:18px 22px 26px;gap:18px;display:none;
-    }
+    .nav-links{position:fixed;top:70px;right:0;left:0;flex-direction:column;align-items:flex-start;
+      background:var(--ink-soft);border-bottom:1px solid var(--line);padding:18px 22px 26px;gap:18px;display:none}
     .nav-links.open{display:flex}
     .burger{display:block}
     .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -76,8 +72,8 @@
     .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   }
 
-  /* ---------- hero ---------- */
-  .hero{padding:170px 0 90px;position:relative;text-align:center;overflow:hidden}
+  /* ---------- reservation-first hero ---------- */
+  .hero{padding:110px 0 90px;position:relative;text-align:center;overflow:hidden}
   .hero::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background:radial-gradient(ellipse 70% 55% at 50% 38%,rgba(198,161,91,.10),transparent 70%);
@@ -90,19 +86,15 @@
     content:"H";transform:rotate(-45deg);font-family:'Cinzel',serif;
     font-size:1.6rem;color:var(--gold);font-weight:700;
   }
-  .kicker{
-    font-size:.78rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;
-    color:var(--gold);margin-bottom:22px;
-  }
-  .hero h1{font-size:clamp(2.7rem,6.4vw,5rem);margin-bottom:24px}
+  .kicker{font-size:.78rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+  .hero h1{font-size:clamp(2.7rem,6.4vw,5rem);margin-bottom:22px}
   .hero h1 span{color:var(--gold)}
-  .lede{font-size:1.12rem;color:var(--cream-dim);max-width:36rem;margin:0 auto 36px;font-weight:300}
+  .lede{font-size:1.12rem;color:var(--cream-dim);max-width:38rem;margin:0 auto 36px;font-weight:300}
   .hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
   .open-badge{
     display:inline-flex;align-items:center;gap:9px;
     font-size:.85rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
-    padding:.55rem 1.2rem;border:1px solid var(--line);border-radius:999px;
-    color:var(--cream-dim);
+    padding:.55rem 1.2rem;border:1px solid var(--line);border-radius:999px;color:var(--cream-dim);
   }
   .open-badge .dot{width:9px;height:9px;border-radius:50%;background:#7ba05b}
   .open-badge.closed .dot{background:#b3402e}
@@ -114,44 +106,61 @@
   .sec-head h2 span{color:var(--gold)}
   .sec-head p{color:var(--cream-dim);font-size:1.05rem}
 
-  /* signature cuts — editorial menu rows */
-  .cuts{list-style:none;max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+  /* menu as courses */
+  .course{max-width:900px;margin:0 auto 58px}
+  .course:last-child{margin-bottom:0}
+  .course-head{display:flex;align-items:baseline;gap:22px;margin-bottom:8px}
+  .course-num{font-family:'Cinzel',serif;color:var(--gold);font-size:1rem;letter-spacing:.3em;font-weight:700;white-space:nowrap}
+  .course-head h3{font-size:clamp(1.5rem,3vw,2rem)}
+  .course-sub{color:var(--cream-dim);font-style:italic;margin-bottom:14px;font-size:1rem}
+  .cuts{list-style:none;border-top:1px solid var(--line)}
   .cuts li{
     display:grid;grid-template-columns:1fr auto;gap:4px 24px;align-items:baseline;
-    padding:26px 8px;border-bottom:1px solid var(--line);
+    padding:24px 8px;border-bottom:1px solid var(--line);
     transition:background .2s,padding-left .2s;
   }
   .cuts li:hover{background:rgba(198,161,91,.06);padding-left:18px}
-  .cut-name{font-family:'Cinzel',serif;font-size:1.28rem;font-weight:600;letter-spacing:.03em}
+  .cut-name{font-family:'Cinzel',serif;font-size:1.25rem;font-weight:600;letter-spacing:.03em}
   .cut-name small{display:block;font-family:'Jost',sans-serif;font-size:.85rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:5px}
   .cut-note{color:var(--cream-dim);font-size:.98rem;grid-column:1/-1;max-width:38rem}
   .menu-note{text-align:center;margin-top:28px;color:var(--cream-dim);font-style:italic}
   .menu-note a{color:var(--gold);font-weight:500;font-style:normal}
 
-  /* deco feature band */
-  .band{
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    background:var(--ink-soft);
+  /* occasions — asymmetric two-panel */
+  .occasions{background:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .occ-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;max-width:1080px;margin:0 auto;align-items:start}
+  @media(max-width:820px){.occ-grid{grid-template-columns:1fr}}
+  .occ-copy h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:18px 0 18px}
+  .occ-copy h2 span{color:var(--gold)}
+  .occ-copy p{color:var(--cream-dim);font-size:1.05rem;margin-bottom:18px}
+  .occ-panel{border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;background:var(--ink)}
+  .occ-panel h3{font-size:1.05rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .occ-panel p{color:var(--cream-dim);margin-bottom:22px}
+  .occ-panel a.tel{font-family:'Cinzel',serif;font-size:1.6rem;color:var(--cream);text-decoration:none;display:block;margin-bottom:6px}
+  .occ-panel a.tel:hover{color:var(--gold)}
+  .occ-panel a.mail{color:var(--gold);font-weight:500}
+
+  /* the room — editorial split */
+  .room-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;max-width:1080px;margin:0 auto;align-items:center}
+  @media(max-width:820px){.room-grid{grid-template-columns:1fr}}
+  .room-mark{
+    border:1px solid var(--gold);border-radius:var(--radius);
+    aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    text-align:center;padding:40px;
   }
-  .band-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
-    max-width:1080px;margin:0 auto;text-align:center;
-  }
-  @media(max-width:760px){.band-grid{grid-template-columns:1fr;gap:30px}}
-  .band-item h3{
-    font-size:.95rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);
-    margin-bottom:12px;font-weight:600;
-  }
-  .band-item p{color:var(--cream-dim);font-size:1rem}
-  .band-item .big{font-family:'Cinzel',serif;font-size:1.7rem;color:var(--cream);display:block;margin-bottom:8px}
+  .room-mark .big{font-family:'Cinzel',serif;font-size:4.2rem;color:var(--gold);font-weight:700;line-height:1}
+  .room-mark p{font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim)}
+  .room-copy h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:18px 0 18px}
+  .room-copy h2 span{color:var(--gold)}
+  .room-copy p{color:var(--cream-dim);font-size:1.05rem;margin-bottom:16px}
+  .room-facts{list-style:none;margin-top:24px}
+  .room-facts li{padding:12px 0;border-top:1px solid var(--line);font-size:1rem;color:var(--cream-dim)}
+  .room-facts li strong{color:var(--cream);font-weight:500}
 
   /* visit */
   .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1000px;margin:0 auto}
   @media(max-width:820px){.visit-grid{grid-template-columns:1fr}}
-  .v-block h3{
-    font-size:.95rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);
-    margin-bottom:20px;font-weight:600;
-  }
+  .v-block h3{font-size:.95rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:600}
   .v-block address{font-style:normal;font-size:1.06rem;line-height:1.9;color:var(--cream-dim)}
   .v-block address strong{color:var(--cream);font-weight:500}
   .v-block address a{color:var(--gold)}
@@ -160,49 +169,50 @@
   .hours td:last-child{text-align:right;color:var(--cream)}
   .hours tr.today td{background:rgba(198,161,91,.08)}
   .hours tr.today td:first-child{border-left:2px solid var(--gold);padding-left:12px;color:var(--gold)}
-  .order-strip{
-    max-width:1000px;margin:44px auto 0;border:1px solid var(--gold);
-    border-radius:var(--radius);padding:30px 34px;text-align:center;
+  .reserve-cta{
+    max-width:1000px;margin:48px auto 0;border:1px solid var(--gold);
+    border-radius:var(--radius);padding:44px 34px;text-align:center;
     background:rgba(198,161,91,.06);
   }
-  .order-strip p{font-size:1.08rem;color:var(--cream-dim);max-width:40rem;margin:0 auto 22px}
-  .order-strip strong{color:var(--cream);font-weight:500}
+  .reserve-cta h2{font-size:clamp(1.6rem,3.2vw,2.3rem);margin-bottom:14px}
+  .reserve-cta h2 span{color:var(--gold)}
+  .reserve-cta p{color:var(--cream-dim);max-width:38rem;margin:0 auto 26px;font-size:1.06rem}
+  .reserve-cta a.tel{font-family:'Cinzel',serif;font-size:2rem;color:var(--cream);text-decoration:none;display:block;margin-bottom:24px}
+  .reserve-cta a.tel:hover{color:var(--gold)}
 
   /* footer */
   footer{border-top:1px solid var(--line);padding:50px 0 120px;margin-top:30px;text-align:center}
   footer .brand{margin-bottom:14px;display:inline-block}
   footer p{font-size:.95rem;color:var(--cream-dim)}
-  .concept{
-    margin:28px auto 0;padding-top:22px;border-top:1px dashed var(--line);
-    font-size:.8rem;color:var(--cream-dim);font-style:italic;max-width:40rem;
-  }
+  .concept{margin:28px auto 0;padding-top:22px;border-top:1px dashed var(--line);font-size:.8rem;color:var(--cream-dim);font-style:italic;max-width:40rem}
 
-  /* mobile call button */
   .call-fab{
-    position:fixed;left:16px;right:16px;bottom:16px;z-index:60;
-    display:none;text-align:center;
-    background:var(--gold);color:#14100C;text-decoration:none;
-    font-weight:600;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;
-    padding:1rem;border-radius:4px;
+    position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;text-align:center;
+    background:var(--gold);color:#14100C;text-decoration:none;font-weight:600;font-size:1rem;
+    letter-spacing:.1em;text-transform:uppercase;padding:1rem;border-radius:4px;
     box-shadow:0 12px 30px -8px rgba(0,0,0,.6);
   }
   @media(max-width:860px){.call-fab{display:block}}
-
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
+<div class="utility">
+  <div class="wrap">
+    <span>3277 Bloor St W, Etobicoke &middot; Tue&ndash;Sun evenings</span>
+    <a href="tel:+14165515864">416.551.5864</a>
+  </div>
+</div>
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top">HARRY'S <span>STEAK HOUSE</span></a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#cuts">The menu</a></li>
-        <li><a href="#house">The house</a></li>
+        <li><a href="#menu">The menu</a></li>
+        <li><a href="#occasions">Occasions</a></li>
+        <li><a href="#room">The room</a></li>
         <li><a href="#visit">Visit</a></li>
         <li><a class="btn" href="tel:+14165515864">Reserve a table</a></li>
       </ul>
@@ -211,16 +221,16 @@
 </header>
 
 <main id="top">
-  <!-- HERO -->
+  <!-- RESERVATION-FIRST HERO -->
   <div class="hero">
     <div class="wrap">
       <div class="deco-mark" aria-hidden="true"></div>
-      <p class="kicker">Etobicoke &middot; A longstanding local steakhouse</p>
+      <p class="kicker">An independent Etobicoke steakhouse</p>
       <h1>Harry's <span>Steak House</span></h1>
-      <p class="lede">Old Hollywood rooms, serious steaks, and the kind of service that remembers your name. An independent Etobicoke institution &mdash; no chains, no shortcuts.</p>
+      <p class="lede">Old Hollywood rooms, dry-aged steaks, and evenings worth dressing for. Evenings fill up &mdash; a quick call is all it takes to claim your table.</p>
       <div class="hero-cta">
-        <a class="btn" href="tel:+14165515864">Call 416.551.5864</a>
-        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Harry%27s+Steak+House+3277+Bloor+St+W+Etobicoke" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn" href="tel:+14165515864">Call 416.551.5864 &mdash; reserve</a>
+        <a class="btn ghost" href="#menu">See the menu</a>
       </div>
       <span class="open-badge" id="openBadge"><span class="dot"></span><span id="openText">Checking hours&hellip;</span></span>
     </div>
@@ -228,86 +238,125 @@
 
   <hr class="rule">
 
-  <!-- SIGNATURE CUTS -->
-  <section id="cuts">
+  <!-- MENU AS COURSES -->
+  <section id="menu">
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="kicker">From the grill</p>
-        <h2>Signature <span>cuts</span> &amp; classics</h2>
-        <p>Dry-aged in house, cut thick, and finished over real fire. These are the plates the regulars order on repeat.</p>
+        <h2>Dinner, <span>in courses</span></h2>
+        <p>Dry-aged in house, cut thick, and finished over real fire.</p>
       </div>
-      <ul class="cuts reveal">
-        <li>
-          <span class="cut-name">Bone-In Dry-Aged Rib Steak<small>House signature</small></span>
-          <span class="cut-note">Aged for depth, cut on the bone, seared hard and rested properly.</span>
-        </li>
-        <li>
-          <span class="cut-name">Filet Mignon<small>Plain or bacon-wrapped</small></span>
-          <span class="cut-note">The tenderest cut on the menu &mdash; take it classic, or wrapped in bacon.</span>
-        </li>
-        <li>
-          <span class="cut-name">Tomahawk Pork Chop</span>
-          <span class="cut-note">For the non-beef loyalists: a bone-in chop with a serious sear.</span>
-        </li>
-        <li>
-          <span class="cut-name">Bone Marrow</span>
-          <span class="cut-note">Roasted and spreadable &mdash; order it once and you'll order it always.</span>
-        </li>
-        <li>
-          <span class="cut-name">Steak Tartare</span>
-          <span class="cut-note">Hand-cut, seasoned to order, served the traditional way.</span>
-        </li>
-        <li>
-          <span class="cut-name">Shrimp Cocktail</span>
-          <span class="cut-note">Chilled jumbo shrimp, sharp cocktail sauce. The old-school opener.</span>
-        </li>
-        <li>
-          <span class="cut-name">French Onion Soup</span>
-          <span class="cut-note">Deep beef broth, a raft of gruy&egrave;re, broiled until it bubbles.</span>
-        </li>
-        <li>
-          <span class="cut-name">Loaded Wedge Salad</span>
-          <span class="cut-note">Iceberg wedge, bacon, blue cheese &mdash; the steakhouse salad, done right.</span>
-        </li>
-        <li>
-          <span class="cut-name">Baked Alaska<small>For the table</small></span>
-          <span class="cut-note">Torched meringue, ice cream, sponge &mdash; the showstopper finale.</span>
-        </li>
-      </ul>
+
+      <div class="course reveal">
+        <div class="course-head"><span class="course-num">I</span><h3>To begin</h3></div>
+        <p class="course-sub">Small plates and old-school openers.</p>
+        <ul class="cuts">
+          <li>
+            <span class="cut-name">Steak Tartare</span>
+            <span class="cut-note">Hand-cut, seasoned to order, served the traditional way.</span>
+          </li>
+          <li>
+            <span class="cut-name">Shrimp Cocktail</span>
+            <span class="cut-note">Chilled jumbo shrimp, sharp cocktail sauce.</span>
+          </li>
+          <li>
+            <span class="cut-name">Bone Marrow</span>
+            <span class="cut-note">Roasted and spreadable &mdash; a rich way to start.</span>
+          </li>
+          <li>
+            <span class="cut-name">French Onion Soup</span>
+            <span class="cut-note">Deep beef broth, a raft of gruy&egrave;re, broiled until it bubbles.</span>
+          </li>
+          <li>
+            <span class="cut-name">Loaded Wedge Salad</span>
+            <span class="cut-note">Iceberg wedge, bacon, blue cheese &mdash; the steakhouse salad, done right.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="course reveal">
+        <div class="course-head"><span class="course-num">II</span><h3>From the grill</h3></div>
+        <p class="course-sub">The main event.</p>
+        <ul class="cuts">
+          <li>
+            <span class="cut-name">Bone-In Dry-Aged Rib Steak<small>House signature</small></span>
+            <span class="cut-note">Aged for depth, cut on the bone, seared hard and rested properly.</span>
+          </li>
+          <li>
+            <span class="cut-name">Filet Mignon<small>Plain or bacon-wrapped</small></span>
+            <span class="cut-note">The tenderest cut on the menu &mdash; take it classic, or wrapped in bacon.</span>
+          </li>
+          <li>
+            <span class="cut-name">Tomahawk Pork Chop</span>
+            <span class="cut-note">For the non-beef loyalists: a bone-in chop with a serious sear.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="course reveal">
+        <div class="course-head"><span class="course-num">III</span><h3>The finale</h3></div>
+        <p class="course-sub">End it properly.</p>
+        <ul class="cuts">
+          <li>
+            <span class="cut-name">Baked Alaska<small>For the table</small></span>
+            <span class="cut-note">Torched meringue, ice cream, sponge &mdash; the showstopper finale.</span>
+          </li>
+        </ul>
+      </div>
+
       <p class="menu-note reveal">Full menu and today's prices &mdash; call <a href="tel:+14165515864">416.551.5864</a>.</p>
     </div>
   </section>
 
-  <!-- THE HOUSE -->
-  <section class="band" id="house">
+  <!-- OCCASIONS -->
+  <section class="occasions" id="occasions">
     <div class="wrap">
-      <div class="band-grid reveal">
-        <div class="band-item">
-          <h3>Dry-aged in house</h3>
-          <span class="big">Bone-in rib steak</span>
-          <p>Our signature cut, aged for flavour you can't fake and seared over real fire.</p>
+      <div class="occ-grid reveal">
+        <div class="occ-copy">
+          <p class="kicker">Occasions</p>
+          <h2>Birthdays, anniversaries, <span>big tables.</span></h2>
+          <p>A longstanding local dining room is the right setting for a night that matters. Anniversaries, milestone birthdays, business dinners, holiday tables &mdash; Harry's has hosted them all.</p>
+          <p>For parties and special occasions, call ahead and we'll take care of the rest.</p>
         </div>
-        <div class="band-item">
-          <h3>Old Hollywood rooms</h3>
-          <span class="big">Art-deco dining</span>
-          <p>Dark wood, soft light, white tablecloths &mdash; dinner the way it used to be.</p>
+        <div class="occ-panel">
+          <h3>Plan your evening</h3>
+          <p>Call or email and tell us the date, the party size, and the occasion.</p>
+          <a class="tel" href="tel:+14165515864">416.551.5864</a>
+          <a class="mail" href="mailto:Reservations@HarrysSteak.House">Reservations@HarrysSteak.House</a>
         </div>
-        <div class="band-item">
-          <h3>Independent</h3>
-          <span class="big">One location</span>
-          <p>A single Etobicoke dining room, run by people who actually work here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE ROOM -->
+  <section id="room">
+    <div class="wrap">
+      <div class="room-grid reveal">
+        <div class="room-mark" aria-hidden="true">
+          <span class="big">H</span>
+          <p>Etobicoke &middot; Est. local</p>
+        </div>
+        <div class="room-copy">
+          <p class="kicker">The room</p>
+          <h2>Dinner the way <span>it used to be.</span></h2>
+          <p>Art-deco dining rooms, dark wood, soft light, and white tablecloths &mdash; Harry's is an Old Hollywood room in the middle of Etobicoke, and it shows.</p>
+          <p>Service that remembers your name, steaks dry-aged in house, and a dining room with no chains and no shortcuts.</p>
+          <ul class="room-facts">
+            <li><strong>Dry-aged in house</strong> &mdash; steaks aged for flavour, seared over real fire.</li>
+            <li><strong>Independent</strong> &mdash; one Etobicoke dining room, run by people who work here.</li>
+            <li><strong>Old Hollywood</strong> &mdash; dark wood, soft light, white tablecloths.</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- VISIT -->
-  <section id="visit">
+  <section id="visit" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="kicker">Reservations</p>
-        <h2>Book <span>your table</span></h2>
-        <p>Evenings fill up &mdash; a quick call is all it takes.</p>
+        <p class="kicker">Visit</p>
+        <h2>Find <span>your way in</span></h2>
       </div>
       <div class="visit-grid reveal">
         <div class="v-block">
@@ -334,8 +383,10 @@
           </table>
         </div>
       </div>
-      <div class="order-strip reveal">
-        <p><strong>To reserve:</strong> call <strong>416.551.5864</strong> or email <strong>Reservations@HarrysSteak.House</strong>. For parties and special occasions, call ahead and we&rsquo;ll take care of the rest.</p>
+      <div class="reserve-cta reveal">
+        <h2>Your table is <span>waiting.</span></h2>
+        <p>Evenings fill up. Call or email to reserve &mdash; or <a href="https://www.google.com/maps/search/?api=1&amp;query=Harry%27s+Steak+House+3277+Bloor+St+W+Etobicoke" target="_blank" rel="noopener" style="color:var(--gold)">get directions</a> and walk in.</p>
+        <a class="tel" href="tel:+14165515864">416.551.5864</a>
         <a class="btn" href="tel:+14165515864">Call to reserve</a>
       </div>
     </div>
@@ -353,29 +404,17 @@
 <a class="call-fab" href="tel:+14165515864">Call 416.551.5864</a>
 <script>
 (function(){
-  // Sticky nav border on scroll
   var nav = document.getElementById('nav');
-  addEventListener('scroll', function(){
-    nav.classList.toggle('scrolled', scrollY > 12);
-  }, {passive:true});
-
-  // Mobile menu
-  var burger = document.getElementById('burger'),
-      links  = document.getElementById('navLinks');
+  addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 12); }, {passive:true});
+  var burger = document.getElementById('burger'), links = document.getElementById('navLinks');
   burger.addEventListener('click', function(){
     var open = links.classList.toggle('open');
     burger.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open);
   });
   links.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){
-      links.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
-    }
+    if(e.target.tagName === 'A'){ links.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
   });
-
-  // Live open/closed badge + "today" row
   // Real hours: Mon closed; Tue 5pm-11:30pm; Wed 5pm-11:30pm; Thu 11:55am-11:30pm;
   // Fri 11:55am-11:45pm; Sat 5pm-11:45pm; Sun 5pm-11:30pm
   var schedule = {
@@ -385,8 +424,7 @@
   var now = new Date(), day = now.getDay(), h = now.getHours() + now.getMinutes()/60;
   var win = schedule[day];
   var open = !!(win && h >= win[0] && h < win[1]);
-  var badge = document.getElementById('openBadge'),
-      txt = document.getElementById('openText');
+  var badge = document.getElementById('openBadge'), txt = document.getElementById('openText');
   badge.classList.toggle('closed', !open);
   function fmt(t){
     var hh = Math.floor(t), mm = Math.round((t-hh)*60);
@@ -398,13 +436,9 @@
   document.querySelectorAll('#hoursTable tr').forEach(function(tr){
     if(parseInt(tr.getAttribute('data-day'),10) === day) tr.classList.add('today');
   });
-
-  // Gentle scroll reveals — section content only, never primary hero text
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, {threshold:.12});
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   } else {
