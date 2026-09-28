@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Runco's Auto Centre — Auto Repair in Downtown Hamilton</title>
+<meta name="description" content="Runco's Auto Centre is an independent auto repair shop at 205 John Street South, Hamilton, ON. Repairs, maintenance and inspections. Call 905-540-1449.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f4ee;        /* off-white, warm */
+    --ink:#17140f;          /* off-black, warm */
+    --ink-2:#2b2620;
+    --accent:#d9480f;       /* safety orange — the one accent */
+    --accent-deep:#a8370b;
+    --line:#ddd5c7;
+    --line-dark:#3a342b;
+    --muted:#6e665a;
+    --muted-dark:#a89e8c;
+    --radius:3px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Barlow',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.condensed{
+    font-family:'Barlow Condensed','Barlow',sans-serif;
+    text-wrap:balance;
+    line-height:1.02;
+    letter-spacing:.01em;
+  }
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* ---------- top utility strip ---------- */
+  .topbar{
+    background:var(--ink);color:#e9e2d4;
+    font-size:13.5px;font-weight:500;letter-spacing:.02em;
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:8px;padding-bottom:8px}
+  .topbar .hours{display:flex;align-items:center;gap:9px}
+  .status-dot{width:9px;height:9px;border-radius:50%;background:#9a9384;flex:none}
+  .status-dot.open{background:#58b368;box-shadow:0 0 0 3px rgba(88,179,104,.22)}
+  .topbar a.tel{font-weight:600;color:#fff;text-decoration:none;white-space:nowrap}
+  .topbar a.tel:hover{color:var(--accent)}
+
+  /* ---------- sticky nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,244,238,.96);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+  .brand .wordmark{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:24px;letter-spacing:.03em}
+  .brand .wordmark span{color:var(--accent)}
+  .brand .tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  nav.links{display:flex;gap:26px}
+  nav.links a{
+    text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;
+    font-family:'Barlow Condensed',sans-serif;font-size:17px;
+  }
+  nav.links a:hover{color:var(--accent)}
+  .nav-cta{
+    display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:.06em;text-transform:uppercase;
+    padding:10px 20px;border-radius:var(--radius);
+  }
+  .nav-cta:hover{background:var(--accent)}
+  .hamburger{display:none;background:none;border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;cursor:pointer}
+  .hamburger svg{display:block;width:22px;height:22px}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--ink);color:#f2ede1;position:relative;overflow:hidden}
+  .hero::after{ /* subtle garage pinstripe texture, not a color gradient */
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(-45deg,transparent 0 26px,rgba(255,255,255,.022) 26px 28px);
+  }
+  .hero .wrap{position:relative;padding:64px 20px 0}
+  .hero-kicker{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;
+    letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(52px,9vw,108px);font-weight:700;color:#fff;
+    max-width:12ch;text-transform:uppercase;margin-bottom:20px;
+  }
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero .lede{font-size:19px;max-width:46ch;color:#cfc6b2;margin-bottom:30px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
+  .btn{
+    display:inline-block;text-decoration:none;font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:19px;letter-spacing:.07em;text-transform:uppercase;
+    padding:14px 26px;border-radius:var(--radius);border:2px solid transparent;cursor:pointer;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-deep)}
+  .btn-ghost{border-color:#5a5346;color:#f2ede1}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .hero-facts{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--line-dark);position:relative;
+  }
+  .hero-facts div{padding:20px 18px 26px;border-left:1px solid var(--line-dark)}
+  .hero-facts div:first-child{border-left:none;padding-left:0}
+  .hero-facts .label{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-dark);font-weight:600;margin-bottom:6px}
+  .hero-facts .value{font-weight:600;color:#fff;font-size:16.5px}
+  .hero-facts a.value{text-decoration:none}
+  .hero-facts a.value:hover{color:var(--accent)}
+
+  /* ---------- ticker ---------- */
+  .ticker{background:var(--accent);color:#fff;overflow:hidden;white-space:nowrap;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+  .ticker-track{display:inline-block;padding:10px 0;animation:tick 26s linear infinite;
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;letter-spacing:.18em;text-transform:uppercase}
+  .ticker-track span{margin:0 22px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section{padding:72px 0}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+  .section-head h2{font-size:clamp(38px,5.5vw,60px);font-weight:700;text-transform:uppercase;max-width:14ch}
+  .section-head .index{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:block}
+  .section-head p{max-width:44ch;color:var(--muted)}
+
+  /* services: ruled editorial list, not cards */
+  .svc-list{border-top:2px solid var(--ink)}
+  .svc{display:grid;grid-template-columns:64px 1fr 1.2fr auto;gap:24px;align-items:baseline;
+    padding:26px 0;border-bottom:1px solid var(--line)}
+  .svc .num{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;color:var(--accent)}
+  .svc h3{font-size:30px;font-weight:600;text-transform:uppercase}
+  .svc p{color:var(--muted);font-size:16.5px;max-width:52ch}
+  .svc .quote{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+  .svc-note{margin-top:22px;font-size:15.5px;color:var(--muted);font-style:italic;max-width:60ch}
+
+  /* how it works: dark numbered band */
+  .how{background:var(--ink);color:#f2ede1}
+  .how .index{color:var(--accent)}
+  .how .section-head h2{color:#fff}
+  .how .section-head p{color:var(--muted-dark)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line-dark);border-radius:var(--radius);overflow:hidden}
+  .step{padding:28px 24px 30px;border-left:1px solid var(--line-dark)}
+  .step:first-child{border-left:none}
+  .step .n{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:52px;color:var(--accent);line-height:1;margin-bottom:14px}
+  .step h3{font-size:22px;font-weight:600;text-transform:uppercase;color:#fff;margin-bottom:10px}
+  .step p{font-size:15.5px;color:var(--muted-dark)}
+
+  /* shop note: offset editorial quote */
+  .shop-note .wrap{display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:start}
+  .shop-note blockquote{
+    font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:clamp(28px,3.6vw,40px);
+    line-height:1.15;text-wrap:balance;border-left:6px solid var(--accent);padding-left:26px;
+  }
+  .shop-note blockquote footer{font-family:'Barlow',sans-serif;font-size:14px;font-style:normal;color:var(--muted);margin-top:14px;letter-spacing:.04em}
+  .shop-note .side p{color:var(--muted);margin-bottom:16px;max-width:48ch}
+
+  /* visit */
+  .visit{background:#efe9dc;border-top:1px solid var(--line)}
+  .visit-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+  .visit h2{font-size:clamp(38px,5.5vw,60px);font-weight:700;text-transform:uppercase;margin-bottom:8px}
+  .visit .addr{font-size:19px;margin-bottom:24px}
+  .visit .addr strong{font-weight:600}
+  .contact-rows{border-top:2px solid var(--ink);margin-bottom:28px}
+  .contact-rows .row{display:flex;justify-content:space-between;align-items:center;gap:16px;
+    padding:16px 0;border-bottom:1px solid var(--line)}
+  .contact-rows .k{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .contact-rows .v{font-weight:600;text-align:right}
+  .contact-rows a.v{text-decoration:none}
+  .contact-rows a.v:hover{color:var(--accent)}
+  .visit-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:var(--accent)}
+  .btn-outline{border-color:var(--ink);color:var(--ink)}
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+  .hours-card{background:var(--ink);color:#f2ede1;border-radius:var(--radius);padding:32px 30px}
+  .hours-card h3{font-size:26px;font-weight:600;text-transform:uppercase;color:#fff;margin-bottom:6px}
+  .hours-card .today{font-size:14.5px;color:var(--muted-dark);margin-bottom:18px}
+  .hours-table{width:100%;border-collapse:collapse;font-size:16px}
+  .hours-table tr{border-top:1px solid var(--line-dark)}
+  .hours-table td{padding:12px 0}
+  .hours-table td:last-child{text-align:right;color:var(--muted-dark)}
+  .hours-table tr.is-today td{color:#fff;font-weight:600}
+  .hours-table tr.is-today td:last-child{color:var(--accent)}
+  .hours-note{margin-top:16px;font-size:14px;color:var(--muted-dark)}
+
+  /* footer */
+  footer{background:var(--ink);color:#8f8674;padding:40px 0 110px;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  footer .fname{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;color:#e9e2d4;letter-spacing:.04em;margin-bottom:8px}
+  footer p{max-width:44ch;margin-bottom:6px}
+  footer a{color:#c9c0ac;text-decoration:none}
+  footer a:hover{color:var(--accent)}
+  .concept{margin-top:18px;padding-top:14px;border-top:1px solid var(--line-dark);font-size:12.5px;color:#6b6355;max-width:70ch}
+
+  /* mobile tap-to-call */
+  .mobile-call{
+    display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;
+    background:var(--accent);color:#fff;text-decoration:none;text-align:center;
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:21px;letter-spacing:.08em;text-transform:uppercase;
+    padding:15px;border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.3);
+  }
+  .mobile-call:hover{background:var(--accent-deep)}
+
+  /* mobile menu */
+  .mobile-menu{display:none;background:var(--ink);border-top:1px solid var(--line-dark)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:14px 20px;color:#f2ede1;text-decoration:none;
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:19px;letter-spacing:.06em;text-transform:uppercase;
+    border-bottom:1px solid var(--line-dark)}
+  .mobile-menu a:hover{color:var(--accent)}
+
+  @media (max-width:900px){
+    .steps{grid-template-columns:1fr 1fr}
+    .step:nth-child(3){border-left:none}
+    .step{border-top:1px solid var(--line-dark)}
+    .step:nth-child(1),.step:nth-child(2){border-top:none}
+    .svc{grid-template-columns:44px 1fr;grid-template-areas:"num title" "num desc" "num quote"}
+    .svc .num{grid-area:num}.svc h3{grid-area:title}.svc p{grid-area:desc}.svc .quote{grid-area:quote;justify-self:start}
+    .shop-note .wrap{grid-template-columns:1fr}
+    .visit-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:760px){
+    nav.links,.nav-cta{display:none}
+    .hamburger{display:block}
+    .mobile-call{display:block}
+    .hero .wrap{padding-top:48px}
+    .hero-facts{grid-template-columns:1fr}
+    .hero-facts div{border-left:none;border-top:1px solid var(--line-dark);padding:16px 0}
+    .hero-facts div:first-child{border-top:none}
+    section{padding:56px 0}
+    footer{padding-bottom:120px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .ticker-track{animation:none}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="condensed" style="position:absolute;left:-9999px">Skip to content</a>
+
+<!-- top utility strip: hours + live status + phone -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="hours">
+      <span class="status-dot" id="statusDot" aria-hidden="true"></span>
+      <span id="statusText">Mon–Fri · 8:00 AM–5:00 PM</span>
+    </span>
+    <a class="tel" href="tel:19055401449">905-540-1449</a>
+  </div>
+</div>
+
+<!-- sticky nav -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Runco's Auto Centre home">
+      <span class="wordmark">RUNCO<span>'</span>S</span>
+      <span class="tag">Auto Centre · Hamilton</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#visit">Find us</a>
+    </nav>
+    <a class="nav-cta" href="tel:19055401449">Call now</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="#how">How it works</a>
+    <a href="#visit">Find us</a>
+    <a href="tel:19055401449">Call now — 905-540-1449</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO: what the business IS, above the fold -->
+  <section class="hero" id="top" style="padding:0">
+    <div class="wrap">
+      <p class="hero-kicker">205 John Street South · Hamilton, Ontario</p>
+      <h1>Auto repair in downtown Hamilton. <em>No runaround.</em></h1>
+      <p class="lede">Runco's Auto Centre is an independent repair shop on John Street South. Repairs, maintenance and inspections — explained in plain language, priced with a phone call, done by people you can talk to.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:19055401449">Call now</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=205+John+Street+South+Hamilton+ON+L8N+2C5" target="_blank" rel="noopener">Get directions</a>
+      </div>
+      <div class="hero-facts">
+        <div>
+          <p class="label">Address</p>
+          <p class="value">205 John Street South<br>Hamilton, ON L8N 2C5</p>
+        </div>
+        <div>
+          <p class="label">Hours</p>
+          <p class="value">Mon–Fri · 8:00 AM–5:00 PM<br>Sat–Sun · Closed</p>
+        </div>
+        <div>
+          <p class="label">Phone</p>
+          <a class="value" href="tel:19055401449">905-540-1449</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- marquee ticker -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <span>Repairs</span>·<span>Maintenance</span>·<span>Inspections</span>·<span>Call for a quote</span>·<span>Mon–Fri 8–5</span>·<span>205 John St S</span>·
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="index">01 — What we do</span>
+          <h2>The work a good shop does</h2>
+        </div>
+        <p>Three kinds of work, done properly. If it isn't on this list, call and ask — if we can't do it, we'll tell you straight.</p>
+      </div>
+      <div class="svc-list">
+        <div class="svc">
+          <span class="num">01</span>
+          <h3>Repairs</h3>
+          <p>When something's broken, worn out or making a noise it shouldn't. We find the fault, tell you what it means, and fix it.</p>
+          <span class="quote">Call for a quote</span>
+        </div>
+        <div class="svc">
+          <span class="num">02</span>
+          <h3>Maintenance</h3>
+          <p>The regular servicing that keeps a car reliable — oil, fluids, filters and the checks that catch small problems early.</p>
+          <span class="quote">Call for a quote</span>
+        </div>
+        <div class="svc">
+          <span class="num">03</span>
+          <h3>Inspections</h3>
+          <p>A proper look-over before a long trip, a safety concern, or when you're not sure what's going on under the hood.</p>
+          <span class="quote">Call for a quote</span>
+        </div>
+      </div>
+      <p class="svc-note">We don't publish prices because every car is different. One call and you'll know what the job costs before anything starts.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="index">02 — How it works</span>
+          <h2>What to expect when you bring your car in</h2>
+        </div>
+        <p>Most people dread the repair shop because nobody tells them what happens next. Here's the whole thing, in order.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <p class="n">01</p>
+          <h3>You tell us what's wrong</h3>
+          <p>Call or drop by at 205 John St S. Describe the noise, the light on the dash, the leak — in your own words, no car talk required.</p>
+        </div>
+        <div class="step">
+          <p class="n">02</p>
+          <h3>We look, then we call you</h3>
+          <p>We inspect the car and ring you with what's actually wrong, what it costs, and what can wait. Nothing starts without your say-so.</p>
+        </div>
+        <div class="step">
+          <p class="n">03</p>
+          <h3>You approve, we fix</h3>
+          <p>One price agreed up front. If we find something else mid-job, we stop and call before touching it.</p>
+        </div>
+        <div class="step">
+          <p class="n">04</p>
+          <h3>You pick it up, we walk you through it</h3>
+          <p>We explain what was done and why, in plain language. If anything feels off afterwards, bring it back and say so.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAIN-SPOKEN NOTE -->
+  <section class="shop-note">
+    <div class="wrap">
+      <div>
+        <span class="index condensed" style="font-weight:600;font-size:15px;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:14px">03 — The shop</span>
+      </div>
+      <blockquote>
+        "You talk to the people working on your car. That's the whole business model."
+        <footer>— The way things run at Runco's Auto Centre, 205 John Street South</footer>
+      </blockquote>
+      <div class="side">
+        <p>No service advisors reading from a script, no waiting room with a TV nobody watches. It's an independent shop on John Street South, and the person who explains the repair is the person doing it.</p>
+        <p>If the job's bigger than it's worth, we'll say that too. A car you can trust beats a car we billed you for.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="visit-grid">
+        <div>
+          <span class="index condensed" style="font-weight:600;font-size:15px;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:14px">04 — Find us</span>
+          <h2>Come by the shop</h2>
+          <p class="addr"><strong>Runco's Auto Centre</strong><br>205 John Street South<br>Hamilton, ON L8N 2C5</p>
+          <div class="contact-rows">
+            <div class="row"><span class="k">Phone</span><a class="v" href="tel:19055401449">905-540-1449</a></div>
+            <div class="row"><span class="k">Email</span><a class="v" href="mailto:info@runcosautocentre.com">info@runcosautocentre.com</a></div>
+          </div>
+          <div class="visit-actions">
+            <a class="btn btn-dark" href="tel:19055401449">Call now</a>
+            <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=205+John+Street+South+Hamilton+ON+L8N+2C5" target="_blank" rel="noopener">Get directions</a>
+          </div>
+        </div>
+        <div class="hours-card">
+          <h3>Shop hours</h3>
+          <p class="today" id="hoursStatus">Mon–Fri · 8:00 AM–5:00 PM</p>
+          <table class="hours-table" id="hoursTable">
+            <tr data-day="1"><td>Monday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr data-day="6"><td>Saturday</td><td>Closed</td></tr>
+            <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+          </table>
+          <p class="hours-note">Closed weekends. If your car can't wait until Monday, call anyway — we'll tell you honestly whether it's safe to drive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="fname">Runco's Auto Centre</p>
+      <p>205 John Street South, Hamilton, ON L8N 2C5<br>
+      <a href="tel:19055401449">905-540-1449</a> · <a href="mailto:info@runcosautocentre.com">info@runcosautocentre.com</a><br>
+      Mon–Fri 8:00 AM–5:00 PM · Sat–Sun closed</p>
+    </div>
+    <div>
+      <p><a href="#services">Services</a><br><a href="#how">How it works</a><br><a href="#visit">Find us</a></p>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="concept">Concept preview — this page is a design concept prepared for Runco's Auto Centre and is not the business's official website.</p>
+  </div>
+</footer>
+
+<a class="mobile-call" href="tel:19055401449">Call now · 905-540-1449</a>
+
+<script>
+(function(){
+  // Live open/closed status from real hours: Mon–Fri 8:00 AM–5:00 PM (America/Toronto)
+  function torontoNow(){
+    return new Date(new Date().toLocaleString('en-US',{timeZone:'America/Toronto'}));
+  }
+  var now = torontoNow();
+  var day = now.getDay();            // 0 Sun … 6 Sat
+  var mins = now.getHours()*60 + now.getMinutes();
+  var OPEN = 8*60, CLOSE = 17*60;
+  var isOpen = (day>=1 && day<=5 && mins>=OPEN && mins<CLOSE);
+  var dot = document.getElementById('statusDot');
+  var statusText = document.getElementById('statusText');
+  var hoursStatus = document.getElementById('hoursStatus');
+
+  function nextOpening(){
+    if(day===0) return 'Monday at 8:00 AM';
+    if(day===6) return 'Monday at 8:00 AM';
+    if(day>=1 && day<=4){
+      if(mins<CLOSE) return 'today at 8:00 AM'; // shouldn't happen when closed, guard anyway
+      var names={1:'Tuesday',2:'Wednesday',3:'Thursday',4:'Friday'};
+      return names[day]+' at 8:00 AM';
+    }
+    if(day===5){ return mins<CLOSE ? 'today at 8:00 AM' : 'Monday at 8:00 AM'; }
+    return 'Monday at 8:00 AM';
+  }
+
+  if(isOpen){
+    dot.classList.add('open');
+    statusText.textContent = 'Open now · closes 5:00 PM';
+    hoursStatus.textContent = 'Open now · closes at 5:00 PM today';
+  }else{
+    statusText.textContent = 'Closed · opens ' + nextOpening();
+    hoursStatus.textContent = 'Currently closed · opens ' + nextOpening();
+  }
+
+  // Highlight today's row in the hours table
+  var rows = document.querySelectorAll('#hoursTable tr');
+  for(var i=0;i<rows.length;i++){
+    if(parseInt(rows[i].getAttribute('data-day'),10)===day){
+      rows[i].classList.add('is-today');
+    }
+  }
+
+  // Hamburger menu
+  var btn = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click',function(){
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // Duplicate ticker content for a gapless loop
+  var track = document.getElementById('tickerTrack');
+  track.innerHTML += track.innerHTML;
+})();
+</script>
+</body>
+</html>

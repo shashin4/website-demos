@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kim Kim Hakka Chinese Restaurant — Kennedy &amp; Ellesmere, Scarborough</title>
+<meta name="description" content="Kim Kim Hakka Chinese Restaurant — independent Hakka Chinese restaurant at 1188 Kennedy Rd, Scarborough, ON. Wok-fired Hakka Chinese food, dine in or takeout. Call (416) 757-8300.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Karla:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17120d;          /* off-black, warm */
+    --paper:#f7f2e8;        /* off-white, warm */
+    --paper-deep:#efe7d6;
+    --accent:#c0392b;       /* chili red — the one accent */
+    --muted:#6f6357;        /* warm gray family */
+    --line:rgba(23,18,13,.14);
+    --radius-card:14px;
+    --radius-chip:6px;
+    --maxw:1200px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Karla",system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    font-size:1.05rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:"Fraunces",Georgia,serif;
+    line-height:1.05;
+    letter-spacing:-.01em;
+    text-wrap:balance;
+  }
+  a{color:inherit}
+  ::selection{background:var(--accent);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
+
+  /* ---------- sticky nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(23,18,13,.92);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    color:var(--paper);
+    border-bottom:1px solid rgba(247,242,232,.12);
+  }
+  .nav.scrolled{box-shadow:0 6px 24px rgba(23,18,13,.35)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:var(--maxw);margin:0 auto;padding:.8rem 1.25rem}
+  .brand{text-decoration:none;display:flex;flex-direction:column;line-height:1.1}
+  .brand .name{font-family:"Fraunces",serif;font-weight:800;font-size:1.45rem;letter-spacing:-.01em}
+  .brand .name em{font-style:italic;color:var(--accent)}
+  .brand .tag{font-size:.66rem;letter-spacing:.28em;font-weight:700;color:#d8cdb8}
+  .nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:#e9e1cf}
+  .nav-links a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    text-decoration:none;font-weight:800;font-size:1rem;
+    padding:.85rem 1.5rem;border-radius:var(--radius-chip);
+    border:2px solid transparent;cursor:pointer;
+    transition:background .18s ease,color .18s ease,border-color .18s ease;
+  }
+  .btn-accent{background:var(--accent);color:#fff}
+  .btn-accent:hover{background:#a93226}
+  .btn-outline{border-color:var(--ink);color:var(--ink);background:transparent}
+  .btn-outline:hover{background:var(--ink);color:var(--paper)}
+  .btn-nav{padding:.6rem 1.15rem;font-size:.95rem}
+  .burger{display:none;background:none;border:0;color:var(--paper);font-size:1.6rem;cursor:pointer;line-height:1;padding:.4rem}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--ink);color:var(--paper);overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:3rem;align-items:end;padding:3.5rem 0 3rem}
+  .kicker{
+    display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.24em;
+    color:#e4d9bf;margin-bottom:1.2rem;
+  }
+  .kicker .dot{color:var(--accent);font-size:1rem;letter-spacing:0}
+  .hero h1{font-size:clamp(2.6rem,6.2vw,4.6rem);font-weight:800;margin-bottom:1.1rem}
+  .hero h1 em{font-style:italic;font-weight:600;color:var(--accent)}
+  .hero .lede{font-size:1.18rem;max-width:34rem;color:#ded4bd;margin-bottom:1rem}
+  .hero .lede strong{color:var(--paper)}
+  .hours-chip{
+    display:inline-flex;align-items:center;gap:.6rem;margin:1.1rem 0 1.6rem;
+    border:1px solid rgba(247,242,232,.28);border-radius:999px;
+    padding:.55rem 1.1rem;font-weight:700;font-size:.95rem;color:#f0e8d4;
+  }
+  .hours-chip .pulse{width:.6rem;height:.6rem;border-radius:50%;background:#7bc96f;flex:none}
+  .hours-chip.closed .pulse{background:var(--accent)}
+  .cta-row{display:flex;gap:1rem;flex-wrap:wrap}
+  .btn-on-dark{border-color:var(--paper);color:var(--paper)}
+  .btn-on-dark:hover{background:var(--paper);color:var(--ink)}
+  .hero-aside{border-left:1px solid rgba(247,242,232,.2);padding-left:2rem}
+  .hero-aside .big-star{font-family:"Fraunces",serif;font-size:4.5rem;color:var(--accent);line-height:1;display:block;margin-bottom:1rem}
+  .hero-aside p{font-size:.98rem;color:#cfc3a9}
+  .hero-aside .addr{margin-top:1rem;font-weight:700;color:var(--paper)}
+
+  /* ---------- marquee (the one signature interaction) ---------- */
+  .marquee{
+    background:var(--accent);color:#fff;overflow:hidden;white-space:nowrap;
+    border-top:1px solid rgba(0,0,0,.15);border-bottom:1px solid rgba(0,0,0,.15);
+  }
+  .marquee-track{display:inline-block;padding:.85rem 0;animation:tick 26s linear infinite;font-weight:800;letter-spacing:.18em;font-size:.95rem}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  .marquee-track span{margin:0 1.4rem}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section.block{padding:4rem 0}
+  .sec-head{margin-bottom:2.4rem;max-width:44rem}
+  .sec-label{font-size:.76rem;font-weight:800;letter-spacing:.26em;color:var(--accent);margin-bottom:.7rem}
+  .sec-head h2{font-size:clamp(2rem,4.4vw,3rem);font-weight:800;margin-bottom:.8rem}
+  .sec-head h2 em{font-style:italic;font-weight:500}
+  .sec-head p{color:var(--muted);font-size:1.1rem}
+
+  /* ---------- about: editorial zig-zag ---------- */
+  .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:start}
+  .about-copy p{margin-bottom:1.2rem;font-size:1.08rem}
+  .about-copy p:first-child{font-family:"Fraunces",serif;font-size:1.5rem;line-height:1.35;font-weight:500}
+  .takeout-note{
+    background:var(--ink);color:var(--paper);border-radius:var(--radius-card);
+    padding:1.8rem;margin-top:2rem;position:relative;
+  }
+  .takeout-note h3{font-size:1.35rem;font-style:italic;font-weight:600;margin-bottom:.6rem;color:#f3e9d2}
+  .takeout-note p{font-size:1rem;color:#d6c9ae}
+  .takeout-note .stamp{
+    position:absolute;top:-.9rem;right:1.4rem;background:var(--accent);color:#fff;
+    font-weight:800;font-size:.78rem;letter-spacing:.14em;padding:.35rem .8rem;border-radius:var(--radius-chip);
+  }
+  .info-card{
+    background:var(--paper-deep);border:1px solid var(--line);border-radius:var(--radius-card);
+    padding:1.8rem;position:sticky;top:5.5rem;
+  }
+  .info-card h3{font-size:1.3rem;margin-bottom:1rem}
+  .info-row{padding:.75rem 0;border-top:1px solid var(--line);font-size:.98rem}
+  .info-row:first-of-type{border-top:0}
+  .info-row .k{display:block;font-size:.72rem;font-weight:800;letter-spacing:.2em;color:var(--muted);margin-bottom:.2rem}
+  .info-row a{font-weight:700}
+  .info-card .btn{margin-top:1.2rem;width:100%;justify-content:center}
+
+  /* ---------- menu ---------- */
+  .menu-section{background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .menu-lede{display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-end;justify-content:space-between;margin-bottom:2.2rem}
+  .menu-lede .call-menu{
+    background:var(--ink);color:var(--paper);border-radius:var(--radius-card);
+    padding:1.5rem 1.8rem;max-width:22rem;flex:1 1 16rem;
+  }
+  .menu-lede .call-menu h3{font-size:1.25rem;font-style:italic;margin-bottom:.5rem;color:#f3e9d2}
+  .menu-lede .call-menu p{font-size:.95rem;color:#d6c9ae;margin-bottom:1rem}
+  .menu-lede .call-menu .btn{font-size:.95rem;padding:.7rem 1.2rem}
+  .menu-list{list-style:none;border-top:2px solid var(--ink)}
+  .menu-list li{
+    display:grid;grid-template-columns:4.5rem 1fr;gap:1.4rem;align-items:baseline;
+    padding:1.25rem .25rem;border-bottom:1px solid var(--line);
+  }
+  .menu-list .num{font-family:"Fraunces",serif;font-style:italic;font-size:1.6rem;color:var(--accent);font-weight:600}
+  .menu-list h3{font-size:1.45rem;font-weight:700;margin-bottom:.15rem}
+  .menu-list p{color:var(--muted);font-size:1rem;max-width:40rem}
+  .menu-foot{margin-top:1.8rem;font-size:.95rem;color:var(--muted)}
+  .menu-foot a{font-weight:800;color:var(--ink)}
+
+  /* ---------- visit ---------- */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+  .hours-table{width:100%;border-collapse:collapse;margin-bottom:1.5rem}
+  .hours-table caption{text-align:left;font-family:"Fraunces",serif;font-size:1.5rem;font-weight:700;margin-bottom:.8rem}
+  .hours-table tr{border-bottom:1px solid var(--line)}
+  .hours-table tr.today td{background:rgba(192,57,43,.08);font-weight:800}
+  .hours-table tr.today td:first-child{color:var(--accent)}
+  .hours-table td{padding:.7rem .25rem}
+  .hours-table td:last-child{text-align:right;font-weight:600}
+  .visit-card{background:var(--ink);color:var(--paper);border-radius:var(--radius-card);padding:2rem}
+  .visit-card h3{font-size:1.6rem;margin-bottom:.4rem}
+  .visit-card .sub{color:#cfc3a9;margin-bottom:1.4rem}
+  .visit-card address{font-style:normal;margin-bottom:1.2rem;line-height:1.7}
+  .visit-card .tel{font-family:"Fraunces",serif;font-size:1.7rem;font-weight:800;color:#fff;text-decoration:none}
+  .visit-card .tel:hover{color:var(--accent)}
+  .visit-card .mail{color:#e4d9bf;font-weight:700}
+  .visit-card .cta-row{margin-top:1.6rem}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:#b8ab90;padding:2.5rem 0 6rem;font-size:.9rem}
+  .foot-grid{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start}
+  .foot-brand{font-family:"Fraunces",serif;font-size:1.4rem;font-weight:800;color:var(--paper)}
+  .foot-brand em{font-style:italic;color:var(--accent)}
+  .concept{max-width:34rem;font-size:.8rem;color:#8f8368;line-height:1.55;border-top:1px solid rgba(247,242,232,.15);padding-top:1.2rem;margin-top:1.5rem}
+
+  /* ---------- persistent mobile call bar ---------- */
+  .mobile-call{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:var(--accent);color:#fff;text-decoration:none;
+    font-weight:800;font-size:1.15rem;text-align:center;padding:1rem;
+    box-shadow:0 -4px 18px rgba(23,18,13,.3);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:2rem;padding:2.6rem 0 2.4rem}
+    .hero-aside{border-left:0;border-top:1px solid rgba(247,242,232,.2);padding-left:0;padding-top:1.6rem}
+    .about-grid,.visit-grid{grid-template-columns:1fr}
+    .info-card{position:static}
+    .nav-links{
+      position:fixed;top:0;right:0;bottom:0;width:min(78vw,300px);
+      background:#0f0c08;flex-direction:column;align-items:flex-start;justify-content:flex-start;
+      padding:5rem 2rem;gap:1.4rem;transform:translateX(100%);transition:transform .25s ease;
+      box-shadow:-8px 0 30px rgba(0,0,0,.4);
+    }
+    .nav-links.open{transform:translateX(0)}
+    .nav-links a{font-size:1.2rem}
+    .burger{display:block}
+    .nav-cta-desktop{display:none}
+  }
+  @media (max-width:560px){
+    .mobile-call{display:block}
+    body{padding-bottom:3.4rem}
+    .menu-list li{grid-template-columns:3rem 1fr;gap:1rem}
+    .cta-row .btn{flex:1 1 100%;justify-content:center}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .marquee-track{animation:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Kim Kim Hakka Chinese Restaurant — home">
+      <span class="name">Kim <em>Kim</em></span>
+      <span class="tag">HAKKA CHINESE</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Hours &amp; Location</a></li>
+        <li><a class="btn btn-accent btn-nav nav-cta-mobile" href="tel:+14167578300">Call now</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-accent btn-nav nav-cta-desktop" href="tel:+14167578300">Call now</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">HAKKA CHINESE RESTAURANT <span class="dot">✳</span> KENNEDY &amp; ELLESMERE, SCARBOROUGH</span>
+        <h1>Wok-fired Hakka, right at <em>Kennedy &amp; Ellesmere.</em></h1>
+        <p class="lede"><strong>Kim Kim Hakka Chinese Restaurant</strong> is an independent Hakka Chinese restaurant at <strong>1188 Kennedy Rd, Scarborough</strong> — wok-tossed noodles, fried rice, and chili-style plates, cooked to order. Dine in, or call ahead for takeout.</p>
+        <div class="hours-chip" id="hoursChip" role="status">
+          <span class="pulse" aria-hidden="true"></span>
+          <span id="hoursText">Mon&ndash;Thu 11:30 AM&ndash;9:30 PM &middot; Fri&ndash;Sat till 10:30 PM</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-accent" href="tel:+14167578300">Call now &mdash; (416) 757-8300</a>
+          <a class="btn btn-on-dark" href="https://www.google.com/maps/search/?api=1&amp;query=1188+Kennedy+Rd+Scarborough+ON+M1P+2L1" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+      <aside class="hero-aside">
+        <span class="big-star" aria-hidden="true">&#10035;</span>
+        <p>Chinese kitchens in India built this cuisine — garlicky, chili-forward, and made for sharing. Kim Kim keeps it the way the neighborhood likes it: hot from the wok, generous on the plate.</p>
+        <p class="addr">1188 Kennedy Rd<br>Scarborough, ON M1P 2L1</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SIGNATURE: marquee of cuisine categories -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>HAKKA NOODLES</span>&#9670;<span>WOK FRIED RICE</span>&#9670;<span>MANCHURIAN</span>&#9670;<span>CHILI-STYLE</span>&#9670;<span>APPETIZERS</span>&#9670;<span>SOUPS</span>&#9670;<span>VEGETARIAN</span>&#9670;<span>HAKKA NOODLES</span>&#9670;<span>WOK FRIED RICE</span>&#9670;<span>MANCHURIAN</span>&#9670;<span>CHILI-STYLE</span>&#9670;<span>APPETIZERS</span>&#9670;<span>SOUPS</span>&#9670;<span>VEGETARIAN</span>&#9670;
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">THE CORNER OF KENNEDY &amp; ELLESMERE</div>
+        <h2>Scarborough&rsquo;s kind of <em>Chinese restaurant.</em></h2>
+        <p>Hakka cooking grew out of Chinese kitchens in India — high-heat wok work folded together with Indian spice. It&rsquo;s garlicky, chili-forward, deeply savory, and built for the table.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>Kim Kim Hakka serves that tradition on Kennedy Road: noodles and fried rice off a screaming-hot wok, chili-tossed appetizers, and plates meant to be passed around.</p>
+          <p>No fuss, no pretense — a neighborhood spot where the phone is the front door and dinner comes out of the wok minutes after you order. If you&rsquo;re new to Hakka, start with the noodles. If you&rsquo;re not new, you already know what to order.</p>
+          <div class="takeout-note">
+            <span class="stamp">HOUSE NOTE</span>
+            <h3>The takeout box is half the menu.</h3>
+            <p>That&rsquo;s the honest truth at every great neighborhood Hakka spot: most of Scarborough&rsquo;s Hakka orders leave in a paper bag. Call ahead and yours will be coming off the wok when you walk through the door.</p>
+          </div>
+        </div>
+        <aside class="info-card">
+          <h3>Good to know</h3>
+          <div class="info-row"><span class="k">FIND US</span>1188 Kennedy Rd, Scarborough, ON M1P 2L1 — the Kennedy &amp; Ellesmere corner.</div>
+          <div class="info-row"><span class="k">CALL</span><a href="tel:+14167578300">(416) 757-8300</a></div>
+          <div class="info-row"><span class="k">EMAIL</span><a href="mailto:mail@kimkim.ca">mail@kimkim.ca</a></div>
+          <div class="info-row"><span class="k">DINE-IN &amp; TAKEOUT</span>Walk in for a table, or phone ahead and skip the wait.</div>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=1188+Kennedy+Rd+Scarborough+ON+M1P+2L1" target="_blank" rel="noopener">Get directions</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="block menu-section" id="menu">
+    <div class="wrap">
+      <div class="menu-lede">
+        <div class="sec-head" style="margin-bottom:0">
+          <div class="sec-label">FROM THE WOK</div>
+          <h2>Hakka Chinese, <em>the classics.</em></h2>
+        </div>
+        <div class="call-menu">
+          <h3>The menu lives at the counter.</h3>
+          <p>We keep it old-fashioned — call for today&rsquo;s full menu and pricing.</p>
+          <a class="btn btn-accent" href="tel:+14167578300">Call for the menu</a>
+        </div>
+      </div>
+      <ul class="menu-list">
+        <li><span class="num">01</span><div><h3>Appetizers</h3><p>Crispy, chili-tossed starters to open the table — the Hakka way to begin.</p></div></li>
+        <li><span class="num">02</span><div><h3>Soups</h3><p>Hot and clear or hot and sour, served steaming before the wok really gets going.</p></div></li>
+        <li><span class="num">03</span><div><h3>Hakka Noodles</h3><p>Wok-tossed, smoky, loaded with vegetables — the backbone of every Hakka menu.</p></div></li>
+        <li><span class="num">04</span><div><h3>Fried Rice</h3><p>High-heat, loose grains, made to order. Ask for it the way you like it.</p></div></li>
+        <li><span class="num">05</span><div><h3>Chicken</h3><p>Chili-style and wok-fired plates in the Indo-Chinese tradition.</p></div></li>
+        <li><span class="num">06</span><div><h3>Beef</h3><p>Bold cuts seared over the fire with ginger, garlic, and peppers.</p></div></li>
+        <li><span class="num">07</span><div><h3>Shrimp &amp; Seafood</h3><p>From the wok with garlic and heat — quick, hot, and savory.</p></div></li>
+        <li><span class="num">08</span><div><h3>Vegetarian Plates</h3><p>Manchurian-style vegetables and meatless wok plates, full-flavored and filling.</p></div></li>
+      </ul>
+      <p class="menu-foot">Dishes, combinations, and family-size options change at the kitchen&rsquo;s discretion — <a href="tel:+14167578300">call (416) 757-8300 for today&rsquo;s menu and pricing</a>.</p>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="block" id="visit">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">HOURS &amp; LOCATION</div>
+        <h2>Come hungry. <em>Leave with a bag.</em></h2>
+      </div>
+      <div class="visit-grid">
+        <table class="hours-table" id="hoursTable">
+          <caption>Hours</caption>
+          <tbody>
+            <tr data-day="1"><td>Monday</td><td>11:30 AM &ndash; 9:30 PM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>11:30 AM &ndash; 9:30 PM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>11:30 AM &ndash; 9:30 PM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>11:30 AM &ndash; 9:30 PM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>11:30 AM &ndash; 10:30 PM</td></tr>
+            <tr data-day="6"><td>Saturday</td><td>11:30 AM &ndash; 10:30 PM</td></tr>
+            <tr data-day="0"><td>Sunday</td><td>11:30 AM &ndash; 9:30 PM</td></tr>
+          </tbody>
+        </table>
+        <div class="visit-card">
+          <h3>Kim Kim Hakka</h3>
+          <p class="sub">Chinese Restaurant &middot; Kennedy &amp; Ellesmere</p>
+          <address>
+            1188 Kennedy Rd<br>
+            Scarborough, ON M1P 2L1<br>
+            <a class="tel" href="tel:+14167578300">(416) 757-8300</a><br>
+            <a class="mail" href="mailto:mail@kimkim.ca">mail@kimkim.ca</a>
+          </address>
+          <div class="cta-row">
+            <a class="btn btn-accent" href="tel:+14167578300">Call now</a>
+            <a class="btn btn-on-dark" href="https://www.google.com/maps/search/?api=1&amp;query=1188+Kennedy+Rd+Scarborough+ON+M1P+2L1" target="_blank" rel="noopener">Get directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Kim <em>Kim</em></div>
+        <div>HAKKA CHINESE &middot; SCARBOROUGH, ON</div>
+      </div>
+      <div>
+        1188 Kennedy Rd, Scarborough, ON M1P 2L1<br>
+        <a href="tel:+14167578300">(416) 757-8300</a> &middot; <a href="mailto:mail@kimkim.ca">mail@kimkim.ca</a>
+      </div>
+    </div>
+    <p class="concept">Design concept preview &mdash; this page is a mockup prepared for the business and is not the official website of Kim Kim Hakka Chinese Restaurant. Details shown are from the restaurant&rsquo;s public listings.</p>
+  </div>
+</footer>
+
+<a class="mobile-call" href="tel:+14167578300" aria-label="Call Kim Kim Hakka Chinese Restaurant now">&#9742; Call (416) 757-8300</a>
+
+<script>
+(function(){
+  "use strict";
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navLinks');
+
+  // sticky nav shadow on scroll
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // hamburger
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.innerHTML = open ? '&#10005;' : '&#9776;';
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ links.classList.remove('open'); burger.setAttribute('aria-expanded','false'); burger.innerHTML='&#9776;'; }
+  });
+
+  // honest "open now" chip from the real hours
+  // Mon-Thu 11:30-21:30, Fri-Sat 11:30-22:30, Sun 11:30-21:30
+  var closeMin = {0:1290,1:1290,2:1290,3:1290,4:1290,5:1350,6:1350}; // Sun..Sat, minutes
+  var openMin = 690; // 11:30 AM
+  var now = new Date(), d = now.getDay(), mins = now.getHours()*60 + now.getMinutes();
+  var chip = document.getElementById('hoursChip');
+  var text = document.getElementById('hoursText');
+  function fmt(m){ var h=Math.floor(m/60), mm=m%60, ap=h>=12?'PM':'AM'; h=h%12||12; return h+':'+(mm<10?'0':'')+mm+' '+ap; }
+  if(mins >= openMin && mins < closeMin[d]){
+    text.textContent = 'Open now · closes ' + fmt(closeMin[d]) + ' today';
+  } else if(mins < openMin){
+    text.textContent = 'Closed now · opens 11:30 AM today';
+  } else {
+    text.textContent = 'Closed now · opens 11:30 AM tomorrow';
+  }
+  if(!(mins >= openMin && mins < closeMin[d])){ chip.classList.add('closed'); }
+
+  // highlight today's row in the hours table
+  var rows = document.querySelectorAll('#hoursTable tr[data-day]');
+  for(var i=0;i<rows.length;i++){
+    if(parseInt(rows[i].getAttribute('data-day'),10) === d){ rows[i].classList.add('today'); }
+  }
+})();
+</script>
+</body>
+</html>

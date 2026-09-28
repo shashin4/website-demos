@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tre Rose Bakery — Italian Bakery, Café & Deli on Kipling Ave, Etobicoke</title>
+<meta name="description" content="Tre Rose Bakery is a family-owned Italian bakery, café and deli at 2098 Kipling Ave, Etobicoke, ON. Open 10 AM–7 PM, 7 days a week. Since 1989.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf5ec;
+    --cream-deep:#f3ebdc;
+    --ink:#221a13;
+    --ink-soft:#4d4238;
+    --muted:#7a6c5e;
+    --brick:#a83a1c;
+    --brick-dark:#8c2e15;
+    --green:#3e6b3a;
+    --line:#e3d8c4;
+    --radius-s:10px;
+    --radius-m:18px;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    font-family:"Work Sans",-apple-system,"Segoe UI",sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;text-wrap:balance;font-weight:600;line-height:1.12;letter-spacing:-0.01em}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+  /* ---------- top strip ---------- */
+  .topstrip{background:var(--ink);color:#f2e9d8;font-size:14px}
+  .topstrip .wrap{display:flex;align-items:center;gap:10px;padding-top:8px;padding-bottom:8px}
+  .dot{width:9px;height:9px;border-radius:50%;background:#7fbf6a;flex:none;box-shadow:0 0 0 3px rgba(127,191,106,.25)}
+  .dot.closed{background:#c96a4a;box-shadow:0 0 0 3px rgba(201,106,74,.25)}
+  .topstrip strong{font-weight:600}
+  .topstrip .addr{margin-left:auto;color:#cbbda6;text-align:right}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(250,245,236,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;gap:18px;padding-top:14px;padding-bottom:14px}
+  .wordmark{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .wordmark .rose{width:34px;height:34px;border-radius:50%;background:var(--brick);color:var(--cream);
+    display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:19px;flex:none}
+  .wordmark .name{font-family:"Fraunces",serif;font-weight:700;font-size:21px;line-height:1.05}
+  .wordmark .name small{display:block;font-family:"Work Sans",sans-serif;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--brick)}
+  .navlinks{display:flex;gap:26px;margin-left:auto;list-style:none}
+  .navlinks a{text-decoration:none;font-weight:500;font-size:15.5px;color:var(--ink-soft)}
+  .navlinks a:hover{color:var(--brick)}
+  .nav .phone{display:none}
+  .hamb{display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:auto}
+  .hamb span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
+  @media(min-width:861px){
+    .nav .phone{display:inline-flex;align-items:center;gap:8px;background:var(--brick);color:#fff;
+      text-decoration:none;font-weight:600;font-size:15.5px;padding:10px 18px;border-radius:999px}
+    .nav .phone:hover{background:var(--brick-dark)}
+  }
+  @media(max-width:860px){
+    .navlinks{display:none}
+    .navlinks.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--cream);
+      flex-direction:column;gap:0;border-bottom:1px solid var(--line);padding:6px 22px 14px}
+    .navlinks.open a{display:block;padding:12px 0;border-top:1px solid var(--line);font-size:17px}
+    header.nav{position:sticky}
+    .nav .wrap{position:relative}
+    .hamb{display:block}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:48px;align-items:center;padding:56px 0 60px}
+  .kick{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);margin-bottom:16px}
+  .hero h1{font-size:clamp(38px,5.4vw,62px);margin-bottom:18px}
+  .hero h1 em{font-style:italic;color:var(--brick)}
+  .hero p.lede{font-size:19px;color:var(--ink-soft);max-width:34em;margin-bottom:28px}
+  .btnrow{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:16px;
+    padding:14px 24px;border-radius:var(--radius-s);border:1px solid transparent}
+  .btn.primary{background:var(--brick);color:#fff}
+  .btn.primary:hover{background:var(--brick-dark)}
+  .btn.ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+  .btn.ghost:hover{background:var(--ink);color:var(--cream)}
+  .hero-hours{margin-top:26px;display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink-soft)}
+  .hero-hours strong{color:var(--ink)}
+
+  .hero-side{background:var(--cream-deep);border:1px solid var(--line);border-radius:var(--radius-m);padding:30px 28px;position:relative;overflow:hidden}
+  .hero-side .stripes{display:flex;height:8px;margin:0 -28px 22px}
+  .stripes i{flex:1}
+  .stripes i:nth-child(1){background:var(--green)}
+  .stripes i:nth-child(2){background:#f4efe4}
+  .stripes i:nth-child(3){background:var(--brick)}
+  .hero-side .since{font-family:"Fraunces",serif;font-size:44px;font-weight:600;line-height:1}
+  .hero-side .since small{display:block;font-family:"Work Sans",sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px;font-weight:500}
+  .hero-side p{font-size:15.5px;color:var(--ink-soft);margin-top:16px}
+  .hero-side .addr-block{margin-top:18px;padding-top:18px;border-top:1px dashed var(--line);font-size:15px}
+
+  /* ---------- case strip ---------- */
+  .case{background:var(--ink);color:#f2e9d8}
+  .case .wrap{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding-top:30px;padding-bottom:30px}
+  .case h2{font-size:26px;margin-bottom:6px;color:#fff}
+  .case h2 em{font-style:italic;color:#e8b48c}
+  .case p{font-size:15.5px;color:#d8c9b2;max-width:46em}
+  .case .btn.primary{background:#f2e9d8;color:var(--ink)}
+  .case .btn.primary:hover{background:#fff}
+  @media(max-width:700px){.case .wrap{grid-template-columns:1fr}}
+
+  /* ---------- what we do ---------- */
+  .doing{padding:64px 0}
+  .doing h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:10px}
+  .doing .sub{color:var(--ink-soft);font-size:18px;max-width:40em;margin-bottom:36px}
+  .doing-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--ink)}
+  .doing-item{padding:30px 28px 32px;border-bottom:1px solid var(--line)}
+  .doing-item:nth-child(odd){border-right:1px solid var(--line)}
+  .doing-item .num{font-family:"Fraunces",serif;font-style:italic;font-size:15px;color:var(--brick);display:block;margin-bottom:8px}
+  .doing-item h3{font-size:24px;margin-bottom:8px}
+  .doing-item p{font-size:16px;color:var(--ink-soft)}
+  .doing-item .note{display:inline-block;margin-top:12px;font-size:14px;font-weight:600;color:var(--muted)}
+  .doing-item .note a{color:var(--brick);text-decoration:none;border-bottom:1px solid var(--brick)}
+  @media(max-width:700px){
+    .doing-grid{grid-template-columns:1fr}
+    .doing-item:nth-child(odd){border-right:0}
+  }
+
+  /* ---------- heritage note ---------- */
+  .heritage{background:var(--cream-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .heritage .wrap{display:grid;grid-template-columns:2fr 1fr;gap:40px;padding-top:54px;padding-bottom:54px;align-items:start}
+  .heritage h2{font-size:clamp(26px,3.2vw,36px);margin-bottom:14px}
+  .heritage p{color:var(--ink-soft);font-size:17px;margin-bottom:14px;max-width:38em}
+  .heritage .fact{border-left:3px solid var(--brick);padding-left:18px;font-size:15.5px}
+  .heritage .fact strong{display:block;font-family:"Fraunces",serif;font-size:20px}
+  @media(max-width:700px){.heritage .wrap{grid-template-columns:1fr;gap:28px}}
+
+  /* ---------- visit ---------- */
+  .visit{padding:64px 0 80px}
+  .visit h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:10px}
+  .visit .sub{color:var(--ink-soft);font-size:18px;margin-bottom:36px}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .hours-table{width:100%;border-collapse:collapse;font-size:16px}
+  .hours-table caption{text-align:left;font-family:"Fraunces",serif;font-size:22px;font-weight:600;margin-bottom:12px}
+  .hours-table td{padding:10px 0;border-bottom:1px solid var(--line)}
+  .hours-table td:last-child{text-align:right;color:var(--ink-soft)}
+  .hours-table tr.today td{font-weight:600;color:var(--brick)}
+  .hours-table tr.today td:last-child{color:var(--brick)}
+  .visit-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);padding:30px 28px}
+  .visit-card h3{font-size:22px;margin-bottom:12px}
+  .visit-card address{font-style:normal;font-size:16.5px;color:var(--ink-soft);margin-bottom:6px}
+  .visit-card .ph{font-size:19px;font-weight:600;margin:10px 0}
+  .visit-card .ph a{color:var(--brick);text-decoration:none}
+  .visit-card .em{font-size:15.5px;margin-bottom:22px}
+  .visit-card .em a{color:var(--ink-soft)}
+  @media(max-width:700px){.visit-grid{grid-template-columns:1fr}}
+
+  /* ---------- mobile call button ---------- */
+  .tapcall{display:none}
+  @media(max-width:860px){
+    .tapcall{display:flex;align-items:center;justify-content:center;gap:10px;position:fixed;left:16px;right:16px;bottom:16px;z-index:60;
+      background:var(--brick);color:#fff;text-decoration:none;font-weight:600;font-size:17px;padding:16px;border-radius:14px;
+      box-shadow:0 8px 24px rgba(34,26,19,.28)}
+    body{padding-bottom:0}
+    footer .wrap{padding-bottom:100px}
+  }
+
+  /* ---------- footer ---------- */
+  footer{border-top:2px solid var(--ink);background:var(--cream-deep)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between;padding-top:34px;padding-bottom:34px}
+  footer .f-name{font-family:"Fraunces",serif;font-size:20px;font-weight:700}
+  footer .f-name small{display:block;font-family:"Work Sans",sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);font-weight:500}
+  footer .f-details{font-size:14.5px;color:var(--ink-soft);max-width:28em}
+  footer .f-details a{color:var(--ink)}
+  .concept{font-size:12.5px;color:var(--muted);margin-top:14px;font-style:italic}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:32px;padding:40px 0 44px}
+    .topstrip .addr{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="wrap">
+    <span class="dot" id="openDot" aria-hidden="true"></span>
+    <span><strong id="openLabel">Open now</strong> &middot; 10 AM&ndash;7 PM today</span>
+    <span class="addr">2098 Kipling Ave, Etobicoke, ON</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="#top" aria-label="Tre Rose Bakery — home">
+      <span class="rose" aria-hidden="true">R</span>
+      <span class="name">Tre Rose<small>Bakery &middot; Since 1989</small></span>
+    </a>
+    <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#doing">Bakery &amp; café</a></li>
+      <li><a href="#heritage">Our story</a></li>
+      <li><a href="#visit">Hours &amp; directions</a></li>
+    </ul>
+    <a class="phone" href="tel:+14167475343">&#9742; (416) 747-5343</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO: says what the business is, first screen -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kick">Family-owned Italian bakery &middot; Etobicoke</p>
+        <h1>Fresh bread, pastry, and espresso on <em>Kipling Ave</em> &mdash; since 1989.</h1>
+        <p class="lede">Tre Rose is a family-owned Italian bakery, café and deli in Etobicoke. The bread comes out of the oven every morning, the café counter pours all day, and the doors are open 10 AM&ndash;7 PM, seven days a week.</p>
+        <div class="btnrow">
+          <a class="btn primary" href="tel:+14167475343">Call now</a>
+          <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=2098+Kipling+Ave+Etobicoke+ON+M9W+4K5" target="_blank" rel="noopener">Get directions</a>
+        </div>
+        <p class="hero-hours"><strong>Open today:</strong> 10 AM &ndash; 7 PM &middot; 2098 Kipling Ave, Etobicoke</p>
+      </div>
+      <aside class="hero-side" aria-label="About Tre Rose Bakery">
+        <div class="stripes" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p class="since">1989<small>A neighbourhood fixture</small></p>
+        <p>Three decades of baking on Kipling Ave &mdash; the same family counter for bread, pastry, lunch, and coffee.</p>
+        <div class="addr-block">
+          <strong>Tre Rose Bakery</strong><br>
+          2098 Kipling Ave<br>
+          Etobicoke, ON M9W 4K5<br>
+          <a href="tel:+14167475343">(416) 747-5343</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CASE STRIP: honest daily-case note -->
+  <section class="case">
+    <div class="wrap">
+      <div>
+        <h2>What&rsquo;s in the case <em>today?</em></h2>
+        <p>The case changes with the day&rsquo;s baking &mdash; there&rsquo;s no set menu online. If you&rsquo;ve got a craving, call in the morning and we&rsquo;ll tell you what&rsquo;s fresh right now.</p>
+      </div>
+      <a class="btn primary" href="tel:+14167475343">Call to ask</a>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO: broad honest categories only -->
+  <section class="doing" id="doing">
+    <div class="wrap">
+      <h2>Four things, done daily.</h2>
+      <p class="sub">Tre Rose is a bakery, a café, and a deli counter under one roof &mdash; walk in for one, stay for the others.</p>
+      <div class="doing-grid">
+        <div class="doing-item">
+          <span class="num">One &mdash;</span>
+          <h3>Fresh bread</h3>
+          <p>Baked in-house every morning, sold through the day until it&rsquo;s gone. When it&rsquo;s out, it&rsquo;s out.</p>
+          <span class="note">Day&rsquo;s supply is limited</span>
+        </div>
+        <div class="doing-item">
+          <span class="num">Two &mdash;</span>
+          <h3>Pastries</h3>
+          <p>Italian-style pastry from the same ovens &mdash; sweet things for the morning and the afternoon.</p>
+          <span class="note">Selection changes daily</span>
+        </div>
+        <div class="doing-item">
+          <span class="num">Three &mdash;</span>
+          <h3>Café</h3>
+          <p>Espresso and coffee served at the counter all day &mdash; a proper Italian café stop on Kipling Ave.</p>
+          <span class="note">Counter service, walk-ins welcome</span>
+        </div>
+        <div class="doing-item">
+          <span class="num">Four &mdash;</span>
+          <h3>Deli</h3>
+          <p>A deli counter alongside the bakery &mdash; everything you need for lunch or the week&rsquo;s groceries.</p>
+          <span class="note"><a href="tel:+14167475343">Call for pricing</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERITAGE -->
+  <section class="heritage" id="heritage">
+    <div class="wrap">
+      <div>
+        <h2>A family counter since 1989.</h2>
+        <p>Tre Rose Bakery has been family-owned and run on Kipling Ave since 1989 &mdash; an Italian bakery, café and deli that has fed the neighbourhood for more than three decades. Regulars come in for the morning bread and stay for the coffee.</p>
+        <p>Walk in any day of the week &mdash; the ovens run every morning and the doors are open 10 AM&ndash;7 PM, seven days.</p>
+      </div>
+      <div class="fact">
+        <strong>Family-owned</strong>
+        An independent Etobicoke bakery &mdash; not a chain, not a franchise.
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <h2>Come by the counter.</h2>
+      <p class="sub">No ordering online, no reservations &mdash; just walk in or call ahead.</p>
+      <div class="visit-grid">
+        <div>
+          <table class="hours-table" id="hoursTable">
+            <caption>Hours</caption>
+            <tbody>
+              <tr data-day="1"><td>Monday</td><td>10 AM &ndash; 7 PM</td></tr>
+              <tr data-day="2"><td>Tuesday</td><td>10 AM &ndash; 7 PM</td></tr>
+              <tr data-day="3"><td>Wednesday</td><td>10 AM &ndash; 7 PM</td></tr>
+              <tr data-day="4"><td>Thursday</td><td>10 AM &ndash; 7 PM</td></tr>
+              <tr data-day="5"><td>Friday</td><td>10 AM &ndash; 7 PM</td></tr>
+              <tr data-day="6"><td>Saturday</td><td>10 AM &ndash; 7 PM</td></tr>
+              <tr data-day="0"><td>Sunday</td><td>10 AM &ndash; 7 PM</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="visit-card">
+          <h3>Tre Rose Bakery</h3>
+          <address>
+            2098 Kipling Ave<br>
+            Etobicoke, ON M9W 4K5
+          </address>
+          <p class="ph"><a href="tel:+14167475343">(416) 747-5343</a></p>
+          <p class="em"><a href="mailto:trerosebakery@hotmail.com">trerosebakery@hotmail.com</a></p>
+          <div class="btnrow">
+            <a class="btn primary" href="tel:+14167475343">Call now</a>
+            <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=2098+Kipling+Ave+Etobicoke+ON+M9W+4K5" target="_blank" rel="noopener">Get directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<a class="tapcall" href="tel:+14167475343">&#9742; Call Tre Rose</a>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="f-name">Tre Rose<small>Bakery &middot; Since 1989</small></p>
+    </div>
+    <div class="f-details">
+      2098 Kipling Ave, Etobicoke, ON M9W 4K5 &middot; <a href="tel:+14167475343">(416) 747-5343</a> &middot; <a href="mailto:trerosebakery@hotmail.com">trerosebakery@hotmail.com</a><br>
+      Open 10 AM&ndash;7 PM, 7 days a week.
+      <p class="concept">Design concept preview &mdash; a mock-up prepared for the owner, not the bakery&rsquo;s official website.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Signature interaction: live open/closed status (hours 10 AM–7 PM, 7 days).
+  var now = new Date();
+  var mins = now.getHours()*60 + now.getMinutes();
+  var open = mins >= 600 && mins < 1140; // 10:00–19:00
+  var dot = document.getElementById('openDot');
+  var label = document.getElementById('openLabel');
+  if(open){
+    label.textContent = 'Open now';
+  }else{
+    label.textContent = (mins < 600) ? 'Closed — opens at 10 AM' : 'Closed — reopens 10 AM tomorrow';
+    dot.classList.add('closed');
+  }
+  // Highlight today's row in the hours table.
+  var rows = document.querySelectorAll('#hoursTable tr[data-day]');
+  rows.forEach(function(r){
+    if(parseInt(r.getAttribute('data-day'),10) === now.getDay()){ r.classList.add('today'); }
+  });
+
+  // Mobile hamburger.
+  var hamb = document.getElementById('hamb');
+  var links = document.getElementById('navlinks');
+  hamb.addEventListener('click', function(){
+    var isOpen = links.classList.toggle('open');
+    hamb.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    hamb.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      links.classList.remove('open');
+      hamb.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weil's of Westdale Bakery — Breads &amp; Pastries Baked from Scratch | Hamilton, ON</title>
+<meta name="description" content="Weil's of Westdale Bakery — a long established Hamiltonian tradition making breads and pastries from scratch. 981 King Street West, Hamilton. Call (905) 527-6751 to order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF5EC;
+    --paper-deep:#F3EAD8;
+    --ink:#2E2118;
+    --muted:#8A7660;
+    --accent:#B4552D;
+    --accent-deep:#8F3F20;
+    --line:#E7DCC8;
+    --chalk:#2A2019;
+    --chalk-ink:#F5EAD6;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+  body{
+    font-family:'Karla',system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);
+    font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Fraunces',Georgia,serif;text-wrap:balance;line-height:1.08;letter-spacing:-0.01em}
+  .wrap{max-width:1180px;margin-inline:auto;padding-inline:22px}
+  a{color:inherit}
+  ::selection{background:var(--accent);color:#fff}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    background:rgba(250,245,236,.86);
+    border-bottom:1px solid transparent;transition:border-color .25s;
+  }
+  .nav.scrolled{border-bottom-color:var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;text-decoration:none}
+  .brand em{font-style:normal;color:var(--accent)}
+  .nav-links{display:flex;gap:28px;align-items:center;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink)}
+  .nav-links a:hover{color:var(--accent)}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:700;font-size:.98rem;
+    background:var(--accent);color:#FFF7EA!important;
+    padding:.72rem 1.5rem;border-radius:999px;border:2px solid var(--accent);
+    transition:background .2s,transform .15s;
+  }
+  .btn:hover{background:var(--accent-deep);border-color:var(--accent-deep)}
+  .btn:active{transform:scale(.97)}
+  .btn.ghost{background:transparent;color:var(--ink)!important}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)!important;border-color:var(--ink)}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:10px}
+  .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.25s}
+  @media(max-width:820px){
+    .nav-links{
+      position:fixed;top:68px;right:0;left:0;flex-direction:column;align-items:flex-start;
+      background:var(--paper);border-bottom:1px solid var(--line);
+      padding:18px 22px 26px;gap:18px;display:none;
+    }
+    .nav-links.open{display:flex}
+    .burger{display:block}
+    .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:150px 0 70px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:120px}}
+  .kicker{
+    font-size:.8rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px;
+  }
+  .kicker::before{content:"";width:34px;height:2px;background:var(--accent)}
+  .hero h1{font-size:clamp(2.6rem,5.4vw,4.3rem);font-weight:600;margin-bottom:22px}
+  .hero h1 em{font-style:italic;color:var(--accent-deep)}
+  .lede{font-size:1.12rem;color:#4d3f30;max-width:34rem;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+  .open-badge{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.88rem;font-weight:700;padding:.5rem 1rem;border-radius:999px;
+    border:1.5px solid var(--line);background:var(--paper-deep);color:var(--ink);
+  }
+  .open-badge .dot{width:9px;height:9px;border-radius:50%;background:#3d8b4f}
+  .open-badge.closed .dot{background:#b3402e}
+
+  /* chalkboard panel — the bakery's "menu board" */
+  .board{
+    background:var(--chalk);color:var(--chalk-ink);border-radius:var(--radius);
+    padding:38px 36px;position:relative;
+    box-shadow:0 24px 50px -22px rgba(42,32,25,.55);
+    transform:rotate(1.2deg);
+  }
+  .board::before{
+    content:"";position:absolute;inset:10px;border:1.5px dashed rgba(245,234,214,.28);
+    border-radius:9px;pointer-events:none;
+  }
+  .board h3{
+    font-size:1.5rem;font-weight:600;margin-bottom:6px;
+    font-style:italic;
+  }
+  .board .board-sub{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-bottom:20px;font-weight:700}
+  .board ul{list-style:none}
+  .board li{
+    display:flex;align-items:baseline;gap:10px;
+    padding:9px 0;border-bottom:1px dotted rgba(245,234,214,.22);
+    font-size:1.02rem;font-weight:500;
+  }
+  .board li:last-child{border-bottom:0}
+  .board li .tick{color:var(--accent);font-weight:700}
+  .board-foot{margin-top:18px;font-size:.9rem;opacity:.75;font-style:italic}
+
+  /* ---------- sections ---------- */
+  section{padding:74px 0}
+  .sec-head{max-width:44rem;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:600;margin-bottom:14px}
+  .sec-head p{color:#4d3f30;font-size:1.06rem}
+
+  /* bake list — editorial rows with dotted leaders */
+  .bake-list{list-style:none;border-top:2px solid var(--ink)}
+  .bake-list li{
+    display:grid;grid-template-columns:1fr auto;gap:8px 18px;align-items:baseline;
+    padding:20px 4px;border-bottom:1px solid var(--line);
+    transition:background .2s,padding-left .2s;
+  }
+  .bake-list li:hover{background:var(--paper-deep);padding-left:14px}
+  .bake-list .item{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600}
+  .bake-list .note{color:var(--muted);font-size:.98rem;grid-column:1/-1}
+  .bake-list .tag{
+    font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);white-space:nowrap;
+  }
+
+  /* custom cakes — asymmetric panel */
+  .cakes{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:var(--radius);
+    overflow:hidden;border:1px solid var(--line);background:#fff;
+  }
+  @media(max-width:820px){.cakes{grid-template-columns:1fr}}
+  .cakes-copy{padding:52px 46px}
+  .cakes-copy h2{font-size:clamp(1.8rem,3.2vw,2.4rem);font-weight:600;margin-bottom:16px}
+  .cakes-copy p{color:#4d3f30;margin-bottom:22px}
+  .cakes-side{
+    background:var(--accent);color:#FFF3E2;padding:52px 46px;
+    display:flex;flex-direction:column;justify-content:center;gap:14px;
+    position:relative;
+  }
+  .cakes-side::after{
+    content:"\201C";font-family:'Fraunces',serif;font-size:7rem;line-height:1;
+    position:absolute;top:18px;right:30px;opacity:.25;
+  }
+  .cakes-side h3{font-size:1.45rem;font-weight:600}
+  .cakes-side p{font-size:1rem;opacity:.92}
+  .cakes-side .btn{background:#FFF3E2;color:var(--accent-deep)!important;border-color:#FFF3E2}
+  .cakes-side .btn:hover{background:#fff;border-color:#fff}
+  .price-note{font-size:.9rem;font-style:italic;opacity:.85}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  @media(max-width:820px){.visit-grid{grid-template-columns:1fr}}
+  .v-block h3{font-size:1.3rem;font-weight:600;margin-bottom:16px}
+  .v-block address{font-style:normal;font-size:1.05rem;line-height:1.8}
+  .v-block address a{color:var(--accent-deep);font-weight:600}
+  .hours{width:100%;border-collapse:collapse;margin-top:6px}
+  .hours td{padding:11px 4px;border-bottom:1px solid var(--line);font-size:1.02rem}
+  .hours td:last-child{text-align:right;font-weight:600}
+  .hours tr.today td{background:var(--paper-deep)}
+  .hours tr.today td:first-child{border-left:3px solid var(--accent);padding-left:10px}
+  .order-strip{
+    margin-top:34px;background:var(--ink);color:var(--chalk-ink);
+    border-radius:var(--radius);padding:26px 30px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  }
+  .order-strip p{font-size:1.05rem;max-width:36rem}
+  .order-strip strong{color:#fff}
+  .order-strip .btn{flex-shrink:0}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:44px 0 110px;margin-top:20px}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .foot-grid .brand{margin-bottom:10px;display:inline-block}
+  footer p{font-size:.95rem;color:var(--muted);max-width:30rem}
+  .concept{
+    margin-top:26px;padding-top:20px;border-top:1px dashed var(--line);
+    font-size:.82rem;color:var(--muted);font-style:italic;
+  }
+
+  /* mobile call button */
+  .call-fab{
+    position:fixed;left:16px;right:16px;bottom:16px;z-index:60;
+    display:none;text-align:center;
+    background:var(--ink);color:#FFF7EA;text-decoration:none;font-weight:700;font-size:1.05rem;
+    padding:1rem;border-radius:999px;
+    box-shadow:0 12px 30px -8px rgba(46,33,24,.5);
+  }
+  @media(max-width:820px){.call-fab{display:block}}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Weil's <em>of Westdale</em></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#bakes">What we bake</a></li>
+        <li><a href="#cakes">Custom cakes</a></li>
+        <li><a href="#visit">Visit us</a></li>
+        <li><a class="btn" href="tel:+19055276751">Call to order</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Westdale &middot; Hamilton, Ontario</p>
+        <h1>Breads and pastries, <em>baked from scratch.</em></h1>
+        <p class="lede">We&rsquo;re a long established Hamiltonian tradition. Over the years, we&rsquo;ve tried a lot of recipes from all over the world &mdash; but settled on only the ones that food lovers keep coming back for.</p>
+        <div class="hero-cta">
+          <a class="btn" href="tel:+19055276751">Call (905) 527-6751</a>
+          <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Weil%27s+Bakery+981+King+St+W+Hamilton+ON" target="_blank" rel="noopener">Get directions</a>
+        </div>
+        <span class="open-badge" id="openBadge"><span class="dot"></span><span id="openText">Checking hours&hellip;</span></span>
+      </div>
+      <aside class="board" aria-label="Bakery menu board">
+        <p class="board-sub">Always in the case</p>
+        <h3>From our ovens</h3>
+        <ul>
+          <li><span class="tick">&checkmark;</span> Artisan breads</li>
+          <li><span class="tick">&checkmark;</span> Melt-in-your-mouth rolls</li>
+          <li><span class="tick">&checkmark;</span> Pastries, baked daily</li>
+          <li><span class="tick">&checkmark;</span> Cookies &amp; breakfast treats</li>
+          <li><span class="tick">&checkmark;</span> Good old fashioned loaves</li>
+          <li><span class="tick">&checkmark;</span> Birthday &amp; specialty cakes</li>
+        </ul>
+        <p class="board-foot">Baked fresh Tuesday through Saturday.</p>
+      </aside>
+    </div>
+  </div>
+
+  <!-- WHAT WE BAKE -->
+  <section id="bakes">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">What we bake</p>
+        <h2>Everything made by hand, every morning.</h2>
+        <p>Whether you&rsquo;re after an artisan loaf, something sweet with your coffee, or a cake for a birthday &mdash; you&rsquo;ll find lots to tempt your tastebuds at Weil&rsquo;s of Westdale.</p>
+      </div>
+      <ul class="bake-list reveal">
+        <li>
+          <span class="item">Artisan breads</span><span class="tag">Baked daily</span>
+          <span class="note">Slow-fermented loaves with real crust &mdash; the kind of bread that makes a meal.</span>
+        </li>
+        <li>
+          <span class="item">Melt-in-your-mouth rolls</span><span class="tag">Customer favourite</span>
+          <span class="note">Soft, buttery rolls. Buy a bag &mdash; they won&rsquo;t survive the drive home.</span>
+        </li>
+        <li>
+          <span class="item">Pastries &amp; breakfast treats</span><span class="tag">Mornings</span>
+          <span class="note">Flaky, golden, and best eaten warm. Come early for the best pick.</span>
+        </li>
+        <li>
+          <span class="item">Cookies</span><span class="tag">By the dozen</span>
+          <span class="note">Old fashioned cookies, baked in big batches all week.</span>
+        </li>
+        <li>
+          <span class="item">Cupcakes</span><span class="tag">Assorted</span>
+          <span class="note">Moist, generously frosted, and gone by Saturday most weeks.</span>
+        </li>
+        <li>
+          <span class="item">Good old fashioned loaves</span><span class="tag">Everyday</span>
+          <span class="note">Simple sandwich bread, done right &mdash; soft crumb, honest flavour.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CUSTOM CAKES -->
+  <section id="cakes" style="padding-top:0">
+    <div class="wrap">
+      <div class="cakes reveal">
+        <div class="cakes-copy">
+          <p class="kicker">Custom cakes</p>
+          <h2>Birthday or specialty cakes, made to order.</h2>
+          <p>Tell us the occasion, the servings, and the flavours you&rsquo;re dreaming of &mdash; we&rsquo;ll bake a moist, delicious cake and finish it by hand. Every custom cake starts with a conversation.</p>
+          <p class="price-note">Pricing depends on size and design &mdash; call for a quote.</p>
+          <a class="btn" href="tel:+19055276751">Call about a cake</a>
+        </div>
+        <div class="cakes-side">
+          <h3>How it works</h3>
+          <p><strong>1. Call us</strong> at (905) 527-6751 and tell us what you&rsquo;re celebrating.</p>
+          <p><strong>2. We bake it fresh</strong> &mdash; birthday cakes, specialty cakes, cupcakes for a crowd.</p>
+          <p><strong>3. Pick it up</strong> at 981 King St W, ready for the candles.</p>
+          <a class="btn" href="mailto:info@weilsbakery.com">Email info@weilsbakery.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">Visit us</p>
+        <h2>Come by the shop on King West.</h2>
+      </div>
+      <div class="visit-grid reveal">
+        <div class="v-block">
+          <h3>Find us</h3>
+          <address>
+            <strong>Weil&rsquo;s of Westdale Bakery</strong><br>
+            981 King Street West<br>
+            Hamilton, ON L8S 1K9<br><br>
+            Phone: <a href="tel:+19055276751">(905) 527-6751</a><br>
+            Email: <a href="mailto:info@weilsbakery.com">info@weilsbakery.com</a>
+          </address>
+        </div>
+        <div class="v-block">
+          <h3>Hours</h3>
+          <table class="hours" id="hoursTable">
+            <tr data-day="1"><td>Monday</td><td>Closed</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>8am &ndash; 6pm</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>8am &ndash; 6pm</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>8am &ndash; 6pm</td></tr>
+            <tr data-day="5"><td>Friday</td><td>8am &ndash; 6pm</td></tr>
+            <tr data-day="6"><td>Saturday</td><td>8am &ndash; 6pm</td></tr>
+            <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="order-strip reveal">
+        <p><strong>We take orders by phone for pickup.</strong> Call <strong>(905) 527-6751</strong> and we&rsquo;ll have it boxed and ready when you arrive.</p>
+        <a class="btn" href="tel:+19055276751">Call now</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top">Weil's <em>of Westdale</em></a>
+        <p>981 King Street West, Hamilton, ON L8S 1K9<br>(905) 527-6751 &middot; info@weilsbakery.com</p>
+      </div>
+      <div>
+        <p>Tuesday&ndash;Saturday, 8am&ndash;6pm.<br>Baked from scratch in Westdale.</p>
+      </div>
+    </div>
+    <p class="concept">Concept preview &mdash; a demo website built by Shashin, a Seneca IT student. Not affiliated with Weil&rsquo;s of Westdale Bakery.</p>
+  </div>
+</footer>
+
+<a class="call-fab" href="tel:+19055276751">Call (905) 527-6751</a>
+<script>
+(function(){
+  // Sticky nav border on scroll
+  var nav = document.getElementById('nav');
+  addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', scrollY > 12);
+  }, {passive:true});
+
+  // Mobile menu
+  var burger = document.getElementById('burger'),
+      links  = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      links.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    }
+  });
+
+  // Live open/closed badge + "today" row — real hours: Tue-Sat 8:00-18:00
+  var now = new Date(), day = now.getDay(), h = now.getHours() + now.getMinutes()/60;
+  var open = (day >= 2 && day <= 6 && h >= 8 && h < 18);
+  var badge = document.getElementById('openBadge'),
+      txt = document.getElementById('openText');
+  badge.classList.toggle('closed', !open);
+  txt.textContent = open ? 'Open now · until 6pm' : 'Currently closed';
+  document.querySelectorAll('#hoursTable tr').forEach(function(tr){
+    if(parseInt(tr.getAttribute('data-day'),10) === day) tr.classList.add('today');
+  });
+
+  // Gentle scroll reveals — only on section headers and lists, never primary hero text
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TT Beauty Nails Spa — Burlington, ON</title>
+<meta name="description" content="TT Beauty Nails Spa, 2011 Plains Road East, Burlington. Manicures, pedicures, Bio Sculpture, acrylics, waxing, lashes. Call 905-633-8778.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#faf7f0;
+    --cream:#f1eadd;
+    --espresso:#2a2118;
+    --espresso-soft:#3a2e20;
+    --clay:#a8502c;
+    --clay-deep:#8a3e20;
+    --line:rgba(42,33,24,.16);
+    --line-light:rgba(250,247,240,.16);
+    --muted:#6f6252;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Karla',system-ui,sans-serif;
+    background:var(--ivory);color:var(--espresso);
+    line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--clay);color:var(--ivory)}
+  a{color:inherit}
+  .serif{font-family:'Playfair Display',Georgia,serif}
+
+  /* utility bar */
+  .utility{
+    background:var(--espresso);color:var(--ivory);
+    font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+    display:flex;justify-content:space-between;gap:1rem;padding:.55rem 1.25rem;
+  }
+  .utility a{text-decoration:none;border-bottom:1px solid var(--clay)}
+  @media(max-width:640px){.utility .u-addr{display:none}.utility{justify-content:center}}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:var(--ivory);border-bottom:1px solid var(--line)}
+  .nav{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+  .brand{text-decoration:none;line-height:1.1}
+  .brand .b-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.45rem;letter-spacing:.02em}
+  .brand .b-name em{font-style:italic;color:var(--clay)}
+  .brand small{display:block;font-size:.58rem;font-weight:700;letter-spacing:.4em;color:var(--muted);margin-top:.15rem}
+  .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+  .nav-links a{text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+  .nav-links a:hover{color:var(--clay)}
+  .nav-call{border:2px solid var(--espresso);padding:.55rem 1.1rem;border-radius:999px;text-decoration:none;transition:.2s}
+  .nav-call:hover{background:var(--espresso);color:var(--ivory)}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem}
+  .burger span{display:block;width:26px;height:2px;background:var(--espresso);margin:6px 0;transition:.25s}
+  @media(max-width:760px){
+    .burger{display:block}
+    .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--ivory);flex-direction:column;align-items:stretch;gap:0;border-bottom:1px solid var(--line);display:none}
+    .nav-links.open{display:flex}
+    .nav-links li{border-top:1px solid var(--line)}
+    .nav-links a{display:block;padding:1rem 1.25rem}
+    .nav-links .nav-call{border:0;border-radius:0}
+    body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    body.menu-open .burger span:nth-child(2){opacity:0}
+    body.menu-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  }
+
+  /* hero */
+  .hero{max-width:1180px;margin:0 auto;padding:4rem 1.25rem 3rem;display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:center}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:2.75rem}}
+  .hero-kicker{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:1.2rem;display:flex;align-items:center;gap:.75rem}
+  .hero-kicker::before{content:"";width:2.5rem;height:1px;background:var(--clay)}
+  .hero h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2.9rem,7.5vw,5.2rem);line-height:1.04;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--clay)}
+  .hero-sub{margin-top:1.4rem;font-size:1.05rem;color:var(--espresso-soft);max-width:32rem}
+  .hero-ctas{margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;padding:.95rem 1.5rem;border-radius:4px;transition:.2s}
+  .btn:active{transform:scale(.98)}
+  .btn-solid{background:var(--espresso);color:var(--ivory)}
+  .btn-solid:hover{background:var(--clay)}
+  .btn-line{border:2px solid var(--espresso)}
+  .btn-line:hover{border-color:var(--clay);color:var(--clay)}
+  .btn-clay{background:var(--clay);color:var(--ivory)}
+  .btn-clay:hover{background:var(--clay-deep)}
+  .info-card{background:var(--espresso);color:var(--ivory);border-radius:8px;padding:1.8rem;position:relative}
+  .info-card::before{content:"";position:absolute;inset:10px;border:1px solid var(--line-light);border-radius:5px;pointer-events:none}
+  .info-card h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:1.5rem;margin-bottom:1rem;position:relative}
+  .info-card dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1rem;font-size:.92rem;position:relative}
+  .info-card dt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;opacity:.65}
+  .info-card dd{margin:0;text-align:right;font-weight:600}
+  .info-card dd a{color:#f0c9a8;text-decoration:none;border-bottom:1px solid var(--clay)}
+  .info-card .ic-cta{margin-top:1.3rem;display:grid;gap:.6rem;position:relative}
+
+  /* ribbon */
+  .ribbon{background:var(--clay);color:var(--ivory);text-align:center;padding:.85rem 1.25rem;font-size:.8rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+
+  /* sections */
+  section.block{max-width:1180px;margin:0 auto;padding:4rem 1.25rem}
+  .sec-head{margin-bottom:2.4rem;max-width:44rem}
+  .sec-label{font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:.8rem}
+  .sec-head h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.1}
+  .sec-head p{margin-top:.8rem;color:var(--muted)}
+
+  /* services */
+  .svc-groups{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 3rem}
+  @media(max-width:820px){.svc-groups{grid-template-columns:1fr}}
+  .svc-group h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:1.45rem;padding-bottom:.6rem;border-bottom:2px solid var(--espresso);margin-bottom:.4rem}
+  .svc-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.8rem 0;border-bottom:1px dotted var(--line)}
+  .svc-row .s-name{font-weight:600}
+  .svc-row .s-price{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .svc-note{margin-top:2rem;font-size:.9rem;color:var(--muted);border-left:3px solid var(--clay);padding-left:1rem;max-width:44rem}
+
+  /* about band */
+  .band{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .band-inner{max-width:1180px;margin:0 auto;padding:4rem 1.25rem;display:grid;grid-template-columns:1fr 2fr;gap:2.5rem;align-items:start}
+  @media(max-width:820px){.band-inner{grid-template-columns:1fr}}
+  .band-inner .big{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.2;font-weight:600}
+  .band-inner .big em{color:var(--clay)}
+  .band-inner p+p{margin-top:1rem}
+  .treat-list{list-style:none;margin-top:1.4rem;display:grid;gap:.7rem}
+  .treat-list li{display:flex;gap:.7rem;align-items:baseline}
+  .treat-list li::before{content:"✦";color:var(--clay);flex:none}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+  @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+  .hours{width:100%;border-collapse:collapse}
+  .hours caption{text-align:left;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;padding-bottom:.8rem}
+  .hours td{padding:.7rem .25rem;border-bottom:1px solid var(--line)}
+  .hours td:last-child{text-align:right;font-weight:600}
+  .hours tr.today td{background:rgba(168,80,44,.1)}
+  .hours tr.today td:first-child::after{content:"TODAY";font-size:.6rem;letter-spacing:.18em;color:var(--clay);border:1px solid var(--clay);border-radius:3px;padding:.1rem .4rem;margin-left:.7rem;vertical-align:middle;font-weight:700}
+  .visit-card h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;margin-bottom:.6rem}
+  .visit-card address{font-style:normal;font-size:1.02rem;margin-bottom:1.1rem}
+  .visit-card p{margin-bottom:.4rem}
+  .visit-actions{margin-top:1.5rem;display:grid;gap:.7rem}
+  .btn-row{display:flex;gap:.7rem;flex-wrap:wrap}
+  .btn-row .btn{flex:1;min-width:140px;text-align:center}
+
+  footer{background:var(--espresso);color:var(--ivory);padding:2.5rem 1.25rem 6.5rem}
+  .foot-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+  .foot-brand{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700}
+  .foot-brand small{display:block;font-family:'Karla',sans-serif;font-size:.6rem;letter-spacing:.4em;color:#d8a276;font-weight:700;margin-top:.2rem}
+  .disclosure{font-size:.75rem;color:#a89a85;max-width:26rem;line-height:1.7}
+  .disclosure strong{color:#e8dcc8}
+
+  .sticky-call{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:var(--espresso);color:var(--ivory);text-decoration:none;padding:1rem;text-align:center;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.85rem;border-top:3px solid var(--clay)}
+  @media(max-width:760px){.sticky-call{display:block}}
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <span class="u-addr">2011 Plains Road East, Burlington ON</span>
+  <span><a href="tel:+19056338778">Call 905-633-8778</a> &nbsp;·&nbsp; Walk-ins Welcome</span>
+</div>
+
+<header>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#top"><span class="b-name">TT <em>Beauty</em></span><small>NAILS SPA · BURLINGTON</small></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a class="nav-call" href="tel:+19056338778">Book Now</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div>
+      <p class="hero-kicker">Nail Salon · Burlington, Ontario</p>
+      <h1>You will look <em>gorgeous</em> every day.</h1>
+      <p class="hero-sub">
+        TT Beauty Nails Spa in the heart of Burlington — manicures, pedicures,
+        sculpted extensions and spa services, finished with the detail your
+        nails deserve.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="tel:+19056338778">Call 905-633-8778</a>
+        <a class="btn btn-line" href="#services">View Services</a>
+      </div>
+    </div>
+    <aside class="info-card" aria-label="Quick info">
+      <h2>Plan your visit</h2>
+      <dl>
+        <dt>Address</dt><dd>2011 Plains Rd E, Burlington</dd>
+        <dt>Phone</dt><dd><a href="tel:+19056338778">905-633-8778</a></dd>
+        <dt>Email</dt><dd><a href="mailto:ttbeautynailspa@gmail.com">ttbeautynailspa@gmail.com</a></dd>
+        <dt>Today</dt><dd id="cardToday">—</dd>
+      </dl>
+      <div class="ic-cta">
+        <a class="btn btn-clay" href="tel:+19056338778">Book an Appointment</a>
+        <a class="btn" style="border:1px solid var(--line-light);color:var(--ivory)" href="https://www.google.com/maps/search/?api=1&query=TT+Beauty+Nails+Spa+2011+Plains+Road+East+Burlington+ON" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="ribbon">Manicures &nbsp;✦&nbsp; Pedicures &nbsp;✦&nbsp; Bio Sculpture &nbsp;✦&nbsp; Acrylics &nbsp;✦&nbsp; Waxing &nbsp;✦&nbsp; Lashes</div>
+
+  <section class="block" id="services">
+    <div class="sec-head">
+      <p class="sec-label">Our Menu</p>
+      <h2>Services</h2>
+      <p>Pricing isn't listed online — call or email and we'll quote you before we begin, so there are never surprises.</p>
+    </div>
+    <div class="svc-groups">
+      <div class="svc-group">
+        <h3>Manicure</h3>
+        <div class="svc-row"><span class="s-name">Classic Manicure</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Signature Manicure</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Deluxe Manicure</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Shellac Manicure</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Nail Art &amp; Design</span><span class="s-price">Call for price</span></div>
+      </div>
+      <div class="svc-group">
+        <h3>Pedicure</h3>
+        <div class="svc-row"><span class="s-name">Classic Pedicure</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Signature Pedicure</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Deluxe Pedicure</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Shellac Pedicure</span><span class="s-price">Call for price</span></div>
+      </div>
+      <div class="svc-group">
+        <h3>Extensions &amp; Enhancements</h3>
+        <div class="svc-row"><span class="s-name">Bio Sculpture — Full Set</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Bio Sculpture — Refill</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Acrylic — Full Set</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">UV Powder Gel</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Extension Removal</span><span class="s-price">Call for price</span></div>
+      </div>
+      <div class="svc-group">
+        <h3>Finishing Touches</h3>
+        <div class="svc-row"><span class="s-name">Shellac on Hands / Feet</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Waxing</span><span class="s-price">Call for price</span></div>
+        <div class="svc-row"><span class="s-name">Lash Enhancements</span><span class="s-price">Call for price</span></div>
+      </div>
+    </div>
+    <p class="svc-note">Service list gathered from the salon's public listings. For today's pricing and availability, call <a href="tel:+19056338778">905-633-8778</a> — the team confirms costs with you before any nail art begins.</p>
+  </section>
+
+  <div class="band" id="about">
+    <div class="band-inner">
+      <p class="big">A Burlington salon built on <em>careful work</em> and a spotless space.</p>
+      <div>
+        <p>Located in the heart of Burlington, TT Beauty Nails Spa has become a go-to for nail and spa services across the area — known for friendly, skilled staff, a clean and inviting salon, and clear, upfront communication about pricing.</p>
+        <p>Treatments are created with quality professional products, and every appointment starts with what you want — including nail art matched to your own reference photos.</p>
+        <ul class="treat-list">
+          <li>Manicures, pedicures &amp; sculpted nail extensions</li>
+          <li>Shellac, UV powder gel &amp; Bio Sculpture systems</li>
+          <li>Waxing and lash enhancements</li>
+          <li>Online booking and walk-ins welcome</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section class="block" id="visit">
+    <div class="sec-head">
+      <p class="sec-label">Find Us</p>
+      <h2>Visit the Salon</h2>
+      <p>On Plains Road East in Burlington — call ahead or just walk in.</p>
+    </div>
+    <div class="visit-grid">
+      <table class="hours" id="hoursTable">
+        <caption>Salon Hours</caption>
+        <tbody>
+          <tr data-day="1"><td>Monday</td><td>10:00 AM – 8:00 PM</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>10:00 AM – 8:00 PM</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>10:00 AM – 8:00 PM</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>10:00 AM – 8:00 PM</td></tr>
+          <tr data-day="5"><td>Friday</td><td>10:00 AM – 8:00 PM</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>10:00 AM – 5:00 PM</td></tr>
+          <tr data-day="0"><td>Sunday</td><td>10:00 AM – 5:00 PM</td></tr>
+        </tbody>
+      </table>
+      <div class="visit-card">
+        <h3>TT Beauty Nails Spa</h3>
+        <address>
+          2011 Plains Road East<br>
+          Burlington, ON L7R 0A6
+        </address>
+        <p><strong>Phone:</strong> <a href="tel:+19056338778">905-633-8778</a></p>
+        <p><strong>Email:</strong> <a href="mailto:ttbeautynailspa@gmail.com">ttbeautynailspa@gmail.com</a></p>
+        <div class="visit-actions">
+          <div class="btn-row">
+            <a class="btn btn-solid" href="tel:+19056338778">Call Now</a>
+            <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=TT+Beauty+Nails+Spa+2011+Plains+Road+East+Burlington+ON" target="_blank" rel="noopener">Directions</a>
+          </div>
+          <a class="btn btn-clay" href="mailto:ttbeautynailspa@gmail.com">Email the Salon</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">TT Beauty<small>NAILS SPA · BURLINGTON</small></div>
+    <p class="disclosure">
+      <strong>Concept preview.</strong> This is a demo website built to show what a
+      new TT Beauty Nails Spa site could look like — it is not the salon's official site.
+      Business details shown here come from the salon's public listings.
+    </p>
+  </div>
+</footer>
+
+<a class="sticky-call" href="tel:+19056338778">Tap to Call — 905-633-8778</a>
+
+<script>
+(function(){
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('open');
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var today = new Date().getDay();
+  document.querySelectorAll('#hoursTable tr[data-day]').forEach(function(r){
+    if (parseInt(r.getAttribute('data-day'),10) === today) r.classList.add('today');
+  });
+  var cardToday = document.getElementById('cardToday');
+  var todayCell = document.querySelector('#hoursTable tr.today td:last-child');
+  if (cardToday && todayCell) cardToday.textContent = days[today] + ' ' + todayCell.textContent;
+})();
+</script>
+</body>
+</html>
