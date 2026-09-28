@@ -10,16 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F7F4EE;
-    --paper-deep:#EFE9DA;
-    --ink:#17140F;
-    --ink-2:#2B2620;
-    --accent:#D9480F;
-    --accent-deep:#A8370B;
-    --line:#DCD4C2;
-    --line-dark:#3A342B;
-    --muted:#6E665A;
-    --muted-dark:#A89E8C;
+    --paper:#FBFAF7;
+    --paper-deep:#F1EFE9;
+    --ink:#10161F;
+    --ink-2:#1B2430;
+    --accent:#D9531A;
+    --accent-deep:#B2430F;
+    --line:#E2E0D8;
+    --line-dark:#2A3442;
+    --muted:#6B6F75;
+    --muted-dark:#9AA2AC;
     --radius:4px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -39,10 +39,10 @@
   ::selection{background:var(--accent);color:#fff}
 
   /* ---------- utility bar ---------- */
-  .topbar{background:var(--ink);color:#E9E2D4;font-size:13.5px;font-weight:500}
+  .topbar{background:var(--ink);color:#DFE4EA;font-size:13.5px;font-weight:500}
   .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:8px;padding-bottom:8px}
   .topbar .status{display:flex;align-items:center;gap:9px}
-  .status-dot{width:9px;height:9px;border-radius:50%;background:#9A9384;flex:none}
+  .status-dot{width:9px;height:9px;border-radius:50%;background:#7C848E;flex:none}
   .status-dot.open{background:#58B368}
   .topbar a.tel{font-weight:700;color:#fff;text-decoration:none;white-space:nowrap}
   .topbar a.tel:hover{color:var(--accent)}
@@ -50,7 +50,7 @@
   /* ---------- compact masthead ---------- */
   header.mast{
     position:sticky;top:0;z-index:50;
-    background:rgba(247,244,238,.96);
+    background:rgba(251,250,247,.96);
     -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -76,7 +76,7 @@
   }
   .hero h1{font-size:clamp(3rem,6.4vw,5.2rem);font-weight:700;text-transform:uppercase;margin-bottom:20px}
   .hero h1 em{font-style:normal;color:var(--accent)}
-  .hero .lede{font-size:1.13rem;max-width:32rem;color:#3D372C;margin-bottom:30px}
+  .hero .lede{font-size:1.13rem;max-width:32rem;color:#39404A;margin-bottom:30px}
   .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
   .btn{
     display:inline-block;text-decoration:none;font-family:'Barlow Condensed',sans-serif;
@@ -90,7 +90,7 @@
 
   /* the trust card — the signature element */
   .trust-card{
-    background:var(--ink);color:#F2EDE1;border-radius:6px;
+    background:var(--ink);color:#F2F4F7;border-radius:6px;
     padding:38px 36px;position:relative;
     box-shadow:0 24px 48px -20px rgba(23,20,15,.45);
   }
@@ -173,7 +173,7 @@
   .tl-step p{color:var(--muted);font-size:1.02rem;max-width:44rem}
 
   /* ---------- visit band ---------- */
-  .visit-band{background:var(--ink);color:#F2EDE1}
+  .visit-band{background:var(--ink);color:#F2F4F7}
   .visit-band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-top:72px;padding-bottom:72px;align-items:start}
   @media(max-width:820px){.visit-band .wrap{grid-template-columns:1fr}}
   .visit-band .index{
@@ -182,7 +182,7 @@
     display:block;margin-bottom:14px;
   }
   .visit-band h2{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:16px}
-  .visit-band .addr{font-size:1.1rem;margin-bottom:26px;color:#CFC6B2}
+  .visit-band .addr{font-size:1.1rem;margin-bottom:26px;color:#C2C9D3}
   .visit-band .addr strong{color:#fff}
   .contact-lines{border-top:2px solid var(--line-dark);margin-bottom:28px}
   .contact-lines .row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 0;border-bottom:1px solid var(--line-dark)}
@@ -192,27 +192,27 @@
   .visit-actions{display:flex;flex-wrap:wrap;gap:12px}
   .btn-light{background:var(--accent);color:#fff}
   .btn-light:hover{background:var(--accent-deep)}
-  .btn-ghostdark{border-color:#5A5346;color:#F2EDE1}
+  .btn-ghostdark{border-color:#465061;color:#F2F4F7}
   .btn-ghostdark:hover{border-color:var(--accent);color:var(--accent)}
-  .hours-card{background:#221D15;border:1px solid var(--line-dark);border-radius:var(--radius);padding:32px 30px}
+  .hours-card{background:#141B25;border:1px solid var(--line-dark);border-radius:var(--radius);padding:32px 30px}
   .hours-card h3{font-size:26px;font-weight:600;text-transform:uppercase;color:#fff;margin-bottom:6px}
   .hours-card .today-line{font-size:14.5px;color:var(--muted-dark);margin-bottom:18px}
   .hours-table{width:100%;border-collapse:collapse;font-size:16px}
   .hours-table tr{border-top:1px solid var(--line-dark)}
-  .hours-table td{padding:12px 0;color:#CFC6B2}
+  .hours-table td{padding:12px 0;color:#C2C9D3}
   .hours-table td:last-child{text-align:right;color:var(--muted-dark)}
   .hours-table tr.is-today td{color:#fff;font-weight:600}
   .hours-table tr.is-today td:last-child{color:var(--accent)}
   .hours-note{margin-top:16px;font-size:14.5px;color:var(--muted-dark)}
 
   /* ---------- footer ---------- */
-  footer{background:var(--ink);color:#8F8674;padding:40px 0 110px;font-size:14px;border-top:3px solid var(--accent)}
+  footer{background:var(--ink);color:#8B93A0;padding:40px 0 110px;font-size:14px;border-top:3px solid var(--accent)}
   footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
-  footer .fname{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;color:#E9E2D4;letter-spacing:.04em;margin-bottom:8px}
+  footer .fname{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;color:#EAEDF1;letter-spacing:.04em;margin-bottom:8px}
   footer p{max-width:44ch;margin-bottom:6px}
-  footer a{color:#C9C0AC;text-decoration:none}
+  footer a{color:#B7BEC9;text-decoration:none}
   footer a:hover{color:var(--accent)}
-  .concept{margin-top:18px;padding-top:14px;border-top:1px solid var(--line-dark);font-size:12.5px;color:#6B6355;max-width:70ch}
+  .concept{margin-top:18px;padding-top:14px;border-top:1px solid var(--line-dark);font-size:12.5px;color:#646D7A;max-width:70ch}
 
   .mobile-call{
     display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;
