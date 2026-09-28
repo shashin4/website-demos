@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#14100C;
-    --ink-soft:#1E1812;
-    --cream:#F5EDDC;
-    --cream-dim:#CDBFA4;
-    --gold:#C6A15B;
-    --gold-deep:#9A7838;
-    --line:rgba(198,161,91,.28);
+    --ink:#0F0D0B;
+    --ink-soft:#171310;
+    --cream:#EFE3CB;
+    --cream-dim:#B3A180;
+    --gold:#E7BD74;
+    --gold-deep:#A2834E;
+    --line:rgba(231,189,116,.30);
     --radius:10px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -37,7 +37,7 @@
   .rule::after{content:"";display:block;border-top:1px solid var(--gold);margin-top:3px;opacity:.55}
 
   /* slim utility bar — hours + phone, nothing else */
-  .utility{background:#0d0a07;color:var(--cream-dim);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+  .utility{background:#0B0906;color:var(--cream-dim);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
   .utility .wrap{display:flex;justify-content:space-between;gap:14px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
   .utility a{color:var(--gold);text-decoration:none;font-weight:500}
 
@@ -52,14 +52,14 @@
   .nav-links a:hover{color:var(--gold)}
   .btn{
     display:inline-block;text-decoration:none;font-weight:500;font-size:.92rem;letter-spacing:.14em;text-transform:uppercase;
-    background:var(--gold);color:#14100C!important;
+    background:var(--gold);color:#0F0D0B!important;
     padding:.75rem 1.6rem;border-radius:2px;border:1px solid var(--gold);
     transition:background .2s,transform .15s;
   }
   .btn:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
   .btn:active{transform:scale(.97)}
   .btn.ghost{background:transparent;color:var(--cream)!important}
-  .btn.ghost:hover{background:rgba(198,161,91,.14);border-color:var(--gold);color:var(--gold)!important}
+  .btn.ghost:hover{background:rgba(231,189,116,.14);border-color:var(--gold);color:var(--gold)!important}
   .burger{display:none;background:none;border:0;cursor:pointer;padding:10px}
   .burger span{display:block;width:24px;height:2px;background:var(--cream);margin:5px 0;transition:.25s}
   @media(max-width:860px){
@@ -76,7 +76,7 @@
   .hero{padding:110px 0 90px;position:relative;text-align:center;overflow:hidden}
   .hero::before{
     content:"";position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(ellipse 70% 55% at 50% 38%,rgba(198,161,91,.10),transparent 70%);
+    background:radial-gradient(ellipse 70% 55% at 50% 38%,rgba(231,189,116,.10),transparent 70%);
   }
   .deco-mark{
     width:64px;height:64px;margin:0 auto 30px;transform:rotate(45deg);
@@ -96,8 +96,8 @@
     font-size:.85rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
     padding:.55rem 1.2rem;border:1px solid var(--line);border-radius:999px;color:var(--cream-dim);
   }
-  .open-badge .dot{width:9px;height:9px;border-radius:50%;background:#7ba05b}
-  .open-badge.closed .dot{background:#b3402e}
+  .open-badge .dot{width:9px;height:9px;border-radius:50%;background:#E7BD74}
+  .open-badge.closed .dot{background:#8A2A20}
 
   /* ---------- sections ---------- */
   section{padding:80px 0}
@@ -119,7 +119,7 @@
     padding:24px 8px;border-bottom:1px solid var(--line);
     transition:background .2s,padding-left .2s;
   }
-  .cuts li:hover{background:rgba(198,161,91,.06);padding-left:18px}
+  .cuts li:hover{background:rgba(231,189,116,.06);padding-left:18px}
   .cut-name{font-family:'Cinzel',serif;font-size:1.25rem;font-weight:600;letter-spacing:.03em}
   .cut-name small{display:block;font-family:'Jost',sans-serif;font-size:.85rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:5px}
   .cut-note{color:var(--cream-dim);font-size:.98rem;grid-column:1/-1;max-width:38rem}
@@ -167,12 +167,12 @@
   .hours{width:100%;border-collapse:collapse}
   .hours td{padding:11px 4px;border-bottom:1px solid var(--line);font-size:1rem;color:var(--cream-dim)}
   .hours td:last-child{text-align:right;color:var(--cream)}
-  .hours tr.today td{background:rgba(198,161,91,.08)}
+  .hours tr.today td{background:rgba(231,189,116,.08)}
   .hours tr.today td:first-child{border-left:2px solid var(--gold);padding-left:12px;color:var(--gold)}
   .reserve-cta{
     max-width:1000px;margin:48px auto 0;border:1px solid var(--gold);
     border-radius:var(--radius);padding:44px 34px;text-align:center;
-    background:rgba(198,161,91,.06);
+    background:rgba(231,189,116,.06);
   }
   .reserve-cta h2{font-size:clamp(1.6rem,3.2vw,2.3rem);margin-bottom:14px}
   .reserve-cta h2 span{color:var(--gold)}
@@ -188,7 +188,7 @@
 
   .call-fab{
     position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;text-align:center;
-    background:var(--gold);color:#14100C;text-decoration:none;font-weight:600;font-size:1rem;
+    background:var(--gold);color:#0F0D0B;text-decoration:none;font-weight:600;font-size:1rem;
     letter-spacing:.1em;text-transform:uppercase;padding:1rem;border-radius:4px;
     box-shadow:0 12px 30px -8px rgba(0,0,0,.6);
   }
