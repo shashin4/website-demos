@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>McQueen Automotive — Brampton Auto Repair Since 1996</title>
+<meta name="description" content="McQueen Automotive: auto electrical and general auto repair in Brampton since 1996. Mon–Fri 7:30 AM–5:30 PM. Call (905) 451-2090 for a quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0e2238;
+  --navy-2:#13293f;
+  --ink:#14181d;
+  --paper:#f5f1e6;
+  --paper-2:#efe9d8;
+  --red:#b02730;
+  --red-dark:#8e1f26;
+  --muted:#5c6672;
+  --line:#d9d2bf;
+  --maxw:1320px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Source Serif 4",Georgia,serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+h1,h2,h3,.display{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:600;line-height:1.02;text-wrap:balance;letter-spacing:.01em}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+
+/* utility strip */
+.strip{background:var(--navy);color:#e9e2d0;font-size:13.5px;letter-spacing:.04em}
+.strip .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.strip a{color:#fff;text-decoration:none;font-weight:600}
+.strip a:hover{text-decoration:underline}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:2px solid var(--ink)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .slash{width:10px;height:30px;background:var(--red);transform:skewX(-12deg)}
+.brand b{font-family:"Barlow Condensed",sans-serif;font-size:24px;letter-spacing:.06em}
+.brand small{display:block;font-family:"Source Serif 4",serif;font-size:11px;letter-spacing:.28em;color:var(--muted);font-weight:400}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.nav-links a:hover{color:var(--red)}
+.btn{display:inline-block;background:var(--red);color:#fff;font-family:"Barlow Condensed",sans-serif;font-size:18px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:11px 22px;border:2px solid var(--red);transition:background .15s}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn.ghost{background:transparent;color:var(--paper);border-color:var(--paper)}
+.btn.ghost:hover{background:var(--paper);color:var(--navy)}
+.btn.navy{background:var(--navy);border-color:var(--navy)}
+.btn.navy:hover{background:#0a1929;border-color:#0a1929}
+.hamburger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:26px;height:3px;background:var(--ink);margin:5px 0}
+
+/* hero */
+.hero{background:var(--navy);color:var(--paper);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);padding-top:clamp(48px,6vw,88px);padding-bottom:clamp(48px,6vw,88px);align-items:center}
+.kicker{font-family:"Barlow Condensed",sans-serif;font-size:15px;letter-spacing:.32em;color:#f0b7bb;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:clamp(52px,7.2vw,104px);color:#fff}
+.hero h1 em{font-style:normal;color:#fff;border-bottom:5px solid var(--red)}
+.hero p.lede{font-size:clamp(18px,2vw,22px);color:#d8d2c0;max-width:34em;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-note{margin-top:22px;font-size:14.5px;color:#a9a38d;letter-spacing:.03em}
+
+/* ledger card */
+.ledger{background:var(--paper);color:var(--ink);padding:34px 30px 30px;position:relative;box-shadow:10px 10px 0 rgba(0,0,0,.28);
+  background-image:repeating-linear-gradient(var(--paper) 0 30px, #e7e0cd 30px 31px)}
+.ledger::before{content:"";position:absolute;top:0;bottom:0;left:56px;width:2px;background:rgba(176,39,48,.45)}
+.ledger h2{font-size:30px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;padding-left:44px}
+.ledger .sub{font-size:14px;color:var(--muted);padding-left:44px;margin-bottom:8px;font-style:italic}
+.ledger dl{padding-left:44px}
+.ledger .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;font-size:16.5px}
+.ledger dt{color:var(--muted);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-family:"Barlow Condensed",sans-serif;padding-top:3px}
+.ledger dd{font-weight:600;text-align:right}
+.ledger dd .star{color:var(--red)}
+.stamp{position:absolute;top:-24px;right:-14px;background:var(--red);color:#fff;font-family:"Barlow Condensed",sans-serif;
+  font-size:19px;letter-spacing:.12em;padding:10px 16px;transform:rotate(7deg);text-transform:uppercase;box-shadow:4px 4px 0 rgba(0,0,0,.25)}
+
+/* section basics */
+section{padding:clamp(56px,7vw,104px) 0}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(38px,4.6vw,60px)}
+.sec-head .num{font-family:"Barlow Condensed",sans-serif;color:var(--red);font-size:clamp(38px,4.6vw,60px)}
+.sec-sub{max-width:44em;color:var(--muted);font-size:18px;margin-bottom:38px}
+
+/* services ledger accordion */
+.svc-layout{display:grid;grid-template-columns:.8fr 1.4fr;gap:clamp(28px,5vw,80px);align-items:start}
+.svc-aside{position:sticky;top:110px;background:var(--navy);color:var(--paper);padding:30px}
+.svc-aside h3{font-size:28px;color:#fff;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+.svc-aside p{font-size:16px;color:#cfc8b2}
+.svc-aside .btn{margin-top:20px}
+.svc-list{border-top:3px solid var(--ink)}
+.svc{border-bottom:1px solid var(--line)}
+.svc button{width:100%;background:none;border:0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:20px 4px;text-align:left;font-family:"Barlow Condensed",sans-serif;font-size:clamp(22px,2.4vw,30px);letter-spacing:.04em;color:var(--ink)}
+.svc button .idx{font-size:15px;color:var(--red);letter-spacing:.2em}
+.svc button .plus{font-size:26px;color:var(--red);flex-shrink:0;transition:transform .2s}
+.svc.open button .plus{transform:rotate(45deg)}
+.svc .body{max-height:0;overflow:hidden;transition:max-height .28s ease}
+.svc .body p{padding:0 4px 22px;max-width:40em;color:#333a42}
+.svc .tag{display:inline-block;font-family:"Barlow Condensed",sans-serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);border:1px solid var(--red);padding:3px 10px;margin:0 4px 20px}
+
+/* owner */
+.owner{background:var(--paper-2)}
+.owner .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.owner h2{font-size:clamp(38px,4.6vw,58px);margin-bottom:18px}
+.owner p{margin-bottom:16px;font-size:18px}
+.owner .sig{font-family:"Barlow Condensed",sans-serif;font-size:20px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-top:6px}
+.pull{border-left:5px solid var(--red);padding:6px 0 6px 26px;margin:26px 0}
+.pull blockquote{font-size:clamp(22px,2.6vw,30px);font-style:italic;line-height:1.35}
+.pull cite{display:block;margin-top:10px;font-style:normal;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:"Barlow Condensed",sans-serif}
+.years{display:flex;gap:0;margin-top:30px;border-top:3px solid var(--ink)}
+.years div{flex:1;padding:16px 18px 0;border-left:1px solid var(--line)}
+.years div:first-child{border-left:0;padding-left:0}
+.years b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:30px;color:var(--navy)}
+.years span{font-size:14.5px;color:var(--muted)}
+
+/* fleet band */
+.fleet{background:var(--navy);color:var(--paper)}
+.fleet .wrap{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.fleet h2{font-size:clamp(36px,4.4vw,56px);color:#fff}
+.fleet h2 span{color:#f0b7bb}
+.fleet p{color:#cfc8b2;max-width:38em;margin-top:10px}
+.fleet .card{background:var(--paper);color:var(--ink);padding:24px 28px;transform:rotate(-1.5deg);box-shadow:8px 8px 0 rgba(0,0,0,.3);max-width:320px}
+.fleet .card b{font-family:"Barlow Condensed",sans-serif;font-size:22px;letter-spacing:.08em;text-transform:uppercase;display:block}
+.fleet .card span{font-size:15px;color:var(--muted)}
+
+/* visit */
+.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.hours{width:100%;border-collapse:collapse;margin-top:6px}
+.hours caption{text-align:left;font-family:"Barlow Condensed",sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.hours td{padding:11px 4px;border-bottom:1px solid var(--line);font-size:17px}
+.hours td:last-child{text-align:right;font-weight:600}
+.hours tr.today td{background:#fdf6e3;font-weight:600}
+.addr{font-size:19px;margin:14px 0}
+.addr strong{display:block;font-family:"Barlow Condensed",sans-serif;letter-spacing:.06em;font-size:22px}
+.phone-big{font-family:"Barlow Condensed",sans-serif;font-size:clamp(34px,4vw,48px);letter-spacing:.03em;color:var(--navy);text-decoration:none;display:inline-block;margin:8px 0}
+.phone-big:hover{color:var(--red)}
+.visit .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+
+/* footer */
+footer{background:var(--navy);color:#b9b29c;font-size:14.5px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding-top:44px;padding-bottom:20px}
+footer h3{font-family:"Barlow Condensed",sans-serif;color:#fff;letter-spacing:.12em;text-transform:uppercase;font-size:18px;margin-bottom:10px}
+footer a{color:#e9e2d0;text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer ul{list-style:none}
+footer li{margin-bottom:6px}
+.credit{border-top:1px solid #2a3d52;margin-top:26px;padding:16px 0 22px;font-size:13px;color:#8b937f;text-align:center}
+
+/* mobile call bar */
+.callbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--red);color:#fff;text-align:center;
+  font-family:"Barlow Condensed",sans-serif;font-size:20px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:15px}
+.callbar:hover{background:var(--red-dark)}
+
+@media(max-width:900px){
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;gap:0;display:none;border-bottom:2px solid var(--ink)}
+  .nav-links.open{display:flex}
+  .nav-links li{border-top:1px solid var(--line)}
+  .nav-links a{display:block;padding:14px 22px}
+  .nav .btn.nav-cta{display:none}
+  .hamburger{display:block}
+  .nav{position:sticky}
+  .hero .wrap,.owner .wrap,.visit .grid{grid-template-columns:1fr}
+  .svc-layout{grid-template-columns:1fr}
+  .svc-aside{position:static}
+  .fleet .wrap{grid-template-columns:1fr}
+  footer .wrap{grid-template-columns:1fr}
+  .callbar{display:block}
+  body{padding-bottom:58px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Mon–Fri · 7:30 AM – 5:30 PM</span>
+    <a href="tel:+19054512090">(905) 451-2090</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="McQueen Automotive home">
+      <span class="slash" aria-hidden="true"></span>
+      <span><b>McQUEEN</b><small>AUTOMOTIVE · BRAMPTON</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#shop">The Shop</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#fleet">Fleet</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+    <a class="btn nav-cta" href="tel:+19054512090">Call for a quote</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-label="Introduction">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Brampton · Est. 1996</p>
+      <h1>Auto repair Brampton has trusted <em>since 1996</em>.</h1>
+      <p class="lede">Lennie Silvestri and his crew have kept family vehicles on the road for nearly 30 years — auto electrical and general repair, explained in plain words, quoted before any work begins.</p>
+      <div class="hero-cta">
+        <a class="btn" href="tel:+19054512090">Call now</a>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=24+Haggert+Ave+N+Brampton+ON" target="_blank" rel="noopener">Get directions</a>
+      </div>
+      <p class="hero-note">No prices published online — every job gets a straight quote first.</p>
+    </div>
+    <aside class="ledger" aria-label="Shop facts">
+      <div class="stamp" aria-hidden="true">Est. 1996</div>
+      <h2>The ledger</h2>
+      <p class="sub">the short version, on the record</p>
+      <dl>
+        <div class="row"><dt>Owner</dt><dd>Lennie Silvestri</dd></div>
+        <div class="row"><dt>In Brampton</dt><dd>nearly 30 years</dd></div>
+        <div class="row"><dt>Rating</dt><dd><span class="star">★★★★☆</span> 4.6 stars</dd></div>
+        <div class="row"><dt>Fleets</dt><dd>maintenance cards accepted</dd></div>
+        <div class="row"><dt>Hours</dt><dd>Mon–Fri · 7:30 AM–5:30 PM</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section id="services" aria-label="Services">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>What we fix, in plain language</h2></div>
+    <p class="sec-sub">Tap a service to see what it actually means for your car. Domestic and import vehicles, SUVs, light trucks and 4x4s — if it has wheels and an engine, it belongs here.</p>
+    <div class="svc-layout">
+      <aside class="svc-aside">
+        <h3>Straight quotes only</h3>
+        <p>We don't publish prices because every car is different. Call, tell us what's going on, and you'll get a clear number before any work starts — that's how it's been done here since 1996.</p>
+        <a class="btn" href="tel:+19054512090">Call for a quote</a>
+      </aside>
+      <div class="svc-list" id="svcList">
+        <div class="svc open">
+          <button aria-expanded="true"><span><span class="idx">A·</span> Auto electrical &amp; diagnostics</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="body"><p>Warning lights, dead batteries, wiring trouble — the specialty this shop was built on. We trace the fault, show you what's wrong, and quote the fix before touching a bolt.</p><span class="tag">Call for a quote</span></div>
+        </div>
+        <div class="svc">
+          <button aria-expanded="false"><span><span class="idx">B·</span> Brakes</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="body"><p>Pads, rotors, and that grinding noise you've been meaning to ask about. We measure what's left and tell you straight whether it's now or later.</p><span class="tag">Call for a quote</span></div>
+        </div>
+        <div class="svc">
+          <button aria-expanded="false"><span><span class="idx">C·</span> Oil changes &amp; scheduled maintenance</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="body"><p>The routine work that keeps small problems from becoming big ones — oil, filters, fluids, and a look over everything while it's on the hoist.</p><span class="tag">Call for a quote</span></div>
+        </div>
+        <div class="svc">
+          <button aria-expanded="false"><span><span class="idx">D·</span> Alignments &amp; air conditioning</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="body"><p>Straight steering, even tire wear, and cold air when July hits. If the wheel pulls or the vents blow warm, this is the visit.</p><span class="tag">Call for a quote</span></div>
+        </div>
+        <div class="svc">
+          <button aria-expanded="false"><span><span class="idx">E·</span> Cooling systems</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="body"><p>Radiators, hoses, thermostats — the parts that keep the needle out of the red. Overheating caught early is a cheap fix; caught late, it isn't.</p><span class="tag">Call for a quote</span></div>
+        </div>
+        <div class="svc">
+          <button aria-expanded="false"><span><span class="idx">F·</span> Tune-ups, batteries &amp; timing belts</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="body"><p>Starts, spark, and the belt that absolutely must not snap. We keep track of the mileage so you don't have to.</p><span class="tag">Call for a quote</span></div>
+        </div>
+        <div class="svc">
+          <button aria-expanded="false"><span><span class="idx">G·</span> Tires</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="body"><p>Rotation, replacement, and honest advice on how much life yours have left — season changes included.</p><span class="tag">Call for a quote</span></div>
+        </div>
+        <div class="svc">
+          <button aria-expanded="false"><span><span class="idx">H·</span> Safety certifications</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="body"><p>Buying, selling, or registering a vehicle? We inspect and certify it properly, with the paperwork done right.</p><span class="tag">Call for a quote</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="owner" id="shop" aria-label="About the shop">
+  <div class="wrap">
+    <div>
+      <div class="sec-head"><span class="num">02</span><h2>Word of mouth built this shop</h2></div>
+      <p>Lennie Silvestri opened McQueen Automotive in 1996 and never advertised much — he never had to. Satisfied customers sent their neighbours, their coworkers, their families. Nearly 30 years on, word-of-mouth referrals are still his largest source of new business.</p>
+      <p>Hundreds of Brampton residents have come to rely on Lennie and his crew to keep their family vehicles in peak running condition — good, old-fashioned customer service, job after job.</p>
+      <div class="pull">
+        <blockquote>"Satisfied existing clients are Lennie Silvestri's best advertising."</blockquote>
+        <cite>— from the shop's own site, and still true</cite>
+      </div>
+      <p class="sig">Lennie Silvestri · Owner, McQueen Automotive</p>
+    </div>
+    <div>
+      <div class="years" aria-label="Shop history">
+        <div><b>1996</b><span>McQueen Automotive opens its doors in Brampton</span></div>
+        <div><b>~30 yrs</b><span>of honest work, referral after referral</span></div>
+        <div><b>4.6 ★</b><span>rating from the customers who keep coming back</span></div>
+      </div>
+      <p style="margin-top:26px;color:var(--muted);font-size:16px">The reputation was earned the slow way: quality workmanship, honest quotes, and long-lasting relationships with the people who drive through the bay doors.</p>
+      <a class="btn navy" href="tel:+19054512090" style="margin-top:10px">Talk to the shop</a>
+    </div>
+  </div>
+</section>
+
+<section class="fleet" id="fleet" aria-label="Fleet services">
+  <div class="wrap">
+    <div>
+      <p class="kicker">For businesses</p>
+      <h2>Running a fleet? <span>Bring it here.</span></h2>
+      <p>Fleet maintenance cards accepted. Whether you run a few vans or a few dozen work vehicles, call Lennie to talk servicing that keeps your drivers moving and your downtime down.</p>
+    </div>
+    <div class="card">
+      <b>Fleet cards accepted</b>
+      <span>Ask about setting up fleet maintenance for your company vehicles.</span>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-label="Visit us">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>Find the shop</h2></div>
+    <p class="sec-sub">On Haggert Avenue North in Brampton — look for the blue sign. Walk-ins welcome during shop hours; calling ahead gets you the fastest slot.</p>
+    <div class="grid">
+      <div>
+        <table class="hours">
+          <caption>Shop hours</caption>
+          <tbody>
+            <tr><td>Monday</td><td>7:30 AM – 5:30 PM</td></tr>
+            <tr><td>Tuesday</td><td>7:30 AM – 5:30 PM</td></tr>
+            <tr><td>Wednesday</td><td>7:30 AM – 5:30 PM</td></tr>
+            <tr><td>Thursday</td><td>7:30 AM – 5:30 PM</td></tr>
+            <tr><td>Friday</td><td>7:30 AM – 5:30 PM</td></tr>
+            <tr><td>Saturday – Sunday</td><td>Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p class="addr"><strong>McQueen Automotive</strong>24 Haggert Avenue North<br>Brampton, ON L6X 1Y3</p>
+        <a class="phone-big" href="tel:+19054512090">(905) 451-2090</a>
+        <div class="cta-row">
+          <a class="btn" href="tel:+19054512090">Call now</a>
+          <a class="btn navy" href="https://www.google.com/maps/search/?api=1&query=24+Haggert+Ave+N+Brampton+ON" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h3>McQueen Automotive</h3>
+      <p>Auto electrical &amp; general repair in Brampton since 1996.<br>24 Haggert Avenue North, Brampton, ON L6X 1Y3<br><a href="tel:+19054512090">(905) 451-2090</a></p>
+    </div>
+    <div>
+      <h3>Hours</h3>
+      <ul><li>Mon–Fri · 7:30 AM – 5:30 PM</li><li>Sat–Sun · Closed</li></ul>
+    </div>
+    <div>
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#shop">The Shop</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#fleet">Fleet</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="credit wrap">Concept preview built by Shashin Pillay, an IT student at Seneca College.</div>
+</footer>
+
+<a class="callbar" href="tel:+19054512090">Call (905) 451-2090</a>
+
+<script>
+(function(){
+  var burger=document.getElementById('hamburger'), links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');burger.setAttribute('aria-expanded','false');});});
+
+  var svcs=document.querySelectorAll('.svc');
+  function setOpen(el,open){
+    el.classList.toggle('open',open);
+    el.querySelector('button').setAttribute('aria-expanded',open);
+    var body=el.querySelector('.body');
+    body.style.maxHeight=open?body.scrollHeight+'px':'0px';
+  }
+  svcs.forEach(function(s){
+    s.querySelector('button').addEventListener('click',function(){setOpen(s,!s.classList.contains('open'));});
+  });
+  var first=document.querySelector('.svc.open .body');
+  if(first) first.style.maxHeight=first.scrollHeight+'px';
+
+  var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var today=days[new Date().getDay()];
+  document.querySelectorAll('.hours tbody tr').forEach(function(tr){
+    if(tr.cells[0].textContent.trim()===today){tr.classList.add('today');}
+  });
+})();
+</script>
+</body>
+</html>

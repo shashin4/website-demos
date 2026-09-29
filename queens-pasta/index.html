@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queen's Pasta — Fresh Pasta Made on Newcastle Street | Etobicoke</title>
+<meta name="description" content="Queen's Pasta has made fresh pasta on Newcastle Street in Etobicoke for 30+ years. 40+ flavoured pastas, an Italian retail counter, and wholesale for restaurants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,700&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF5EA; --cream-deep:#F3EBD8; --ink:#221C14; --ink-soft:#4A4136;
+  --tomato:#C1272D; --tomato-dark:#9E1E24;
+  --basil:#4C7A3F; --gold:#D9A441; --char:#2B2620;
+  --rule:#E4D9C2; --max:1280px; --rad:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:'Karla',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:'Fraunces',Georgia,serif;text-wrap:balance;line-height:1.08;font-weight:700;letter-spacing:-.01em}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.kicker{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--tomato)}
+
+/* utility strip */
+.strip{background:var(--ink);color:var(--cream);font-size:.82rem}
+.strip .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.strip a{text-decoration:none;border-bottom:1px solid rgba(250,245,234,.4)}
+.strip strong{color:var(--gold)}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(250,245,234,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:20px;padding-top:14px;padding-bottom:14px}
+.brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.45rem;text-decoration:none}
+.brand em{color:var(--tomato);font-style:italic}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-weight:500;font-size:.95rem}
+.nav-links a{text-decoration:none;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--tomato);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:999px;padding:.85rem 1.6rem;transition:transform .18s,background .18s}
+.btn-red{background:var(--tomato);color:#fff}
+.btn-red:hover{background:var(--tomato-dark);transform:translateY(-2px)}
+.btn-ghost{border:2px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--cream)}
+.nav .btn{padding:.65rem 1.25rem;font-size:.9rem}
+.burger{display:none;background:none;border:0;cursor:pointer;margin-left:auto;padding:8px}
+.burger span{display:block;width:26px;height:3px;background:var(--ink);margin:5px 0;border-radius:2px;transition:.25s}
+
+/* hero — asymmetric split */
+.hero{padding:clamp(40px,7vw,96px) 0 clamp(30px,4vw,60px);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(24px,5vw,72px);align-items:start}
+.hero h1{font-size:clamp(2.7rem,6vw,4.9rem);margin:14px 0 18px}
+.hero h1 .it{font-style:italic;color:var(--tomato)}
+.hero p.lede{font-size:1.14rem;color:var(--ink-soft);max-width:34rem}
+.hero-cta{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.counter-card{background:#fff;border:1px solid var(--rule);border-radius:var(--rad);padding:26px;margin-top:26px;box-shadow:6px 6px 0 var(--cream-deep)}
+.counter-card h3{font-size:1.15rem;margin-bottom:10px}
+.hours-row{display:flex;justify-content:space-between;font-size:.95rem;padding:7px 0;border-bottom:1px dashed var(--rule)}
+.hours-row:last-child{border-bottom:0}
+.hours-row b{font-weight:700}
+.pasta-mark{margin-top:22px;display:flex;justify-content:center}
+
+/* flavour index — the centerpiece */
+.index{background:var(--ink);color:var(--cream);padding:clamp(48px,7vw,96px) 0;margin-top:clamp(30px,4vw,60px)}
+.index .kicker{color:var(--gold)}
+.index h2{font-size:clamp(2rem,4.4vw,3.4rem);color:var(--cream);margin:12px 0 10px}
+.index .sub{color:#D8CCB4;max-width:38rem;margin-bottom:28px}
+.index-search{display:flex;gap:10px;max-width:520px;margin-bottom:10px}
+.index-search input{flex:1;font:inherit;padding:.8rem 1.1rem;border-radius:999px;border:1px solid #5A5044;background:#2E2820;color:var(--cream)}
+.index-search input::placeholder{color:#9A8F7C}
+.flavour-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1px;background:#4A4136;border:1px solid #4A4136;border-radius:var(--rad);overflow:hidden;margin-top:22px}
+.flavour{background:#2B2620;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:background .2s}
+.flavour:hover{background:#38312A}
+.flavour .num{font-family:'Fraunces',serif;color:var(--gold);font-size:.9rem;font-weight:600}
+.flavour .dot{width:14px;height:14px;border-radius:50%;flex:none;margin-top:5px;border:1px solid rgba(255,255,255,.25)}
+.flavour h3{font-size:1.05rem;color:var(--cream)}
+.flavour p{font-size:.85rem;color:#B7AB93;margin-top:2px}
+.index-note{margin-top:26px;background:#2B2620;border:1px dashed #5A5044;border-radius:var(--rad);padding:22px 26px;color:#D8CCB4}
+.index-note strong{color:var(--gold)}
+.hidden{display:none!important}
+
+/* retail vs wholesale split */
+.split{padding:clamp(48px,7vw,96px) 0}
+.split h2{font-size:clamp(2rem,4.4vw,3.2rem);margin:12px 0 30px}
+.two{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(20px,3vw,40px);align-items:stretch}
+.panel{border-radius:var(--rad);padding:clamp(26px,3vw,42px);position:relative}
+.panel-retail{background:#fff;border:1px solid var(--rule)}
+.panel-retail h3,.panel-wholesale h3{font-size:1.5rem;margin:10px 0 12px}
+.shelf-list{list-style:none;margin:16px 0}
+.shelf-list li{padding:9px 0;border-bottom:1px dashed var(--rule);font-size:1rem}
+.shelf-list li:last-child{border-bottom:0}
+.shelf-list li b{color:var(--tomato)}
+.panel-wholesale{background:var(--tomato);color:#fff}
+.panel-wholesale .kicker{color:#FFD9A8}
+.panel-wholesale p{color:#FFEFE4}
+.panel-wholesale .shelf-list li{border-color:rgba(255,255,255,.35)}
+.panel-wholesale .btn-ghost{border-color:#fff;color:#fff;margin-top:14px}
+.panel-wholesale .btn-ghost:hover{background:#fff;color:var(--tomato)}
+
+/* heritage strip */
+.heritage{background:var(--cream-deep);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:clamp(44px,6vw,80px) 0}
+.heritage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px)}
+.heritage-grid .stat{font-family:'Fraunces',serif;font-size:2.6rem;color:var(--tomato);font-weight:700}
+.heritage-grid h3{font-size:1.2rem;margin:8px 0 6px}
+.heritage-grid p{color:var(--ink-soft);font-size:.98rem}
+
+/* visit */
+.visit{padding:clamp(48px,7vw,96px) 0}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.visit h2{font-size:clamp(2rem,4.4vw,3.2rem);margin:12px 0 18px}
+.addr{font-size:1.1rem;margin-bottom:18px}
+.visit .hours-row{font-size:1rem}
+.map-card{background:#fff;border:1px solid var(--rule);border-radius:var(--rad);padding:26px}
+.map-card h3{font-size:1.2rem;margin-bottom:8px}
+.map-card p{color:var(--ink-soft);margin-bottom:16px}
+
+footer{background:var(--ink);color:#CFC3AA;padding:34px 0 90px;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer .concept{color:#8F846E;font-style:italic}
+
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;background:var(--tomato);color:#fff;text-align:center;font-weight:700;padding:15px;font-size:1.05rem;text-decoration:none}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr}
+  .heritage-grid{grid-template-columns:1fr}
+  .nav-links{position:fixed;top:0;right:-100%;width:min(78vw,320px);height:100dvh;background:var(--ink);color:var(--cream);flex-direction:column;padding:90px 34px;gap:22px;font-size:1.15rem;transition:right .3s;margin:0}
+  .nav-links.open{right:0}
+  .nav-links a::after{background:var(--gold)}
+  .burger{display:block;z-index:80}
+  .nav.open .burger span{background:var(--cream)}
+  .nav.open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav.open .burger span:nth-child(2){opacity:0}
+  .nav.open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .nav .btn{display:none}
+  .callbar{display:block}
+  footer{padding-bottom:110px}
+}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span><strong>Retail store:</strong> Mon–Wed 9–5 · Thu–Fri 9–6</span>
+    <span>66 Newcastle Street, Etobicoke &nbsp;·&nbsp; <a href="tel:+14162592902">(416) 259-2902</a></span>
+  </div>
+</div>
+
+<header class="nav" id="topnav">
+  <div class="wrap">
+    <a class="brand" href="#top">Queen&rsquo;s <em>Pasta</em></a>
+    <nav class="nav-links" id="navlinks" aria-label="Primary">
+      <a href="#flavours">Flavours</a>
+      <a href="#retail">Retail</a>
+      <a href="#wholesale">Wholesale</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-red" href="tel:+14162592902">Call (416) 259-2902</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Fresh pasta maker · Etobicoke, ON</span>
+      <h1>The pastabilities are <span class="it">endless.</span></h1>
+      <p class="lede">For 30+ years we&rsquo;ve been rolling fresh pasta right here on Newcastle Street — 40+ flavours made on-site, a retail counter stocked with Italian imports, and a wholesale kitchen that supplies restaurants across the city.</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="tel:+14162592902">Call the store</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Queen%27s+Pasta+66+Newcastle+Street+Etobicoke+ON" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+    <div>
+      <div class="counter-card">
+        <h3>At the counter this week</h3>
+        <div class="hours-row"><span>Mon – Wed</span><b>9 AM – 5 PM</b></div>
+        <div class="hours-row"><span>Thu – Fri</span><b>9 AM – 6 PM</b></div>
+        <div class="hours-row"><span>Office (wholesale)</span><b>Mon – Fri, 9 – 5</b></div>
+        <div class="pasta-mark" aria-hidden="true">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <ellipse cx="60" cy="88" rx="44" ry="14" fill="#F3EBD8" stroke="#221C14" stroke-width="3"/>
+            <path d="M28 78 q8 -26 20 -26 q-4 18 -8 26 q10 -24 22 -24 q-4 18 -10 26 q12 -22 24 -20 q-6 16 -12 24" fill="none" stroke="#D9A441" stroke-width="7" stroke-linecap="round"/>
+            <path d="M40 74 q6 -18 16 -18" fill="none" stroke="#4C7A3F" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="84" cy="60" r="9" fill="#C1272D"/>
+            <circle cx="84" cy="60" r="4" fill="#9E1E24"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="index" id="flavours">
+  <div class="wrap">
+    <span class="kicker">The flavour index</span>
+    <h2>Forty-plus flavours, rolled fresh on-site.</h2>
+    <p class="sub">Every batch is manufactured in our own facility on Newcastle Street. The flavours below are regulars on the counter — the rest of the board rotates, so call ahead if you&rsquo;re hunting a favourite.</p>
+    <div class="index-search">
+      <input type="search" id="flavsearch" placeholder="Search the flavours — try &ldquo;squid ink&rdquo;&hellip;" aria-label="Search pasta flavours">
+    </div>
+    <div class="flavour-grid" id="flavourgrid">
+      <div class="flavour" data-name="plain egg"><span class="num">01</span><span class="dot" style="background:#EBCB6B"></span><div><h3>Plain Egg</h3><p>The everyday classic. Silky, rich, goes with everything.</p></div></div>
+      <div class="flavour" data-name="spinach"><span class="num">02</span><span class="dot" style="background:#4C7A3F"></span><div><h3>Spinach</h3><p>Green ribbons with a gentle earthy sweetness.</p></div></div>
+      <div class="flavour" data-name="squid ink"><span class="num">03</span><span class="dot" style="background:#1c1a18"></span><div><h3>Squid Ink</h3><p>Dramatic black pasta — made for seafood sauces.</p></div></div>
+      <div class="flavour" data-name="ice wine"><span class="num">04</span><span class="dot" style="background:#D9A441"></span><div><h3>Ice Wine</h3><p>A Niagara nod: subtle sweetness in a golden dough.</p></div></div>
+      <div class="flavour" data-name="chocolate"><span class="num">05</span><span class="dot" style="background:#5C3A21"></span><div><h3>Chocolate</h3><p>Dessert pasta — try it with berries or a dusting of sugar.</p></div></div>
+      <div class="flavour" data-name="truffle"><span class="num">06</span><span class="dot" style="background:#8A6B4A"></span><div><h3>Truffle</h3><p>Deep, savoury, and unmistakable. A little goes a long way.</p></div></div>
+      <div class="flavour" data-name="porcini"><span class="num">07</span><span class="dot" style="background:#A9845B"></span><div><h3>Porcini</h3><p>Wild-mushroom depth folded straight into the dough.</p></div></div>
+    </div>
+    <div class="index-note">
+      <strong>+ 30 more on the board.</strong> The full index runs past 40 flavours and changes with the week — sun-dried tomato, basil, lemon pepper, roasted garlic and more rotate through. <a href="tel:+14162592902" style="color:var(--gold)">Call the counter</a> to hear what&rsquo;s rolling today.
+    </div>
+  </div>
+</section>
+
+<section class="split" id="retail">
+  <div class="wrap">
+    <span class="kicker">Two doors, one building</span>
+    <h2>Shop the retail counter.<br>Supply your kitchen wholesale.</h2>
+    <div class="two">
+      <div class="panel panel-retail">
+        <span class="kicker">Retail store</span>
+        <h3>An Italian deli next to the pasta machines</h3>
+        <p style="color:var(--ink-soft)">Our retail store sits right beside the manufacturing floor. Alongside the fresh pasta you&rsquo;ll find:</p>
+        <ul class="shelf-list">
+          <li><b>Imported Italian foods</b> — pantry staples straight from Italy</li>
+          <li><b>Cheeses &amp; cured meats</b> — cut to order at the counter</li>
+          <li><b>Sauces &amp; oils</b> — made to match the pasta</li>
+          <li><b>Gourmet gifts</b> — baskets and boxes for the pasta lover</li>
+          <li><b>Desserts</b> — something sweet to finish the meal</li>
+        </ul>
+        <p style="font-size:.92rem;color:var(--ink-soft)">Open Mon–Wed 9–5, Thu–Fri 9–6 · 66 Newcastle Street, Etobicoke</p>
+      </div>
+      <div class="panel panel-wholesale" id="wholesale">
+        <span class="kicker">Wholesale</span>
+        <h3>For restaurants, hotels &amp; grocers</h3>
+        <p>We supply fresh pasta to kitchens across the region — and in most cases we can accommodate <strong>custom recipe requests</strong> for wholesale orders. Kosher and halal available on request.</p>
+        <ul class="shelf-list">
+          <li>Fresh pasta, made to your spec</li>
+          <li>Consistent weekly supply</li>
+          <li>Custom recipes welcome</li>
+        </ul>
+        <a class="btn btn-ghost" href="tel:+14162592902">Call the office — Mon–Fri 9–5</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="heritage">
+  <div class="wrap">
+    <div class="heritage-grid">
+      <div>
+        <div class="stat">30+</div>
+        <h3>Years making pasta</h3>
+        <p>Three decades of rolling, cutting, and drying fresh pasta on Newcastle Street — the same way, the right way.</p>
+      </div>
+      <div>
+        <div class="stat">40+</div>
+        <h3>Flavoured pastas</h3>
+        <p>From plain egg to squid ink to chocolate, every flavour is manufactured in our own on-site facility.</p>
+      </div>
+      <div>
+        <div class="stat">2</div>
+        <h3>Doors, one roof</h3>
+        <p>A working pasta factory with a retail store beside it — watch it being made, then take it home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <span class="kicker">Visit us</span>
+      <h2>Come by the counter.</h2>
+      <p class="addr">66 Newcastle Street<br>Etobicoke, ON M8Y 1A4<br><a href="tel:+14162592902" style="font-weight:700;color:var(--tomato);text-decoration:none">(416) 259-2902</a></p>
+      <div class="hours-row"><span>Retail · Mon – Wed</span><b>9 AM – 5 PM</b></div>
+      <div class="hours-row"><span>Retail · Thu – Fri</span><b>9 AM – 6 PM</b></div>
+      <div class="hours-row"><span>Office · Mon – Fri</span><b>9 AM – 5 PM</b></div>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="tel:+14162592902">Call now</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Queen%27s+Pasta+66+Newcastle+Street+Etobicoke+ON" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+    <div class="map-card">
+      <h3>Planning a wholesale order?</h3>
+      <p>Tell us what your kitchen needs — shapes, flavours, volumes — and we&rsquo;ll work out a recipe and a schedule. Kosher and halal available on request.</p>
+      <a class="btn btn-red" href="tel:+14162592902">Call the office</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Queen&rsquo;s Pasta · 66 Newcastle Street, Etobicoke, ON M8Y 1A4 · (416) 259-2902</span>
+    <span class="concept">Concept preview built by Shashin Pillay, an IT student at Seneca College.</span>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+14162592902">📞 Tap to call Queen&rsquo;s Pasta</a>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),nav=document.getElementById('topnav'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');nav.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');nav.classList.remove('open');burger.setAttribute('aria-expanded','false');});});
+  var input=document.getElementById('flavsearch'),items=[].slice.call(document.querySelectorAll('#flavourgrid .flavour'));
+  input.addEventListener('input',function(){
+    var q=input.value.trim().toLowerCase();
+    items.forEach(function(el){el.classList.toggle('hidden',q&&el.getAttribute('data-name').indexOf(q)===-1);});
+  });
+})();
+</script>
+</body>
+</html>

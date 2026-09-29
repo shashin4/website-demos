@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bocconcino Bakery and Market — Italian Bakery in Burlington, ON</title>
+<meta name="description" content="Bocconcino Bakery and Market in Burlington bakes Italian pastries, cannoli, tortas and breads fresh daily in-house, with a 24-flavour gelato bar, Italian groceries, catering and espresso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF5EC; --cream-deep:#F1E7D2; --paper:#FFFDF8;
+  --choc:#3B2A1E; --choc-soft:#5C4632;
+  --red:#A93226; --red-dark:#86241B;
+  --tan:#E2D3B4; --gold:#C69A4B;
+  --max:1280px; --rad:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:'Karla',system-ui,sans-serif;background:var(--cream);color:var(--choc);line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'DM Serif Display',Georgia,serif;font-weight:400;text-wrap:balance;line-height:1.12;letter-spacing:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.kicker{font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+a{color:inherit}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(250,245,236,.97);backdrop-filter:blur(6px);border-bottom:2px solid var(--choc)}
+.nav .wrap{display:flex;align-items:center;gap:22px;padding-top:13px;padding-bottom:13px}
+.brand{font-family:'DM Serif Display',serif;font-size:1.5rem;text-decoration:none}
+.brand .red{color:var(--red)}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-weight:500;font-size:.94rem}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--red)}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:999px;padding:.85rem 1.7rem;transition:transform .18s,background .18s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-line{border:2px solid var(--choc);color:var(--choc)}
+.btn-line:hover{background:var(--choc);color:var(--cream)}
+.nav .btn{padding:.62rem 1.2rem;font-size:.88rem}
+.burger{display:none;background:none;border:0;cursor:pointer;margin-left:auto;padding:8px}
+.burger span{display:block;width:26px;height:3px;background:var(--choc);margin:5px 0;border-radius:2px;transition:.25s}
+
+/* hero with display case */
+.hero{padding:clamp(36px,5vw,72px) 0 0}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(24px,4vw,56px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);margin:14px 0 16px}
+.hero h1 em{font-style:italic;color:var(--red)}
+.hero .lede{font-size:1.1rem;color:var(--choc-soft);max-width:32rem}
+.quote-chip{display:inline-block;margin-top:18px;background:var(--paper);border:1px solid var(--tan);border-left:4px solid var(--red);border-radius:10px;padding:12px 18px;font-size:.95rem}
+.quote-chip small{display:block;color:var(--choc-soft);font-size:.8rem;margin-top:4px}
+.hero-cta{display:flex;gap:14px;margin:24px 0 8px;flex-wrap:wrap}
+
+/* CSS display case */
+.case{background:linear-gradient(var(--paper),var(--cream-deep));border:3px solid var(--choc);border-radius:18px 18px 10px 10px;padding:26px 26px 18px;box-shadow:8px 8px 0 var(--tan)}
+.case .glass-label{text-align:center;font-size:.75rem;letter-spacing:.22em;font-weight:700;color:var(--choc-soft);margin-bottom:14px}
+.shelf{border-bottom:6px solid var(--choc);padding:10px 6px 14px;margin-bottom:6px;display:flex;justify-content:space-around;align-items:flex-end;gap:6px}
+.shelf:last-of-type{border-bottom:0;margin-bottom:0}
+.shelf figure{text-align:center;font-size:.68rem;color:var(--choc-soft);font-weight:600}
+.shelf figcaption{margin-top:6px}
+
+/* the daily case ledger */
+.case-sec{padding:clamp(56px,8vw,104px) 0 clamp(40px,5vw,64px)}
+.case-sec h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin:12px 0 8px}
+.case-sec .sub{color:var(--choc-soft);max-width:40rem;margin-bottom:34px}
+.ledger{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
+.ticket{background:var(--paper);border:1px solid var(--tan);border-radius:var(--rad);padding:clamp(24px,3vw,38px);position:relative}
+.ticket::before{content:"";position:absolute;top:0;left:26px;right:26px;height:10px;background:repeating-linear-gradient(90deg,var(--red) 0 14px,var(--paper) 14px 28px);border-radius:0 0 6px 6px}
+.ticket h3{font-size:1.7rem;margin:14px 0 4px}
+.ticket .tag{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.ticket ul{list-style:none;margin-top:14px}
+.ticket li{display:flex;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px dotted var(--tan);font-size:1.02rem}
+.ticket li:last-child{border-bottom:0}
+.ticket li .dots{flex:1;border-bottom:2px dotted var(--tan);transform:translateY(-4px)}
+.ticket li .note{font-size:.85rem;color:var(--choc-soft);font-style:italic}
+
+/* gelato feature */
+.gelato{background:var(--choc);color:var(--cream);padding:clamp(56px,8vw,104px) 0;border-radius:26px;margin:0 clamp(10px,2vw,28px)}
+.gelato .wrap{max-width:1100px}
+.gelato .kicker{color:var(--gold)}
+.gelato h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin:12px 0 10px;color:var(--cream)}
+.gelato .sub{color:#D9C9AE;max-width:38rem;margin-bottom:30px}
+.swatch-wall{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-bottom:8px}
+.swatch{aspect-ratio:1;border-radius:50%;cursor:pointer;border:3px solid rgba(255,255,255,.14);transition:transform .2s,border-color .2s;padding:0}
+.swatch:hover{transform:scale(1.14)}
+.swatch.active{border-color:var(--gold);transform:scale(1.14)}
+.swatch-readout{min-height:2.6rem;margin-top:18px;font-size:1.02rem;color:#EFE3CB}
+.swatch-readout strong{color:var(--gold)}
+.gelato .fine{font-size:.86rem;color:#B9A888;margin-top:10px}
+
+/* market shelf */
+.market{padding:clamp(56px,8vw,104px) 0}
+.market-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,60px);align-items:start}
+.market h2{font-size:clamp(2.1rem,4.6vw,3.3rem);margin:12px 0 14px}
+.market p{color:var(--choc-soft);max-width:30rem}
+.shelf-rows{margin-top:6px;border-top:2px solid var(--choc)}
+.shelf-row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:20px 4px;border-bottom:1px solid var(--tan);align-items:baseline}
+.shelf-row h3{font-size:1.25rem}
+.shelf-row p{font-size:.95rem;color:var(--choc-soft)}
+
+/* catering panel */
+.catering{margin:0 clamp(10px,2vw,28px) clamp(56px,8vw,104px);background:var(--red);color:#fff;border-radius:26px;padding:clamp(40px,6vw,72px) 0;position:relative;overflow:hidden}
+.catering .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,60px);align-items:center;max-width:1100px}
+.catering .kicker{color:#FFD9A8}
+.catering h2{font-size:clamp(2rem,4.4vw,3.2rem);margin:12px 0 12px;color:#fff}
+.catering p{color:#FFE9D6;max-width:32rem}
+.catering .btn-line{border-color:#fff;color:#fff;margin-top:20px}
+.catering .btn-line:hover{background:#fff;color:var(--red)}
+.catering .big{font-family:'DM Serif Display',serif;font-size:clamp(3rem,7vw,5.4rem);color:rgba(255,255,255,.22);text-align:right;line-height:1}
+
+/* holidays */
+.holidays{padding:0 0 clamp(56px,8vw,104px)}
+.holidays h2{font-size:clamp(2.1rem,4.6vw,3.3rem);margin:12px 0 26px}
+.holiday-row{display:flex;gap:14px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+.h-ticket{flex:0 0 240px;scroll-snap-align:start;background:var(--paper);border:1px solid var(--tan);border-radius:var(--rad);padding:22px;position:relative}
+.h-ticket .season{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--choc);display:inline-block;padding:4px 12px;border-radius:999px;margin-bottom:12px}
+.h-ticket.christmas .season{background:var(--red)}
+.h-ticket h3{font-size:1.4rem;margin-bottom:6px}
+.h-ticket p{font-size:.9rem;color:var(--choc-soft)}
+
+/* visit */
+.visit{padding:0 0 clamp(56px,8vw,96px)}
+.visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:start}
+.visit h2{font-size:clamp(2.1rem,4.6vw,3.3rem);margin:12px 0 14px}
+.addr{font-size:1.12rem;margin-bottom:16px;line-height:1.7}
+.addr a{color:var(--red);font-weight:700;text-decoration:none}
+.hours-call{background:var(--paper);border:2px dashed var(--choc);border-radius:var(--rad);padding:26px}
+.hours-call h3{font-size:1.3rem;margin-bottom:8px}
+.hours-call p{color:var(--choc-soft);margin-bottom:16px}
+
+footer{background:var(--choc);color:#D9C9AE;padding:34px 0 92px;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer .concept{color:#9A8468;font-style:italic}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;background:var(--red);color:#fff;text-align:center;font-weight:700;padding:15px;font-size:1.05rem;text-decoration:none}
+
+@media (max-width:940px){
+  .hero-grid{grid-template-columns:1fr}
+  .ledger{grid-template-columns:1fr}
+  .market-grid{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr}
+  .catering .wrap{grid-template-columns:1fr}
+  .catering .big{text-align:left}
+  .swatch-wall{grid-template-columns:repeat(8,1fr)}
+  .nav-links{position:fixed;top:0;right:-100%;width:min(78vw,320px);height:100dvh;background:var(--choc);color:var(--cream);flex-direction:column;padding:90px 34px;gap:22px;font-size:1.15rem;transition:right .3s;margin:0}
+  .nav-links.open{right:0}
+  .burger{display:block;z-index:80}
+  .nav.open .burger span{background:var(--cream)}
+  .nav.open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav.open .burger span:nth-child(2){opacity:0}
+  .nav.open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .nav .btn{display:none}
+  .callbar{display:block}
+  footer{padding-bottom:112px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="topnav">
+  <div class="wrap">
+    <a class="brand" href="#top">Bocconcino <span class="red">Bakery &amp; Market</span></a>
+    <nav class="nav-links" id="navlinks" aria-label="Primary">
+      <a href="#case">The Case</a>
+      <a href="#gelato">Gelato</a>
+      <a href="#market">Market</a>
+      <a href="#catering">Catering</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-red" href="tel:+19053339063">Call (905) 333-9063</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Italian bakery &amp; market · Burlington, ON</span>
+      <h1>Baked fresh daily, <em>in-house.</em></h1>
+      <p class="lede">Cannoli, tortas, cookies and birthday cakes from our own ovens — plus house-made savouries, a 24-flavour gelato bar, Italian groceries, and catering for your table.</p>
+      <span class="quote-chip">&ldquo;Top notch&rdquo; espresso bar <small>— in the words of our reviewers</small></span>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="tel:+19053339063">Call the bakery</a>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Bocconcino+Bakery+414+Locust+St+Burlington+ON" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+    <div class="case" aria-hidden="true">
+      <div class="glass-label">— TODAY&rsquo;S CASE —</div>
+      <div class="shelf">
+        <figure><svg width="54" height="40" viewBox="0 0 54 40"><path d="M6 28 Q27 6 48 28 L44 34 Q27 16 10 34 Z" fill="#E8B04B" stroke="#3B2A1E" stroke-width="2"/><circle cx="27" cy="24" r="5" fill="#FFF6E6" stroke="#3B2A1E" stroke-width="2"/></svg><figcaption>Cannoli</figcaption></figure>
+        <figure><svg width="54" height="40" viewBox="0 0 54 40"><ellipse cx="27" cy="26" rx="20" ry="10" fill="#7A4A2B" stroke="#3B2A1E" stroke-width="2"/><ellipse cx="27" cy="21" rx="20" ry="9" fill="#A9713F" stroke="#3B2A1E" stroke-width="2"/><circle cx="20" cy="19" r="3" fill="#E8B04B"/><circle cx="32" cy="22" r="3" fill="#E8B04B"/></svg><figcaption>Torta</figcaption></figure>
+        <figure><svg width="54" height="40" viewBox="0 0 54 40"><circle cx="18" cy="26" r="9" fill="#D9A441" stroke="#3B2A1E" stroke-width="2"/><circle cx="34" cy="26" r="9" fill="#8A5A34" stroke="#3B2A1E" stroke-width="2"/><circle cx="18" cy="24" r="2" fill="#5C3A21"/><circle cx="34" cy="24" r="2" fill="#3B2A1E"/></svg><figcaption>Cookies</figcaption></figure>
+      </div>
+      <div class="shelf">
+        <figure><svg width="54" height="44" viewBox="0 0 54 44"><rect x="8" y="22" width="38" height="14" rx="4" fill="#F5E6C8" stroke="#3B2A1E" stroke-width="2"/><rect x="12" y="12" width="30" height="12" rx="4" fill="#FFF6E6" stroke="#3B2A1E" stroke-width="2"/><rect x="25" y="2" width="4" height="10" fill="#A93226"/></svg><figcaption>Birthday cake</figcaption></figure>
+        <figure><svg width="54" height="44" viewBox="0 0 54 44"><rect x="6" y="26" width="42" height="10" rx="5" fill="#8A5A34" stroke="#3B2A1E" stroke-width="2"/><path d="M6 26 q6 -12 12 0 q6 -12 12 0 q6 -12 12 0" fill="none" stroke="#E8B04B" stroke-width="4"/></svg><figcaption>Meat lasagna</figcaption></figure>
+        <figure><svg width="54" height="44" viewBox="0 0 54 44"><ellipse cx="27" cy="30" rx="18" ry="8" fill="#C97B4A" stroke="#3B2A1E" stroke-width="2"/><path d="M12 28 q15 -10 30 0" fill="none" stroke="#F5E6C8" stroke-width="3"/></svg><figcaption>Sandwich</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-sec" id="case">
+  <div class="wrap">
+    <span class="kicker">The daily case</span>
+    <h2>What comes out of our ovens.</h2>
+    <p class="sub">Everything below is baked fresh daily in-house. The case changes through the day — when it&rsquo;s gone, it&rsquo;s gone until tomorrow.</p>
+    <div class="ledger">
+      <div class="ticket">
+        <span class="tag">Dolci · from the ovens</span>
+        <h3>Sweet</h3>
+        <ul>
+          <li>Italian pastries <span class="dots"></span> <span class="note">daily</span></li>
+          <li>Cannoli <span class="dots"></span> <span class="note">filled to order</span></li>
+          <li>Tortas <span class="dots"></span> <span class="note">whole or by the slice</span></li>
+          <li>Cookies <span class="dots"></span> <span class="note">by the dozen</span></li>
+          <li>Birthday cakes <span class="dots"></span> <span class="note">order ahead</span></li>
+        </ul>
+      </div>
+      <div class="ticket">
+        <span class="tag">Cucina · made in-house</span>
+        <h3>Savoury</h3>
+        <ul>
+          <li>House-made meatballs <span class="dots"></span> <span class="note">our recipe</span></li>
+          <li>House-made sausages <span class="dots"></span> <span class="note">our recipe</span></li>
+          <li>Meat lasagna <span class="dots"></span> <span class="note">to take home</span></li>
+          <li>Fresh sandwiches <span class="dots"></span> <span class="note">made to order</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gelato" id="gelato">
+  <div class="wrap">
+    <span class="kicker">The gelato bar</span>
+    <h2>Twenty-four flavours on the bar.</h2>
+    <p class="sub">A full gelato bar with 24 flavours, scooped all day. Tap a scoop to claim your slot — the board rotates, so call ahead for today&rsquo;s lineup.</p>
+    <div class="swatch-wall" id="swatches" role="group" aria-label="Gelato flavour slots"></div>
+    <div class="swatch-readout" id="swatchreadout" aria-live="polite">Tap any scoop to pick your slot.</div>
+    <p class="fine">Flavours rotate daily. Ask at the bar — or call <a href="tel:+19053339063" style="color:var(--gold)">(905) 333-9063</a> — for what&rsquo;s scooping today.</p>
+  </div>
+</section>
+
+<section class="market" id="market">
+  <div class="wrap market-grid">
+    <div>
+      <span class="kicker">The market shelves</span>
+      <h2>Take Italy home with you.</h2>
+      <p>Beyond the bakery case, our market shelves carry imported Italian groceries — the same pantry we&rsquo;d stock in our own kitchens.</p>
+      <div class="hero-cta"><a class="btn btn-red" href="tel:+19053339063">Call the market</a></div>
+    </div>
+    <div class="shelf-rows">
+      <div class="shelf-row"><h3>Pastas</h3><p>Imported Italian pastas in shapes for every sauce.</p></div>
+      <div class="shelf-row"><h3>Sauces</h3><p>Tomato sauces the way nonna intended.</p></div>
+      <div class="shelf-row"><h3>Olive oils</h3><p>Good olive oil for finishing, frying, and dipping.</p></div>
+      <div class="shelf-row"><h3>Balsamic vinegars</h3><p>Aged balsamics for salads and drizzling.</p></div>
+      <div class="shelf-row"><h3>Canned tomatoes</h3><p>The backbone of a proper Sunday sauce.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="catering" id="catering">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Catering</span>
+      <h2>Let us feed the whole table.</h2>
+      <p>From family dinners to office gatherings, we cater with the same food that fills our case — pastries, savouries, and trays built to order. Tell us the occasion and the headcount; we&rsquo;ll put the spread together.</p>
+      <a class="btn btn-line" href="tel:+19053339063">Call to plan your catering</a>
+    </div>
+    <div class="big" aria-hidden="true">Buon<br>appetito</div>
+  </div>
+</section>
+
+<section class="holidays">
+  <div class="wrap">
+    <span class="kicker">Holiday specialties</span>
+    <h2>Seasonal, the Italian way.</h2>
+    <div class="holiday-row">
+      <div class="h-ticket christmas"><span class="season">Christmas</span><h3>Panettone</h3><p>The tall, golden holiday loaf — order early, they go fast.</p></div>
+      <div class="h-ticket christmas"><span class="season">Christmas</span><h3>Struffoli</h3><p>Honey-drenched pastry pearls, piled high for the holidays.</p></div>
+      <div class="h-ticket christmas"><span class="season">Christmas</span><h3>Christmas cakes</h3><p>Festive cakes baked for the season&rsquo;s table.</p></div>
+      <div class="h-ticket"><span class="season">Easter</span><h3>Easter breads</h3><p>Sweet braided breads for the Easter table.</p></div>
+      <div class="h-ticket"><span class="season">Easter</span><h3>Colomba</h3><p>The dove-shaped Easter cake — spring&rsquo;s answer to panettone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <span class="kicker">Visit us</span>
+      <h2>Find the bakery on Locust.</h2>
+      <p class="addr">414 Locust Street<br>Burlington, ON L7R 2K4<br><a href="tel:+19053339063">(905) 333-9063</a></p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="tel:+19053339063">Call now</a>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Bocconcino+Bakery+414+Locust+St+Burlington+ON" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+    <div class="hours-call">
+      <h3>Hours</h3>
+      <p>Our hours aren&rsquo;t posted online — give us a quick call and we&rsquo;ll tell you when the case is fullest.</p>
+      <a class="btn btn-red" href="tel:+19053339063">Call for hours</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Bocconcino Bakery and Market · 414 Locust St, Burlington, ON L7R 2K4 · (905) 333-9063</span>
+    <span class="concept">Concept preview built by Shashin Pillay, an IT student at Seneca College.</span>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19053339063">📞 Tap to call Bocconcino</a>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),nav=document.getElementById('topnav'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');nav.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');nav.classList.remove('open');burger.setAttribute('aria-expanded','false');});});
+
+  /* 24 gelato slots */
+  var colors=['#F6E7C1','#EBCB6B','#D9A441','#B97A3B','#7A4A2B','#5C3A21','#8A2E2E','#C96A5A','#E8A0A0','#F3D1D1','#7FB069','#4C7A3F','#2E5E4E','#9AC8CD','#5B8FA8','#2F4F6F','#EDE6D6','#D8C9AE','#A9713F','#6B4A2F','#4A2E1E','#F0F0EA','#C4B49A','#8C6B4A'];
+  var wall=document.getElementById('swatches'),readout=document.getElementById('swatchreadout');
+  colors.forEach(function(c,i){
+    var b=document.createElement('button');
+    b.className='swatch';b.style.background=c;b.type='button';
+    b.setAttribute('aria-label','Gelato flavour slot '+(i+1));
+    b.addEventListener('click',function(){
+      wall.querySelectorAll('.swatch').forEach(function(s){s.classList.remove('active');});
+      b.classList.add('active');
+      readout.innerHTML='<strong>Slot '+(i+1)+' of 24</strong> — yours. The board rotates daily, so call <a href="tel:+19053339063" style="color:var(--gold)">(905) 333-9063</a> to hear what flavour is scooping in it today.';
+    });
+    wall.appendChild(b);
+  });
+})();
+</script>
+</body>
+</html>

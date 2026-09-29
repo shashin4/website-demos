@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trafalgar Barber Shop — Oakville, ON</title>
+<meta name="description" content="Trafalgar Barber Shop, 1289 Marlborough Court Suite 13, Oakville. Cuts, beard trims, straight razor shaves, hot towel shaves. Walk-ins welcome. Call 905-582-6007.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#14110d;
+  --black-soft:#221e17;
+  --bone:#ece3cd;
+  --bone-dim:#b9ac8d;
+  --amber:#c68a2c;
+  --amber-soft:#e0a94f;
+  --line:#3a332a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Archivo',system-ui,sans-serif;
+  background:var(--black);color:var(--bone);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.poster{font-family:'Bebas Neue',Impact,sans-serif;text-wrap:balance;letter-spacing:.02em;line-height:.95;font-weight:400}
+.mono{font-family:'IBM Plex Mono',monospace}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+::selection{background:var(--amber);color:var(--black)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--black);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:.04em;text-decoration:none}
+.brand em{font-style:normal;color:var(--amber)}
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-dim)}
+.nav-links a:hover{color:var(--amber-soft)}
+.btn{
+  display:inline-block;background:var(--amber);color:var(--black)!important;
+  padding:.8rem 1.7rem;text-decoration:none;font-weight:700;font-size:.95rem;
+  font-family:'Archivo',sans-serif;letter-spacing:.02em;
+}
+.btn:hover{background:var(--amber-soft)}
+.btn-ghost{background:transparent;border:1px solid var(--bone-dim);color:var(--bone)!important}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber-soft)!important;background:transparent}
+.hamburger{display:none;background:none;border:0;cursor:pointer;padding:10px}
+.hamburger span{display:block;width:26px;height:3px;background:var(--bone);margin:5px 0}
+
+/* ---------- hero poster ---------- */
+.hero{border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero .wrap{padding:88px 24px 80px;position:relative}
+.stamp{
+  display:inline-block;border:2px solid var(--amber);color:var(--amber-soft);
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:10px 20px;margin-bottom:28px;transform:rotate(-2deg);
+}
+.hero h1{font-size:clamp(3.6rem,12vw,9rem);margin-bottom:8px}
+.hero h1 .gold{color:var(--amber)}
+.hero .sub{font-family:'IBM Plex Mono',monospace;color:var(--bone-dim);font-size:clamp(.95rem,2vw,1.15rem);max-width:56ch;margin:22px 0 34px;line-height:1.8}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.rating-line{margin-top:30px;font-family:'IBM Plex Mono',monospace;font-size:.9rem;color:var(--bone-dim)}
+.rating-line strong{color:var(--amber-soft);font-size:1.05rem}
+.rzr{position:absolute;right:-20px;bottom:-30px;width:340px;opacity:.14;pointer-events:none}
+
+/* ---------- ticker ---------- */
+.ticker{border-bottom:1px solid var(--line);overflow:hidden;background:var(--black-soft);white-space:nowrap}
+.ticker-inner{display:inline-block;padding:14px 0;animation:tick 26s linear infinite}
+.ticker span{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.14em;color:var(--amber);margin-right:48px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- ledger ---------- */
+.ledger .wrap{padding:84px 24px}
+.ledger-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.ledger-head h2{font-size:clamp(2.4rem,5.5vw,4rem)}
+.ledger-head h2 em{font-style:normal;color:var(--amber)}
+.ledger-head p{font-family:'IBM Plex Mono',monospace;color:var(--bone-dim);font-size:.92rem;max-width:40ch}
+.ledger-list{list-style:none;border-top:2px solid var(--bone)}
+.ledger-list li{
+  display:grid;grid-template-columns:64px 1fr auto;gap:20px;align-items:baseline;
+  padding:26px 6px;border-bottom:1px solid var(--line);
+}
+.ledger-num{font-family:'IBM Plex Mono',monospace;color:var(--amber);font-size:.95rem}
+.ledger-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:.03em}
+.ledger-desc{display:block;font-family:'Archivo',sans-serif;font-size:.95rem;color:var(--bone-dim);margin-top:6px;max-width:52ch}
+.ledger-price{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--amber-soft);border:1px solid var(--amber);padding:8px 16px;white-space:nowrap;letter-spacing:.06em}
+.ledger-note{margin-top:26px;font-family:'IBM Plex Mono',monospace;color:var(--bone-dim);font-size:.88rem}
+.ledger-note a{color:var(--amber-soft)}
+
+/* ---------- ritual strip ---------- */
+.ritual{background:var(--black-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ritual .wrap{padding:70px 24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:36px}
+.ritual h2{grid-column:1/-1;font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:6px}
+.ritual h2 em{font-style:normal;color:var(--amber)}
+.step .mono-step{font-family:'IBM Plex Mono',monospace;color:var(--amber);font-size:.85rem;letter-spacing:.2em;margin-bottom:10px}
+.step h3{font-size:1.6rem;margin-bottom:8px}
+.step p{color:var(--bone-dim);font-size:.98rem}
+
+/* ---------- visit card ---------- */
+.visit .wrap{padding:84px 24px 96px}
+.visit-card{
+  border:2px solid var(--bone);padding:52px;display:grid;
+  grid-template-columns:1.2fr .8fr;gap:44px;
+}
+.visit-card h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:18px}
+.visit-card h2 em{font-style:normal;color:var(--amber)}
+.visit-card address{font-style:normal;font-size:1.1rem;color:var(--bone-dim);margin-bottom:6px}
+.visit-card .tel{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;letter-spacing:.03em;color:var(--amber);text-decoration:none;display:block;margin:18px 0 4px}
+.visit-card .tel:hover{color:var(--amber-soft)}
+.visit-card .mail{font-family:'IBM Plex Mono',monospace;font-size:.95rem;color:var(--bone-dim);text-decoration:none}
+.visit-card .mail:hover{color:var(--amber-soft)}
+.hours-note{border-left:1px solid var(--line);padding-left:44px;display:flex;flex-direction:column;justify-content:center}
+.hours-note .mono-step{font-family:'IBM Plex Mono',monospace;color:var(--amber);font-size:.85rem;letter-spacing:.2em;margin-bottom:12px}
+.hours-note p{color:var(--bone-dim);margin-bottom:20px}
+.hours-note .rating{font-family:'IBM Plex Mono',monospace;font-size:.92rem}
+.hours-note .rating strong{color:var(--amber-soft)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding:26px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--bone-dim)}
+.concept{font-style:italic}
+
+/* ---------- mobile call bar ---------- */
+.callbar{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;
+  background:var(--amber);color:var(--black);text-align:center;padding:15px;
+  font-weight:700;font-size:1.05rem;text-decoration:none;letter-spacing:.02em;
+}
+
+@media(max-width:900px){
+  .nav-links{
+    position:absolute;top:70px;left:0;right:0;background:var(--black);
+    flex-direction:column;align-items:flex-start;padding:20px 24px 28px;gap:18px;
+    border-bottom:1px solid var(--line);display:none;
+  }
+  .nav-links.open{display:flex}
+  .hamburger{display:block}
+  .nav .nav-cta{display:none}
+  .rzr{display:none}
+  .ritual .wrap{grid-template-columns:1fr;gap:30px;padding:56px 24px}
+  .visit-card{grid-template-columns:1fr;padding:36px 28px;gap:30px}
+  .hours-note{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:26px}
+  .ledger-list li{grid-template-columns:1fr auto;gap:8px}
+  .ledger-num{display:none}
+  .ledger-price{grid-column:2;grid-row:1}
+  .callbar{display:block}
+  body{padding-bottom:54px}
+  footer .wrap{padding-bottom:84px}
+  .visit .wrap{padding-bottom:70px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .ticker-inner{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#">Trafalgar <em>Barber Shop</em></a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#visit">Find us</a></li>
+      <li class="nav-cta"><a class="btn" href="tel:+19055826007">Call now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="stamp">Oakville &middot; Est. chair always open</span>
+    <h1>Walk-ins <span class="gold">welcome.</span></h1>
+    <p class="sub">No appointment, no fuss. Clean cuts, sharp beard work, and straight-razor shaves with hot towels — at prices that stay easy on the wallet.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="tel:+19055826007">Call 905-582-6007</a>
+      <a class="btn btn-ghost" href="#services">See services</a>
+    </div>
+    <p class="rating-line"><strong>5.0 &#9733;</strong> on Google &middot; 13 reviews &middot; 1289 Marlborough Court, Suite 13</p>
+  </div>
+  <svg class="rzr" viewBox="0 0 200 200" aria-hidden="true">
+    <rect x="30" y="88" width="110" height="24" rx="12" fill="none" stroke="#c68a2c" stroke-width="6"/>
+    <rect x="140" y="94" width="50" height="12" rx="6" fill="none" stroke="#c68a2c" stroke-width="6"/>
+  </svg>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>Walk-ins welcome</span><span>&#10022;</span><span>Straight razor shaves</span><span>&#10022;</span><span>Hot towel finish</span><span>&#10022;</span><span>Beard trims</span><span>&#10022;</span><span>Kids cuts</span><span>&#10022;</span>
+    <span>Walk-ins welcome</span><span>&#10022;</span><span>Straight razor shaves</span><span>&#10022;</span><span>Hot towel finish</span><span>&#10022;</span><span>Beard trims</span><span>&#10022;</span><span>Kids cuts</span><span>&#10022;</span>
+  </div>
+</div>
+
+<section class="ledger" id="services">
+  <div class="wrap">
+    <div class="ledger-head">
+      <h2>The <em>ledger.</em></h2>
+      <p>Six services. Nothing fancy, nothing missing. Prices are quoted in the chair — call ahead and we'll tell you straight.</p>
+    </div>
+    <ul class="ledger-list">
+      <li>
+        <span class="ledger-num">01</span>
+        <div><span class="ledger-name">Standard Haircut</span><span class="ledger-desc">A cut tailored to your desired length and style — clean and polished, every time.</span></div>
+        <span class="ledger-price">CALL FOR PRICE</span>
+      </li>
+      <li>
+        <span class="ledger-num">02</span>
+        <div><span class="ledger-name">Beard Trim &amp; Shape</span><span class="ledger-desc">Precise trimming and shaping to sharpen your features and keep the beard tidy.</span></div>
+        <span class="ledger-price">CALL FOR PRICE</span>
+      </li>
+      <li>
+        <span class="ledger-num">03</span>
+        <div><span class="ledger-name">Straight Razor Shave</span><span class="ledger-desc">The full ritual — straight razor, hot towels, quality cream, ultra-smooth finish.</span></div>
+        <span class="ledger-price">CALL FOR PRICE</span>
+      </li>
+      <li>
+        <span class="ledger-num">04</span>
+        <div><span class="ledger-name">Hot Towel Shave</span><span class="ledger-desc">Hot towels and a steady hand for a close, comfortable shave.</span></div>
+        <span class="ledger-price">CALL FOR PRICE</span>
+      </li>
+      <li>
+        <span class="ledger-num">05</span>
+        <div><span class="ledger-name">Hair Coloring</span><span class="ledger-desc">Cover the greys, add highlights, or change the colour completely.</span></div>
+        <span class="ledger-price">CALL FOR PRICE</span>
+      </li>
+      <li>
+        <span class="ledger-num">06</span>
+        <div><span class="ledger-name">Children's Haircut</span><span class="ledger-desc">A friendly cut for younger clients — they leave looking sharp.</span></div>
+        <span class="ledger-price">CALL FOR PRICE</span>
+      </li>
+    </ul>
+    <p class="ledger-note">Inexpensive on Google's price scale — and the <a href="tel:+19055826007">phone quote</a> is free.</p>
+  </div>
+</section>
+
+<section class="ritual" aria-label="The shave ritual">
+  <div class="wrap">
+    <h2>The shave, <em>done right.</em></h2>
+    <div class="step">
+      <p class="mono-step">STEP 01</p>
+      <h3>Hot towel</h3>
+      <p>Heat opens everything up. This is where a barbershop shave stops being a chore.</p>
+    </div>
+    <div class="step">
+      <p class="mono-step">STEP 02</p>
+      <h3>Straight razor</h3>
+      <p>One blade, steady hand, no rushing. Closer than anything that plugs in.</p>
+    </div>
+    <div class="step">
+      <p class="mono-step">STEP 03</p>
+      <h3>Cold finish</h3>
+      <p>Cream, cold towel, done. You walk out feeling like you mean business.</p>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-card">
+      <div>
+        <h2>Come <em>sit down.</em></h2>
+        <address>1289 Marlborough Court, Suite 13<br>Oakville, ON L6H 2R9</address>
+        <a class="tel" href="tel:+19055826007">905-582-6007</a><br>
+        <a class="mail" href="mailto:info@trafalgarbarbershop.com">info@trafalgarbarbershop.com</a>
+      </div>
+      <div class="hours-note">
+        <p class="mono-step">HOURS</p>
+        <p>Hours aren't posted — call ahead and we'll tell you when the chairs are free.</p>
+        <p class="rating"><strong>5.0 &#9733;</strong> &middot; 13 Google reviews</p>
+        <a class="btn" href="tel:+19055826007" style="align-self:flex-start">Call the shop</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Trafalgar Barber Shop, Oakville ON</span>
+    <span class="concept">Concept preview built by Shashin Pillay, an IT student at Seneca College.</span>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19055826007">Tap to call &middot; 905-582-6007</a>
+
+<script>
+function toggleMenu(){
+  var links=document.getElementById('navLinks');
+  var btn=document.querySelector('.hamburger');
+  var open=links.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+}
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.getElementById('navLinks').classList.remove('open');
+    document.querySelector('.hamburger').setAttribute('aria-expanded','false');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapunzel Salon — The Place To Let Your Hair Down · Milton, ON</title>
+<meta name="description" content="Rapunzel Salon, 26 Main St E, Milton ON. Cuts, colour, highlights, styling — with every price printed on the board since 2008. Call 905-203-0350.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f1e4;
+  --paper-deep:#efe5d0;
+  --ink:#2c2117;
+  --ink-soft:#5c4c3b;
+  --accent:#b45f2a;
+  --accent-deep:#8f4718;
+  --line:#d8c8a8;
+  --white:#fffdf8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Karla',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;text-wrap:balance;line-height:1.08}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+a{color:inherit}
+::selection{background:var(--accent);color:#fff}
+
+/* ---------- sticky nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,241,228,.96);
+  border-bottom:2px solid var(--ink);
+}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.35rem;letter-spacing:.01em;text-decoration:none}
+.brand em{color:var(--accent);font-style:normal}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-weight:700;font-size:.92rem;letter-spacing:.04em;text-transform:uppercase}
+.nav-links a:hover{color:var(--accent)}
+.btn{
+  display:inline-block;background:var(--ink);color:var(--paper)!important;
+  padding:.75rem 1.5rem;text-decoration:none;font-weight:700;font-size:.95rem;
+  border-radius:999px;letter-spacing:.02em;border:2px solid var(--ink);
+}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn-accent{background:var(--accent);border-color:var(--accent)}
+.btn-accent:hover{background:var(--accent-deep);border-color:var(--accent-deep)}
+.hamburger{display:none;background:none;border:0;cursor:pointer;padding:10px}
+.hamburger span{display:block;width:26px;height:3px;background:var(--ink);margin:5px 0;transition:.25s}
+
+/* ---------- hero ---------- */
+.hero{border-bottom:2px solid var(--ink);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding:72px 22px 64px}
+.kicker{
+  display:inline-block;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-deep);margin-bottom:18px;
+}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--accent-deep)}
+.hero p.lede{font-size:1.15rem;color:var(--ink-soft);max-width:44ch;margin-bottom:30px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-meta{margin-top:26px;font-size:.95rem;color:var(--ink-soft)}
+.hero-meta strong{color:var(--ink)}
+.hero-art{display:flex;justify-content:center}
+.scissor-badge{
+  width:230px;height:230px;border:2px solid var(--ink);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:var(--white);
+  transform:rotate(-8deg);position:relative;
+}
+.scissor-badge::before{
+  content:"";position:absolute;inset:12px;border:1px dashed var(--accent);border-radius:50%;
+}
+.scissor-badge svg{width:120px;height:120px;stroke:var(--accent-deep);fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.badge-caption{
+  position:absolute;bottom:-14px;background:var(--ink);color:var(--paper);
+  font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:8px 18px;border-radius:999px;white-space:nowrap;
+}
+
+/* ---------- price board ---------- */
+.board{background:var(--ink);color:var(--paper);border-bottom:2px solid var(--ink)}
+.board .wrap{padding:72px 22px 80px}
+.board-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:34px}
+.board-head h2{font-size:clamp(2rem,4.5vw,3.2rem);color:var(--paper)}
+.board-head h2 em{font-style:italic;color:#e8a86f}
+.board-head p{color:#c9bda6;max-width:46ch}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.tab{
+  background:transparent;border:2px solid #6b5b45;color:#d9cdb2;
+  padding:.6rem 1.3rem;border-radius:999px;font-weight:700;font-size:.9rem;
+  cursor:pointer;letter-spacing:.03em;font-family:'Karla',sans-serif;
+}
+.tab[aria-selected="true"]{background:#e8a86f;border-color:#e8a86f;color:var(--ink)}
+.tab:hover{border-color:#e8a86f;color:#e8a86f}
+.tab[aria-selected="true"]:hover{color:var(--ink)}
+.price-list{list-style:none;border-top:2px solid #6b5b45}
+.price-list li{
+  display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;
+  padding:16px 4px;border-bottom:1px solid #4a3f2f;
+  transition:opacity .3s;
+}
+.price-list li.hidden{display:none}
+.service-name{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600}
+.service-name small{display:block;font-family:'Karla',sans-serif;font-size:.85rem;color:#b3a585;font-weight:400;margin-top:2px}
+.dots{flex:0 0 auto}
+.price{font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;color:#e8a86f;white-space:nowrap}
+.price-note{margin-top:22px;color:#b3a585;font-size:.92rem;max-width:60ch}
+.price-note strong{color:#e8a86f}
+
+/* ---------- stylists ---------- */
+.stylists .wrap{padding:80px 22px}
+.section-label{font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:14px}
+.stylists h2{font-size:clamp(2rem,4.5vw,3.1rem);margin-bottom:16px;max-width:20ch}
+.stylists .intro{color:var(--ink-soft);max-width:58ch;margin-bottom:44px;font-size:1.08rem}
+.team{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+.owner-card{
+  background:var(--white);border:2px solid var(--ink);padding:36px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.owner-card h3{font-size:2rem;margin-bottom:6px}
+.owner-card .role{font-weight:700;color:var(--accent-deep);letter-spacing:.08em;text-transform:uppercase;font-size:.85rem;margin-bottom:14px}
+.owner-card p{color:var(--ink-soft)}
+.team-side{display:grid;gap:22px}
+.member-card{background:var(--paper-deep);border:2px solid var(--ink);padding:28px}
+.member-card h3{font-size:1.5rem;margin-bottom:4px}
+.member-card .role{font-weight:700;color:var(--accent-deep);letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+
+/* ---------- hours & visit ---------- */
+.visit{background:var(--white);border-top:2px solid var(--ink)}
+.visit .wrap{padding:72px 22px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.hours-card{border:2px solid var(--ink);padding:32px;background:var(--paper)}
+.hours-card h3{font-size:1.7rem;margin-bottom:18px}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table td{padding:9px 0;border-bottom:1px solid var(--line);font-size:1rem}
+.hours-table td:last-child{text-align:right;font-weight:700}
+.hours-table tr:last-child td{border-bottom:0}
+.visit-card{border:2px solid var(--ink);background:var(--ink);color:var(--paper);padding:32px;display:flex;flex-direction:column;justify-content:center}
+.visit-card h3{font-size:1.7rem;margin-bottom:14px;color:var(--paper)}
+.visit-card address{font-style:normal;font-size:1.05rem;margin-bottom:10px;color:#e4d9c2}
+.visit-card .phone{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:#e8a86f;text-decoration:none;display:block;margin:14px 0}
+.visit-card .phone:hover{text-decoration:underline}
+.rating{margin-top:16px;color:#c9bda6;font-size:.95rem}
+.rating strong{color:#e8a86f}
+
+/* ---------- footer ---------- */
+footer{border-top:2px solid var(--ink);background:var(--paper)}
+footer .wrap{padding:26px 22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--ink-soft)}
+.concept{font-style:italic}
+
+/* ---------- mobile call bar ---------- */
+.callbar{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;
+  background:var(--ink);color:var(--paper);text-align:center;
+  padding:14px;font-weight:700;font-size:1.05rem;text-decoration:none;letter-spacing:.02em;
+}
+.callbar span{color:#e8a86f}
+
+@media(max-width:860px){
+  .nav-links{
+    position:absolute;top:68px;left:0;right:0;background:var(--paper);
+    flex-direction:column;align-items:flex-start;padding:18px 22px 26px;gap:16px;
+    border-bottom:2px solid var(--ink);display:none;
+  }
+  .nav-links.open{display:flex}
+  .hamburger{display:block}
+  .nav .nav-cta{display:none}
+  .hero .wrap{grid-template-columns:1fr;padding:52px 22px 48px}
+  .hero-art{order:-1;margin-bottom:8px}
+  .scissor-badge{width:170px;height:170px}
+  .scissor-badge svg{width:88px;height:88px}
+  .board-head{grid-template-columns:1fr}
+  .team{grid-template-columns:1fr}
+  .visit .wrap{grid-template-columns:1fr;padding:52px 22px 90px}
+  .callbar{display:block}
+  body{padding-bottom:52px}
+  footer .wrap{padding-bottom:90px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#">Rapunzel <em>Salon</em></a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#prices">Price Board</a></li>
+      <li><a href="#team">Stylists</a></li>
+      <li><a href="#visit">Hours &amp; Visit</a></li>
+      <li class="nav-cta"><a class="btn" href="tel:+19052030350">Call now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Milton, Ontario &middot; Since 2008</span>
+      <h1>The place to <em>let your hair down.</em></h1>
+      <p class="lede">A warm, unhurried salon on Main Street East where the prices are printed on the board — and have been, for over fifteen years.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-accent" href="#prices">See the price board</a>
+        <a class="btn" href="tel:+19052030350">Call 905-203-0350</a>
+      </div>
+      <p class="hero-meta"><strong>4.8 stars</strong> from 35 Google reviews &middot; 26 Main St E, Milton</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="scissor-badge">
+        <svg viewBox="0 0 100 100">
+          <circle cx="28" cy="72" r="9"/><circle cx="28" cy="40" r="9"/>
+          <path d="M34 64 L88 14 M34 48 L88 98 M52 56 L40 44"/>
+        </svg>
+        <span class="badge-caption">No surprises at checkout</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="board" id="prices" aria-label="Price list">
+  <div class="wrap">
+    <div class="board-head">
+      <div>
+        <h2>The <em>price board.</em></h2>
+        <p>Every service we offer, with the price we actually charge. Tap a group to browse — or call and we'll talk through what your hair needs.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Filter services">
+        <button class="tab" role="tab" aria-selected="true" onclick="filterBoard('all',this)">Everything</button>
+        <button class="tab" role="tab" aria-selected="false" onclick="filterBoard('cuts',this)">Cuts</button>
+        <button class="tab" role="tab" aria-selected="false" onclick="filterBoard('colour',this)">Colour</button>
+        <button class="tab" role="tab" aria-selected="false" onclick="filterBoard('styling',this)">Styling</button>
+      </div>
+    </div>
+    <ul class="price-list" id="priceList">
+      <li data-group="cuts"><span class="service-name">Women's cut &amp; style</span><span class="price">$40&ndash;100</span></li>
+      <li data-group="cuts"><span class="service-name">Men's cut</span><span class="price">$30&ndash;50</span></li>
+      <li data-group="cuts"><span class="service-name">Kids' cut <small>under 10</small></span><span class="price">$27&ndash;55</span></li>
+      <li data-group="styling"><span class="service-name">Wash &amp; blowdry</span><span class="price">$100&ndash;170</span></li>
+      <li data-group="styling"><span class="service-name">Formal styling</span><span class="price">$40&ndash;80</span></li>
+      <li data-group="styling"><span class="service-name">Perm</span><span class="price">$45&ndash;85</span></li>
+      <li data-group="colour"><span class="service-name">Half highlights</span><span class="price">$80&ndash;110+</span></li>
+      <li data-group="colour"><span class="service-name">Full highlights</span><span class="price">$80&ndash;140+</span></li>
+      <li data-group="colour"><span class="service-name">Custom blonding</span><span class="price">$125&ndash;190+</span></li>
+      <li data-group="colour"><span class="service-name">Colour</span><span class="price">$110+</span></li>
+      <li data-group="colour"><span class="service-name">Corrective colour</span><span class="price">$230+</span></li>
+      <li data-group="colour"><span class="service-name">Bleach &amp; tone <small>by consultation</small></span><span class="price">Consult</span></li>
+    </ul>
+    <p class="price-note"><strong>Ranges depend on hair length and thickness</strong> — your stylist confirms the exact price before the scissors come out. Bleach &amp; tone is quoted in person after a consultation.</p>
+  </div>
+</section>
+
+<section class="stylists" id="team">
+  <div class="wrap">
+    <p class="section-label">The people</p>
+    <h2>Run by the people who own the place.</h2>
+    <p class="intro">Rapunzel has been owned and run by Whonda and Angela since 2008, with Megan behind the chair alongside them. Friendly, approachable stylists — that's the whole business model.</p>
+    <div class="team">
+      <div class="owner-card">
+        <p class="role">Co-owners</p>
+        <h3>Whonda &amp; Angela</h3>
+        <p>They opened Rapunzel in 2008 and have been cutting, colouring, and styling Milton's hair ever since. When the owners are your stylists, the standard never slips.</p>
+      </div>
+      <div class="team-side">
+        <div class="member-card">
+          <p class="role">Stylist</p>
+          <h3>Megan</h3>
+        </div>
+        <div class="member-card">
+          <p class="role">First visit?</p>
+          <h3 style="font-size:1.2rem">Call and tell us what you're after — we'll match you with the right chair.</h3>
+          <p style="margin-top:10px"><a class="btn" href="tel:+19052030350">Call 905-203-0350</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="hours-card">
+      <h3>Hours</h3>
+      <table class="hours-table">
+        <tr><td>Sunday</td><td>10&ndash;4</td></tr>
+        <tr><td>Monday</td><td>10&ndash;4</td></tr>
+        <tr><td>Tuesday</td><td>9&ndash;7</td></tr>
+        <tr><td>Wednesday</td><td>9&ndash;5</td></tr>
+        <tr><td>Thursday</td><td>9&ndash;7</td></tr>
+        <tr><td>Friday</td><td>9&ndash;5</td></tr>
+        <tr><td>Saturday</td><td>9&ndash;3</td></tr>
+      </table>
+    </div>
+    <div class="visit-card">
+      <h3>Find us on Main Street</h3>
+      <address>26 Main St E<br>Milton, ON L9T 1N3</address>
+      <a class="phone" href="tel:+19052030350">905-203-0350</a>
+      <p class="rating"><strong>4.8 stars</strong> on Google &middot; 35 reviews<br>Call to book — walk in to say hello.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Rapunzel Salon, Milton ON</span>
+    <span class="concept">Concept preview built by Shashin Pillay, an IT student at Seneca College.</span>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19052030350">Tap to call <span>905-203-0350</span></a>
+
+<script>
+function toggleMenu(){
+  var links=document.getElementById('navLinks');
+  var btn=document.querySelector('.hamburger');
+  var open=links.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+}
+function filterBoard(group,btn){
+  document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-selected','false')});
+  btn.setAttribute('aria-selected','true');
+  document.querySelectorAll('#priceList li').forEach(function(li){
+    li.classList.toggle('hidden', group!=='all' && li.dataset.group!==group);
+  });
+}
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.getElementById('navLinks').classList.remove('open');
+    document.querySelector('.hamburger').setAttribute('aria-expanded','false');
+  });
+});
+</script>
+</body>
+</html>

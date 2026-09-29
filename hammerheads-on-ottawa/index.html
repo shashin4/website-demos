@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hammerhead's Seafood Kitchen &amp; Market — Ottawa St N, Hamilton</title>
+<meta name="description" content="Hammerhead's is an independent seafood restaurant and market on Ottawa Street North in Hamilton. Fish and chips, haddock, oysters, crab boil, Ottawa Street corn. Sustainable seafood, gluten-free kitchen, open 7 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF; --sea:#F4F9FC; --navy:#17324E; --navy-soft:#3E5A78;
+  --red:#CE3527; --red-dark:#A8281E; --sand:#E9EDF1;
+  --max:1240px; --rad:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:'Karla',system-ui,sans-serif;background:var(--white);color:var(--navy);line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.slab{font-family:'Zilla Slab',Georgia,serif;text-wrap:balance;line-height:1.1;font-weight:700}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+.kicker{font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+a{color:inherit}
+section{padding:clamp(52px,7vw,96px) 0}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:3px solid var(--navy)}
+.nav .wrap{display:flex;align-items:center;gap:22px;padding-top:12px;padding-bottom:12px}
+.brand{font-family:'Zilla Slab',serif;font-size:1.5rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand .hook{color:var(--red)}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-weight:500;font-size:.94rem}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--red)}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:10px;padding:.85rem 1.7rem;transition:transform .18s,background .18s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:#0F2236;transform:translateY(-2px)}
+.btn-line{border:2px solid var(--navy);color:var(--navy)}
+.btn-line:hover{background:var(--navy);color:#fff}
+.nav .btn{padding:.6rem 1.15rem;font-size:.88rem}
+.burger{display:none;background:none;border:0;cursor:pointer;margin-left:auto;padding:8px}
+.burger span{display:block;width:26px;height:3px;background:var(--navy);margin:5px 0;border-radius:2px;transition:.25s}
+
+/* hero */
+.hero{padding:clamp(44px,7vw,90px) 0 clamp(36px,5vw,64px);background:var(--sea);border-bottom:1px solid var(--sand);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,60px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.8vw,4.7rem);margin:14px 0 16px}
+.hero h1 .r{color:var(--red)}
+.hero .lede{font-size:1.12rem;color:var(--navy-soft);max-width:33rem}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 6px}
+.badge{font-size:.82rem;font-weight:700;border:2px solid var(--navy);border-radius:999px;padding:6px 16px;background:#fff}
+.badge.red{border-color:var(--red);color:var(--red)}
+.hero-cta{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
+.wave-mark{display:flex;justify-content:center}
+
+/* catch board */
+.board-sec{background:#fff}
+.board-sec h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin:12px 0 8px}
+.board-sec .sub{color:var(--navy-soft);max-width:40rem;margin-bottom:30px}
+.board{border:3px solid var(--navy);border-radius:var(--rad);overflow:hidden;box-shadow:10px 10px 0 var(--sea)}
+.board-head{background:var(--navy);color:#fff;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.board-head h3{font-size:1.4rem;color:#fff}
+.board-head span{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#BFD3E4;font-weight:700}
+.dish{border-bottom:1px solid var(--sand)}
+.dish:last-child{border-bottom:0}
+.dish-btn{width:100%;background:#fff;border:0;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;text-align:left;padding:20px 28px;font:inherit;color:inherit;transition:background .2s}
+.dish-btn:hover{background:var(--sea)}
+.dish-btn h4{font-family:'Zilla Slab',serif;font-size:1.3rem}
+.dish-btn .plus{font-size:1.5rem;font-weight:700;color:var(--red);transition:transform .25s}
+.dish.open .dish-btn .plus{transform:rotate(45deg)}
+.dish-note{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--sea)}
+.dish-note p{padding:0 28px 22px;color:var(--navy-soft);max-width:44rem}
+.dish.open .dish-note{max-height:220px}
+.dish-note p strong{color:var(--navy)}
+
+/* market panel */
+.market{background:var(--navy);color:#fff;border-radius:22px;margin:0 clamp(10px,2vw,28px);padding:clamp(44px,6vw,80px) 0}
+.market .wrap{max-width:1080px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:center}
+.market .kicker{color:#F2A25C}
+.market h2{font-size:clamp(2rem,4.2vw,3.1rem);margin:12px 0 12px;color:#fff}
+.market p{color:#C9D8E6}
+.market ul{list-style:none;margin:20px 0;display:grid;gap:12px}
+.market li{display:flex;gap:12px;align-items:flex-start}
+.market li svg{flex:none;margin-top:4px}
+.market .btn-red{margin-top:8px}
+
+/* good to know strip */
+.strip3 .kicker{margin-bottom:6px}
+.know{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:3px solid var(--navy);border-bottom:3px solid var(--navy);margin-top:26px}
+.know div{padding:26px 28px;border-left:1px solid var(--sand)}
+.know div:first-child{border-left:0;padding-left:0}
+.know h3{font-size:1.25rem;margin-bottom:6px}
+.know h3 .r{color:var(--red)}
+.know p{color:var(--navy-soft);font-size:.96rem}
+
+/* takeout */
+.takeout{background:var(--sea);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand)}
+.takeout-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:start}
+.takeout h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin:12px 0 14px}
+.takeout .lede{color:var(--navy-soft);max-width:34rem}
+.delivery-cards{margin-top:26px;display:grid;gap:14px}
+.d-card{background:#fff;border:2px solid var(--navy);border-radius:var(--rad);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.d-card h3{font-size:1.2rem}
+.d-card p{font-size:.9rem;color:var(--navy-soft)}
+.d-card .btn{padding:.6rem 1.2rem;font-size:.88rem}
+.reserve{background:#fff;border:2px dashed var(--navy);border-radius:var(--rad);padding:30px}
+.reserve h3{font-size:1.5rem;margin-bottom:10px}
+.reserve p{color:var(--navy-soft);margin-bottom:18px}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.visit h2{font-size:clamp(2.1rem,4.6vw,3.3rem);margin:12px 0 14px}
+.addr{font-size:1.12rem;line-height:1.7;margin-bottom:18px}
+.addr a{color:var(--red);font-weight:700;text-decoration:none}
+.open7{display:inline-block;background:var(--navy);color:#fff;font-weight:700;border-radius:999px;padding:8px 20px;font-size:.92rem;margin-bottom:18px}
+.visit-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.hours-card{background:var(--sea);border:1px solid var(--sand);border-radius:var(--rad);padding:28px}
+.hours-card h3{font-size:1.3rem;margin-bottom:8px}
+.hours-card p{color:var(--navy-soft);margin-bottom:16px}
+
+footer{background:var(--navy);color:#BFD3E4;padding:34px 0 92px;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer .concept{color:#7E97AF;font-style:italic}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;background:var(--red);color:#fff;text-align:center;font-weight:700;padding:15px;font-size:1.05rem;text-decoration:none}
+
+@media (max-width:940px){
+  .hero-grid{grid-template-columns:1fr}
+  .market .wrap{grid-template-columns:1fr}
+  .takeout-grid{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr}
+  .know{grid-template-columns:1fr}
+  .know div{border-left:0;border-top:1px solid var(--sand);padding-left:0}
+  .know div:first-child{border-top:0}
+  .nav-links{position:fixed;top:0;right:-100%;width:min(78vw,320px);height:100dvh;background:var(--navy);color:#fff;flex-direction:column;padding:90px 34px;gap:22px;font-size:1.15rem;transition:right .3s;margin:0}
+  .nav-links.open{right:0}
+  .nav-links a:hover{color:#F2A25C}
+  .burger{display:block;z-index:80}
+  .nav.open .burger span{background:#fff}
+  .nav.open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav.open .burger span:nth-child(2){opacity:0}
+  .nav.open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .nav .btn{display:none}
+  .callbar{display:block}
+  footer{padding-bottom:112px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="topnav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="hook">⚓</span> Hammerhead&rsquo;s</a>
+    <nav class="nav-links" id="navlinks" aria-label="Primary">
+      <a href="#board">Specialties</a>
+      <a href="#market">Market</a>
+      <a href="#takeout">Takeout</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-red" href="tel:+19059239293">Call to order</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Seafood kitchen &amp; market · Hamilton, ON</span>
+      <h1>Fresh off the boat, <span class="r">onto Ottawa Street.</span></h1>
+      <p class="lede">Hammerhead&rsquo;s is an independent seafood restaurant and market on Ottawa Street North — serving fish and chips, haddock, oysters, crab boil and Ottawa Street corn, with a market counter to take the catch home.</p>
+      <div class="badges">
+        <span class="badge red">Sustainable seafood</span>
+        <span class="badge">Gluten-free kitchen</span>
+        <span class="badge">Open 7 days</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="tel:+19059239293">Call to order</a>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Hammerhead%27s+74+Ottawa+St+N+Hamilton+ON" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+    <div class="wave-mark" aria-hidden="true">
+      <svg width="300" height="260" viewBox="0 0 300 260">
+        <path d="M20 220 q20 -24 40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#17324E" stroke-width="6" stroke-linecap="round"/>
+        <path d="M20 196 q20 -24 40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#5B8FA8" stroke-width="5" stroke-linecap="round" opacity=".6"/>
+        <g transform="translate(150,110)">
+          <ellipse cx="0" cy="0" rx="62" ry="30" fill="#17324E"/>
+          <polygon points="60,-6 96,-30 96,22" fill="#17324E"/>
+          <polygon points="-58,-4 -84,-22 -80,14" fill="#CE3527"/>
+          <circle cx="-34" cy="-8" r="6" fill="#fff"/>
+          <circle cx="-34" cy="-8" r="3" fill="#17324E"/>
+          <path d="M-62 8 q10 10 22 8" stroke="#CE3527" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M-10 -28 q14 -14 30 -8" stroke="#F2922B" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </g>
+        <circle cx="236" cy="52" r="10" fill="#F2922B" opacity=".85"/>
+        <circle cx="262" cy="78" r="6" fill="#CE3527" opacity=".7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="board-sec" id="board">
+  <div class="wrap">
+    <span class="kicker">The catch board</span>
+    <h2>What the kitchen is known for.</h2>
+    <p class="sub">Tap any dish for the details. Everything is cooked fresh — and if you&rsquo;d rather cook it yourself, the market counter has you covered.</p>
+    <div class="board">
+      <div class="board-head"><h3>Today&rsquo;s board</h3><span>Hammerhead&rsquo;s · Ottawa St N</span></div>
+      <div class="dish">
+        <button class="dish-btn" aria-expanded="false"><h4>Fish &amp; Chips</h4><span class="plus">+</span></button>
+        <div class="dish-note"><p>The house signature — <strong>crisp battered fish with chip-truck style fries</strong>. Ask for it gluten-free: the whole kitchen is set up for it, and you won&rsquo;t taste the difference.</p></div>
+      </div>
+      <div class="dish">
+        <button class="dish-btn" aria-expanded="false"><h4>Haddock</h4><span class="plus">+</span></button>
+        <div class="dish-note"><p><strong>Fresh, flaky haddock</strong> — the fillet regulars drive across the city for. Cooked to order, never sitting under a heat lamp.</p></div>
+      </div>
+      <div class="dish">
+        <button class="dish-btn" aria-expanded="false"><h4>Oysters</h4><span class="plus">+</span></button>
+        <div class="dish-note"><p><strong>Shucked fresh from the raw bar.</strong> Ask what&rsquo;s in today — the selection follows the season and the market.</p></div>
+      </div>
+      <div class="dish">
+        <button class="dish-btn" aria-expanded="false"><h4>Crab Boil</h4><span class="plus">+</span></button>
+        <div class="dish-note"><p><strong>A proper hands-on crab boil</strong> — messy in the best way. Built for sharing; bring napkins and an appetite.</p></div>
+      </div>
+      <div class="dish">
+        <button class="dish-btn" aria-expanded="false"><h4>Ottawa Street Corn</h4><span class="plus">+</span></button>
+        <div class="dish-note"><p><strong>The local legend.</strong> Sweet corn done the Hammerhead&rsquo;s way — the side dish people talk about on the way home.</p></div>
+      </div>
+      <div class="dish">
+        <button class="dish-btn" aria-expanded="false"><h4>House Coleslaw &amp; Tartar</h4><span class="plus">+</span></button>
+        <div class="dish-note"><p><strong>Made in-house, every day.</strong> Fresh, creamy slaw and a tartar sauce that isn&rsquo;t the usual white stuff — regulars swear by both.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="market" id="market">
+    <div class="wrap">
+      <div>
+        <span class="kicker">The market counter</span>
+        <h2>Take the catch home.</h2>
+        <p>Hammerhead&rsquo;s is a market as well as a kitchen. Pick up fresh seafood at the counter and cook it your way — with our house coleslaw and tartar on the side.</p>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="#F2A25C" stroke-width="3"/></svg><span>Fresh seafood from the market counter</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="#F2A25C" stroke-width="3"/></svg><span>House-made coleslaw &amp; tartar to go</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="#F2A25C" stroke-width="3"/></svg><span>Sustainably sourced, every day</span></li>
+        </ul>
+        <a class="btn btn-red" href="tel:+19059239293">Call the market counter</a>
+      </div>
+      <div aria-hidden="true" style="display:flex;justify-content:center">
+        <svg width="260" height="220" viewBox="0 0 260 220">
+          <rect x="30" y="60" width="200" height="120" rx="12" fill="none" stroke="#F2A25C" stroke-width="5"/>
+          <rect x="30" y="60" width="200" height="34" rx="12" fill="#F2A25C" opacity=".25"/>
+          <text x="130" y="86" text-anchor="middle" font-family="Zilla Slab,serif" font-size="20" fill="#fff">MARKET</text>
+          <g transform="translate(90,140)"><ellipse cx="0" cy="0" rx="34" ry="16" fill="#5B8FA8"/><polygon points="32,-4 52,-16 52,10" fill="#5B8FA8"/><circle cx="-18" cy="-4" r="3.5" fill="#fff"/></g>
+          <g transform="translate(170,140)"><ellipse cx="0" cy="0" rx="34" ry="16" fill="#CE3527"/><polygon points="32,-4 52,-16 52,10" fill="#CE3527"/><circle cx="-18" cy="-4" r="3.5" fill="#fff"/></g>
+          <path d="M60 200 q15 -12 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#5B8FA8" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip3" style="padding-top:clamp(40px,5vw,64px)">
+  <div class="wrap">
+    <span class="kicker">Good to know</span>
+    <div class="know">
+      <div><h3><span class="r">Sustainably</span> sourced</h3><p>We buy seafood with the ocean in mind — responsibly sourced, and proud of it.</p></div>
+      <div><h3><span class="r">Gluten-free</span> kitchen</h3><p>Dietary needs are welcome here. The gluten-free fish and chips tastes like the real thing — because it is.</p></div>
+      <div><h3><span class="r">Made in-house,</span> daily</h3><p>Coleslaw and tartar sauce are made fresh in our kitchen, not poured from a jug.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="takeout" id="takeout">
+  <div class="wrap takeout-grid">
+    <div>
+      <span class="kicker">Takeout &amp; delivery</span>
+      <h2>Dinner, without the dishes.</h2>
+      <p class="lede">Order ahead for pickup, or find us on your favourite delivery app. Prefer to talk to a human? Call and we&rsquo;ll have it ready.</p>
+      <div class="delivery-cards">
+        <div class="d-card"><div><h3>DoorDash</h3><p>Find Hammerhead&rsquo;s on DoorDash for delivery.</p></div><a class="btn btn-navy" href="tel:+19059239293">Call to order</a></div>
+        <div class="d-card"><div><h3>Uber Eats</h3><p>Find Hammerhead&rsquo;s on Uber Eats for delivery.</p></div><a class="btn btn-navy" href="tel:+19059239293">Call to order</a></div>
+        <div class="d-card"><div><h3>Pickup</h3><p>Call ahead — we&rsquo;ll time it so it&rsquo;s hot when you arrive.</p></div><a class="btn btn-red" href="tel:+19059239293">Call (905) 923-9293</a></div>
+      </div>
+    </div>
+    <div class="reserve">
+      <h3>Dining in? Reserve a table.</h3>
+      <p>We take reservations — one quick call and your table is waiting.</p>
+      <a class="btn btn-red" href="tel:+19059239293">Call to reserve</a>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <span class="kicker">Visit us</span>
+      <h2>On Ottawa Street North.</h2>
+      <span class="open7">Open 7 days a week</span>
+      <p class="addr">74 Ottawa Street North<br>Hamilton, ON<br><a href="tel:+19059239293">(905) 923-9293</a></p>
+      <div class="visit-cta">
+        <a class="btn btn-red" href="tel:+19059239293">Call now</a>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Hammerhead%27s+74+Ottawa+St+N+Hamilton+ON" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+    <div class="hours-card">
+      <h3>Hours</h3>
+      <p>We&rsquo;re open seven days a week. Our exact hours aren&rsquo;t posted online — call ahead and we&rsquo;ll tell you when the fryer&rsquo;s hot.</p>
+      <a class="btn btn-navy" href="tel:+19059239293">Call for hours</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Hammerhead&rsquo;s Seafood Kitchen &amp; Market · 74 Ottawa St N, Hamilton, ON · (905) 923-9293</span>
+    <span class="concept">Concept preview built by Shashin Pillay, an IT student at Seneca College.</span>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19059239293">📞 Tap to call Hammerhead&rsquo;s</a>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),nav=document.getElementById('topnav'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');nav.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');nav.classList.remove('open');burger.setAttribute('aria-expanded','false');});});
+
+  document.querySelectorAll('.dish').forEach(function(dish){
+    var btn=dish.querySelector('.dish-btn');
+    btn.addEventListener('click',function(){
+      var open=dish.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open);
+    });
+  });
+})();
+</script>
+</body>
+</html>

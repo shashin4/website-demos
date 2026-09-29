@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Amour Hair Lounge — Georgetown, ON</title>
+<meta name="description" content="L'Amour Hair Lounge, downtown Georgetown. Haircuts, colour, extensions, bridal & event styling, keratin treatments. Call 905-581-5817.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bone:#f3f0e8;
+  --bone-deep:#e9e3d4;
+  --ink:#1d1f1b;
+  --ink-soft:#55574f;
+  --accent:#1f5b44;
+  --accent-soft:#dce7df;
+  --line:#cfc7b2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',system-ui,sans-serif;
+  background:var(--bone);color:var(--ink);
+  font-weight:400;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Cormorant Garamond',Georgia,serif;text-wrap:balance;font-weight:500;line-height:1.05}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+a{color:inherit}
+::selection{background:var(--accent);color:#fff}
+
+/* ---------- masthead ---------- */
+.masthead{position:sticky;top:0;z-index:50;background:rgba(243,240,232,.96);border-bottom:1px solid var(--ink)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.wordmark{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;font-style:italic;text-decoration:none}
+.wordmark small{font-style:normal;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;vertical-align:middle;margin-left:10px}
+.mast-links{display:flex;gap:30px;list-style:none;align-items:center}
+.mast-links a{text-decoration:none;font-size:.86rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.mast-links a:hover{color:var(--accent)}
+.btn-outline{
+  display:inline-block;border:1px solid var(--ink);padding:.7rem 1.6rem;text-decoration:none;
+  font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;
+  transition:background .25s,color .25s;
+}
+.btn-outline:hover{background:var(--ink);color:var(--bone)}
+.btn-solid{
+  display:inline-block;background:var(--accent);color:#fff;padding:.95rem 2.2rem;text-decoration:none;
+  font-size:.88rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;
+  transition:background .25s;
+}
+.btn-solid:hover{background:var(--ink)}
+.hamburger{display:none;background:none;border:0;cursor:pointer;padding:10px}
+.hamburger span{display:block;width:26px;height:2px;background:var(--ink);margin:6px 0;transition:.25s}
+
+/* ---------- hero : editorial cover ---------- */
+.cover{border-bottom:1px solid var(--ink);position:relative;overflow:hidden}
+.cover .wrap{padding:96px 28px 88px;display:grid;grid-template-columns:1fr;gap:10px}
+.cover .folio{
+  display:flex;justify-content:space-between;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px;
+}
+.cover h1{font-size:clamp(3.4rem,11vw,8.5rem);font-weight:500;letter-spacing:-.01em}
+.cover h1 em{font-style:italic;color:var(--accent)}
+.cover .strap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.4rem,3vw,2.1rem);color:var(--ink-soft);margin-top:18px;max-width:26ch}
+.cover-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;margin-top:44px;align-items:end}
+.cover-services{font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);line-height:2.1}
+.cover-services span{color:var(--accent)}
+.cover-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+
+/* ---------- chapters ---------- */
+.chapters .wrap{padding:92px 28px}
+.chapters-head{margin-bottom:52px;max-width:640px}
+.chapters-head .kicker{font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px;display:block}
+.chapters-head h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+.chapters-head p{color:var(--ink-soft);margin-top:14px;font-size:1.08rem}
+.chapter{border-top:1px solid var(--ink);cursor:pointer}
+.chapter:last-of-type{border-bottom:1px solid var(--ink)}
+.chapter-head{
+  display:grid;grid-template-columns:90px 1fr auto;gap:24px;align-items:baseline;
+  padding:30px 8px;list-style:none;
+}
+.chapter-head::-webkit-details-marker{display:none}
+.chapter-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--accent)}
+.chapter-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:500}
+.chapter-plus{font-size:1.6rem;font-weight:300;color:var(--accent);transition:transform .3s}
+.chapter[open] .chapter-plus{transform:rotate(45deg)}
+.chapter-body{padding:0 8px 34px 114px;max-width:760px}
+.chapter-body p{color:var(--ink-soft);font-size:1.05rem;margin-bottom:14px;max-width:58ch}
+.chapter-body .price-line{font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.chapter-body .price-line a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
+.chapter-body .price-line a:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ---------- bridal feature ---------- */
+.bridal{background:var(--ink);color:var(--bone)}
+.bridal .wrap{padding:96px 28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.bridal .kicker{font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:#9fc4ae;font-weight:600;margin-bottom:18px;display:block}
+.bridal h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:20px}
+.bridal h2 em{font-style:italic;color:#cfe3d5}
+.bridal p{color:#b9b4a4;margin-bottom:16px;font-size:1.06rem;max-width:52ch}
+.bridal .btn-solid{margin-top:14px;background:#9fc4ae;color:var(--ink)}
+.bridal .btn-solid:hover{background:var(--bone)}
+.bridal-aside{border-left:1px solid #4a4c44;padding-left:44px}
+.bridal-aside ul{list-style:none}
+.bridal-aside li{padding:16px 0;border-bottom:1px solid #4a4c44;font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:#e8e2d2}
+.bridal-aside li:last-child{border-bottom:0}
+.bridal-aside li small{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#9fc4ae;margin-top:4px}
+
+/* ---------- visit ---------- */
+.visit .wrap{padding:92px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:0;border:1px solid var(--ink)}
+.visit-info{padding:56px 48px}
+.visit-info .kicker{font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px;display:block}
+.visit-info h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:22px}
+.visit-info address{font-style:normal;font-size:1.15rem;margin-bottom:8px}
+.visit-info .tel{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--accent);text-decoration:none;display:inline-block;margin:16px 0 6px}
+.visit-info .tel:hover{color:var(--ink)}
+.visit-info .ig{font-size:.95rem;letter-spacing:.06em;color:var(--ink-soft)}
+.visit-info .ig a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
+.visit-hours{background:var(--bone-deep);padding:56px 48px;border-left:1px solid var(--ink)}
+.visit-hours h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin-bottom:18px;font-style:italic}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:1.02rem}
+.hours-row:last-child{border-bottom:0}
+.hours-row strong{font-weight:600}
+
+/* ---------- footer ---------- */
+footer .wrap{padding:28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.85rem;color:var(--ink-soft);border-top:1px solid var(--line)}
+.concept{font-style:italic}
+
+/* ---------- mobile call bar ---------- */
+.callbar{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;
+  background:var(--accent);color:#fff;text-align:center;padding:15px;
+  font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.95rem;text-decoration:none;
+}
+
+@media(max-width:900px){
+  .mast-links{
+    position:absolute;top:74px;left:0;right:0;background:var(--bone);
+    flex-direction:column;align-items:flex-start;padding:20px 28px 28px;gap:18px;
+    border-bottom:1px solid var(--ink);display:none;
+  }
+  .mast-links.open{display:flex}
+  .hamburger{display:block}
+  .mast-cta{display:none}
+  .cover-grid{grid-template-columns:1fr;gap:26px}
+  .cover-ctas{justify-content:flex-start}
+  .chapter-body{padding:0 8px 28px 8px}
+  .chapter-head{grid-template-columns:56px 1fr auto;gap:14px}
+  .bridal .wrap{grid-template-columns:1fr;gap:40px;padding:72px 28px}
+  .bridal-aside{border-left:0;padding-left:0;border-top:1px solid #4a4c44;padding-top:24px}
+  .visit .wrap{grid-template-columns:1fr;margin:0 0 60px}
+  .visit-info{padding:40px 28px}
+  .visit-hours{padding:40px 28px;border-left:0;border-top:1px solid var(--ink)}
+  .callbar{display:block}
+  body{padding-bottom:54px}
+  footer .wrap{padding-bottom:80px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="masthead" aria-label="Main">
+  <div class="wrap">
+    <a class="wordmark" href="#">L&rsquo;Amour <small>Hair Lounge</small></a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <ul class="mast-links" id="mastLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#bridal">Bridal</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li class="mast-cta"><a class="btn-outline" href="tel:+19055815817">Call now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="folio">
+      <span>Georgetown, Ontario</span>
+      <span>Est. downtown salon</span>
+    </div>
+    <h1>L&rsquo;Amour <em>Hair Lounge</em></h1>
+    <p class="strap">Where style meets sophistication — an independent salon in the heart of downtown Georgetown.</p>
+    <div class="cover-grid">
+      <p class="cover-services">
+        Haircuts <span>&middot;</span> Colouring <span>&middot;</span> Hair Extensions<br>
+        Bridal &amp; Event Styling <span>&middot;</span> Keratin Treatments <span>&middot;</span> Curling &amp; Waving
+      </p>
+      <div class="cover-ctas">
+        <a class="btn-solid" href="tel:+19055815817">Call 905-581-5817</a>
+        <a class="btn-outline" href="#services">Read the services</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="chapters" id="services">
+  <div class="wrap">
+    <div class="chapters-head">
+      <span class="kicker">The services</span>
+      <h2>Six chapters, one chair.</h2>
+      <p>Everything the lounge does, told the way a magazine would tell it. Open a chapter for the details — then call, because every service is priced in person.</p>
+    </div>
+
+    <details class="chapter" open>
+      <summary class="chapter-head"><span class="chapter-num">01</span><span class="chapter-title">Haircuts</span><span class="chapter-plus">+</span></summary>
+      <div class="chapter-body">
+        <p>A proper cut starts with a conversation, not clippers. Length, texture, how much morning effort you're willing to give — then a shape that works with all three.</p>
+        <p class="price-line">Call for price &middot; <a href="tel:+19055815817">Call to book</a></p>
+      </div>
+    </details>
+
+    <details class="chapter">
+      <summary class="chapter-head"><span class="chapter-num">02</span><span class="chapter-title">Colouring</span><span class="chapter-plus">+</span></summary>
+      <div class="chapter-body">
+        <p>Single-process colour, dimensional work, and the kind of blonde that doesn't look done in a day. Consultation first, always — your hair history decides the plan.</p>
+        <p class="price-line">Call for price &middot; <a href="tel:+19055815817">Call to book</a></p>
+      </div>
+    </details>
+
+    <details class="chapter">
+      <summary class="chapter-head"><span class="chapter-num">03</span><span class="chapter-title">Hair Extensions</span><span class="chapter-plus">+</span></summary>
+      <div class="chapter-body">
+        <p>Length and fullness that moves like your own hair, matched to your colour and cut in. Best results start with a consultation so the match is exact.</p>
+        <p class="price-line">Call for price &middot; <a href="tel:+19055815817">Call to book</a></p>
+      </div>
+    </details>
+
+    <details class="chapter">
+      <summary class="chapter-head"><span class="chapter-num">04</span><span class="chapter-title">Bridal &amp; Event Styling</span><span class="chapter-plus">+</span></summary>
+      <div class="chapter-body">
+        <p>Updos, soft waves, and styles built to survive hugs, wind, and a long night on the dance floor. Bridal parties welcome — tell us the date and we'll plan backwards from it.</p>
+        <p class="price-line">Call for price &middot; <a href="tel:+19055815817">Call to book</a></p>
+      </div>
+    </details>
+
+    <details class="chapter">
+      <summary class="chapter-head"><span class="chapter-num">05</span><span class="chapter-title">Keratin Treatments</span><span class="chapter-plus">+</span></summary>
+      <div class="chapter-body">
+        <p>Smoothing treatments that take the fight out of frizz and cut styling time in half. Your stylist will tell you honestly whether your hair is a good candidate.</p>
+        <p class="price-line">Call for price &middot; <a href="tel:+19055815817">Call to book</a></p>
+      </div>
+    </details>
+
+    <details class="chapter">
+      <summary class="chapter-head"><span class="chapter-num">06</span><span class="chapter-title">Curling &amp; Waving</span><span class="chapter-plus">+</span></summary>
+      <div class="chapter-body">
+        <p>Defined curls, lived-in waves, or a blowout with bend — the finish that makes the cut read the way it was meant to.</p>
+        <p class="price-line">Call for price &middot; <a href="tel:+19055815817">Call to book</a></p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="bridal" id="bridal">
+  <div class="wrap">
+    <div>
+      <span class="kicker">The bridal chapter</span>
+      <h2>Your wedding day, <em>styled to last it.</em></h2>
+      <p>Bridal and event hairstyling is one of the lounge's specialties — styles planned around your dress, your venue, and the hour the photos start.</p>
+      <p>Bring the whole party. Bring the Pinterest board. We'll bring the pins.</p>
+      <a class="btn-solid" href="tel:+19055815817">Call to talk through your date</a>
+    </div>
+    <aside class="bridal-aside" aria-label="Bridal notes">
+      <ul>
+        <li>Bridal parties welcome<small>one chair, many heads</small></li>
+        <li>Event &amp; formal styling<small>galas, proms, portraits</small></li>
+        <li>Trial runs available<small>call to arrange</small></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-info">
+      <span class="kicker">Visit</span>
+      <h2>Downtown Georgetown.</h2>
+      <address>43 Main St S<br>Georgetown, ON L7G 5M9</address>
+      <a class="tel" href="tel:+19055815817">905-581-5817</a>
+      <p class="ig">Follow along: <a href="https://www.instagram.com/lamourhairlounge" rel="noopener">@lamourhairlounge</a></p>
+    </div>
+    <div class="visit-hours">
+      <h3>Hours</h3>
+      <div class="hours-row"><span>Tuesday &ndash; Friday</span><strong>10 &ndash; 7</strong></div>
+      <div class="hours-row"><span>Saturday</span><strong>9 &ndash; 4</strong></div>
+      <div class="hours-row"><span>Sunday &amp; Monday</span><strong>Closed</strong></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 L&rsquo;Amour Hair Lounge, Georgetown ON</span>
+    <span class="concept">Concept preview built by Shashin Pillay, an IT student at Seneca College.</span>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19055815817">Tap to call &middot; 905-581-5817</a>
+
+<script>
+function toggleMenu(){
+  var links=document.getElementById('mastLinks');
+  var btn=document.querySelector('.hamburger');
+  var open=links.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+}
+document.querySelectorAll('#mastLinks a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.getElementById('mastLinks').classList.remove('open');
+    document.querySelector('.hamburger').setAttribute('aria-expanded','false');
+  });
+});
+</script>
+</body>
+</html>
