@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>That Pie Place — Savoury Pies Since 1983 | Burlington, ON</title>
+<meta name="description" content="That Pie Place in Burlington: hand-rolled Tenderflake-lard pastry pies, made by a family-run shop since 1983. Call (905) 827-3373 to order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fbf5e9; --crust:#3a2417; --crust-deep:#2a190f; --gold:#c08a2d; --gold-soft:#e8cf9a;
+    --red:#a63a2a; --ink:#33241a; --muted:#7a6a58; --line:#e7dcc4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Karla',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Zilla Slab',serif;font-weight:700;line-height:1.08;text-wrap:balance}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  /* hours strip */
+  .strip{background:var(--crust-deep);color:var(--gold-soft);font-size:.85rem;font-weight:600}
+  .strip .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+  .strip a{color:#fff;text-decoration:none;font-weight:700}
+  /* nav */
+  nav.site{position:sticky;top:0;z-index:50;background:rgba(251,245,233,.96);backdrop-filter:blur(8px);border-bottom:2px solid var(--crust)}
+  nav.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .brand{text-decoration:none;display:flex;align-items:center;gap:12px}
+  .brand-pie{width:42px;height:42px;border-radius:50%;background:var(--gold);position:relative;flex:0 0 42px}
+  .brand-pie::after{content:"";position:absolute;inset:7px;border-radius:50%;border:3px dashed #fff;opacity:.85}
+  .brand-name{font-family:'Zilla Slab';font-weight:700;font-size:1.45rem;line-height:1;color:var(--crust)}
+  .brand-name small{display:block;font-family:'Karla';font-weight:700;font-size:.6rem;letter-spacing:.28em;color:var(--muted)}
+  .nav-links{display:flex;gap:26px;list-style:none;font-weight:700;font-size:.95rem}
+  .nav-links a{text-decoration:none}
+  .nav-links a:hover{color:var(--red)}
+  .nav-cta{background:var(--red);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:999px;font-size:.95rem}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{display:block;width:26px;height:3px;background:var(--crust);margin:5px 0;border-radius:2px}
+  /* hero = menu board */
+  .board{background:var(--crust);color:var(--cream);position:relative;overflow:hidden}
+  .board::before{content:"";position:absolute;inset:14px;border:2px solid rgba(232,207,154,.35);border-radius:6px;pointer-events:none}
+  .board .wrap{padding-top:64px;padding-bottom:64px;position:relative}
+  .board-eyebrow{text-align:center;color:var(--gold-soft);font-weight:700;letter-spacing:.3em;font-size:.78rem;margin-bottom:14px}
+  .board h1{text-align:center;font-size:clamp(2.8rem,6vw,4.6rem);color:#fff;margin-bottom:8px}
+  .board h1 .since{color:var(--gold)}
+  .board-sub{text-align:center;color:var(--gold-soft);font-size:1.1rem;max-width:36rem;margin:0 auto 36px}
+  .pie-columns{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;max-width:900px;margin:0 auto}
+  .pie-col h2{font-size:1.15rem;letter-spacing:.24em;color:var(--gold);border-bottom:1px dashed rgba(232,207,154,.4);padding-bottom:10px;margin-bottom:6px}
+  .pie-item{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px dotted rgba(232,207,154,.25)}
+  .pie-item:last-child{border-bottom:none}
+  .pie-item .name{font-family:'Zilla Slab';font-weight:600;font-size:1.12rem;color:#fff}
+  .pie-item .name small{display:block;font-family:'Karla';font-weight:400;font-size:.82rem;color:var(--gold-soft)}
+  .pie-item .dots{flex:1;border-bottom:2px dotted rgba(232,207,154,.35);transform:translateY(-4px)}
+  .pie-item .note{font-size:.85rem;color:var(--gold-soft);font-style:italic;white-space:nowrap}
+  .board-cta{text-align:center;margin-top:38px}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:15px 34px;border-radius:999px;font-size:1.05rem}
+  .btn-call{background:var(--gold);color:var(--crust-deep)}
+  .btn-call:hover{background:var(--gold-soft)}
+  .board-fine{text-align:center;color:rgba(232,207,154,.75);font-size:.85rem;margin-top:14px}
+  /* heritage */
+  .heritage{padding:80px 0}
+  .heritage-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .year-mark{font-family:'Zilla Slab';font-weight:700;font-size:clamp(4rem,9vw,7rem);color:var(--gold);line-height:1}
+  .heritage h2{font-size:clamp(2rem,4vw,2.8rem);margin:6px 0 16px;color:var(--crust)}
+  .heritage p{color:var(--muted);font-size:1.05rem;margin-bottom:14px}
+  .heritage p b{color:var(--ink)}
+  .fact-list{list-style:none;margin-top:20px;border-top:2px solid var(--crust)}
+  .fact-list li{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.98rem}
+  .fact-list .f-year{font-family:'Zilla Slab';font-weight:700;color:var(--red);flex:0 0 64px}
+  /* craft */
+  .craft{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:80px 0}
+  .craft-head{max-width:640px;margin-bottom:44px}
+  .kicker{color:var(--red);font-weight:700;letter-spacing:.2em;font-size:.78rem;margin-bottom:10px}
+  .craft-head h2{font-size:clamp(2rem,4vw,2.8rem);color:var(--crust);margin-bottom:10px}
+  .craft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--crust);border-radius:10px;overflow:hidden}
+  .craft-cell{padding:32px 28px;border-right:2px solid var(--crust);background:var(--cream)}
+  .craft-cell:last-child{border-right:none;background:#fff}
+  .craft-cell:nth-child(2){background:var(--gold-soft)}
+  .craft-cell h3{font-size:1.35rem;color:var(--crust);margin-bottom:8px}
+  .craft-cell p{font-size:.94rem;color:var(--muted)}
+  /* order band */
+  .order-band{background:var(--red);color:#fff;padding:64px 0;text-align:center}
+  .order-band h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:10px}
+  .order-band p{max-width:34rem;margin:0 auto 26px;color:#f6dcd6;font-size:1.05rem}
+  .order-band .btn-call{background:#fff;color:var(--red)}
+  .order-band .btn-call:hover{background:var(--cream)}
+  .order-hours{margin-top:18px;font-size:.9rem;color:#f6dcd6}
+  /* visit */
+  .visit{padding:80px 0}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .visit h2{font-size:clamp(2rem,4vw,2.8rem);color:var(--crust);margin-bottom:18px}
+  .hours-table{width:100%;border-collapse:collapse;font-size:1.02rem}
+  .hours-table td{padding:11px 0;border-bottom:1px solid var(--line)}
+  .hours-table td:last-child{text-align:right;font-weight:700}
+  .addr-card{background:var(--crust);color:var(--cream);border-radius:12px;padding:34px}
+  .addr-card h3{font-size:1.5rem;color:#fff;margin-bottom:14px}
+  .addr-card p{margin-bottom:8px;color:var(--gold-soft)}
+  .addr-card a{color:#fff;font-weight:700;text-decoration:none;font-size:1.15rem}
+  /* footer */
+  footer{background:var(--crust-deep);color:#b9a88f;font-size:.9rem}
+  footer .wrap{padding-top:40px;padding-bottom:40px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer b{color:#fff;font-family:'Zilla Slab'}
+  .concept{border-top:1px solid #4a3220;font-size:.78rem}
+  .concept .wrap{padding-top:14px;padding-bottom:14px;display:block}
+  .tapcall{display:none;position:fixed;bottom:16px;left:16px;right:16px;z-index:60;background:var(--red);color:#fff;text-align:center;font-weight:700;font-size:1.1rem;text-decoration:none;padding:15px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+  @media(max-width:880px){
+    .pie-columns{grid-template-columns:1fr;gap:28px}
+    .heritage-grid{grid-template-columns:1fr;gap:24px}
+    .craft-grid{grid-template-columns:1fr}
+    .craft-cell{border-right:none;border-bottom:2px solid var(--crust)}
+    .craft-cell:last-child{border-bottom:none}
+    .visit-grid{grid-template-columns:1fr}
+    .nav-links{position:fixed;inset:0;background:var(--crust);flex-direction:column;align-items:center;justify-content:center;gap:30px;font-size:1.4rem;display:none;z-index:60}
+    .nav-links.open{display:flex}
+    .nav-links a{color:#fff}
+    .burger{display:block}
+    .tapcall{display:block}
+    body{padding-bottom:76px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Tue–Fri 10–5 · Sat 10–4 · Closed Sun &amp; Mon</span>
+    <a href="tel:+19058273373">Order by phone: (905) 827-3373</a>
+  </div>
+</div>
+
+<nav class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-pie"></span>
+      <span class="brand-name">That Pie Place<small>SINCE 1983</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#board">The pies</a></li>
+      <li><a href="#story">Our story</a></li>
+      <li><a href="#craft">The craft</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+19058273373">Call to order</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="board" id="board">
+  <div class="wrap">
+    <p class="board-eyebrow">BURLINGTON · ONTARIO</p>
+    <h1>Savoury pies, <span class="since">since 1983.</span></h1>
+    <p class="board-sub">Hand-rolled pastry. Real stock. A family recipe book forty years deep. Here's what's in the case this week:</p>
+    <div class="pie-columns">
+      <div class="pie-col">
+        <h2>SAVOURY</h2>
+        <div class="pie-item"><span class="name">Chicken Pot Pie<small>chicken cooked in its own stock</small></span><span class="dots"></span><span class="note">our signature</span></div>
+        <div class="pie-item"><span class="name">Tourtière<small>French-Canadian spiced meat pie</small></span><span class="dots"></span><span class="note">a holiday favourite</span></div>
+        <div class="pie-item"><span class="name">Steak &amp; Mushroom<small>slow-simmered beef</small></span><span class="dots"></span><span class="note">hearty</span></div>
+        <div class="pie-item"><span class="name">Chicken à la King<small>creamy, classic</small></span><span class="dots"></span><span class="note">comfort food</span></div>
+      </div>
+      <div class="pie-col">
+        <h2>SWEET &amp; MORE</h2>
+        <div class="pie-item"><span class="name">Butter Tarts<small>flaky, gooey, proper</small></span><span class="dots"></span><span class="note">by the dozen</span></div>
+        <div class="pie-item"><span class="name">Fruit Pies<small>apple, cherry, seasonal</small></span><span class="dots"></span><span class="note">ask what's baking</span></div>
+        <div class="pie-item"><span class="name">Quiche<small>ham &amp; cheese, veggie</small></span><span class="dots"></span><span class="note">great for brunch</span></div>
+        <div class="pie-item"><span class="name">Lasagna<small>family-size trays</small></span><span class="dots"></span><span class="note">feeds a crowd</span></div>
+      </div>
+    </div>
+    <div class="board-cta">
+      <a class="btn btn-call" href="tel:+19058273373">Call (905) 827-3373 to order</a>
+      <p class="board-fine">We take orders by phone — call ahead and your pies will be ready when you arrive.</p>
+    </div>
+  </div>
+</header>
+
+<section class="heritage" id="story">
+  <div class="wrap heritage-grid">
+    <div>
+      <div class="year-mark">1983</div>
+      <h2>Four decades of<br>rolling pastry.</h2>
+    </div>
+    <div>
+      <p><b>That Pie Place is a family-run Burlington bakery</b> that has been making savoury pies since 1983. What started at the family counter grew into something bigger: <b>since 1993 we've supplied our pies wholesale to local retailers</b> across the area.</p>
+      <p>Through all of it, the method hasn't changed. Pastry rolled by hand. Fillings made from scratch. The kind of pie people drive across town for — and have, for forty years.</p>
+      <ul class="fact-list">
+        <li><span class="f-year">1983</span><span>Family-run pie shop opens in Burlington</span></li>
+        <li><span class="f-year">1993</span><span>Wholesale begins — local retailers start carrying our pies</span></li>
+        <li><span class="f-year">Today</span><span>Same hand-rolled pastry, same family standards</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="craft" id="craft">
+  <div class="wrap">
+    <div class="craft-head">
+      <p class="kicker">WHY THEY TASTE LIKE THAT</p>
+      <h2>No shortcuts in the crust.</h2>
+    </div>
+    <div class="craft-grid">
+      <div class="craft-cell">
+        <h3>Tenderflake-lard pastry</h3>
+        <p>Our crusts are hand-rolled with Tenderflake lard — the old-fashioned way. That's the flake you can't get from a factory shell.</p>
+      </div>
+      <div class="craft-cell">
+        <h3>Chicken in its own stock</h3>
+        <p>Our chicken pies are made with chicken cooked down in its own stock. Rich, real gravy — never a packet.</p>
+      </div>
+      <div class="craft-cell">
+        <h3>Baked through, not rushed</h3>
+        <p>Bottom crusts fully baked, fillings seasoned to taste, pies cooled properly. Forty years teaches you patience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order-band" id="order">
+  <div class="wrap">
+    <h2>Hungry? Call it in.</h2>
+    <p>We take all orders by phone — it's the fastest way to make sure your pies are hot and ready when you walk in. Holiday pre-orders welcome.</p>
+    <a class="btn btn-call" href="tel:+19058273373">Call (905) 827-3373</a>
+    <p class="order-hours">Tue–Fri 10 AM – 5 PM · Sat 10 AM – 4 PM · Closed Sun &amp; Mon</p>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <h2>Come by the shop</h2>
+    <div class="visit-grid">
+      <div>
+        <table class="hours-table">
+          <tr><td>Tuesday – Friday</td><td>10 AM – 5 PM</td></tr>
+          <tr><td>Saturday</td><td>10 AM – 4 PM</td></tr>
+          <tr><td>Sunday – Monday</td><td>Closed</td></tr>
+        </table>
+        <p style="margin-top:16px;color:var(--muted)">Call ahead for large or holiday orders — the case sells out on Saturdays.</p>
+      </div>
+      <div class="addr-card">
+        <h3>That Pie Place</h3>
+        <p>4155 Fairview St, Unit 11<br>Burlington, ON L7L 2A4</p>
+        <p><a href="tel:+19058273373">(905) 827-3373</a></p>
+        <p><a href="mailto:info@thatpieplace.com" style="font-size:1rem;font-weight:600">info@thatpieplace.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>THAT PIE PLACE</b><br>4155 Fairview St, Unit 11, Burlington, ON</div>
+    <div><b>ORDER</b><br><a href="tel:+19058273373" style="color:#fff">(905) 827-3373</a> · phone orders only</div>
+    <div><b>HOURS</b><br>Tue–Fri 10–5 · Sat 10–4</div>
+  </div>
+  <div class="concept"><div class="wrap">Concept preview — a design mockup, not the business's live website.</div></div>
+</footer>
+
+<a class="tapcall" href="tel:+19058273373">Call to order — (905) 827-3373</a>
+
+<script>
+  document.getElementById('burger').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+  });
+</script>
+</body>
+</html>

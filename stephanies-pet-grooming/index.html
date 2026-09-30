@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stephanie's Pet Grooming | Dog &amp; Cat Grooming in Burlington, ON</title>
+<meta name="description" content="Stephanie's Pet Grooming in Burlington: full dog and cat grooming, cat shaving and lion cuts, de-skunking, walk-in nail trims, and in-home grooming visits. Paws down, the best in town.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f4f7ef;
+    --cream-2:#e8efdd;
+    --ink:#1f3122;
+    --ink-soft:#4a5f4d;
+    --honey:#6fa055;
+    --honey-deep:#4e7d3c;
+    --leaf:#5f7f4e;
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Fredoka',sans-serif;font-weight:600;text-wrap:balance;line-height:1.12}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(250,245,234,.94);backdrop-filter:blur(10px);border-bottom:2px solid var(--cream-2)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1180px;margin:0 auto;position:relative}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand-paw{width:44px;height:44px;flex:0 0 44px;border-radius:50%;background:var(--honey);display:flex;align-items:center;justify-content:center}
+  .brand-paw svg{width:26px;height:26px}
+  .brand-name{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.12rem;line-height:1.15}
+  .brand-name small{display:block;font-family:'Nunito',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.24em;color:var(--honey-deep);text-transform:uppercase}
+  nav.links{display:flex;gap:24px;align-items:center}
+  nav.links a.nl{text-decoration:none;font-weight:700;font-size:.93rem;color:var(--ink-soft)}
+  nav.links a.nl:hover{color:var(--honey-deep)}
+  .btn{display:inline-block;text-decoration:none;font-weight:800;font-size:.95rem;padding:13px 24px;border-radius:999px;border:2px solid transparent;cursor:pointer;font-family:'Nunito',sans-serif}
+  .btn-honey{background:var(--honey);color:#fff}
+  .btn-honey:hover{background:var(--honey-deep)}
+  .btn-line{border-color:var(--ink);color:var(--ink)}
+  .btn-line:hover{background:var(--ink);color:var(--cream)}
+  .nav-cta{padding:10px 20px}
+  .hamburger{display:none;background:var(--cream-2);border:none;border-radius:12px;color:var(--ink);padding:9px 13px;font-size:1.15rem;cursor:pointer;font-weight:800}
+  @media(max-width:860px){
+    nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;align-items:stretch;padding:10px 24px 22px;border-bottom:2px solid var(--cream-2);gap:2px}
+    nav.links.open{display:flex}
+    nav.links a.nl{padding:11px 0;border-bottom:1px solid var(--cream-2)}
+    nav.links .btn{margin-top:10px;text-align:center}
+    .hamburger{display:block}
+  }
+
+  /* hero */
+  .hero{padding:70px 0 60px;position:relative;overflow:hidden}
+  .paw-bg{position:absolute;opacity:.06;pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{display:inline-block;background:#fff;border:2px solid var(--cream-2);border-radius:999px;padding:7px 16px;font-weight:800;font-size:.8rem;letter-spacing:.06em;color:var(--honey-deep);margin-bottom:20px}
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4.4rem);margin-bottom:18px}
+  .hero h1 .hl{color:var(--honey-deep);position:relative}
+  .hero p.lede{font-size:1.12rem;color:var(--ink-soft);max-width:32rem;margin-bottom:30px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+  .hero-meta{display:flex;gap:22px;flex-wrap:wrap;font-size:.9rem;font-weight:700;color:var(--ink-soft)}
+  .hero-meta span{display:flex;align-items:center;gap:8px}
+  .hero-card{background:#fff;border:2px solid var(--cream-2);border-radius:26px;padding:34px 30px;box-shadow:0 20px 50px rgba(185,130,31,.14);position:relative}
+  .hero-card::after{content:"";position:absolute;top:-14px;right:34px;width:60px;height:60px;background:var(--honey);border-radius:50% 50% 50% 4px;transform:rotate(18deg);opacity:.9}
+  .hero-card h3{font-size:1.3rem;margin-bottom:16px}
+  .mini-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:2px dashed var(--cream-2);font-size:.94rem}
+  .mini-row:last-of-type{border-bottom:none}
+  .mini-row strong{font-weight:800}
+  .mini-row .tag{font-size:.76rem;font-weight:800;background:var(--cream-2);border-radius:999px;padding:4px 12px;color:var(--ink-soft);white-space:nowrap}
+  .hero-card .btn{width:100%;text-align:center;margin-top:16px}
+
+  /* animal tabs */
+  section.block{padding:64px 0}
+  .center{text-align:center}
+  section.block h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:12px}
+  .section-lede{color:var(--ink-soft);max-width:44rem;margin:0 auto 34px;font-size:1.06rem}
+  .tabs{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+  .tab{border:2px solid var(--cream-2);background:#fff;border-radius:999px;padding:12px 26px;font-family:'Fredoka',sans-serif;font-weight:500;font-size:1.05rem;cursor:pointer;color:var(--ink-soft);transition:all .2s}
+  .tab .emoji{margin-right:8px}
+  .tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+  .tab:hover{border-color:var(--honey)}
+  .panel{display:none;background:#fff;border:2px solid var(--cream-2);border-radius:26px;padding:40px;max-width:960px;margin:0 auto}
+  .panel.active{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+  @media(max-width:760px){.panel.active{grid-template-columns:1fr;padding:28px}}
+  .panel h3{font-size:1.5rem;margin-bottom:6px}
+  .panel .panel-sub{color:var(--ink-soft);margin-bottom:20px;font-size:1rem}
+  .panel ul{list-style:none}
+  .panel li{padding:11px 0 11px 34px;border-bottom:1px dashed var(--cream-2);position:relative;font-size:.97rem}
+  .panel li:last-child{border-bottom:none}
+  .panel li::before{content:"";position:absolute;left:2px;top:16px;width:14px;height:14px;background:var(--honey);border-radius:50% 50% 50% 4px;transform:rotate(-12deg)}
+  .panel li strong{font-weight:800}
+  .panel-side{background:var(--cream);border-radius:18px;padding:26px}
+  .panel-side h4{font-family:'Fredoka',sans-serif;font-size:1.1rem;margin-bottom:10px}
+  .panel-side p{font-size:.93rem;color:var(--ink-soft)}
+
+  /* in-home band */
+  .band{background:var(--ink);color:var(--cream);border-radius:30px;margin:20px 0}
+  .band-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding:56px 48px}
+  @media(max-width:820px){.band-grid{grid-template-columns:1fr;padding:40px 28px}}
+  .band h2{color:#fff;margin-bottom:14px}
+  .band h2 .hl{color:var(--honey)}
+  .band p{color:#d8cbb2;margin-bottom:18px}
+  .pet-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+  .pet-chips span{background:rgba(217,154,43,.16);border:1.5px solid var(--honey);color:var(--honey);font-weight:800;font-size:.85rem;border-radius:999px;padding:8px 16px}
+  .band .btn-honey{background:var(--honey)}
+  .house-card{background:#fff;color:var(--ink);border-radius:20px;padding:30px;position:relative}
+  .house-card h3{margin-bottom:12px}
+  .house-card ul{list-style:none;margin-bottom:18px}
+  .house-card li{padding:8px 0;border-bottom:1px dashed var(--cream-2);font-size:.95rem}
+  .house-card li:last-child{border-bottom:none}
+  .house-card li::before{content:"✓ ";color:var(--leaf);font-weight:800}
+
+  /* walk-in ticket */
+  .ticket{background:#fff;border:2.5px dashed var(--honey);border-radius:22px;padding:36px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;max-width:960px;margin:0 auto}
+  @media(max-width:700px){.ticket{grid-template-columns:1fr;text-align:center}}
+  .ticket-stamp{width:96px;height:96px;border-radius:50%;background:var(--honey);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem;text-align:center;line-height:1.2;transform:rotate(-8deg);margin:0 auto}
+  .ticket h3{font-size:1.45rem;margin-bottom:8px}
+  .ticket p{color:var(--ink-soft);font-size:.96rem}
+  .ticket .times{font-weight:800;color:var(--ink)}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:820px){.visit-grid{grid-template-columns:1fr}}
+  .visit-card{background:#fff;border:2px solid var(--cream-2);border-radius:22px;padding:32px}
+  .visit-card h3{font-size:1.25rem;margin-bottom:16px}
+  .hours-table{width:100%;border-collapse:collapse;font-size:.96rem}
+  .hours-table td{padding:9px 2px;border-bottom:1px dashed var(--cream-2)}
+  .hours-table tr.today td{color:var(--honey-deep);font-weight:800}
+  .hours-table tr.today td:last-child::after{content:" · today";font-size:.76rem}
+  .hours-table td:last-child{text-align:right;color:var(--ink-soft)}
+  .hours-table tr.today td:last-child{color:var(--honey-deep)}
+  .contact-line{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+  .contact-line .icon{flex:0 0 40px;height:40px;border-radius:12px;background:var(--cream-2);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--honey-deep)}
+  .contact-line a{font-weight:700}
+  .contact-line small{display:block;color:var(--ink-soft);font-weight:600}
+
+  footer{padding:36px 0 110px;color:var(--ink-soft);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .concept{font-size:.78rem;opacity:.8}
+
+  .call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--honey);color:#fff;text-align:center;font-weight:800;padding:15px;text-decoration:none;font-size:1.05rem;font-family:'Nunito',sans-serif}
+  @media(max-width:860px){.call-bar{display:block}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Stephanie's Pet Grooming home">
+      <span class="brand-paw" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#fff"><circle cx="7" cy="9" r="2.4"/><circle cx="12" cy="6.6" r="2.4"/><circle cx="17" cy="9" r="2.4"/><path d="M12 10.5c-3.2 0-5.8 2.5-5.8 5.2 0 1.7 1.3 2.8 3 2.8 1.1 0 1.9-.5 2.8-.5s1.7.5 2.8.5c1.7 0 3-1.1 3-2.8 0-2.7-2.6-5.2-5.8-5.2z"/></svg>
+      </span>
+      <span class="brand-name">Stephanie's Pet Grooming<small>Burlington · ON</small></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="links" id="navLinks" aria-label="Main navigation">
+      <a class="nl" href="#services">Services</a>
+      <a class="nl" href="#inhome">In-Home Visits</a>
+      <a class="nl" href="#walkin">Walk-In Trims</a>
+      <a class="nl" href="#visit">Visit</a>
+      <a href="https://stephaniespetgrooming.groomore.com" target="_blank" rel="noopener" class="btn btn-honey nav-cta">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <svg class="paw-bg" style="top:40px;right:6%;width:130px" viewBox="0 0 24 24" fill="#4e7d3c"><circle cx="7" cy="9" r="2.4"/><circle cx="12" cy="6.6" r="2.4"/><circle cx="17" cy="9" r="2.4"/><path d="M12 10.5c-3.2 0-5.8 2.5-5.8 5.2 0 1.7 1.3 2.8 3 2.8 1.1 0 1.9-.5 2.8-.5s1.7.5 2.8.5c1.7 0 3-1.1 3-2.8 0-2.7-2.6-5.2-5.8-5.2z"/></svg>
+    <svg class="paw-bg" style="bottom:30px;left:4%;width:90px;transform:rotate(-24deg)" viewBox="0 0 24 24" fill="#4e7d3c"><circle cx="7" cy="9" r="2.4"/><circle cx="12" cy="6.6" r="2.4"/><circle cx="17" cy="9" r="2.4"/><path d="M12 10.5c-3.2 0-5.8 2.5-5.8 5.2 0 1.7 1.3 2.8 3 2.8 1.1 0 1.9-.5 2.8-.5s1.7.5 2.8.5c1.7 0 3-1.1 3-2.8 0-2.7-2.6-5.2-5.8-5.2z"/></svg>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">DOGS · CATS · POCKET PETS</span>
+        <h1>Paws down, <span class="hl">the best in town.</span></h1>
+        <p class="lede">Full-service grooming for dogs and cats in Burlington, from breed-specific cuts to lion cuts, plus walk-in nail trims and in-home visits for the pets who prefer their own couch.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-honey" href="https://stephaniespetgrooming.groomore.com" target="_blank" rel="noopener">Book an appointment</a>
+          <a class="btn btn-line" href="tel:+19056374143">Call or text</a>
+        </div>
+        <div class="hero-meta">
+          <span>✂ Full grooms, all breeds</span>
+          <span>🏠 In-home visits</span>
+          <span>🐾 Walk-in nail trims</span>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Quick facts">
+        <h3>Good to know</h3>
+        <div class="mini-row"><strong>Walk-in nail trims</strong><span class="tag">No appointment needed</span></div>
+        <div class="mini-row"><strong>Tue–Fri · 9 AM – 2 PM</strong></div>
+        <div class="mini-row"><strong>Saturday · 9 AM – 2 PM</strong></div>
+        <div class="mini-row"><strong>Safety first</strong><span class="tag">We call when done</span></div>
+        <p style="font-size:.86rem;color:var(--ink-soft);margin-top:12px">Hours can fluctuate, so please call ahead to confirm. Short, fun stays for your pet.</p>
+        <a class="btn btn-line" href="tel:+19058025460">Text (905) 802-5460</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES BY ANIMAL -->
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="center">
+        <h2>Every pet, <span style="color:var(--honey-deep)">groomed right</span></h2>
+        <p class="section-lede">Pick your pet to see what we do. Dogs get the full spa treatment, cats get a calm dog-aware approach, and pocket pets are very welcome here too.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Services by animal">
+        <button class="tab" role="tab" aria-selected="true" data-panel="dogs"><span class="emoji">🐶</span>Dogs</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="cats"><span class="emoji">🐱</span>Cats</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="pocket"><span class="emoji">🐹</span>Pocket Pets</button>
+      </div>
+
+      <div class="panel active" id="panel-dogs" role="tabpanel">
+        <div>
+          <h3>Dog grooming &amp; spa</h3>
+          <p class="panel-sub">All breeds, shapes and sizes, from bath-and-fluff to full custom cuts.</p>
+          <ul>
+            <li><strong>Full grooms</strong> · bath, fluff dry, cut and finish</li>
+            <li><strong>Breed-specific &amp; custom cuts</strong> · including mohawks and lion cuts</li>
+            <li><strong>De-skunking</strong> · skunk odour treatment that actually works</li>
+            <li><strong>Hotspot treatment</strong> · careful shave and cleaning of irritated areas</li>
+            <li><strong>Ear cleaning &amp; nail trims</strong> · part of every groom or on their own</li>
+          </ul>
+        </div>
+        <div class="panel-side">
+          <h4>A short, fun stay</h4>
+          <p>Safety comes first here. Pets are never kept longer than needed, and we call you the moment the groom is finished so pickup is quick and stress-free.</p>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-cats" role="tabpanel">
+        <div>
+          <h3>Cat grooming</h3>
+          <p class="panel-sub">Patient, cat-savvy grooming for felines who deserve better than a stressful salon day.</p>
+          <ul>
+            <li><strong>Cat shaving &amp; grooming</strong> · full coats and tidy-ups</li>
+            <li><strong>Lion cuts</strong> · the classic summer favourite</li>
+            <li><strong>Brush-outs</strong> · de-matting and coat care</li>
+            <li><strong>Cat nail trims</strong> · quick and gentle</li>
+            <li><strong>Sanitary trims</strong> · comfort and hygiene</li>
+          </ul>
+        </div>
+        <div class="panel-side">
+          <h4>Prefer to stay home?</h4>
+          <p>Many cats do. Our in-home service brings nail trims, brush-outs and sanitary trims to your door, for cats, dogs, ferrets and guinea pigs. Call to inquire.</p>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-pocket" role="tabpanel">
+        <div>
+          <h3>Pocket pets</h3>
+          <p class="panel-sub">Small pets need grooming too, and most salons turn them away. We don't.</p>
+          <ul>
+            <li><strong>Guinea pigs</strong> · nails, brush-out and dry baths</li>
+            <li><strong>Rabbits</strong> · teeth and nail clipping</li>
+            <li><strong>Ferrets</strong> · nail trimming in-home or in-store</li>
+            <li><strong>In-store extras</strong> · dog hair bows and accessories for special occasions</li>
+          </ul>
+        </div>
+        <div class="panel-side">
+          <h4>Watch for specials</h4>
+          <p>Keep an eye out for our grooming coupon specials through the year. A little pampering shouldn't break the bank.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN-HOME BAND -->
+  <div class="wrap">
+    <div class="band" id="inhome">
+      <div class="band-grid">
+        <div>
+          <h2>We <span class="hl">come to you.</span></h2>
+          <p>For pets who travel badly, owners with packed schedules, or multi-pet households, Stephanie's offers in-home grooming visits across Burlington. The salon experience, minus the car ride.</p>
+          <div class="pet-chips"><span>Cats</span><span>Dogs</span><span>Ferrets</span><span>Guinea pigs</span></div>
+          <a class="btn btn-honey" href="tel:+19056374143">Call to inquire</a>
+        </div>
+        <div class="house-card">
+          <h3>In-home services</h3>
+          <ul>
+            <li>Cat, dog, ferret &amp; guinea pig nail trimming</li>
+            <li>Cat &amp; dog brush-outs</li>
+            <li>Sanitary trims</li>
+            <li>And more, just ask</li>
+          </ul>
+          <p style="font-size:.9rem;color:var(--ink-soft)">Availability varies by week. Call <a href="tel:+19056374143" style="font-weight:800">(905) 637-4143</a> and we'll find a time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WALK-IN -->
+  <section class="block" id="walkin" style="padding-top:44px">
+    <div class="wrap">
+      <div class="ticket">
+        <div class="ticket-stamp">WALK<br>IN</div>
+        <div>
+          <h3>Nail trims, no appointment necessary</h3>
+          <p>Walk-in nail trimming runs <span class="times">Tuesday to Friday, 9 AM – 2 PM</span> and <span class="times">Saturdays, 9 AM – 2 PM</span>. Hours can fluctuate, so a quick call to confirm is always smart.</p>
+        </div>
+        <a class="btn btn-honey" href="tel:+19056374143">Call first</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="block" id="visit" style="padding-top:20px">
+    <div class="wrap">
+      <div class="center">
+        <h2>Come <span style="color:var(--honey-deep)">say hi</span></h2>
+        <p class="section-lede">Find us on Guelph Line in Burlington. Booking online is fastest, but calls and texts are always welcome.</p>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>Salon hours</h3>
+          <table class="hours-table" id="hoursTable">
+            <tbody>
+              <tr data-day="2"><td>Tuesday</td><td>9:00 AM – 3:00 PM</td></tr>
+              <tr data-day="3"><td>Wednesday</td><td>9:00 AM – 3:00 PM</td></tr>
+              <tr data-day="4"><td>Thursday</td><td>9:00 AM – 3:00 PM</td></tr>
+              <tr data-day="5"><td>Friday</td><td>9:00 AM – 3:00 PM</td></tr>
+              <tr data-day="6"><td>Saturday</td><td>9:00 AM – 3:00 PM</td></tr>
+              <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+              <tr data-day="1"><td>Monday</td><td>Closed</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="visit-card">
+          <h3>Get in touch</h3>
+          <div class="contact-line"><span class="icon">✆</span><span><a href="tel:+19056374143">(905) 637-4143</a><small>Call the salon</small></span></div>
+          <div class="contact-line"><span class="icon">✉</span><span><a href="tel:+19058025460">(905) 802-5460</a><small>Call or text the cell</small></span></div>
+          <div class="contact-line"><span class="icon">@</span><span><a href="mailto:stephaniespetgrooming1@gmail.com">stephaniespetgrooming1@gmail.com</a></span></div>
+          <div class="contact-line"><span class="icon">◈</span><span>451 Guelph Line<br>Burlington, ON</span></div>
+          <a class="btn btn-honey" href="https://stephaniespetgrooming.groomore.com" target="_blank" rel="noopener" style="margin-top:6px">Book online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Stephanie's Pet Grooming, Burlington ON.</span>
+    <span class="concept">Concept preview · a design idea, not the live site</span>
+  </div>
+</footer>
+
+<a class="call-bar" href="tel:+19056374143">Tap to call Stephanie's</a>
+
+<script>
+(function(){
+  var ham = document.getElementById('hamburger');
+  var links = document.getElementById('navLinks');
+  ham.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.closest('a')){ links.classList.remove('open'); ham.setAttribute('aria-expanded','false'); }
+  });
+
+  // animal tabs
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      tab.setAttribute('aria-selected','true');
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+      document.getElementById('panel-' + tab.getAttribute('data-panel')).classList.add('active');
+    });
+  });
+
+  // highlight today's hours
+  var day = new Date().getDay();
+  document.querySelectorAll('#hoursTable tr').forEach(function(r){
+    if(parseInt(r.getAttribute('data-day'),10) === day){ r.classList.add('today'); }
+  });
+})();
+</script>
+</body>
+</html>

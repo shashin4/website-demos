@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamp Coffee Co. — Specialty Coffee, Two Burlington Locations</title>
+<meta name="description" content="Tamp Coffee Co.: specialty coffee roasted locally, served at two Burlington locations — 2049 Pine St and 480 Brant St. Call (416) 917-5745.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1e3a29; --forest-deep:#142a1e; --cream:#f7f2e9; --ink:#22301f; --muted:#6a7565;
+    --copper:#c07a3e; --copper-dark:#9e5f27; --line:#e3dccb;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter Tight',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;line-height:1.04;letter-spacing:-.01em;text-wrap:balance}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  /* nav */
+  nav.site{position:sticky;top:0;z-index:50;background:rgba(247,242,233,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:13px;padding-bottom:13px}
+  .brand{text-decoration:none;display:flex;align-items:center;gap:11px}
+  .brand-mark{width:40px;height:40px;border-radius:50%;background:var(--forest);position:relative;flex:0 0 40px}
+  .brand-mark::after{content:"";position:absolute;inset:11px;border-radius:50%;background:var(--copper)}
+  .brand-name{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.4rem;color:var(--forest);letter-spacing:-.02em}
+  .brand-name small{display:block;font-family:'Inter Tight';font-weight:600;font-size:.58rem;letter-spacing:.3em;color:var(--muted)}
+  .nav-links{display:flex;gap:26px;list-style:none;font-weight:600;font-size:.95rem}
+  .nav-links a{text-decoration:none}
+  .nav-links a:hover{color:var(--copper-dark)}
+  .nav-cta{background:var(--forest);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:999px;font-size:.95rem}
+  .nav-cta:hover{background:var(--forest-deep)}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{display:block;width:26px;height:3px;background:var(--forest);margin:5px 0;border-radius:2px}
+  /* hero: split, craft-forward */
+  .hero{padding:0}
+  .hero-split{display:grid;grid-template-columns:1fr 1fr;min-height:78vh}
+  .hero-copy{background:var(--forest);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:72px 56px}
+  .hero-kicker{color:var(--copper);font-weight:700;letter-spacing:.22em;font-size:.78rem;margin-bottom:16px}
+  .hero-copy h1{font-size:clamp(2.8rem,5.4vw,4.4rem);margin-bottom:18px;font-weight:800}
+  .hero-copy h1 em{font-style:normal;color:var(--copper)}
+  .hero-copy p{color:#cfd8c9;font-size:1.12rem;max-width:30rem;margin-bottom:28px}
+  .loc-chips{display:flex;gap:10px;flex-wrap:wrap}
+  .loc-chip{border:1px solid #4a624f;color:#e7ecdf;text-decoration:none;font-size:.88rem;font-weight:600;padding:9px 16px;border-radius:999px}
+  .loc-chip:hover{border-color:var(--copper);color:#fff}
+  .hero-visual{background:var(--forest-deep);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .cup{width:min(300px,60vw);aspect-ratio:1/1.15;position:relative}
+  .cup .bowl{position:absolute;inset:0 0 18% 0;background:var(--cream);border-radius:18px 18px 46% 46%/18px 18px 60px 60px}
+  .cup .coffee{position:absolute;left:8%;right:8%;top:9%;height:16%;background:#3d2b1f;border-radius:50%}
+  .cup .steam{position:absolute;top:-6%;width:100%;height:30%;display:flex;justify-content:center;gap:26px}
+  .cup .steam i{display:block;width:8px;height:100%;border-radius:8px;background:rgba(247,242,233,.28);animation:rise 3.2s ease-in-out infinite}
+  .cup .steam i:nth-child(2){animation-delay:1s}.cup .steam i:nth-child(3){animation-delay:2s}
+  @keyframes rise{0%,100%{transform:translateY(8px);opacity:.4}50%{transform:translateY(-8px);opacity:.9}}
+  .cup .saucer{position:absolute;bottom:0;left:4%;right:4%;height:12%;background:var(--copper);border-radius:50%}
+  .roast-badge{position:absolute;bottom:34px;left:34px;background:var(--cream);color:var(--forest);border-radius:12px;padding:14px 20px;font-size:.85rem;font-weight:700;letter-spacing:.06em;transform:rotate(-4deg);box-shadow:0 10px 30px rgba(0,0,0,.3)}
+  .roast-badge b{color:var(--copper-dark)}
+  /* craft strip */
+  .craft{background:var(--cream);padding:76px 0}
+  .craft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px}
+  .craft-item{padding:6px 34px;border-left:1px solid var(--line)}
+  .craft-item:first-child{border-left:none;padding-left:0}
+  .craft-item h3{font-size:1.35rem;color:var(--forest);margin-bottom:8px}
+  .craft-item p{font-size:.95rem;color:var(--muted)}
+  .sec-head h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--forest)}
+  .kicker{color:var(--copper-dark);font-weight:700;letter-spacing:.22em;font-size:.78rem;margin-bottom:10px}
+  /* menu */
+  .menu{background:var(--forest);color:#fff;padding:80px 0}
+  .menu .sec-head h2{color:#fff}
+  .menu .sec-head p{color:#cfd8c9}
+  .menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 72px;margin-top:8px}
+  .menu-col h3{font-size:1.2rem;letter-spacing:.2em;color:var(--copper);margin-bottom:14px}
+  .menu-item{padding:16px 0;border-bottom:1px solid #33473a}
+  .menu-item .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  .menu-item b{font-size:1.08rem;font-weight:600}
+  .menu-item p{color:#b9c4b1;font-size:.9rem;margin-top:2px}
+  .menu-note{margin-top:26px;color:#b9c4b1;font-size:.92rem}
+  /* locations: tab switcher */
+  .locations{padding:80px 0}
+  .loc-tabs{display:flex;gap:12px;margin:30px 0 26px;flex-wrap:wrap}
+  .loc-tab{background:#fff;border:2px solid var(--line);border-radius:12px;padding:14px 22px;font-weight:700;font-size:1rem;cursor:pointer;font-family:'Inter Tight';color:var(--ink)}
+  .loc-tab.active{border-color:var(--forest);background:var(--forest);color:#fff}
+  .loc-panel{display:none;grid-template-columns:1.1fr .9fr;gap:40px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:44px;align-items:center}
+  .loc-panel.active{display:grid}
+  .loc-panel h3{font-size:2rem;color:var(--forest);margin-bottom:6px}
+  .loc-panel .addr{color:var(--muted);font-size:1.05rem;margin-bottom:20px}
+  .loc-panel .btn{display:inline-block;background:var(--copper);color:#fff;text-decoration:none;font-weight:700;padding:13px 26px;border-radius:999px;margin-right:12px}
+  .loc-panel .btn:hover{background:var(--copper-dark)}
+  .loc-panel .btn.ghost{background:none;border:2px solid var(--forest);color:var(--forest)}
+  .loc-fact{background:var(--cream);border-radius:12px;padding:28px;border:1px solid var(--line)}
+  .loc-fact h4{font-size:.78rem;letter-spacing:.2em;color:var(--copper-dark);margin-bottom:10px}
+  .loc-fact p{font-size:.95rem;color:var(--muted)}
+  /* visit strip */
+  .visit{background:var(--forest-deep);color:#fff;padding:64px 0;text-align:center}
+  .visit h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:10px}
+  .visit p{color:#cfd8c9;margin-bottom:24px}
+  .visit a.big{color:#fff;font-size:1.4rem;font-weight:700;text-decoration:none}
+  /* footer */
+  footer{background:#0e1d14;color:#93a48d;font-size:.9rem}
+  footer .wrap{padding-top:44px;padding-bottom:44px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+  footer h4{color:#fff;font-family:'Bricolage Grotesque';font-size:1.1rem;margin-bottom:12px}
+  footer a{color:#d3dccb;text-decoration:none}
+  .concept{border-top:1px solid #243b2b;font-size:.78rem;color:#6f8069}
+  .concept .wrap{padding-top:14px;padding-bottom:14px;display:block}
+  .tapcall{display:none;position:fixed;bottom:16px;left:16px;right:16px;z-index:60;background:var(--copper);color:#fff;text-align:center;font-weight:700;font-size:1.1rem;text-decoration:none;padding:15px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+  @media(max-width:920px){
+    .hero-split{grid-template-columns:1fr;min-height:0}
+    .hero-copy{padding:56px 28px}
+    .hero-visual{min-height:340px}
+    .craft-grid{grid-template-columns:1fr;gap:28px}
+    .craft-item{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:24px}
+    .craft-item:first-child{border-top:none;padding-top:0}
+    .menu-cols{grid-template-columns:1fr}
+    .loc-panel.active{grid-template-columns:1fr;padding:30px 24px}
+    footer .wrap{grid-template-columns:1fr}
+    .nav-links{position:fixed;inset:0;background:var(--forest);flex-direction:column;align-items:center;justify-content:center;gap:30px;font-size:1.4rem;display:none;z-index:60}
+    .nav-links.open{display:flex}
+    .nav-links a{color:#fff}
+    .burger{display:block}
+    .tapcall{display:block}
+    body{padding-bottom:76px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cup .steam i{animation:none}}
+</style>
+</head>
+<body>
+
+<nav class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark"></span>
+      <span class="brand-name">Tamp<small>COFFEE CO.</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#craft">Our coffee</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#locations">Locations</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+14169175745">Call us</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-split">
+    <div class="hero-copy">
+      <p class="hero-kicker">SPECIALTY COFFEE · BURLINGTON, ON</p>
+      <h1>Coffee roasted <em>locally,</em> poured with care.</h1>
+      <p>Tamp is Burlington's specialty coffee stop — beans roasted right here, espresso pulled by people who obsess over the details, and a food menu worth staying for.</p>
+      <div class="loc-chips">
+        <a class="loc-chip" href="#locations" data-loc="pine">2049 Pine St</a>
+        <a class="loc-chip" href="#locations" data-loc="brant">480 Brant St</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="cup">
+        <div class="steam"><i></i><i></i><i></i></div>
+        <div class="bowl"></div>
+        <div class="coffee"></div>
+        <div class="saucer"></div>
+      </div>
+      <div class="roast-badge">ROASTED <b>LOCAL</b> · SERVED FRESH</div>
+    </div>
+  </div>
+</header>
+
+<section class="craft" id="craft">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">THE CRAFT</p>
+      <h2>Specialty coffee, start to finish</h2>
+    </div>
+    <div class="craft-grid">
+      <div class="craft-item">
+        <h3>Roasted locally</h3>
+        <p>Our beans are roasted close to home, so what's in your cup was roasted days ago — not months. Fresh roast is the whole difference.</p>
+      </div>
+      <div class="craft-item">
+        <h3>Pulled with precision</h3>
+        <p>Dialed-in espresso, weighed and timed. Whether it's a straight shot or a silky flat white, it leaves the bar exactly right.</p>
+      </div>
+      <div class="craft-item">
+        <h3>Food worth staying for</h3>
+        <p>Sandwiches and café fare to go with the coffee. Come for the espresso, stay for lunch — both locations, every day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">THE MENU</p>
+      <h2>What we're pouring</h2>
+      <p>Espresso classics, brewed coffee, and a full food menu. Ask the bar what's new — the roast lineup changes with the seasons.</p>
+    </div>
+    <div class="menu-cols">
+      <div class="menu-col">
+        <h3>COFFEE</h3>
+        <div class="menu-item"><div class="row"><b>Espresso</b></div><p>The foundation — rich, syrupy, pulled fresh</p></div>
+        <div class="menu-item"><div class="row"><b>Flat White</b></div><p>Double ristretto, velvety microfoam</p></div>
+        <div class="menu-item"><div class="row"><b>Latte &amp; Cappuccino</b></div><p>The classics, done properly</p></div>
+        <div class="menu-item"><div class="row"><b>Drip &amp; Pour Over</b></div><p>Single-origin, brewed to highlight the bean</p></div>
+        <div class="menu-item"><div class="row"><b>Cold Brew &amp; Iced</b></div><p>Slow-steeped, smooth over ice</p></div>
+      </div>
+      <div class="menu-col">
+        <h3>FOOD</h3>
+        <div class="menu-item"><div class="row"><b>Sandwiches</b></div><p>Made fresh through the day — ask what's on</p></div>
+        <div class="menu-item"><div class="row"><b>Pastries</b></div><p>Baked goods to pair with your cup</p></div>
+        <div class="menu-item"><div class="row"><b>Seasonal specials</b></div><p>The menu rotates — check the board in store</p></div>
+      </div>
+    </div>
+    <p class="menu-note">Beans to take home available in store — ask a barista about the current roast.</p>
+  </div>
+</section>
+
+<section class="locations" id="locations">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">TWO SPOTS IN BURLINGTON</p>
+      <h2>Find your Tamp</h2>
+      <p>Two locations, same roast. Pick the one closest to you.</p>
+    </div>
+    <div class="loc-tabs">
+      <button class="loc-tab active" data-panel="pine">2049 Pine St</button>
+      <button class="loc-tab" data-panel="brant">480 Brant St</button>
+    </div>
+    <div class="loc-panel active" id="panel-pine">
+      <div>
+        <h3>Pine Street</h3>
+        <p class="addr">2049 Pine Street, Unit #65<br>Burlington, ON</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=2049+Pine+St+Burlington+ON">Get directions</a>
+        <a class="btn ghost" href="tel:+14169175745">Call (416) 917-5745</a>
+      </div>
+      <div class="loc-fact">
+        <h4>GOOD TO KNOW</h4>
+        <p>Full espresso bar, drip and pour over, plus the food menu. Beans to take home on the shelf by the register.</p>
+      </div>
+    </div>
+    <div class="loc-panel" id="panel-brant">
+      <div>
+        <h3>Brant Street</h3>
+        <p class="addr">480 Brant Street<br>Burlington, ON</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=480+Brant+St+Burlington+ON">Get directions</a>
+        <a class="btn ghost" href="tel:+14169175745">Call (416) 917-5745</a>
+      </div>
+      <div class="loc-fact">
+        <h4>GOOD TO KNOW</h4>
+        <p>Our Brant Street café — same locally roasted coffee, same care behind the bar. Pop in on your way through downtown.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit">
+  <div class="wrap">
+    <h2>See you at the bar.</h2>
+    <p>Questions about the roast, catering, or beans to take home? Call or email anytime.</p>
+    <p><a class="big" href="tel:+14169175745">(416) 917-5745</a></p>
+    <p><a href="mailto:tampcoffeeco@gmail.com" style="color:#cfd8c9">tampcoffeeco@gmail.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>TAMP COFFEE CO.</h4>
+      <p>2049 Pine St, Unit #65 · 480 Brant St<br>Burlington, ON</p>
+    </div>
+    <div>
+      <h4>CONTACT</h4>
+      <p><a href="tel:+14169175745">(416) 917-5745</a><br><a href="mailto:tampcoffeeco@gmail.com">tampcoffeeco@gmail.com</a></p>
+    </div>
+    <div>
+      <h4>RATED 4.7 ★</h4>
+      <p>177 Google reviews and counting.<br>Thank you, Burlington.</p>
+    </div>
+  </div>
+  <div class="concept"><div class="wrap">Concept preview — a design mockup, not the business's live website.</div></div>
+</footer>
+
+<a class="tapcall" href="tel:+14169175745">Call Tamp — (416) 917-5745</a>
+
+<script>
+  document.getElementById('burger').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+  });
+  // location tabs
+  var tabs = document.querySelectorAll('.loc-tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      document.querySelectorAll('.loc-panel').forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+    });
+  });
+  // hero chips jump to matching tab
+  document.querySelectorAll('.loc-chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var t = document.querySelector('.loc-tab[data-panel="' + chip.dataset.loc + '"]');
+      if (t) t.click();
+    });
+  });
+</script>
+</body>
+</html>

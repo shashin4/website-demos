@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Viva Hair Studio | Balayage &amp; Colour Specialists, Burlington ON</title>
+<meta name="description" content="La Viva Hair Studio on Brant Street, Burlington: balayage, colour correction, precision cuts and extensions since 2004. Beauty is our passion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#f8f5ef;
+    --ivory-2:#efe9db;
+    --ink:#2c2721;
+    --ink-soft:#6f6557;
+    --rose:#b26e6e;
+    --rose-deep:#96555a;
+    --rose-wash:#f0e2dd;
+    --hairline:#ddd3c0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',system-ui,sans-serif;background:var(--ivory);color:var(--ink);line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:600;text-wrap:balance;line-height:1.12}
+  a{color:inherit}
+  .wrap{max-width:1220px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:18px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(248,245,239,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--hairline)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1220px;margin:0 auto;position:relative}
+  .brand{text-decoration:none;line-height:1.2}
+  .brand-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.5rem;letter-spacing:.04em}
+  .brand-name em{font-style:italic;color:var(--rose-deep)}
+  .brand-sub{display:block;font-size:.62rem;font-weight:500;letter-spacing:.34em;color:var(--ink-soft)}
+  nav.links{display:flex;gap:30px;align-items:center}
+  nav.links a.nl{text-decoration:none;font-size:.92rem;font-weight:500;letter-spacing:.06em;color:var(--ink-soft)}
+  nav.links a.nl:hover{color:var(--rose-deep)}
+  .btn{display:inline-block;text-decoration:none;font-weight:500;letter-spacing:.08em;font-size:.92rem;padding:13px 26px;border:1px solid transparent;cursor:pointer;font-family:'Jost',sans-serif}
+  .btn-rose{background:var(--rose);color:#fff}
+  .btn-rose:hover{background:var(--rose-deep)}
+  .btn-line{border-color:var(--ink);color:var(--ink)}
+  .btn-line:hover{background:var(--ink);color:var(--ivory)}
+  .hamburger{display:none;background:none;border:1px solid var(--hairline);color:var(--ink);padding:8px 13px;font-size:1.1rem;cursor:pointer}
+  @media(max-width:880px){
+    nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ivory);flex-direction:column;align-items:stretch;padding:8px 28px 22px;border-bottom:1px solid var(--hairline);gap:0}
+    nav.links.open{display:flex}
+    nav.links a.nl{padding:12px 0;border-bottom:1px solid var(--hairline)}
+    nav.links .btn{margin-top:12px;text-align:center}
+    .hamburger{display:block}
+  }
+
+  /* hero: editorial split */
+  .hero{padding:72px 0 80px;border-bottom:1px solid var(--hairline)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+  .hero h1{font-size:clamp(2.8rem,5.8vw,4.6rem);font-weight:600;margin-bottom:22px}
+  .hero h1 em{font-style:italic;color:var(--rose-deep)}
+  .hero p.lede{font-size:1.14rem;color:var(--ink-soft);font-weight:300;max-width:32rem;margin-bottom:34px}
+  .quickbook{border-top:1px solid var(--hairline);margin-bottom:34px}
+  .quickbook p{font-size:.76rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);padding:16px 0 6px}
+  .qb-links{display:flex;flex-wrap:wrap;gap:0}
+  .qb-links a{text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;padding:12px 22px 12px 0;margin-right:22px;border-bottom:1px solid transparent;color:var(--ink)}
+  .qb-links a span{font-family:'Jost',sans-serif;font-style:normal;font-size:.85rem;color:var(--rose-deep);margin-left:8px}
+  .qb-links a:hover{border-bottom-color:var(--rose);color:var(--rose-deep)}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* lookbook panel (graphic, editorial) */
+  .lookbook{position:relative;min-height:520px;background:var(--ivory-2);overflow:hidden}
+  .lookbook .strand{position:absolute;inset:0}
+  .lookbook-caption{position:absolute;left:0;right:0;bottom:0;padding:26px 30px;background:linear-gradient(to top,rgba(44,39,33,.72),rgba(44,39,33,0));color:#fff}
+  .lookbook-caption p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;line-height:1.4}
+  .lookbook-caption small{font-family:'Jost',sans-serif;font-style:normal;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;opacity:.85}
+  .swatch-rail{position:absolute;top:26px;left:26px;display:flex;gap:10px}
+  .swatch{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,.85);box-shadow:0 4px 12px rgba(0,0,0,.18)}
+  .lookbook-badge{position:absolute;top:26px;right:26px;background:var(--ivory);padding:12px 18px;font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--rose-deep)}
+
+  /* colour menu (shade chart) */
+  section.block{padding:80px 0}
+  section.block h2{font-size:clamp(2rem,3.8vw,3rem);margin-bottom:12px}
+  .section-lede{color:var(--ink-soft);font-weight:300;font-size:1.1rem;max-width:44rem;margin-bottom:44px}
+  .shades{border-top:1px solid var(--hairline)}
+  .shade{display:grid;grid-template-columns:120px 1fr auto;gap:28px;align-items:center;padding:26px 0;border-bottom:1px solid var(--hairline)}
+  @media(max-width:640px){.shade{grid-template-columns:64px 1fr;gap:18px}.shade .shade-cta{display:none}}
+  .shade-swatch{width:120px;height:76px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+  @media(max-width:640px){.shade-swatch{width:64px;height:64px;border-radius:50%}}
+  .shade h3{font-size:1.6rem;font-weight:600;margin-bottom:6px}
+  .shade h3 em{font-style:italic;color:var(--rose-deep)}
+  .shade p{color:var(--ink-soft);font-weight:300;font-size:.98rem;max-width:40rem}
+  .shade-cta{text-decoration:none;font-size:.82rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-deep);border-bottom:1px solid var(--rose);padding-bottom:3px;white-space:nowrap}
+  .shade-cta:hover{color:var(--ink);border-color:var(--ink)}
+
+  /* more services: two-column editorial */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--hairline)}
+  @media(max-width:760px){.duo{grid-template-columns:1fr}}
+  .duo-cell{padding:44px 40px}
+  .duo-cell:first-child{border-right:1px solid var(--hairline)}
+  @media(max-width:760px){.duo-cell:first-child{border-right:none;border-bottom:1px solid var(--hairline)}}
+  .duo-cell h3{font-size:1.9rem;margin-bottom:12px}
+  .duo-cell p{color:var(--ink-soft);font-weight:300;margin-bottom:18px}
+  .duo-cell ul{list-style:none}
+  .duo-cell li{padding:9px 0;border-bottom:1px dotted var(--hairline);font-size:.97rem;display:flex;justify-content:space-between;gap:12px}
+  .duo-cell li:last-child{border-bottom:none}
+  .duo-cell li span:last-child{color:var(--rose-deep);font-style:italic;font-family:'Cormorant Garamond',serif}
+
+  /* team roster */
+  .roster{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline)}
+  @media(max-width:960px){.roster{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.roster{grid-template-columns:1fr}}
+  .member{background:var(--ivory);padding:34px 28px;transition:background .25s}
+  .member:hover{background:var(--rose-wash)}
+  .monogram{width:64px;height:64px;border-radius:50%;background:var(--ivory-2);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--rose-deep);margin-bottom:16px}
+  .member h3{font-size:1.35rem;margin-bottom:4px}
+  .member p{font-size:.86rem;color:var(--ink-soft);letter-spacing:.04em}
+
+  /* founder strip */
+  .founder{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);background:var(--ivory-2)}
+  .founder-inner{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center;padding:64px 0}
+  @media(max-width:700px){.founder-inner{grid-template-columns:1fr;gap:24px}}
+  .founder-mark{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:5rem;color:var(--rose);line-height:1}
+  .founder blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.4;margin-bottom:14px}
+  .founder cite{font-family:'Jost',sans-serif;font-style:normal;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+  @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+  .hours{border-top:1px solid var(--hairline)}
+  .hours-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--hairline);font-size:1rem}
+  .hours-row.today{color:var(--rose-deep);font-weight:600}
+  .hours-row.today .day::after{content:" · today";font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+  .visit-info p{margin-bottom:10px}
+  .visit-info .big{font-family:'Cormorant Garamond',serif;font-size:1.7rem;margin:18px 0 6px}
+  .visit-info a.tel{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rose-deep);text-decoration:none}
+  .visit-info a.tel:hover{color:var(--ink)}
+
+  footer{padding:40px 0 110px;border-top:1px solid var(--hairline);color:var(--ink-soft);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .concept{font-size:.78rem;opacity:.8}
+
+  .call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--rose);color:#fff;text-align:center;font-weight:500;letter-spacing:.1em;padding:15px;text-decoration:none;font-size:1rem}
+  @media(max-width:880px){.call-bar{display:block}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="La Viva Hair Studio home">
+      <span class="brand-name">La <em>Viva</em></span>
+      <span class="brand-sub">HAIR STUDIO · BURLINGTON</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="links" id="navLinks" aria-label="Main navigation">
+      <a class="nl" href="#colour">Colour</a>
+      <a class="nl" href="#services">Services</a>
+      <a class="nl" href="#team">The Team</a>
+      <a class="nl" href="#visit">Visit</a>
+      <a href="tel:+19056343739" class="btn btn-rose">Call to Book</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Balayage &amp; colour specialists · Est. 2004</p>
+        <h1>Beauty is <em>our passion.</em></h1>
+        <p class="lede">For twenty years, La Viva has been downtown Burlington's destination for hand-painted colour. Balayage, colour correction and precision cutting, by stylists who treat every head of hair as a one-off.</p>
+        <div class="quickbook">
+          <p>Start with a service</p>
+          <div class="qb-links">
+            <a href="#colour">Balayage <span>→</span></a>
+            <a href="#colour">Colour <span>→</span></a>
+            <a href="#services">Cuts <span>→</span></a>
+            <a href="#services">Extensions <span>→</span></a>
+            <a href="#team">Lashes <span>→</span></a>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a class="btn btn-rose" href="tel:+19056343739">Call (905) 634-3739</a>
+          <a class="btn btn-line" href="#team">Meet the stylists</a>
+        </div>
+      </div>
+      <div class="lookbook" aria-label="Editorial colour composition">
+        <svg class="strand" viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="600" height="520" fill="#efe9db"/>
+          <path d="M-20,120 C150,60 220,260 380,200 C500,155 540,300 640,260 L640,520 L-20,520 Z" fill="#d9b8a6" opacity=".55"/>
+          <path d="M-20,220 C120,170 240,340 400,280 C510,240 560,360 640,330 L640,520 L-20,520 Z" fill="#b26e6e" opacity=".38"/>
+          <path d="M-20,320 C140,280 260,430 420,370 C520,335 580,430 640,410 L640,520 L-20,520 Z" fill="#8a5a52" opacity=".45"/>
+          <path d="M-20,420 C160,390 300,500 440,450 C530,420 590,480 640,465 L640,520 L-20,520 Z" fill="#5c4a3e" opacity=".5"/>
+          <path d="M60,0 C90,140 40,300 110,520" stroke="#f8f5ef" stroke-width="26" fill="none" opacity=".5"/>
+          <path d="M210,0 C240,160 190,320 260,520" stroke="#e8d9c6" stroke-width="18" fill="none" opacity=".55"/>
+          <path d="M380,0 C350,150 420,300 390,520" stroke="#d9b8a6" stroke-width="22" fill="none" opacity=".5"/>
+          <path d="M520,0 C550,140 500,320 570,520" stroke="#f8f5ef" stroke-width="14" fill="none" opacity=".45"/>
+        </svg>
+        <div class="swatch-rail" aria-hidden="true">
+          <span class="swatch" style="background:#e8c9a8"></span>
+          <span class="swatch" style="background:#c99b7a"></span>
+          <span class="swatch" style="background:#a5715c"></span>
+          <span class="swatch" style="background:#7a5245"></span>
+        </div>
+        <span class="lookbook-badge">The balayage atelier</span>
+        <div class="lookbook-caption">
+          <small>Hand-painted · lived-in · low maintenance</small>
+          <p>Colour that grows out softly, designed around your natural base.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLOUR MENU -->
+  <section class="block" id="colour">
+    <div class="wrap">
+      <p class="eyebrow">The colour menu</p>
+      <h2>Painted by hand, <em class="serif" style="font-style:italic;color:var(--rose-deep)">never rushed.</em></h2>
+      <p class="section-lede">Every balayage at La Viva begins with a consultation: your natural base, your colour history, your hair's condition, and the finish you want. No two heads leave the chair the same.</p>
+      <div class="shades">
+        <div class="shade">
+          <div class="shade-swatch" style="background:linear-gradient(135deg,#6b4a35 0%,#c99b6e 55%,#ecd3ac 100%)" aria-hidden="true"></div>
+          <div><h3>Balayage <em>&amp; Foilayage</em></h3><p>Freehand painted lightness with a soft, sun-kissed grow-out. Foilayage adds extra lift for deeper bases.</p></div>
+          <a class="shade-cta" href="tel:+19056343739">Ask about it</a>
+        </div>
+        <div class="shade">
+          <div class="shade-swatch" style="background:linear-gradient(135deg,#8a5f43 0%,#d9b48c 60%,#f4e3c2 100%)" aria-hidden="true"></div>
+          <div><h3>Teasylights</h3><p>Backcombed highlights for diffused brightness at the root and soft dimension through the lengths.</p></div>
+          <a class="shade-cta" href="tel:+19056343739">Ask about it</a>
+        </div>
+        <div class="shade">
+          <div class="shade-swatch" style="background:linear-gradient(135deg,#b99a72 0%,#e3cba4 60%,#f7ecd6 100%)" aria-hidden="true"></div>
+          <div><h3>Ash Blonde</h3><p>Cool, smoky blondes with careful toning to keep brass away and the finish expensive-looking.</p></div>
+          <a class="shade-cta" href="tel:+19056343739">Ask about it</a>
+        </div>
+        <div class="shade">
+          <div class="shade-swatch" style="background:linear-gradient(135deg,#3f2d22 0%,#7a5340 55%,#c08d64 100%)" aria-hidden="true"></div>
+          <div><h3>Brunette Balayage</h3><p>Caramel ribbons and dimensional brunette colour for depth without going lighter all over.</p></div>
+          <a class="shade-cta" href="tel:+19056343739">Ask about it</a>
+        </div>
+        <div class="shade">
+          <div class="shade-swatch" style="background:linear-gradient(135deg,#4a3a30 30%,#96555a 70%,#d9a08a 100%)" aria-hidden="true"></div>
+          <div><h3>Colour Correction <em>&amp; Toning</em></h3><p>Fixing bands, brass and mishaps, then toning to the exact shade you were after in the first place.</p></div>
+          <a class="shade-cta" href="tel:+19056343739">Ask about it</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE SERVICES -->
+  <section class="block" id="services" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Beyond colour</p>
+      <h2 style="margin-bottom:40px">The rest of <em class="serif" style="font-style:italic;color:var(--rose-deep)">the studio.</em></h2>
+      <div class="duo">
+        <div class="duo-cell">
+          <h3>Cuts &amp; styling</h3>
+          <p>Precision haircuts designed around your face shape, your texture and how much effort you want mornings to take.</p>
+          <ul>
+            <li><span>Precision haircuts</span><span>all textures</span></li>
+            <li><span>Curl-by-curl cutting</span><span>curl specialist on staff</span></li>
+            <li><span>Blowouts &amp; event styling</span><span>call ahead</span></li>
+          </ul>
+        </div>
+        <div class="duo-cell">
+          <h3>Extensions &amp; lashes</h3>
+          <p>Length, volume, or both, plus a dedicated lash artist for eyes that do the talking.</p>
+          <ul>
+            <li><span>Hair extensions</span><span>consultation first</span></li>
+            <li><span>Lash services</span><span>dedicated artist</span></li>
+            <li><span>Bridal &amp; occasion</span><span>by appointment</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="block" id="team" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">The team</p>
+      <h2>Hands you can <em class="serif" style="font-style:italic;color:var(--rose-deep)">trust.</em></h2>
+      <p class="section-lede">Seven stylists, each with a specialty. Ask for the right hands for your hair.</p>
+      <div class="roster">
+        <div class="member"><div class="monogram">LM</div><h3>Lynn Mai</h3><p>Founder · Master Stylist</p></div>
+        <div class="member"><div class="monogram">LR</div><h3>Lea Touch Rajkumar</h3><p>Senior Stylist</p></div>
+        <div class="member"><div class="monogram">DL</div><h3>Deanna Ly</h3><p>Senior Stylist · Lash Artist</p></div>
+        <div class="member"><div class="monogram">SL</div><h3>Stephanie Lopez</h3><p>Senior Stylist · Curl Specialist</p></div>
+        <div class="member"><div class="monogram">SC</div><h3>Sarah Caruana</h3><p>Senior Stylist</p></div>
+        <div class="member"><div class="monogram">TL</div><h3>Tammy Lee</h3><p>Senior Stylist</p></div>
+        <div class="member"><div class="monogram">KW</div><h3>Kate Watt</h3><p>Emerging Stylist</p></div>
+        <div class="member" style="display:flex;flex-direction:column;justify-content:center;background:var(--rose-wash)">
+          <h3 style="font-style:italic">Your chair is waiting.</h3>
+          <p style="margin:10px 0 16px">Online booking is available, or call and we'll match you with the right stylist.</p>
+          <a class="shade-cta" href="tel:+19056343739" style="align-self:flex-start">Call to book</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <div class="founder">
+    <div class="wrap founder-inner">
+      <div class="founder-mark" aria-hidden="true">&ldquo;</div>
+      <div>
+        <blockquote>Twenty years on Brant Street, and I still get excited when a client sees their colour for the first time. That never gets old.</blockquote>
+        <cite>Lynn Mai · Founder, La Viva Hair Studio · Est. 2004</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISIT -->
+  <section class="block" id="visit">
+    <div class="wrap">
+      <p class="eyebrow">Visit</p>
+      <h2 style="margin-bottom:40px">On Brant Street, <em class="serif" style="font-style:italic;color:var(--rose-deep)">downtown Burlington.</em></h2>
+      <div class="visit-grid">
+        <div>
+          <div class="hours" id="hoursList">
+            <div class="hours-row" data-day="2"><span class="day">Tuesday</span><span>10:00 AM – 7:00 PM</span></div>
+            <div class="hours-row" data-day="3"><span class="day">Wednesday</span><span>10:00 AM – 7:00 PM</span></div>
+            <div class="hours-row" data-day="4"><span class="day">Thursday</span><span>10:00 AM – 7:00 PM</span></div>
+            <div class="hours-row" data-day="5"><span class="day">Friday</span><span>10:00 AM – 7:00 PM</span></div>
+            <div class="hours-row" data-day="6"><span class="day">Saturday</span><span>10:00 AM – 7:00 PM</span></div>
+            <div class="hours-row" data-day="0"><span class="day">Sunday</span><span>Closed</span></div>
+            <div class="hours-row" data-day="1"><span class="day">Monday</span><span>Closed</span></div>
+          </div>
+        </div>
+        <div class="visit-info">
+          <p>355 Brant Street<br>Burlington, ON L7R 2E7</p>
+          <p class="big">Ready when you are.</p>
+          <a class="tel" href="tel:+19056343739">(905) 634-3739</a>
+          <p style="margin-top:14px"><a href="mailto:laviva.hairstudio@outlook.com" style="color:var(--rose-deep)">laviva.hairstudio@outlook.com</a></p>
+          <p style="margin-top:22px"><a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=La+Viva+Hair+Studio+355+Brant+St+Burlington+ON" target="_blank" rel="noopener">Get directions</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© La Viva Hair Studio, Burlington ON.</span>
+    <span class="concept">Concept preview · a design idea, not the live site</span>
+  </div>
+</footer>
+
+<a class="call-bar" href="tel:+19056343739">Tap to call La Viva</a>
+
+<script>
+(function(){
+  var ham = document.getElementById('hamburger');
+  var links = document.getElementById('navLinks');
+  ham.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.closest('a')){ links.classList.remove('open'); ham.setAttribute('aria-expanded','false'); }
+  });
+
+  var day = new Date().getDay();
+  document.querySelectorAll('#hoursList .hours-row').forEach(function(r){
+    if(parseInt(r.getAttribute('data-day'),10) === day){ r.classList.add('today'); }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True Tech Auto Repair — Milton's Trusted Mechanic | 310 Steeles Ave E</title>
+<meta name="description" content="True Tech Auto Repair in Milton: 7 qualified technicians, 75+ years combined experience. We show you what needs fixing and what can wait. Call (905) 864-9977.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#152a40; --navy-deep:#0f1e30; --orange:#e8622c; --orange-dark:#c74f1f;
+    --paper:#faf8f4; --ink:#1d2733; --muted:#5b6b7d; --line:#e2dccf;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Source Sans 3',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Barlow Condensed',sans-serif;font-weight:700;line-height:1.05;letter-spacing:.01em;text-wrap:balance}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  /* utility bar */
+  .util{background:var(--navy-deep);color:#dfe6ee;font-size:.85rem}
+  .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px}
+  .util a{text-decoration:none;font-weight:600}
+  .util .phone{color:#fff;font-size:1rem;letter-spacing:.02em}
+  /* nav */
+  nav.site{position:sticky;top:0;z-index:50;background:rgba(250,248,244,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand-mark{width:40px;height:40px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Barlow Condensed';font-weight:700;font-size:1.4rem;border-radius:8px}
+  .brand-mark span{color:var(--orange)}
+  .brand-name{font-family:'Barlow Condensed';font-weight:700;font-size:1.35rem;line-height:1;letter-spacing:.02em}
+  .brand-name small{display:block;font-family:'Source Sans 3';font-weight:600;font-size:.62rem;letter-spacing:.22em;color:var(--muted)}
+  .nav-links{display:flex;gap:28px;list-style:none;font-weight:600;font-size:.95rem}
+  .nav-links a{text-decoration:none;color:var(--ink)}
+  .nav-links a:hover{color:var(--orange-dark)}
+  .nav-cta{background:var(--orange);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:8px;font-size:.95rem}
+  .nav-cta:hover{background:var(--orange-dark)}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{display:block;width:26px;height:3px;background:var(--ink);margin:5px 0;border-radius:2px}
+  /* hero */
+  .hero{background:var(--navy);color:#fff;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding-top:72px;padding-bottom:72px}
+  .hero-kicker{color:var(--orange);font-weight:700;letter-spacing:.18em;font-size:.8rem;margin-bottom:14px}
+  .hero h1{font-size:clamp(2.6rem,5.5vw,4.2rem);margin-bottom:18px}
+  .hero h1 em{font-style:normal;color:var(--orange)}
+  .hero p.lede{font-size:1.15rem;color:#c9d4e2;max-width:34rem;margin-bottom:28px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:8px;font-size:1.02rem}
+  .btn-primary{background:var(--orange);color:#fff}
+  .btn-primary:hover{background:var(--orange-dark)}
+  .btn-ghost{border:2px solid #8fa0b5;color:#fff}
+  .btn-ghost:hover{border-color:#fff}
+  .hero-card{background:var(--navy-deep);border:1px solid #2c4258;border-radius:14px;padding:28px}
+  .hero-card h3{font-size:1.5rem;color:#fff;margin-bottom:6px}
+  .hero-card p{color:#aeb9c8;font-size:.95rem;margin-bottom:18px}
+  .stat-row{display:flex;gap:26px;margin-top:18px}
+  .stat b{display:block;font-family:'Barlow Condensed';font-size:2rem;color:var(--orange);line-height:1}
+  .stat span{font-size:.8rem;color:#aeb9c8;letter-spacing:.06em}
+  /* sections */
+  section{padding:72px 0}
+  .sec-head{max-width:640px;margin-bottom:40px}
+  .kicker{color:var(--orange-dark);font-weight:700;letter-spacing:.18em;font-size:.78rem;margin-bottom:10px}
+  .sec-head h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:12px}
+  .sec-head p{color:var(--muted);font-size:1.05rem}
+  /* how it works */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .step{padding:30px 28px;border-right:1px solid var(--line);cursor:pointer;transition:background .2s}
+  .step:last-child{border-right:none}
+  .step.active{background:#fff7f0}
+  .step-num{font-family:'Barlow Condensed';font-weight:700;font-size:2.6rem;color:var(--orange);line-height:1}
+  .step h3{font-size:1.4rem;margin:10px 0 6px}
+  .step p{font-size:.95rem;color:var(--muted)}
+  .step-detail{display:none;margin-top:12px;font-size:.92rem;color:var(--ink);border-top:1px dashed var(--line);padding-top:12px}
+  .step.active .step-detail{display:block}
+  /* services */
+  .services{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+  .svc{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .svc-icon{flex:0 0 46px;height:46px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Barlow Condensed';font-weight:700;font-size:1.2rem}
+  .svc h3{font-size:1.25rem;margin-bottom:4px}
+  .svc p{font-size:.94rem;color:var(--muted)}
+  /* team */
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .member{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 22px;text-align:left}
+  .member .avatar{width:58px;height:58px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Barlow Condensed';font-weight:700;font-size:1.3rem;margin-bottom:14px}
+  .member h3{font-size:1.2rem}
+  .member .role{color:var(--orange-dark);font-weight:700;font-size:.82rem;letter-spacing:.08em;margin-bottom:8px}
+  .member p{font-size:.9rem;color:var(--muted)}
+  /* work order */
+  .workorder{background:var(--navy);color:#fff}
+  .workorder .sec-head h2{color:#fff}
+  .workorder .sec-head p{color:#aeb9c8}
+  .wo-card{background:#fff;color:var(--ink);border-radius:12px;max-width:760px;padding:8px 0;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+  .wo-head{padding:20px 28px;border-bottom:2px dashed var(--line);display:flex;justify-content:space-between;align-items:center}
+  .wo-head h3{font-size:1.5rem}
+  .wo-head span{font-size:.8rem;color:var(--muted);letter-spacing:.1em}
+  .wo-row{display:flex;gap:16px;align-items:flex-start;padding:18px 28px;border-bottom:1px dashed var(--line)}
+  .wo-row:last-child{border-bottom:none}
+  .wo-check{flex:0 0 26px;height:26px;border:2px solid var(--orange);border-radius:6px;display:grid;place-items:center;color:var(--orange);font-weight:700}
+  .wo-row p{font-size:.96rem}
+  .wo-row p b{color:var(--navy)}
+  /* reviews */
+  .reviews{background:#fff;border-top:1px solid var(--line)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rev{border:1px solid var(--line);border-radius:12px;padding:26px;background:var(--paper)}
+  .rev .stars{color:var(--orange);letter-spacing:.15em;margin-bottom:10px;font-size:.95rem}
+  .rev p{font-size:.95rem;margin-bottom:14px}
+  .rev cite{font-style:normal;font-size:.82rem;color:var(--muted);letter-spacing:.04em}
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .visit-card{background:var(--navy);color:#fff;border-radius:14px;padding:34px}
+  .visit-card h3{font-size:1.7rem;margin-bottom:14px}
+  .visit-card dl{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;font-size:1rem}
+  .visit-card dt{color:#aeb9c8}
+  .visit-card dd{font-weight:600}
+  .visit-card a{color:#fff}
+  .hours-table{width:100%;border-collapse:collapse;font-size:1rem}
+  .hours-table td{padding:10px 0;border-bottom:1px solid var(--line)}
+  .hours-table td:last-child{text-align:right;font-weight:600}
+  /* footer */
+  footer{background:var(--navy-deep);color:#aeb9c8;font-size:.9rem}
+  footer .wrap{padding-top:44px;padding-bottom:44px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+  footer h4{color:#fff;font-family:'Barlow Condensed';font-size:1.15rem;letter-spacing:.04em;margin-bottom:12px}
+  footer a{color:#dfe6ee;text-decoration:none}
+  footer a:hover{color:var(--orange)}
+  .concept{border-top:1px solid #2c4258;font-size:.78rem;color:#7d8fa3}
+  .concept .wrap{padding-top:16px;padding-bottom:16px;display:block}
+  /* tap to call */
+  .tapcall{display:none;position:fixed;bottom:16px;left:16px;right:16px;z-index:60;background:var(--orange);color:#fff;text-align:center;font-weight:700;font-size:1.1rem;text-decoration:none;padding:15px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+  @media(max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:32px;padding-top:52px;padding-bottom:52px}
+    .steps{grid-template-columns:1fr}
+    .step{border-right:none;border-bottom:1px solid var(--line)}
+    .step:last-child{border-bottom:none}
+    .svc-grid{grid-template-columns:1fr}
+    .team-grid{grid-template-columns:repeat(2,1fr)}
+    .rev-grid{grid-template-columns:1fr}
+    .visit-grid{grid-template-columns:1fr}
+    footer .wrap{grid-template-columns:1fr}
+    .nav-links{position:fixed;inset:0;background:var(--navy);flex-direction:column;align-items:center;justify-content:center;gap:30px;font-size:1.4rem;display:none}
+    .nav-links.open{display:flex}
+    .nav-links a{color:#fff}
+    .burger{display:block}
+    .tapcall{display:block}
+    body{padding-bottom:76px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="wrap">
+    <span>Mon–Fri 7:30 AM – 5:00 PM · 310 Steeles Ave E, Milton</span>
+    <a class="phone" href="tel:+19058649977">(905) 864-9977</a>
+  </div>
+</div>
+
+<nav class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark">T<span>T</span></span>
+      <span class="brand-name">TRUE TECH<small>AUTO REPAIR · MILTON</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+19058649977">Call the shop</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="hero-kicker">MILTON, ONTARIO · OWNER-OPERATED</p>
+      <h1>We show you what needs fixing <em>— and what can wait.</em></h1>
+      <p class="lede">True Tech is a seven-technician auto repair shop in Milton built on one idea: honest work you can see for yourself. Our techs walk you through every diagnosis and show you exactly what will be repaired — before you spend a dollar.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+19058649977">Call (905) 864-9977</a>
+        <a class="btn btn-ghost" href="#how">How a visit works</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>7</b><span>TECHNICIANS</span></div>
+        <div class="stat"><b>4</b><span>SENIOR TECHS</span></div>
+        <div class="stat"><b>75+</b><span>YRS COMBINED EXPERIENCE</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Meet Paul</h3>
+      <p>Owner and lead technician. Customers drive past dealerships to get to him — one F-150 owner came in after a year and a half of dealership visits couldn't find his problem. Paul identified it, handed over the Ford technical service bulletin, and Ford fixed it under warranty.</p>
+      <p style="margin-bottom:0">That's the shop. <a href="#reviews" style="color:var(--orange);font-weight:700">Read what Milton says →</a></p>
+    </div>
+  </div>
+</header>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">NO SURPRISES</p>
+      <h2>A visit to True Tech, in three steps</h2>
+      <p>Tap each step. This is the whole process — nothing hidden, nothing rushed.</p>
+    </div>
+    <div class="steps">
+      <div class="step active" onclick="this.classList.toggle('active')">
+        <div class="step-num">01</div>
+        <h3>Tell us what's wrong</h3>
+        <p>Call or drop by. Describe the noise, the light, the worry — in plain words.</p>
+        <p class="step-detail">No appointment needed for a first look. Bring the car by 310 Steeles Ave E any weekday morning and we'll take it from there.</p>
+      </div>
+      <div class="step" onclick="this.classList.toggle('active')">
+        <div class="step-num">02</div>
+        <h3>We show you, on the lift</h3>
+        <p>Our techs walk you through the diagnosis and show you the actual part.</p>
+        <p class="step-detail">You'll see what's worn, what's fine, and what can safely wait six months. We point; you decide.</p>
+      </div>
+      <div class="step" onclick="this.classList.toggle('active')">
+        <div class="step-num">03</div>
+        <h3>You approve, we fix</h3>
+        <p>Nothing happens until you say so. Then it's done right, the first time.</p>
+        <p class="step-detail">Straightforward pricing, explained before the work starts. If something changes mid-repair, you hear about it before we touch it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">WHAT WE DO</p>
+      <h2>Full-service repair, done by senior techs</h2>
+      <p>Four of our seven technicians are senior techs. Whatever your car needs, it's handled by someone who's seen it a thousand times.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc"><div class="svc-icon">O</div><div><h3>Oil, lube &amp; filter</h3><p>Fast, correct, with the right spec oil for your vehicle — not whatever's cheapest.</p></div></div>
+      <div class="svc"><div class="svc-icon">B</div><div><h3>Brakes</h3><p>Pads, rotors, calipers. We measure everything and show you the wear before recommending anything.</p></div></div>
+      <div class="svc"><div class="svc-icon">E</div><div><h3>Engine repair</h3><p>From diagnostics to major work. If a dealership couldn't find it, bring it to Paul.</p></div></div>
+      <div class="svc"><div class="svc-icon">T</div><div><h3>Tires &amp; alignments</h3><p>Mounting, balancing, rotation and precision alignments that save your tires.</p></div></div>
+    </div>
+    <p style="margin-top:28px;color:var(--muted)">Something else? <a href="tel:+19058649977" style="font-weight:700;color:var(--orange-dark)">Call and ask</a> — if it's car trouble, we've probably fixed it this month.</p>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">THE SHOP</p>
+      <h2>Seven techs. Zero guesswork.</h2>
+      <p>A small, experienced crew — the kind of shop where the owner still turns wrenches.</p>
+    </div>
+    <div class="team-grid">
+      <div class="member"><div class="avatar">P</div><h3>Paul</h3><div class="role">OWNER · LEAD TECHNICIAN</div><p>Runs the shop and the toughest diagnostics. The reason half of Milton's F-150s end up here.</p></div>
+      <div class="member"><div class="avatar">S</div><h3>Senior techs × 4</h3><div class="role">75+ YEARS COMBINED</div><p>Career technicians who stay on top of the latest vehicle systems and treat your car like their own.</p></div>
+      <div class="member"><div class="avatar">T</div><h3>Licensed techs × 2</h3><div class="role">FULL-TIME CREW</div><p>Rounding out a seven-person team that keeps wait times short and work consistent.</p></div>
+      <div class="member"><div class="avatar">Y</div><h3>You</h3><div class="role">PART OF THE PROCESS</div><p>We show our work. Ask questions, look under the hood with us — it's your car.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="workorder">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker" style="color:var(--orange)">THE TRUE TECH PROMISE</p>
+      <h2>Every job leaves with this checked off</h2>
+      <p>Our work-order standard. If any box isn't checked, the job isn't done.</p>
+    </div>
+    <div class="wo-card">
+      <div class="wo-head"><h3>Work order standard</h3><span>TRUE TECH AUTO REPAIR</span></div>
+      <div class="wo-row"><div class="wo-check">✓</div><p><b>Shown, not just told.</b> You see the worn part and the diagnosis before approving anything.</p></div>
+      <div class="wo-row"><div class="wo-check">✓</div><p><b>Fix vs. wait, spelled out.</b> What needs doing now and what can safely wait — in plain language.</p></div>
+      <div class="wo-row"><div class="wo-check">✓</div><p><b>Priced before we start.</b> No mid-job surprises. Changes get your approval first.</p></div>
+      <div class="wo-row"><div class="wo-check">✓</div><p><b>Done by senior hands.</b> Four senior technicians with 75+ years between them.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">WORD OF MOUTH</p>
+      <h2>What Milton says about us</h2>
+      <p>Real reviews from Google — the short version is "honest".</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>"Paul identified the issue and provided me with the Ford Technical Service Bulletin to give to Ford. Ford is going to fix the issue under warranty. Talk about going above and beyond."</p>
+        <cite>— GOOGLE REVIEW</cite>
+      </div>
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>"Hands down, this is the best mechanic I have ever been to. The employees take the time to walk me through their diagnostics and recommendations. I have total trust in the quality of work and the price."</p>
+        <cite>— GOOGLE REVIEW</cite>
+      </div>
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>"If you need an honest, reliable and reasonably priced mechanic then True Tech is the place to go. The owner Paul and all the mechanics are great to deal with."</p>
+        <cite>— GOOGLE REVIEW</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">FIND US</p>
+      <h2>Drop by the shop</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <h3>True Tech Auto Repair</h3>
+        <dl>
+          <dt>Address</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=310+Steeles+Ave+E+Milton+ON">310 Steeles Ave E<br>Milton, ON L9T 1Y4</a></dd>
+          <dt>Phone</dt><dd><a href="tel:+19058649977">(905) 864-9977</a></dd>
+          <dt>Email</dt><dd><a href="mailto:info@truetech.ca">info@truetech.ca</a></dd>
+        </dl>
+      </div>
+      <div>
+        <h3 style="font-size:1.4rem;margin-bottom:8px">Hours</h3>
+        <table class="hours-table">
+          <tr><td>Monday – Friday</td><td>7:30 AM – 5:00 PM</td></tr>
+          <tr><td>Saturday – Sunday</td><td>Closed</td></tr>
+        </table>
+        <p style="margin-top:16px;color:var(--muted)">No appointment needed for a first look — come by any weekday morning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>TRUE TECH AUTO REPAIR</h4>
+      <p>310 Steeles Ave E, Milton, ON L9T 1Y4<br><a href="tel:+19058649977">(905) 864-9977</a> · <a href="mailto:info@truetech.ca">info@truetech.ca</a></p>
+    </div>
+    <div>
+      <h4>SERVICES</h4>
+      <p>Oil, lube &amp; filter<br>Brakes · Engine repair<br>Tires &amp; alignments</p>
+    </div>
+    <div>
+      <h4>HOURS</h4>
+      <p>Mon–Fri 7:30 AM – 5:00 PM<br>Sat–Sun closed</p>
+    </div>
+  </div>
+  <div class="concept"><div class="wrap">Concept preview — a design mockup, not the business's live website.</div></div>
+</footer>
+
+<a class="tapcall" href="tel:+19058649977">Call True Tech — (905) 864-9977</a>
+
+<script>
+  document.getElementById('burger').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+  });
+</script>
+</body>
+</html>

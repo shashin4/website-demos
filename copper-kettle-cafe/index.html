@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copper Kettle Cafe — Waterdown | Famous Apple Fritters, Made to Order</title>
+<meta name="description" content="Copper Kettle Cafe, 312 Dundas St E Waterdown. Made-to-order apple fritters, specialty coffee, breakfast and sandwiches. Call (905) 690-3696.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf6ec;
+  --cream-deep:#f1e9d5;
+  --green:#2e4a3a;
+  --green-deep:#223829;
+  --copper:#c07a3e;
+  --copper-deep:#a05f27;
+  --ink:#2c2620;
+  --ink-soft:#6d6257;
+  --line:#e0d4b8;
+  --radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:'Bitter',serif;text-wrap:balance;line-height:1.18}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+/* nav */
+nav.site{position:sticky;top:0;z-index:50;background:rgba(250,246,236,.96);backdrop-filter:blur(8px);border-bottom:3px solid var(--copper)}
+nav.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:13px;padding-bottom:13px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-kettle{width:44px;height:44px;flex:none}
+.brand-name{font-family:'Bitter',serif;font-weight:700;font-size:1.22rem;line-height:1.1}
+.brand-name small{display:block;font-family:'Source Sans 3',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--copper-deep);font-weight:700}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink)}
+.nav-links a:hover{color:var(--copper-deep)}
+.nav-cta{background:var(--green);color:#fff!important;padding:10px 20px;border-radius:8px;font-weight:700}
+.nav-cta:hover{background:var(--green-deep)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
+/* hero — the fritter moment */
+.hero{background:var(--green);color:var(--cream);overflow:hidden;position:relative}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:70px 0 64px;position:relative}
+.hero-copy .kicker{display:inline-flex;align-items:center;gap:10px;background:rgba(192,122,62,.18);border:1px solid var(--copper);color:#f0c892;font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:8px 18px;border-radius:999px;margin-bottom:22px}
+.hero-copy h1{font-size:clamp(2.5rem,5.6vw,4rem);font-weight:800;margin-bottom:18px}
+.hero-copy h1 .copper-t{color:var(--copper)}
+.hero-copy p.lead{font-size:1.15rem;color:#d9cfae;max-width:44ch;margin-bottom:30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:8px;font-size:1rem;border:2px solid transparent;cursor:pointer}
+.btn-copper{background:var(--copper);color:#fff}
+.btn-copper:hover{background:var(--copper-deep)}
+.btn-outline-cream{border-color:rgba(250,246,236,.5);color:var(--cream)}
+.btn-outline-cream:hover{border-color:var(--cream)}
+.fritter-stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:380px}
+.fritter-ring{position:absolute;width:min(400px,80vw);height:min(400px,80vw);border:2px dashed rgba(192,122,62,.5);border-radius:50%}
+.fritter-stage svg{width:min(340px,68vw);height:auto;filter:drop-shadow(0 24px 30px rgba(0,0,0,.35))}
+.fritter-tag{position:absolute;background:var(--cream);color:var(--ink);border-radius:var(--radius);padding:12px 18px;font-weight:700;font-size:.92rem;box-shadow:0 10px 26px rgba(0,0,0,.3);border-left:6px solid var(--copper)}
+.fritter-tag.t1{top:8%;left:2%;transform:rotate(-4deg)}
+.fritter-tag.t2{bottom:10%;right:0;transform:rotate(3deg)}
+.fritter-tag small{display:block;font-weight:400;color:var(--ink-soft);font-size:.8rem}
+/* divider */
+.kettle-divider{display:flex;align-items:center;gap:16px;padding:0;margin:0 auto;max-width:1160px;padding:34px 22px 0}
+.kettle-divider::before,.kettle-divider::after{content:"";flex:1;height:2px;background:var(--copper);opacity:.5}
+.kettle-divider svg{flex:none}
+/* story */
+.story{padding:70px 0 30px}
+.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.story-num{font-family:'Bitter',serif;font-size:5rem;font-weight:800;color:var(--copper);line-height:1;opacity:.9}
+.story h2{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:700;margin:10px 0 18px}
+.story p{color:var(--ink-soft);margin-bottom:14px;font-size:1.05rem}
+.story p strong{color:var(--ink)}
+.fact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.fact{border-top:3px solid var(--copper);padding-top:14px}
+.fact .v{font-family:'Bitter',serif;font-size:1.7rem;font-weight:800;color:var(--green)}
+.fact .l{font-size:.85rem;color:var(--ink-soft);font-weight:600}
+/* menu */
+.menu-sec{padding:60px 0}
+.sec-head{margin-bottom:36px}
+.eyebrow{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--copper-deep);font-weight:700;margin-bottom:12px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;margin-bottom:10px}
+.sec-head p{color:var(--ink-soft);max-width:60ch;font-size:1.04rem}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 60px}
+.menu-cat{margin-bottom:8px}
+.menu-cat h3{font-family:'Bitter',serif;font-size:1.3rem;font-weight:700;color:var(--green);padding-bottom:10px;border-bottom:3px solid var(--green);margin-bottom:6px}
+.mi{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.mi .n{font-weight:700;font-size:1.02rem}
+.mi .d{flex:1;border-bottom:2px dotted var(--copper);opacity:.6;transform:translateY(-4px);min-width:20px}
+.mi .p{font-family:'Bitter',serif;font-weight:700;color:var(--copper-deep);white-space:nowrap}
+.mi .desc{flex-basis:100%;font-size:.9rem;color:var(--ink-soft);margin-top:2px}
+.mi-wrap{display:flex;flex-wrap:wrap}
+/* catering */
+.catering{background:var(--cream-deep);padding:70px 0;margin-top:20px;border-top:3px solid var(--copper);border-bottom:3px solid var(--copper)}
+.cater-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:34px}
+.platter{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;border-top:8px solid var(--green)}
+.platter h3{font-size:1.25rem;font-weight:700;margin-bottom:6px}
+.platter p{font-size:.93rem;color:var(--ink-soft);margin-bottom:14px}
+.platter .p{font-family:'Bitter',serif;font-size:1.5rem;font-weight:800;color:var(--copper-deep)}
+.platter .serves{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+/* visit */
+.visit{padding:76px 0}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.visit h2{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:700;margin-bottom:14px}
+.visit p{color:var(--ink-soft);margin-bottom:14px;font-size:1.03rem}
+.hours{width:100%;border-collapse:collapse;margin:16px 0 24px}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line);font-size:.98rem}
+.hours td:last-child{text-align:right;font-weight:700}
+.visit-card{background:var(--green);color:var(--cream);border-radius:var(--radius);padding:34px 30px}
+.visit-card h3{font-family:'Bitter',serif;font-size:1.4rem;font-weight:700;margin-bottom:14px;color:#fff}
+.visit-card p{color:#d9cfae;margin-bottom:10px}
+.visit-card a.tel{font-family:'Bitter',serif;font-size:1.7rem;font-weight:800;color:var(--copper);text-decoration:none}
+.visit-card a.tel:hover{text-decoration:underline}
+.visit-card a.mail{color:#f0c892;font-weight:700}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-deep)}
+.btn-outline-green{border-color:var(--green);color:var(--green)}
+.btn-outline-green:hover{background:var(--green);color:#fff}
+/* footer */
+footer{background:var(--green-deep);color:#b9ac93;padding:52px 0 120px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px;margin-bottom:32px}
+.foot-grid h3{font-family:'Bitter',serif;color:var(--cream);font-size:1.25rem;margin-bottom:12px}
+.foot-grid p,.foot-grid a{font-size:.94rem;color:#b9ac93;text-decoration:none}
+.foot-grid a:hover{color:var(--copper)}
+.foot-bottom{border-top:1px solid rgba(250,246,236,.14);padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem}
+.concept{font-size:.78rem;font-style:italic;color:#8a7f68}
+/* callbar */
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;background:var(--copper);color:#fff;border-radius:12px;padding:14px 18px;text-decoration:none;font-weight:700;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 28px rgba(0,0,0,.3);font-size:1.05rem}
+.callbar:hover{background:var(--copper-deep)}
+@media(max-width:900px){
+  .nav-links{position:fixed;inset:0;background:var(--cream);flex-direction:column;justify-content:center;gap:30px;font-size:1.3rem;transform:translateX(100%);transition:transform .3s ease;z-index:70}
+  .nav-links.open{transform:none}
+  .burger{display:block;z-index:80;position:relative}
+  .hero-inner{grid-template-columns:1fr;padding:56px 0 48px}
+  .fritter-stage{min-height:300px;order:-1}
+  .fritter-tag.t1{left:0}.fritter-tag.t2{right:0}
+  .story-grid,.menu-grid,.visit-grid{grid-template-columns:1fr}
+  .cater-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .callbar{display:flex}
+  footer{padding-bottom:130px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Copper Kettle Cafe home">
+      <svg class="brand-kettle" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M14 16h20v4c0 8-4 14-10 14S14 28 14 20v-4z" fill="#c07a3e"/>
+        <path d="M34 18c4 0 6 2 6 5s-2 5-6 5" stroke="#2e4a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M18 16c0-4 3-6 6-6s6 2 6 6" stroke="#2e4a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="10" r="2.4" fill="#2e4a3a"/>
+        <path d="M18 24h12" stroke="#faf6ec" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">Copper Kettle Cafe<small>Waterdown</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#fritters">Fritters</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#catering">Catering</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="tel:+19056903696" class="nav-cta">Call Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="kicker">Waterdown's fritter famous café</span>
+      <h1>The apple fritter, <span class="copper-t">made to order.</span></h1>
+      <p class="lead">Not sitting in a case since dawn — fried when you order it, still warm when it hits the counter. That's why people drive to Waterdown for it.</p>
+      <div class="hero-actions">
+        <a class="btn btn-copper" href="tel:+19056903696">Call to Order</a>
+        <a class="btn btn-outline-cream" href="#menu">See the Menu</a>
+      </div>
+    </div>
+    <div class="fritter-stage">
+      <div class="fritter-ring" aria-hidden="true"></div>
+      <svg viewBox="0 0 200 170" role="img" aria-label="Illustration of a golden apple fritter with glaze">
+        <path d="M100 12c34 0 62 22 72 52 8 24 2 52-14 72-14 18-36 26-58 26s-44-8-58-26C26 116 20 88 28 64 38 34 66 12 100 12z" fill="#d99a4e"/>
+        <path d="M100 22c28 0 52 18 61 43 7 20 2 44-12 61-12 15-30 22-49 22s-37-7-49-22c-14-17-19-41-12-61 9-25 33-43 61-43z" fill="#c9853d"/>
+        <g fill="#a8642a" opacity=".55">
+          <ellipse cx="70" cy="70" rx="9" ry="6" transform="rotate(-20 70 70)"/><ellipse cx="125" cy="60" rx="11" ry="7" transform="rotate(15 125 60)"/>
+          <ellipse cx="145" cy="105" rx="8" ry="6" transform="rotate(-12 145 105)"/><ellipse cx="85" cy="115" rx="10" ry="7" transform="rotate(20 85 115)"/>
+          <ellipse cx="105" cy="88" rx="7" ry="5"/><ellipse cx="55" cy="100" rx="7" ry="5" transform="rotate(-25 55 100)"/>
+        </g>
+        <g stroke="#f6e3bd" stroke-width="5" stroke-linecap="round" fill="none" opacity=".85">
+          <path d="M48 52c14-10 30-14 46-12M96 30c16-2 32 4 44 14M130 130c-16 8-36 10-54 4"/>
+        </g>
+        <g fill="#f9edd2" opacity=".9">
+          <circle cx="78" cy="48" r="4"/><circle cx="132" cy="84" r="3.4"/><circle cx="96" cy="130" r="4.4"/><circle cx="60" cy="120" r="3"/>
+        </g>
+      </svg>
+      <div class="fritter-tag t1">from $3.99<small>each, made to order</small></div>
+      <div class="fritter-tag t2">Call for pricing<small>larger orders &amp; catering</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="kettle-divider" aria-hidden="true">
+  <svg width="34" height="34" viewBox="0 0 48 48" fill="none">
+    <path d="M14 16h20v4c0 8-4 14-10 14S14 28 14 20v-4z" fill="#c07a3e"/>
+    <path d="M34 18c4 0 6 2 6 5s-2 5-6 5" stroke="#2e4a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M18 16c0-4 3-6 6-6s6 2 6 6" stroke="#2e4a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<section class="story" id="fritters">
+  <div class="wrap story-grid">
+    <div>
+      <div class="story-num">01</div>
+      <h2>Why the fritter?</h2>
+      <p>Because a fritter should be an <strong>event</strong>, not a pastry-case afterthought. Ours are mixed, fried and glazed to order — crisp outside, soft apple inside, gone in about four bites.</p>
+      <p>It's the thing we're known for across Waterdown, and honestly, it's the reason half our regulars walked in the first time.</p>
+      <div class="fact-row">
+        <div class="fact"><div class="v">4.6★</div><div class="l">Google rating, 72 reviews</div></div>
+        <div class="fact"><div class="v">$3.99</div><div class="l">Fritters from — pear too</div></div>
+        <div class="fact"><div class="v">7–7</div><div class="l">Open weekdays, 8–6 weekends</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="story-num">02</div>
+      <h2>And the coffee holds up its end.</h2>
+      <p>Every coffee we brew in the café, you can take home to make yourself — beans, syrups and mugs in our little wholesale corner. The raspberry matcha latte has its own following.</p>
+      <p>Breakfast, sandwiches and salads round it out: a proper café menu, not a fritter shop that happens to pour coffee.</p>
+      <div class="fact-row">
+        <div class="fact"><div class="v">$5.75+</div><div class="l">Lattes from</div></div>
+        <div class="fact"><div class="v">$12.99+</div><div class="l">Breakfast from</div></div>
+        <div class="fact"><div class="v">$14.99+</div><div class="l">Sandwiches from</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The Menu</p>
+      <h2>Eat in, take out, or take a dozen home</h2>
+      <p>Prices below are from our current menu — call ahead and we'll have your order ready.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-cat">
+        <h3>Fritters &amp; Sweets</h3>
+        <div class="mi mi-wrap"><span class="n">Apple Fritter</span><span class="d"></span><span class="p">from $3.99</span><span class="desc">Our signature — made to order, served warm.</span></div>
+        <div class="mi mi-wrap"><span class="n">Pear Fritter</span><span class="d"></span><span class="p">from $3.99</span><span class="desc">The quieter sibling. Regulars swear by it.</span></div>
+        <div class="mi mi-wrap"><span class="n">Fritter — larger order</span><span class="d"></span><span class="p">Call</span><span class="desc">For the office, the family, or just you. No judgment.</span></div>
+      </div>
+      <div class="menu-cat">
+        <h3>Coffee &amp; Drinks</h3>
+        <div class="mi mi-wrap"><span class="n">Lattes</span><span class="d"></span><span class="p">$5.75 – $6.75</span><span class="desc">Including the raspberry matcha latte.</span></div>
+        <div class="mi mi-wrap"><span class="n">Drip &amp; Brewed Coffee</span><span class="d"></span><span class="p">café pricing</span><span class="desc">Beans we roast-level love — take a bag home too.</span></div>
+        <div class="mi mi-wrap"><span class="n">Specialty Drinks</span><span class="d"></span><span class="p">café pricing</span><span class="desc">Seasonal creations on the board.</span></div>
+      </div>
+      <div class="menu-cat">
+        <h3>Breakfast</h3>
+        <div class="mi mi-wrap"><span class="n">Breakfast Plates</span><span class="d"></span><span class="p">$12.99 – $15.99</span><span class="desc">Hearty starts, served all morning.</span></div>
+      </div>
+      <div class="menu-cat">
+        <h3>Lunch</h3>
+        <div class="mi mi-wrap"><span class="n">Sandwiches</span><span class="d"></span><span class="p">$14.99 – $17.99</span><span class="desc">Including the Kettle Club.</span></div>
+        <div class="mi mi-wrap"><span class="n">Pearberry Salad</span><span class="d"></span><span class="p">café pricing</span><span class="desc">Fresh, bright, and bigger than it looks.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catering" id="catering">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Catering</p>
+      <h2>Party platters, minus the stress</h2>
+      <p>Our kids' catering platters are built for birthdays and gatherings — order at least 24 hours ahead and we'll have it ready.</p>
+    </div>
+    <div class="cater-grid">
+      <div class="platter">
+        <h3>Sandwich Tray</h3>
+        <p>24 mini sandwiches — ham &amp; cheese, strawberry jam &amp; butter, and our signature egg salad on white, marble rye and whole wheat.</p>
+        <div class="p">$65.99</div><div class="serves">Serves 8–12 kids</div>
+      </div>
+      <div class="platter">
+        <h3>Sweet Treats</h3>
+        <p>Fairy bread treats, fruit'n candy skewers, mini muffins, mini choc-chip cookies or gluten-friendly brownies — pick your dozen.</p>
+        <div class="p">$24.99</div><div class="serves">Per dozen · flavours vary</div>
+      </div>
+      <div class="platter">
+        <h3>Raspberry Lemonade</h3>
+        <p>96 oz of our in-house raspberry lemonade — sweet, tart, and built for refills.</p>
+        <div class="p">$35.99</div><div class="serves">96 oz · serves a crowd</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <p class="eyebrow">Hours &amp; Location</p>
+      <h2>Come hungry, leave happy</h2>
+      <p>Find us at 312 Dundas Street East, Unit 4, in Waterdown — follow the smell of fresh fritters.</p>
+      <table class="hours">
+        <tr><td>Monday – Friday</td><td>7 AM – 7 PM</td></tr>
+        <tr><td>Saturday – Sunday</td><td>8 AM – 6 PM</td></tr>
+      </table>
+      <div class="btn-row">
+        <a class="btn btn-green" href="https://www.google.com/maps/search/?api=1&query=312+Dundas+St+E+Unit+4+Waterdown+ON" target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn btn-outline-green" href="#catering">Plan Catering</a>
+      </div>
+    </div>
+    <div class="visit-card">
+      <h3>Order ahead — skip the wait</h3>
+      <p><a class="tel" href="tel:+19056903696">(905) 690-3696</a></p>
+      <p>Call for takeout, catering orders (24 hrs ahead please), or anything else.</p>
+      <p><a class="mail" href="mailto:info@copperkettlecafe.ca">info@copperkettlecafe.ca</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Copper Kettle Cafe</h3>
+        <p>Waterdown's fritter-famous café — made-to-order fritters, specialty coffee, breakfast, lunch and catering.</p>
+      </div>
+      <div>
+        <h3>Find Us</h3>
+        <p>312 Dundas St E, Unit 4<br>Waterdown, ON L0R 2H5<br><a href="tel:+19056903696">(905) 690-3696</a><br><a href="mailto:info@copperkettlecafe.ca">info@copperkettlecafe.ca</a></p>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <p>Mon–Fri: 7 AM – 7 PM<br>Sat–Sun: 8 AM – 6 PM</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Copper Kettle Cafe, Waterdown.</span>
+      <span class="concept">Concept preview — a design mockup, not the live website.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19056903696" aria-label="Call Copper Kettle Cafe">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+  Call to Order
+</a>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){links.classList.remove('open');burger.setAttribute('aria-expanded','false');});
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildFlour Bakery — Portuguese &amp; European Bakery | Milton, ON</title>
+<meta name="description" content="WildFlour Bakery: a family-owned Portuguese and European bakery in downtown Milton. Pastel de nata, croissants, custom cakes, catering. Call (289) 878-4551.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul:#1c5c8c; --azul-deep:#123e61; --cream:#fdfbf5; --ink:#24313d; --muted:#63727f;
+    --terra:#c2682f; --terra-dark:#a0521f; --line:#e4ded1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Public Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Marcellus',serif;font-weight:400;line-height:1.12;text-wrap:balance}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  /* azulejo tile strip: geometric Portuguese-tile motif, pure CSS */
+  .tile-strip{height:26px;background:
+    repeating-conic-gradient(from 0deg, var(--azul) 0deg 90deg, var(--cream) 90deg 180deg, var(--azul) 180deg 270deg, var(--cream) 270deg 360deg);
+    background-size:26px 26px;opacity:.92}
+  .tile-strip.thin{height:14px;background-size:14px 14px}
+  /* nav */
+  nav.site{position:sticky;top:0;z-index:50;background:rgba(253,251,245,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .brand{text-decoration:none;display:flex;align-items:center;gap:12px}
+  .brand-tile{width:42px;height:42px;flex:0 0 42px;border-radius:6px;background:
+    conic-gradient(from 45deg, var(--azul) 0 25%, var(--cream) 0 50%, var(--azul) 0 75%, var(--cream) 0);
+    background-size:21px 21px;border:2px solid var(--azul-deep)}
+  .brand-name{font-family:'Marcellus';font-size:1.5rem;color:var(--azul-deep);line-height:1}
+  .brand-name small{display:block;font-family:'Public Sans';font-weight:700;font-size:.58rem;letter-spacing:.3em;color:var(--terra)}
+  .nav-links{display:flex;gap:26px;list-style:none;font-weight:600;font-size:.95rem}
+  .nav-links a{text-decoration:none}
+  .nav-links a:hover{color:var(--terra-dark)}
+  .nav-cta{background:var(--terra);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:8px;font-size:.95rem}
+  .nav-cta:hover{background:var(--terra-dark)}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{display:block;width:26px;height:3px;background:var(--azul-deep);margin:5px 0;border-radius:2px}
+  /* hero: editorial story lead */
+  .hero{padding:84px 0 72px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .hero-kicker{color:var(--terra);font-weight:700;letter-spacing:.24em;font-size:.78rem;margin-bottom:16px}
+  .hero h1{font-size:clamp(2.7rem,5.6vw,4.3rem);color:var(--azul-deep);margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--terra)}
+  .hero .lede{font-size:1.12rem;color:var(--muted);max-width:32rem;margin-bottom:14px}
+  .hero .lede b{color:var(--ink)}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:8px;font-size:1.02rem}
+  .btn-primary{background:var(--azul);color:#fff}
+  .btn-primary:hover{background:var(--azul-deep)}
+  .btn-outline{border:2px solid var(--azul);color:var(--azul-deep)}
+  .btn-outline:hover{background:var(--azul);color:#fff}
+  .hero-panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;box-shadow:0 20px 50px rgba(18,62,97,.12)}
+  .hero-panel .tile-strip{border-radius:8px 8px 0 0}
+  .hero-panel-body{padding:30px 28px}
+  .hero-panel-body h3{font-size:1.6rem;color:var(--azul-deep);margin-bottom:6px}
+  .hero-panel-body .today{color:var(--terra);font-weight:700;font-size:.82rem;letter-spacing:.14em;margin-bottom:14px}
+  .fresh-list{list-style:none}
+  .fresh-list li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.98rem}
+  .fresh-list li:last-child{border-bottom:none}
+  .fresh-list b{font-weight:600}
+  .fresh-list span{color:var(--muted);font-size:.86rem}
+  /* ovens: product showcase */
+  .ovens{padding:80px 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sec-head{max-width:640px;margin-bottom:44px}
+  .kicker{color:var(--terra);font-weight:700;letter-spacing:.22em;font-size:.78rem;margin-bottom:10px}
+  .sec-head h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--azul-deep);margin-bottom:10px}
+  .sec-head p{color:var(--muted);font-size:1.05rem}
+  .oven-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+  .oven-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--cream)}
+  .oven-card .swatch{height:150px;position:relative}
+  .swatch-1{background:#d99a3c}
+  .swatch-2{background:#e8c98a}
+  .swatch-3{background:#c98f45}
+  .swatch-4{background:#f0dcae}
+  .swatch .tag{position:absolute;top:14px;left:14px;background:var(--azul-deep);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;padding:6px 12px;border-radius:999px}
+  .oven-card .body{padding:24px 26px}
+  .oven-card h3{font-size:1.45rem;color:var(--azul-deep);margin-bottom:6px}
+  .oven-card p{font-size:.95rem;color:var(--muted)}
+  /* cakes & catering */
+  .occasions{padding:80px 0}
+  .occ-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .occ{background:var(--azul-deep);color:#fff;padding:44px 40px}
+  .occ h3{font-size:1.8rem;margin-bottom:10px}
+  .occ p{color:#c3d4e2;margin-bottom:22px}
+  .occ .btn{background:#fff;color:var(--azul-deep)}
+  .occ.alt{background:var(--cream);color:var(--ink)}
+  .occ.alt h3{color:var(--azul-deep)}
+  .occ.alt p{color:var(--muted)}
+  .occ.alt .btn{background:var(--terra);color:#fff}
+  .occ.alt .btn:hover{background:var(--terra-dark)}
+  /* visit */
+  .visit{padding:80px 0;background:#fff;border-top:1px solid var(--line)}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .visit h2{font-size:clamp(2rem,4vw,2.8rem);color:var(--azul-deep);margin-bottom:16px}
+  .hours-table{width:100%;border-collapse:collapse;font-size:1.02rem}
+  .hours-table td{padding:11px 0;border-bottom:1px solid var(--line)}
+  .hours-table td:last-child{text-align:right;font-weight:700}
+  .addr{font-size:1.05rem}
+  .addr p{margin-bottom:10px;color:var(--muted)}
+  .addr a.big{font-size:1.3rem;font-weight:700;color:var(--azul-deep);text-decoration:none}
+  .ig{display:inline-block;margin-top:14px;font-weight:700;color:var(--terra-dark);text-decoration:none;border-bottom:2px solid var(--terra)}
+  /* footer */
+  footer{background:var(--azul-deep);color:#a9bfd3;font-size:.9rem}
+  footer .wrap{padding-top:44px;padding-bottom:44px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+  footer h4{color:#fff;font-family:'Marcellus';font-size:1.15rem;margin-bottom:12px;font-weight:400}
+  footer a{color:#dbe7f2;text-decoration:none}
+  .concept{border-top:1px solid #2a567e;font-size:.78rem;color:#7e99b1}
+  .concept .wrap{padding-top:14px;padding-bottom:14px;display:block}
+  .tapcall{display:none;position:fixed;bottom:16px;left:16px;right:16px;z-index:60;background:var(--terra);color:#fff;text-align:center;font-weight:700;font-size:1.1rem;text-decoration:none;padding:15px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .oven-grid{grid-template-columns:1fr}
+    .occ-grid{grid-template-columns:1fr}
+    .visit-grid{grid-template-columns:1fr}
+    footer .wrap{grid-template-columns:1fr}
+    .nav-links{position:fixed;inset:0;background:var(--azul-deep);flex-direction:column;align-items:center;justify-content:center;gap:30px;font-size:1.4rem;display:none;z-index:60}
+    .nav-links.open{display:flex}
+    .nav-links a{color:#fff}
+    .burger{display:block}
+    .tapcall{display:block}
+    body{padding-bottom:76px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="tile-strip" aria-hidden="true"></div>
+
+<nav class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-tile"></span>
+      <span class="brand-name">WildFlour<small>BAKERY · MILTON</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#ovens">From the ovens</a></li>
+      <li><a href="#occasions">Cakes &amp; catering</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+12898784551">Call the bakery</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-kicker">FAMILY-OWNED · DOWNTOWN MILTON</p>
+      <h1>A Portuguese bakery with <em>European soul,</em> on Main Street.</h1>
+      <p class="lede">WildFlour is a <b>family-owned bakery</b> in downtown Milton baking <b>Portuguese and European pastries</b> the slow way — laminated doughs, real custard, bread with a proper crust.</p>
+      <p class="lede">Come for the <b>pastel de nata</b>. Stay because it feels like the neighbourhood's kitchen.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+12898784551">Call (289) 878-4551</a>
+        <a class="btn btn-outline" href="#ovens">See what's baking</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="tile-strip thin" aria-hidden="true"></div>
+      <div class="hero-panel-body">
+        <h3>Fresh from the ovens</h3>
+        <p class="today">BAKED DAILY · WHILE THEY LAST</p>
+        <ul class="fresh-list">
+          <li><b>Pastel de nata</b><span>Portuguese custard tarts</span></li>
+          <li><b>Croissants</b><span>flaky, butter-laminated</span></li>
+          <li><b>Portuguese bread</b><span>crusty village loaves</span></li>
+          <li><b>Berlin donuts</b><span>filled with custard</span></li>
+          <li><b>Drip coffee</b><span>the perfect pairing</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="ovens" id="ovens">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">FROM THE OVENS</p>
+      <h2>What the regulars come back for</h2>
+      <p>Portuguese classics and European favourites, baked in small batches through the day.</p>
+    </div>
+    <div class="oven-grid">
+      <div class="oven-card">
+        <div class="swatch swatch-1"><span class="tag">SIGNATURE</span></div>
+        <div class="body"><h3>Pastel de nata</h3><p>The Portuguese custard tart — blistered top, silky custard, shattering shell. Ours are baked fresh daily and they sell out for a reason.</p></div>
+      </div>
+      <div class="oven-card">
+        <div class="swatch swatch-2"><span class="tag">DAILY</span></div>
+        <div class="body"><h3>Croissants &amp; Portuguese bread</h3><p>Butter-laminated croissants and crusty village-style Portuguese loaves — the everyday staples done properly.</p></div>
+      </div>
+      <div class="oven-card">
+        <div class="swatch swatch-3"><span class="tag">SWEET</span></div>
+        <div class="body"><h3>Berlin donuts</h3><p>Pillowy donuts filled with real custard. A European bakery classic, and a Milton favourite.</p></div>
+      </div>
+      <div class="oven-card">
+        <div class="swatch swatch-4"><span class="tag">TO ORDER</span></div>
+        <div class="body"><h3>Custom cakes</h3><p>Birthdays, weddings, communions — designed with you, baked by the family. Call ahead and let's plan it together.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="occasions" id="occasions">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">BEYOND THE COUNTER</p>
+      <h2>For the big days</h2>
+    </div>
+    <div class="occ-grid">
+      <div class="occ">
+        <h3>Custom cakes</h3>
+        <p>Designed with you and baked by our family — birthdays, weddings, baptisms and every milestone in between. Tell us the occasion; we'll handle the cake.</p>
+        <a class="btn" href="tel:+12898784551">Call to plan your cake</a>
+      </div>
+      <div class="occ alt">
+        <h3>Catering platters</h3>
+        <p>Pastry platters for offices, parties and events across Milton. A box of nata tarts has never let anyone down at a meeting.</p>
+        <a class="btn" href="tel:+12898784551">Ask about catering</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div>
+        <h2>Come say olá</h2>
+        <table class="hours-table">
+          <tr><td>Tuesday – Saturday</td><td>9 AM – 6 PM</td></tr>
+          <tr><td>Sunday</td><td>9 AM – 4 PM</td></tr>
+          <tr><td>Monday</td><td>Closed</td></tr>
+        </table>
+      </div>
+      <div class="addr">
+        <p><b style="color:var(--ink)">WildFlour Bakery</b><br>191 Main Street East<br>Milton, ON L9T 1N7</p>
+        <p><a class="big" href="tel:+12898784551">(289) 878-4551</a></p>
+        <p><a href="mailto:wildflourbakerymilton@gmail.com">wildflourbakerymilton@gmail.com</a></p>
+        <a class="ig" href="https://www.instagram.com/" rel="noopener">Follow us on Instagram →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="tile-strip thin" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <h4>WILDFLOUR BAKERY</h4>
+      <p>191 Main Street East, Milton, ON L9T 1N7<br><a href="tel:+12898784551">(289) 878-4551</a></p>
+    </div>
+    <div>
+      <h4>BAKERY</h4>
+      <p>Pastel de nata · Croissants<br>Portuguese bread · Custom cakes</p>
+    </div>
+    <div>
+      <h4>HOURS</h4>
+      <p>Tue–Sat 9–6 · Sun 9–4<br>Monday closed</p>
+    </div>
+  </div>
+  <div class="concept"><div class="wrap">Concept preview — a design mockup, not the business's live website.</div></div>
+</footer>
+
+<a class="tapcall" href="tel:+12898784551">Call WildFlour — (289) 878-4551</a>
+
+<script>
+  document.getElementById('burger').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+  });
+</script>
+</body>
+</html>

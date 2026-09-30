@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barber's Lounge | Men's Grooming in Mapleview Mall, Burlington</title>
+<meta name="description" content="Barber's Lounge is the only shop exclusively for men in Mapleview Mall, Burlington. Precision cuts, hot-towel shaves, colour and threading. 45 to 60 minutes in the chair.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1410;
+    --ink-2:#2a1f16;
+    --brass:#c9a24b;
+    --brass-dim:#a5833a;
+    --cream:#f2e9d8;
+    --cream-dim:#cbbfa5;
+    --paper-line:#3a2c1e;
+    --radius:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Work Sans',system-ui,sans-serif;
+    background:var(--ink);
+    color:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.slab{font-family:'Alfa Slab One',serif;font-weight:400;text-wrap:balance;line-height:1.08}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+  /* utility strip */
+  .utility{background:var(--ink-2);border-bottom:1px solid var(--paper-line);font-size:.82rem;color:var(--cream-dim)}
+  .utility .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:8px;padding-bottom:8px;gap:12px;flex-wrap:wrap}
+  .open-badge{display:inline-flex;align-items:center;gap:8px;color:var(--cream)}
+  .open-badge .dot{width:9px;height:9px;border-radius:50%;background:#7fb069;box-shadow:0 0 8px #7fb069}
+  .open-badge.closed .dot{background:#b0523c;box-shadow:0 0 8px #b0523c}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(28,20,16,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--paper-line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand-mark{width:38px;height:38px;flex:0 0 38px;border-radius:50%;
+    background:repeating-linear-gradient(-45deg,var(--cream) 0 6px,var(--brass) 6px 12px);
+    border:2px solid var(--brass)}
+  .brand-name{font-family:'Alfa Slab One',serif;font-size:1.05rem;letter-spacing:.02em}
+  .brand-name small{display:block;font-family:'Work Sans',sans-serif;font-size:.62rem;letter-spacing:.28em;color:var(--brass);font-weight:600}
+  nav.links{display:flex;gap:26px;align-items:center}
+  nav.links a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--cream-dim)}
+  nav.links a:hover{color:var(--brass)}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:var(--radius);border:1px solid transparent;cursor:pointer}
+  .btn-brass{background:var(--brass);color:#1c1410}
+  .btn-brass:hover{background:#d8b45e}
+  .btn-ghost{border-color:var(--brass);color:var(--brass)}
+  .btn-ghost:hover{background:rgba(201,162,75,.12)}
+  .nav-cta{padding:10px 18px}
+  .hamburger{display:none;background:none;border:1px solid var(--paper-line);border-radius:8px;color:var(--cream);padding:8px 12px;font-size:1.1rem;cursor:pointer}
+  @media(max-width:820px){
+    nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ink-2);flex-direction:column;align-items:stretch;padding:12px 24px 20px;border-bottom:1px solid var(--paper-line);gap:4px}
+    nav.links.open{display:flex}
+    nav.links a{padding:10px 0;border-bottom:1px solid var(--paper-line)}
+    .hamburger{display:block}
+    header.nav{position:sticky}
+    .nav-inner{position:relative}
+  }
+
+  /* hero */
+  .hero{padding:64px 0 72px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{color:var(--brass);font-weight:700;letter-spacing:.22em;font-size:.78rem;text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-size:clamp(2.4rem,5.4vw,4.2rem);margin-bottom:20px}
+  .hero h1 .accent{color:var(--brass)}
+  .hero p.lede{font-size:1.12rem;color:var(--cream-dim);max-width:34rem;margin-bottom:30px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-note{margin-top:26px;font-size:.88rem;color:var(--cream-dim);border-left:3px solid var(--brass);padding-left:14px;max-width:30rem}
+
+  /* price board */
+  .board{background:var(--ink-2);border:1px solid var(--paper-line);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .board-head{background:repeating-linear-gradient(-45deg,var(--brass) 0 10px,#1c1410 10px 20px);padding:10px}
+  .board-head-inner{background:var(--ink-2);text-align:center;padding:12px;font-family:'Alfa Slab One',serif;letter-spacing:.14em;font-size:.95rem;color:var(--brass)}
+  .board-row{display:flex;align-items:baseline;gap:10px;padding:15px 22px;border-bottom:1px dashed var(--paper-line);transition:background .2s}
+  .board-row:last-child{border-bottom:none}
+  .board-row:hover{background:rgba(201,162,75,.07)}
+  .board-row .svc{font-weight:600;font-size:1.02rem}
+  .board-row .dots{flex:1;border-bottom:2px dotted #5a4832;transform:translateY(-5px);min-width:24px}
+  .board-row .price{color:var(--brass);font-weight:600;font-size:.92rem;white-space:nowrap}
+  .board-row .desc{flex-basis:100%;font-size:.86rem;color:var(--cream-dim);margin-top:2px}
+  .board-foot{padding:14px 22px;font-size:.82rem;color:var(--cream-dim);background:rgba(201,162,75,.06)}
+
+  /* sections */
+  section.block{padding:64px 0}
+  section.block h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:14px}
+  section.block h2 .accent{color:var(--brass)}
+  .section-lede{color:var(--cream-dim);max-width:42rem;margin-bottom:36px;font-size:1.05rem}
+
+  /* experience strip */
+  .ritual{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--paper-line);border-radius:14px;overflow:hidden}
+  @media(max-width:760px){.ritual{grid-template-columns:1fr}}
+  .ritual-step{padding:32px 28px;background:var(--ink-2)}
+  .ritual-step + .ritual-step{border-left:1px solid var(--paper-line)}
+  @media(max-width:760px){.ritual-step + .ritual-step{border-left:none;border-top:1px solid var(--paper-line)}}
+  .ritual-num{font-family:'Alfa Slab One',serif;color:var(--brass);font-size:2rem;display:block;margin-bottom:10px}
+  .ritual-step h3{font-family:'Work Sans',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:8px}
+  .ritual-step p{font-size:.94rem;color:var(--cream-dim)}
+
+  /* services detail */
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
+  .svc-card{background:var(--ink-2);border:1px solid var(--paper-line);border-radius:14px;padding:30px 28px;position:relative;overflow:hidden}
+  .svc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--brass)}
+  .svc-card h3{font-family:'Work Sans',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:10px}
+  .svc-card p{color:var(--cream-dim);font-size:.95rem}
+  .svc-card ul{margin:14px 0 0 18px;color:var(--cream-dim);font-size:.93rem}
+  .svc-card li{margin-bottom:6px}
+  .svc-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-bottom:12px}
+
+  /* products band */
+  .band{background:var(--ink-2);border-top:1px solid var(--paper-line);border-bottom:1px solid var(--paper-line)}
+  .band-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  @media(max-width:820px){.band-grid{grid-template-columns:1fr}}
+  .shelf{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .shelf-item{background:var(--ink);border:1px solid var(--paper-line);border-radius:10px;padding:22px 12px;text-align:center;font-size:.82rem;color:var(--cream-dim)}
+  .shelf-item .glyph{font-size:1.6rem;display:block;margin-bottom:8px}
+  .shelf-item strong{display:block;color:var(--cream);font-size:.88rem;margin-bottom:4px}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  @media(max-width:820px){.visit-grid{grid-template-columns:1fr}}
+  .hours-table{width:100%;border-collapse:collapse;font-size:.95rem}
+  .hours-table td{padding:10px 4px;border-bottom:1px dashed var(--paper-line)}
+  .hours-table tr.today td{color:var(--brass);font-weight:700}
+  .hours-table tr.today td:last-child::after{content:" · today";font-size:.78rem;font-weight:600}
+  .hours-table td:last-child{text-align:right;color:var(--cream-dim)}
+  .hours-table tr.today td:last-child{color:var(--brass)}
+  .visit-card{background:var(--ink-2);border:1px solid var(--paper-line);border-radius:14px;padding:30px}
+  .visit-card h3{font-family:'Work Sans',sans-serif;font-size:1.05rem;margin-bottom:14px}
+  .contact-line{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:.96rem}
+  .contact-line .icon{color:var(--brass);font-weight:700;flex:0 0 22px}
+  .contact-line a{color:var(--cream)}
+  .map-link{display:inline-block;margin-top:6px}
+
+  footer{border-top:1px solid var(--paper-line);padding:34px 0 110px;color:var(--cream-dim);font-size:.85rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .concept{font-size:.78rem;opacity:.75}
+
+  /* mobile call bar */
+  .call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--brass);color:#1c1410;text-align:center;font-weight:700;padding:15px;text-decoration:none;font-size:1.05rem}
+  @media(max-width:820px){.call-bar{display:block}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="wrap">
+    <span>Mapleview Mall · Main level, near Hudson's Bay · Burlington, ON</span>
+    <span class="open-badge" id="openBadge"><span class="dot"></span><span id="openText">Check hours below</span></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Barber's Lounge home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">BARBER'S LOUNGE<small>EST. 2013 · BURLINGTON</small></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="links" id="navLinks" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#experience">The Experience</a>
+      <a href="#products">Products</a>
+      <a href="#visit">Visit</a>
+      <a href="tel:+19054645093" class="btn btn-brass nav-cta">Call to Book</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">The only shop exclusively for men in Mapleview Mall</p>
+        <h1>Walk in a man.<br>Walk out <span class="accent">sharper.</span></h1>
+        <p class="lede">Barber's Lounge is Burlington's man cave for grooming: precision cuts, hot-towel shaves, colour and threading, delivered in a relaxed, spa-like setting. Every appointment gets 45 to 60 minutes in the chair. No rush, no shortcuts.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-brass" href="tel:+19054645093">Call (905) 464-5093</a>
+          <a class="btn btn-ghost" href="#services">See the service board</a>
+        </div>
+        <p class="hero-note">Walk-ins welcome when a chair is free, but booked appointments always come first. Call ahead and the chair is yours.</p>
+      </div>
+      <div class="board" role="list" aria-label="Service board">
+        <div class="board-head"><div class="board-head-inner">THE SERVICE BOARD</div></div>
+        <div class="board-row" role="listitem">
+          <div><span class="svc">Hair Trim &amp; Style</span><div class="desc">Precision cuts and fades, classic to current</div></div>
+          <span class="dots" aria-hidden="true"></span><span class="price">Call for pricing</span>
+        </div>
+        <div class="board-row" role="listitem">
+          <div><span class="svc">Hot-Towel Shave</span><div class="desc">A close, relaxing straight-razor finish</div></div>
+          <span class="dots" aria-hidden="true"></span><span class="price">Call for pricing</span>
+        </div>
+        <div class="board-row" role="listitem">
+          <div><span class="svc">Colour &amp; Chemical</span><div class="desc">Colour, highlights, beard colouring, perm</div></div>
+          <span class="dots" aria-hidden="true"></span><span class="price">Call for pricing</span>
+        </div>
+        <div class="board-row" role="listitem">
+          <div><span class="svc">Threading for Men</span><div class="desc">Brows, beard line, full face · 5–20 min</div></div>
+          <span class="dots" aria-hidden="true"></span><span class="price">Call for pricing</span>
+        </div>
+        <div class="board-foot">Prices vary by service and barber. Call <a href="tel:+19054645093" style="color:var(--brass)">(905) 464-5093</a> for today's rates.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section class="block" id="experience">
+    <div class="wrap">
+      <h2>An hour that is <span class="accent">entirely yours</span></h2>
+      <p class="section-lede">Most shops turn chairs every twenty minutes. Barber's Lounge books 45 to 60 minutes per client, because a proper cut, a proper shave and proper attention to detail cannot be rushed.</p>
+      <div class="ritual">
+        <div class="ritual-step">
+          <span class="ritual-num">01</span>
+          <h3>Settle in</h3>
+          <p>Bright, modern, spacious, and built like a man cave. Walk in, shake off the mall, and take a breath before the clippers come out.</p>
+        </div>
+        <div class="ritual-step">
+          <span class="ritual-num">02</span>
+          <h3>Get the full treatment</h3>
+          <p>Hair, skin and style, handled with attention to detail. Hot towels, sharp blades, and a barber who takes the time to get it right.</p>
+        </div>
+        <div class="ritual-step">
+          <span class="ritual-num">03</span>
+          <h3>Leave sharper</h3>
+          <p>Walk out feeling and looking your best, with product recommendations matched to your hair and skin type if you want them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="block" id="services" style="padding-top:0">
+    <div class="wrap">
+      <h2>Services, <span class="accent">in full</span></h2>
+      <p class="section-lede">Four disciplines, one chair. Everything below is done in-house by the Barber's Lounge team.</p>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <span class="svc-tag">Cuts</span>
+          <h3>Hair Trim &amp; Style</h3>
+          <p>Skilled in everything from the latest trends to traditional styles: precision cuts, fades, and finishes tailored to how you actually wear your hair.</p>
+        </div>
+        <div class="svc-card">
+          <span class="svc-tag">Shaves</span>
+          <h3>Hot-Towel Shaves</h3>
+          <p>Just a trim, or the full decadence of a hot towel followed by a very close shave. A genuinely relaxing experience that leaves you refreshed.</p>
+        </div>
+        <div class="svc-card">
+          <span class="svc-tag">Colour</span>
+          <h3>Colour &amp; Chemical Services</h3>
+          <p>Colour and chemical services for the modern man:</p>
+          <ul>
+            <li>Hair colour and highlights</li>
+            <li>Moustache and beard colouring</li>
+            <li>Perms and scalp bleach</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="svc-tag">Detailing</span>
+          <h3>Threading for Men</h3>
+          <p>Precise threading for eyebrows, upper lip, chin, full face, full face and neck, and beard line. Most sessions take 5 to 20 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <div class="band">
+    <section class="block">
+      <div class="wrap band-grid">
+        <div>
+          <h2>Take the chair <span class="accent">home with you</span></h2>
+          <p class="section-lede" style="margin-bottom:20px">Barber's Lounge carefully selects a range of men's grooming, skin and hair care products, sold right in the shop. Ask for a personal recommendation matched to your hair and skin type.</p>
+          <a class="btn btn-ghost" href="tel:+19054645093">Ask what's in stock</a>
+        </div>
+        <div class="shelf" aria-label="Product categories">
+          <div class="shelf-item"><span class="glyph" aria-hidden="true">✂</span><strong>Hair care</strong>Styling &amp; wash</div>
+          <div class="shelf-item"><span class="glyph" aria-hidden="true">🪒</span><strong>Shave</strong>Creams &amp; balms</div>
+          <div class="shelf-item"><span class="glyph" aria-hidden="true">🧴</span><strong>Skin</strong>Moisturizers</div>
+          <div class="shelf-item"><span class="glyph" aria-hidden="true">🧔</span><strong>Beard</strong>Oils &amp; waxes</div>
+          <div class="shelf-item"><span class="glyph" aria-hidden="true">💈</span><strong>Tools</strong>Combs &amp; brushes</div>
+          <div class="shelf-item"><span class="glyph" aria-hidden="true">🎁</span><strong>Gifts</strong>Sets for him</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- VISIT -->
+  <section class="block" id="visit">
+    <div class="wrap">
+      <h2>Find <span class="accent">the chair</span></h2>
+      <p class="section-lede">On the main level of Mapleview Mall, near Hudson's Bay. Serving Burlington since 2013.</p>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>Hours</h3>
+          <table class="hours-table" id="hoursTable">
+            <tbody>
+              <tr data-day="1"><td>Monday</td><td>10:00 AM – 9:00 PM</td></tr>
+              <tr data-day="2"><td>Tuesday</td><td>10:00 AM – 9:00 PM</td></tr>
+              <tr data-day="3"><td>Wednesday</td><td>10:00 AM – 9:00 PM</td></tr>
+              <tr data-day="4"><td>Thursday</td><td>10:00 AM – 9:00 PM</td></tr>
+              <tr data-day="5"><td>Friday</td><td>10:00 AM – 9:00 PM</td></tr>
+              <tr data-day="6"><td>Saturday</td><td>9:30 AM – 6:00 PM</td></tr>
+              <tr data-day="0"><td>Sunday</td><td>11:00 AM – 6:00 PM</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="visit-card">
+          <h3>Get in touch</h3>
+          <div class="contact-line"><span class="icon">✆</span><span><a href="tel:+19054645093">(905) 464-5093</a><br><span style="color:var(--cream-dim);font-size:.88rem">Call to book your chair</span></span></div>
+          <div class="contact-line"><span class="icon">✉</span><span><a href="mailto:info@barberslounge.biz">info@barberslounge.biz</a></span></div>
+          <div class="contact-line"><span class="icon">◈</span><span>900 Maple Avenue<br>Burlington, ON L7S 2J8<br><span style="color:var(--cream-dim);font-size:.88rem">Main level, near Hudson's Bay</span></span></div>
+          <a class="btn btn-brass map-link" href="https://www.google.com/maps/search/?api=1&query=Barber%27s+Lounge+900+Maple+Ave+Burlington+ON" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Barber's Lounge, Burlington ON. All rights reserved.</span>
+    <span class="concept">Concept preview · a design idea, not the live site</span>
+  </div>
+</footer>
+
+<a class="call-bar" href="tel:+19054645093">Tap to call Barber's Lounge</a>
+
+<script>
+(function(){
+  // mobile nav
+  var ham = document.getElementById('hamburger');
+  var links = document.getElementById('navLinks');
+  ham.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ links.classList.remove('open'); ham.setAttribute('aria-expanded','false'); }
+  });
+
+  // day-aware hours: highlight today + open/closed badge
+  var hours = {0:[11,18],1:[10,21],2:[10,21],3:[10,21],4:[10,21],5:[10,21],6:[9.5,18]};
+  var now = new Date();
+  var day = now.getDay();
+  var rows = document.querySelectorAll('#hoursTable tr');
+  rows.forEach(function(r){ if(parseInt(r.getAttribute('data-day'),10) === day){ r.classList.add('today'); } });
+  var badge = document.getElementById('openBadge');
+  var text = document.getElementById('openText');
+  var h = now.getHours() + now.getMinutes()/60;
+  var range = hours[day];
+  if(h >= range[0] && h < range[1]){
+    text.textContent = 'Open now · until ' + fmt(range[1]);
+  } else {
+    badge.classList.add('closed');
+    text.textContent = 'Closed now · opens ' + nextOpen(day, h, hours);
+  }
+  function fmt(t){
+    var hr = Math.floor(t), min = (t % 1) * 60;
+    var ap = hr >= 12 ? 'PM' : 'AM';
+    var h12 = hr % 12; if(h12 === 0) h12 = 12;
+    return h12 + (min ? ':' + (min<10?'0':'') + min : '') + ' ' + ap;
+  }
+  function nextOpen(day, h, hours){
+    var names = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    if(h < hours[day][0]) return 'today at ' + fmt(hours[day][0]);
+    for(var i=1;i<=7;i++){
+      var d = (day+i)%7;
+      return (i===1?'tomorrow':names[d]) + ' at ' + fmt(hours[d][0]);
+    }
+  }
+})();
+</script>
+</body>
+</html>

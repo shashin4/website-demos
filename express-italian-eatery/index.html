@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Express Italian Eatery — Burlington | Stone-Oven Italian Since 1994</title>
+<meta name="description" content="The Express Italian Eatery on Lakeshore Rd in Burlington. Stone-oven pizza and Italian classics since 1994. Call (905) 633-8787.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#f7f2e8;
+  --ivory-deep:#efe7d6;
+  --tomato:#b3402a;
+  --tomato-deep:#93301e;
+  --ink:#2b2320;
+  --ink-soft:#5c5148;
+  --olive:#6b7245;
+  --gold:#c99a3f;
+  --line:#ddd2bd;
+  --radius:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',system-ui,sans-serif;background:var(--ivory);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:'Marcellus',serif;font-weight:400;text-wrap:balance;line-height:1.15}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+/* utility bar */
+.utility{background:var(--ink);color:#f3ead9;font-size:.82rem;letter-spacing:.02em}
+.utility .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.utility a{color:#f3ead9;text-decoration:none;font-weight:600}
+.utility .dot{color:var(--gold);margin:0 8px}
+/* nav */
+nav.site{position:sticky;top:0;z-index:50;background:rgba(247,242,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:42px;height:42px;flex:none}
+.brand-name{font-family:'Marcellus',serif;font-size:1.25rem;line-height:1.1}
+.brand-name small{display:block;font-family:'Source Sans 3',sans-serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--tomato);font-weight:700}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink)}
+.nav-links a:hover{color:var(--tomato)}
+.nav-cta{background:var(--tomato);color:#fff!important;padding:10px 20px;border-radius:999px;font-weight:700}
+.nav-cta:hover{background:var(--tomato-deep)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--ink);color:var(--ivory)}
+.hero .tricolor{position:absolute;top:0;left:0;right:0;height:6px;display:flex}
+.hero .tricolor i{flex:1}
+.hero .tricolor i:nth-child(1){background:#3f6b4f}
+.hero .tricolor i:nth-child(2){background:var(--ivory)}
+.hero .tricolor i:nth-child(3){background:var(--tomato)}
+.hero-inner{padding:84px 0 70px;position:relative}
+.hero-kicker{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.hero-kicker .rule{height:1px;width:56px;background:var(--gold)}
+.hero-kicker p{font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.hero h1{font-size:clamp(2.6rem,6.5vw,4.6rem);max-width:12ch;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:1.15rem;color:#d8cbb2;max-width:46ch;margin-bottom:34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:999px;font-size:1rem;border:2px solid transparent;cursor:pointer}
+.btn-tomato{background:var(--tomato);color:#fff}
+.btn-tomato:hover{background:var(--tomato-deep)}
+.btn-ghost{border-color:rgba(247,242,232,.5);color:var(--ivory)}
+.btn-ghost:hover{border-color:var(--ivory)}
+.hero-loc{margin-top:40px;display:flex;gap:10px;align-items:flex-start;color:#d8cbb2;font-size:.95rem;max-width:52ch}
+.hero-loc svg{flex:none;margin-top:3px}
+/* story */
+.story{padding:84px 0;background:var(--ivory)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.eyebrow{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--tomato);font-weight:700;margin-bottom:14px}
+.story h2{font-size:clamp(1.9rem,3.5vw,2.7rem);margin-bottom:20px}
+.story p{color:var(--ink-soft);margin-bottom:16px;font-size:1.05rem}
+.story p.lead{font-size:1.25rem;color:var(--ink)}
+.story p.lead::first-letter{font-family:'Marcellus',serif;font-size:3.2em;float:left;line-height:.85;padding-right:10px;color:var(--tomato)}
+.since-badge{background:var(--ink);color:var(--ivory);border-radius:var(--radius);padding:38px 34px;position:relative;overflow:hidden}
+.since-badge .big{font-family:'Marcellus',serif;font-size:4.2rem;line-height:1;color:var(--gold)}
+.since-badge p{color:#d8cbb2;margin-top:10px}
+.since-badge ul{list-style:none;margin-top:22px;border-top:1px solid rgba(247,242,232,.18)}
+.since-badge li{padding:12px 0;border-bottom:1px solid rgba(247,242,232,.18);display:flex;justify-content:space-between;gap:12px;font-size:.95rem}
+.since-badge li b{color:var(--gold);font-weight:700}
+/* menu board */
+.menu{background:var(--ink);color:var(--ivory);padding:84px 0;position:relative}
+.menu .wrap{position:relative}
+.menu-head{text-align:left;margin-bottom:44px;max-width:640px}
+.menu-head h2{font-size:clamp(1.9rem,3.5vw,2.7rem);margin-bottom:12px}
+.menu-head h2 em{font-style:italic;color:var(--gold)}
+.menu-head p{color:#cbbfa8}
+.menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+.menu-item{padding:20px 0;border-bottom:1px dashed rgba(247,242,232,.25)}
+.menu-item .row{display:flex;align-items:baseline;gap:10px}
+.menu-item .name{font-family:'Marcellus',serif;font-size:1.25rem;white-space:nowrap}
+.menu-item .dots{flex:1;border-bottom:2px dotted rgba(201,154,63,.55);transform:translateY(-5px);min-width:24px}
+.menu-item .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;white-space:nowrap}
+.menu-item p{color:#cbbfa8;font-size:.95rem;margin-top:6px;max-width:44ch}
+.menu-note{margin-top:30px;color:#a99c83;font-size:.92rem;font-style:italic}
+/* burlington feature */
+.btown{padding:84px 0;background:var(--ivory-deep)}
+.btown-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.btown h2{font-size:clamp(1.9rem,3.5vw,2.7rem);margin-bottom:16px}
+.btown h2 em{font-style:italic;color:var(--tomato)}
+.btown p{color:var(--ink-soft);margin-bottom:16px;font-size:1.05rem}
+.addr-card{background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.addr-card h3{font-size:1.3rem;margin-bottom:6px}
+.addr-card .street{color:var(--ink-soft);margin-bottom:18px}
+.hours-table{width:100%;border-collapse:collapse;font-size:.95rem;margin-bottom:20px}
+.hours-table td{padding:7px 0;border-bottom:1px solid var(--line)}
+.hours-table td:last-child{text-align:right;font-weight:600}
+.addr-card .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn-ink{background:var(--ink);color:var(--ivory)}
+.btn-ink:hover{background:#1d1714}
+.btn-outline{border-color:var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--ivory)}
+/* locations */
+.locations{padding:70px 0;background:var(--ivory)}
+.locations h2{font-size:1.7rem;margin-bottom:8px}
+.locations .sub{color:var(--ink-soft);margin-bottom:30px}
+.loc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.loc{border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;background:#fffdf7}
+.loc.current{border:2px solid var(--tomato);background:#fff}
+.loc .city{font-family:'Marcellus',serif;font-size:1.15rem;margin-bottom:4px}
+.loc .note{font-size:.88rem;color:var(--ink-soft)}
+.loc .pill{display:inline-block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--tomato);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+/* footer */
+footer{background:var(--ink);color:#cbbfa8;padding:56px 0 110px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.foot-grid h3{font-family:'Marcellus',serif;color:var(--ivory);font-size:1.2rem;margin-bottom:14px}
+.foot-grid p,.foot-grid a{font-size:.95rem;color:#cbbfa8;text-decoration:none}
+.foot-grid a:hover{color:var(--gold)}
+.foot-bottom{border-top:1px solid rgba(247,242,232,.15);padding-top:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem;color:#8f846d}
+.concept{font-size:.78rem;color:#7d7461;font-style:italic}
+/* mobile call bar */
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;background:var(--tomato);color:#fff;border-radius:14px;padding:14px 18px;text-decoration:none;font-weight:700;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 28px rgba(0,0,0,.3);font-size:1.05rem}
+.callbar:hover{background:var(--tomato-deep)}
+@media(max-width:860px){
+  .nav-links{position:fixed;inset:0;background:var(--ivory);flex-direction:column;justify-content:center;gap:30px;font-size:1.3rem;transform:translateX(100%);transition:transform .3s ease;z-index:70}
+  .nav-links.open{transform:none}
+  .burger{display:block;z-index:80;position:relative}
+  .story-grid,.btown-grid{grid-template-columns:1fr;gap:36px}
+  .menu-cols{grid-template-columns:1fr}
+  .loc-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .callbar{display:flex}
+  footer{padding-bottom:130px}
+  .hero-inner{padding:64px 0 54px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="wrap">
+    <span>Sun–Thu 11:30 AM – 9 PM<span class="dot">•</span>Fri–Sat 11:30 AM – 10 PM</span>
+    <a href="tel:+19056338787">(905) 633-8787</a>
+  </div>
+</div>
+
+<nav class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="The Express Italian Eatery home">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="22" stroke="#b3402a" stroke-width="3"/>
+        <path d="M24 8c-9 0-16 7-16 16 0 4 1.5 7.6 4 10.4L24 44l12-9.6c2.5-2.8 4-6.4 4-10.4 0-9-7-16-16-16z" fill="#b3402a" opacity=".14"/>
+        <path d="M18 30c2-6 4-9 6-9s4 3 6 9" stroke="#b3402a" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="24" cy="18" r="2.4" fill="#6b7245"/>
+      </svg>
+      <span class="brand-name">The Express Italian Eatery<small>Burlington</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#burlington">Burlington</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="tel:+19056338787" class="nav-cta">Call to Reserve</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap hero-inner">
+    <div class="hero-kicker"><span class="rule"></span><p>Stone-oven Italian · Since 1994</p></div>
+    <h1>Buon cibo. <em>Buon vino.</em> Right on Lakeshore.</h1>
+    <p class="hero-sub">The Express Italian Eatery has served the Hamilton–Burlington area for over 30 years — stone-oven pizzas, handmade-feel classics, and a dining room made for lingering.</p>
+    <div class="hero-actions">
+      <a class="btn btn-tomato" href="tel:+19056338787">Call to Reserve a Table</a>
+      <a class="btn btn-ghost" href="#menu">See the Menu</a>
+    </div>
+    <div class="hero-loc">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c99a3f" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span><strong style="color:#f7f2e8">Burlington location:</strong> 1477 Lakeshore Rd, Burlington ON L7S 1B5 — minutes from the waterfront.</span>
+    </div>
+  </div>
+</header>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div>
+      <p class="eyebrow">Our Story</p>
+      <h2>One goal since 1994: a genuinely enjoyable night out.</h2>
+      <p class="lead">We started in 1994 with a single idea — that dinner should feel like an occasion, not an errand.</p>
+      <p>Three decades and four locations later, that idea still runs the kitchen. Our pizzas come out of a real stone oven, our ingredients are fresh, and we cook for every kind of appetite — the classics people grew up on and the dishes they come back for.</p>
+      <p>Thanks to loyal customers across Hamilton and Burlington, we've grown from one dining room to four. But every location still cooks like the first one did.</p>
+    </div>
+    <aside class="since-badge" aria-label="Highlights">
+      <div class="big">1994</div>
+      <p>Serving the Hamilton–Burlington area for 30+ years.</p>
+      <ul>
+        <li><span>Stone-oven pizza</span><b>our signature</b></li>
+        <li><span>Locations</span><b>4 across the region</b></li>
+        <li><span>Style</span><b>fresh, hearty, unfussy</b></li>
+        <li><span>Good for</span><b>families, date nights, groups</b></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <p class="eyebrow">From the Kitchen</p>
+      <h2>House <em>favourites</em></h2>
+      <p>A few of the dishes our regulars order on repeat. The full menu is bigger — call and we'll walk you through tonight's options.</p>
+    </div>
+    <div class="menu-cols">
+      <div>
+        <div class="menu-item">
+          <div class="row"><span class="name">Chicken Tetrazzini</span><span class="dots"></span><span class="tag">Classic</span></div>
+          <p>Baked pasta with tender chicken in a creamy sauce — the comfort dish people drive across town for.</p>
+        </div>
+        <div class="menu-item">
+          <div class="row"><span class="name">Tutta Carne Pizza</span><span class="dots"></span><span class="tag">Stone-oven</span></div>
+          <p>The full-meat pizza, blistered in our stone oven. Built for serious appetites.</p>
+        </div>
+        <div class="menu-item">
+          <div class="row"><span class="name">Grilled Calamari</span><span class="dots"></span><span class="tag">Starter</span></div>
+          <p>Grilled, not fried — tender calamari with a squeeze of lemon and herbs.</p>
+        </div>
+      </div>
+      <div>
+        <div class="menu-item">
+          <div class="row"><span class="name">Bianca alla Patate</span><span class="dots"></span><span class="tag">Stone-oven</span></div>
+          <p>White pizza with potato — simple, rich, and unlike anything else on Lakeshore.</p>
+        </div>
+        <div class="menu-item">
+          <div class="row"><span class="name">Shrimp Fettuccine Alfredo</span><span class="dots"></span><span class="tag">Pasta</span></div>
+          <p>Plump shrimp folded through fettuccine in a proper Alfredo — no shortcuts.</p>
+        </div>
+        <div class="menu-item">
+          <div class="row"><span class="name">Four-Cheese Pizza</span><span class="dots"></span><span class="tag">Stone-oven</span></div>
+          <p>Four cheeses, one blistered crust. The vegetarian order that converts carnivores.</p>
+        </div>
+      </div>
+    </div>
+    <p class="menu-note">Menu items change with the seasons — call (905) 633-8787 for tonight's full menu and pricing.</p>
+  </div>
+</section>
+
+<section class="btown" id="burlington">
+  <div class="wrap btown-grid">
+    <div>
+      <p class="eyebrow">In Burlington</p>
+      <h2>Dinner by the <em>lake.</em></h2>
+      <p>Our Burlington dining room sits on Lakeshore Road, minutes from the waterfront — the easy choice for a night out on this side of the bay. Same 1994 recipes, same stone oven, a room of its own.</p>
+      <p>Walk-ins are welcome when there's room, but Friday and Saturday fill up fast. A quick call holds your table.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+        <a class="btn btn-ink" href="tel:+19056338787">Call (905) 633-8787</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=1477+Lakeshore+Rd+Burlington+ON" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </div>
+    <div class="addr-card">
+      <h3>Burlington</h3>
+      <p class="street">1477 Lakeshore Rd<br>Burlington, ON L7S 1B5</p>
+      <table class="hours-table">
+        <tr><td>Sunday – Thursday</td><td>11:30 AM – 9 PM</td></tr>
+        <tr><td>Friday – Saturday</td><td>11:30 AM – 10 PM</td></tr>
+      </table>
+      <div class="btn-row">
+        <a class="btn btn-tomato" href="mailto:burlington@expressrestaurant.com">Email Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="locations" id="locations">
+  <div class="wrap">
+    <h2>Four locations, one kitchen philosophy</h2>
+    <p class="sub">Serving the Hamilton–Burlington area since 1994.</p>
+    <div class="loc-grid">
+      <div class="loc current">
+        <span class="pill">You're viewing</span>
+        <div class="city">Burlington</div>
+        <div class="note">1477 Lakeshore Rd · (905) 633-8787</div>
+      </div>
+      <div class="loc">
+        <div class="city">Hamilton</div>
+        <div class="note">Our original neighbourhood dining rooms</div>
+      </div>
+      <div class="loc">
+        <div class="city">Hamilton East</div>
+        <div class="note">Same menu, same stone oven</div>
+      </div>
+      <div class="loc">
+        <div class="city">Hamilton Mountain</div>
+        <div class="note">Same menu, same stone oven</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>The Express Italian Eatery</h3>
+        <p>Stone-oven Italian in the Hamilton–Burlington area since 1994. Buon cibo, buon vino.</p>
+      </div>
+      <div>
+        <h3>Burlington</h3>
+        <p>1477 Lakeshore Rd<br>Burlington, ON L7S 1B5<br><a href="tel:+19056338787">(905) 633-8787</a><br><a href="mailto:burlington@expressrestaurant.com">burlington@expressrestaurant.com</a></p>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <p>Sun–Thu: 11:30 AM – 9 PM<br>Fri–Sat: 11:30 AM – 10 PM</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 The Express Italian Eatery, Burlington.</span>
+      <span class="concept">Concept preview — a design mockup, not the live website.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19056338787" aria-label="Call The Express Italian Eatery">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+  Call to Reserve
+</a>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){links.classList.remove('open');burger.setAttribute('aria-expanded','false');});
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jitterbug Cafe — Waterdown | Coffee, Café & Catering on Main St</title>
+<meta name="description" content="Jitterbug Cafe, 35 Main St N Waterdown. House-roasted coffee, café favourites, ice cream and catering. Call (905) 690-7670.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf3e3;
+  --paper:#fffdf6;
+  --honey:#e09b2d;
+  --honey-deep:#b97a16;
+  --choc:#3b2a1e;
+  --choc-soft:#6b5844;
+  --blush:#f3d9a4;
+  --cork:#c98d5e;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--cream);color:var(--choc);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.display{font-family:'Caprasimo',serif;font-weight:400;text-wrap:balance;line-height:1.08;letter-spacing:.01em}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+/* header */
+header.site{position:sticky;top:0;z-index:50;background:var(--choc);color:var(--cream)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-bug{width:44px;height:44px;flex:none;background:var(--honey);border-radius:50% 50% 50% 8px;transform:rotate(-8deg);display:flex;align-items:center;justify-content:center}
+.brand-name{font-family:'Caprasimo',serif;font-size:1.35rem;line-height:1;color:var(--cream)}
+.brand-name small{display:block;font-family:'Nunito Sans',sans-serif;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--honey);font-weight:800}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-weight:700;font-size:.95rem;color:var(--cream)}
+.nav-links a:hover{color:var(--honey)}
+.nav-cta{background:var(--honey);color:var(--choc)!important;padding:10px 20px;border-radius:999px;font-weight:800}
+.nav-cta:hover{background:var(--honey-deep);color:#fff!important}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:3px;background:var(--cream);margin:5px 0;border-radius:3px}
+/* hero */
+.hero{position:relative;background:var(--choc);color:var(--cream);overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.9}
+.blob.b1{width:340px;height:340px;background:var(--honey);top:-120px;right:-80px;opacity:.28}
+.blob.b2{width:220px;height:220px;background:#8a5a2b;bottom:-90px;left:-60px;opacity:.5}
+.hero-inner{position:relative;padding:90px 0 80px;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.hero-kicker{display:inline-block;background:var(--honey);color:var(--choc);font-weight:800;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;padding:8px 16px;border-radius:999px;transform:rotate(-2deg);margin-bottom:22px}
+.hero h1{font-size:clamp(2.7rem,6.4vw,4.4rem);margin-bottom:18px}
+.hero h1 .buzz{color:var(--honey)}
+.hero-sub{font-size:1.12rem;color:#e8d9bd;max-width:44ch;margin-bottom:30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:800;padding:14px 28px;border-radius:999px;font-size:1rem;border:2px solid transparent;cursor:pointer}
+.btn-honey{background:var(--honey);color:var(--choc)}
+.btn-honey:hover{background:var(--honey-deep);color:#fff}
+.btn-cream{border-color:rgba(250,243,227,.55);color:var(--cream)}
+.btn-cream:hover{border-color:var(--cream)}
+.hero-bug{justify-self:center;width:min(300px,70vw)}
+.hero-bug svg{width:100%;height:auto;transform:rotate(6deg)}
+.hero-bug figcaption{text-align:center;font-size:.85rem;color:#cbb488;margin-top:10px;font-style:italic}
+/* ticker */
+.ticker{background:var(--honey);color:var(--choc);overflow:hidden;white-space:nowrap;padding:12px 0;font-weight:800;letter-spacing:.06em}
+.ticker span{display:inline-block;padding:0 26px;font-size:.95rem}
+.ticker .sep{color:var(--choc)}
+/* cafe menu */
+.cafe{padding:84px 0;background:var(--cream)}
+.sec-head{margin-bottom:40px;max-width:640px}
+.eyebrow{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--honey-deep);font-weight:800;margin-bottom:12px}
+.sec-head h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:12px}
+.sec-head p{color:var(--choc-soft);font-size:1.05rem}
+.menu-list{background:var(--paper);border:3px solid var(--choc);border-radius:var(--radius);padding:10px 34px;box-shadow:8px 8px 0 var(--honey)}
+.menu-row{display:grid;grid-template-columns:1fr auto;gap:8px 18px;padding:20px 0;border-bottom:2px dashed #e5d5ae;align-items:baseline}
+.menu-row:last-child{border-bottom:none}
+.menu-row h3{font-size:1.45rem}
+.menu-row .price{font-family:'Caprasimo',serif;font-size:1.3rem;color:var(--honey-deep);white-space:nowrap}
+.menu-row p{grid-column:1/-1;color:var(--choc-soft);font-size:.97rem;margin-top:2px}
+.menu-row .flag{display:inline-block;background:var(--choc);color:var(--cream);font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:3px 10px;margin-left:10px;vertical-align:middle}
+/* roasts */
+.roasts{padding:84px 0;background:var(--choc);color:var(--cream)}
+.roasts .sec-head h2{color:var(--cream)}
+.roasts .sec-head p{color:#d9c69c}
+.roast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ticket{background:var(--paper);color:var(--choc);border-radius:var(--radius);padding:26px 22px;position:relative;border-top:10px solid var(--honey);transform:rotate(-1deg)}
+.ticket:nth-child(2){transform:rotate(1.2deg);border-top-color:#8a5a2b}
+.ticket:nth-child(3){transform:rotate(-.6deg)}
+.ticket:nth-child(4){transform:rotate(1deg);border-top-color:var(--blush)}
+.ticket h3{font-size:1.5rem;margin-bottom:6px}
+.ticket .roast-note{font-size:.9rem;color:var(--choc-soft);margin-bottom:14px;min-height:3.2em}
+.ticket .bag-price{font-family:'Caprasimo',serif;font-size:1.6rem;color:var(--honey-deep)}
+.ticket .bag-price small{font-family:'Nunito Sans',sans-serif;font-size:.8rem;font-weight:700;color:var(--choc-soft)}
+.ticket .perf{position:absolute;top:14px;right:14px;width:12px;height:12px;background:var(--choc);border-radius:50%}
+/* community board */
+.board{padding:84px 0;background:var(--cream)}
+.cork{background:var(--cork);border:14px solid #8a5a34;border-radius:8px;padding:44px 34px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;box-shadow:inset 0 0 60px rgba(0,0,0,.18)}
+.note{background:var(--paper);padding:24px 20px 20px;position:relative;box-shadow:0 6px 18px rgba(0,0,0,.22);min-height:190px}
+.note::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(3deg);width:22px;height:22px;background:var(--honey);border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.note.n1{transform:rotate(-2deg)}
+.note.n2{transform:rotate(1.6deg)}
+.note.n3{transform:rotate(-1deg)}
+.note.n4{transform:rotate(1.2deg)}
+.note.n5{transform:rotate(-1.6deg)}
+.note.n6{transform:rotate(2deg)}
+.note h3{font-size:1.25rem;margin-bottom:8px;color:var(--choc)}
+.note p{font-size:.92rem;color:var(--choc-soft)}
+.note .tagline{display:inline-block;margin-top:10px;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--honey-deep)}
+.award-strip{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
+.award{background:var(--choc);color:var(--cream);border-radius:999px;padding:10px 22px;font-weight:800;font-size:.9rem;display:flex;align-items:center;gap:10px}
+.award svg{flex:none}
+/* catering */
+.catering{background:var(--honey);padding:70px 0;color:var(--choc)}
+.catering .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.catering h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:10px}
+.catering p{font-weight:600;max-width:52ch}
+.btn-choc{background:var(--choc);color:var(--cream)}
+.btn-choc:hover{background:#241a12}
+/* visit */
+.visit{padding:84px 0;background:var(--paper)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.visit h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
+.visit p{color:var(--choc-soft);margin-bottom:14px;font-size:1.03rem}
+.hours{width:100%;border-collapse:collapse;margin:18px 0 26px;font-size:.98rem}
+.hours td{padding:9px 0;border-bottom:2px dotted #e5d5ae}
+.hours td:last-child{text-align:right;font-weight:800}
+.contact-card{background:var(--cream);border:3px solid var(--choc);border-radius:var(--radius);padding:30px;box-shadow:8px 8px 0 var(--honey)}
+.contact-card h3{font-size:1.4rem;margin-bottom:12px}
+.contact-card p{margin-bottom:8px}
+.contact-card a.big{font-family:'Caprasimo',serif;font-size:1.5rem;color:var(--honey-deep);text-decoration:none}
+.contact-card a.big:hover{text-decoration:underline}
+/* footer */
+footer{background:var(--choc);color:#cdbb96;padding:52px 0 120px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px;margin-bottom:32px}
+.foot-grid h3{font-family:'Caprasimo',serif;color:var(--cream);font-size:1.25rem;margin-bottom:12px}
+.foot-grid p,.foot-grid a{font-size:.94rem;color:#cdbb96;text-decoration:none}
+.foot-grid a:hover{color:var(--honey)}
+.foot-bottom{border-top:1px solid rgba(250,243,227,.16);padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem}
+.concept{font-size:.78rem;font-style:italic;color:#9d8a64}
+/* callbar */
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;background:var(--honey);color:var(--choc);border-radius:14px;padding:14px 18px;text-decoration:none;font-weight:800;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 28px rgba(0,0,0,.35);font-size:1.05rem;border:2px solid var(--choc)}
+@media(max-width:900px){
+  .nav-links{position:fixed;inset:0;background:var(--choc);flex-direction:column;justify-content:center;gap:30px;font-size:1.3rem;transform:translateX(100%);transition:transform .3s ease;z-index:70}
+  .nav-links.open{transform:none}
+  .burger{display:block;z-index:80;position:relative}
+  .hero-inner{grid-template-columns:1fr;gap:30px;padding:64px 0 56px}
+  .hero-bug{justify-self:start}
+  .roast-grid{grid-template-columns:1fr 1fr}
+  .cork{grid-template-columns:1fr;padding:30px 20px}
+  .visit-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .callbar{display:flex}
+  footer{padding-bottom:130px}
+}
+@media(max-width:560px){.roast-grid{grid-template-columns:1fr}.menu-list{padding:6px 20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.ticker span{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Jitterbug Cafe home">
+      <span class="brand-bug" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <ellipse cx="13" cy="14" rx="7" ry="8" fill="#3b2a1e"/>
+          <line x1="13" y1="6" x2="13" y2="22" stroke="#e09b2d" stroke-width="1.6"/>
+          <circle cx="10.5" cy="11" r="1.4" fill="#faf3e3"/><circle cx="15.5" cy="11" r="1.4" fill="#faf3e3"/>
+          <path d="M6 10 2.5 7M6 16l-3.5 3M20 10l3.5-3M20 16l3.5 3" stroke="#3b2a1e" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M10 6C10 3.5 11.5 2 13 2s3 1.5 3 4" stroke="#3b2a1e" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">Jitterbug Cafe<small>Waterdown</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#cafe">Café</a></li>
+      <li><a href="#roasts">Roasts</a></li>
+      <li><a href="#board">Community</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="tel:+19056907670" class="nav-cta">Call Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="hero-kicker">Waterdown's community café</span>
+      <h1>It's more than just coffee — <span class="buzz">it's a vibe.</span></h1>
+      <p class="hero-sub">House-roasted beans, a real café kitchen, ice cream, and catering — right on Main Street North. Come for the coffee, stay for the neighbourhood.</p>
+      <div class="hero-actions">
+        <a class="btn btn-honey" href="#cafe">See What's Cooking</a>
+        <a class="btn btn-cream" href="#roasts">Shop Our Roasts</a>
+      </div>
+    </div>
+    <figure class="hero-bug">
+      <svg viewBox="0 0 200 190" fill="none" aria-hidden="true">
+        <ellipse cx="100" cy="150" rx="72" ry="14" fill="#000" opacity=".25"/>
+        <path d="M100 18c26 0 44 22 44 52 0 34-20 66-44 66S56 102 56 70c0-30 18-52 44-52z" fill="#e09b2d"/>
+        <path d="M100 18c8 0 14 22 14 60 0 30-6 48-14 58-8-10-14-28-14-58 0-38 6-60 14-60z" fill="#3b2a1e" opacity=".85"/>
+        <circle cx="84" cy="52" r="7" fill="#faf3e3"/><circle cx="116" cy="52" r="7" fill="#faf3e3"/>
+        <circle cx="85" cy="53" r="3" fill="#3b2a1e"/><circle cx="115" cy="53" r="3" fill="#3b2a1e"/>
+        <path d="M78 34C70 24 72 12 82 8M122 34c8-10 6-22-4-26" stroke="#3b2a1e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M60 80 30 66M60 108l-32 8M140 80l30-14M140 108l32 8" stroke="#3b2a1e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M84 96c6 5 26 5 32 0" stroke="#3b2a1e" stroke-width="4" stroke-linecap="round"/>
+        <ellipse cx="100" cy="120" rx="16" ry="10" fill="#faf3e3" opacity=".9"/>
+        <path d="M92 118h16" stroke="#b97a16" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <figcaption>Our mascot runs on espresso. Obviously.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <span>HOUSE-ROASTED COFFEE <span class="sep">✦</span></span><span>BREAKFAST &amp; LUNCH <span class="sep">✦</span></span><span>ICE CREAM <span class="sep">✦</span></span><span>CATERING <span class="sep">✦</span></span><span>35 MAIN ST N, WATERDOWN <span class="sep">✦</span></span><span>HOUSE-ROASTED COFFEE <span class="sep">✦</span></span><span>BREAKFAST &amp; LUNCH <span class="sep">✦</span></span><span>ICE CREAM <span class="sep">✦</span></span><span>CATERING <span class="sep">✦</span></span><span>35 MAIN ST N, WATERDOWN <span class="sep">✦</span></span>
+</div>
+
+<section class="cafe" id="cafe">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The Café Kitchen</p>
+      <h2>Yes, we cook. Come hungry.</h2>
+      <p>A lot of people know our beans — fewer know we run a full café kitchen. Grilled cheese that drips, waffles worth the drive, soups that taste like somebody's grandmother is back there.</p>
+    </div>
+    <div class="menu-list">
+      <div class="menu-row">
+        <h3>Grilled Cheese <span class="flag">Crowd favourite</span></h3><span class="price">café pricing</span>
+        <p>Golden, buttery, properly melty. The sandwich that built our lunch rush.</p>
+      </div>
+      <div class="menu-row">
+        <h3>Belgian Waffles</h3><span class="price">café pricing</span>
+        <p>Crisp outside, fluffy inside — dressed up sweet or kept simple.</p>
+      </div>
+      <div class="menu-row">
+        <h3>Soups of the Day</h3><span class="price">café pricing</span>
+        <p>Rotating pots, always from scratch. Ask what's simmering today.</p>
+      </div>
+      <div class="menu-row">
+        <h3>Sandwiches</h3><span class="price">café pricing</span>
+        <p>Stacked high on good bread — the working lunch of downtown Waterdown.</p>
+      </div>
+      <div class="menu-row">
+        <h3>Ice Cream</h3><span class="price">café pricing</span>
+        <p>Scoops for the after-school crowd and the young-at-heart. Ask about this week's flavours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="roasts" id="roasts">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Roasted In-House</p>
+      <h2>Take the café home with you</h2>
+      <p>Four house roasts, roasted right here. Grab a bag with your latte — or ask us which one matches your brew method.</p>
+    </div>
+    <div class="roast-grid">
+      <div class="ticket"><span class="perf"></span><h3>Jive Easy</h3><p class="roast-note">Smooth and mellow — the easy-drinking everyday roast.</p><div class="bag-price">$23 <small>/ 1 lb bag</small></div></div>
+      <div class="ticket"><span class="perf"></span><h3>Jitterbug Jolt</h3><p class="roast-note">Our boldest blend. Named after the café, built for mornings.</p><div class="bag-price">$23 <small>/ 1 lb bag</small></div></div>
+      <div class="ticket"><span class="perf"></span><h3>Bugs Buzz</h3><p class="roast-note">Bright and lively with a little extra zip.</p><div class="bag-price">$23 <small>/ 1 lb bag</small></div></div>
+      <div class="ticket"><span class="perf"></span><h3>Bugs Brew</h3><p class="roast-note">The house classic — balanced, comforting, endlessly drinkable.</p><div class="bag-price">$23 <small>/ 1 lb bag</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="board" id="board">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The Community Board</p>
+      <h2>Pinned up at the café</h2>
+      <p>What's happening at Jitterbug lately — new drinks, seasonal treats, and the neighbourhood stuff we're part of.</p>
+    </div>
+    <div class="cork">
+      <div class="note n1"><h3>Cookie Butter Matcha</h3><p>Our newest drink obsession — earthy matcha meets cookie-butter sweetness.</p><span class="tagline">New in 2026</span></div>
+      <div class="note n2"><h3>Teddy Toasted S'more Cookie</h3><p>A cookie worth writing home about. Toasty, gooey, gone too fast.</p><span class="tagline">Seasonal treat</span></div>
+      <div class="note n3"><h3>Mint Choc-Chip Ice Cream</h3><p>Cool, creamy, and dangerously scoopable. A summer-into-fall favourite.</p><span class="tagline">Now scooping</span></div>
+      <div class="note n4"><h3>Community Events</h3><p>From local fundraisers to Main Street happenings — there's usually something brewing besides coffee.</p><span class="tagline">All welcome</span></div>
+      <div class="note n5"><h3>Catering Your Gathering</h3><p>Parties, meetings, mornings that need saving — we cater across Waterdown.</p><span class="tagline">Ask us how</span></div>
+      <div class="note n6"><h3>Local Awards Winner</h3><p>Voted a local favourite — thank you, Waterdown, for keeping our cups full.</p><span class="tagline">4.8-star rated</span></div>
+    </div>
+    <div class="award-strip">
+      <span class="award"><svg width="16" height="16" viewBox="0 0 24 24" fill="#e09b2d"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>Local awards winner</span>
+      <span class="award"><svg width="16" height="16" viewBox="0 0 24 24" fill="#e09b2d"><path d="M12 21s-7-4.6-7-11a7 7 0 1 1 14 0c0 6.4-7 11-7 11z"/></svg>35 Main St N, Waterdown</span>
+    </div>
+  </div>
+</section>
+
+<section class="catering" id="catering">
+  <div class="wrap">
+    <div>
+      <h2>Feeding a crowd? We've got you.</h2>
+      <p>Jitterbug caters — coffee boxes, sandwich spreads, sweets and more for offices, parties and community events around Waterdown. Tell us the headcount and we'll handle the rest.</p>
+    </div>
+    <a class="btn btn-choc" href="tel:+19056907670">Call About Catering</a>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <p class="eyebrow">Come Say Hi</p>
+      <h2>On Main Street, in the middle of everything</h2>
+      <p>You'll find us at 35 Main Street North in downtown Waterdown — the café with the bug on the sign and the smell of fresh roast on the sidewalk.</p>
+      <table class="hours">
+        <tr><td>Monday – Friday</td><td>7:30 AM – 5 PM</td></tr>
+        <tr><td>Saturday</td><td>8 AM – 2 PM</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+      <a class="btn btn-honey" href="https://www.google.com/maps/search/?api=1&query=35+Main+St+N+Waterdown+ON" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+    <div class="contact-card">
+      <h3>Talk to a human</h3>
+      <p><a class="big" href="tel:+19056907670">(905) 690-7670</a></p>
+      <p>Call for catering, big orders, or just to ask what's in the soup pot today.</p>
+      <p style="margin-top:14px"><a href="mailto:jitterbugcafe@cogeco.net" style="font-weight:800;color:#3b2a1e">jitterbugcafe@cogeco.net</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Jitterbug Cafe</h3>
+        <p>Waterdown's community café — house-roasted coffee, a real kitchen, and catering, on Main Street North.</p>
+      </div>
+      <div>
+        <h3>Find Us</h3>
+        <p>35 Main St N<br>Waterdown, ON L0R 2H6<br><a href="tel:+19056907670">(905) 690-7670</a><br><a href="mailto:jitterbugcafe@cogeco.net">jitterbugcafe@cogeco.net</a></p>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <p>Mon–Fri: 7:30 AM – 5 PM<br>Sat: 8 AM – 2 PM<br>Sun: Closed</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Jitterbug Cafe, Waterdown.</span>
+      <span class="concept">Concept preview — a design mockup, not the live website.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19056907670" aria-label="Call Jitterbug Cafe">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+  Call Jitterbug
+</a>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){links.classList.remove('open');burger.setAttribute('aria-expanded','false');});
+  });
+})();
+</script>
+</body>
+</html>
