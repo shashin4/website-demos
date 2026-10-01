@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Westown Auto &amp; Tire Centre — Family-Run Auto Repair in Hamilton Since 1969</title>
+<meta name="description" content="Westown Auto & Tire Centre — family-run 3-bay auto service centre in West Hamilton since 1969. Import vehicle specialists: brakes, alignments, safety certificates, tires. Mon–Fri 8–5.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#0B2F7E; --blue-deep:#071E55; --blue-ink:#0A1F4A;
+    --yellow:#FFC72C; --yellow-deep:#E0A800;
+    --paper:#F7F8FA; --card:#FFFFFF;
+    --ink:#17202B; --gray:#55606E; --line:#DDE3EA;
+    --radius:8px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none !important} }
+  body{font-family:'Public Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;letter-spacing:.03em;line-height:1.05;text-wrap:balance}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+
+  /* ---- hours utility bar ---- */
+  .hoursbar{background:var(--blue-deep);color:#E8EEF9;font-size:.83rem;font-weight:500}
+  .hoursbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px}
+  .hoursbar a{color:var(--yellow);font-weight:700;text-decoration:none}
+  .hoursbar .dot{color:var(--yellow);margin:0 10px}
+
+  /* ---- header ---- */
+  header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:3px solid var(--yellow)}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px}
+  .brand{text-decoration:none;display:flex;align-items:center;gap:12px}
+  .brand .mark{width:42px;height:42px;border-radius:50%;background:var(--blue);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.02em}
+  .brand .name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--blue-ink);line-height:1}
+  .brand .name small{display:block;font-family:'Public Sans',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gray)}
+  nav.main{display:flex;gap:26px;font-weight:600;font-size:.95rem}
+  nav.main a{text-decoration:none;color:var(--ink);padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a:hover{color:var(--blue);border-bottom-color:var(--yellow)}
+  .hamburger{display:none;background:none;border:none;color:var(--blue-ink);font-size:1.7rem;cursor:pointer;padding:4px 8px}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:var(--radius);padding:13px 26px;font-size:1rem;cursor:pointer;border:2px solid transparent;transition:background .12s ease,transform .12s ease}
+  .btn-blue{background:var(--blue);color:#fff}
+  .btn-blue:hover{background:var(--blue-deep);transform:translateY(-1px)}
+  .btn-yellow{background:var(--yellow);color:#1A1400}
+  .btn-yellow:hover{background:var(--yellow-deep);transform:translateY(-1px)}
+  .btn-outline{background:transparent;color:var(--blue-ink);border-color:var(--blue)}
+  .btn-outline:hover{background:var(--blue);color:#fff}
+  .nav-call{font-size:.9rem;padding:9px 18px}
+
+  /* ---- masthead (identity-first, not a CTA dump) ---- */
+  .masthead{background:var(--card);border-bottom:1px solid var(--line)}
+  .masthead .wrap{padding-top:54px;padding-bottom:46px;max-width:1200px}
+  .masthead .since{display:inline-block;background:var(--blue-deep);color:var(--yellow);font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:16px}
+  .masthead h1{font-size:clamp(2.8rem,6.5vw,4.6rem);color:var(--blue-ink);max-width:16ch;margin-bottom:12px}
+  .masthead .lede{font-size:1.15rem;color:var(--gray);max-width:56ch;margin-bottom:20px}
+  .masthead .lede strong{color:var(--ink)}
+  .masthead .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+  .trust-row{display:flex;gap:26px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:20px}
+  .trust-item{display:flex;align-items:center;gap:10px;font-size:.92rem;font-weight:600;color:var(--blue-ink)}
+  .trust-item .star{color:var(--yellow-deep);font-size:1.2rem}
+  .trust-item .napa{background:var(--blue);color:#fff;font-weight:700;font-size:.78rem;letter-spacing:.06em;padding:5px 12px;border-radius:5px}
+
+  /* ---- story ---- */
+  .story{background:var(--blue-deep);color:#E8EEF9;padding:70px 0}
+  .story .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  .story .kicker{color:var(--yellow);font-size:.78rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;display:block;margin-bottom:12px}
+  .story h2{font-size:clamp(2rem,4vw,2.9rem);color:#fff;margin-bottom:16px}
+  .story p{color:#C4D0E6;margin-bottom:14px;max-width:52ch}
+  .story p strong{color:#fff}
+  .story .photo{background:#0A2560;border-radius:12px;overflow:hidden;border:1px solid rgba(255,199,44,.25)}
+  .story .photo img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+  .story .photo figcaption{font-size:.8rem;color:#9FB0CC;padding:10px 16px}
+  .awards{margin-top:24px}
+  .awards h3{font-size:1.15rem;color:var(--yellow);letter-spacing:.06em;margin-bottom:10px}
+  .award-years{display:flex;gap:10px;flex-wrap:wrap}
+  .award-years span{background:rgba(255,199,44,.12);border:1px solid var(--yellow);color:var(--yellow);font-weight:700;font-size:.9rem;padding:6px 14px;border-radius:6px}
+
+  /* ---- services ---- */
+  .services{padding:70px 0}
+  .services .head{max-width:640px;margin-bottom:30px}
+  .services .kicker{color:var(--blue);font-size:.78rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;display:block;margin-bottom:12px}
+  .services h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--blue-ink);margin-bottom:10px}
+  .services .head p{color:var(--gray)}
+  .svc-list{border-top:2px solid var(--blue-ink)}
+  .svc{border-bottom:1px solid var(--line);background:var(--card)}
+  .svc:nth-child(even){background:#FBFCFE}
+  .svc button.head-btn{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;text-align:left;font-family:'Public Sans',sans-serif}
+  .svc .svc-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.03em;color:var(--blue-ink)}
+  .svc .svc-tag{font-size:.85rem;color:var(--gray);font-weight:600;white-space:nowrap}
+  .svc .plus{font-size:1.6rem;color:var(--yellow-deep);font-weight:700;line-height:1;flex-shrink:0}
+  .svc .body{max-height:0;overflow:hidden;transition:max-height .28s ease}
+  .svc.open .body{max-height:320px}
+  .svc .body-inner{padding:0 22px 22px;color:var(--gray);max-width:70ch}
+  .svc .body-inner p{margin-bottom:10px}
+  .svc .body-inner .quote-line{font-weight:700;color:var(--blue-ink)}
+  .svc .body-inner .quote-line a{color:var(--blue)}
+
+  /* ---- review ---- */
+  .review{padding:0 0 70px}
+  .review .wrap{max-width:900px}
+  .review-card{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--yellow);border-radius:10px;padding:34px 36px}
+  .review-card .stars{color:var(--yellow-deep);font-size:1.15rem;letter-spacing:.12em;margin-bottom:10px}
+  .review-card blockquote{font-size:1.25rem;line-height:1.55;color:var(--ink);margin-bottom:12px}
+  .review-card cite{font-style:normal;font-size:.9rem;color:var(--gray);font-weight:600}
+  .review-card .src{font-size:.8rem;color:var(--gray);margin-top:4px}
+
+  /* ---- booking ---- */
+  .booking{background:var(--blue);color:#fff;padding:70px 0}
+  .booking .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+  .booking h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:12px}
+  .booking p{color:#C4D0E6;margin-bottom:8px;max-width:46ch}
+  .booking p strong{color:#fff}
+  .book-tiles{display:grid;gap:12px}
+  .tile{background:#fff;border-radius:10px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .tile:hover{outline:3px solid var(--yellow)}
+  .tile .label{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);display:block;margin-bottom:2px}
+  .tile .value{font-weight:700;font-size:1.2rem;color:var(--blue-ink)}
+  .tile .go{color:var(--yellow-deep);font-size:1.4rem;font-weight:700}
+
+  /* ---- visit ---- */
+  .visit{padding:70px 0}
+  .visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .visit h2{font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--blue-ink);margin-bottom:16px}
+  .hours-table{width:100%;border-collapse:collapse;font-size:1rem}
+  .hours-table td{padding:9px 0;border-bottom:1px solid var(--line)}
+  .hours-table td:last-child{text-align:right;font-weight:700;color:var(--blue-ink)}
+  .visit address{font-style:normal;color:var(--gray);line-height:1.8;margin-top:18px}
+  .visit address strong{color:var(--ink)}
+  .visit .note{background:#FFF8E1;border:1px solid var(--yellow);border-radius:8px;padding:14px 18px;font-size:.92rem;color:#5A4A00;margin-top:18px}
+  .visit .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+
+  footer.site{background:var(--blue-deep);color:#9FB0CC;padding:32px 0;font-size:.86rem}
+  footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer.site .concept{font-size:.78rem;color:#6E7FA3}
+
+  .mobile-call{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:60;background:var(--yellow);color:#1A1400;text-align:center;font-weight:700;text-decoration:none;padding:15px;border-radius:12px;font-size:1.05rem;box-shadow:0 10px 28px rgba(11,47,126,.4)}
+
+  @media (max-width:900px){
+    nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:10px 22px 20px;gap:2px;border-bottom:3px solid var(--yellow);box-shadow:0 18px 30px rgba(11,47,126,.15)}
+    nav.main.open{display:flex}
+    nav.main a{padding:11px 0;border-bottom:1px solid var(--line)}
+    .hamburger{display:block}
+    .nav-call{display:none}
+    .story .wrap,.booking .wrap,.visit .wrap{grid-template-columns:1fr}
+    .masthead .wrap{padding-top:40px;padding-bottom:36px}
+    .hoursbar .addr{display:none}
+    .mobile-call{display:block}
+    body{padding-bottom:76px}
+    .svc .svc-tag{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="hoursbar">
+  <div class="wrap">
+    <span class="addr">411 Aberdeen Ave, Hamilton<span class="dot">•</span></span>
+    <span>Open <strong>Mon–Fri, 8am–5pm</strong><span class="dot">•</span></span>
+    <a href="tel:+19055290412">905-529-0412</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Westown Auto and Tire Centre — home">
+      <span class="mark">W</span>
+      <span class="name">WESTOWN<small>Auto &amp; Tire Centre</small></span>
+    </a>
+    <nav class="main" id="mainNav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#story">Our Story</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-blue nav-call" href="tel:+19055290412">Call 905-529-0412</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- MASTHEAD: identity first -->
+  <section class="masthead">
+    <div class="wrap">
+      <span class="since">Family-run since 1969</span>
+      <h1>Westown Auto &amp; Tire Centre</h1>
+      <p class="lede">A <strong>3-bay, family-run service centre</strong> in West Hamilton — import vehicle specialists doing <strong>brakes, alignments, safety certificates and tires</strong>, straight and reasonably priced since 1969.</p>
+      <div class="cta-row">
+        <a class="btn btn-blue" href="tel:+19055290412">Call 905-529-0412</a>
+        <a class="btn btn-outline" href="#services">What we work on</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><span class="star">★★★★</span> 4× VIEW Readers Choice — Best Auto Service Hamilton</div>
+        <div class="trust-item"><span class="napa">NAPA AUTOPRO</span> affiliated service centre</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="wrap">
+      <div>
+        <span class="kicker">Our story</span>
+        <h2>Fifty-seven years, one address.</h2>
+        <p>Westown Auto is a <strong>family-run, 3-bay auto service centre</strong> in West Hamilton, Ontario — founded in <strong>1969</strong> and known ever since for delivering exceptional service without the runaround.</p>
+        <p>We specialize in <strong>import vehicles</strong> — the shop where drivers who are tired of dealership prices come for straight answers and work done right the first time.</p>
+        <div class="awards">
+          <h3>READERS CHOICE — BEST AUTO SERVICE HAMILTON</h3>
+          <div class="award-years">
+            <span>2006</span><span>2007</span><span>2009</span><span>2012</span>
+          </div>
+        </div>
+      </div>
+      <figure class="photo">
+        <img src="https://westownauto.ca/wp-content/uploads/2014/12/2015.10.15-Westown-Auto-Hamilton-Staff-Neil-small-square-crop.jpg" alt="A member of the Westown Auto team" onerror="this.closest('.photo').style.display='none'">
+        <figcaption>The Westown crew — the same family shop since 1969.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SERVICES: plain language, no fake prices -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">What we do</span>
+        <h2>Plain-language car care</h2>
+        <p>No jargon, no upsells. Every job is quoted before we touch a wrench — tap a service to see what it covers, then call for a straight price.</p>
+      </div>
+      <div class="svc-list" id="svcList">
+
+        <div class="svc">
+          <button class="head-btn" aria-expanded="false">
+            <span class="svc-name">Brakes</span>
+            <span class="svc-tag">pads · rotors · inspections</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="body"><div class="body-inner">
+            <p>Squealing, grinding, or a pedal that feels soft? We inspect pads, rotors, calipers and brake lines, then tell you exactly what it needs — and what it doesn't.</p>
+            <p class="quote-line">Priced by the job — <a href="tel:+19055290412">call 905-529-0412</a> for a straight quote.</p>
+          </div></div>
+        </div>
+
+        <div class="svc">
+          <button class="head-btn" aria-expanded="false">
+            <span class="svc-name">Wheel alignments</span>
+            <span class="svc-tag">uneven wear · pulling</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="body"><div class="body-inner">
+            <p>Car pulling to one side, or tires wearing unevenly? We check and correct camber, caster and toe so the car tracks straight and the tires last.</p>
+            <p class="quote-line">Priced by the job — <a href="tel:+19055290412">call 905-529-0412</a> for a straight quote.</p>
+          </div></div>
+        </div>
+
+        <div class="svc">
+          <button class="head-btn" aria-expanded="false">
+            <span class="svc-name">Safety Standard Certificates</span>
+            <span class="svc-tag">Ontario safety inspections</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="body"><div class="body-inner">
+            <p>Buying, selling, or re-plating a vehicle in Ontario? We perform the full Safety Standard inspection to Ministry requirements and walk you through the results.</p>
+            <p class="quote-line">Priced by the job — <a href="tel:+19055290412">call 905-529-0412</a> for a straight quote.</p>
+          </div></div>
+        </div>
+
+        <div class="svc">
+          <button class="head-btn" aria-expanded="false">
+            <span class="svc-name">Tires</span>
+            <span class="svc-tag">sales · seasonal changeovers</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="body"><div class="body-inner">
+            <p>New tires, seasonal changeovers, rotations and balancing. As a tire centre we keep the common import-vehicle sizes in mind — ask what fits your car.</p>
+            <p class="quote-line">Priced by size and season — <a href="tel:+19055290412">call 905-529-0412</a> for a straight quote.</p>
+          </div></div>
+        </div>
+
+        <div class="svc">
+          <button class="head-btn" aria-expanded="false">
+            <span class="svc-name">Import vehicle specialists</span>
+            <span class="svc-tag">our home turf</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="body"><div class="body-inner">
+            <p>Imports are our specialty — the daily drivers, the oddballs, the ones other shops scratch their heads at. If it's an import, this is the right bay.</p>
+            <p class="quote-line">Not sure if we take your make? <a href="tel:+19055290412">Call 905-529-0412</a> and ask — it takes a minute.</p>
+          </div></div>
+        </div>
+
+        <div class="svc">
+          <button class="head-btn" aria-expanded="false">
+            <span class="svc-name">Maintenance &amp; diagnostics</span>
+            <span class="svc-tag">warning lights · checkups</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="body"><div class="body-inner">
+            <p>Check-engine light on, strange noise, or just due for a checkup? We diagnose first, explain what we find in plain words, and only fix what you approve.</p>
+            <p class="quote-line">Priced by the job — <a href="tel:+19055290412">call 905-529-0412</a> for a straight quote.</p>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL REVIEW -->
+  <section class="review" id="reviews">
+    <div class="wrap">
+      <div class="review-card">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Highly professional, reasonably priced, straight forward, no 'bs' service. Those guys know what they are doing and they do it well."</blockquote>
+        <cite>— V. Lebedev, Westown Auto customer</cite>
+        <p class="src">From the reviews on our own website.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING: honest call-based -->
+  <section class="booking" id="booking">
+    <div class="wrap">
+      <div>
+        <h2>Book the honest way: call us.</h2>
+        <p>No forms into the void, no "we'll get back to you." <strong>Call during shop hours</strong> and you'll talk to someone who actually works on cars.</p>
+        <p>Have your plate number and a rough idea of the problem handy — it makes the quote faster.</p>
+      </div>
+      <div class="book-tiles">
+        <a class="tile" href="tel:+19055290412">
+          <span><span class="label">Call to book</span><span class="value">905-529-0412</span></span><span class="go">→</span>
+        </a>
+        <a class="tile" href="tel:+19055296258">
+          <span><span class="label">Second line</span><span class="value">905-529-6258</span></span><span class="go">→</span>
+        </a>
+        <a class="tile" href="mailto:info@westownauto.ca">
+          <span><span class="label">Email</span><span class="value">info@westownauto.ca</span></span><span class="go">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div>
+        <h2>Visit the shop</h2>
+        <table class="hours-table" aria-label="Opening hours">
+          <tr><td>Monday</td><td>8am – 5pm</td></tr>
+          <tr><td>Tuesday</td><td>8am – 5pm</td></tr>
+          <tr><td>Wednesday</td><td>8am – 5pm</td></tr>
+          <tr><td>Thursday</td><td>8am – 5pm</td></tr>
+          <tr><td>Friday</td><td>8am – 5pm</td></tr>
+          <tr><td>Saturday – Sunday</td><td>Closed</td></tr>
+        </table>
+        <address>
+          <strong>Westown Auto &amp; Tire Centre</strong><br>
+          411 Aberdeen Ave, Hamilton, ON L8P 2S4<br>
+          Fax: 905-667-0171
+        </address>
+        <div class="actions">
+          <a class="btn btn-blue" href="https://www.google.com/maps/search/?api=1&amp;query=Westown+Auto+%26+Tire+Centre+411+Aberdeen+Ave+Hamilton+ON" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn-outline" href="tel:+19055290412">Call 905-529-0412</a>
+        </div>
+      </div>
+      <div>
+        <h2>What to expect</h2>
+        <p style="color:var(--gray);margin-bottom:14px">Bring the car, tell us what's wrong (or what's due), and get a price before any work starts. That's the whole process — it has worked since 1969.</p>
+        <div class="note">Safety certificate inspections follow Ontario Ministry requirements. Ask about what's included when you book.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Westown Auto &amp; Tire Centre · 411 Aberdeen Ave, Hamilton · Mon–Fri 8–5</span>
+    <span class="concept">Concept preview — demo site, not the business's live website.</span>
+  </div>
+</footer>
+
+<a class="mobile-call" href="tel:+19055290412">Call Westown · 905-529-0412</a>
+
+<script>
+(function(){
+  "use strict";
+  // Mobile nav
+  var burger = document.getElementById('hamburger');
+  var nav = document.getElementById('mainNav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  });
+
+  // Services accordion — one open at a time
+  var items = document.querySelectorAll('.svc');
+  items.forEach(function(item){
+    var btn = item.querySelector('.head-btn');
+    btn.addEventListener('click', function(){
+      var wasOpen = item.classList.contains('open');
+      items.forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.head-btn').setAttribute('aria-expanded','false');
+        i.querySelector('.plus').textContent = '+';
+      });
+      if(!wasOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        item.querySelector('.plus').textContent = '–';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

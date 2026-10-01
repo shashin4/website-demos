@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Village Cigar Company &amp; Barbershop — Burlington · Oakville · Guelph</title>
+<meta name="description" content="Village Cigar Company & Barbershop — premium cigars and gentlemen's barbering in Burlington, Oakville and Guelph. Est. 2012. Official La Casa del Habano retailer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12100c;
+    --surface:#1b1712;
+    --surface-2:#241e16;
+    --cream:#f3ead8;
+    --cream-dim:#a89c85;
+    --amber:#c68a3b;
+    --amber-deep:#9a6a2a;
+    --line:rgba(243,234,216,.14);
+    --max:1240px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--cream);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.bebas{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;letter-spacing:.02em;text-wrap:balance;line-height:1.02}
+  a{color:inherit}
+  img{max-width:100%}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  @media(min-width:900px){.wrap{padding:0 32px}}
+
+  /* top phone strip */
+  .topbar{background:var(--amber);color:#171208;font-size:13px;font-weight:600}
+  .topbar .wrap{display:flex;gap:18px;align-items:center;justify-content:center;padding:8px 20px;flex-wrap:wrap}
+  .topbar a{text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .topbar a:hover{text-decoration:underline}
+  .topbar .sep{opacity:.45}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(18,16,12,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .badge{width:46px;height:46px;border:2px solid var(--amber);border-radius:50%;display:grid;place-items:center;font-family:"Bebas Neue";font-size:19px;letter-spacing:.05em;color:var(--amber);flex:none}
+  .brand b{font-family:"Bebas Neue";font-weight:400;font-size:20px;letter-spacing:.06em;line-height:1;display:block}
+  .brand small{display:block;font-size:10.5px;letter-spacing:.24em;color:var(--cream-dim);font-weight:600}
+  .links{display:none;gap:26px;font-size:14px;font-weight:500}
+  .links a{text-decoration:none;color:var(--cream-dim)}
+  .links a:hover{color:var(--cream)}
+  .nav .book{display:none;background:var(--amber);color:#171208;text-decoration:none;font-weight:600;font-size:14px;padding:10px 20px;border-radius:6px}
+  .nav .book:hover{background:var(--cream)}
+  .burger{display:block;background:none;border:0;color:var(--cream);cursor:pointer;padding:8px}
+  .burger svg{width:26px;height:26px;display:block}
+  @media(min-width:900px){
+    .links{display:flex}
+    .nav .book{display:inline-block}
+    .burger{display:none}
+  }
+  .mobile-menu{display:none;border-top:1px solid var(--line);padding:10px 20px 18px;background:var(--surface)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:11px 0;text-decoration:none;border-bottom:1px solid var(--line);font-weight:500}
+  .mobile-menu a.bookline{color:var(--amber);font-weight:600;border-bottom:0}
+
+  /* hero */
+  .hero{padding:56px 0 48px;position:relative;overflow:hidden}
+  @media(min-width:900px){.hero{padding:84px 0 72px}}
+  .hero-grid{display:grid;gap:36px}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}}
+  .hero h1{font-size:clamp(52px,8vw,108px);margin-bottom:14px}
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .hero .lede{font-size:17px;color:var(--cream-dim);max-width:44ch;margin-bottom:10px}
+  .hero .lede strong{color:var(--cream);font-weight:600}
+  .trust{display:flex;align-items:center;gap:10px;margin:18px 0 24px;font-size:14px;color:var(--cream-dim)}
+  .stars{color:var(--amber);letter-spacing:2px;font-size:15px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:14px 26px;border-radius:6px}
+  .btn-solid{background:var(--amber);color:#171208}
+  .btn-solid:hover{background:var(--cream)}
+  .btn-ghost{border:1px solid var(--line);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+  .emblem-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:34px 28px;position:relative}
+  .emblem-card svg{width:100%;height:auto;display:block}
+  .emblem-cap{margin-top:14px;font-size:13px;color:var(--cream-dim);text-align:center;letter-spacing:.04em}
+
+  section{padding:52px 0}
+  @media(min-width:900px){section{padding:76px 0}}
+  .kicker{font-size:12px;letter-spacing:.28em;font-weight:600;color:var(--amber);margin-bottom:12px}
+  .sec-head{font-size:clamp(34px,4.5vw,58px);margin-bottom:8px;max-width:16ch}
+  .sec-sub{color:var(--cream-dim);max-width:56ch;margin-bottom:30px;font-size:16px}
+
+  /* barbershop price list — asymmetric: sticky header left, rows right */
+  .split{display:grid;gap:28px}
+  @media(min-width:900px){.split{grid-template-columns:340px 1fr;gap:64px;align-items:start}}
+  .sticky-head{position:static}
+  @media(min-width:900px){.sticky-head{position:sticky;top:110px}}
+  .service-row{display:grid;grid-template-columns:1fr auto;gap:8px 18px;padding:20px 4px;border-bottom:1px solid var(--line);align-items:baseline}
+  .service-row:first-of-type{border-top:1px solid var(--line)}
+  .service-row h3{font-size:22px;letter-spacing:.03em}
+  .service-row .price{font-weight:600;color:var(--amber);font-size:14px;white-space:nowrap}
+  .service-row p{grid-column:1/-1;color:var(--cream-dim);font-size:14.5px;max-width:52ch}
+  .note-strip{margin-top:26px;background:var(--surface);border-left:3px solid var(--amber);padding:16px 20px;font-size:14.5px;color:var(--cream-dim);border-radius:0 8px 8px 0}
+  .note-strip strong{color:var(--cream)}
+
+  /* humidor / cigars band */
+  .cigar-band{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cigar-grid{display:grid;gap:28px}
+  @media(min-width:900px){.cigar-grid{grid-template-columns:1fr 1fr;gap:64px;align-items:center}}
+  .cigar-grid h2{font-size:clamp(34px,4.5vw,58px);margin-bottom:14px}
+  .cigar-grid p{color:var(--cream-dim);margin-bottom:14px;font-size:16px}
+  .cigar-grid p strong{color:var(--cream)}
+  .feature-box{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:28px}
+  .feature-box .tag{display:inline-block;font-size:11px;letter-spacing:.24em;font-weight:600;color:var(--amber);border:1px solid var(--amber);border-radius:4px;padding:6px 10px;margin-bottom:16px}
+  .feature-box h3{font-size:30px;margin-bottom:10px}
+  .feature-box p{font-size:15px}
+  .feature-box .btn{margin-top:6px}
+
+  /* habano credential */
+  .cred{text-align:left}
+  .cred-inner{display:grid;gap:20px;align-items:center}
+  @media(min-width:900px){.cred-inner{grid-template-columns:auto 1fr;gap:44px}}
+  .cred-seal{width:150px;height:150px;border:2px solid var(--amber);border-radius:50%;display:grid;place-items:center;text-align:center;font-family:"Bebas Neue";font-size:15px;letter-spacing:.08em;color:var(--amber);padding:18px;line-height:1.3;flex:none;justify-self:start}
+  .cred p{color:var(--cream-dim);max-width:64ch;font-size:16px;margin-top:10px}
+  .cred p strong{color:var(--cream)}
+
+  /* locations tabs */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 22px}
+  .tab{background:none;border:1px solid var(--line);color:var(--cream-dim);font-family:Inter;font-weight:600;font-size:14px;padding:10px 20px;border-radius:999px;cursor:pointer}
+  .tab[aria-selected="true"]{background:var(--amber);border-color:var(--amber);color:#171208}
+  .loc-panel{display:none;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px}
+  .loc-panel.active{display:block}
+  .loc-panel h3{font-size:32px;margin-bottom:6px}
+  .loc-panel .addr{color:var(--cream-dim);margin-bottom:16px}
+  .loc-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .loc-hours-note{font-size:13.5px;color:var(--cream-dim);margin-top:14px}
+
+  /* visit */
+  .visit-grid{display:grid;gap:26px}
+  @media(min-width:900px){.visit-grid{grid-template-columns:1fr 1fr;gap:64px}}
+  .visit-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px}
+  .visit-card h3{font-size:26px;margin-bottom:12px}
+  .visit-card address{font-style:normal;color:var(--cream-dim);font-size:15px;margin-bottom:16px}
+  .visit-card a.tel{font-size:22px;font-weight:600;color:var(--amber);text-decoration:none}
+  .visit-card a.tel:hover{text-decoration:underline}
+  .maplink{display:inline-block;margin-top:12px;font-size:14px;color:var(--cream-dim)}
+
+  footer{border-top:1px solid var(--line);padding:34px 0 110px;font-size:13px;color:var(--cream-dim)}
+  @media(min-width:900px){footer{padding-bottom:44px}}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer .concept{font-style:italic}
+
+  .tapcall{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:var(--amber);color:#171208;text-align:center;font-weight:700;font-size:16px;padding:15px;border-radius:10px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+  @media(min-width:900px){.tapcall{display:none}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Burlington</span><a href="tel:+19056812012">(905) 681-2012</a><span class="sep">·</span>
+    <span>Oakville</span><a href="tel:+19053382015">(905) 338-2015</a><span class="sep">·</span>
+    <span>Guelph</span><a href="tel:+15198227717">(519) 822-7717</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Village Cigar Company and Barbershop — home">
+      <span class="badge">VCC</span>
+      <span><b>VILLAGE CIGAR CO.</b><small>&amp; BARBERSHOP · EST. 2012</small></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#barbershop">Barbershop</a>
+      <a href="#cigars">Cigars</a>
+      <a href="#locations">Locations</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="book" href="tel:+19056812012">Book a chair</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#barbershop">Barbershop</a>
+    <a href="#cigars">Cigars</a>
+    <a href="#locations">Locations</a>
+    <a href="#visit">Visit</a>
+    <a class="bookline" href="tel:+19056812012">Call to book a chair →</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Sharp cut.<br><em>Slow smoke.</em></h1>
+        <p class="lede"><strong>Village Cigar Company &amp; Barbershop</strong> is Burlington's premium cigar shop and gentlemen's barbershop — a walk-in humidor, authentic Cuban cigars, and old-school hot-towel shaves under one roof. Three locations across Burlington, Oakville and Guelph.</p>
+        <div class="trust"><span class="stars" aria-hidden="true">★★★★★</span><span><strong>4.9</strong> from 288 Google reviews</span></div>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="tel:+19056812012">Book a chair — (905) 681-2012</a>
+          <a class="btn btn-ghost" href="#cigars">Browse the humidor</a>
+        </div>
+      </div>
+      <div class="emblem-card" aria-hidden="true">
+        <svg viewBox="0 0 400 260" role="img">
+          <circle cx="200" cy="118" r="88" fill="none" stroke="#c68a3b" stroke-width="3"/>
+          <circle cx="200" cy="118" r="74" fill="none" stroke="#c68a3b" stroke-width="1" opacity=".55"/>
+          <text x="200" y="108" text-anchor="middle" fill="#f3ead8" font-family="Bebas Neue, sans-serif" font-size="34" letter-spacing="4">VCC</text>
+          <text x="200" y="132" text-anchor="middle" fill="#a89c85" font-family="Inter, sans-serif" font-size="11" letter-spacing="3">EST. MMXII</text>
+          <path d="M60 210 q60 -26 140 -26 t140 26" fill="none" stroke="#c68a3b" stroke-width="2" opacity=".7"/>
+          <rect x="120" y="196" width="52" height="10" rx="5" fill="#c68a3b" opacity=".85" transform="rotate(-4 146 201)"/>
+          <rect x="228" y="196" width="52" height="10" rx="5" fill="#c68a3b" opacity=".55" transform="rotate(4 254 201)"/>
+          <text x="200" y="248" text-anchor="middle" fill="#a89c85" font-family="Inter, sans-serif" font-size="12" letter-spacing="4">GENTLEMEN'S BARBER · QUALITY TOBACCO</text>
+        </svg>
+        <p class="emblem-cap">The Village badge — barber chairs and a cedar humidor since 2012.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="barbershop">
+    <div class="wrap split">
+      <div class="sticky-head">
+        <p class="kicker">THE BARBERSHOP</p>
+        <h2 class="sec-head">Hot towels.<br>Straight razors.<br>No rushing.</h2>
+        <p class="sec-sub">Classic gentlemen's barbering — precision cuts, beard sculpting and full shave rituals. Call the shop for today's pricing and chair availability.</p>
+        <a class="btn btn-solid" href="tel:+19056812012">Call to book</a>
+      </div>
+      <div>
+        <div class="service-row">
+          <h3>Classic Cut</h3><span class="price">Call for pricing</span>
+          <p>Consultation, precision cut, hot-lather neck shave and style. The cut that keeps regulars coming back.</p>
+        </div>
+        <div class="service-row">
+          <h3>Hot-Towel Straight-Razor Shave</h3><span class="price">Call for pricing</span>
+          <p>The full ritual — hot towels, rich lather, straight razor, cold towel finish and balm. Our most talked-about service.</p>
+        </div>
+        <div class="service-row">
+          <h3>Beard Sculpt &amp; Detail</h3><span class="price">Call for pricing</span>
+          <p>Shape, line-up and conditioning for the beard, with a hot-towel treatment and finishing oils.</p>
+        </div>
+        <div class="service-row">
+          <h3>The Full Village — Cut + Shave</h3><span class="price">Call for pricing</span>
+          <p>The whole works in one chair: classic cut followed by the hot-towel straight-razor shave. Walk out a new man.</p>
+        </div>
+        <div class="note-strip"><strong>First visit?</strong> Tell us it's your first time when you call — we'll pair you with the right chair and leave extra time for the consultation.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cigar-band" id="cigars">
+    <div class="wrap cigar-grid">
+      <div>
+        <p class="kicker">THE CIGAR SHOP</p>
+        <h2>Walk into the humidor. Stay for the patio.</h2>
+        <p>Our <strong>walk-in Spanish cedar humidor</strong> stocks hundreds of premium cigars — including <strong>authentic Cuban cigars</strong> as an official <strong>La Casa del Habano</strong> retailer. Can't make it in? We ship cigars Canada-wide from our online shop.</p>
+        <p>Regulars linger on the <strong>smoking patio</strong> reviewers keep raving about, and our <strong>monthly events and newsletter</strong> keep the calendar full — tastings, pairings and cigar nights.</p>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="https://villagecigarcompany.com" rel="noopener">Shop cigars online</a>
+          <a class="btn btn-ghost" href="tel:+19056812012">Ask about today's stock</a>
+        </div>
+      </div>
+      <div class="feature-box">
+        <span class="tag">CIGAR OF THE MONTH</span>
+        <h3>Never smoke the same stick twice.</h3>
+        <p>Our Cigar of the Month club sends a hand-picked premium cigar to your door every month — curated by people who smoke what they sell. Ask in-store or call to join.</p>
+        <a class="btn btn-ghost" href="tel:+19056812012" style="margin-top:14px">Join the club</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cred">
+    <div class="wrap cred-inner">
+      <div class="cred-seal" aria-hidden="true">LA CASA<br>DEL<br>HABANO<br>RETAILER</div>
+      <div>
+        <p class="kicker">THE CREDENTIAL</p>
+        <h2 class="sec-head">Authentic Cubans, kept properly.</h2>
+        <p>Being an official <strong>La Casa del Habano</strong> retailer means our Cuban cigars are sourced through the official channel and stored at proper humidity in our walk-in humidor — so the cigar you buy smokes the way it was rolled to. It's the difference reviewers drive in from Toronto for.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="locations">
+    <div class="wrap">
+      <p class="kicker">THREE LOCATIONS</p>
+      <h2 class="sec-head">Pick your Village.</h2>
+      <p class="sec-sub">Burlington, Oakville and Guelph — each with the full humidor and barber chairs. Tap a location for its address and direct line.</p>
+      <div class="tabs" role="tablist" aria-label="Locations">
+        <button class="tab" role="tab" aria-selected="true" data-loc="burlington" id="tab-burlington" aria-controls="panel-burlington">Burlington</button>
+        <button class="tab" role="tab" aria-selected="false" data-loc="oakville" id="tab-oakville" aria-controls="panel-oakville">Oakville</button>
+        <button class="tab" role="tab" aria-selected="false" data-loc="guelph" id="tab-guelph" aria-controls="panel-guelph">Guelph</button>
+      </div>
+      <div class="loc-panel active" id="panel-burlington" role="tabpanel" aria-labelledby="tab-burlington">
+        <h3>Burlington</h3>
+        <p class="addr">2049 Pine St, Unit 64, Burlington, ON L7R 1E9</p>
+        <div class="loc-actions">
+          <a class="btn btn-solid" href="tel:+19056812012">Call (905) 681-2012</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=2049+Pine+St+Burlington+ON" rel="noopener">Get directions</a>
+        </div>
+        <p class="loc-hours-note">Hours vary by season — call ahead and we'll tell you today's chairs and humidor hours.</p>
+      </div>
+      <div class="loc-panel" id="panel-oakville" role="tabpanel" aria-labelledby="tab-oakville">
+        <h3>Oakville</h3>
+        <p class="addr">315 Lakeshore Rd E, Oakville, ON</p>
+        <div class="loc-actions">
+          <a class="btn btn-solid" href="tel:+19053382015">Call (905) 338-2015</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=315+Lakeshore+Rd+E+Oakville+ON" rel="noopener">Get directions</a>
+        </div>
+        <p class="loc-hours-note">Hours vary by season — call ahead and we'll tell you today's chairs and humidor hours.</p>
+      </div>
+      <div class="loc-panel" id="panel-guelph" role="tabpanel" aria-labelledby="tab-guelph">
+        <h3>Guelph</h3>
+        <p class="addr">Call the shop for the Guelph address and directions.</p>
+        <div class="loc-actions">
+          <a class="btn btn-solid" href="tel:+15198227717">Call (519) 822-7717</a>
+        </div>
+        <p class="loc-hours-note">Hours vary by season — call ahead and we'll tell you today's chairs and humidor hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <p class="kicker">VISIT</p>
+      <h2 class="sec-head">The kettle's on. The towels are hot.</h2>
+      <p class="sec-sub">Walk-ins welcome for the humidor and patio. Barber chairs book up on weekends — a quick call saves you the wait.</p>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>Burlington flagship</h3>
+          <address>2049 Pine St, Unit 64<br>Burlington, ON L7R 1E9</address>
+          <a class="tel" href="tel:+19056812012">(905) 681-2012</a><br>
+          <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=2049+Pine+St+Burlington+ON" rel="noopener">Open in Google Maps →</a>
+        </div>
+        <div class="visit-card">
+          <h3>Email us</h3>
+          <address>Questions about stock, the Cigar of the Month club, or booking a chair —<br>village@villagecigarcompany.com</address>
+          <a class="tel" href="mailto:village@villagecigarcompany.com" style="font-size:17px">village@villagecigarcompany.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Village Cigar Company &amp; Barbershop — Burlington · Oakville · Guelph</span>
+    <span class="concept">Concept preview — a design mockup, not the live website.</span>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+19056812012">📞 Call to book a chair</a>
+
+<script>
+(function(){
+  "use strict";
+  // mobile menu
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') { menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  });
+  // location tabs
+  var tabs = document.querySelectorAll('.tab');
+  var panels = document.querySelectorAll('.loc-panel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      panels.forEach(function(p){ p.classList.remove('active'); });
+      tab.setAttribute('aria-selected','true');
+      document.getElementById('panel-' + tab.getAttribute('data-loc')).classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beamsville Bakery — Dutch &amp; European Baking Since 1958</title>
+<meta name="description" content="Beamsville Bakery has been baking the Dutch way since 1958. Donuts people drive from Toronto for, suikerbrood, gevulde koeken, and custom cakes. 4966 King Street East, Beamsville, ON.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF4E7; --paper-deep:#F3EAD6; --ink:#3A2417; --gold:#F4C01E;
+  --gold-deep:#B07E0A; --muted:#7C6247; --card:#FFFDF8; --line:#E4D5B8; --max:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Karla',sans-serif;background:var(--paper);color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.12;text-wrap:balance}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+/* top bar */
+.topbar{background:var(--ink);color:var(--gold);font-size:.82rem;font-weight:700}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+.topbar a{color:#fff;text-decoration:none}
+.topbar a:hover{color:var(--gold)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(250,244,231,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2px solid var(--ink);transition:box-shadow .25s}
+nav.scrolled{box-shadow:0 6px 22px rgba(58,36,23,.14)}
+.navrow{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:46px;height:46px;flex:none;border-radius:50%;background:var(--gold);border:2px solid var(--ink);display:grid;place-items:center;font-family:'Fraunces';font-weight:700;font-size:1.15rem;color:var(--ink)}
+.brand-name{font-family:'Fraunces';font-weight:700;font-size:1.3rem;line-height:1.05}
+.brand-name small{display:block;font-family:'Karla';font-weight:800;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
+.navlinks{display:flex;gap:26px;list-style:none;font-weight:700;font-size:.96rem}
+.navlinks a{text-decoration:none;padding:4px 0;border-bottom:3px solid transparent}
+.navlinks a:hover{border-bottom-color:var(--gold)}
+.nav-cta{background:var(--ink);color:var(--paper)!important;text-decoration:none;font-weight:800;padding:11px 20px;border-radius:8px}
+.nav-cta:hover{background:#4d3120}
+.burger{display:none;background:none;border:2px solid var(--ink);border-radius:10px;width:46px;height:42px;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{display:block;width:22px;height:3px;background:var(--ink);border-radius:2px}
+
+/* hero */
+.hero{padding:60px 0 64px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.hero .dateline{font-weight:800;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px}
+.hero h1{font-size:clamp(2.5rem,5.4vw,4.1rem);margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--gold-deep)}
+.hero p.lead{font-size:1.1rem;color:var(--muted);max-width:44ch;margin-bottom:28px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:800;padding:14px 26px;border-radius:10px;font-size:1rem;transition:transform .15s}
+.btn-brown{background:var(--ink);color:var(--paper)}
+.btn-brown:hover{transform:translateY(-2px);background:#4d3120}
+.btn-outline{border:2px solid var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--gold)}
+.hero-collage{position:relative;min-height:420px}
+.hero-collage .ph1{position:absolute;top:0;right:8%;width:62%;border:3px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--paper-deep)}
+.hero-collage .ph2{position:absolute;bottom:0;left:0;width:52%;border:3px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--paper-deep)}
+.hero-collage img{width:100%;aspect-ratio:4/3.4;object-fit:cover}
+.stamp{position:absolute;top:46%;left:44%;width:118px;height:118px;background:var(--gold);border:3px solid var(--ink);border-radius:50%;display:grid;place-items:center;text-align:center;font-family:'Fraunces';font-weight:700;font-size:.95rem;line-height:1.2;transform:rotate(-12deg);z-index:2;box-shadow:4px 4px 0 rgba(58,36,23,.2)}
+
+/* timeline */
+.story{background:var(--ink);color:var(--paper);padding:70px 0}
+.story h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-bottom:8px}
+.story h2 span{color:var(--gold)}
+.story .sub{color:#C9B694;max-width:60ch;margin-bottom:40px}
+.tl{position:relative;max-width:860px}
+.tl::before{content:"";position:absolute;left:118px;top:6px;bottom:6px;width:3px;background:var(--gold);opacity:.55}
+.tl-item{display:grid;grid-template-columns:100px 44px 1fr;gap:0;margin-bottom:34px;align-items:start}
+.tl-year{font-family:'Fraunces';font-weight:700;font-size:1.3rem;color:var(--gold);text-align:right}
+.tl-dot{width:18px;height:18px;border-radius:50%;background:var(--gold);border:3px solid var(--ink);margin:6px auto 0;position:relative;z-index:1}
+.tl-body h3{font-size:1.25rem;margin-bottom:6px}
+.tl-body p{color:#C9B694;max-width:56ch}
+
+/* menu board */
+.menu{padding:76px 0}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:10px}
+.menu h2{font-size:clamp(1.9rem,3.8vw,2.7rem)}
+.menu .sub{color:var(--muted);max-width:62ch;margin-bottom:26px}
+.catnav{position:sticky;top:72px;z-index:40;background:rgba(250,244,231,.96);backdrop-filter:blur(8px);padding:12px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);margin-bottom:36px}
+.catnav .wrap{display:flex;gap:10px;overflow-x:auto;padding-top:4px;padding-bottom:4px}
+.catnav a{flex:none;text-decoration:none;font-weight:800;font-size:.88rem;padding:8px 16px;border:2px solid var(--ink);border-radius:999px;background:var(--card);white-space:nowrap}
+.catnav a.active,.catnav a:hover{background:var(--gold)}
+.mcat{margin-bottom:44px;scroll-margin-top:150px}
+.mcat-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.mcat-head h3{font-size:1.6rem}
+.mcat-head .rule{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-6px)}
+.mcat-note{color:var(--muted);font-style:italic;margin-bottom:18px;max-width:64ch}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 48px}
+.mitem{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dotted var(--line)}
+.mitem .name{font-weight:800}
+.mitem .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:20px}
+.mitem .price{font-weight:700;color:var(--gold-deep);white-space:nowrap}
+.mitem .instore{font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.mitem .desc{display:block;font-weight:400;font-size:.9rem;color:var(--muted)}
+
+/* seasonal panel */
+.season{background:var(--gold);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);padding:58px 0}
+.season .wrap{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.season h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:10px}
+.season p{font-weight:600;max-width:58ch}
+.season .btn-brown{white-space:nowrap}
+
+/* visit */
+.visit{padding:70px 0}
+.visit h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:28px}
+.visit-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:28px}
+.vblock{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:26px}
+.vblock h3{font-size:1.05rem;margin-bottom:14px;text-transform:uppercase;letter-spacing:.1em;font-family:'Karla';font-weight:800;color:var(--gold-deep)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-weight:600}
+.hours dt{font-weight:800}
+.hours .closed{color:var(--gold-deep);font-weight:800}
+.vblock p{font-weight:600}
+.vblock a{color:var(--ink);font-weight:800}
+
+/* footer */
+footer{background:var(--ink);color:#C9B694;padding:34px 0 110px;font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer .concept{opacity:.6;font-style:italic}
+
+.callfab{position:fixed;bottom:18px;left:18px;right:18px;z-index:60;display:none;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:800;text-align:center;padding:15px;border-radius:12px;border:2px solid var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.25);font-size:1.05rem}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-collage{min-height:340px;max-width:520px}
+  .mgrid{grid-template-columns:1fr}
+  .season .wrap{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr}
+  .tl::before{left:88px}
+  .tl-item{grid-template-columns:70px 40px 1fr}
+}
+@media(max-width:760px){
+  .navlinks{position:fixed;top:72px;right:0;left:0;background:var(--paper);flex-direction:column;gap:0;border-bottom:2px solid var(--ink);display:none;padding:10px 22px 18px}
+  .navlinks.open{display:flex}
+  .navlinks a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav-cta{display:none}
+  .burger{display:flex}
+  .callfab{display:block}
+  footer{padding-bottom:120px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span>Family-owned since 1958 · Beamsville, Ontario</span>
+  <span><a href="tel:+19055634533">(905) 563-4533</a> · 4966 King Street East</span>
+</div></div>
+
+<nav id="nav"><div class="wrap navrow">
+  <a class="brand" href="#top">
+    <span class="brand-mark">B</span>
+    <span class="brand-name">Beamsville Bakery<small>Dutch &amp; European Baking</small></span>
+  </a>
+  <ul class="navlinks" id="navlinks">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#seasonal">Seasonal</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:+19055634533">Call the bakery</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap hero-grid">
+  <div>
+    <div class="dateline">Est. 1958 · Beamsville, Ontario</div>
+    <h1>Three generations. <em>One oven.</em> Zero shortcuts.</h1>
+    <p class="lead">The Salverda family has baked the Dutch way on King Street East since 1974 — suikerbrood, gevulde koeken, and donuts people drive in from Toronto for.</p>
+    <div class="hero-btns">
+      <a class="btn btn-brown" href="#menu">See the menu</a>
+      <a class="btn btn-outline" href="tel:+19055634533">Call (905) 563-4533</a>
+    </div>
+  </div>
+  <div class="hero-collage">
+    <div class="ph1"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=60" alt="Fresh pastries from the oven" onerror="this.style.display='none'"></div>
+    <div class="ph2"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=800&q=60" alt="Fresh donuts" onerror="this.style.display='none'"></div>
+    <div class="stamp">Since<br>1958</div>
+  </div>
+</div></header>
+
+<section class="story" id="story"><div class="wrap">
+  <h2>One bakery, <span>three generations</span></h2>
+  <p class="sub">The doors opened in Beamsville's farming community in 1958. The Salverda family took over in 1974 and never changed what mattered.</p>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-year">1958</div><div class="tl-dot"></div>
+      <div class="tl-body"><h3>The doors open</h3><p>A bakery starts serving the small farming community of Beamsville, Ontario — traditional European baking, made fresh daily.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1974</div><div class="tl-dot"></div>
+      <div class="tl-body"><h3>The Salverdas take over</h3><p>Klaas Salverda buys the bakery and brings Dutch baking traditions with him — suikerbrood, gevulde koeken, gebakjes — recipes that still run the ovens today.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">Today</div><div class="tl-dot"></div>
+      <div class="tl-body"><h3>Benjamin &amp; Bauke carry it on</h3><p>The third generation keeps the same counter, the same recipes, and the same early mornings. Regulars drive in from Toronto for the donuts.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="menu" id="menu"><div class="wrap">
+  <div class="menu-head"><h2>The menu board</h2></div>
+  <p class="sub">Everything below is baked in-house. Prices change with the seasons and the harvest — call <a href="tel:+19055634533" style="font-weight:800">(905) 563-4533</a> for today's prices and to set aside a box.</p>
+
+  <div class="catnav"><div class="wrap" id="catnav">
+    <a href="#c-donuts" class="active">Doughnuts</a>
+    <a href="#c-bread">Bread &amp; Rolls</a>
+    <a href="#c-gebak">Pastries &amp; Gebakjes</a>
+    <a href="#c-cookies">Cookies &amp; Squares</a>
+    <a href="#c-cakes">Cakes &amp; Pies</a>
+    <a href="#c-dutch">Specialty European</a>
+    <a href="#c-savoury">Savoury</a>
+  </div></div>
+
+  <div class="mcat" id="c-donuts">
+    <div class="mcat-head"><h3>Doughnuts</h3><div class="rule"></div></div>
+    <p class="mcat-note">The famous ones — people drive in from Toronto for these.</p>
+    <div class="mgrid">
+      <div class="mitem"><span class="name">Honey Dip</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Chocolate Dip</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Apple Fritter</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Boston Cream</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Old Fashioned Plain</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Dutchie</span><span class="dots"></span><span class="instore">In-store</span></div>
+    </div>
+  </div>
+
+  <div class="mcat" id="c-bread">
+    <div class="mcat-head"><h3>Bread &amp; Rolls</h3><div class="rule"></div></div>
+    <div class="mgrid">
+      <div class="mitem"><span class="name">Dutch White Loaf</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Whole Wheat Loaf</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Kaiser Rolls <span class="desc">sold by the half dozen</span></span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Dinner Buns <span class="desc">sold by the dozen</span></span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Sweet Loaves <span class="desc">banana, lemon, cranberry</span></span><span class="dots"></span><span class="instore">In-store</span></div>
+    </div>
+  </div>
+
+  <div class="mcat" id="c-gebak">
+    <div class="mcat-head"><h3>Pastries &amp; Gebakjes</h3><div class="rule"></div></div>
+    <div class="mgrid">
+      <div class="mitem"><span class="name">Apple Gebakje</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Custard Slice</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Fruit Flan</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Butter Croissant</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Almond Danish</span><span class="dots"></span><span class="instore">In-store</span></div>
+    </div>
+  </div>
+
+  <div class="mcat" id="c-cookies">
+    <div class="mcat-head"><h3>Cookies, Squares &amp; Tarts</h3><div class="rule"></div></div>
+    <div class="mgrid">
+      <div class="mitem"><span class="name">Butter Tarts</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Date Squares</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Jam Tarts</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Shortbread</span><span class="dots"></span><span class="instore">In-store</span></div>
+    </div>
+  </div>
+
+  <div class="mcat" id="c-cakes">
+    <div class="mcat-head"><h3>Cakes &amp; Pies</h3><div class="rule"></div></div>
+    <p class="mcat-note">Custom and wedding cakes are our quiet specialty — order ahead.</p>
+    <div class="mgrid">
+      <div class="mitem"><span class="name">Strawberry Cake</span><span class="dots"></span><span class="price">$40</span></div>
+      <div class="mitem"><span class="name">Custom Celebration Cakes <span class="desc">birthdays, anniversaries — call to order</span></span><span class="dots"></span><span class="instore">Call for quote</span></div>
+      <div class="mitem"><span class="name">Wedding Cakes <span class="desc">tastings by appointment</span></span><span class="dots"></span><span class="instore">Call for quote</span></div>
+      <div class="mitem"><span class="name">Apple Pie</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Lemon Meringue Pie</span><span class="dots"></span><span class="instore">In-store</span></div>
+    </div>
+  </div>
+
+  <div class="mcat" id="c-dutch">
+    <div class="mcat-head"><h3>Specialty European</h3><div class="rule"></div></div>
+    <p class="mcat-note">The Dutch recipes Klaas brought with him in 1974 — you won't find these at every bakery.</p>
+    <div class="mgrid">
+      <div class="mitem"><span class="name">Suikerbrood <span class="desc">Dutch sugar bread</span></span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Gevulde Koeken <span class="desc">almond-filled cookies</span></span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Banket <span class="desc">almond pastry</span></span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Speculaas <span class="desc">spiced windmill cookies</span></span><span class="dots"></span><span class="instore">In-store</span></div>
+    </div>
+  </div>
+
+  <div class="mcat" id="c-savoury">
+    <div class="mcat-head"><h3>Savoury</h3><div class="rule"></div></div>
+    <div class="mgrid">
+      <div class="mitem"><span class="name">Sausage Rolls</span><span class="dots"></span><span class="instore">In-store</span></div>
+      <div class="mitem"><span class="name">Cheese Buns</span><span class="dots"></span><span class="instore">In-store</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="season" id="seasonal"><div class="wrap">
+  <div>
+    <h2>Holiday bakes sell out early.</h2>
+    <p>Christmas, Easter and Thanksgiving are the bakery's busiest weeks — seasonal pre-orders open well ahead and the popular items go first. If you want a holiday order, don't wait for December.</p>
+  </div>
+  <a class="btn btn-brown" href="tel:+19055634533">Call to pre-order</a>
+</div></section>
+
+<section class="visit" id="visit"><div class="wrap">
+  <h2>Come by the counter</h2>
+  <div class="visit-grid">
+    <div class="vblock">
+      <h3>Hours</h3>
+      <dl class="hours">
+        <dt>Monday</dt><dd>9:00 – 2:00</dd>
+        <dt>Tue – Fri</dt><dd>8:30 – 5:00</dd>
+        <dt>Saturday</dt><dd>8:30 – 4:00</dd>
+        <dt>Sunday</dt><dd class="closed">Closed</dd>
+      </dl>
+    </div>
+    <div class="vblock">
+      <h3>Find us</h3>
+      <p>4966 King Street East<br>Beamsville, ON L0R 1B0<br><br><a href="tel:+19055634533">(905) 563-4533</a><br><a href="mailto:info@beamsvillebakery.ca">info@beamsvillebakery.ca</a></p>
+    </div>
+    <div class="vblock">
+      <h3>Good to know</h3>
+      <p>Custom and wedding cakes need advance notice — call to talk through flavours, sizes and dates. Donuts are first-come, first-served.</p>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Beamsville Bakery · Beamsville, ON</span>
+  <span class="concept">Concept preview — a demo design, not the live site.</span>
+</div></footer>
+
+<a class="callfab" href="tel:+19055634533">Call the bakery</a>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
+  var burger=document.getElementById('burger'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.addEventListener('click',function(e){if(e.target.tagName==='A'){links.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+  // Signature interaction: menu category scroll-spy
+  var catlinks=Array.prototype.slice.call(document.querySelectorAll('#catnav a'));
+  var cats=catlinks.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+  function spy(){
+    var pos=scrollY+170,current=cats[0];
+    cats.forEach(function(c){if(c.offsetTop<=pos){current=c}});
+    catlinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+current.id)});
+  }
+  addEventListener('scroll',spy,{passive:true});spy();
+})();
+</script>
+</body>
+</html>

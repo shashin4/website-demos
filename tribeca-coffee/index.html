@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tribeca Coffee Co. — Burlington · Oakville · Port Credit</title>
+<meta name="description" content="Tribeca Coffee Co. — independent coffee shops in Burlington, Oakville and Port Credit since 2016. Espresso, brewed coffee, fresh baking, retail beans and merch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6f1e7;
+    --cream-2:#efe7d6;
+    --ink:#2a241e;
+    --ink-soft:#5c5245;
+    --line:#ddd2bd;
+    --pine:#3e5c48;
+    --pine-deep:#2f4737;
+    --max:1240px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.fraunces{font-family:Fraunces,Georgia,serif;font-weight:600;text-wrap:balance;line-height:1.06;letter-spacing:-.01em}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  @media(min-width:900px){.wrap{padding:0 32px}}
+
+  /* location quick bar */
+  .locbar{background:var(--ink);color:var(--cream);font-size:13px}
+  .locbar .wrap{display:flex;gap:6px;align-items:center;padding:9px 20px;flex-wrap:wrap}
+  .locbar .lbl{color:#b7ab93;font-weight:600;letter-spacing:.14em;font-size:11px;margin-right:6px}
+  .locbar button{background:none;border:1px solid rgba(246,241,231,.25);color:var(--cream);border-radius:999px;padding:5px 14px;font-family:Inter;font-size:13px;font-weight:500;cursor:pointer}
+  .locbar button:hover{border-color:var(--cream)}
+  .locbar button.active{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:13px;padding-bottom:13px}
+  .brand{text-decoration:none;display:flex;align-items:center;gap:12px}
+  .cup{width:42px;height:42px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+  .cup svg{width:24px;height:24px}
+  .brand b{font-family:Fraunces,serif;font-size:22px;font-weight:700;display:block;line-height:1}
+  .brand small{display:block;font-size:10px;letter-spacing:.26em;color:var(--ink-soft);font-weight:600;margin-top:3px}
+  .links{display:none;gap:28px;font-size:14.5px;font-weight:500}
+  .links a{text-decoration:none}
+  .links a:hover{color:var(--pine-deep)}
+  .nav .order{display:none;background:var(--pine);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:10px 22px;border-radius:999px}
+  .nav .order:hover{background:var(--pine-deep)}
+  .burger{display:block;background:none;border:0;cursor:pointer;padding:8px;color:var(--ink)}
+  .burger svg{width:26px;height:26px;display:block}
+  @media(min-width:900px){.links{display:flex}.nav .order{display:inline-block}.burger{display:none}}
+  .mobile-menu{display:none;border-top:1px solid var(--line);padding:8px 20px 18px;background:var(--cream)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:11px 0;text-decoration:none;border-bottom:1px solid var(--line);font-weight:500}
+  .mobile-menu a.callline{color:var(--pine-deep);font-weight:600;border-bottom:0}
+
+  /* hero — menu-first editorial */
+  .hero{padding:54px 0 46px;border-bottom:1px solid var(--line)}
+  @media(min-width:900px){.hero{padding:78px 0 66px}}
+  .hero h1{font-size:clamp(44px,6.4vw,80px);max-width:14ch;margin:14px 0 16px}
+  .hero h1 em{font-style:italic;color:var(--pine-deep)}
+  .eyebrow{font-size:12px;letter-spacing:.3em;font-weight:600;color:var(--pine-deep)}
+  .hero .lede{font-size:17px;color:var(--ink-soft);max-width:52ch;margin-bottom:8px}
+  .hero .lede strong{color:var(--ink)}
+  .meta-row{display:flex;gap:22px;flex-wrap:wrap;margin:18px 0 26px;font-size:14px;color:var(--ink-soft)}
+  .meta-row strong{color:var(--ink)}
+  .meta-row .stars{color:var(--pine-deep);letter-spacing:1px}
+
+  /* menu tabs */
+  .menu-board{margin-top:34px;background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:28px 24px;box-shadow:0 20px 50px -34px rgba(42,36,30,.4)}
+  @media(min-width:900px){.menu-board{padding:36px 40px}}
+  .menu-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+  .mtab{background:none;border:1.5px solid var(--line);border-radius:999px;padding:9px 20px;font-family:Inter;font-size:14px;font-weight:600;cursor:pointer;color:var(--ink-soft)}
+  .mtab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+  .mpanel{display:none;padding-top:14px}
+  .mpanel.active{display:block}
+  .mpanel h3{font-family:Fraunces,serif;font-size:24px;margin-bottom:4px}
+  .mpanel .mdesc{color:var(--ink-soft);font-size:14.5px;margin-bottom:14px;max-width:56ch}
+  .mrow{display:grid;grid-template-columns:1fr auto;gap:4px 18px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:15.5px;align-items:baseline}
+  .mrow:last-of-type{border-bottom:0}
+  .mrow small{display:block;color:var(--ink-soft);font-size:13.5px;grid-column:1/-1}
+  .mrow .p{font-weight:600;color:var(--pine-deep);white-space:nowrap;font-size:13.5px}
+  .mnote{margin-top:16px;font-size:13.5px;color:var(--ink-soft);font-style:italic}
+
+  section{padding:52px 0}
+  @media(min-width:900px){section{padding:74px 0}}
+  .sec-head{font-size:clamp(34px,4.5vw,56px);margin-bottom:10px;max-width:18ch}
+  .sec-sub{color:var(--ink-soft);max-width:58ch;margin-bottom:30px;font-size:16px}
+
+  /* location cards — asymmetric: burlington featured wide */
+  .loc-grid{display:grid;gap:16px}
+  @media(min-width:900px){.loc-grid{grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto}}
+  .loc-card{border:1px solid var(--line);border-radius:16px;padding:28px;background:#fffdf8;scroll-margin-top:140px;transition:box-shadow .3s ease}
+  .loc-card.flash{box-shadow:0 0 0 3px var(--pine)}
+  @media(min-width:900px){
+    .loc-card-featured{grid-row:1/3;display:flex;flex-direction:column;justify-content:space-between}
+  }
+  .loc-card .tag{display:inline-block;font-size:11px;letter-spacing:.22em;font-weight:600;color:var(--pine-deep);border:1px solid var(--pine);border-radius:4px;padding:5px 10px;margin-bottom:14px}
+  .loc-card h3{font-size:30px;margin-bottom:6px}
+  .loc-card .addr{color:var(--ink-soft);font-size:14.5px;margin-bottom:14px}
+  .hours-mini{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:14px}
+  .hours-mini td{padding:6px 0;color:var(--ink-soft)}
+  .hours-mini td:last-child{text-align:right;font-weight:500;color:var(--ink)}
+  .loc-card .tel{font-size:20px;font-weight:600;text-decoration:none;color:var(--pine-deep)}
+  .loc-card .tel:hover{text-decoration:underline}
+  .loc-card .mail{font-size:14px;color:var(--ink-soft);display:block;margin-top:8px}
+  .stars{color:var(--pine-deep);letter-spacing:1px;font-size:14px}
+  .rev-line{font-size:13.5px;color:var(--ink-soft);margin-top:10px}
+
+  /* beans & merch band */
+  .band{background:var(--ink);color:var(--cream);border-radius:20px;padding:38px 28px;display:grid;gap:26px}
+  @media(min-width:900px){.band{grid-template-columns:1.1fr 1fr;padding:52px;gap:56px;align-items:center}}
+  .band .eyebrow{color:#c9bfa8}
+  .band h2{font-size:clamp(32px,4vw,52px);margin:12px 0 14px}
+  .band h2 em{font-style:italic;color:#c9bfa8}
+  .band p{color:#b7ab93;font-size:16px;max-width:46ch}
+  .shelf{background:var(--cream-2);border-radius:12px;padding:26px;color:var(--ink)}
+  .shelf h3{font-size:22px;margin-bottom:12px}
+  .shelf ul{list-style:none;font-size:15px}
+  .shelf li{padding:8px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:12px}
+  .shelf li:last-child{border-bottom:0}
+  .shelf li span:last-child{color:var(--ink-soft);font-size:13.5px;text-align:right}
+
+  /* events inquiry */
+  .events{display:grid;gap:24px;align-items:center}
+  @media(min-width:900px){.events{grid-template-columns:1fr 1fr;gap:64px}}
+  .events h2{font-size:clamp(32px,4vw,52px);margin-bottom:14px}
+  .events p{color:var(--ink-soft);font-size:16px;margin-bottom:16px;max-width:46ch}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:14px 28px;border-radius:999px}
+  .btn-solid{background:var(--pine);color:#fff}
+  .btn-solid:hover{background:var(--pine-deep)}
+  .events-card{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:30px}
+  .events-card h3{font-size:24px;margin-bottom:10px}
+  .events-card ul{list-style:none;margin:0 0 18px}
+  .events-card li{padding:8px 0 8px 26px;position:relative;font-size:15px;color:var(--ink-soft)}
+  .events-card li::before{content:"—";position:absolute;left:0;color:var(--pine-deep);font-weight:600}
+
+  /* visit */
+  .visit{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:30px;display:grid;gap:20px}
+  @media(min-width:900px){.visit{grid-template-columns:1fr 1fr;padding:44px;gap:56px}}
+  .visit h2{font-size:clamp(30px,3.6vw,46px);margin-bottom:12px}
+  .visit address{font-style:normal;color:var(--ink-soft);font-size:15.5px;margin-bottom:14px}
+  .visit .tel{font-size:24px;font-weight:600;color:var(--pine-deep);text-decoration:none}
+  .visit .maplink{display:inline-block;margin-top:10px;font-size:14px;color:var(--ink-soft)}
+
+  footer{padding:34px 0 110px;font-size:13px;color:var(--ink-soft)}
+  @media(min-width:900px){footer{padding-bottom:44px}}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+  footer .concept{font-style:italic}
+
+  .tapcall{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:var(--pine);color:#fff;text-align:center;font-weight:600;font-size:16px;padding:15px;border-radius:999px;text-decoration:none;box-shadow:0 10px 28px rgba(62,92,72,.45)}
+  @media(min-width:900px){.tapcall{display:none}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .loc-card{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="locbar">
+  <div class="wrap">
+    <span class="lbl">OUR SHOPS</span>
+    <button data-target="loc-burlington" class="active">Burlington</button>
+    <button data-target="loc-oakville">Oakville</button>
+    <button data-target="loc-portcredit">Port Credit</button>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Tribeca Coffee Co. — home">
+      <span class="cup" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#f6f1e7" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 5.5c0-1 .8-1 .8-2M12 5.5c0-1 .8-1 .8-2"/></svg></span>
+      <span><b>Tribeca Coffee Co.</b><small>EST. 2016 · THREE SHOPS</small></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#menu">Menu</a>
+      <a href="#locations">Locations</a>
+      <a href="#retail">Beans &amp; merch</a>
+      <a href="#events">Events</a>
+    </nav>
+    <a class="order" href="tel:+12898160681">Call Burlington</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#menu">Menu</a>
+    <a href="#locations">Locations</a>
+    <a href="#retail">Beans &amp; merch</a>
+    <a href="#events">Events</a>
+    <a class="callline" href="tel:+12898160681">Call Burlington →</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="padding-top:44px">
+    <div class="wrap">
+      <p class="eyebrow">INDEPENDENT COFFEE · THREE NEIGHBOURHOODS</p>
+      <h1>Coffee worth <em>crossing town</em> for.</h1>
+      <p class="lede"><strong>Tribeca Coffee Co.</strong> has been pouring in Burlington, Oakville and Port Credit since 2016 — espresso pulled with care, fresh baking, and shelves of beans and merch to take home.</p>
+      <div class="meta-row">
+        <span><span class="stars" aria-hidden="true">★★★★★</span> <strong>4.8</strong> · 1,200+ Google reviews (Oakville flagship)</span>
+        <span><strong>Est. 2016</strong> · independent, not a chain</span>
+      </div>
+
+      <div class="menu-board" id="menu">
+        <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+          <button class="mtab" role="tab" aria-selected="true" data-panel="m-espresso">Espresso bar</button>
+          <button class="mtab" role="tab" aria-selected="false" data-panel="m-brewed">Brewed &amp; filter</button>
+          <button class="mtab" role="tab" aria-selected="false" data-panel="m-bakes">Fresh bakes</button>
+        </div>
+        <div class="mpanel active" id="m-espresso" role="tabpanel">
+          <h3>Espresso bar</h3>
+          <p class="mdesc">Double shots, dialled in daily. Dairy or oat — your call.</p>
+          <div class="mrow"><span>Espresso <small>Double shot, rich crema</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Cortado <small>Equal parts espresso and steamed milk</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Flat white <small>Velvety microfoam, double ristretto</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Latte <small>Classic, vanilla, or caramel</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Cappuccino <small>Traditional dry foam cap</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Mocha <small>Espresso, chocolate, steamed milk</small></span><span class="p">Priced in-store</span></div>
+          <p class="mnote">Full menu with prices on the board in every shop — it changes with the seasons.</p>
+        </div>
+        <div class="mpanel" id="m-brewed" role="tabpanel">
+          <h3>Brewed &amp; filter</h3>
+          <p class="mdesc">For the slow mornings. Single-origin beans, brewed fresh.</p>
+          <div class="mrow"><span>Drip coffee <small>Rotating single origin, bottomless refills before 10am</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Pour over <small>V60, your pick of the retail beans</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Cold brew <small>Steeped 18 hours, served over ice</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Chai latte <small>House-spiced, with espresso if you like</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Hot chocolate <small>Real chocolate, never powder</small></span><span class="p">Priced in-store</span></div>
+          <p class="mnote">Full menu with prices on the board in every shop — it changes with the seasons.</p>
+        </div>
+        <div class="mpanel" id="m-bakes" role="tabpanel">
+          <h3>Fresh bakes</h3>
+          <p class="mdesc">Baked for the morning rush — when it's gone, it's gone.</p>
+          <div class="mrow"><span>Butter croissant <small>Flaky, baked daily</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Banana bread <small>Toasted, with butter</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Muffins <small>Rotating flavours</small></span><span class="p">Priced in-store</span></div>
+          <div class="mrow"><span>Cookies <small>Chocolate chunk, baked in-house</small></span><span class="p">Priced in-store</span></div>
+          <p class="mnote">Full menu with prices on the board in every shop — it changes with the seasons.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="locations">
+    <div class="wrap">
+      <p class="eyebrow">THREE SHOPS</p>
+      <h2 class="sec-head">Find your Tribeca.</h2>
+      <p class="sec-sub">One on the lake in Burlington, the flagship in Oakville, and Port Credit by the water. Same beans, three neighbourhoods.</p>
+      <div class="loc-grid">
+        <article class="loc-card loc-card-featured" id="loc-burlington">
+          <div>
+            <span class="tag">BURLINGTON</span>
+            <h3>Lakeshore Road</h3>
+            <p class="addr">2003 Lakeshore Rd, Burlington, ON</p>
+            <table class="hours-mini" aria-label="Burlington hours">
+              <tr><td>Monday – Friday</td><td>8am – 5pm</td></tr>
+              <tr><td>Saturday – Sunday</td><td>8am – 8pm</td></tr>
+            </table>
+            <p class="rev-line"><span class="stars" aria-hidden="true">★★★★★</span> 4.5 · 100+ Google reviews</p>
+          </div>
+          <div style="margin-top:18px">
+            <a class="tel" href="tel:+12898160681">289-816-0681</a>
+            <a class="mail" href="mailto:tribecacoffeeburlington@gmail.com">tribecacoffeeburlington@gmail.com</a>
+            <a class="mail" href="https://www.google.com/maps/search/?api=1&amp;query=2003+Lakeshore+Rd+Burlington+ON" rel="noopener">Get directions →</a>
+          </div>
+        </article>
+        <article class="loc-card" id="loc-oakville">
+          <span class="tag">OAKVILLE · FLAGSHIP</span>
+          <h3>The flagship</h3>
+          <p class="addr">Oakville, ON — our busiest shop</p>
+          <p class="rev-line"><span class="stars" aria-hidden="true">★★★★★</span> 4.8 · 1,200+ Google reviews</p>
+          <a class="mail" href="mailto:tribecacoffeecorporation@gmail.com">tribecacoffeecorporation@gmail.com</a>
+          <p class="rev-line">Check the shop board for today's hours.</p>
+        </article>
+        <article class="loc-card" id="loc-portcredit">
+          <span class="tag">PORT CREDIT</span>
+          <h3>By the water</h3>
+          <p class="addr">Port Credit, Mississauga, ON</p>
+          <a class="mail" href="mailto:tribecaportcredit@outlook.com">tribecaportcredit@outlook.com</a>
+          <p class="rev-line">Check the shop board for today's hours.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="retail" style="padding-top:0">
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <p class="eyebrow">RETAIL</p>
+          <h2>Take <em>Tribeca</em> home.</h2>
+          <p>The beans we brew are the beans we sell. Grab a bag for the home setup, or wear the logo — every shop stocks retail coffee and merch.</p>
+        </div>
+        <div class="shelf">
+          <h3 class="fraunces">On the shelf</h3>
+          <ul>
+            <li><span>Retail coffee beans</span><span>Whole bean, roasted for espresso &amp; filter</span></li>
+            <li><span>T-shirts</span><span>Tribeca logo tees</span></li>
+            <li><span>Beanies</span><span>For the cold-brew months</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" style="padding-top:0">
+    <div class="wrap events">
+      <div>
+        <p class="eyebrow">CATERING &amp; EVENTS</p>
+        <h2>Morning meeting? Milestone? <em>We've got the coffee.</em></h2>
+        <p>Office coffee runs, event catering, or a corner of the shop for your gathering — tell us what you're planning and we'll put together the right setup. No order too early, no group too caffeinated.</p>
+        <a class="btn btn-solid" href="mailto:tribecacoffeeburlington@gmail.com?subject=Catering%20%2F%20event%20inquiry">Ask about catering</a>
+      </div>
+      <div class="events-card">
+        <h3 class="fraunces">What we can do</h3>
+        <ul>
+          <li>Office and meeting coffee runs</li>
+          <li>Event catering — tell us the headcount</li>
+          <li>Group gatherings in-store</li>
+          <li>Retail beans as gifts or favours</li>
+        </ul>
+        <p style="font-size:14px;color:var(--ink-soft)">Email <a href="mailto:tribecacoffeeburlington@gmail.com" style="color:var(--pine-deep);font-weight:600">tribecacoffeeburlington@gmail.com</a> with your date and we'll take it from there.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" style="padding-top:0">
+    <div class="wrap">
+      <div class="visit">
+        <div>
+          <p class="eyebrow">VISIT</p>
+          <h2>Start with Burlington.</h2>
+          <address>2003 Lakeshore Rd<br>Burlington, ON</address>
+          <a class="tel" href="tel:+12898160681">289-816-0681</a><br>
+          <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=2003+Lakeshore+Rd+Burlington+ON" rel="noopener">Open in Google Maps →</a>
+        </div>
+        <div>
+          <h3 class="fraunces" style="font-size:22px;margin-bottom:10px">Burlington hours</h3>
+          <table class="hours-mini" aria-label="Burlington hours">
+            <tr><td>Monday – Friday</td><td>8am – 5pm</td></tr>
+            <tr><td>Saturday – Sunday</td><td>8am – 8pm</td></tr>
+          </table>
+          <p style="font-size:14px;color:var(--ink-soft)">Oakville &amp; Port Credit hours are posted on each shop's board — or email and ask.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Tribeca Coffee Co. — Burlington · Oakville · Port Credit</span>
+    <span class="concept">Concept preview — a design mockup, not the live website.</span>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+12898160681">Call Tribeca — 289-816-0681</a>
+
+<script>
+(function(){
+  "use strict";
+  // mobile menu
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') { menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  });
+  // menu tabs
+  var mtabs = document.querySelectorAll('.mtab');
+  var mpanels = document.querySelectorAll('.mpanel');
+  mtabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      mtabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      mpanels.forEach(function(p){ p.classList.remove('active'); });
+      tab.setAttribute('aria-selected','true');
+      document.getElementById(tab.getAttribute('data-panel')).classList.add('active');
+    });
+  });
+  // location quick bar -> scroll + highlight
+  var locBtns = document.querySelectorAll('.locbar button');
+  locBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      locBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var card = document.getElementById(btn.getAttribute('data-target'));
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.classList.add('flash');
+        setTimeout(function(){ card.classList.remove('flash'); }, 1600);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

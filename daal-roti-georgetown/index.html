@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daal Roti Georgetown — Indian Tadka House</title>
+<meta name="description" content="Daal Roti Georgetown — Indian Tadka House. Real dishes, real spice: butter chicken, hara bhara kabab, nilgiri kofta. Takeout and catering in Georgetown, ON.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#171110; --bg2:#211814; --ivory:#F5EDDF; --copper:#C9712F; --copper-deep:#A0521F;
+  --muted:#B9A88F; --card:#241A14; --line:#3A2B20; --max:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Karla',sans-serif;background:var(--bg);color:var(--ivory);line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Marcellus',serif;font-weight:400;line-height:1.12;text-wrap:balance;letter-spacing:.01em}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+/* top bar */
+.topbar{background:#0F0B09;color:var(--muted);font-size:.82rem;font-weight:700;border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+.topbar a{color:var(--copper);text-decoration:none}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(23,17,16,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .25s}
+nav.scrolled{box-shadow:0 8px 26px rgba(0,0,0,.5)}
+.navrow{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:46px;height:46px;flex:none;border-radius:50%;border:2px solid var(--copper);display:grid;place-items:center;font-family:'Marcellus';font-size:1.15rem;color:var(--copper);background:#0F0B09}
+.brand-name{font-family:'Marcellus';font-size:1.32rem;line-height:1.05}
+.brand-name small{display:block;font-family:'Karla';font-weight:800;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);margin-top:3px}
+.navlinks{display:flex;gap:28px;list-style:none;font-weight:700;font-size:.95rem}
+.navlinks a{text-decoration:none;color:var(--muted);padding:4px 0;border-bottom:2px solid transparent}
+.navlinks a:hover{color:var(--ivory);border-bottom-color:var(--copper)}
+.nav-cta{background:var(--copper);color:#171110!important;text-decoration:none;font-weight:800;padding:11px 22px;border-radius:999px}
+.nav-cta:hover{background:#DC7F3D}
+.burger{display:none;background:none;border:1px solid var(--copper);border-radius:10px;width:46px;height:42px;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{display:block;width:22px;height:2px;background:var(--copper);border-radius:2px}
+
+/* hero */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:#0F0B09}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(15,11,9,.95) 8%, rgba(15,11,9,.35) 55%, rgba(15,11,9,.55) 100%)}
+.hero-inner{position:relative;z-index:1;padding:120px 0 70px;width:100%}
+.hero .kicker{font-weight:800;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);margin-bottom:16px}
+.hero h1{font-size:clamp(2.7rem,6vw,4.6rem);max-width:16ch;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--copper)}
+.hero p.lead{font-size:1.12rem;color:var(--muted);max-width:48ch;margin-bottom:30px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.btn{display:inline-block;text-decoration:none;font-weight:800;padding:14px 28px;border-radius:999px;font-size:1rem;transition:transform .15s}
+.btn-copper{background:var(--copper);color:#171110}
+.btn-copper:hover{transform:translateY(-2px);background:#DC7F3D}
+.btn-line{border:1px solid var(--copper);color:var(--ivory)}
+.btn-line:hover{background:rgba(201,113,47,.15)}
+.hero-meta{display:flex;gap:22px;flex-wrap:wrap;color:var(--muted);font-weight:700;font-size:.95rem}
+.hero-meta .stars{color:var(--copper);letter-spacing:2px}
+
+/* facts strip */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0F0B09}
+.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.fact{padding:26px 30px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:none}
+.fact h3{font-size:1.05rem;color:var(--copper);margin-bottom:6px}
+.fact p{color:var(--muted);font-size:.95rem}
+
+/* menu */
+.menu{padding:80px 0}
+.menu-head{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;margin-bottom:8px}
+.menu h2{font-size:clamp(2rem,4vw,2.9rem)}
+.legend{font-size:.85rem;color:var(--muted);font-weight:700;text-align:right}
+.legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 5px 0 12px}
+.dot.mild{background:#8FC97F}.dot.med{background:var(--copper)}.dot.hot{background:#D63B2A}
+.menu .sub{color:var(--muted);max-width:64ch;margin-bottom:28px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;border-bottom:1px solid var(--line);padding-bottom:20px}
+.tab{background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:10px 22px;font-weight:800;font-size:.92rem;cursor:pointer;font-family:'Karla'}
+.tab.active{background:var(--copper);border-color:var(--copper);color:#171110}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 56px}
+.dish{display:none;padding:16px 0;border-bottom:1px dotted var(--line)}
+.dish.show{display:block}
+.dish-top{display:flex;align-items:baseline;gap:12px}
+.dish h3{font-size:1.22rem}
+.dish .spice{margin-left:auto;white-space:nowrap;letter-spacing:3px;font-size:.75rem}
+.dish p{color:var(--muted);font-size:.95rem;margin-top:4px;max-width:44ch}
+.dish .tag{display:inline-block;margin-top:8px;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);border:1px solid var(--copper);border-radius:999px;padding:3px 12px}
+.price-note{margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;color:var(--muted);font-size:.95rem}
+.price-note b{color:var(--ivory)}
+
+/* catering */
+.cater{padding:80px 0;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cater-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:54px;align-items:center}
+.cater-img{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#0F0B09}
+.cater-img img{width:100%;aspect-ratio:4/3.2;object-fit:cover}
+.cater .kicker{font-weight:800;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);margin-bottom:14px}
+.cater h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-bottom:16px}
+.cater p{color:var(--muted);margin-bottom:16px;max-width:52ch}
+.cater ul{list-style:none;margin:20px 0 28px;display:grid;gap:10px}
+.cater li{padding-left:26px;position:relative;font-weight:600}
+.cater li::before{content:"—";position:absolute;left:0;color:var(--copper);font-weight:800}
+
+/* order band */
+.order{background:var(--copper);color:#171110;padding:60px 0}
+.order .wrap{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.order h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:8px}
+.order p{font-weight:600;max-width:56ch}
+.order .btn-dark{background:#171110;color:var(--ivory);white-space:nowrap}
+.order .btn-dark:hover{transform:translateY(-2px)}
+.order .alt{margin-top:14px;font-size:.92rem;font-weight:700}
+
+/* visit */
+.visit{padding:76px 0}
+.visit h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-bottom:30px}
+.visit-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:26px}
+.vblock{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+.vblock h3{font-family:'Karla';font-weight:800;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);margin-bottom:16px}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-weight:600;font-size:.95rem}
+.hours dt{font-weight:800;color:var(--ivory)}
+.hours dd{color:var(--muted)}
+.vblock p{color:var(--muted);font-weight:600}
+.vblock a{color:var(--copper);font-weight:800;text-decoration:none}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:32px 0 110px;font-size:.85rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer .concept{opacity:.6;font-style:italic}
+
+.callfab{position:fixed;bottom:18px;left:18px;right:18px;z-index:60;display:none;background:var(--copper);color:#171110;text-decoration:none;font-weight:800;text-align:center;padding:15px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.4);font-size:1.05rem}
+
+@media(max-width:900px){
+  .cater-grid{grid-template-columns:1fr}
+  .mgrid{grid-template-columns:1fr}
+  .facts .wrap{grid-template-columns:1fr}
+  .fact{border-left:none;border-top:1px solid var(--line)}
+  .fact:first-child{border-top:none}
+  .order .wrap{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr}
+  .menu-head{grid-template-columns:1fr}
+  .legend{text-align:left}
+}
+@media(max-width:760px){
+  .navlinks{position:fixed;top:72px;right:0;left:0;background:#0F0B09;flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;padding:10px 22px 18px}
+  .navlinks.open{display:flex}
+  .navlinks a{display:block;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ivory)}
+  .nav-cta{display:none}
+  .burger{display:flex}
+  .callfab{display:block}
+  footer{padding-bottom:120px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span>378 Mountainview Rd S, Unit 5, Georgetown, ON</span>
+  <span><a href="tel:+19057026555">(905) 702-6555</a> · Open today till 10 PM</span>
+</div></div>
+
+<nav id="nav"><div class="wrap navrow">
+  <a class="brand" href="#top">
+    <span class="brand-mark">DR</span>
+    <span class="brand-name">Daal Roti<small>Indian Tadka House</small></span>
+  </a>
+  <ul class="navlinks" id="navlinks">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#catering">Catering</a></li>
+    <li><a href="#order">Order</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:+19057026555">Call for takeout</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://img1.wsimg.com/isteam/ip/ec1321de-fc9a-4854-b7a6-33b1ba39337e/VDK00011.jpeg" alt="Daal Roti Georgetown dining room" onerror="this.style.display='none'">
+  </div>
+  <div class="hero-inner"><div class="wrap">
+    <div class="kicker">Indian Tadka House · Georgetown, Ontario</div>
+    <h1>Real dishes. Real spice. <em>No adjectives needed.</em></h1>
+    <p class="lead">Butter chicken that regulars drive across town for. Hara bhara kabab, nilgiri kofta, reshmi paneer — a menu that names its food, in the heart of Georgetown.</p>
+    <div class="hero-btns">
+      <a class="btn btn-copper" href="tel:+19057026555">Call for takeout</a>
+      <a class="btn btn-line" href="#menu">See the menu</a>
+    </div>
+    <div class="hero-meta">
+      <span><span class="stars">★★★★</span>★ 4.7 · ~500 reviews</span>
+      <span>$$ · about $20–30 a person</span>
+    </div>
+  </div></div>
+</header>
+
+<section class="facts"><div class="wrap">
+  <div class="fact">
+    <h3>Dishes with names</h3>
+    <p>Butter Chicken, Hara Bhara Kabab, Nilgiri Kofta, Reshmi Paneer — the orders regulars keep coming back for.</p>
+  </div>
+  <div class="fact">
+    <h3>Catering &amp; events</h3>
+    <p>Weddings, celebrations and corporate nights — reviewers mention DJs and full-house parties. We cater.</p>
+  </div>
+  <div class="fact">
+    <h3>Takeout &amp; delivery</h3>
+    <p>Call ahead for pickup, or find us on Uber Eats and DoorDash — search "Daal Roti Georgetown".</p>
+  </div>
+</div></section>
+
+<section class="menu" id="menu"><div class="wrap">
+  <div class="menu-head">
+    <h2>The menu</h2>
+    <div class="legend">Spice guide <span class="dot mild"></span>mild <span class="dot med"></span>medium <span class="dot hot"></span>hot</div>
+  </div>
+  <p class="sub">Tandoor-fired, slow-simmered, ground fresh. Tell us your heat — most dishes can be dialed up or down.</p>
+
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-cat="starters">Starters</button>
+    <button class="tab" data-cat="tandoor">Tandoor &amp; Breads</button>
+    <button class="tab" data-cat="mains">Mains</button>
+    <button class="tab" data-cat="sweet">Desserts &amp; Drinks</button>
+  </div>
+
+  <div class="mgrid" id="mgrid">
+    <div class="dish show" data-cat="starters">
+      <div class="dish-top"><h3>Samosa (2 pc)</h3><span class="spice"><span class="dot mild"></span></span></div>
+      <p>Crisp pastry, spiced potato and peas, tamarind chutney.</p>
+    </div>
+    <div class="dish show" data-cat="starters">
+      <div class="dish-top"><h3>Hara Bhara Kabab</h3><span class="spice"><span class="dot mild"></span></span></div>
+      <p>Spinach, green pea and potato patties — the vegetarian starter regulars order by name.</p>
+      <span class="tag">Regulars' pick</span>
+    </div>
+    <div class="dish show" data-cat="starters">
+      <div class="dish-top"><h3>Onion Bhaji</h3><span class="spice"><span class="dot med"></span></span></div>
+      <p>Thin-sliced onion fritters in chickpea batter, mint chutney.</p>
+    </div>
+    <div class="dish show" data-cat="starters">
+      <div class="dish-top"><h3>Chicken 65</h3><span class="spice"><span class="dot hot"></span></span></div>
+      <p>Fiery South-Indian fried chicken, curry leaves, red chilli.</p>
+    </div>
+
+    <div class="dish" data-cat="tandoor">
+      <div class="dish-top"><h3>Chicken Tikka</h3><span class="spice"><span class="dot med"></span></span></div>
+      <p>Overnight-marinated, clay-oven charred, lemon and onion.</p>
+    </div>
+    <div class="dish" data-cat="tandoor">
+      <div class="dish-top"><h3>Reshmi Paneer Tikka</h3><span class="spice"><span class="dot mild"></span></span></div>
+      <p>Cream-and-cashew marinated paneer, tandoor finished.</p>
+      <span class="tag">Regulars' pick</span>
+    </div>
+    <div class="dish" data-cat="tandoor">
+      <div class="dish-top"><h3>Garlic Naan</h3><span class="spice"><span class="dot mild"></span></span></div>
+      <p>Blistered in the tandoor, brushed with garlic butter.</p>
+    </div>
+    <div class="dish" data-cat="tandoor">
+      <div class="dish-top"><h3>Tandoori Roti &amp; Laccha Paratha</h3><span class="spice"><span class="dot mild"></span></span></div>
+      <p>Whole-wheat staples, made to order for the table.</p>
+    </div>
+
+    <div class="dish" data-cat="mains">
+      <div class="dish-top"><h3>Butter Chicken</h3><span class="spice"><span class="dot mild"></span></span></div>
+      <p>The one everyone knows — tomato, butter, cream, tandoor chicken.</p>
+      <span class="tag">Most ordered</span>
+    </div>
+    <div class="dish" data-cat="mains">
+      <div class="dish-top"><h3>Cheese Butter Masala</h3><span class="spice"><span class="dot mild"></span></span></div>
+      <p>Paneer's answer to butter chicken — rich, mild, dangerously scoopable.</p>
+      <span class="tag">Regulars' pick</span>
+    </div>
+    <div class="dish" data-cat="mains">
+      <div class="dish-top"><h3>Nilgiri Kofta</h3><span class="spice"><span class="dot med"></span></span></div>
+      <p>Vegetable dumplings in a green coconut-coriander curry.</p>
+      <span class="tag">Regulars' pick</span>
+    </div>
+    <div class="dish" data-cat="mains">
+      <div class="dish-top"><h3>Chana Masala</h3><span class="spice"><span class="dot med"></span></span></div>
+      <p>Chickpeas simmered with ginger, tomato and garam masala.</p>
+    </div>
+    <div class="dish" data-cat="mains">
+      <div class="dish-top"><h3>Lamb Vindaloo</h3><span class="spice"><span class="dot hot"></span></span></div>
+      <p>Goan-style — vinegar, heat, and no apologies.</p>
+    </div>
+    <div class="dish" data-cat="mains">
+      <div class="dish-top"><h3>Basmati Rice &amp; Biryani</h3><span class="spice"><span class="dot med"></span></span></div>
+      <p>Ask what's in the pot today — chicken and vegetable biryanis rotate.</p>
+    </div>
+
+    <div class="dish" data-cat="sweet">
+      <div class="dish-top"><h3>Mango Lassi</h3><span class="spice"></span></div>
+      <p>Thick yogurt, alphonso mango. The tandoor's best friend.</p>
+    </div>
+    <div class="dish" data-cat="sweet">
+      <div class="dish-top"><h3>Gulab Jamun</h3><span class="spice"></span></div>
+      <p>Warm milk dumplings in rose-cardamom syrup.</p>
+    </div>
+    <div class="dish" data-cat="sweet">
+      <div class="dish-top"><h3>Masala Chai</h3><span class="spice"></span></div>
+      <p>Brewed with crushed ginger and cardamom, the proper way.</p>
+    </div>
+  </div>
+
+  <div class="price-note"><b>Prices:</b> most mains land around $20–30 a person. For today's exact prices, call <a href="tel:+19057026555" style="color:var(--copper);font-weight:800">(905) 702-6555</a> — the menu changes with the market.</div>
+</div></section>
+
+<section class="cater" id="catering"><div class="wrap cater-grid">
+  <div class="cater-img">
+    <img src="https://img1.wsimg.com/isteam/ip/ec1321de-fc9a-4854-b7a6-33b1ba39337e/VDK00098.jpeg" alt="Daal Roti Georgetown event spread" onerror="this.style.display='none'">
+  </div>
+  <div>
+    <div class="kicker">Catering &amp; events</div>
+    <h2>Bring the tadka house to the party</h2>
+    <p>Georgetown celebrations already run through our dining room — reviewers talk about DJs, full-house birthdays and wedding parties. Take the same food to your venue.</p>
+    <ul>
+      <li>Wedding and celebration buffets, scaled to your guest count</li>
+      <li>Corporate lunches and office dinners, delivered on time</li>
+      <li>Custom menus — vegetarian, vegan and Jain options available</li>
+    </ul>
+    <a class="btn btn-copper" href="tel:+19057026555">Call about catering</a>
+  </div>
+</div></section>
+
+<section class="order" id="order"><div class="wrap">
+  <div>
+    <h2>Takeout tonight?</h2>
+    <p>Call ahead and it's hot when you walk in. Or get it delivered — we're on Uber Eats and DoorDash.</p>
+    <p class="alt">Search <b>"Daal Roti Georgetown"</b> in your delivery app.</p>
+  </div>
+  <a class="btn btn-dark" href="tel:+19057026555">Call (905) 702-6555</a>
+</div></section>
+
+<section class="visit" id="visit"><div class="wrap">
+  <h2>Visit us</h2>
+  <div class="visit-grid">
+    <div class="vblock">
+      <h3>Hours</h3>
+      <dl class="hours">
+        <dt>Mon · Tue</dt><dd>11 AM – 10 PM</dd>
+        <dt>Wednesday</dt><dd>5 PM – 10 PM</dd>
+        <dt>Thu · Sun</dt><dd>11 AM – 10 PM</dd>
+        <dt>Fri · Sat</dt><dd>11 AM – 11 PM</dd>
+      </dl>
+    </div>
+    <div class="vblock">
+      <h3>Find us</h3>
+      <p>378 Mountainview Rd S, Unit 5<br>Georgetown, ON L7G 5X3<br><br><a href="tel:+19057026555">(905) 702-6555</a><br><a href="mailto:Daalrotigeorgetown@gmail.com">Daalrotigeorgetown@gmail.com</a></p>
+    </div>
+    <div class="vblock">
+      <h3>Good to know</h3>
+      <p>Our .com domain is retired — <b style="color:var(--ivory)">daalrotigeorgetown.ca</b> is the only address you need. Vibrant music, warm room, come hungry.</p>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Daal Roti Georgetown · Georgetown, ON</span>
+  <span class="concept">Concept preview — a demo design, not the live site.</span>
+</div></footer>
+
+<a class="callfab" href="tel:+19057026555">Call for takeout</a>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
+  var burger=document.getElementById('burger'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.addEventListener('click',function(e){if(e.target.tagName==='A'){links.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+  // Signature interaction: menu tabs + spice dots
+  var tabs=document.querySelectorAll('#tabs .tab'),dishes=document.querySelectorAll('#mgrid .dish');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active')});
+      t.classList.add('active');
+      var c=t.getAttribute('data-cat');
+      dishes.forEach(function(d){d.classList.toggle('show',d.getAttribute('data-cat')===c)});
+    });
+  });
+})();
+</script>
+</body>
+</html>

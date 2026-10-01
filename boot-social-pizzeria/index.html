@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Boot Social Pizzeria — Wood-Fired Pizza, Pasta &amp; Bar | 579 Kerr St, Oakville</title>
+<meta name="description" content="The Boot Social Pizzeria — Neapolitan-style thin crust pizza, handmade pasta and a proper cellar bar on Kerr Street in Oakville. Happy hour 2–6 daily, lunch special 11:30–2 daily.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF5EC; --paper-deep:#F3EAD8;
+    --ink:#171310; --ink-soft:#2A241E;
+    --accent:#FF700A; --accent-dark:#C85A08;
+    --muted:#6E6359; --line:#E6D9C3;
+    --dark:#14100C;
+    --radius-card:10px; --radius-chip:999px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none !important} }
+  body{font-family:'Karla',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Alfa Slab One',Georgia,serif;font-weight:400;text-wrap:balance;line-height:1.12;letter-spacing:.01em}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+
+  /* ---- deals utility bar ---- */
+  .dealsbar{background:var(--accent);color:#1A0E02;font-size:.83rem;font-weight:700}
+  .dealsbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:7px;padding-bottom:7px}
+  .dealsbar a{color:#1A0E02;text-decoration:none;border-bottom:1px solid #1A0E02}
+  .dealsbar .hh-live{background:#1A0E02;color:#FFD9AE;font-size:.75rem;font-weight:700;padding:3px 12px;border-radius:var(--radius-chip);white-space:nowrap}
+  .dealsbar .hh-live.off{background:transparent;color:#1A0E02;border:1px solid #1A0E02}
+
+  /* ---- header ---- */
+  header.site{position:sticky;top:0;z-index:50;background:rgba(20,16,12,.96);backdrop-filter:blur(8px);color:#FFF6E8;border-bottom:2px solid var(--accent)}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px}
+  .brand{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+  .brand .boot{font-family:'Alfa Slab One',serif;font-size:1.35rem;color:#FFF6E8}
+  .brand .boot em{font-style:normal;color:var(--accent)}
+  .brand .sub{font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:#C9B79A;margin-top:3px}
+  nav.main{display:flex;gap:26px;font-weight:600;font-size:.95rem}
+  nav.main a{text-decoration:none;color:#F3E7D3;position:relative;padding:4px 0}
+  nav.main a:hover{color:var(--accent)}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 24px;font-size:1rem;cursor:pointer;border:2px solid transparent;transition:transform .12s ease, background .12s ease}
+  .btn-accent{background:var(--accent);color:#1A0E02}
+  .btn-accent:hover{background:var(--accent-dark);color:#FFF6E8;transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:#FFF6E8;border-color:#8A7660}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-dark{background:var(--ink);color:#FFF6E8}
+  .btn-dark:hover{background:var(--accent-dark)}
+  .nav-call{font-size:.9rem;padding:9px 18px}
+  .hamburger{display:none;background:none;border:none;color:#FFF6E8;font-size:1.7rem;cursor:pointer;padding:4px 8px}
+
+  /* ---- hero ---- */
+  .hero{position:relative;background:var(--dark);color:#FFF6E8;overflow:hidden}
+  .hero .bg{position:absolute;inset:0}
+  .hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.55}
+  .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(20,16,12,.92) 20%,rgba(20,16,12,.55) 55%,rgba(20,16,12,.25) 100%)}
+  .hero .wrap{position:relative;padding-top:96px;padding-bottom:88px;max-width:1240px}
+  .hero .kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .hero h1{font-size:clamp(2.4rem,5.5vw,4.2rem);max-width:12ch;margin-bottom:16px}
+  .hero p.lede{font-size:1.15rem;max-width:46ch;color:#EFE3CE;margin-bottom:26px}
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+  .hero .rating{font-size:.92rem;color:#EFE3CE}
+  .hero .rating strong{color:var(--accent)}
+
+  /* ---- deals band ---- */
+  .deals{padding:64px 0 8px}
+  .deals-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:0;border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--ink);color:#FFF6E8}
+  .deal{padding:38px 34px}
+  .deal.happy{background:var(--dark)}
+  .deal.lunch{background:var(--paper-deep);color:var(--ink)}
+  .deal .tag{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px}
+  .deal.happy .tag{color:var(--accent)}
+  .deal.lunch .tag{color:var(--accent-dark)}
+  .deal h2{font-size:1.9rem;margin-bottom:6px}
+  .deal .time{font-weight:700;margin-bottom:16px}
+  .deal ul{list-style:none;margin-bottom:20px}
+  .deal li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed rgba(128,110,90,.4);font-size:.98rem}
+  .deal li:last-child{border-bottom:none}
+  .deal .price{font-weight:700;white-space:nowrap}
+  .deal.happy .price{color:var(--accent)}
+  .deal.lunch .price{color:var(--accent-dark)}
+  .deal p.note{font-size:.9rem;color:var(--muted)}
+  .deal.happy p.note{color:#C9B79A}
+
+  /* ---- menu ---- */
+  .menu{padding:72px 0}
+  .menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+  .menu-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+  .menu-head p{color:var(--muted);max-width:44ch}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;border-bottom:2px solid var(--line);padding-bottom:14px}
+  .tab{background:none;border:none;font-family:'Karla',sans-serif;font-weight:700;font-size:1rem;color:var(--muted);padding:10px 16px;cursor:pointer;border-radius:8px 8px 0 0}
+  .tab:hover{color:var(--ink);background:var(--paper-deep)}
+  .tab.active{color:var(--accent-dark);box-shadow:inset 0 -3px 0 var(--accent)}
+  .panel{display:none;padding-top:26px}
+  .panel.active{display:block}
+  .panel .fineprint{font-size:.88rem;color:var(--muted);margin-bottom:18px;background:var(--paper-deep);border:1px solid var(--line);border-radius:8px;padding:10px 16px}
+  .menu-list{display:grid;grid-template-columns:1fr 1fr;gap:4px 44px}
+  .dish{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:start}
+  .dish h3{font-family:'Karla',sans-serif;font-weight:700;font-size:1.02rem;letter-spacing:0}
+  .dish .desc{grid-column:1;font-size:.9rem;color:var(--muted);max-width:38ch}
+  .dish .price{grid-column:2;grid-row:1/3;font-weight:700;font-size:1.05rem;color:var(--accent-dark);white-space:nowrap}
+  .dish.star{position:relative}
+  .dish.star h3::after{content:"house favourite";font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-dark);border:1px solid var(--accent-dark);border-radius:var(--radius-chip);padding:2px 9px;margin-left:10px;vertical-align:middle;white-space:nowrap}
+
+  /* ---- events ---- */
+  .events{background:var(--dark);color:#FFF6E8;padding:72px 0;border-radius:26px;margin:0 12px}
+  .events .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+  .events .kicker{color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;display:block;margin-bottom:12px}
+  .events h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:14px}
+  .events p{color:#D9C8AC;margin-bottom:14px;max-width:46ch}
+  .events ul{list-style:none;margin:18px 0 24px}
+  .events li{padding:9px 0 9px 30px;position:relative;border-bottom:1px solid rgba(201,183,154,.2)}
+  .events li::before{content:"◆";position:absolute;left:4px;color:var(--accent);font-size:.8rem;top:14px}
+  .events li strong{color:#FFF6E8}
+  .events .photo{border-radius:14px;overflow:hidden;background:#241c14;min-height:320px}
+  .events .photo img{width:100%;height:100%;object-fit:cover;min-height:320px}
+
+  /* ---- story ---- */
+  .story{padding:72px 0}
+  .story .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+  .story h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:14px}
+  .story h2 em{font-style:normal;color:var(--accent-dark)}
+  .story p{color:var(--ink-soft);margin-bottom:14px;max-width:52ch}
+  .story .quote{border-left:4px solid var(--accent);padding:6px 0 6px 20px;font-size:1.08rem;font-style:italic;color:var(--ink-soft);margin:20px 0;max-width:46ch}
+  .story .photo-stack{position:relative}
+  .story .photo-stack img{border-radius:14px;box-shadow:0 18px 44px rgba(23,19,16,.22)}
+  .story .badge{position:absolute;right:-8px;bottom:-18px;background:var(--accent);color:#1A0E02;font-weight:700;border-radius:12px;padding:12px 18px;font-size:.92rem;box-shadow:0 10px 26px rgba(200,90,8,.35);transform:rotate(-2deg)}
+
+  /* ---- visit ---- */
+  .visit{padding:0 0 72px}
+  .visit-card{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);border-radius:18px;overflow:hidden}
+  .visit-info{background:var(--ink);color:#FFF6E8;padding:40px 36px}
+  .visit-info h2{font-size:1.8rem;margin-bottom:16px}
+  .hours-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:.97rem}
+  .hours-table td{padding:6px 0;border-bottom:1px dashed rgba(201,183,154,.25)}
+  .hours-table td:last-child{text-align:right;font-weight:600}
+  .visit-info address{font-style:normal;color:#D9C8AC;margin-bottom:18px;line-height:1.7}
+  .visit-info .big-tel{font-family:'Alfa Slab One',serif;font-size:1.5rem;color:var(--accent);text-decoration:none}
+  .visit-info .big-tel:hover{color:#FFF6E8}
+  .visit-map{background:var(--paper-deep);padding:40px 36px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+  .visit-map h3{font-size:1.3rem}
+  .visit-map p{color:var(--muted)}
+  .visit-map .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+
+  footer.site{background:var(--dark);color:#8F7F68;padding:34px 0;font-size:.86rem}
+  footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer.site .concept{font-size:.78rem;color:#6E6252}
+
+  /* ---- mobile call button ---- */
+  .mobile-call{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:60;background:var(--accent);color:#1A0E02;text-align:center;font-weight:700;text-decoration:none;padding:15px;border-radius:14px;font-size:1.05rem;box-shadow:0 10px 28px rgba(200,90,8,.45)}
+
+  @media (max-width:900px){
+    nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:#14100C;flex-direction:column;padding:10px 22px 20px;gap:2px;border-bottom:2px solid var(--accent)}
+    nav.main.open{display:flex}
+    nav.main a{padding:11px 0;border-bottom:1px solid rgba(201,183,154,.15)}
+    .hamburger{display:block}
+    .nav-call{display:none}
+    .deals-grid{grid-template-columns:1fr}
+    .menu-list{grid-template-columns:1fr}
+    .events .wrap,.story .wrap,.visit-card{grid-template-columns:1fr}
+    .events{margin:0}
+    .events .photo{min-height:240px}
+    .hero .wrap{padding-top:72px;padding-bottom:64px}
+    .mobile-call{display:block}
+    body{padding-bottom:76px}
+    .story .badge{right:8px}
+  }
+</style>
+</head>
+<body>
+
+<div class="dealsbar">
+  <div class="wrap">
+    <span>Happy Hour 2–6pm daily &nbsp;·&nbsp; Lunch Special 11:30am–2pm daily &nbsp;·&nbsp; <a href="tel:+19058420003">905-842-0003</a></span>
+    <span class="hh-live" id="hhLive">checking…</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="The Boot Social Pizzeria — home">
+      <span class="boot">THE <em>BOOT</em></span>
+      <span class="sub">Social Pizzeria</span>
+    </a>
+    <nav class="main" id="mainNav" aria-label="Primary">
+      <a href="#menu">Menu</a>
+      <a href="#deals">Deals</a>
+      <a href="#events">Trivia &amp; Events</a>
+      <a href="#story">Our Story</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-accent nav-call" href="tel:+19058420003">Call 905-842-0003</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg" aria-hidden="true">
+      <img src="https://static.wixstatic.com/media/77839f_de9db000727541e587a085d2a74b888a~mv2.jpg" alt="" onerror="this.closest('.bg').style.display='none'">
+    </div>
+    <div class="wrap">
+      <span class="kicker">579 Kerr St · Oakville</span>
+      <h1>The Boot Social Pizzeria</h1>
+      <p class="lede">Wood-fired, Neapolitan-style thin crust pizza, handmade pasta and a proper cellar bar on Kerr Street. Happy Hour. Hot Pizza. Cold Beer.</p>
+      <div class="cta-row">
+        <a class="btn btn-accent" href="#menu">See the menu</a>
+        <a class="btn btn-ghost" href="tel:+19058420003">Call 905-842-0003</a>
+      </div>
+      <p class="rating"><strong>4.8 ★</strong> from 60 Google reviews · $$–$$$ · Patio lounge + bar</p>
+    </div>
+  </section>
+
+  <!-- DEALS -->
+  <section class="deals" id="deals">
+    <div class="wrap">
+      <div class="deals-grid">
+        <div class="deal happy">
+          <span class="tag">Every day · 2–6pm</span>
+          <h2>Happy Hour</h2>
+          <p class="time">Kick back, unwind, and treat yourself.</p>
+          <ul>
+            <li><span>Bruschetta · Jalapeño Poppers · Meatballs · Pound of Wings · Mixed Olives</span><span class="price">$10</span></li>
+            <li><span>9oz house wine, red or white</span><span class="price">$10</span></li>
+            <li><span>Boot Lager</span><span class="price">$4</span></li>
+          </ul>
+          <p class="note">In the bar and on the patio. See you in the cellar.</p>
+        </div>
+        <div class="deal lunch">
+          <span class="tag">Every day · 11:30am–2pm</span>
+          <h2>Lunch Special</h2>
+          <p class="time">Pizza, pastas and more.</p>
+          <ul>
+            <li><span>Pepperoni · Gran Sasso · Hawaiian · Canadian pizzas</span><span class="price">$18</span></li>
+            <li><span>Spaghetti Polpette · Sundried Tomato Chicken Linguini</span><span class="price">$18</span></li>
+            <li><span>Fish &amp; Chips (1 pc)</span><span class="price">$18</span></li>
+          </ul>
+          <p class="note">Dine-in at lunch, every single day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="menu-head">
+        <h2>The Menu</h2>
+        <p>Everything is made in-house — hand-cut, breaded, and fired to order. Prices are the real ones, straight off our board.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Menu sections">
+        <button class="tab active" role="tab" aria-selected="true" data-panel="pizzas">Signature Pizzas</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="starters">Starters</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="pasta">Pasta &amp; Plates</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="salads">Salads</button>
+      </div>
+
+      <div class="panel active" id="panel-pizzas" role="tabpanel">
+        <p class="fineprint">Standard 13″ thin crust · Gluten-free 10″ thin crust +$3 · Turn any pizza into a panzerotti (fried), calzone (baked) or stromboli (rolled) +$1</p>
+        <div class="menu-list">
+          <div class="dish star"><h3>Kerr Street Special</h3><span class="price">$26</span><p class="desc">Olive oil, lite mozzarella, bocconcini, roast tomato, roast garlic, prosciutto, fresh arugula, olive oil drizzle</p></div>
+          <div class="dish"><h3>Honey Badger</h3><span class="price">$26</span><p class="desc">Pomodoro, mozzarella, Calabrese spicy salami, pepperoni cups, honey drizzle</p></div>
+          <div class="dish"><h3>Feisty Fig</h3><span class="price">$26</span><p class="desc">Olive oil, mozzarella, caramelized onion, Calabrese spicy salami, sliced fig, fresh arugula, honey drizzle</p></div>
+          <div class="dish"><h3>Butchers Block</h3><span class="price">$26</span><p class="desc">Pomodoro, mozzarella, capocollo ham, Calabrese spicy salami, roast garlic, parmesan, Italian herbs</p></div>
+          <div class="dish"><h3>Funghi</h3><span class="price">$26</span><p class="desc">Olive oil, mozzarella, caramelized onion, sliced mushroom, roasted garlic, crumbled feta, Italian herbs</p></div>
+          <div class="dish"><h3>Deluxe</h3><span class="price">$26</span><p class="desc">Pomodoro, mozzarella, sliced mushroom, pepperoni, crumbled Italian sausage, green pepper, red onion</p></div>
+          <div class="dish"><h3>Vermont</h3><span class="price">$25</span><p class="desc">Olive oil base, spinach, blackened Cajun chicken, roasted red pepper, goat cheese, balsamic drizzle</p></div>
+          <div class="dish"><h3>BBQ Chicken</h3><span class="price">$25</span><p class="desc">BBQ sauce base, mozzarella, grilled chicken, bacon strips, red onion, green onion, BBQ drizzle, parmesan</p></div>
+          <div class="dish"><h3>Butter Chicken</h3><span class="price">$25</span><p class="desc">Butter chicken base, grilled chicken breast, green onion, red onion, mozzarella, roasted red pepper</p></div>
+          <div class="dish"><h3>Canadian</h3><span class="price">$24</span><p class="desc">Pomodoro, mozzarella, sliced mushroom, pepperoni, bacon strips</p></div>
+          <div class="dish"><h3>Mediterranean</h3><span class="price">$23</span><p class="desc">Pomodoro, mozzarella, roast tomato, red pepper, red onion, black olives, spinach, goat cheese, Italian herbs</p></div>
+          <div class="dish"><h3>Vegetarian</h3><span class="price">$23</span><p class="desc">Pomodoro, mozzarella, sliced mushroom, tomato, green pepper, red onion, black olives</p></div>
+          <div class="dish"><h3>Italian Stallion</h3><span class="price">$23</span><p class="desc">Pomodoro, mozzarella, crumbled Italian sausage, banana peppers, red onion, green onion</p></div>
+          <div class="dish"><h3>Hawaiian</h3><span class="price">$23</span><p class="desc">Pomodoro, mozzarella, capocollo ham, pineapple</p></div>
+          <div class="dish"><h3>Pepperoni</h3><span class="price">$22</span><p class="desc">Pomodoro, mozzarella, pepperoni cups, Italian herbs</p></div>
+          <div class="dish"><h3>Gran Sasso</h3><span class="price">$22</span><p class="desc">Pomodoro, lite mozzarella, bocconcini, olive oil drizzle, fresh basil</p></div>
+          <div class="dish"><h3>Build Your Own</h3><span class="price">$19</span><p class="desc">Pick your own sauce and toppings</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-starters" role="tabpanel">
+        <div class="menu-list">
+          <div class="dish"><h3>Nachos</h3><span class="price">$22</span><p class="desc">Layered tortilla chips, triple cheese mix, black beans, corn, banana peppers, red onions, sour cream &amp; salsa</p></div>
+          <div class="dish"><h3>Fried Calamari</h3><span class="price">$18</span><p class="desc">Hand-cut squid rings, banana peppers, lightly dusted &amp; deep-fried, garlic aioli</p></div>
+          <div class="dish"><h3>Meatballs</h3><span class="price">$16</span><p class="desc">Authentic all-beef recipe, marinara, mozzarella, parmesan, toasted crostini</p></div>
+          <div class="dish"><h3>Arancini</h3><span class="price">$16</span><p class="desc">Hand-crafted cheese-stuffed risotto balls, breaded &amp; deep-fried, garlic parmesan cream sauce</p></div>
+          <div class="dish"><h3>Fish Bites</h3><span class="price">$16</span><p class="desc">Battered cod pieces, coleslaw &amp; tartar sauce</p></div>
+          <div class="dish"><h3>Pound of Wings</h3><span class="price">$16</span><p class="desc">Buffalo, BBQ, sweet chilli Thai, dry Cajun, or salt &amp; pepper</p></div>
+          <div class="dish"><h3>Mozzarella Sticks</h3><span class="price">$15</span><p class="desc">Hand cut, breaded, deep-fried, marinara dipping sauce</p></div>
+          <div class="dish"><h3>Bruschetta</h3><span class="price">$15</span><p class="desc">Toasted baguette, bruschetta mix, goat cheese, balsamic drizzle, pea tenders</p></div>
+          <div class="dish"><h3>Cauliflower Bites</h3><span class="price">$15</span><p class="desc">Battered &amp; deep-fried, lemon, parmesan, herbs, garlic aioli</p></div>
+          <div class="dish"><h3>Jalapeño Poppers</h3><span class="price">$15</span><p class="desc">Breaded red jalapeño halves, tangy chilli cream cheese, chipotle dip</p></div>
+          <div class="dish"><h3>Mixed Olives</h3><span class="price">$12</span><p class="desc">Green &amp; black olives sautéed with garlic &amp; roasted peppers, grilled baguette</p></div>
+          <div class="dish"><h3>Guac &amp; Chips</h3><span class="price">$12</span><p class="desc">Tortilla chips with house-made guacamole</p></div>
+          <div class="dish"><h3>House Cut Fries</h3><span class="price">$8</span><p class="desc">Yukon Gold potatoes, deep-fried, sea salt, ketchup</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-pasta" role="tabpanel">
+        <div class="menu-list">
+          <div class="dish"><h3>Linguini Alfredo Chicken Parm</h3><span class="price">$28</span><p class="desc">Deep-fried breaded chicken breast baked in marinara &amp; mozzarella, linguini, alfredo sauce</p></div>
+          <div class="dish"><h3>Carbonara</h3><span class="price">$26</span><p class="desc">Prosciutto, garlic &amp; shallots, peppercorn cream &amp; egg yolk sauce, bucatini, parmesan</p></div>
+          <div class="dish"><h3>Sundried Tomato Chicken Linguini</h3><span class="price">$26</span><p class="desc">Garlic &amp; shallots, sundried tomato cream sauce, grilled chicken breast, linguini</p></div>
+          <div class="dish"><h3>Blackened Chicken Agliolio</h3><span class="price">$26</span><p class="desc">Garlic &amp; shallot infused olive oil, roast grape tomato, blackened Cajun chicken, spaghetti</p></div>
+          <div class="dish"><h3>Spaghetti Polpette</h3><span class="price">$25</span><p class="desc">All-beef house-made meatballs, garlic &amp; shallots, marinara, spaghetti</p></div>
+          <div class="dish"><h3>Boot Fish &amp; Chips</h3><span class="price">$25</span><p class="desc">Thick-cut cod loin, battered &amp; deep-fried, house cut fries, coleslaw &amp; tartar</p></div>
+          <div class="dish"><h3>Saffron Tortellini</h3><span class="price">$24</span><p class="desc">Garlic &amp; shallots, roasted mushroom, saffron cream sauce, cheese-stuffed tortellini</p></div>
+          <div class="dish"><h3>Chicken Parmesan Sandwich</h3><span class="price">$24</span><p class="desc">Deep-fried breaded chicken breast baked in marinara &amp; mozzarella, toasted baguette, side fries</p></div>
+          <div class="dish"><h3>Meatball Hoagie</h3><span class="price">$24</span><p class="desc">All-beef house-made meatballs baked in marinara &amp; mozzarella, toasted baguette, side fries</p></div>
+          <div class="dish"><h3>Boathouse Fried Fish Sandwich</h3><span class="price">$24</span><p class="desc">Deep-fried cod loin, toasted Vienna bun, coleslaw &amp; tartar, house cut fries</p></div>
+          <div class="dish"><h3>Classic Rose Gnocchi</h3><span class="price">$22</span><p class="desc">Garlic &amp; shallots, tomato rose sauce, green onion, herbs, parmesan</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-salads" role="tabpanel">
+        <p class="fineprint">Add grilled chicken breast +$8 · Add blackened Cajun chicken breast +$8</p>
+        <div class="menu-list">
+          <div class="dish"><h3>Caesar Salad</h3><span class="price">$17</span><p class="desc">Chopped romaine hearts, authentic Caesar dressing, crispy bacon, lemon, parmesan, fried capers &amp; crostini</p></div>
+          <div class="dish"><h3>Classic Caprese Salad</h3><span class="price">$17</span><p class="desc">Bocconcini, grape tomato, salt &amp; pepper, olive oil, balsamic reduction</p></div>
+          <div class="dish"><h3>Greek Salad</h3><span class="price">$17</span><p class="desc">Chopped romaine, grape tomato, cucumber, red onion, crumbled feta, black olives, zesty dressing</p></div>
+          <div class="dish"><h3>House Salad</h3><span class="price">$16</span><p class="desc">Arugula, fire-roasted tomato &amp; red pepper vinaigrette, grape tomato, red onion, cucumber, carrot</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="events" id="events">
+    <div class="wrap">
+      <div>
+        <span class="kicker">Good times await</span>
+        <h2>Trivia Nights &amp; the Bar</h2>
+        <p>The Boot is as much a hangout as a restaurant — a patio lounge, a stocked cellar bar, and a weekly trivia night that fills the room.</p>
+        <ul>
+          <li><strong>Weekly trivia nights</strong> — bring a team, grab a table early, order the $10 wings.</li>
+          <li><strong>Patio lounge + bar</strong> — drinks and thin-crust slices outside when the weather plays along.</li>
+          <li><strong>The cellar</strong> — "See you in the cellar" isn't just a line; it's where the drinks live.</li>
+          <li><strong>Events calendar</strong> — ask what's on this month when you call or stop by.</li>
+        </ul>
+        <a class="btn btn-accent" href="tel:+19058420003">Ask about this week's events</a>
+      </div>
+      <div class="photo">
+        <img src="https://static.wixstatic.com/media/e9a95c_95284ab6f7b9480da16bd91ae721872e~mv2.jpg" alt="Inside The Boot Social Pizzeria" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="wrap">
+      <div class="photo-stack">
+        <img src="https://static.wixstatic.com/media/4f2cd1de7f844d5985460325e7a9075b.jpg" alt="Wood-fired pizza at The Boot Social Pizzeria" onerror="this.style.display='none'">
+        <div class="badge">Neapolitan-style · thin crust</div>
+      </div>
+      <div>
+        <h2>Why <em>"The Boot"?</em></h2>
+        <p>A local Italian restaurant and patio lounge on Kerr Street, serving true authentic Neapolitan-style thin crust pizzas, pastas and tapas — where the integrity of the ingredients is all that matters.</p>
+        <p>A taste of true heritage from old-world Italy. Or, as the rest of the world knows us… <strong>The Boot.</strong></p>
+        <p class="quote">Pizza made right. Happy Hour. Hot Pizza. Cold Beer.</p>
+        <p>Come for the Kerr Street Special, stay for the cellar bar — and come back for trivia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="visit-card">
+        <div class="visit-info">
+          <h2>Let's Eat!</h2>
+          <table class="hours-table" aria-label="Opening hours">
+            <tr><td>Monday – Wednesday</td><td>11:30am – 9pm</td></tr>
+            <tr><td>Thursday – Saturday</td><td>11:30am – 10pm</td></tr>
+            <tr><td>Sunday</td><td>11:30am – 9pm</td></tr>
+          </table>
+          <address>
+            579 Kerr St, Oakville, ON<br>
+            <a href="mailto:info@thebootsocialpizzeria.ca" style="color:#D9C8AC">info@thebootsocialpizzeria.ca</a>
+          </address>
+          <a class="big-tel" href="tel:+19058420003">905-842-0003</a>
+        </div>
+        <div class="visit-map">
+          <h3>Find us on Kerr Street</h3>
+          <p>Right in the heart of Kerr Village — patio out front, bar in the cellar, pizza in the middle.</p>
+          <div class="cta-row">
+            <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&amp;query=The+Boot+Social+Pizzeria+579+Kerr+St+Oakville+ON" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn btn-accent" href="tel:+19058420003">Reserve by phone</a>
+          </div>
+          <p style="font-size:.88rem">Happy hour 2–6pm daily · Lunch special 11:30am–2pm daily</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 The Boot Social Pizzeria · 579 Kerr St, Oakville · 905-842-0003</span>
+    <span class="concept">Concept preview — demo site, not the business's live website.</span>
+  </div>
+</footer>
+
+<a class="mobile-call" href="tel:+19058420003">Call the Boot · 905-842-0003</a>
+
+<script>
+(function(){
+  "use strict";
+  // Mobile nav
+  var burger = document.getElementById('hamburger');
+  var nav = document.getElementById('mainNav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  });
+
+  // Menu tabs
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      document.getElementById('panel-' + tab.getAttribute('data-panel')).classList.add('active');
+    });
+  });
+
+  // Happy-hour "on now" chip (2pm–6pm daily)
+  var chip = document.getElementById('hhLive');
+  function tick(){
+    var now = new Date();
+    var mins = now.getHours()*60 + now.getMinutes();
+    var on = mins >= 14*60 && mins < 18*60;
+    chip.textContent = on ? 'Happy hour is on now' : 'Happy hour starts 2pm';
+    chip.classList.toggle('off', !on);
+  }
+  tick();
+  setInterval(tick, 60000);
+})();
+</script>
+</body>
+</html>

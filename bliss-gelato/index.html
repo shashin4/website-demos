@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bliss Gelato — Gelato Cart Catering in Stoney Creek, ON</title>
+<meta name="description" content="Bliss Gelato brings a handcrafted gelato cart to weddings, corporate events and parties across the Hamilton area. 30 rotating flavours, 1,100+ Google reviews.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF9EE; --ink:#2A2320; --red:#BA2A35; --red-dark:#8E1F28;
+  --yellow:#F1E639; --yellow-soft:#FDF3A8; --muted:#6E5F52;
+  --card:#FFFFFF; --line:#EADFC9; --max:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fredoka',sans-serif;font-weight:600;line-height:1.08;text-wrap:balance;letter-spacing:-.01em}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+/* top bar */
+.topbar{background:var(--ink);color:var(--yellow);font-size:.82rem;font-weight:700}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+.topbar a{color:#fff;text-decoration:none}
+.topbar a:hover{color:var(--yellow)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,249,238,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2px solid var(--ink);transition:box-shadow .25s}
+nav.scrolled{box-shadow:0 6px 22px rgba(42,35,32,.14)}
+.navrow{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:44px;height:44px;border-radius:50%;background:var(--yellow);border:3px solid var(--ink);display:grid;place-items:center;font-family:'Fredoka';font-weight:700;font-size:1.4rem;color:var(--red);flex:none}
+.brand-name{font-family:'Fredoka';font-weight:600;font-size:1.25rem;line-height:1.05}
+.brand-name small{display:block;font-family:'Nunito';font-weight:700;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.navlinks{display:flex;gap:26px;list-style:none;font-weight:800;font-size:.95rem}
+.navlinks a{text-decoration:none;position:relative;padding:4px 0}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:-2px;height:3px;width:0;background:var(--red);transition:width .22s}
+.navlinks a:hover::after{width:100%}
+.nav-cta{background:var(--red);color:#fff!important;text-decoration:none;font-weight:800;padding:11px 20px;border-radius:999px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.nav-cta:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.burger{display:none;background:none;border:2px solid var(--ink);border-radius:10px;width:46px;height:42px;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{display:block;width:22px;height:3px;background:var(--ink);border-radius:2px}
+
+/* hero */
+.hero{padding:64px 0 56px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.kicker{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:6px 16px;font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:clamp(2.4rem,5.2vw,4rem);margin-bottom:18px}
+.hero h1 .hl{background:linear-gradient(transparent 62%, var(--yellow) 62%);padding:0 4px}
+.hero p.lead{font-size:1.12rem;color:var(--muted);max-width:46ch;margin-bottom:28px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.btn{display:inline-block;text-decoration:none;font-weight:800;padding:14px 26px;border-radius:999px;border:2px solid var(--ink);transition:transform .15s,box-shadow .15s;font-size:1rem}
+.btn-red{background:var(--red);color:#fff;box-shadow:4px 4px 0 var(--ink)}
+.btn-red:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn-ghost{background:#fff;color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.btn-ghost:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.hero-proof{display:flex;gap:26px;flex-wrap:wrap;font-size:.92rem;color:var(--muted)}
+.hero-proof b{display:block;font-family:'Fredoka';font-size:1.35rem;color:var(--ink)}
+.hero-photo{position:relative}
+.hero-photo .frame{position:absolute;inset:18px -18px -18px 18px;background:var(--yellow);border:2px solid var(--ink);border-radius:26px;z-index:0}
+.hero-photo img{position:relative;z-index:1;border:2px solid var(--ink);border-radius:26px;aspect-ratio:4/4.4;object-fit:cover;width:100%;background:var(--yellow-soft)}
+.chip{position:absolute;z-index:2;background:#fff;border:2px solid var(--ink);border-radius:16px;padding:10px 16px;font-weight:800;font-size:.85rem;box-shadow:3px 3px 0 var(--ink)}
+.chip .stars{color:#E8A100;letter-spacing:2px}
+.chip-1{top:26px;right:-12px;transform:rotate(3deg)}
+.chip-2{bottom:34px;left:-14px;transform:rotate(-3deg)}
+
+/* inclusions band */
+.band{background:var(--ink);color:var(--cream);padding:58px 0}
+.band h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:8px;color:var(--yellow)}
+.band .sub{color:#CFC2B0;margin-bottom:30px;max-width:62ch}
+.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 34px;list-style:none}
+.checks li{display:flex;gap:14px;align-items:flex-start;font-weight:600}
+.checks .tick{flex:none;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-weight:900;font-size:.95rem;margin-top:2px}
+
+/* occasions */
+.occ{padding:76px 0}
+.occ h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:6px}
+.occ .sub{color:var(--muted);margin-bottom:44px;max-width:60ch}
+.occ-row{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-bottom:56px}
+.occ-row:last-child{margin-bottom:0}
+.occ-row.flip .occ-text{order:2}
+.occ-row.flip .occ-img{order:1}
+.occ-img{border:2px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:8px 8px 0 var(--yellow);background:var(--yellow-soft)}
+.occ-img img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.occ-tag{font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.occ-text h3{font-size:1.7rem;margin-bottom:12px}
+.occ-text p{color:var(--muted);margin-bottom:16px}
+.occ-text .detail{background:#fff;border:2px dashed var(--line);border-radius:14px;padding:12px 16px;font-size:.95rem;font-weight:600}
+
+/* flavours */
+.flav{background:var(--yellow-soft);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:70px 0}
+.flav h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:6px}
+.flav .sub{color:var(--muted);margin-bottom:26px;max-width:64ch}
+.fbtns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.fbtn{border:2px solid var(--ink);background:#fff;border-radius:999px;padding:9px 20px;font-weight:800;font-size:.9rem;cursor:pointer;font-family:'Nunito'}
+.fbtn.active{background:var(--red);color:#fff;box-shadow:3px 3px 0 var(--ink)}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.fitem{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:14px 16px;font-weight:800;transition:transform .18s,opacity .18s}
+.fitem small{display:block;font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.fitem.hide{display:none}
+.fitem:hover{transform:translateY(-3px)}
+.flav-note{margin-top:22px;font-size:.9rem;color:var(--muted);font-style:italic}
+
+/* reviews */
+.reviews{padding:76px 0}
+.reviews h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:36px}
+.quote{border-left:6px solid var(--red);padding:6px 0 6px 26px;margin-bottom:40px;max-width:760px}
+.quote:nth-of-type(2){margin-left:auto;border-left-color:var(--yellow);max-width:680px}
+.quote p{font-size:1.18rem;font-weight:600;line-height:1.55;margin-bottom:10px}
+.quote cite{font-style:normal;font-weight:800;font-size:.9rem;color:var(--muted)}
+.quote .stars{color:#E8A100;letter-spacing:2px}
+
+/* quote CTA */
+.qcta{background:var(--red);color:#fff;padding:66px 0;text-align:left;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.qcta h2{font-size:clamp(1.9rem,4vw,2.9rem);margin-bottom:10px}
+.qcta p{opacity:.92;max-width:56ch;margin-bottom:26px}
+.qcta .btn-ghost{box-shadow:4px 4px 0 var(--ink)}
+.qcta .btn-line{background:transparent;color:#fff;border:2px solid #fff;box-shadow:4px 4px 0 rgba(0,0,0,.25)}
+.qcta .btn-line:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,.25)}
+
+/* visit */
+.visit{padding:66px 0}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px}
+.visit h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:26px;grid-column:1/-1}
+.vcard{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:24px;box-shadow:5px 5px 0 var(--yellow)}
+.vcard h3{font-size:1.05rem;margin-bottom:10px;color:var(--red)}
+.vcard p{font-weight:600}
+.vcard a{color:var(--red-dark);font-weight:800}
+
+/* footer */
+footer{background:var(--ink);color:#CFC2B0;padding:34px 0 110px;font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer .concept{opacity:.6;font-style:italic}
+
+/* mobile call button */
+.callfab{position:fixed;bottom:18px;left:18px;right:18px;z-index:60;display:none;background:var(--red);color:#fff;text-decoration:none;font-weight:800;text-align:center;padding:15px;border-radius:999px;border:2px solid var(--ink);box-shadow:0 6px 18px rgba(0,0,0,.25);font-size:1.05rem}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-photo{max-width:480px}
+  .chip-1{right:6px}.chip-2{left:6px}
+  .occ-row,.occ-row.flip .occ-text,.occ-row.flip .occ-img{grid-template-columns:1fr}
+  .occ-row.flip .occ-text{order:1}.occ-row.flip .occ-img{order:2}
+  .checks{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .navlinks{position:fixed;top:70px;right:0;left:0;background:var(--cream);flex-direction:column;gap:0;border-bottom:2px solid var(--ink);display:none;padding:10px 22px 18px}
+  .navlinks.open{display:flex}
+  .navlinks a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav-cta{display:none}
+  .burger{display:flex}
+  .callfab{display:block}
+  footer{padding-bottom:120px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span>621 Barton St #8, Stoney Creek, ON</span>
+  <span><a href="tel:+19053714847">905-371-4847</a> · Mon–Sat 12–8 · Sun 11–7</span>
+</div></div>
+
+<nav id="nav"><div class="wrap navrow">
+  <a class="brand" href="#top">
+    <span class="brand-mark">B</span>
+    <span class="brand-name">Bliss Gelato<small>GelatoSource Catering</small></span>
+  </a>
+  <ul class="navlinks" id="navlinks">
+    <li><a href="#events">Events</a></li>
+    <li><a href="#flavours">Flavours</a></li>
+    <li><a href="#occasions">Occasions</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:+19053714847">Get a quote</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap hero-grid">
+  <div>
+    <span class="kicker">Gelato cart catering · Stoney Creek, ON</span>
+    <h1>Your guests will <span class="hl">photograph the cart</span> before they taste it.</h1>
+    <p class="lead">Bliss Gelato rolls a handcrafted gelato cart into weddings, corporate events and parties across the Hamilton area — 30 rotating flavours, a uniformed scooper, and a cart dressed to match your event.</p>
+    <div class="hero-btns">
+      <a class="btn btn-red" href="tel:+19053714847">Get a catering quote</a>
+      <a class="btn btn-ghost" href="#flavours">See the flavour board</a>
+    </div>
+    <div class="hero-proof">
+      <div><b>1,100+</b>Google reviews</div>
+      <div><b>30</b>rotating flavours</div>
+      <div><b>Caribbean-inspired</b>recipes</div>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <div class="frame"></div>
+    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=900&q=60" alt="Handcrafted gelato cones" onerror="this.style.display='none'">
+    <div class="chip chip-1"><span class="stars">★★★★★</span><br>1,100+ Google reviews</div>
+    <div class="chip chip-2">Canada Gelato Challenge<br>runner-up</div>
+  </div>
+</div></header>
+
+<section class="band" id="events"><div class="wrap">
+  <h2>What rolls in with the cart</h2>
+  <p class="sub">One booking, everything handled. You pick the flavours and the date — we handle the rest, from setup to the last scoop.</p>
+  <ul class="checks">
+    <li><span class="tick">✓</span>Up to 6 flavours served from the cart, chosen by you</li>
+    <li><span class="tick">✓</span>Cups, cones, spoons and napkins included</li>
+    <li><span class="tick">✓</span>Uniformed scooper for the full service</li>
+    <li><span class="tick">✓</span>Delivery, setup and teardown anywhere in the Hamilton area</li>
+    <li><span class="tick">✓</span>Cart signage and flavour board dressed to your event</li>
+    <li><span class="tick">✓</span>Vegan and dairy-free sorbetti so no guest is left out</li>
+  </ul>
+</div></section>
+
+<section class="occ" id="occasions"><div class="wrap">
+  <h2>Built for the big days</h2>
+  <p class="sub">Three kinds of events make up most of our calendar. Each one gets a cart experience shaped around it — not a generic dessert table.</p>
+
+  <div class="occ-row">
+    <div class="occ-img"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=60" alt="Wedding celebration table" onerror="this.style.display='none'"></div>
+    <div class="occ-text">
+      <div class="occ-tag">Weddings</div>
+      <h3>The dessert your photographer keeps shooting</h3>
+      <p>The cart becomes part of the décor — dressed in your colours, serving flavours your guests talk about on the drive home. A late-night gelato break beats a stale dessert table every time.</p>
+      <div class="detail">Couples can name a flavour for the day — a signature scoop on the board with your names on it.</div>
+    </div>
+  </div>
+
+  <div class="occ-row flip">
+    <div class="occ-img"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=60" alt="Corporate event gathering" onerror="this.style.display='none'"></div>
+    <div class="occ-text">
+      <div class="occ-tag">Corporate</div>
+      <h3>Client events and team days that feel different</h3>
+      <p>Product launches, staff appreciation, holiday parties — a gelato cart pulls a crowd and keeps it. We serve fast, look sharp, and work around your run-of-show.</p>
+      <div class="detail">Branded cups and a custom flavour menu with your company name are available for corporate bookings.</div>
+    </div>
+  </div>
+
+  <div class="occ-row">
+    <div class="occ-img"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=60" alt="Party with guests celebrating" onerror="this.style.display='none'"></div>
+    <div class="occ-text">
+      <div class="occ-tag">Parties &amp; festivals</div>
+      <h3>Birthdays, graduations, community days</h3>
+      <p>Backyard milestone or a main-street festival — the cart draws a line and the line draws a crowd. Dairy-free and vegan sorbetti mean every guest gets a scoop.</p>
+      <div class="detail">Smaller gatherings can book a gelato bar setup instead of the full cart — ask when you call.</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="flav" id="flavours"><div class="wrap">
+  <h2>The flavour board</h2>
+  <p class="sub">Thirty flavours rotate through the shop — classics, Caribbean-inspired signatures and always-vegan sorbetti. A sample of what the cart has carried:</p>
+  <div class="fbtns" id="fbtns">
+    <button class="fbtn active" data-cat="all">All</button>
+    <button class="fbtn" data-cat="sig">Signatures</button>
+    <button class="fbtn" data-cat="class">Classics</button>
+    <button class="fbtn" data-cat="sorb">Sorbetti</button>
+  </div>
+  <div class="fgrid" id="fgrid">
+    <div class="fitem" data-cat="sig"><small>Signature</small>Blood Orange</div>
+    <div class="fitem" data-cat="sig"><small>Signature</small>Chocolate Bliss</div>
+    <div class="fitem" data-cat="sig"><small>Signature</small>Soursop</div>
+    <div class="fitem" data-cat="sig"><small>Signature</small>Passionfruit Cheesecake</div>
+    <div class="fitem" data-cat="class"><small>Classic</small>Vanilla Bean</div>
+    <div class="fitem" data-cat="class"><small>Classic</small>Stracciatella</div>
+    <div class="fitem" data-cat="class"><small>Classic</small>Pistachio</div>
+    <div class="fitem" data-cat="class"><small>Classic</small>Salted Caramel</div>
+    <div class="fitem" data-cat="class"><small>Classic</small>Chocolate Hazelnut</div>
+    <div class="fitem" data-cat="class"><small>Classic</small>Mint Chip</div>
+    <div class="fitem" data-cat="sorb"><small>Sorbetto · vegan</small>Mango</div>
+    <div class="fitem" data-cat="sorb"><small>Sorbetto · vegan</small>Raspberry</div>
+    <div class="fitem" data-cat="sorb"><small>Sorbetto · vegan</small>Lemon</div>
+    <div class="fitem" data-cat="sorb"><small>Sorbetto · vegan</small>Passionfruit</div>
+  </div>
+  <p class="flav-note">The board changes with the seasons — ask for this month's full 30-flavour list when you book.</p>
+</div></section>
+
+<section class="reviews" id="reviews"><div class="wrap">
+  <h2>What couples say after the cart leaves</h2>
+  <div class="quote">
+    <p><span class="stars">★★★★★</span></p>
+    <p>"Big thank you to Bliss Gelato. We loved having them at our wedding! Our guests loved the gelato cart. All the flavors taste great and the gelato is made fresh!"</p>
+    <cite>— Alessia B., from gelatosource.com</cite>
+  </div>
+  <div class="quote">
+    <p><span class="stars">★★★★★</span></p>
+    <p>"The Gelato Cart was one of our proudest and favorite investments throughout the whole wedding! Our guests could not stop raving about it. Thank you Bliss Gelato, for your delicious gelato, amazing staff and experience."</p>
+    <cite>— Stephanie O., from gelatosource.com</cite>
+  </div>
+</div></section>
+
+<section class="qcta"><div class="wrap">
+  <h2>Have a date in mind?</h2>
+  <p>Summer Saturdays book out first. Call or email with your date, guest count and venue — we'll confirm availability and put together a quote.</p>
+  <div class="hero-btns">
+    <a class="btn btn-ghost" href="tel:+19053714847">Call 905-371-4847</a>
+    <a class="btn btn-line" href="mailto:heykerry@gelatosource.com">Email heykerry@gelatosource.com</a>
+  </div>
+</div></section>
+
+<section class="visit" id="visit"><div class="wrap visit-grid">
+  <h2>Find the shop</h2>
+  <div class="vcard"><h3>Address</h3><p>621 Barton St #8<br>Stoney Creek, ON L8E 5R8</p></div>
+  <div class="vcard"><h3>Hours</h3><p>Mon–Sat: 12–8<br>Sunday: 11–7</p></div>
+  <div class="vcard"><h3>Contact</h3><p><a href="tel:+19053714847">905-371-4847</a><br><a href="mailto:heykerry@gelatosource.com">heykerry@gelatosource.com</a></p></div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Bliss Gelato · Stoney Creek, ON</span>
+  <span class="concept">Concept preview — a demo design, not the live site.</span>
+</div></footer>
+
+<a class="callfab" href="tel:+19053714847">Call Bliss Gelato</a>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
+  var burger=document.getElementById('burger'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.addEventListener('click',function(e){if(e.target.tagName==='A'){links.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+  // Signature interaction: flavour board filter
+  var btns=document.querySelectorAll('#fbtns .fbtn'),items=document.querySelectorAll('#fgrid .fitem');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      var c=b.getAttribute('data-cat');
+      items.forEach(function(it){
+        it.classList.toggle('hide', c!=='all' && it.getAttribute('data-cat')!==c);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

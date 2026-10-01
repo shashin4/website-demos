@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polish Me Pretty Nails &amp; Spa — Oakville</title>
+<meta name="description" content="Polish Me Pretty Nails & Spa in Oakville — manicures, shellac, pedicures and hand-painted nail art including chrome, cat-eye and ombré. 216 Oak Park Blvd. Call 289-725-8888.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf9f7;
+    --ink:#0b0b0b;
+    --gray:#6f6f6f;
+    --line:#e6e2db;
+    --red:#ff4040;
+    --red-deep:#d92e2e;
+    --max:1240px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:Jost,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;text-wrap:balance;line-height:1.05}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  @media(min-width:900px){.wrap{padding:0 32px}}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(250,249,247,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .brand{text-decoration:none;display:flex;align-items:baseline;gap:10px}
+  .brand b{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:700;letter-spacing:.01em}
+  .brand b i{font-style:normal;color:var(--red)}
+  .brand small{font-size:11px;letter-spacing:.22em;color:var(--gray);font-weight:500}
+  .links{display:none;gap:28px;font-size:14.5px;font-weight:500}
+  .links a{text-decoration:none}
+  .links a:hover{color:var(--red)}
+  .nav .call{display:none;border:1.5px solid var(--ink);text-decoration:none;font-weight:600;font-size:14px;padding:10px 22px;border-radius:999px}
+  .nav .call:hover{background:var(--ink);color:var(--paper)}
+  .burger{display:block;background:none;border:0;cursor:pointer;padding:8px;color:var(--ink)}
+  .burger svg{width:26px;height:26px;display:block}
+  @media(min-width:900px){.links{display:flex}.nav .call{display:inline-block}.burger{display:none}}
+  .mobile-menu{display:none;border-top:1px solid var(--line);padding:8px 20px 18px;background:var(--paper)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:11px 0;text-decoration:none;border-bottom:1px solid var(--line);font-weight:500}
+  .mobile-menu a.callline{color:var(--red-deep);font-weight:600;border-bottom:0}
+
+  /* hero — editorial split with interactive finish preview */
+  .hero{padding:52px 0 44px}
+  @media(min-width:900px){.hero{padding:80px 0 70px}}
+  .hero-grid{display:grid;gap:40px;align-items:center}
+  @media(min-width:980px){.hero-grid{grid-template-columns:1fr 1.05fr;gap:60px}}
+  .kicker{font-size:12px;letter-spacing:.3em;font-weight:600;color:var(--red);margin-bottom:14px}
+  .hero h1{font-size:clamp(46px,6.5vw,84px);margin-bottom:16px}
+  .hero h1 em{font-style:italic;color:var(--red-deep)}
+  .lede{font-size:17px;color:var(--gray);max-width:44ch;margin-bottom:8px}
+  .lede strong{color:var(--ink)}
+  .trust{display:flex;align-items:center;gap:10px;margin:16px 0 22px;font-size:14.5px;color:var(--gray)}
+  .stars{color:var(--red);letter-spacing:2px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:14px 28px;border-radius:999px}
+  .btn-solid{background:var(--ink);color:var(--paper)}
+  .btn-solid:hover{background:var(--red-deep)}
+  .btn-line{border:1.5px solid var(--ink)}
+  .btn-line:hover{border-color:var(--red);color:var(--red-deep)}
+
+  .preview{border:1px solid var(--line);border-radius:18px;padding:30px 26px;background:#fff;box-shadow:0 24px 60px -30px rgba(11,11,11,.25)}
+  .preview-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px}
+  .preview-top h3{font-size:26px}
+  .preview-top span{font-size:12.5px;color:var(--gray);letter-spacing:.06em}
+  .stage{display:grid;place-items:center;padding:26px 0 20px;border-bottom:1px dashed var(--line);margin-bottom:20px}
+  .stage svg{width:min(300px,72vw);height:auto}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 18px;font-family:Jost;font-size:13.5px;font-weight:500;cursor:pointer}
+  .chip:hover{border-color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .finish-note{margin-top:14px;font-size:14px;color:var(--gray);min-height:3.2em}
+  .finish-note strong{color:var(--ink)}
+
+  section{padding:50px 0}
+  @media(min-width:900px){section{padding:72px 0}}
+  .sec-head{font-size:clamp(34px,4.5vw,58px);margin-bottom:10px;max-width:18ch}
+  .sec-sub{color:var(--gray);max-width:58ch;margin-bottom:30px;font-size:16px}
+
+  /* lookbook mosaic — asymmetric visual category tiles */
+  .mosaic{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:700px){.mosaic{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.mosaic{grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:280px 280px}}
+  .tile{position:relative;border-radius:14px;overflow:hidden;text-decoration:none;display:flex;align-items:flex-end;min-height:240px;color:#fff}
+  @media(min-width:1000px){
+    .tile-mani{grid-row:1/3}
+    .tile{min-height:0}
+  }
+  .tile .art{position:absolute;inset:0}
+  .tile .scrim{position:absolute;inset:0;background:rgba(8,8,8,.42)}
+  .tile .txt{position:relative;padding:22px}
+  .tile .txt span{display:block;font-size:11.5px;letter-spacing:.26em;font-weight:600;color:var(--red);margin-bottom:8px}
+  .tile .txt h3{font-size:30px;margin-bottom:6px}
+  .tile .txt p{font-size:14px;opacity:.92;max-width:30ch}
+  .tile .txt u{text-decoration:none;font-weight:600;font-size:13.5px;border-bottom:1.5px solid var(--red);padding-bottom:2px}
+  /* painted "art" backgrounds per tile — abstract, honest illustration */
+  .art-mani{background:#161616}
+  .art-mani::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 25%, #ff4040 0 46px, transparent 47px),radial-gradient(circle at 68% 60%, #ff4040 0 60px, transparent 61px),radial-gradient(circle at 45% 85%, #ff4040 0 30px, transparent 31px)}
+  .art-shellac{background:#e9e4da}
+  .art-shellac::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 90px 130px at 50% 40%, #8a1f1f 0 62%, #5c1414 100%)}
+  .art-pedi{background:#0b0b0b}
+  .art-pedi::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%, rgba(255,64,64,.85) 0 8px, transparent 9px),radial-gradient(circle at 55% 45%, rgba(255,64,64,.85) 0 8px, transparent 9px),radial-gradient(circle at 40% 60%, rgba(255,64,64,.85) 0 8px, transparent 9px),radial-gradient(circle at 25% 75%, rgba(255,64,64,.85) 0 8px, transparent 9px)}
+  .art-nailart{background:linear-gradient(160deg,#fff 55%,#f3b8b8 55.2%,#f3b8b8 72%,#ff4040 72.2%)}
+  .tile:hover .scrim{background:rgba(8,8,8,.3)}
+  .tile:hover{transform:translateY(-2px)}
+  .tile{transition:transform .25s ease}
+
+  /* menu accordion */
+  .menu{max-width:860px}
+  .menu-item{border-bottom:1px solid var(--line)}
+  .menu-item:first-of-type{border-top:1px solid var(--line)}
+  .menu-btn{width:100%;background:none;border:0;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 4px;cursor:pointer;text-align:left;font-family:Jost}
+  .menu-btn h3{font-size:24px}
+  .menu-btn .plus{font-size:26px;color:var(--red);font-weight:400;line-height:1;flex:none}
+  .menu-body{display:none;padding:0 4px 24px}
+  .menu-item.open .menu-body{display:block}
+  .menu-item.open .plus{transform:rotate(45deg)}
+  .menu-line{display:flex;justify-content:space-between;gap:14px;padding:9px 0;font-size:15.5px}
+  .menu-line .p{color:var(--red-deep);font-weight:600;white-space:nowrap}
+  .menu-line small{display:block;color:var(--gray);font-size:13.5px}
+  .menu-foot{margin-top:22px;font-size:14.5px;color:var(--gray)}
+  .menu-foot a{color:var(--red-deep);font-weight:600}
+
+  /* visit */
+  .visit{background:var(--ink);color:var(--paper);border-radius:20px;padding:36px 28px;display:grid;gap:28px}
+  @media(min-width:900px){.visit{grid-template-columns:1fr 1fr;padding:52px;gap:56px}}
+  .visit h2{font-size:clamp(32px,4vw,50px);margin-bottom:12px}
+  .visit h2 em{font-style:italic;color:var(--red)}
+  .visit p{color:#b9b4aa;font-size:15.5px;max-width:40ch}
+  .visit a.tel{color:#fff;font-size:26px;font-weight:600;text-decoration:none;display:inline-block;margin:14px 0 4px}
+  .visit a.tel:hover{color:var(--red)}
+  .hours{width:100%;border-collapse:collapse;font-size:15px}
+  .hours td{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12);color:#d8d3c8}
+  .hours td:last-child{text-align:right;font-weight:500;color:#fff}
+  .hours tr.closed td{color:#8b867c}
+  .addr{margin-top:18px;font-style:normal;color:#b9b4aa;font-size:15px}
+
+  footer{padding:34px 0 110px;font-size:13px;color:var(--gray)}
+  @media(min-width:900px){footer{padding-bottom:44px}}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+  footer .concept{font-style:italic}
+
+  .tapcall{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:var(--red);color:#fff;text-align:center;font-weight:600;font-size:16px;padding:15px;border-radius:999px;text-decoration:none;box-shadow:0 10px 28px rgba(255,64,64,.4)}
+  @media(min-width:900px){.tapcall{display:none}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .tile{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Polish Me Pretty Nails and Spa — home">
+      <b>Polish Me <i>Pretty</i></b><small>NAILS &amp; SPA</small>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#lookbook">Lookbook</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="call" href="tel:+12897258888">Call to book</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#lookbook">Lookbook</a>
+    <a href="#menu">Menu</a>
+    <a href="#visit">Visit</a>
+    <a class="callline" href="tel:+12897258888">Call to book →</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">NAIL SPA · OAKVILLE</p>
+        <h1>Nails worth<br><em>showing off.</em></h1>
+        <p class="lede"><strong>Polish Me Pretty</strong> is an Oakville nail spa for manicures, shellac, pedicures and hand-painted nail art — chrome, cat-eye, ombré and more. Tap a finish on the right to preview it, then call to book your chair.</p>
+        <div class="trust"><span class="stars" aria-hidden="true">★★★★★</span><span><strong>4.5</strong> on Google · $$ price point</span></div>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="tel:+12897258888">Call 289-725-8888</a>
+          <a class="btn btn-line" href="#lookbook">Browse the lookbook</a>
+        </div>
+      </div>
+      <div class="preview" aria-label="Finish preview">
+        <div class="preview-top">
+          <h3 class="serif">Try a finish</h3>
+          <span>Styles we do in-store</span>
+        </div>
+        <div class="stage">
+          <svg viewBox="0 0 200 240" role="img" aria-label="Illustrated nail in the selected finish">
+            <ellipse cx="100" cy="60" rx="46" ry="14" fill="#efe9dd"/>
+            <g id="nailGroup">
+              <path id="nailShape" d="M100 30 C140 30 158 78 154 130 C151 172 128 208 100 208 C72 208 49 172 46 130 C42 78 60 30 100 30 Z" fill="#c21616"/>
+              <ellipse id="nailShine" cx="82" cy="95" rx="12" ry="34" fill="#ffffff" opacity=".38" transform="rotate(8 82 95)"/>
+            </g>
+            <rect x="60" y="200" width="80" height="18" rx="9" fill="#e2d9c8"/>
+          </svg>
+        </div>
+        <div class="chips" role="group" aria-label="Choose a finish">
+          <button class="chip" aria-pressed="true" data-finish="classic">Classic red</button>
+          <button class="chip" aria-pressed="false" data-finish="french">French</button>
+          <button class="chip" aria-pressed="false" data-finish="chrome">Chrome</button>
+          <button class="chip" aria-pressed="false" data-finish="cateye">Cat-eye</button>
+          <button class="chip" aria-pressed="false" data-finish="ombre">Ombré</button>
+        </div>
+        <p class="finish-note" id="finishNote"><strong>Classic red.</strong> The one that never misses — ask for it in regular polish or shellac.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="lookbook">
+    <div class="wrap">
+      <p class="kicker">THE LOOKBOOK</p>
+      <h2 class="sec-head">Pick your service by the look.</h2>
+      <p class="sec-sub">Four ways to leave happier than you came in. Every tile below is a real service we do every day — tap one to see its menu.</p>
+      <div class="mosaic">
+        <a class="tile tile-mani" href="#menu">
+          <span class="art art-mani" aria-hidden="true"></span><span class="scrim" aria-hidden="true"></span>
+          <span class="txt"><span>01</span><h3 class="serif">Manicures</h3><p>Shape, cuticle care, massage and polish — the classic reset.</p><u>See the menu →</u></span>
+        </a>
+        <a class="tile" href="#menu">
+          <span class="art art-shellac" aria-hidden="true"></span><span class="scrim" aria-hidden="true"></span>
+          <span class="txt"><span>02</span><h3 class="serif">Shellac</h3><p>Chip-resistant colour that lasts for weeks, not days.</p><u>See the menu →</u></span>
+        </a>
+        <a class="tile" href="#menu">
+          <span class="art art-pedi" aria-hidden="true"></span><span class="scrim" aria-hidden="true"></span>
+          <span class="txt"><span>03</span><h3 class="serif">Pedicures</h3><p>Soak, exfoliate, massage — feet that feel brand new.</p><u>See the menu →</u></span>
+        </a>
+        <a class="tile" href="#menu">
+          <span class="art art-nailart" aria-hidden="true"></span><span class="scrim" aria-hidden="true"></span>
+          <span class="txt"><span>04</span><h3 class="serif">Nail art</h3><p>Hand-painted designs, chrome, cat-eye, ombré — feeling extra?</p><u>See the menu →</u></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <p class="kicker">SERVICE MENU</p>
+      <h2 class="sec-head">What it costs, plainly.</h2>
+      <p class="sec-sub">Tap a category for the full list. Prices are confirmed when you book — call and we'll quote your exact service.</p>
+      <div class="menu">
+        <div class="menu-item open">
+          <button class="menu-btn" aria-expanded="true"><h3 class="serif">Manicures</h3><span class="plus" aria-hidden="true">+</span></button>
+          <div class="menu-body">
+            <div class="menu-line"><span>Classic manicure <small>Shape, cuticle care, lotion massage, polish</small></span><span class="p">Call for pricing</span></div>
+            <div class="menu-line"><span>Deluxe manicure <small>Extended massage, exfoliation, hot towel</small></span><span class="p">Call for pricing</span></div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <button class="menu-btn" aria-expanded="false"><h3 class="serif">Shellac</h3><span class="plus" aria-hidden="true">+</span></button>
+          <div class="menu-body">
+            <div class="menu-line"><span>Shellac manicure <small>Long-wear gel colour, weeks of shine</small></span><span class="p">Call for pricing</span></div>
+            <div class="menu-line"><span>Shellac removal <small>Gentle soak-off, nail conditioning</small></span><span class="p">Call for pricing</span></div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <button class="menu-btn" aria-expanded="false"><h3 class="serif">Pedicures</h3><span class="plus" aria-hidden="true">+</span></button>
+          <div class="menu-body">
+            <div class="menu-line"><span>Classic pedicure <small>Soak, nail care, exfoliation, massage, polish</small></span><span class="p">Call for pricing</span></div>
+            <div class="menu-line"><span>Spa pedicure <small>Extended soak, scrub, mask and massage</small></span><span class="p">Call for pricing</span></div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <button class="menu-btn" aria-expanded="false"><h3 class="serif">Nail art</h3><span class="plus" aria-hidden="true">+</span></button>
+          <div class="menu-body">
+            <div class="menu-line"><span>Hand-painted art <small>Per-nail designs, priced by detail</small></span><span class="p">Call for pricing</span></div>
+            <div class="menu-line"><span>Chrome finish <small>Mirror-shine metallic effect</small></span><span class="p">Call for pricing</span></div>
+            <div class="menu-line"><span>Cat-eye <small>Magnetic shimmer, dimensional colour</small></span><span class="p">Call for pricing</span></div>
+            <div class="menu-line"><span>Ombré <small>Soft blended fade, any two colours</small></span><span class="p">Call for pricing</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="menu-foot">Bringing a photo of the look you want? Show it when you <a href="tel:+12897258888">call to book</a> — we'll tell you exactly what it needs.</p>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <div class="visit">
+        <div>
+          <p class="kicker" style="color:var(--red)">BOOK YOUR CHAIR</p>
+          <h2>Come in.<br><em>Leave polished.</em></h2>
+          <p>Walk-ins welcome when chairs are free — calling ahead guarantees your spot. Closed Mondays.</p>
+          <a class="tel" href="tel:+12897258888">289-725-8888</a>
+          <address class="addr">108-216 Oak Park Blvd<br>Oakville, ON L6H 7S8</address>
+        </div>
+        <div>
+          <table class="hours" aria-label="Opening hours">
+            <tr><td>Monday</td><td>Closed</td></tr>
+            <tr><td>Tuesday – Friday</td><td>10am – 7pm</td></tr>
+            <tr><td>Saturday</td><td>10am – 5pm</td></tr>
+            <tr><td>Sunday</td><td>10am – 4pm</td></tr>
+          </table>
+          <p style="margin-top:16px;font-size:14px">Prefer email? <a href="mailto:polishmeprettynailspa@hotmail.com" style="color:#fff;font-weight:600">polishmeprettynailspa@hotmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Polish Me Pretty Nails &amp; Spa — Oakville, ON</span>
+    <span class="concept">Concept preview — a design mockup, not the live website.</span>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+12897258888">Call to book — 289-725-8888</a>
+
+<script>
+(function(){
+  "use strict";
+  // mobile menu
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') { menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  });
+  // menu accordion
+  var items = document.querySelectorAll('.menu-item');
+  items.forEach(function(item){
+    var btn = item.querySelector('.menu-btn');
+    btn.addEventListener('click', function(){
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  // finish preview
+  var finishes = {
+    classic: { fill: '#c21616', shine: true,  note: '<strong>Classic red.</strong> The one that never misses — ask for it in regular polish or shellac.' },
+    french:  { fill: '#f4ece2', tip: true,   note: '<strong>French.</strong> Sheer nude base with a crisp white tip — clean and timeless.' },
+    chrome:  { fill: '#cfcfcf', shine: true, chrome: true, note: '<strong>Chrome.</strong> Mirror-shine metallic — the finish that photographs itself.' },
+    cateye:  { fill: '#1f4d3a', shine: true, note: '<strong>Cat-eye.</strong> Magnetic shimmer that shifts as you move your hand.' },
+    ombre:   { fill: 'url(#ombreGrad)', shine: true, note: '<strong>Ombré.</strong> A soft blended fade — pick any two colours.' }
+  };
+  var svgNS = 'http://www.w3.org/2000/svg';
+  var nail = document.getElementById('nailShape');
+  var shine = document.getElementById('nailShine');
+  var note = document.getElementById('finishNote');
+  var chips = document.querySelectorAll('.chip');
+  // defs for ombre + chrome gradients (illustrating the actual nail finish, not UI decoration)
+  var defs = document.createElementNS(svgNS, 'defs');
+  defs.innerHTML =
+    '<linearGradient id="ombreGrad" x1="0" y1="0" x2="0" y2="1">' +
+      '<stop offset="0" stop-color="#ff9a9a"/><stop offset="1" stop-color="#c21616"/></linearGradient>' +
+    '<linearGradient id="chromeGrad" x1="0" y1="0" x2="1" y2="0">' +
+      '<stop offset="0" stop-color="#9a9a9a"/><stop offset=".5" stop-color="#f2f2f2"/><stop offset="1" stop-color="#9a9a9a"/></linearGradient>';
+  nail.ownerSVGElement.insertBefore(defs, nail);
+  // french tip overlay
+  var tip = document.createElementNS(svgNS, 'path');
+  tip.setAttribute('d', 'M100 30 C140 30 158 78 154 130 C153 140 152 150 150 159 C130 152 70 152 50 159 C48 150 47 140 46 130 C42 78 60 30 100 30 Z');
+  tip.setAttribute('fill', '#ffffff');
+  tip.style.display = 'none';
+  nail.parentNode.appendChild(tip);
+  function select(key){
+    var f = finishes[key];
+    nail.setAttribute('fill', f.chrome ? 'url(#chromeGrad)' : f.fill);
+    tip.style.display = f.tip ? 'block' : 'none';
+    shine.style.display = f.shine === false ? 'none' : 'block';
+    note.innerHTML = f.note;
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', c.getAttribute('data-finish') === key ? 'true' : 'false'); });
+  }
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){ select(c.getAttribute('data-finish')); });
+  });
+})();
+</script>
+</body>
+</html>
