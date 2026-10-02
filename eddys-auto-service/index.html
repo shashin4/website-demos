@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eddy's Auto Service — VW, Audi, BMW, Mercedes & Porsche Specialists in Kitchener</title>
+<meta name="description" content="Eddy's Auto Service in Kitchener, ON — independent specialists for Volkswagen, Audi, BMW, Mercedes-Benz and Porsche. Dealer-grade diagnostics, honest repairs. Call (519) 745-7856.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#9e1b1e; --red-deep:#7a1416; --red-ink:#5d0f11;
+    --char:#23262a; --ink:#1b1e22; --muted:#5c6065;
+    --paper:#f7f4ee; --paper-deep:#efe9dc; --line:#e3dac6;
+    --radius-s:4px; --radius-m:8px;
+    --max:1200px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Barlow',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Barlow Condensed',sans-serif;text-wrap:balance;line-height:1.02;letter-spacing:.01em}
+  img{max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  /* ---------- SECTION: utility bar ---------- */
+  .utility{background:var(--char);color:#d8d2c2;font-size:.82rem}
+  .utility .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+  .utility a{color:#fff;text-decoration:none;font-weight:600}
+  .utility .u-hours{letter-spacing:.02em}
+  /* ---------- SECTION: sticky nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .wordmark{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:.04em;text-decoration:none;text-transform:uppercase}
+  .wordmark em{font-style:normal;color:var(--red)}
+  .nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.02em}
+  .nav-links a:hover{color:var(--red)}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;border-radius:var(--radius-s);padding:12px 22px;font-size:.95rem;letter-spacing:.02em;cursor:pointer;border:0}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-red:hover{background:var(--red-deep)}
+  .btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-nav{padding:10px 18px}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:10px}
+  .burger span{display:block;width:26px;height:2px;background:var(--ink);margin:6px 0;transition:.25s}
+  @media(max-width:820px){
+    .burger{display:block}
+    .nav-links{position:absolute;top:66px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:stretch;padding:10px 20px 22px;gap:0;border-bottom:2px solid var(--red);display:none}
+    .nav-links.open{display:flex}
+    .nav-links li{border-top:1px solid var(--line)}
+    .nav-links a{display:block;padding:14px 4px}
+    .nav-links .btn-nav{margin-top:12px;text-align:center}
+  }
+  /* ---------- SECTION: split hero + appointment-request card ---------- */
+  .hero{padding:56px 0 64px;background:
+    linear-gradient(105deg,var(--paper) 62%,var(--paper-deep) 62%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+  .hero-kicker{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--red);margin-bottom:14px}
+  .hero h1{font-size:clamp(2.9rem,6vw,4.6rem);font-weight:700;text-transform:uppercase;margin-bottom:18px}
+  .hero h1 .red{color:var(--red)}
+  .hero-sub{font-size:1.12rem;color:var(--muted);max-width:34rem;margin-bottom:14px}
+  .hero-rating{display:flex;align-items:center;gap:10px;margin:18px 0 26px;font-size:.95rem;color:var(--muted)}
+  .stars{color:var(--red);font-size:1.15rem;letter-spacing:.1em}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .appt-card{background:var(--char);color:#ece7d9;border-radius:var(--radius-m);padding:30px 28px;box-shadow:0 18px 44px rgba(27,30,34,.22)}
+  .appt-card h2{font-size:1.7rem;text-transform:uppercase;margin-bottom:6px;color:#fff}
+  .appt-card p{font-size:.92rem;color:#c9c2b0;margin-bottom:18px}
+  .appt-card label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#c9c2b0;margin:12px 0 5px}
+  .appt-card input,.appt-card select,.appt-card textarea{width:100%;padding:11px 12px;border:1px solid #4a4e54;border-radius:var(--radius-s);background:#2e3237;color:#fff;font:inherit;font-size:.95rem}
+  .appt-card input:focus,.appt-card select:focus,.appt-card textarea:focus{outline:2px solid var(--red);border-color:var(--red)}
+  .appt-card .btn-red{width:100%;margin-top:18px;padding:14px;font-size:1rem}
+  .appt-note{font-size:.8rem;color:#9b968a;margin-top:12px}
+  .appt-done{display:none;background:#2b3a2c;border:1px solid #4c7a4f;border-radius:var(--radius-s);padding:18px;margin-top:16px;color:#dfe9dc;font-size:.95rem}
+  .appt-done strong{color:#fff}
+  @media(max-width:900px){
+    .hero{padding:40px 0 48px}
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+  }
+  /* ---------- SECTION: marque specialization strip ---------- */
+  .marques{background:var(--red);color:#fff;padding:20px 0;overflow:hidden}
+  .marques .wrap{display:flex;gap:0;justify-content:space-between;align-items:center;flex-wrap:wrap}
+  .marque{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:1.35rem;letter-spacing:.1em;text-transform:uppercase;opacity:.95;padding:4px 10px}
+  .marque-sep{color:#e79b9d;font-size:1.1rem}
+  /* ---------- SECTION: services grid ---------- */
+  .services{padding:72px 0}
+  .sec-label{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+  .services h2{font-size:clamp(2rem,4vw,2.9rem);text-transform:uppercase;margin-bottom:8px}
+  .services .lede{color:var(--muted);max-width:44rem;margin-bottom:34px;font-size:1.05rem}
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:2px solid var(--ink)}
+  .svc{border-bottom:1px solid var(--line);padding:26px 26px 26px 0;display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start}
+  .svc:nth-child(odd){border-right:1px solid var(--line);padding-right:26px}
+  .svc:nth-child(even){padding-left:26px}
+  .svc-num{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:2.2rem;color:var(--red);line-height:1}
+  .svc h3{font-size:1.45rem;text-transform:uppercase;margin-bottom:6px}
+  .svc p{font-size:.95rem;color:var(--muted)}
+  @media(max-width:760px){
+    .svc-grid{grid-template-columns:1fr}
+    .svc:nth-child(odd){border-right:0;padding-right:0}
+    .svc:nth-child(even){padding-left:0}
+  }
+  /* ---------- SECTION: independent-alternative editorial ---------- */
+  .alt{background:var(--char);color:#ece7d9;padding:76px 0}
+  .alt-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .alt .sec-label{color:#e79b9d}
+  .alt h2{font-size:clamp(2rem,4vw,2.9rem);text-transform:uppercase;color:#fff;margin-bottom:18px}
+  .alt p.body{color:#c9c2b0;margin-bottom:16px;font-size:1.02rem}
+  .alt ul{list-style:none;margin:22px 0 30px}
+  .alt li{padding:10px 0 10px 30px;position:relative;border-top:1px solid #3a3e43;font-size:.98rem}
+  .alt li::before{content:"✓";position:absolute;left:6px;color:var(--red);font-weight:700}
+  .pull-quote{background:var(--red);border-radius:var(--radius-m);padding:36px 32px;color:#fff}
+  .pull-quote .qmark{font-family:'Barlow Condensed',sans-serif;font-size:4rem;line-height:.6;display:block;margin-bottom:18px;color:#f3c1c2}
+  .pull-quote blockquote{font-size:1.35rem;font-weight:500;line-height:1.4;margin-bottom:18px}
+  .pull-quote cite{font-style:normal;font-size:.9rem;color:#f3c1c2;letter-spacing:.04em}
+  @media(max-width:900px){.alt-grid{grid-template-columns:1fr;gap:40px}}
+  /* ---------- SECTION: reviews ---------- */
+  .reviews{padding:72px 0}
+  .reviews h2{font-size:clamp(2rem,4vw,2.9rem);text-transform:uppercase;margin-bottom:6px}
+  .reviews .sub{color:var(--muted);margin-bottom:34px}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rev{background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);border-radius:var(--radius-m);padding:26px 24px;display:flex;flex-direction:column;gap:14px}
+  .rev p{font-size:.98rem;flex:1}
+  .rev .stars{font-size:1rem}
+  .rev footer{font-size:.85rem;color:var(--muted);font-weight:600}
+  @media(max-width:820px){.rev-grid{grid-template-columns:1fr}}
+  /* ---------- SECTION: visit / location / hours ---------- */
+  .visit{padding:72px 0;background:var(--paper-deep);border-top:1px solid var(--line)}
+  .visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px}
+  .visit h2{font-size:clamp(2rem,4vw,2.9rem);text-transform:uppercase;margin-bottom:16px}
+  .v-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:1rem}
+  .v-row .k{font-weight:600;min-width:110px;letter-spacing:.04em;text-transform:uppercase;font-size:.82rem;color:var(--red);padding-top:3px}
+  .v-row a{font-weight:600;color:var(--red)}
+  .hours-table{width:100%;border-collapse:collapse;font-size:.96rem}
+  .hours-table td{padding:9px 0;border-bottom:1px dashed var(--line)}
+  .hours-table td:last-child{text-align:right;font-weight:600}
+  .visit .btn{margin-top:8px}
+  .call-big{display:block;background:var(--red);color:#fff;text-decoration:none;border-radius:var(--radius-m);padding:26px;margin-bottom:26px}
+  .call-big .t{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#f3c1c2}
+  .call-big .n{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:700}
+  @media(max-width:900px){.visit-grid{grid-template-columns:1fr}}
+  /* ---------- SECTION: footer ---------- */
+  footer{background:var(--ink);color:#b9b3a3;padding:40px 0 110px;font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer .concept{color:#7c7668;font-size:.78rem;letter-spacing:.06em}
+  /* ---------- mobile tap-to-call ---------- */
+  .tapcall{position:fixed;left:14px;right:14px;bottom:14px;z-index:60;background:var(--red);color:#fff;text-decoration:none;border-radius:999px;padding:15px;text-align:center;font-weight:700;font-size:1.05rem;box-shadow:0 10px 30px rgba(158,27,30,.45);display:none}
+  @media(max-width:760px){.tapcall{display:block}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- SECTION: utility bar (hours + phone) -->
+<div class="utility">
+  <div class="wrap">
+    <span class="u-hours">Mon–Fri 7:00 AM – 5:00 PM &nbsp;·&nbsp; Sat 9:00 AM – 12:00 PM</span>
+    <span><a href="tel:+15197457856">(519) 745-7856</a> &nbsp;·&nbsp; 105 Breithaupt St, Kitchener</span>
+  </div>
+</div>
+
+<!-- SECTION: sticky nav -->
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="wordmark" href="#top">Eddy&rsquo;s <em>Auto</em></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Eddy&rsquo;s</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a class="btn btn-red btn-nav" href="#appointment">Request an appointment</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- SECTION: split hero (headline + appointment-request card) -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-kicker">Independent German-car specialists · Kitchener, ON</p>
+      <h1>Dealer-grade care for your German car. <span class="red">Without the dealer.</span></h1>
+      <p class="hero-sub">Eddy&rsquo;s Auto Service works on Volkswagen, Audi, BMW, Mercedes-Benz and Porsche — with the same diagnostic software the dealerships use, and the straight talk of a neighbourhood shop.</p>
+      <div class="hero-rating">
+        <span class="stars" aria-label="4.6 out of 5 stars">★★★★★</span>
+        <span><strong>4.6 / 5</strong> from 156 reviews — drivers who keep coming back</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="tel:+15197457856">Call (519) 745-7856</a>
+        <a class="btn btn-ghost" href="#appointment">Request an appointment</a>
+      </div>
+    </div>
+    <div class="appt-card" id="appointment">
+      <h2>Request an appointment</h2>
+      <p>Tell us about your car and we&rsquo;ll call you back to confirm a time.</p>
+      <form id="apptForm" novalidate>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+        <label for="f-phone">Phone</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
+        <label for="f-car">Vehicle (year, make, model)</label>
+        <input id="f-car" name="car" type="text" placeholder="e.g. 2019 Audi Q5" required>
+        <label for="f-when">Preferred day</label>
+        <select id="f-when" name="when">
+          <option>Weekday morning</option><option>Weekday afternoon</option><option>Saturday morning</option>
+        </select>
+        <label for="f-msg">What&rsquo;s going on with the car?</label>
+        <textarea id="f-msg" name="message" rows="3"></textarea>
+        <button class="btn btn-red" type="submit">Send appointment request</button>
+      </form>
+      <div class="appt-done" id="apptDone" role="status">
+        <strong>Thanks — request received.</strong><br>
+        This isn&rsquo;t a confirmed booking yet. Eddy or Farhad will call you back shortly to lock in a time.
+      </div>
+      <p class="appt-note">Prefer to talk? Call <a href="tel:+15197457856" style="color:#fff">(519) 745-7856</a> or email <a href="mailto:info@eddysauto.ca" style="color:#fff">info@eddysauto.ca</a>.</p>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION: marque specialization strip -->
+<div class="marques" aria-label="Makes we specialize in">
+  <div class="wrap">
+    <span class="marque">Volkswagen</span><span class="marque-sep">·</span>
+    <span class="marque">Audi</span><span class="marque-sep">·</span>
+    <span class="marque">BMW</span><span class="marque-sep">·</span>
+    <span class="marque">Mercedes-Benz</span><span class="marque-sep">·</span>
+    <span class="marque">Porsche</span>
+  </div>
+</div>
+
+<!-- SECTION: services grid -->
+<section class="services" id="services">
+  <div class="wrap">
+    <p class="sec-label">What we do</p>
+    <h2>Full-service repair, German-car fluent</h2>
+    <p class="lede">From routine maintenance to deep engine work — on German makes first, and every other make and model too. We only do the work your car actually needs.</p>
+    <div class="svc-grid">
+      <div class="svc">
+        <span class="svc-num">01</span>
+        <div><h3>Engine diagnostics</h3><p>Factory-level diagnostic software built for the electronics in your vehicle — we find the real fault instead of guessing at parts.</p></div>
+      </div>
+      <div class="svc">
+        <span class="svc-num">02</span>
+        <div><h3>Lube, oil &amp; filters</h3><p>Proper-spec oil and filters for European engines, on a schedule matched to how you actually drive.</p></div>
+      </div>
+      <div class="svc">
+        <span class="svc-num">03</span>
+        <div><h3>Brakes</h3><p>Pads, rotors and full brake system work — if you hear grinding, don&rsquo;t wait. Worn pads chew through rotors fast.</p></div>
+      </div>
+      <div class="svc">
+        <span class="svc-num">04</span>
+        <div><h3>Tires &amp; wheels</h3><p>Seasonal changeovers, balancing and wheel service to keep the car planted through a Waterloo Region winter.</p></div>
+      </div>
+      <div class="svc">
+        <span class="svc-num">05</span>
+        <div><h3>Air conditioning</h3><p>Diagnosis and repair for weak or warm A/C — compressors, condensers and refrigerant, done right.</p></div>
+      </div>
+      <div class="svc">
+        <span class="svc-num">06</span>
+        <div><h3>Belts &amp; hoses</h3><p>Timing belts, drive belts and hoses replaced on interval — the cheap insurance that prevents the expensive failure.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: independent-alternative editorial -->
+<section class="alt" id="why">
+  <div class="wrap alt-grid">
+    <div>
+      <p class="sec-label">Why Eddy&rsquo;s</p>
+      <h2>The independent alternative to the dealership</h2>
+      <p class="body">You bought a German car for how it drives — not for dealership service prices. Eddy&rsquo;s gives you the quality you&rsquo;d expect from the dealer, with a more personal shop behind it.</p>
+      <ul>
+        <li>Latest diagnostic software tailored to your vehicle&rsquo;s electronics</li>
+        <li>Only the work that&rsquo;s needed — no padded estimates</li>
+        <li>Quality parts, excellent workmanship, done right the first time</li>
+        <li>Run by working mechanics — Eddy and Farhad</li>
+      </ul>
+      <a class="btn btn-red" href="#appointment">Request an appointment</a>
+    </div>
+    <div class="pull-quote">
+      <span class="qmark">&ldquo;</span>
+      <blockquote>My whole family is using Eddy&rsquo;s Auto services for over 16 years now. Eddy and Farhad are always staying on top of things. Highly recommend.</blockquote>
+      <cite>— Eddy&rsquo;s customer, Google review</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: reviews -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <p class="sec-label">Reviews</p>
+    <h2>Drivers who stayed</h2>
+    <p class="sub">4.6 out of 5 across 156 reviews — here&rsquo;s what a few of them say.</p>
+    <div class="rev-grid">
+      <article class="rev">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <p>&ldquo;Recommended to anyone, especially VW and Audi drivers!&rdquo;</p>
+        <footer>Google review</footer>
+      </article>
+      <article class="rev">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <p>&ldquo;I have 100% plus confidence when I leave the shop and drive away that I am safe and that my car has been serviced as necessary.&rdquo;</p>
+        <footer>Google review</footer>
+      </article>
+      <article class="rev">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <p>&ldquo;My whole family is using Eddy&rsquo;s Auto services for over 16 years now. Eddy and Farhad are always staying on top of things.&rdquo;</p>
+        <footer>Google review</footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: visit / location / hours -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <p class="sec-label">Visit the shop</p>
+    <h2>Find us in Kitchener</h2>
+    <div class="visit-grid">
+      <div>
+        <a class="call-big" href="tel:+15197457856">
+          <span class="t">Call the shop</span><br>
+          <span class="n">(519) 745-7856</span>
+        </a>
+        <div class="v-row"><span class="k">Address</span><span>105 Breithaupt St,<br>Kitchener, ON N2H 5G9<br><a href="https://www.google.com/maps/search/?api=1&query=Eddy%27s+Auto+Service+105+Breithaupt+St+Kitchener+ON" target="_blank" rel="noopener">Get directions</a></span></div>
+        <div class="v-row"><span class="k">Email</span><span><a href="mailto:info@eddysauto.ca">info@eddysauto.ca</a></span></div>
+        <div class="v-row"><span class="k">Towing</span><span>Stranded? Our friends at Code Yellow Towing: <a href="tel:+15197450724">(519) 745-0724</a></span></div>
+      </div>
+      <div>
+        <h3 style="font-size:1.4rem;text-transform:uppercase;margin-bottom:10px">Shop hours</h3>
+        <table class="hours-table">
+          <tr><td>Monday – Friday</td><td>7:00 AM – 5:00 PM</td></tr>
+          <tr><td>Saturday</td><td>9:00 AM – 12:00 PM</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+        <br>
+        <a class="btn btn-red" href="#appointment">Request an appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: footer -->
+<footer>
+  <div class="wrap">
+    <span><strong style="color:#ece7d9">Eddy&rsquo;s Auto Service</strong> · 105 Breithaupt St, Kitchener, ON · (519) 745-7856</span>
+    <span class="concept">Concept preview</span>
+  </div>
+</footer>
+
+<!-- mobile tap-to-call -->
+<a class="tapcall" href="tel:+15197457856">Call Eddy&rsquo;s — (519) 745-7856</a>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){links.classList.remove('open');burger.setAttribute('aria-expanded','false');});
+  });
+  // Signature interaction: appointment-request confirmation (styled as a request, never a confirmed booking)
+  var form=document.getElementById('apptForm'),done=document.getElementById('apptDone');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('f-name'),phone=document.getElementById('f-phone'),car=document.getElementById('f-car');
+    var ok=true;
+    [name,phone,car].forEach(function(el){
+      if(!el.value.trim()){el.style.borderColor='#e05252';ok=false;}
+      else{el.style.borderColor='#4a4e54';}
+    });
+    if(!ok)return;
+    form.style.display='none';
+    done.style.display='block';
+    done.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duggal Barber and Salon — Haircuts, Fades & Shaves in Brampton</title>
+<meta name="description" content="Duggal Barber and Salon, 143 Clarence St Unit 9, Brampton. Haircuts, skin fades, beard trims, straight-razor shaves. Open 7 days, 9 am–10 pm. Call (437) 799-3873.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12100D;
+  --coal:#1D1914;
+  --coal-2:#262019;
+  --bone:#F4EFE3;
+  --gold:#C9A227;
+  --gold-deep:#A8861C;
+  --muted:#9A9084;
+  --line:#332B21;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Barlow",system-ui,sans-serif;
+  background:var(--ink);
+  color:var(--bone);
+  line-height:1.6;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:"Anton",Impact,sans-serif;text-wrap:balance;line-height:1.02;font-weight:400;letter-spacing:.015em;text-transform:uppercase}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* ---------- utility bar ---------- */
+.utility{background:var(--gold);color:#14110B;font-size:13.5px;font-weight:600;letter-spacing:.03em}
+.utility .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.utility a{text-decoration:none;border-bottom:2px solid #14110B}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(18,16,13,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{font-family:"Anton",Impact,sans-serif;font-size:20px;letter-spacing:.04em;text-decoration:none;text-transform:uppercase}
+.brand span{color:var(--gold)}
+.nav-links{display:none;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.nav-links a:hover{color:var(--gold)}
+.nav-call{display:none;text-decoration:none;background:var(--gold);color:#14110B;padding:10px 22px;border-radius:6px;font-weight:700;font-size:15px;letter-spacing:.03em;text-transform:uppercase}
+.nav-call:hover{background:var(--gold-deep)}
+.burger{display:inline-flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--bone);border-radius:2px;transition:.25s}
+.mobile-menu{display:none;background:var(--coal);border-bottom:1px solid var(--line);padding:6px 20px 18px;list-style:none}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;text-decoration:none;padding:12px 4px;border-bottom:1px solid var(--line);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:16px}
+
+/* ---------- hero: price sheet first ---------- */
+.hero{padding:56px 0 64px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;gap:40px;align-items:start}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.hero h1{font-size:clamp(46px,8.5vw,92px);margin-bottom:20px}
+.hero h1 .g{color:var(--gold)}
+.hero-sub{font-size:18.5px;color:var(--muted);max-width:46ch;margin-bottom:12px}
+.hero-range{display:flex;align-items:baseline;gap:14px;margin:22px 0 28px}
+.hero-range .num{font-family:"Anton",Impact,sans-serif;font-size:clamp(56px,9vw,96px);color:var(--gold);line-height:1}
+.hero-range .lbl{font-size:15px;color:var(--muted);max-width:20ch}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:15px 30px;border-radius:6px;font-size:16px;letter-spacing:.04em;text-transform:uppercase;border:2px solid var(--gold)}
+.btn-solid{background:var(--gold);color:#14110B}
+.btn-solid:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn-ghost{background:transparent;color:var(--bone)}
+.btn-ghost:hover{background:var(--coal)}
+/* price sheet */
+.sheet{background:var(--coal);border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:4px 4px 10px 10px;overflow:hidden}
+.sheet-head{padding:20px 24px 14px;border-bottom:1px solid var(--line)}
+.sheet-head h2{font-size:24px;letter-spacing:.05em}
+.sheet-head p{font-size:14px;color:var(--muted);margin-top:4px}
+.srow{width:100%;display:flex;align-items:center;gap:14px;padding:16px 24px;background:none;border:0;border-bottom:1px solid var(--line);color:var(--bone);cursor:pointer;text-align:left;font-family:"Barlow",sans-serif}
+.srow:last-of-type{border-bottom:0}
+.srow .svc{font-weight:700;font-size:17px}
+.srow .d{font-size:14px;color:var(--muted);display:block;font-weight:400}
+.srow .tick{margin-left:auto;color:var(--gold);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transition:.2s;white-space:nowrap}
+.srow:hover{background:var(--coal-2)}
+.srow[aria-pressed="true"]{background:var(--coal-2);box-shadow:inset 4px 0 0 var(--gold)}
+.srow[aria-pressed="true"] .tick{opacity:1}
+.sheet-foot{padding:16px 24px 20px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+.bookstrip{margin-top:16px;background:var(--gold);color:#14110B;border-radius:8px;padding:16px 20px;font-weight:600;font-size:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.bookstrip a{font-weight:700;color:#14110B}
+
+/* ---------- services detail ---------- */
+.services{padding:72px 0;border-bottom:1px solid var(--line)}
+.services h2{font-size:clamp(34px,5.5vw,58px);margin-bottom:10px}
+.services .lede{color:var(--muted);max-width:62ch;margin-bottom:40px}
+.svc-block{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:30px 0;border-top:1px solid var(--line);align-items:start}
+.svc-block:last-child{border-bottom:1px solid var(--line)}
+.svc-block .no{font-family:"Anton",Impact,sans-serif;font-size:52px;color:var(--gold);line-height:1;opacity:.9}
+.svc-block h3{font-size:26px;letter-spacing:.04em;margin-bottom:8px}
+.svc-block p{color:var(--muted);max-width:64ch;margin-bottom:14px}
+.svc-block .call-link{color:var(--gold);font-weight:700;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;font-size:15px;border-bottom:2px solid var(--gold)}
+.svc-block .call-link:hover{color:var(--bone);border-color:var(--bone)}
+
+/* ---------- the chairs ---------- */
+.chairs{padding:72px 0;border-bottom:1px solid var(--line);background:var(--coal)}
+.chairs-grid{display:grid;gap:32px;align-items:center}
+.chairs h2{font-size:clamp(34px,5.5vw,58px);margin-bottom:14px}
+.chairs p{color:var(--muted);margin-bottom:16px;max-width:56ch}
+.chairs p strong{color:var(--bone)}
+.proof{display:flex;gap:34px;flex-wrap:wrap;margin-top:26px}
+.proof .stat .v{font-family:"Anton",Impact,sans-serif;font-size:44px;color:var(--gold);line-height:1}
+.proof .stat .l{font-size:14px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
+
+/* ---------- hours ---------- */
+.hours-sec{padding:72px 0;border-bottom:1px solid var(--line)}
+.hours-sec h2{font-size:clamp(34px,5.5vw,58px);margin-bottom:10px}
+.hours-sec .lede{color:var(--muted);margin-bottom:28px}
+.hours-table{width:100%;max-width:640px;border-collapse:collapse}
+.hours-table td{padding:13px 4px;border-bottom:1px solid var(--line);font-size:17px}
+.hours-table td:last-child{text-align:right;font-weight:700;color:var(--gold)}
+
+/* ---------- booking CTA band ---------- */
+.cta{background:var(--gold);color:#14110B}
+.cta .wrap{padding-top:64px;padding-bottom:64px;display:grid;gap:24px}
+.cta h2{font-size:clamp(40px,7vw,76px)}
+.cta p{font-size:18px;font-weight:500;max-width:52ch}
+.cta .btn-row .btn-dark{background:#14110B;color:var(--bone);border-color:#14110B}
+.cta .btn-row .btn-dark:hover{background:#000}
+.cta .alt{font-size:15.5px}
+.cta .alt a{font-weight:700}
+
+/* ---------- footer ---------- */
+footer{background:#0C0A08;color:#7E766A;font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:26px;padding-bottom:26px}
+footer .preview{font-style:italic;opacity:.8}
+
+/* ---------- mobile call bar ---------- */
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#14110B;text-decoration:none;font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase;padding:15px;border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.55)}
+body{padding-bottom:0}
+@media(max-width:899px){body{padding-bottom:78px}}
+
+@media(min-width:900px){
+  .nav-links{display:flex}
+  .nav-call{display:inline-block}
+  .burger{display:none}
+  .hero-grid{grid-template-columns:1fr 1fr}
+  .chairs-grid{grid-template-columns:1.2fr .8fr}
+  .cta .wrap{grid-template-columns:1.3fr .7fr;align-items:center}
+  .callbar{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .srow .tick{transition:none}
+  .srow:hover{background:none}
+}
+</style>
+</head>
+<body>
+
+<!-- SECTION: utility bar -->
+<div class="utility">
+  <div class="wrap">
+    <span>Open today: 9 am &ndash; 10 pm &middot; 7 days a week</span>
+    <a href="tel:+14377993873">(437) 799-3873</a>
+  </div>
+</div>
+
+<!-- SECTION: nav -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="wrap">
+    <a class="brand" href="#top">Duggal <span>Barber</span></a>
+    <ul class="nav-links">
+      <li><a href="#prices">Prices</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#chairs">The chairs</a></li>
+      <li><a href="#hours">Hours</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+14377993873">Call to book</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="#prices">Prices</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#chairs">The chairs</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="tel:+14377993873">Call (437) 799-3873</a></li>
+  </ul>
+</nav>
+
+<!-- SECTION: hero (price list first) -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker">Duggal Barber and Salon &middot; Brampton</p>
+      <h1>Know the price <span class="g">before you sit down.</span></h1>
+      <p class="hero-sub">Haircuts, skin fades, beard work and straight-razor shaves &mdash; every service quoted upfront, no surprises when the cape comes off.</p>
+      <div class="hero-range">
+        <span class="num">$30&ndash;85</span>
+        <span class="lbl">full service range, depending on the cut</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-solid" href="tel:+14377993873">Call to book</a>
+        <a class="btn btn-ghost" href="#services">See the services</a>
+      </div>
+    </div>
+    <div id="prices">
+      <div class="sheet" role="group" aria-label="Service price list">
+        <div class="sheet-head">
+          <h2>The price sheet</h2>
+          <p>Tap a service, then call and ask for it by name.</p>
+        </div>
+        <button class="srow" data-svc="Signature haircut" aria-pressed="false">
+          <span><span class="svc">Signature haircut</span><span class="d">Consult, cut, styled finish</span></span>
+          <span class="tick">Selected</span>
+        </button>
+        <button class="srow" data-svc="Skin fade" aria-pressed="false">
+          <span><span class="svc">Skin fade</span><span class="d">Blended tight, lined up clean</span></span>
+          <span class="tick">Selected</span>
+        </button>
+        <button class="srow" data-svc="Beard trim &amp; shape-up" aria-pressed="false">
+          <span><span class="svc">Beard trim &amp; shape-up</span><span class="d">Sculpted, edged, conditioned</span></span>
+          <span class="tick">Selected</span>
+        </button>
+        <button class="srow" data-svc="Straight-razor shave" aria-pressed="false">
+          <span><span class="svc">Straight-razor shave</span><span class="d">Hot towel, classic finish</span></span>
+          <span class="tick">Selected</span>
+        </button>
+        <button class="srow" data-svc="Haircut + beard" aria-pressed="false">
+          <span><span class="svc">Haircut + beard</span><span class="d">The full reset, one chair</span></span>
+          <span class="tick">Selected</span>
+        </button>
+        <button class="srow" data-svc="Buzzcut" aria-pressed="false">
+          <span><span class="svc">Buzzcut</span><span class="d">One length, sharp edges</span></span>
+          <span class="tick">Selected</span>
+        </button>
+        <div class="sheet-foot">Services run $30&ndash;$85 &mdash; exact price quoted before the clippers come out.</div>
+      </div>
+      <div class="bookstrip" id="bookstrip" aria-live="polite">
+        <span id="bookstripText">Tap a service above, then call and ask for it by name.</span>
+        <a href="tel:+14377993873">(437) 799-3873</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION: services detail -->
+<section class="services" id="services">
+  <div class="wrap">
+    <p class="kicker">What we do</p>
+    <h2>Three things, done right.</h2>
+    <p class="lede">We don&rsquo;t do twenty services badly. Hair, beards, and shaves &mdash; precision, artistry, and tradition in every chair.</p>
+    <div class="svc-block">
+      <span class="no">01</span>
+      <div>
+        <h3>Haircuts</h3>
+        <p>From classic cuts to modern styles. Our barbers take the time to understand what you want, so every visit leaves you feeling refreshed and looking sharp.</p>
+        <a class="call-link" href="tel:+14377993873">Call to book a cut</a>
+      </div>
+    </div>
+    <div class="svc-block">
+      <span class="no">02</span>
+      <div>
+        <h3>Beard &amp; shaves</h3>
+        <p>Precision beard trims and traditional straight-razor shaves. From the sharpness of your fade to the precision of your beard trim &mdash; executed with care, finished clean.</p>
+        <a class="call-link" href="tel:+14377993873">Call to book a shave</a>
+      </div>
+    </div>
+    <div class="svc-block">
+      <span class="no">03</span>
+      <div>
+        <h3>Fades &amp; buzzcuts</h3>
+        <p>Skin fades blended tight with crisp line-ups, and buzzcuts kept sharp. Walk out looking like the photo you showed us &mdash; or better.</p>
+        <a class="call-link" href="tel:+14377993873">Call to book a fade</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: the chairs -->
+<section class="chairs" id="chairs">
+  <div class="wrap chairs-grid">
+    <div>
+      <p class="kicker">The chairs</p>
+      <h2>A shop where skill meets service.</h2>
+      <p>Our expert barbers combine <strong>precision, artistry, and tradition</strong> to deliver a grooming experience that keeps you looking sharp and feeling confident. A space where every detail &mdash; from the sharpness of your fade to the precision of your beard trim &mdash; is handled like it matters.</p>
+      <p>Look good. Feel great. Stay sharp.</p>
+      <div class="proof">
+        <div class="stat"><div class="v">4.9</div><div class="l">star rating</div></div>
+        <div class="stat"><div class="v">470+</div><div class="l">verified reviews</div></div>
+        <div class="stat"><div class="v">7</div><div class="l">days a week</div></div>
+      </div>
+    </div>
+    <div>
+      <p style="border-left:3px solid var(--gold);padding-left:20px;font-size:19px;color:var(--bone);font-style:italic">&ldquo;Step in and experience the timeless tradition of a true barbershop &mdash; where style, expertise, and customer care come together.&rdquo;</p>
+      <p style="margin-top:14px"><a class="call-link" style="color:var(--gold);font-weight:700;text-decoration:none;border-bottom:2px solid var(--gold);letter-spacing:.04em;text-transform:uppercase;font-size:15px" href="tel:+14377993873">Call ahead to book your chair</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: hours -->
+<section class="hours-sec" id="hours">
+  <div class="wrap">
+    <p class="kicker">Hours</p>
+    <h2>Open late, every day.</h2>
+    <p class="lede">Nine to ten, seven days &mdash; the chair is ready when you are.</p>
+    <table class="hours-table" aria-label="Opening hours">
+      <tr><td>Monday</td><td>9:00 am &ndash; 10:00 pm</td></tr>
+      <tr><td>Tuesday</td><td>9:00 am &ndash; 10:00 pm</td></tr>
+      <tr><td>Wednesday</td><td>9:00 am &ndash; 10:00 pm</td></tr>
+      <tr><td>Thursday</td><td>9:00 am &ndash; 10:00 pm</td></tr>
+      <tr><td>Friday</td><td>9:00 am &ndash; 10:00 pm</td></tr>
+      <tr><td>Saturday</td><td>9:00 am &ndash; 10:00 pm</td></tr>
+      <tr><td>Sunday</td><td>9:00 am &ndash; 10:00 pm</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION: booking CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>Ready when you are.</h2>
+      <p>One call and the chair is yours. Tell us what you want &mdash; we&rsquo;ll quote the price before we start.</p>
+    </div>
+    <div>
+      <div class="btn-row">
+        <a class="btn btn-dark" href="tel:+14377993873">Call (437) 799-3873</a>
+      </div>
+      <p class="alt" style="margin-top:18px">Prefer email? <a href="mailto:info.duggalbarberandsalon@gmail.com">info.duggalbarberandsalon@gmail.com</a><br>143 Clarence St Unit 9, Brampton, ON L6W 1T2</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: footer -->
+<footer>
+  <div class="wrap">
+    <span>Duggal Barber and Salon &middot; 143 Clarence St Unit 9, Brampton &middot; (437) 799-3873</span>
+    <span class="preview">Concept preview</span>
+  </div>
+</footer>
+
+<!-- persistent mobile tap-to-call -->
+<a class="callbar" href="tel:+14377993873">Call to book</a>
+
+<script>
+// hamburger nav
+var burger = document.getElementById('burger');
+var mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', function(){
+  var open = mobileMenu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+mobileMenu.addEventListener('click', function(e){
+  if(e.target.tagName === 'A'){ mobileMenu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+});
+// signature interaction: tap a price-sheet row to select a service for booking
+var rows = document.querySelectorAll('.srow');
+var stripText = document.getElementById('bookstripText');
+rows.forEach(function(row){
+  row.addEventListener('click', function(){
+    rows.forEach(function(r){ r.setAttribute('aria-pressed','false'); });
+    row.setAttribute('aria-pressed','true');
+    var svc = row.getAttribute('data-svc');
+    stripText.textContent = svc + ' \u2014 call and ask for it by name.';
+  });
+});
+</script>
+</body>
+</html>

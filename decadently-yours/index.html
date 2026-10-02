@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decadently Yours — Scratch-Baked Cakes &amp; Cupcakes in Guelph</title>
+<meta name="description" content="Decadently Yours — Guelph's scratch-baked bakery for custom cakes, wedding cakes and cupcakes. Top Choice winner 9 years running. 119 Surrey St E, (519) 265-5314.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#350658;
+    --plum-deep:#23043a;
+    --taupe:#b3a493;
+    --taupe-deep:#8f7f6e;
+    --cream:#faf4e9;
+    --cream-deep:#f1e7d2;
+    --ink:#241418;
+    --ink-soft:#5c4a4e;
+    --radius:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    background:var(--cream);color:var(--ink);
+    font-size:19px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.15;text-wrap:balance;color:var(--plum-deep)}
+  a{color:var(--plum)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--plum);color:#fff;padding:10px 16px;z-index:200}
+  .skip:focus{left:8px;top:8px}
+
+  /* ============ SECTION: utility bar ============ */
+  .utility{background:var(--taupe);color:var(--plum-deep);font-size:.92rem}
+  .utility .wrap{display:flex;justify-content:space-between;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+  .utility b{font-weight:600}
+
+  /* ============ SECTION: nav ============ */
+  .site-nav{position:sticky;top:0;z-index:100;background:rgba(53,6,88,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(179,164,147,.4)}
+  .site-nav .wrap{display:flex;align-items:center;gap:20px;padding-top:14px;padding-bottom:14px}
+  .brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.4rem;color:var(--cream);text-decoration:none}
+  .brand em{font-style:italic;color:var(--taupe)}
+  .nav-links{display:flex;gap:2px;margin-left:auto;list-style:none}
+  .nav-links a{display:block;padding:8px 14px;text-decoration:none;color:#f3e9d8;font-size:1.02rem;border-radius:6px}
+  .nav-links a:hover{background:rgba(255,255,255,.1)}
+  .btn{display:inline-block;font-family:'Playfair Display',serif;font-weight:600;font-size:1.02rem;text-decoration:none;padding:12px 24px;border-radius:8px;border:2px solid var(--plum-deep);cursor:pointer;transition:transform .12s ease,background .12s ease}
+  .btn-taupe{background:var(--taupe);color:var(--plum-deep);border-color:var(--taupe)}
+  .btn-taupe:hover{background:var(--cream);transform:translateY(-1px)}
+  .btn-plum{background:var(--plum);color:var(--cream);border-color:var(--plum)}
+  .btn-plum:hover{background:var(--plum-deep);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--cream);border-color:var(--taupe)}
+  .btn-ghost:hover{background:rgba(179,164,147,.15)}
+  .hamburger{display:none;background:none;border:2px solid var(--taupe);border-radius:8px;padding:8px 12px;font-size:1.1rem;color:var(--cream);cursor:pointer;margin-left:auto}
+
+  /* ============ SECTION: menu-board hero ============ */
+  .hero{background:var(--plum);color:#f6ecdd;padding:64px 0 70px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:start}
+  .hero .award{display:inline-block;border:1px solid var(--taupe);color:var(--taupe);font-size:.95rem;letter-spacing:.06em;padding:7px 16px;border-radius:999px;margin-bottom:20px}
+  .hero h1{font-size:clamp(2.4rem,5.6vw,4rem);color:#fff;font-weight:600;margin-bottom:18px}
+  .hero h1 em{font-style:italic;color:var(--taupe)}
+  .hero .lede{font-size:1.22rem;color:#e6d7c3;max-width:32rem;margin-bottom:26px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+  .hero-note{font-size:.98rem;color:#cbb79e}
+  /* chalk menu board */
+  .board{
+    background:#fdf9f0;color:var(--ink);border-radius:var(--radius);
+    border:10px solid var(--plum-deep);outline:2px solid var(--taupe);outline-offset:-16px;
+    padding:34px 36px 30px;box-shadow:10px 10px 0 rgba(0,0,0,.25);
+  }
+  .board h2{font-size:1.5rem;text-align:center;margin-bottom:4px}
+  .board .board-sub{text-align:center;font-style:italic;color:var(--ink-soft);margin-bottom:18px;font-size:1.05rem}
+  .board ul{list-style:none}
+  .board li{display:flex;align-items:baseline;gap:10px;padding:9px 0;font-size:1.08rem}
+  .board li .dots{flex:1;border-bottom:2px dotted var(--taupe-deep);transform:translateY(-4px)}
+  .board li b{font-family:'Playfair Display',serif}
+  .board .prices{margin-top:18px;padding-top:16px;border-top:2px solid var(--plum);display:flex;justify-content:space-between;gap:12px;font-size:1.05rem}
+  .board .prices b{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--plum)}
+  .board .gf{margin-top:14px;text-align:center;font-style:italic;color:var(--ink-soft);font-size:1rem}
+
+  /* ============ SECTION: flavor lineup board ============ */
+  .flavors{padding:70px 0}
+  .flavors h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:8px}
+  .flavors .sub{color:var(--ink-soft);font-size:1.12rem;max-width:44rem;margin-bottom:28px}
+  .tabs{display:flex;gap:10px;margin-bottom:26px;flex-wrap:wrap}
+  .tab{background:none;border:2px solid var(--plum);color:var(--plum);font-family:'Playfair Display',serif;font-weight:600;font-size:1.02rem;padding:10px 22px;border-radius:999px;cursor:pointer}
+  .tab[aria-selected="true"]{background:var(--plum);color:var(--cream)}
+  .flavor-panel{display:none}
+  .flavor-panel.active{display:block}
+  .flavor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .flavor{
+    background:#fffdf7;border:1px solid var(--taupe-deep);border-radius:var(--radius);
+    padding:22px 22px 18px;border-top:6px solid var(--plum);
+  }
+  .flavor:nth-child(3n+2){border-top-color:var(--taupe-deep)}
+  .flavor:nth-child(3n){border-top-color:var(--plum);border-top-style:double;border-top-width:8px}
+  .flavor h3{font-size:1.25rem;margin-bottom:6px}
+  .flavor p{font-size:1rem;color:var(--ink-soft)}
+  .flavors .ask{margin-top:26px;font-size:1.08rem;color:var(--ink-soft);font-style:italic}
+  .flavors .ask a{font-weight:600;font-style:normal}
+
+  /* ============ SECTION: wedding & custom cakes ============ */
+  .weddings{background:var(--plum-deep);color:#f1e4d2;padding:70px 0}
+  .wed-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .weddings h2{color:#fff;font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:14px}
+  .weddings .intro{color:#d9c8b4;font-size:1.14rem;margin-bottom:18px;max-width:32rem}
+  .weddings ul{list-style:none;margin-bottom:20px}
+  .weddings li{padding:10px 0 10px 4px;border-bottom:1px solid rgba(179,164,147,.3);font-size:1.08rem;color:#eee0cb}
+  .weddings li b{color:#fff;font-family:'Playfair Display',serif}
+  .jenn{background:rgba(179,164,147,.12);border:1px solid var(--taupe);border-radius:var(--radius);padding:20px 22px;font-size:1.05rem;color:#f1e4d2}
+  .jenn b{font-family:'Playfair Display',serif;color:#fff}
+  form.cake-form{background:#fdf9f0;border-radius:var(--radius);padding:32px 30px;color:var(--ink)}
+  form.cake-form h3{font-size:1.4rem;margin-bottom:6px}
+  form.cake-form .fsub{color:var(--ink-soft);font-size:1rem;margin-bottom:20px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .field label{font-size:.95rem;font-weight:600;color:var(--plum-deep)}
+  .field input,.field select,.field textarea{
+    font-family:inherit;font-size:1.02rem;padding:11px 13px;border:1.5px solid var(--taupe-deep);
+    border-radius:8px;background:#fff;color:var(--ink);
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--plum);border-color:var(--plum)}
+  .form-note{font-size:.92rem;color:var(--ink-soft);font-style:italic;margin-top:12px}
+  .form-ok{display:none;background:#fdf9f0;border-radius:var(--radius);padding:36px 30px;text-align:left}
+  .form-ok h3{font-size:1.5rem;margin-bottom:10px}
+  .form-ok p{color:var(--ink-soft);font-size:1.08rem}
+
+  /* ============ SECTION: owner story ============ */
+  .story{padding:70px 0;background:var(--cream-deep)}
+  .story-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+  .story h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:14px}
+  .story p{color:var(--ink-soft);font-size:1.12rem;margin-bottom:14px;max-width:36rem}
+  .story blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem;color:var(--plum-deep);border-left:4px solid var(--taupe-deep);padding-left:22px;margin:22px 0}
+  .shelf{background:var(--plum);border-radius:var(--radius);padding:30px 28px;color:#f1e4d2}
+  .shelf h3{color:#fff;font-size:1.3rem;margin-bottom:6px}
+  .shelf .shelf-sub{font-size:1rem;color:#cbb79e;margin-bottom:16px}
+  .shelf ul{list-style:none}
+  .shelf li{padding:9px 0;border-bottom:1px solid rgba(179,164,147,.3);font-size:1.05rem}
+  .shelf li:last-child{border-bottom:none}
+  .rating-line{margin-top:20px;font-size:1.05rem;color:#e6d7c3}
+  .rating-line b{color:#fff}
+
+  /* ============ SECTION: visit / order ============ */
+  .visit{padding:70px 0}
+  .visit h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:26px}
+  .visit-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}
+  .visit-cols h3{font-family:'Playfair Display',serif;font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;color:var(--taupe-deep);margin-bottom:12px}
+  .visit-cols address{font-style:normal;font-size:1.1rem;line-height:1.7}
+  .visit-cols p{font-size:1.1rem;line-height:1.7;color:var(--ink-soft)}
+  .visit-cols a{font-weight:600}
+  .market{margin-top:40px;background:var(--plum);color:#f1e4d2;border-radius:var(--radius);padding:30px 34px;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+  .market h3{color:#fff;font-size:1.4rem;margin-bottom:6px}
+  .market p{color:#d9c8b4;font-size:1.05rem;max-width:40rem}
+  .market .btn{margin-left:auto}
+
+  /* ============ SECTION: footer ============ */
+  footer{background:var(--plum-deep);color:#a8939a;padding:28px 0 110px;font-size:.95rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:#e6d7c3}
+
+  /* ============ persistent mobile tap-to-call ============ */
+  .tap-call{display:none;position:fixed;left:0;right:0;bottom:0;z-index:120;background:var(--plum-deep);color:#fff;text-align:center;padding:14px;font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;text-decoration:none;border-top:3px solid var(--taupe)}
+  .tap-call span{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:.95rem;display:block;color:#cbb79e}
+
+  @media (max-width:920px){
+    .hero-grid,.wed-grid,.story-grid{grid-template-columns:1fr}
+    .flavor-grid{grid-template-columns:1fr 1fr}
+    .visit-cols{grid-template-columns:1fr;gap:28px}
+  }
+  @media (max-width:760px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--plum);flex-direction:column;padding:10px 18px 18px;border-bottom:1px solid var(--taupe)}
+    .nav-links.open{display:flex}
+    .hamburger{display:block}
+    .tap-call{display:block}
+    .hero{padding:48px 0 52px}
+    .flavor-grid{grid-template-columns:1fr}
+    .frow{grid-template-columns:1fr}
+    .board{padding:26px 22px}
+    .utility .wrap{font-size:.85rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- SECTION: utility bar -->
+<div class="utility">
+  <div class="wrap">
+    <span><b>Tue–Fri</b> 11–4 · <b>Sat</b> 11–3 · Closed Sun &amp; Mon</span>
+    <span>Find us at the Kitchener Market every Saturday</span>
+  </div>
+</div>
+
+<!-- SECTION: nav -->
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Decadently <em>Yours</em></a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="#flavors">Flavors</a></li>
+      <li><a href="#weddings">Weddings &amp; Events</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="btn btn-taupe" href="tel:+15192655314" style="margin-left:10px;white-space:nowrap">Call to order</a>
+  </div>
+</header>
+
+<!-- SECTION: menu-board hero -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="award">★ 2026 Top Choice Winner — 9 years in a row</span>
+      <h1>Cakes and cupcakes, <em>baked from scratch.</em></h1>
+      <p class="lede">Real butter, baked fresh daily in downtown Guelph — custom cakes, wedding cakes, and a case full of cupcakes at 119 Surrey Street East.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-taupe" href="tel:+15192655314">Call (519) 265-5314</a>
+        <a class="btn btn-ghost" href="#weddings">Plan a wedding cake</a>
+      </div>
+      <p class="hero-note">Gluten-free and vegan options available · Takeout &amp; delivery for celebrations</p>
+    </div>
+    <div class="board" aria-label="Case favorites menu board">
+      <h2>Case Favorites</h2>
+      <p class="board-sub">baked fresh daily, with real butter</p>
+      <ul>
+        <li><b>Toffee Crunch</b><span class="dots"></span></li>
+        <li><b>Simply Vanilla</b><span class="dots"></span></li>
+        <li><b>Tuxedo</b><span class="dots"></span></li>
+        <li><b>Fudge Sundae</b><span class="dots"></span></li>
+        <li><b>Vanilla Latte</b><span class="dots"></span></li>
+        <li><b>Red Velvet</b><span class="dots"></span></li>
+        <li><b>Speculoos <i>(lotus biscoff)</i></b><span class="dots"></span></li>
+      </ul>
+      <div class="prices">
+        <span>Cupcake <b>$4.25</b></span>
+        <span>Dozen <b>$49.80</b></span>
+      </div>
+      <p class="gf">Yes — only butter. Never anything else.</p>
+    </div>
+  </div>
+</section>
+
+<main id="main">
+<!-- SECTION: flavor lineup board -->
+<section class="flavors" id="flavors">
+  <div class="wrap">
+    <h2>The flavor lineup.</h2>
+    <p class="sub">Everything below has earned its place in the case. Pick a lane:</p>
+    <div class="tabs" role="tablist" aria-label="Flavor categories">
+      <button class="tab" role="tab" aria-selected="true" data-tab="cupcakes">Cupcakes</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="muffins">Muffins &amp; Pies</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="celebration">Celebration Cakes</button>
+    </div>
+
+    <div class="flavor-panel active" id="panel-cupcakes" role="tabpanel">
+      <div class="flavor-grid">
+        <div class="flavor"><h3>Toffee Crunch</h3><p>A customer favorite — toffee folded through, crowned with crunch.</p></div>
+        <div class="flavor"><h3>Simply Vanilla</h3><p>The classic, done right: real vanilla, real butter.</p></div>
+        <div class="flavor"><h3>Tuxedo</h3><p>Chocolate and vanilla dressed up together.</p></div>
+        <div class="flavor"><h3>Fudge Sundae</h3><p>Rich chocolate fudge in cupcake form.</p></div>
+        <div class="flavor"><h3>Vanilla Latte</h3><p>Espresso-kissed vanilla for the coffee crowd.</p></div>
+        <div class="flavor"><h3>Red Velvet</h3><p>Remarkably gluten-free, irresistibly good.</p></div>
+        <div class="flavor"><h3>Speculoos</h3><p>Lotus biscoff spice in every bite.</p></div>
+        <div class="flavor"><h3>Unicorn</h3><p>The showstopper — as a cupcake, or the full cake.</p></div>
+      </div>
+    </div>
+
+    <div class="flavor-panel" id="panel-muffins" role="tabpanel">
+      <div class="flavor-grid">
+        <div class="flavor"><h3>Chocolate Chip Muffins</h3><p>Bakery-case staple, baked fresh daily.</p></div>
+        <div class="flavor"><h3>Banana Chocolate Pie</h3><p>Banana and chocolate, the way they were meant to be.</p></div>
+        <div class="flavor"><h3>Lemon Lime Muffins</h3><p>Bright, citrusy, gone by noon most days.</p></div>
+        <div class="flavor"><h3>Blueberry Muffins</h3><p>Plump berries in a buttery crumb.</p></div>
+        <div class="flavor"><h3>Caramel Apple Pie</h3><p>Fall in a muffin tin.</p></div>
+        <div class="flavor"><h3>Cranberry Muffins</h3><p>Tart cranberry against sweet crumb.</p></div>
+      </div>
+    </div>
+
+    <div class="flavor-panel" id="panel-celebration" role="tabpanel">
+      <div class="flavor-grid">
+        <div class="flavor"><h3>Unicorn Cake</h3><p>The one the reviews rave about — "10/10, must try again."</p></div>
+        <div class="flavor"><h3>Forest Cake</h3><p>A standout for birthdays and big tables.</p></div>
+        <div class="flavor"><h3>Smash Cakes</h3><p>First-birthday-sized, made for the photo.</p></div>
+        <div class="flavor"><h3>Custom Celebration Cakes</h3><p>Showers, anniversaries, corporate events — designed with you.</p></div>
+      </div>
+    </div>
+
+    <p class="ask">After a specific flavor? Call <a href="tel:+15192655314">(519) 265-5314</a> and we'll set some aside for you.</p>
+  </div>
+</section>
+
+<!-- SECTION: wedding & custom cakes -->
+<section class="weddings" id="weddings">
+  <div class="wrap wed-grid">
+    <div>
+      <h2>Weddings, showers &amp; big celebrations.</h2>
+      <p class="intro">We custom-bake for your special occasion — from baby showers to weddings and everything life holds in between. Tell us the date and the dream; we'll handle the cake.</p>
+      <ul>
+        <li><b>Wedding cakes</b> — designed with you, baked from scratch</li>
+        <li><b>Showers &amp; birthdays</b> — custom cakes, smash cakes, cupcake towers</li>
+        <li><b>Corporate &amp; events</b> — branded bakes for open houses and launches</li>
+      </ul>
+      <div class="jenn"><b>Planning something big?</b> Talk to <b>Jenn</b> about large orders and wedding cakes — call <a href="tel:+15192655314" style="color:#fff">(519) 265-5314</a> or send the form.</div>
+    </div>
+    <div>
+      <form class="cake-form" id="cake-form" novalidate>
+        <h3>Request a cake quote</h3>
+        <p class="fsub">This sends us your details — nothing is booked until we confirm together.</p>
+        <div class="frow">
+          <div class="field"><label for="cf-name">Your name</label><input id="cf-name" name="name" type="text" required autocomplete="name"></div>
+          <div class="field"><label for="cf-phone">Phone</label><input id="cf-phone" name="phone" type="tel" required autocomplete="tel"></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label for="cf-date">Event date</label><input id="cf-date" name="date" type="date" required></div>
+          <div class="field"><label for="cf-servings">Servings needed</label>
+            <select id="cf-servings" name="servings" required>
+              <option value="">Choose…</option>
+              <option>Under 20</option><option>20–40</option><option>40–80</option><option>80+</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="cf-details">Tell us about the occasion</label><textarea id="cf-details" name="details" rows="4" placeholder="Wedding, shower, birthday… flavors you love, colors, theme"></textarea></div>
+        <button class="btn btn-plum" type="submit">Request a quote</button>
+        <p class="form-note">We usually reply within a day. For same-day questions, just call.</p>
+      </form>
+      <div class="form-ok" id="form-ok" hidden>
+        <h3>Request received.</h3>
+        <p>Thanks — your details are on their way to our inbox. We'll be in touch shortly to talk through your cake. Need us sooner? Call <a href="tel:+15192655314">(519) 265-5314</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: owner story -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div>
+      <h2>Why Guelph keeps voting for us.</h2>
+      <p>Decadently Yours has been named a Top Choice winner <b>nine years running</b> — and was featured on CTV's <i>Made Right Here</i>. We bake everything from scratch, daily, using quality ingredients: cakes, cupcakes, brownies, cookies, and New York-style cheesecake.</p>
+      <blockquote>"We would not be here if it were not for each and every person who has supported us all these years!"</blockquote>
+      <p>Gluten-free and vegan treats are always in the rotation — because nobody should miss out on dessert.</p>
+    </div>
+    <aside class="shelf" aria-label="Local products shelf">
+      <h3>On our shelves</h3>
+      <p class="shelf-sub">Locally sourced products we love:</p>
+      <ul>
+        <li>Phlippens Sauces</li>
+        <li>Soup Girl Soups</li>
+        <li>Cocktail Bombs</li>
+        <li>Thurston Honey Bee Co.</li>
+        <li>Strawberry Sunshine Candles</li>
+      </ul>
+      <p class="rating-line"><b>4.87 / 5</b> · 421 reviews · Cylex<br><i>"Simply the best cupcakes in Guelph!"</i> — Google review</p>
+    </aside>
+  </div>
+</section>
+
+<!-- SECTION: visit / order -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <h2>Come taste it in person.</h2>
+    <div class="visit-cols">
+      <div>
+        <h3>Find us</h3>
+        <address>Decadently Yours<br>119 Surrey St E<br>Guelph, ON N1H 3P7</address>
+        <p><a href="https://www.google.com/maps/search/?api=1&query=Decadently+Yours+119+Surrey+St+E+Guelph+ON">Get directions →</a></p>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <p>Tuesday – Friday: 11:00 AM – 4:00 PM<br>Saturday: 11:00 AM – 3:00 PM<br>Sunday &amp; Monday: Closed</p>
+        <p style="margin-top:10px">Check Facebook or Instagram for holiday hours.</p>
+      </div>
+      <div>
+        <h3>Order &amp; contact</h3>
+        <p>Call <a href="tel:+15192655314">(519) 265-5314</a> for custom orders<br>Email <a href="mailto:info@decadentlyyours.ca">info@decadentlyyours.ca</a><br>Instagram: <a href="https://www.instagram.com/decadentlyyours/">@decadentlyyours</a></p>
+      </div>
+    </div>
+    <div class="market">
+      <div>
+        <h3>Saturdays: the Kitchener Market.</h3>
+        <p>We're at the Kitchener Market every Saturday, 7 AM – 2 PM. Order by Tuesday for same-week pickup and Rob will bring it with him.</p>
+      </div>
+      <a class="btn btn-taupe" href="tel:+15192655314">Order for Saturday pickup</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- SECTION: footer -->
+<footer>
+  <div class="wrap">
+    <span>© 2026 Decadently Yours · 119 Surrey St E, Guelph ON · (519) 265-5314</span>
+    <span>Concept preview — demo website</span>
+  </div>
+</footer>
+
+<!-- persistent mobile tap-to-call -->
+<a class="tap-call" href="tel:+15192655314"><span>Fresh from the oven</span>Call (519) 265-5314</a>
+
+<script>
+(function(){
+  "use strict";
+  // hamburger
+  var burger = document.querySelector('.hamburger');
+  var links = document.querySelector('.nav-links');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  // flavor tabs (signature interaction)
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      tab.setAttribute('aria-selected','true');
+      document.querySelectorAll('.flavor-panel').forEach(function(p){ p.classList.remove('active'); });
+      document.getElementById('panel-' + tab.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+  // cake quote request form (a request, not a booking)
+  var form = document.getElementById('cake-form');
+  var ok = document.getElementById('form-ok');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cf-name');
+    var phone = document.getElementById('cf-phone');
+    var date = document.getElementById('cf-date');
+    var servings = document.getElementById('cf-servings');
+    var valid = true;
+    [name, phone, date, servings].forEach(function(f){
+      if(!f.value.trim()){ f.style.borderColor = '#a33'; valid = false; }
+      else { f.style.borderColor = ''; }
+    });
+    if(!valid) return;
+    form.style.display = 'none';
+    ok.hidden = false;
+  });
+})();
+</script>
+</body>
+</html>

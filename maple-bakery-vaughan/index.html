@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maple Bakery — Maple's First Bakery, Family-Owned Since 1983</title>
+<meta name="description" content="Maple Bakery — family-owned Italian bakery & café in Maple, Vaughan since 1983. Fresh bread, deli, pizza, cakes and gelato. Open 7 days, 7 AM–7 PM. Call (905) 832-2987.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --peach:#fe9361;
+    --cream:#fef3e5;
+    --cream2:#fef6ed;
+    --orange:#ff8044;
+    --ink:#33200f;
+    --ink-soft:#7c5a3a;
+    --line:#f0dcc2;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',system-ui,sans-serif;
+    background:var(--cream2);color:var(--ink);
+    font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.12;text-wrap:balance;color:var(--ink)}
+  a{color:var(--orange)}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--orange);color:#fff;padding:10px 16px;z-index:200}
+  .skip:focus{left:8px;top:8px}
+
+  /* ============ SECTION: nav ============ */
+  .site-nav{position:sticky;top:0;z-index:100;background:rgba(254,246,237,.93);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .site-nav .wrap{display:flex;align-items:center;gap:18px;padding-top:13px;padding-bottom:13px}
+  .brand{font-family:'DM Serif Display',serif;font-size:1.45rem;color:var(--ink);text-decoration:none}
+  .brand span{color:var(--orange);font-style:italic;font-size:.95rem;display:block;line-height:1;font-family:'DM Sans',sans-serif;font-weight:500}
+  .nav-links{display:flex;gap:2px;margin-left:auto;list-style:none}
+  .nav-links a{display:block;padding:9px 14px;text-decoration:none;color:var(--ink);font-weight:500;border-radius:8px}
+  .nav-links a:hover{background:var(--cream)}
+  .btn{display:inline-block;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;text-decoration:none;padding:13px 26px;border-radius:999px;border:2px solid var(--orange);cursor:pointer;transition:transform .12s ease,background .12s ease}
+  .btn-orange{background:var(--orange);color:#fff}
+  .btn-orange:hover{background:#e86f2e;transform:translateY(-1px)}
+  .btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-line:hover{background:var(--cream)}
+  .hamburger{display:none;background:none;border:2px solid var(--ink);border-radius:10px;padding:8px 12px;font-size:1.1rem;color:var(--ink);cursor:pointer;margin-left:auto}
+
+  /* ============ SECTION: editorial hero ============ */
+  .hero{padding:70px 0 64px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+  .dateline{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:16px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--orange)}
+  .hero .lede{font-size:1.18rem;color:var(--ink-soft);max-width:34rem;margin-bottom:28px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+  .hero-hours{font-size:.95rem;color:var(--ink-soft)}
+  .hero-hours b{color:var(--ink)}
+  /* arch window — the unexpected detail */
+  .arch{
+    background:var(--peach);border-radius:999px 999px var(--radius) var(--radius);
+    padding:56px 34px 40px;text-align:center;color:#fff;
+    box-shadow:10px 10px 0 var(--orange);
+  }
+  .arch .since{font-family:'DM Serif Display',serif;font-size:3.4rem;line-height:1;color:#fff}
+  .arch .fam{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.5rem;margin:12px 0 6px;color:#fff}
+  .arch p{font-size:.98rem;color:#fff8f0;max-width:16rem;margin:0 auto}
+
+  /* ============ SECTION: story timeline ============ */
+  .timeline{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0}
+  .timeline h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-bottom:10px}
+  .timeline .sub{color:var(--ink-soft);font-size:1.12rem;max-width:44rem;margin-bottom:34px}
+  .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .tl-node{background:#fffdf9;border:1px solid var(--line);border-radius:var(--radius);padding:0;overflow:hidden;text-align:left;cursor:pointer;font-family:inherit}
+  .tl-node .yr{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--orange);padding:24px 26px 0}
+  .tl-node h3{font-size:1.3rem;padding:6px 26px 0}
+  .tl-node .teaser{padding:8px 26px 22px;color:var(--ink-soft);font-size:1rem}
+  .tl-node .more{display:none;padding:0 26px 26px;color:var(--ink-soft);font-size:.98rem;border-top:1px dashed var(--line);margin:0 26px;padding:14px 0 26px}
+  .tl-node[aria-expanded="true"] .more{display:block}
+  .tl-node .hint{display:block;padding:0 26px 20px;font-size:.85rem;color:var(--orange);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .tl-node[aria-expanded="true"]{border-color:var(--orange);box-shadow:4px 4px 0 var(--peach)}
+
+  /* ============ SECTION: products (arch tiles) ============ */
+  .products{padding:70px 0}
+  .products h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-bottom:10px}
+  .products .sub{color:var(--ink-soft);font-size:1.12rem;max-width:44rem;margin-bottom:34px}
+  .prod-grid{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:auto auto;gap:22px}
+  .prod{
+    border-radius:999px 999px var(--radius) var(--radius);
+    padding:64px 34px 34px;color:#fff;position:relative;overflow:hidden;
+  }
+  .prod h3{font-size:1.7rem;color:#fff;margin-bottom:10px}
+  .prod p{font-size:1.02rem;color:#fff5ea;max-width:26rem}
+  .prod small{display:block;margin-top:14px;font-size:.9rem;color:#fff;opacity:.85;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .prod-bread{background:#c96b2e;grid-row:span 2;display:flex;flex-direction:column;justify-content:flex-end}
+  .prod-bread h3{font-size:2rem}
+  .prod-deli{background:var(--orange)}
+  .prod-sweets{background:#8a4b1f}
+  .thursday{
+    margin-top:26px;background:var(--ink);color:#ffe9d2;border-radius:var(--radius);
+    padding:26px 30px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;
+  }
+  .thursday h3{color:#fff;font-size:1.4rem}
+  .thursday p{font-size:1.02rem;color:#e8c9a5;max-width:44rem}
+  .thursday q{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.25rem;color:#fff;display:block;margin-top:6px}
+  .thursday cite{font-style:normal;font-size:.9rem;color:#c9a273}
+
+  /* ============ SECTION: order ============ */
+  .order{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0}
+  .order h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-bottom:10px}
+  .order .sub{color:var(--ink-soft);font-size:1.12rem;max-width:44rem;margin-bottom:32px}
+  .order-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .order-card{background:#fffdf9;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px}
+  .order-card h3{font-size:1.35rem;margin-bottom:8px}
+  .order-card p{color:var(--ink-soft);font-size:1rem;margin-bottom:16px}
+  .order-card .stars{color:var(--orange);font-weight:700}
+  .order-card a.btn{margin-top:4px}
+
+  /* ============ SECTION: visit / hours ============ */
+  .visit{padding:70px 0 84px}
+  .visit h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-bottom:26px}
+  .visit-cols{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:40px}
+  .visit-cols h3{font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:12px;font-family:'DM Sans',sans-serif}
+  .visit-cols address{font-style:normal;font-size:1.1rem;line-height:1.75}
+  .visit-cols p{font-size:1.08rem;line-height:1.75;color:var(--ink-soft)}
+  .visit-cols a{font-weight:700}
+  .hours-table{width:100%;border-collapse:collapse;font-size:1.05rem}
+  .hours-table td{padding:6px 0;border-bottom:1px dashed var(--line);color:var(--ink-soft)}
+  .hours-table td:last-child{text-align:right;color:var(--ink);font-weight:500}
+
+  /* ============ SECTION: footer ============ */
+  footer{background:var(--ink);color:#c9a273;padding:28px 0 110px;font-size:.92rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:#ffe9d2}
+
+  /* ============ persistent mobile tap-to-call ============ */
+  .tap-call{display:none;position:fixed;left:0;right:0;bottom:0;z-index:120;background:var(--ink);color:#fff;text-align:center;padding:14px;font-weight:700;font-size:1.1rem;text-decoration:none;border-top:3px solid var(--orange)}
+  .tap-call span{font-weight:500;font-size:.9rem;display:block;color:#e8c9a5}
+
+  @media (max-width:940px){
+    .hero-grid{grid-template-columns:1fr}
+    .tl{grid-template-columns:1fr}
+    .prod-grid{grid-template-columns:1fr}
+    .prod-bread{grid-row:auto}
+    .order-grid{grid-template-columns:1fr}
+    .visit-cols{grid-template-columns:1fr;gap:28px}
+  }
+  @media (max-width:760px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream2);flex-direction:column;padding:10px 18px 18px;border-bottom:1px solid var(--line)}
+    .nav-links.open{display:flex}
+    .hamburger{display:block}
+    .tap-call{display:block}
+    .hero{padding:50px 0 46px}
+    .arch .since{font-size:2.8rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- SECTION: nav -->
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Maple Bakery<span>Since 1983</span></a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#products">Breads &amp; Deli</a></li>
+      <li><a href="#order">Order</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="btn btn-orange" href="tel:+19058322987" style="margin-left:10px;white-space:nowrap">Call to order</a>
+  </div>
+</header>
+
+<!-- SECTION: editorial hero -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="dateline">10040 Keele St · Maple, Vaughan</p>
+      <h1>Maple's first bakery. <em>Still the Russo family's.</em></h1>
+      <p class="lede">Family-owned Italian bakery and café since 1983 — fresh bread, cakes, deli, pizza and gelato, made the same way for over forty years.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-orange" href="tel:+19058322987">Call (905) 832-2987</a>
+        <a class="btn btn-line" href="#order">How to order</a>
+      </div>
+      <p class="hero-hours"><b>Open 7 days a week</b> · 7:00 AM – 7:00 PM, every day</p>
+    </div>
+    <div class="arch" aria-label="Since 1983">
+      <div class="since">1983</div>
+      <div class="fam">— The Russo Family —</div>
+      <p>Your one stop shop for everything Italian.</p>
+    </div>
+  </div>
+</section>
+
+<main id="main">
+<!-- SECTION: story timeline (signature interaction: expandable eras) -->
+<section class="timeline" id="story">
+  <div class="wrap">
+    <h2>Forty years on Keele Street.</h2>
+    <p class="sub">Tap an era to read the story.</p>
+    <div class="tl">
+      <button class="tl-node" aria-expanded="false">
+        <div class="yr">1983</div>
+        <h3>Doors open</h3>
+        <p class="teaser">Maple's first bakery, in a little town with almost nothing around.</p>
+        <p class="more">When Maple Bakery first opened, Maple was a little town with almost nothing around. The Russo family saw an opportunity to serve the people of Maple — and started making fresh bread and baked goods. The rest is history.</p>
+        <span class="hint">Read more +</span>
+      </button>
+      <button class="tl-node" aria-expanded="false">
+        <div class="yr">30+ yrs</div>
+        <h3>Same traditions</h3>
+        <p class="teaser">The recipes and the welcome never changed.</p>
+        <p class="more">All of our food is made fresh every day, with the same traditions and recipes from 30+ years ago. The dough-making process is the same. The famous veal sandwiches are the same. And how we treat our customers is the same — like family.</p>
+        <span class="hint">Read more +</span>
+      </button>
+      <button class="tl-node" aria-expanded="false">
+        <div class="yr">Today</div>
+        <h3>One stop shop</h3>
+        <p class="teaser">Bread, deli, pizza, cakes, gelato — everything Italian.</p>
+        <p class="more">Our reach has extended to all the surrounding areas, but our traditions haven't. Come in for a nice Italian meal, coffee, pastry, or gelato — we can't wait to meet you.</p>
+        <span class="hint">Read more +</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: products (arch tiles) -->
+<section class="products" id="products">
+  <div class="wrap">
+    <h2>What comes out of our ovens.</h2>
+    <p class="sub">Three counters, one family kitchen.</p>
+    <div class="prod-grid">
+      <div class="prod prod-bread">
+        <h3>Bread &amp; buns, every day</h3>
+        <p>Italian loaves, vienna, and soft, fluffy buns — baked fresh daily and gone by afternoon most days. Come early for the best pick.</p>
+        <small>Baked fresh daily</small>
+      </div>
+      <div class="prod prod-deli">
+        <h3>Deli &amp; hot table</h3>
+        <p>Deli meats, the famous veal sandwich, gourmet pizza, and daily specials.</p>
+        <small>Hot table daily</small>
+      </div>
+      <div class="prod prod-sweets">
+        <h3>Cakes &amp; sweets</h3>
+        <p>Custom and wedding cakes, ricotta cannoli, chocolate-dipped donuts, and homemade gelato.</p>
+        <small>Custom orders welcome</small>
+      </div>
+    </div>
+    <div class="thursday">
+      <div>
+        <h3>Donut Thursdays.</h3>
+        <p>A weekly ritual around here — the chocolate-dipped donuts sell out fast.</p>
+        <q>Donut Thursdays never disappoint.</q>
+        <cite>— Google review</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: order -->
+<section class="order" id="order">
+  <div class="wrap">
+    <h2>Get it today.</h2>
+    <p class="sub">Three ways to get Maple Bakery on your table.</p>
+    <div class="order-grid">
+      <div class="order-card">
+        <h3>Call ahead</h3>
+        <p>Order bread, pizza, or a cake for pickup — we'll have it ready.</p>
+        <a class="btn btn-orange" href="tel:+19058322987">Call (905) 832-2987</a>
+      </div>
+      <div class="order-card">
+        <h3>Uber Eats</h3>
+        <p>Find Maple Bakery on Uber Eats for delivery across Maple and Vaughan.</p>
+        <p class="stars">★ 4.6 · 310+ ratings on Uber Eats</p>
+      </div>
+      <div class="order-card">
+        <h3>Catering &amp; cakes</h3>
+        <p>Special occasion and wedding cakes, plus catering for gatherings big and small.</p>
+        <p><a href="mailto:maplebakery@rogers.com">maplebakery@rogers.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: visit / hours -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <h2>Come say hi.</h2>
+    <div class="visit-cols">
+      <div>
+        <h3>Find us</h3>
+        <address>Maple Bakery Inc<br>10040 Keele St, Unit 1<br>Maple, Vaughan, ON L6A 1G3</address>
+        <p><a href="https://www.google.com/maps/search/?api=1&query=Maple+Bakery+10040+Keele+St+Vaughan+ON">Get directions →</a></p>
+        <p style="margin-top:10px">Instagram &amp; Facebook: <b>@maplebakery83</b></p>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <table class="hours-table">
+          <tr><td>Mon – Fri</td><td>7:00 AM – 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>7:00 AM – 7:00 PM</td></tr>
+          <tr><td>Sunday</td><td>7:00 AM – 7:00 PM</td></tr>
+        </table>
+        <p style="margin-top:10px">Open 7 days a week.</p>
+      </div>
+      <div>
+        <h3>Rated by the neighbourhood</h3>
+        <p><b>4.2 ★</b> · 549 reviews (Birdeye)<br><b>4.6 ★</b> · 310+ ratings (Uber Eats)</p>
+        <p style="margin-top:12px;font-style:italic">"Best bakery in town! Always fresh and delicious and affordably priced."</p>
+        <p style="font-size:.9rem">— Google review</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- SECTION: footer -->
+<footer>
+  <div class="wrap">
+    <span>© 2026 Maple Bakery Inc · 10040 Keele St, Maple, ON · (905) 832-2987</span>
+    <span>Concept preview — demo website</span>
+  </div>
+</footer>
+
+<!-- persistent mobile tap-to-call -->
+<a class="tap-call" href="tel:+19058322987"><span>Fresh bread daily</span>Call (905) 832-2987</a>
+
+<script>
+(function(){
+  "use strict";
+  // hamburger
+  var burger = document.querySelector('.hamburger');
+  var links = document.querySelector('.nav-links');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  // story timeline expanders (signature interaction)
+  var nodes = document.querySelectorAll('.tl-node');
+  nodes.forEach(function(node){
+    node.addEventListener('click', function(){
+      var expanded = node.getAttribute('aria-expanded') === 'true';
+      nodes.forEach(function(n){ n.setAttribute('aria-expanded','false'); });
+      node.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    });
+  });
+})();
+</script>
+</body>
+</html>

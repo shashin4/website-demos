@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wellborn Auto Service — VW & Audi Specialists in Kitchener</title>
+<meta name="description" content="Wellborn Auto Service — 5.0-star Volkswagen and Audi specialists at 103 Ahrens St W, Kitchener. Honest estimates, certified technicians, oil changes from $89.95. Call (519) 570-0500.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#182430; --navy-deep:#101a23; --ink:#1d242e;
+    --brass:#c9a227; --brass-deep:#a8841c;
+    --paper:#fafaf7; --card:#ffffff; --line:#e4e1d6; --muted:#5d6672;
+    --radius:10px;
+    --max:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Source Sans 3',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;text-wrap:balance;line-height:1.08;font-weight:600}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  /* ---------- SECTION: sticky nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(24,36,48,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .wordmark{font-family:'Fraunces',serif;font-weight:700;font-size:1.35rem;text-decoration:none;letter-spacing:.01em}
+  .wordmark em{font-style:normal;color:var(--brass)}
+  .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:#e8e4d8}
+  .nav-links a:hover{color:var(--brass)}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:6px;padding:13px 24px;font-size:.98rem;cursor:pointer;border:0;font-family:inherit}
+  .btn-brass{background:var(--brass);color:#1d242e}
+  .btn-brass:hover{background:var(--brass-deep);color:#fff}
+  .btn-outline{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+  .btn-outline:hover{background:var(--ink);color:#fff}
+  .btn-nav{padding:10px 20px}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:10px}
+  .burger span{display:block;width:26px;height:2px;background:#fff;margin:6px 0;transition:.25s}
+  @media(max-width:840px){
+    .burger{display:block}
+    .nav-links{position:absolute;top:68px;left:0;right:0;background:var(--navy-deep);flex-direction:column;align-items:stretch;padding:8px 22px 24px;gap:0;display:none}
+    .nav-links.open{display:flex}
+    .nav-links li{border-top:1px solid #2c3a49}
+    .nav-links a{display:block;padding:14px 4px}
+    .nav-links .btn-nav{margin-top:14px;text-align:center}
+  }
+  /* ---------- SECTION: compact rating-led hero ---------- */
+  .hero{background:var(--navy);color:#f2eee2;padding:64px 0 70px;position:relative}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--brass)}
+  .rating-row{display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+  .stars{color:var(--brass);font-size:1.3rem;letter-spacing:.12em}
+  .rating-row .t{font-size:1rem;font-weight:600;color:#d9d3c2}
+  .hero h1{font-size:clamp(2.6rem,5.4vw,4.1rem);max-width:16em;margin-bottom:18px}
+  .hero h1 .b{color:var(--brass);font-style:italic}
+  .hero-sub{font-size:1.12rem;color:#c3bda9;max-width:38rem;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn-paper{background:#f2eee2;color:var(--navy)}
+  .btn-paper:hover{background:#fff}
+  .hero .loc{margin-top:26px;font-size:.92rem;color:#9aa2ad}
+  .trustline{margin-top:34px;padding-top:22px;border-top:1px solid #2c3a49;display:flex;gap:34px;flex-wrap:wrap;font-size:.92rem;color:#d9d3c2}
+  .trustline span{display:flex;align-items:center;gap:9px}
+  .trustline .tick{color:var(--brass);font-weight:700}
+  /* ---------- SECTION: team spotlight ---------- */
+  .team{padding:70px 0 20px}
+  .sec-kicker{font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-deep);margin-bottom:10px}
+  .team h2{font-size:clamp(2rem,3.8vw,2.8rem);margin-bottom:8px}
+  .team .lede{color:var(--muted);max-width:44rem;margin-bottom:36px;font-size:1.05rem}
+  .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .member{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:center}
+  .mono{width:96px;height:96px;border-radius:50%;background:var(--navy);color:var(--brass);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:2rem;font-weight:700}
+  .member h3{font-size:1.55rem;margin-bottom:2px}
+  .member .role{font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-deep);margin-bottom:10px}
+  .member p{font-size:.98rem;color:var(--muted)}
+  @media(max-width:720px){.team-grid{grid-template-columns:1fr}.member{grid-template-columns:76px 1fr;gap:18px}.mono{width:76px;height:76px;font-size:1.6rem}}
+  /* ---------- SECTION: service menu with honest price anchors ---------- */
+  .menu-sec{padding:60px 0 70px}
+  .menu-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:10px}
+  .menu-sec h2{font-size:clamp(2rem,3.8vw,2.8rem)}
+  .menu-note{color:var(--muted);font-size:1rem;margin-bottom:28px;max-width:46rem}
+  .menu{border-top:2px solid var(--navy)}
+  .mi{border-bottom:1px solid var(--line)}
+  .mi-head{width:100%;background:none;border:0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 4px;text-align:left;font-family:inherit}
+  .mi-head .n{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600}
+  .mi-head .p{font-weight:700;font-size:1rem;color:var(--brass-deep);white-space:nowrap}
+  .mi-head .x{font-size:1.5rem;color:var(--brass-deep);font-weight:400;transition:transform .2s}
+  .mi.open .mi-head .x{transform:rotate(45deg)}
+  .mi-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .mi-body p{padding:0 4px 22px;color:var(--muted);font-size:.99rem;max-width:46rem}
+  .mi-body .cta-row{padding:0 4px 24px}
+  .link-call{font-weight:700;color:var(--brass-deep);text-decoration:underline;text-underline-offset:3px}
+  /* ---------- SECTION: click-to-call booking band ---------- */
+  .band{background:var(--navy);color:#f2eee2;padding:56px 0;margin:10px 0 0}
+  .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .band h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:8px}
+  .band h2 .b{color:var(--brass);font-style:italic}
+  .band p{color:#c3bda9;max-width:36rem}
+  .band .big{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:#fff;text-decoration:none;border-bottom:3px solid var(--brass)}
+  .band .big:hover{color:var(--brass)}
+  .band .hours-mini{font-size:.9rem;color:#9aa2ad;margin-top:10px}
+  /* ---------- SECTION: reviews ---------- */
+  .reviews{padding:70px 0}
+  .reviews h2{font-size:clamp(2rem,3.8vw,2.8rem);margin-bottom:6px}
+  .reviews .sub{color:var(--muted);margin-bottom:34px}
+  .rev-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
+  .rev{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;display:flex;flex-direction:column;gap:14px}
+  .rev:first-child{border-left:5px solid var(--brass)}
+  .rev p{font-size:.99rem;flex:1}
+  .rev .stars{font-size:1.05rem}
+  .rev footer{font-size:.87rem;color:var(--muted);font-weight:700}
+  @media(max-width:840px){.rev-row{grid-template-columns:1fr}}
+  /* ---------- SECTION: visit / hours ---------- */
+  .visit{padding:70px 0;background:#f1efe7;border-top:1px solid var(--line)}
+  .visit h2{font-size:clamp(2rem,3.8vw,2.8rem);margin-bottom:20px}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .v-block h3{font-size:1.25rem;margin-bottom:12px;color:var(--navy)}
+  .v-block p{font-size:1rem;color:var(--muted);margin-bottom:8px}
+  .v-block a.strong{font-weight:700;color:var(--brass-deep)}
+  table.hours{width:100%;border-collapse:collapse;font-size:1rem;margin-top:6px}
+  table.hours td{padding:10px 0;border-bottom:1px dashed #cfccc0}
+  table.hours td:last-child{text-align:right;font-weight:700}
+  .visit .btn{margin-top:18px}
+  @media(max-width:800px){.visit-grid{grid-template-columns:1fr}}
+  /* ---------- SECTION: footer ---------- */
+  footer{background:var(--navy-deep);color:#8b939d;padding:42px 0 112px;font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer .concept{font-size:.78rem;letter-spacing:.06em;color:#5d6672}
+  /* ---------- mobile tap-to-call ---------- */
+  .tapcall{position:fixed;left:14px;right:14px;bottom:14px;z-index:60;background:var(--brass);color:#1d242e;text-decoration:none;border-radius:999px;padding:15px;text-align:center;font-weight:700;font-size:1.05rem;box-shadow:0 10px 30px rgba(0,0,0,.35);display:none}
+  @media(max-width:760px){.tapcall{display:block}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.mi-body{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- SECTION: sticky nav -->
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="wordmark" href="#top">Wellborn <em>Auto Service</em></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#team">Our team</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a class="btn btn-brass btn-nav" href="tel:+15195700500">Call (519) 570-0500</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- SECTION: compact rating-led hero -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="rating-row">
+      <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+      <span class="t"><strong>5.0</strong> — VW &amp; Audi specialists, Kitchener</span>
+    </div>
+    <h1>Your VW or Audi, fixed right — <span class="b">for less than the dealer.</span></h1>
+    <p class="hero-sub">Wellborn Auto Service is a locally owned shop of certified technicians who know Volkswagen and Audi inside out. Honest estimates, quality parts at the best price — the only difference between our service and the dealerships is the cost.</p>
+    <div class="hero-cta">
+      <a class="btn btn-brass" href="tel:+15195700500">Call (519) 570-0500</a>
+      <a class="btn btn-paper" href="#services">Oil change from $89.95</a>
+    </div>
+    <p class="loc">103 Ahrens St W, Kitchener — corner of Ahrens St W &amp; Victoria Rd, near downtown</p>
+    <div class="trustline">
+      <span><span class="tick">✓</span> Certified technicians</span>
+      <span><span class="tick">✓</span> Upfront, honest estimates</span>
+      <span><span class="tick">✓</span> Serviced with Bosch &amp; LIQUI MOLY parts</span>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION: team spotlight -->
+<section class="team" id="team">
+  <div class="wrap">
+    <p class="sec-kicker">Meet the shop</p>
+    <h2>The people behind the 5 stars</h2>
+    <p class="lede">A small crew that answers the phone, explains the repair in plain language, and treats you like a neighbour — not a work order.</p>
+    <div class="team-grid">
+      <article class="member">
+        <div class="mono" aria-hidden="true">OH</div>
+        <div>
+          <h3>Osman Helmy</h3>
+          <p class="role">Service consultant</p>
+          <p>Osman is the voice you&rsquo;ll hear on the phone and the face at the counter — he talks you through every repair and every price before any work starts.</p>
+        </div>
+      </article>
+      <article class="member">
+        <div class="mono" aria-hidden="true">MH</div>
+        <div>
+          <h3>Moe Helmy</h3>
+          <p class="role">Certified technician</p>
+          <p>Moe is the hands under the hood — a certified technician who specialises in VW and Audi, from routine maintenance to the tricky electrical stuff.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: service menu with honest price anchors -->
+<section class="menu-sec" id="services">
+  <div class="wrap">
+    <div class="menu-head">
+      <p class="sec-kicker">Service menu</p>
+    </div>
+    <h2>Straightforward work, straightforward pricing</h2>
+    <p class="menu-note">One real price, published up front. For everything else, call and we&rsquo;ll give you an honest number before we touch a bolt.</p>
+    <div class="menu" id="menu">
+      <div class="mi open">
+        <button class="mi-head" aria-expanded="true"><span class="n">Oil change</span><span class="p">from $89.95</span><span class="x">+</span></button>
+        <div class="mi-body" style="max-height:220px">
+          <p>Fully synthetic, VW/Audi-approved 504&nbsp;00/507&nbsp;00 &amp; 502&nbsp;00/505&nbsp;00 oil — plus a free 20-point visual inspection with every change.</p>
+          <div class="cta-row"><a class="link-call" href="tel:+15195700500">Call to book an oil change</a></div>
+        </div>
+      </div>
+      <div class="mi">
+        <button class="mi-head" aria-expanded="false"><span class="n">Brakes</span><span class="p">Call for a quote</span><span class="x">+</span></button>
+        <div class="mi-body">
+          <p>Quick, reliable brake service and repair — because your family&rsquo;s safety rides on stopping power. We&rsquo;ll inspect, quote, and only replace what&rsquo;s worn.</p>
+          <div class="cta-row"><a class="link-call" href="tel:+15195700500">Call for a brake quote</a></div>
+        </div>
+      </div>
+      <div class="mi">
+        <button class="mi-head" aria-expanded="false"><span class="n">Computerized diagnostics</span><span class="p">Call for a quote</span><span class="x">+</span></button>
+        <div class="mi-body">
+          <p>Modern engines are run by computers — we read what yours is actually saying and give you a clear answer, not a guessing game.</p>
+          <div class="cta-row"><a class="link-call" href="tel:+15195700500">Call about a warning light</a></div>
+        </div>
+      </div>
+      <div class="mi">
+        <button class="mi-head" aria-expanded="false"><span class="n">Exhaust</span><span class="p">Call for a quote</span><span class="x">+</span></button>
+        <div class="mi-body">
+          <p>Rattles, roars, rotten-egg smells, check-engine lights — we track down exhaust and catalytic converter problems and fix them properly.</p>
+          <div class="cta-row"><a class="link-call" href="tel:+15195700500">Call about your exhaust</a></div>
+        </div>
+      </div>
+      <div class="mi">
+        <button class="mi-head" aria-expanded="false"><span class="n">Suspension</span><span class="p">Call for a quote</span><span class="x">+</span></button>
+        <div class="mi-body">
+          <p>Bouncing after bumps, dipping when you brake, uneven tire wear? Shocks and struts wear out gradually — we&rsquo;ll check yours and keep the ride right.</p>
+          <div class="cta-row"><a class="link-call" href="tel:+15195700500">Call about your suspension</a></div>
+        </div>
+      </div>
+      <div class="mi">
+        <button class="mi-head" aria-expanded="false"><span class="n">Tune-ups &amp; maintenance</span><span class="p">Call for a quote</span><span class="x">+</span></button>
+        <div class="mi-body">
+          <p>Preventive maintenance that costs a little now so repairs don&rsquo;t cost a lot later — filters, fluids, spark plugs, inspections, all of it.</p>
+          <div class="cta-row"><a class="link-call" href="tel:+15195700500">Call to schedule maintenance</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: click-to-call booking band -->
+<section class="band">
+  <div class="wrap">
+    <div>
+      <h2>Talk to <span class="b">Osman</span> about your car.</h2>
+      <p>No forms, no waiting on hold — just call and tell us what the car&rsquo;s doing. We&rsquo;ll give you a straight answer.</p>
+      <p class="hours-mini">Mon–Fri 8:00 AM – 6:00 PM · Saturdays by appointment · Closed Sundays</p>
+    </div>
+    <a class="big" href="tel:+15195700500">(519) 570-0500</a>
+  </div>
+</section>
+
+<!-- SECTION: reviews -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <p class="sec-kicker">Reviews</p>
+    <h2>Why drivers keep our number</h2>
+    <p class="sub">5.0 stars — here&rsquo;s what a few of our customers say.</p>
+    <div class="rev-row">
+      <article class="rev">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <p>&ldquo;Moe and Osman are two of the most stand up people I&rsquo;ve met — they talked me through all the repairs to my TDI VW and were always timely. I couldn&rsquo;t recommend them enough to anyone who owns a VW or Audi.&rdquo;</p>
+        <footer>Hayden P. — Kitchener</footer>
+      </article>
+      <article class="rev">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <p>&ldquo;I spoke to Moe and I immediately felt the honesty through his voice. Moe and Osman will treat you like human beings and not like just another dollar bill. I drive in from Paris. Worth the drive.&rdquo;</p>
+        <footer>Trevor F. — Paris, ON</footer>
+      </article>
+      <article class="rev">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <p>&ldquo;They exceeded our expectations — scheduled me in that day and resolved the issue within 35 minutes. The staff was friendly and honest.&rdquo;</p>
+        <footer>Ben B. — Kitchener</footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: visit / hours -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <p class="sec-kicker">Visit us</p>
+    <h2>Near the heart of downtown Kitchener</h2>
+    <div class="visit-grid">
+      <div class="v-block">
+        <h3>Find the shop</h3>
+        <p><strong>Wellborn Auto Service</strong><br>103 Ahrens St W<br>Kitchener, ON N2H 4B9</p>
+        <p>On the corner of Ahrens St W and Victoria Rd.</p>
+        <p><a class="strong" href="https://www.google.com/maps/search/?api=1&query=Wellborn+Auto+Service+103+Ahrens+St+W+Kitchener+ON" target="_blank" rel="noopener">Get directions</a></p>
+        <p style="margin-top:14px">Phone: <a class="strong" href="tel:+15195700500">(519) 570-0500</a><br>
+        Fax: (519) 570-0400<br>
+        Email: <a class="strong" href="mailto:info@wellbornautoservice.ca">info@wellbornautoservice.ca</a></p>
+      </div>
+      <div class="v-block">
+        <h3>Shop hours</h3>
+        <table class="hours">
+          <tr><td>Monday – Friday</td><td>8:00 AM – 6:00 PM</td></tr>
+          <tr><td>Saturday</td><td>By appointment</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+        <a class="btn btn-brass" href="tel:+15195700500">Call (519) 570-0500</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: footer -->
+<footer>
+  <div class="wrap">
+    <span><strong style="color:#e8e4d8">Wellborn Auto Service</strong> · 103 Ahrens St W, Kitchener, ON · (519) 570-0500</span>
+    <span class="concept">Concept preview</span>
+  </div>
+</footer>
+
+<!-- mobile tap-to-call -->
+<a class="tapcall" href="tel:+15195700500">Call Wellborn — (519) 570-0500</a>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){links.classList.remove('open');burger.setAttribute('aria-expanded','false');});
+  });
+  // Signature interaction: honest price-anchor accordion for the service menu
+  document.querySelectorAll('.mi').forEach(function(item){
+    var head=item.querySelector('.mi-head'),body=item.querySelector('.mi-body');
+    head.addEventListener('click',function(){
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.mi.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.mi-body').style.maxHeight='0px';
+        o.querySelector('.mi-head').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        body.style.maxHeight=body.scrollHeight+'px';
+        head.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

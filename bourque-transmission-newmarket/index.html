@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bourque Transmission Service — Newmarket's Transmission Specialists Since 1974</title>
+<meta name="description" content="Family-owned and operated transmission and driveline specialists in Newmarket, ON since 1974. Transmission rebuilding and repairs, clutches, differentials. Call (905) 953-0383.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Bitter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f2e4;
+    --paper-deep:#eee5cd;
+    --green:#1e3d2a;
+    --green-deep:#14291c;
+    --brass:#a97e2f;
+    --ink:#26301f;
+    --ink-soft:#4a5240;
+    --line:#d8cca8;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Bitter',Georgia,serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;line-height:1.12;text-wrap:balance;color:var(--green-deep)}
+  img{max-width:100%;display:block}
+  a{color:var(--green)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--green);color:#fff;padding:10px 16px;z-index:200}
+  .skip:focus{left:8px;top:8px}
+
+  /* ============ SECTION: sticky nav ============ */
+  .site-nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(247,242,228,.92);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:2px solid var(--green-deep);
+  }
+  .site-nav .wrap{display:flex;align-items:center;gap:18px;padding-top:12px;padding-bottom:12px}
+  .brand{font-family:'Zilla Slab',serif;font-weight:700;font-size:1.25rem;color:var(--green-deep);text-decoration:none;line-height:1.1}
+  .brand small{display:block;font-family:'Bitter',serif;font-weight:500;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+  .nav-links{display:flex;gap:4px;margin-left:auto;list-style:none}
+  .nav-links a{display:block;padding:8px 12px;text-decoration:none;color:var(--ink);font-size:.95rem;border-radius:6px}
+  .nav-links a:hover{background:var(--paper-deep)}
+  .btn{
+    display:inline-block;font-family:'Zilla Slab',serif;font-weight:600;font-size:1rem;
+    text-decoration:none;padding:12px 22px;border-radius:8px;border:2px solid var(--green-deep);
+    transition:transform .12s ease, background .12s ease;cursor:pointer;
+  }
+  .btn-solid{background:var(--green-deep);color:#fff}
+  .btn-solid:hover{background:var(--green);transform:translateY(-1px)}
+  .btn-outline{background:transparent;color:var(--green-deep)}
+  .btn-outline:hover{background:var(--paper-deep)}
+  .nav-cta{margin-left:8px;white-space:nowrap}
+  .hamburger{display:none;background:none;border:2px solid var(--green-deep);border-radius:8px;padding:8px 12px;font-size:1.1rem;color:var(--green-deep);cursor:pointer;margin-left:auto}
+
+  /* ============ SECTION: hero ============ */
+  .hero{padding:64px 0 56px;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:48px;align-items:start}
+  .dateline{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:14px}
+  .hero h1{font-size:clamp(2.3rem,5.4vw,3.9rem);font-weight:700;margin-bottom:18px}
+  .hero h1 em{font-style:normal;color:var(--green);border-bottom:4px solid var(--brass)}
+  .hero .lede{font-size:1.15rem;color:var(--ink-soft);max-width:34rem;margin-bottom:26px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+  .hero-note{font-size:.9rem;color:var(--ink-soft)}
+  /* work-order ticket — the unexpected detail */
+  .ticket{
+    background:#fffdf4;border:2px solid var(--green-deep);border-radius:var(--radius);
+    box-shadow:6px 6px 0 var(--green-deep);
+    padding:26px 26px 22px;position:relative;
+  }
+  .ticket::before{content:"";position:absolute;top:0;left:24px;right:24px;height:0;border-top:3px dashed var(--line)}
+  .ticket-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+  .ticket-head h2{font-size:1.05rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
+  .ticket-head span{font-size:.8rem;color:var(--ink-soft)}
+  .ticket ul{list-style:none;margin:12px 0 4px}
+  .ticket li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dotted var(--line);font-size:.95rem}
+  .ticket li:last-child{border-bottom:none}
+  .ticket li b{font-family:'Zilla Slab',serif;color:var(--green-deep)}
+  .ticket .stamp{
+    margin-top:14px;display:inline-block;border:2px solid var(--brass);color:var(--brass);
+    font-family:'Zilla Slab',serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    font-size:.8rem;padding:6px 14px;border-radius:4px;transform:rotate(-3deg);
+  }
+
+  /* ============ SECTION: story + guarantee ============ */
+  .story{background:#fffdf4;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .section-kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:12px}
+  .story h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:16px}
+  .story p{color:var(--ink-soft);margin-bottom:14px;max-width:36rem}
+  .guarantee{background:var(--green);color:#f3efe0;border-radius:var(--radius);padding:34px 32px;box-shadow:6px 6px 0 var(--green-deep)}
+  .guarantee h3{font-size:1.35rem;color:#fff;margin-bottom:14px}
+  .guarantee ul{list-style:none;margin-bottom:16px}
+  .guarantee li{padding:8px 0 8px 30px;position:relative;border-bottom:1px solid rgba(255,255,255,.16)}
+  .guarantee li:last-child{border-bottom:none}
+  .guarantee li::before{content:"✓";position:absolute;left:6px;color:var(--brass);font-weight:700}
+  .guarantee p{font-size:.95rem;color:#dcd6bd}
+  .guarantee p b{color:#fff}
+
+  /* ============ SECTION: services (parts-ledger board) ============ */
+  .services{padding:64px 0}
+  .services h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:8px}
+  .services .sub{color:var(--ink-soft);margin-bottom:30px;max-width:44rem}
+  .ledger{border:2px solid var(--green-deep);border-radius:var(--radius);overflow:hidden;background:#fffdf4}
+  .ledger-row{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:18px 24px;border-bottom:1px solid var(--line);align-items:baseline}
+  .ledger-row:last-child{border-bottom:none}
+  .ledger-row:nth-child(even){background:var(--paper)}
+  .ledger-num{font-family:'Zilla Slab',serif;font-weight:700;color:var(--brass);font-size:1.05rem}
+  .ledger-row h3{font-size:1.18rem;margin-bottom:4px}
+  .ledger-row p{color:var(--ink-soft);font-size:.98rem;max-width:46rem}
+  .services .tag{margin-top:22px;font-size:.92rem;color:var(--ink-soft)}
+  .services .tag b{color:var(--green-deep)}
+
+  /* ============ SECTION: process timeline ============ */
+  .process{background:var(--green-deep);color:#f3efe0;padding:64px 0}
+  .process .section-kicker{color:var(--brass)}
+  .process h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:8px}
+  .process .sub{color:#cfc8a8;margin-bottom:32px;max-width:44rem}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid rgba(255,255,255,.25);border-radius:var(--radius);overflow:hidden}
+  .step{background:transparent;border:none;color:inherit;text-align:left;padding:24px 20px;cursor:pointer;border-right:1px solid rgba(255,255,255,.18);font-family:inherit}
+  .step:last-child{border-right:none}
+  .step .n{font-family:'Zilla Slab',serif;font-weight:700;font-size:2rem;color:var(--brass);display:block;margin-bottom:8px}
+  .step h3{color:#fff;font-size:1.1rem;margin-bottom:6px}
+  .step p{font-size:.88rem;color:#cfc8a8;line-height:1.55}
+  .step[aria-selected="true"]{background:var(--green)}
+  .step:hover{background:rgba(255,255,255,.05)}
+  .step-detail{margin-top:26px;background:var(--green);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);padding:26px 28px}
+  .step-detail h3{color:#fff;font-size:1.25rem;margin-bottom:8px}
+  .step-detail p{color:#e8e2c9;max-width:52rem}
+  .step-detail[hidden]{display:none}
+
+  /* ============ SECTION: reviews ============ */
+  .reviews{padding:64px 0;background:#fffdf4;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .reviews-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+  .rating-big{font-family:'Zilla Slab',serif;font-size:4.2rem;font-weight:700;color:var(--green-deep);line-height:1}
+  .rating-big small{font-size:1.4rem;color:var(--ink-soft);font-family:'Bitter',serif;font-weight:500}
+  .reviews h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin:10px 0 12px}
+  .reviews p{color:var(--ink-soft);max-width:34rem}
+  .reviews .src{font-size:.85rem;color:var(--ink-soft);margin-top:10px}
+  .quote-card{border-left:5px solid var(--brass);padding:6px 0 6px 26px}
+  .quote-card blockquote{font-size:1.25rem;font-style:italic;color:var(--green-deep);margin-bottom:10px}
+  .quote-card cite{font-style:normal;font-size:.9rem;color:var(--ink-soft)}
+
+  /* ============ SECTION: call CTA + visit ============ */
+  .visit{background:var(--paper);padding:64px 0 80px}
+  .cta-band{background:var(--green);border-radius:14px;color:#f3efe0;padding:48px 44px;display:grid;grid-template-columns:1.3fr .9fr;gap:40px;align-items:center;box-shadow:8px 8px 0 var(--green-deep);margin-bottom:48px}
+  .cta-band h2{color:#fff;font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:12px}
+  .cta-band p{color:#dcd6bd;margin-bottom:22px;max-width:32rem}
+  .cta-band .btn-solid{background:#fff;color:var(--green-deep);border-color:#fff}
+  .cta-band .btn-solid:hover{background:var(--paper-deep)}
+  .cta-band .btn-outline{color:#fff;border-color:#fff}
+  .cta-band .btn-outline:hover{background:rgba(255,255,255,.1)}
+  .cta-ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .cta-side{font-size:.95rem;color:#dcd6bd}
+  .cta-side b{color:#fff;display:block;margin-bottom:4px}
+  .visit-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:36px}
+  .visit-cols h3{font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);margin-bottom:12px}
+  .visit-cols p,.visit-cols address{font-style:normal;color:var(--ink-soft);font-size:.98rem}
+  .visit-cols a{font-weight:500}
+
+  /* ============ SECTION: footer ============ */
+  footer{background:var(--green-deep);color:#b9b295;padding:30px 0 110px;font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{color:#e8e2c9}
+
+  /* ============ persistent mobile tap-to-call ============ */
+  .tap-call{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:120;
+    background:var(--green-deep);color:#fff;text-align:center;
+    padding:15px;font-family:'Zilla Slab',serif;font-weight:700;font-size:1.1rem;text-decoration:none;
+    border-top:3px solid var(--brass);
+  }
+  .tap-call span{font-family:'Bitter',serif;font-weight:500;font-size:.85rem;display:block;color:#dcd6bd}
+
+  @media (max-width:900px){
+    .hero-grid,.story-grid,.reviews-grid,.cta-band{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .step{border-bottom:1px solid rgba(255,255,255,.18)}
+    .step:nth-child(2n){border-right:none}
+    .visit-cols{grid-template-columns:1fr;gap:26px}
+  }
+  @media (max-width:760px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;padding:10px 18px 18px;border-bottom:2px solid var(--green-deep)}
+    .nav-links.open{display:flex}
+    .hamburger{display:block}
+    .nav-cta{display:none}
+    .tap-call{display:block}
+    .hero{padding:44px 0 40px}
+    .cta-band{padding:34px 26px}
+    .steps{grid-template-columns:1fr}
+    .step{border-right:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- SECTION: sticky nav -->
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Bourque Transmission<small>Newmarket · Since 1974</small></a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="btn btn-solid nav-cta" href="tel:+19059530383">Call (905) 953-0383</a>
+  </div>
+</header>
+
+<!-- SECTION: hero (editorial, story-led) -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="dateline">16-1151 Gorham St · Newmarket · York Region</p>
+      <h1>The transmission shop Newmarket has trusted <em>since 1974</em>.</h1>
+      <p class="lede">Bourque Transmission Service is locally and family-owned and operated — complete driveline specialists doing transmission rebuilding and repairs on domestics and imports, and getting you back on the road for over 30 years.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="tel:+19059530383">Call (905) 953-0383</a>
+        <a class="btn btn-outline" href="#process">How a rebuild goes</a>
+      </div>
+      <p class="hero-note">Mon–Fri 8:00 AM – 5:30 PM · Walk in or call ahead — we'll take a look.</p>
+    </div>
+    <aside class="ticket" aria-label="Shop work order">
+      <div class="ticket-head"><h2>Work Order</h2><span>Est. 1974</span></div>
+      <ul>
+        <li><span>Automatics &amp; standards</span><b>✓</b></li>
+        <li><span>Clutches — LuK</span><b>✓</b></li>
+        <li><span>Differentials · FWD · 4×4</span><b>✓</b></li>
+        <li><span>Computer diagnosis</span><b>✓</b></li>
+        <li><span>Rebuilds &amp; repairs</span><b>✓</b></li>
+      </ul>
+      <span class="stamp">Family-owned &amp; operated</span>
+    </aside>
+  </div>
+</section>
+
+<main id="main">
+<!-- SECTION: story + guarantee -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div>
+      <p class="section-kicker">Our story</p>
+      <h2>One family. One specialty. Fifty years.</h2>
+      <p>Since 1974, the Bourque family has done one thing and done it well: transmissions. We're York Region's driveline specialists — our experienced technicians rebuild and repair transmissions on both domestics and imports, from everyday automatics to 4×4s.</p>
+      <p>Transmission work is complicated and expensive, so we keep it simple: computer diagnosis to find the real problem, straight answers, and work done right. That's why so much of our business is return customers and their referrals.</p>
+      <p><a href="#visit">Come see the shop →</a></p>
+    </div>
+    <div class="guarantee">
+      <h3>Our word to you</h3>
+      <ul>
+        <li>Total customer satisfaction — we stand behind the work</li>
+        <li>Exceptional quality in every rebuild and repair</li>
+        <li>Personalized service from people who know your name</li>
+        <li>Competitive, honest pricing — no surprises</li>
+      </ul>
+      <p>Our commitment: <b>total customer satisfaction, exceptional quality, personalized service, and competitive pricing.</b> We do such a good job, we get a lot of return business and referrals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: services (parts-ledger board) -->
+<section class="services" id="services">
+  <div class="wrap">
+    <p class="section-kicker">What we do</p>
+    <h2>Transmission &amp; driveline, soup to nuts.</h2>
+    <p class="sub">We don't do brakes, oil changes, or anything else. One specialty means deeper knowledge — and faster, more accurate fixes.</p>
+    <div class="ledger">
+      <div class="ledger-row">
+        <span class="ledger-num">01</span>
+        <div><h3>Transmission rebuilding &amp; repairs</h3><p>In-shop rebuilds and targeted repairs for automatics and standards — domestics and imports.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-num">02</span>
+        <div><h3>Computer diagnosis</h3><p>We pin down the actual fault before recommending any work — so you never pay for parts you don't need.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-num">03</span>
+        <div><h3>Clutches</h3><p>Clutch service and replacement, including genuine LuK clutches.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-num">04</span>
+        <div><h3>Differentials</h3><p>Diagnosis and repair of front and rear differentials.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-num">05</span>
+        <div><h3>Front-wheel drive</h3><p>Complete FWD driveline service and repair.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-num">06</span>
+        <div><h3>4×4 systems</h3><p>Four-wheel-drive transmissions and driveline work.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-num">07</span>
+        <div><h3>Complete driveline specials</h3><p>Full driveline checkups — ask us what's running this month.</p></div>
+      </div>
+    </div>
+    <p class="tag"><b>Not sure what's wrong?</b> Describe the symptom when you call — slipping, hard shifts, warning lights — and we'll tell you straight whether it's worth a look.</p>
+  </div>
+</section>
+
+<!-- SECTION: process timeline (signature interaction: clickable steps) -->
+<section class="process" id="process">
+  <div class="wrap">
+    <p class="section-kicker">How it works</p>
+    <h2>How a rebuild goes.</h2>
+    <p class="sub">Four steps, no mystery. Tap each step to see what happens.</p>
+    <div class="steps" role="tablist" aria-label="Rebuild process steps">
+      <button class="step" role="tab" aria-selected="true" data-step="0">
+        <span class="n">1</span><h3>Diagnosis</h3><p>Road test + computer check</p>
+      </button>
+      <button class="step" role="tab" aria-selected="false" data-step="1">
+        <span class="n">2</span><h3>Straight talk</h3><p>Clear options &amp; pricing</p>
+      </button>
+      <button class="step" role="tab" aria-selected="false" data-step="2">
+        <span class="n">3</span><h3>Rebuild or repair</h3><p>Done in-house</p>
+      </button>
+      <button class="step" role="tab" aria-selected="false" data-step="3">
+        <span class="n">4</span><h3>Back on the road</h3><p>Tested before pickup</p>
+      </button>
+    </div>
+    <div class="step-detail" id="step-detail">
+      <h3 id="step-title">1 · Diagnosis</h3>
+      <p id="step-text">We road-test your vehicle and run a computer diagnosis to pin down what's actually wrong — before a single part comes off. Many shifting problems turn out to be smaller than they feel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: reviews -->
+<section class="reviews" id="reviews">
+  <div class="wrap reviews-grid">
+    <div>
+      <div class="rating-big">4.8<small> / 5</small></div>
+      <h2>Steady, not flashy.</h2>
+      <p>A 4.8-star average across 22 reviews — earned the slow way, one honest rebuild at a time. Much of our work is return business and customer referrals.</p>
+      <p class="src">22 reviews · Birdeye</p>
+    </div>
+    <div class="quote-card">
+      <blockquote>"We do such a great job, we get a lot of return business and customer referrals."</blockquote>
+      <cite>— Our commitment, from day one</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: call CTA + visit -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Hear something off in the gears?</h2>
+        <p>Talk to a specialist, not a generalist. Describe the symptom and we'll give you an honest read on whether it's worth bringing in.</p>
+        <div class="cta-ctas">
+          <a class="btn btn-solid" href="tel:+19059530383">Call (905) 953-0383</a>
+          <a class="btn btn-outline" href="mailto:ianbourque83@gmail.com">Email Ian</a>
+        </div>
+      </div>
+      <div class="cta-side">
+        <b>Owner</b>Ian Bourque — ianbourque83@gmail.com
+      </div>
+    </div>
+    <div class="visit-cols">
+      <div>
+        <h3>Find the shop</h3>
+        <address>Bourque Transmission Service<br>16-1151 Gorham St<br>Newmarket, ON L3Y 8Y1</address>
+        <p><a href="https://www.google.com/maps/search/?api=1&query=Bourque+Transmission+Service+1151+Gorham+St+Newmarket+ON">Get directions →</a></p>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <p>Monday – Friday<br>8:00 AM – 5:30 PM<br>Saturday – Sunday: Closed</p>
+      </div>
+      <div>
+        <h3>Service area</h3>
+        <p>Newmarket &amp; all of York Region. Domestics and imports welcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- SECTION: footer -->
+<footer>
+  <div class="wrap">
+    <span>© 2026 Bourque Transmission Service · (905) 953-0383</span>
+    <span>Concept preview — demo website</span>
+  </div>
+</footer>
+
+<!-- persistent mobile tap-to-call -->
+<a class="tap-call" href="tel:+19059530383"><span>Transmission trouble?</span>Call (905) 953-0383</a>
+
+<script>
+(function(){
+  "use strict";
+  // hamburger
+  var burger = document.querySelector('.hamburger');
+  var links = document.querySelector('.nav-links');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  // process stepper (signature interaction)
+  var stepsData = [
+    {title:"1 · Diagnosis", text:"We road-test your vehicle and run a computer diagnosis to pin down what's actually wrong — before a single part comes off. Many shifting problems turn out to be smaller than they feel."},
+    {title:"2 · Straight talk", text:"You get a clear estimate of your options and pricing before any work starts. You approve the plan — nothing happens without your say-so."},
+    {title:"3 · Rebuild or repair", text:"Our technicians rebuild or repair your transmission in-house — automatics, standards, clutches, and differentials — using quality parts like LuK clutches."},
+    {title:"4 · Back on the road", text:"Everything is road-tested before you pick up. Getting you back on the road has been the whole job since 1974."}
+  ];
+  var steps = document.querySelectorAll('.step');
+  var dTitle = document.getElementById('step-title');
+  var dText = document.getElementById('step-text');
+  steps.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      steps.forEach(function(b){ b.setAttribute('aria-selected','false'); });
+      btn.setAttribute('aria-selected','true');
+      var d = stepsData[parseInt(btn.getAttribute('data-step'),10)];
+      dTitle.textContent = d.title;
+      dText.textContent = d.text;
+    });
+  });
+})();
+</script>
+</body>
+</html>

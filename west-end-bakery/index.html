@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>West End Bakery — Custom Cakes & Fresh Baking in Downtown Guelph</title>
+<meta name="description" content="West End Bakery, 46 Waterloo Ave, Guelph. Family owned for two generations. Custom cakes, butter tarts, fresh bread, meat pies. Open Mon–Sat 8–4.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF4E8;
+  --cream-2:#F2E7D2;
+  --choc:#3A2417;
+  --choc-deep:#2B1A10;
+  --cocoa:#6B4226;
+  --caramel:#B4762E;
+  --ink-soft:#5C4A38;
+  --muted:#7A6752;
+  --line:#E4D5B8;
+  --radius-lg:22px;
+  --radius-sm:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Karla",system-ui,sans-serif;
+  background:var(--cream);
+  color:var(--choc);
+  line-height:1.6;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;text-wrap:balance;line-height:1.08;font-weight:600}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* ---------- utility bar ---------- */
+.utility{background:var(--choc-deep);color:#F3E7CE;font-size:13.5px;letter-spacing:.02em}
+.utility .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.utility a{text-decoration:none;border-bottom:1px solid var(--caramel)}
+.utility .dot{opacity:.5;margin:0 8px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(250,244,232,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{font-family:"Fraunces",serif;font-weight:700;font-size:21px;letter-spacing:.01em;text-decoration:none}
+.brand em{color:var(--caramel);font-style:italic}
+.nav-links{display:none;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-weight:500;font-size:15.5px}
+.nav-links a:hover{color:var(--caramel)}
+.nav-call{display:none;text-decoration:none;background:var(--choc);color:var(--cream);padding:10px 20px;border-radius:999px;font-weight:700;font-size:15px}
+.nav-call:hover{background:var(--cocoa)}
+.burger{display:inline-flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--choc);border-radius:2px;transition:.25s}
+.mobile-menu{display:none;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 20px 18px;list-style:none}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;text-decoration:none;padding:12px 4px;border-bottom:1px solid var(--line);font-weight:500;font-size:17px}
+
+/* ---------- hero (lookbook) ---------- */
+.hero{padding:52px 0 40px;overflow:hidden}
+.hero-grid{display:grid;gap:36px;align-items:center}
+.hero h1{font-size:clamp(44px,8vw,84px);letter-spacing:-.01em;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--cocoa)}
+.hero-sub{font-size:19px;color:var(--ink-soft);max-width:44ch;margin-bottom:14px}
+.hero-proof{font-size:15px;color:var(--muted);margin-bottom:28px}
+.hero-proof strong{color:var(--caramel)}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:999px;font-size:16.5px;border:2px solid var(--choc)}
+.btn-solid{background:var(--choc);color:var(--cream)}
+.btn-solid:hover{background:var(--cocoa)}
+.btn-ghost{background:transparent;color:var(--choc)}
+.btn-ghost:hover{background:var(--cream-2)}
+.collage{position:relative;min-height:380px}
+.collage .ph{position:absolute;object-fit:cover;box-shadow:0 18px 40px rgba(43,26,16,.22);border:6px solid #FFFDF7}
+.collage .ph-a{width:72%;aspect-ratio:4/5;left:0;top:0;border-radius:var(--radius-lg) 60px var(--radius-lg) var(--radius-lg);z-index:1}
+.collage .ph-b{width:52%;aspect-ratio:1/1;right:0;bottom:-8px;border-radius:60px var(--radius-lg) var(--radius-lg) var(--radius-lg);z-index:2}
+.collage figcaption{position:absolute;z-index:3;bottom:6px;left:8px;background:var(--choc-deep);color:#F3E7CE;font-size:13px;padding:8px 14px;border-radius:999px}
+
+/* ---------- seasonal strip ---------- */
+.season{background:var(--choc);color:#F5EAD2}
+.season .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:20px;padding-bottom:20px}
+.season p{font-family:"Fraunces",serif;font-size:clamp(18px,2.6vw,24px);font-style:italic}
+.season a{color:#F5EAD2;font-weight:700;text-decoration:none;border-bottom:2px solid var(--caramel);white-space:nowrap}
+
+/* ---------- gallery ---------- */
+.gallery{padding:72px 0 24px}
+.section-kicker{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--caramel);margin-bottom:10px}
+.gallery h2{font-size:clamp(32px,5vw,52px);margin-bottom:12px}
+.gallery .lede{color:var(--ink-soft);max-width:60ch;margin-bottom:26px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filter{font-family:"Karla",sans-serif;font-size:15px;font-weight:700;padding:9px 20px;border-radius:999px;border:1.5px solid var(--cocoa);background:transparent;color:var(--choc);cursor:pointer}
+.filter[aria-pressed="true"]{background:var(--choc);color:var(--cream);border-color:var(--choc)}
+.tiles{display:grid;grid-template-columns:1fr;gap:18px}
+.tile{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--cream-2)}
+.tile img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .5s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile .cap{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;background:linear-gradient(to top,rgba(43,26,16,.82),rgba(43,26,16,0));color:#FBF4E4}
+.tile .cap strong{font-family:"Fraunces",serif;font-size:19px;font-weight:600;display:block}
+.tile .cap span{font-size:14px;opacity:.85}
+.tile.hide{display:none}
+
+/* ---------- menu board ---------- */
+.menu{padding:72px 0}
+.menu h2{font-size:clamp(32px,5vw,52px);margin-bottom:12px}
+.menu .lede{color:var(--ink-soft);max-width:60ch;margin-bottom:34px}
+.board{display:grid;gap:34px}
+.board-col h3{font-size:26px;margin-bottom:6px;padding-bottom:12px;border-bottom:2px solid var(--choc)}
+.board-col .col-note{font-size:14.5px;color:var(--muted);font-style:italic;margin-bottom:18px}
+.mi{display:flex;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px dotted var(--line)}
+.mi .n{font-weight:700;font-size:16.5px}
+.mi .d{margin-left:auto;text-align:right;font-size:14px;color:var(--muted);max-width:46%}
+.menu-foot{margin-top:26px;background:var(--cream-2);border-radius:var(--radius-sm);padding:18px 22px;font-size:15.5px;color:var(--ink-soft)}
+.menu-foot a{font-weight:700;color:var(--choc)}
+
+/* ---------- custom cakes ---------- */
+.cakes{background:var(--choc-deep);color:#F3E7CE;border-radius:28px;margin:0 12px;overflow:hidden}
+.cakes .wrap{padding-top:64px;padding-bottom:64px}
+.cakes h2{font-size:clamp(32px,5vw,50px);margin-bottom:14px}
+.cakes h2 em{color:var(--caramel);font-style:italic}
+.cakes .lede{color:#D9C6A6;max-width:58ch;margin-bottom:36px}
+.steps{display:grid;gap:22px}
+.step{display:flex;gap:20px;align-items:flex-start}
+.step .num{font-family:"Fraunces",serif;font-size:44px;font-weight:700;color:var(--caramel);line-height:1;min-width:64px}
+.step p{padding-top:8px}
+.step p strong{display:block;font-size:18px;margin-bottom:4px}
+.step a{color:#F3E7CE;font-weight:700}
+.cakes .btn-row{margin-top:36px}
+
+/* ---------- story ---------- */
+.story{padding:80px 0}
+.story-grid{display:grid;gap:36px;align-items:center}
+.story h2{font-size:clamp(32px,5vw,50px);margin-bottom:16px}
+.story p{color:var(--ink-soft);margin-bottom:16px;max-width:56ch}
+.story p strong{color:var(--choc)}
+.story img{border-radius:var(--radius-lg) var(--radius-lg) 70px var(--radius-lg);box-shadow:0 18px 40px rgba(43,26,16,.18);aspect-ratio:4/3;object-fit:cover;width:100%}
+
+/* ---------- visit ---------- */
+.visit{padding:0 0 80px}
+.visit-card{background:#FFFDF7;border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 28px;display:grid;gap:30px;box-shadow:0 12px 32px rgba(43,26,16,.08)}
+.visit h2{font-size:clamp(30px,4.5vw,44px);margin-bottom:6px}
+.hours{width:100%;border-collapse:collapse;margin-top:14px}
+.hours td{padding:9px 0;border-bottom:1px dotted var(--line);font-size:16px}
+.hours td:last-child{text-align:right;font-weight:700}
+.visit .addr{font-size:17px;line-height:1.7;color:var(--ink-soft)}
+.visit .addr strong{color:var(--choc)}
+.directions{display:inline-block;margin-top:14px;text-decoration:none;font-weight:700;background:var(--caramel);color:#fff;padding:13px 26px;border-radius:999px}
+.directions:hover{background:var(--cocoa)}
+
+/* ---------- footer ---------- */
+footer{background:var(--choc-deep);color:#CBB68F;font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:26px;padding-bottom:26px}
+footer .preview{font-style:italic;opacity:.75}
+
+/* ---------- mobile call bar ---------- */
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:block;background:var(--choc);color:var(--cream);text-align:center;text-decoration:none;font-weight:700;font-size:17px;padding:15px;border-radius:16px;box-shadow:0 10px 28px rgba(43,26,16,.4)}
+body{padding-bottom:0}
+@media(max-width:899px){body{padding-bottom:78px}}
+
+@media(min-width:900px){
+  .nav-links{display:flex}
+  .nav-call{display:inline-block}
+  .burger{display:none}
+  .hero-grid{grid-template-columns:1.05fr .95fr}
+  .collage{min-height:520px}
+  .tiles{grid-template-columns:repeat(6,1fr)}
+  .tile:nth-child(1){grid-column:span 4}.tile:nth-child(1) img{aspect-ratio:16/9}
+  .tile:nth-child(2){grid-column:span 2}.tile:nth-child(2) img{aspect-ratio:4/4.4}
+  .tile:nth-child(3){grid-column:span 2}.tile:nth-child(3) img{aspect-ratio:1/1}
+  .tile:nth-child(4){grid-column:span 2}.tile:nth-child(4) img{aspect-ratio:1/1}
+  .tile:nth-child(5){grid-column:span 2}.tile:nth-child(5) img{aspect-ratio:1/1}
+  .tile:nth-child(6){grid-column:span 3}.tile:nth-child(6) img{aspect-ratio:16/10}
+  .tile:nth-child(7){grid-column:span 3}.tile:nth-child(7) img{aspect-ratio:16/10}
+  .board{grid-template-columns:1fr 1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr 1fr}
+  .story-grid{grid-template-columns:1fr 1fr}
+  .visit-card{grid-template-columns:1.1fr .9fr;padding:44px}
+  .callbar{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .tile img{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- SECTION: utility bar -->
+<div class="utility">
+  <div class="wrap">
+    <span>46 Waterloo Ave, Guelph<span class="dot">•</span>Mon&ndash;Sat 8 am&ndash;4 pm</span>
+    <a href="tel:+15198246750">(519) 824-6750</a>
+  </div>
+</div>
+
+<!-- SECTION: nav -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="wrap">
+    <a class="brand" href="#top">West End <em>Bakery</em></a>
+    <ul class="nav-links">
+      <li><a href="#gallery">Cake gallery</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#custom-cakes">Custom cakes</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+15198246750">Call to order</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="#gallery">Cake gallery</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#custom-cakes">Custom cakes</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="tel:+15198246750">Call (519) 824-6750</a></li>
+  </ul>
+</nav>
+
+<!-- SECTION: hero (lookbook) -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Cakes worth <em>celebrating.</em></h1>
+      <p class="hero-sub">Custom cakes for any occasion and any size crowd, baked from scratch in downtown Guelph &mdash; plus butter tarts, fresh bread, and meat pies from the case every day.</p>
+      <p class="hero-proof"><strong>4.7 stars</strong> from 43 Google reviews &middot; family owned, two generations</p>
+      <div class="btn-row">
+        <a class="btn btn-solid" href="#gallery">See the cake gallery</a>
+        <a class="btn btn-ghost" href="tel:+15198246750">Call to order</a>
+      </div>
+    </div>
+    <figure class="collage" aria-label="Photos from the West End Bakery case">
+      <img class="ph ph-a" src="http://www.westendbakery.ca/resources/IMG_20160423_102728.jpg" alt="Decorated celebration cakes from the West End Bakery showcase" loading="eager">
+      <img class="ph ph-b" src="http://www.westendbakery.ca/resources/buttertarts.jpg" alt="Butter tarts baked at West End Bakery" loading="lazy">
+      <figcaption>From our case, this week</figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- SECTION: seasonal strip -->
+<div class="season">
+  <div class="wrap">
+    <p>Thanksgiving is October 12 &mdash; pies, tarts and custom cakes are booking now.</p>
+    <a href="tel:+15198246750">Call (519) 824-6750 to reserve</a>
+  </div>
+</div>
+
+<!-- SECTION: cake gallery -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <p class="section-kicker">The lookbook</p>
+    <h2>Straight from our ovens</h2>
+    <p class="lede">A peek at what comes out of the kitchen &mdash; celebration cakes, the cookie case, and bread still warm from the oven. Everything is baked from scratch, in-house.</p>
+    <div class="filters" role="group" aria-label="Filter gallery">
+      <button class="filter" data-f="all" aria-pressed="true">Everything</button>
+      <button class="filter" data-f="cakes" aria-pressed="false">Cakes</button>
+      <button class="filter" data-f="sweet" aria-pressed="false">Cookies &amp; tarts</button>
+      <button class="filter" data-f="oven" aria-pressed="false">Bread &amp; savoury</button>
+    </div>
+    <div class="tiles" id="tiles">
+      <div class="tile" data-cat="cakes">
+        <img src="http://www.westendbakery.ca/resources/IMG_20160423_102728.jpg" alt="Two decorated celebration cakes" loading="lazy">
+        <div class="cap"><strong>Celebration cakes</strong><span>Decorated to order, any occasion</span></div>
+      </div>
+      <div class="tile" data-cat="cakes">
+        <img src="http://www.westendbakery.ca/resources/GFbrowniecake.jpg" alt="Chocolate brownie cake" loading="lazy">
+        <div class="cap"><strong>Brownie cake</strong><span>From the showcase</span></div>
+      </div>
+      <div class="tile" data-cat="sweet">
+        <img src="http://www.westendbakery.ca/resources/2791_r_WESTEND_03.jpg" alt="Decorated cookies with coffee" loading="lazy">
+        <div class="cap"><strong>The cookie case</strong><span>Happy-face cookies &amp; chocolate-dipped</span></div>
+      </div>
+      <div class="tile" data-cat="sweet">
+        <img src="http://www.westendbakery.ca/resources/buttertarts.jpg" alt="Butter tarts" loading="lazy">
+        <div class="cap"><strong>Butter tarts</strong><span>The go-to classic &mdash; pecan &amp; almond too</span></div>
+      </div>
+      <div class="tile" data-cat="sweet">
+        <img src="http://www.westendbakery.ca/resources/20210203_080119.jpg" alt="Butter tarts fresh from the oven tray" loading="lazy">
+        <div class="cap"><strong>Fresh from the tray</strong><span>Baked in-house, daily</span></div>
+      </div>
+      <div class="tile" data-cat="oven">
+        <img src="http://www.westendbakery.ca/resources/20191120_1226181.jpg" alt="Fresh bread rolls on a wooden board" loading="lazy">
+        <div class="cap"><strong>Bread &amp; rolls</strong><span>Baked all the time</span></div>
+      </div>
+      <div class="tile" data-cat="oven">
+        <img src="http://www.westendbakery.ca/resources/20210203_080029.jpg" alt="Trays of meat pies and sausage rolls" loading="lazy">
+        <div class="cap"><strong>Meat pies &amp; sausage rolls</strong><span>The savoury side of the case</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: menu -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <p class="section-kicker">The menu board</p>
+    <h2>What&rsquo;s in the case</h2>
+    <p class="lede">The case changes through the day &mdash; when it&rsquo;s gone, it&rsquo;s gone. Everything below is baked from scratch with all-natural ingredients.</p>
+    <div class="board">
+      <div class="board-col">
+        <h3>Sweet</h3>
+        <p class="col-note">Cookies, tarts &amp; treats</p>
+        <div class="mi"><span class="n">Butter tarts</span><span class="d">plain, pecan or almond</span></div>
+        <div class="mi"><span class="n">Happy-face cookies</span><span class="d">a Guelph favourite</span></div>
+        <div class="mi"><span class="n">Macaroons</span><span class="d">large, chewy</span></div>
+        <div class="mi"><span class="n">Tea biscuits</span><span class="d">&amp; old-fashioned tarts</span></div>
+        <div class="mi"><span class="n">Squares &amp; brownies</span><span class="d">rotating selection</span></div>
+        <div class="mi"><span class="n">Muffins &amp; scones</span><span class="d">with your morning coffee</span></div>
+      </div>
+      <div class="board-col">
+        <h3>From the oven</h3>
+        <p class="col-note">Bread &amp; savoury, daily</p>
+        <div class="mi"><span class="n">Bread &amp; rolls</span><span class="d">baked all the time</span></div>
+        <div class="mi"><span class="n">Meat pies</span><span class="d">hearty, flaky</span></div>
+        <div class="mi"><span class="n">Quiche</span><span class="d">for lunch or dinner</span></div>
+        <div class="mi"><span class="n">Sausage rolls</span><span class="d">fresh from the tray</span></div>
+        <div class="mi"><span class="n">Sandwiches</span><span class="d">made to order</span></div>
+      </div>
+      <div class="board-col">
+        <h3>The caf&eacute;</h3>
+        <p class="col-note">Take-out or eat in</p>
+        <div class="mi"><span class="n">Self-serve coffee</span><span class="d">5 kinds, 2 flavoured daily</span></div>
+        <div class="mi"><span class="n">Espresso</span><span class="d">pulled to order</span></div>
+        <div class="mi"><span class="n">Latte &amp; cappuccino</span><span class="d">with your treat</span></div>
+      </div>
+    </div>
+    <div class="menu-foot">Selection and prices change daily &mdash; <a href="tel:+15198246750">call (519) 824-6750</a> and we&rsquo;ll tell you what&rsquo;s fresh right now.</div>
+  </div>
+</section>
+
+<!-- SECTION: custom cakes -->
+<section class="cakes" id="custom-cakes">
+  <div class="wrap">
+    <p class="section-kicker" style="color:var(--caramel)">Custom cakes</p>
+    <h2>Cakes are our <em>specialty.</em></h2>
+    <p class="lede">Need a cake for any occasion, for any size crowd? Come into the store to pick from the fresh cakes in the showcase &mdash; or place an order for a custom-made cake built exactly how you want it. It&rsquo;ll be a cake that&rsquo;s guaranteed to please.</p>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><p><strong>Call or stop in</strong>Reach us at <a href="tel:+15198246750">(519) 824-6750</a> or visit 46 Waterloo Ave.</p></div>
+      <div class="step"><span class="num">2</span><p><strong>Tell us the occasion</strong>Birthday, wedding, shower &mdash; and how many you&rsquo;re feeding.</p></div>
+      <div class="step"><span class="num">3</span><p><strong>Pick it up fresh</strong>We bake it to order, so give us a little lead time.</p></div>
+    </div>
+    <div class="btn-row">
+      <a class="btn" style="background:var(--caramel);border-color:var(--caramel);color:#fff" href="tel:+15198246750">Start your cake order</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: story -->
+<section class="story">
+  <div class="wrap story-grid">
+    <div>
+      <p class="section-kicker">Our story</p>
+      <h2>Two generations, one oven.</h2>
+      <p>West End Bakery has been <strong>family owned and operated for two generations</strong> in the heart of downtown Guelph &mdash; and we&rsquo;ve kept our original old-fashioned philosophy of quality and service the whole way.</p>
+      <p>We bake everything <strong>from scratch</strong>, with all-natural ingredients &mdash; just as if you were making it yourself. No shortcuts, no store-bought mixes.</p>
+      <p>And we&rsquo;re <strong>very reasonably priced</strong>. Good baking shouldn&rsquo;t cost a fortune.</p>
+    </div>
+    <img src="http://www.westendbakery.ca/resources/20191120_1226181.jpg" alt="Fresh bread rolls on the bakery's wooden board" loading="lazy">
+  </div>
+</section>
+
+<!-- SECTION: visit -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-card">
+      <div>
+        <p class="section-kicker">Visit</p>
+        <h2>Come say hello</h2>
+        <table class="hours" aria-label="Opening hours">
+          <tr><td>Monday &ndash; Saturday</td><td>8:00 am &ndash; 4:00 pm</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+      <div>
+        <p class="addr"><strong>West End Bakery</strong><br>46 Waterloo Ave<br>Guelph, ON N1H 3H5<br><a href="tel:+15198246750" style="font-weight:700">(519) 824-6750</a></p>
+        <a class="directions" href="https://www.google.com/maps/search/?api=1&query=West+End+Bakery+46+Waterloo+Ave+Guelph+ON" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: footer -->
+<footer>
+  <div class="wrap">
+    <span>West End Bakery &middot; 46 Waterloo Ave, Guelph &middot; (519) 824-6750</span>
+    <span class="preview">Concept preview</span>
+  </div>
+</footer>
+
+<!-- persistent mobile tap-to-call -->
+<a class="callbar" href="tel:+15198246750">Call (519) 824-6750</a>
+
+<script>
+// hamburger nav
+var burger = document.getElementById('burger');
+var mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', function(){
+  var open = mobileMenu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+mobileMenu.addEventListener('click', function(e){
+  if(e.target.tagName === 'A'){ mobileMenu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+});
+// signature interaction: gallery filter
+var filters = document.querySelectorAll('.filter');
+var tiles = document.querySelectorAll('.tile');
+filters.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    filters.forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+    btn.setAttribute('aria-pressed','true');
+    var f = btn.getAttribute('data-f');
+    tiles.forEach(function(t){
+      t.classList.toggle('hide', f !== 'all' && t.getAttribute('data-cat') !== f);
+    });
+  });
+});
+</script>
+</body>
+</html>
