@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sana Grill — Shawarma &amp; Middle Eastern, Burlington ON</title>
+<meta name="description" content="Sana Grill is a family-run shawarma grill at 1015 Cedarwood Pl, Burlington. Wraps, rice plates, shawarma poutine. Mon–Thu 11–11, Fri–Sat 11–12. Call (905) 639-2020 for takeout.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --coal:#161311;
+  --coal-2:#1f1a15;
+  --coal-3:#2a231b;
+  --bone:#f1e9d7;
+  --bone-dim:#c9bda2;
+  --crimson:#c8102e;
+  --crimson-deep:#9c0c24;
+  --paper:#f4eddc;
+  --line:#3a3226;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;background:var(--coal);color:var(--bone);line-height:1.6;font-size:16px}
+h1,h2,h3,.anton{font-family:'Anton',sans-serif;font-weight:400;text-wrap:balance;letter-spacing:.5px;line-height:1.05;text-transform:uppercase}
+a{color:var(--bone)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* utility bar */
+.util{background:var(--crimson);color:#fff;font-size:13.5px;padding:9px 0}
+.util .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.util a{color:#fff;text-decoration:none;font-weight:700}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(22,19,17,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.wordmark{font-family:'Anton',sans-serif;font-size:24px;color:var(--bone);text-decoration:none;letter-spacing:1px}
+.wordmark b{color:var(--crimson);font-weight:400}
+.nav-links{display:flex;gap:26px;align-items:center;list-style:none}
+.nav-links a{text-decoration:none;color:var(--bone-dim);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.8px}
+.nav-links a:hover{color:var(--bone)}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:6px;padding:12px 22px;font-size:15.5px;cursor:pointer;transition:background .15s;border:0}
+.btn-order{background:var(--crimson);color:#fff;text-transform:uppercase;letter-spacing:.6px}
+.btn-order:hover{background:var(--crimson-deep)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:26px;height:3px;background:var(--bone);border-radius:2px;margin:5px 0}
+
+/* hero = menu board */
+.hero{padding:56px 0 60px}
+.hero-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:26px}
+.hero h1{font-size:clamp(44px,8vw,84px);color:var(--bone)}
+.hero h1 .r{color:var(--crimson)}
+.hero-sub{font-size:17px;color:var(--bone-dim);max-width:44ch;margin-top:10px}
+.board{background:var(--coal-2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 24px;border-bottom:1px solid var(--line)}
+.board-top .t{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:1px;color:var(--bone)}
+.board-top .t span{color:var(--crimson)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{font-family:'Work Sans',sans-serif;font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.6px;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--bone-dim);cursor:pointer}
+.tabs button.active{background:var(--crimson);border-color:var(--crimson);color:#fff}
+.board-list{padding:8px 24px 12px}
+.mi{display:flex;align-items:baseline;gap:14px;padding:15px 0;border-bottom:1px dashed #453b2c}
+.mi:last-child{border-bottom:0}
+.mi .n{font-weight:700;font-size:17.5px;color:var(--bone)}
+.mi .dots{flex:1;border-bottom:2px dotted #5a4e38;transform:translateY(-5px)}
+.mi .p{font-family:'Anton',sans-serif;font-size:20px;color:var(--bone);white-space:nowrap;letter-spacing:.5px}
+.mi .p.ask{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;color:var(--bone-dim)}
+.board-foot{padding:16px 24px 20px;font-size:13px;color:var(--bone-dim);font-style:italic}
+.hero-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-cta .ghost{color:var(--bone-dim);font-weight:600;font-size:15px}
+
+/* ratings strip */
+.ratings{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--coal-2)}
+.ratings .wrap{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.rate{padding:30px 26px;display:flex;gap:18px;align-items:center}
+.rate:first-child{border-right:1px solid var(--line)}
+.rate .num{font-family:'Anton',sans-serif;font-size:52px;color:var(--bone);line-height:1}
+.rate .num small{font-size:22px;color:var(--crimson)}
+.rate .src{font-size:14.5px;color:var(--bone-dim)}
+.rate .src strong{color:var(--bone);display:block;font-size:16px}
+
+/* story */
+section.block{padding:60px 0}
+h2.sec{font-size:clamp(32px,5vw,52px);color:var(--bone);margin-bottom:18px}
+.story{display:grid;grid-template-columns:1.6fr 1fr;gap:48px}
+.story p{color:var(--bone-dim);margin-bottom:16px;font-size:17px}
+.story p.lead{font-size:21px;color:var(--bone);line-height:1.5}
+.story .rule{border-left:4px solid var(--crimson);padding-left:22px}
+.story .rule p{font-family:'Anton',sans-serif;font-size:24px;color:var(--bone);text-transform:uppercase;letter-spacing:.5px;line-height:1.3}
+
+/* order band */
+.order{background:var(--paper);color:#241d12;border-radius:16px;padding:48px 44px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.order h2{color:#1c150c;font-size:clamp(30px,4.4vw,46px);margin-bottom:14px}
+.order p{color:#4a3f2c;margin-bottom:18px;font-size:17px}
+.order .big{font-family:'Anton',sans-serif;font-size:clamp(34px,4.6vw,52px);color:#1c150c;line-height:1.1}
+.order .big span{color:var(--crimson)}
+.order .btn-order{font-size:17px;padding:15px 30px}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:26px}
+.visit-grid address{font-style:normal;font-size:17.5px;line-height:1.9;color:var(--bone-dim)}
+.visit-grid address strong{color:var(--bone)}
+.hours-row{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
+.hours-row .d{font-weight:700;color:var(--bone)}
+.hours-row .h{color:var(--bone-dim);text-align:right}
+.dir{display:inline-block;margin-top:14px;font-weight:700;color:var(--bone)}
+
+footer{border-top:1px solid var(--line);padding:38px 0 110px;font-size:14px;color:var(--bone-dim)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--bone)}
+.concept{font-style:italic}
+
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:#0f0d0b;border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.callbar a{display:block;text-align:center;background:var(--crimson);color:#fff;font-weight:700;text-decoration:none;border-radius:6px;padding:14px;font-size:17px;text-transform:uppercase;letter-spacing:.5px}
+
+@media(max-width:860px){
+  .story,.order,.ratings .wrap,.visit-grid{grid-template-columns:1fr}
+  .rate:first-child{border-right:0;border-bottom:1px solid var(--line)}
+  .order{padding:34px 26px}
+}
+@media(max-width:760px){
+  .nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:var(--coal);flex-direction:column;align-items:flex-start;padding:18px 20px 24px;gap:16px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .nav-cta{display:none}
+  .callbar{display:block}
+  section.block{padding:44px 0}
+  .hero{padding:40px 0 44px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="wrap">
+    <span id="openStatus">Family-run shawarma grill · Burlington</span>
+    <span><a href="tel:+19056392020">Call ahead: (905) 639-2020</a></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="#">SANA <b>GRILL</b></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#board">Menu</a></li>
+      <li><a href="#story">Our grill</a></li>
+      <li><a href="#order">Takeout</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a href="tel:+19056392020" class="btn btn-order nav-cta">Call to order</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO = MENU BOARD -->
+  <section class="hero" id="board">
+    <div class="wrap">
+      <div class="hero-head">
+        <div>
+          <h1>Shaved. Stacked. <span class="r">Sauced.</span></h1>
+          <p class="hero-sub">Sana Grill is a family-run shawarma spot in Burlington — wraps off the spit, rice plates, and the shawarma poutine people come back for.</p>
+        </div>
+        <a class="btn btn-order" href="tel:+19056392020">Call (905) 639-2020</a>
+      </div>
+      <div class="board">
+        <div class="board-top">
+          <p class="t">The <span>menu</span> board</p>
+          <div class="tabs" id="tabs" role="tablist" aria-label="Menu categories">
+            <button data-cat="wraps" class="active">Wraps</button>
+            <button data-cat="plates">Rice plates</button>
+            <button data-cat="poutine">Poutine &amp; fries</button>
+            <button data-cat="salads">Salads</button>
+          </div>
+        </div>
+        <div class="board-list" id="boardList"></div>
+        <p class="board-foot">Prices per the published online menu; subject to change. For the full spread — drinks, extras, family combos — call the grill.</p>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-order" href="tel:+19056392020">Order takeout</a>
+        <span class="ghost">Also on Uber Eats · Mon–Thu 11 AM–11 PM, Fri–Sat 11 AM–12 AM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATINGS -->
+  <div class="ratings">
+    <div class="wrap">
+      <div class="rate">
+        <p class="num">4.7<small>★</small></p>
+        <p class="src"><strong>Uber Eats</strong>1,000+ ratings</p>
+      </div>
+      <div class="rate">
+        <p class="num">4.8<small>★</small></p>
+        <p class="src"><strong>restaurantji</strong>406 reviews</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="block" id="story">
+    <div class="wrap">
+      <h2 class="sec">A family grill, not a franchise</h2>
+      <div class="story">
+        <div>
+          <p class="lead">Sana Grill is run by a family, and it cooks like one — the shawarma comes off the spit all day, the garlic sauce is made the way it's always been made, and regulars get remembered.</p>
+          <p>No corporate playbook, no shortcuts. Just a Burlington grill doing the thing it does best: chicken shawarma, done right, wrapped or plated however you like it.</p>
+          <p>Sunday the grill rests. Every other day, the spit is turning by 11 AM.</p>
+        </div>
+        <div class="rule">
+          <p>Wraps. Rice. Poutine. Pick your format — the shawarma's the same.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section class="block" id="order" style="padding-top:0">
+    <div class="wrap">
+      <div class="order">
+        <div>
+          <h2>Takeout, the fast way</h2>
+          <p>Call ahead and your order hits the grill before you arrive. In a rush? Find us on Uber Eats — 4.7 from over a thousand ratings.</p>
+          <a class="btn btn-order" href="tel:+19056392020">Call (905) 639-2020</a>
+        </div>
+        <div>
+          <p class="big">Hungry now? <span>Call ahead.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="block" id="visit" style="padding-top:20px">
+    <div class="wrap">
+      <h2 class="sec">Find the grill</h2>
+      <div class="visit-grid">
+        <div>
+          <address>
+            <strong>Sana Grill</strong><br>
+            1015 Cedarwood Pl<br>
+            Burlington, ON L7T 3J4
+          </address>
+          <p style="margin-top:14px"><a href="tel:+19056392020" style="font-family:'Anton',sans-serif;font-size:26px;letter-spacing:.5px;text-decoration:none">(905) 639-2020</a></p>
+          <a class="dir" href="https://www.google.com/maps/search/?api=1&query=Sana+Grill+1015+Cedarwood+Pl+Burlington+ON" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+        <div>
+          <div class="hours-row"><span class="d">Monday – Thursday</span><span class="h">11:00 AM – 11:00 PM</span></div>
+          <div class="hours-row"><span class="d">Friday – Saturday</span><span class="h">11:00 AM – 12:00 AM</span></div>
+          <div class="hours-row"><span class="d">Sunday</span><span class="h">Closed</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong style="color:var(--bone)">Sana Grill</strong> · 1015 Cedarwood Pl, Burlington ON L7T 3J4<br>
+      <a href="tel:+19056392020">(905) 639-2020</a> · Family-run shawarma grill
+    </div>
+    <div class="concept">Concept preview — one consistent published menu set; prices subject to change.</div>
+  </div>
+</footer>
+
+<div class="callbar"><a href="tel:+19056392020">Call to order · (905) 639-2020</a></div>
+
+<script>
+document.getElementById('burger').addEventListener('click', function(){
+  var l = document.getElementById('navLinks');
+  var open = l.classList.toggle('open');
+  this.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+});
+
+// open status (today is 2026-10-05, a Monday)
+(function(){
+  var d=new Date(), day=d.getDay(), t=d.getHours()*60+d.getMinutes();
+  var el=document.getElementById('openStatus');
+  var open = (day>=1&&day<=4&&t>=660&&t<1380)||(day>=5&&day<=6&&t>=660&&t<1440);
+  if(open){ el.textContent='Open now · the spit is turning'; }
+  else if(day===0){ el.textContent='Closed Sundays · back Monday at 11 AM'; }
+  else { el.textContent='Family-run shawarma grill · Burlington'; }
+})();
+
+// menu board — one consistent published menu set
+var BOARD = {
+  wraps:[
+    {n:'Chicken Shawarma Wrap', p:'$15.25'},
+    {n:'Falafel Wrap', p:'$15.25'},
+    {n:'Chicken Tandoori Wrap', p:'$16.50'},
+    {n:'Steak Wrap', p:'$16.99'}
+  ],
+  plates:[
+    {n:'Chicken Shawarma Rice', p:'$17.98'},
+    {n:'Butter Chicken with Rice', p:'$18.53'},
+    {n:'Chicken Shawarma Rice Combo', p:'$25.48'}
+  ],
+  poutine:[
+    {n:'Chicken Shawarma Poutine', p:'$17.99'},
+    {n:'Butter Chicken Poutine', p:null},
+    {n:'Shawarma Fries', p:'$17.50'}
+  ],
+  salads:[
+    {n:'Fattoush Salad', p:'$12.99'},
+    {n:'Greek Salad', p:'$12.99'}
+  ]
+};
+function renderBoard(cat){
+  var html = BOARD[cat].map(function(it){
+    var price = it.p ? '<span class="p">'+it.p+'</span>' : '<span class="p ask">ask in store</span>';
+    return '<div class="mi"><span class="n">'+it.n+'</span><span class="dots"></span>'+price+'</div>';
+  }).join('');
+  document.getElementById('boardList').innerHTML = html;
+  document.querySelectorAll('#tabs button').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-cat')===cat);
+  });
+}
+document.querySelectorAll('#tabs button').forEach(function(b){
+  b.addEventListener('click', function(){ renderBoard(b.getAttribute('data-cat')); });
+});
+renderBoard('wraps');
+</script>
+</body>
+</html>

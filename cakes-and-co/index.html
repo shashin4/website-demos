@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cakes &amp; Co — Custom Cakes in Ajax | Weddings &amp; Birthdays</title>
+<meta name="description" content="Cakes & Co, Ajax's boutique custom cake bakery. Wedding cakes, birthday cakes and celebration cakes designed around your occasion. Call for a custom quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose:#C4827B;
+    --rose-deep:#A45F57;
+    --rose-soft:#EFDCD3;
+    --cream:#FAF4EA;
+    --ink:#4A2F2B;
+    --ink-soft:#7A5B53;
+    --gold:#C9A15C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Work Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:600;line-height:1.12;text-wrap:balance}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+  a{color:inherit}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(250,244,234,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rose-soft)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;color:var(--rose-deep);text-decoration:none}
+  .brand em{font-style:italic;font-weight:400}
+  .hamburger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .hamburger span{display:block;width:26px;height:2px;background:var(--ink);margin:6px 0;border-radius:2px}
+  nav.links{display:flex;gap:26px;align-items:center}
+  nav.links a{text-decoration:none;font-weight:500;font-size:.95rem}
+  nav.links a:hover{color:var(--rose-deep)}
+  nav.links a.cta{background:var(--rose-deep);color:#FFF8F2;padding:10px 22px;border-radius:999px;font-weight:600}
+  nav.links a.cta:hover{background:var(--rose)}
+  @media(max-width:780px){
+    .hamburger{display:block}
+    nav.links{position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;align-items:stretch;gap:0;display:none;border-bottom:1px solid var(--rose-soft)}
+    nav.links.open{display:flex}
+    nav.links a{padding:14px 22px;border-top:1px solid var(--rose-soft)}
+    nav.links a.cta{margin:12px 22px;text-align:center}
+  }
+
+  /* gallery-first hero */
+  .hero{padding:56px 0 64px}
+  .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+  .hero .kicker{font-size:.82rem;font-weight:700;letter-spacing:.24em;color:var(--rose-deep);margin-bottom:14px}
+  .hero h1{font-size:clamp(2.4rem,5.5vw,4rem);margin-bottom:16px}
+  .hero h1 em{font-style:italic;color:var(--rose-deep)}
+  .hero p{color:var(--ink-soft);font-size:1.08rem;margin-bottom:26px;max-width:30rem}
+  .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;padding:14px 28px;border-radius:999px}
+  .btn.rose{background:var(--rose-deep);color:#FFF8F2}
+  .btn.rose:hover{background:var(--rose)}
+  .btn.line{border:1.5px solid var(--rose-deep);color:var(--rose-deep)}
+  .btn.line:hover{background:var(--rose-soft)}
+
+  /* CSS cake gallery tiles — decorative panels */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;aspect-ratio:1/1.05}
+  .tile{border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:20px;min-height:0}
+  .tile span{font-family:'Fraunces',serif;font-style:italic;font-size:1.25rem;color:#FFF8F2;position:relative;z-index:1}
+  .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(74,47,43,.55),transparent 60%)}
+  .tile.t1{background:radial-gradient(circle at 50% 30%,#E8B4A6 0 22%,transparent 23%),radial-gradient(circle at 50% 62%,#D99A8C 0 34%,transparent 35%),radial-gradient(circle at 50% 96%,#C4827B 0 40%,transparent 41%),#F3E2D2}
+  .tile.t1::before{content:"";position:absolute;top:12%;left:30%;right:30%;height:8px;background:repeating-linear-gradient(90deg,#fff 0 10px,transparent 10px 20px);border-radius:4px;opacity:.7}
+  .tile.t2{background:radial-gradient(circle at 50% 88%,#fff 0 26%,transparent 27%),radial-gradient(ellipse at 50% 40%,#F6E8DC 0 30%,transparent 31%),#C4827B}
+  .tile.t2::before{content:"❦";position:absolute;top:34%;left:0;right:0;text-align:center;font-size:2.2rem;color:#A45F57;opacity:.8}
+  .tile.t3{background:radial-gradient(circle at 35% 70%,#D99A8C 0 18%,transparent 19%),radial-gradient(circle at 65% 70%,#E8B4A6 0 18%,transparent 19%),radial-gradient(circle at 50% 45%,#F3E2D2 0 26%,transparent 27%),#A45F57}
+  .tile.t3::before{content:"✿ ✿ ✿";position:absolute;top:26%;left:0;right:0;text-align:center;color:#F6E8DC;letter-spacing:.4em;font-size:1.2rem}
+  .tile.t4{background:conic-gradient(from 200deg at 50% 65%,#C4827B,#E8B4A6,#F3E2D2,#C4827B),#F3E2D2}
+  .tile.t4::before{content:"";position:absolute;top:18%;left:44%;width:12%;height:34%;background:#fff;border-radius:40% 40% 45% 45%;opacity:.85}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr}.gallery{aspect-ratio:1/1.15}}
+
+  /* occasions */
+  .occasions{background:#fff;border-top:1px solid var(--rose-soft);border-bottom:1px solid var(--rose-soft)}
+  .occasions .wrap{padding:64px 22px}
+  .occasions h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:6px}
+  .occasions .sub{color:var(--ink-soft);margin-bottom:32px;max-width:36rem}
+  .occ-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .occ{border-radius:14px;overflow:hidden;background:var(--cream);border:1px solid var(--rose-soft)}
+  .occ .art{height:170px;position:relative}
+  .occ .art.o1{background:radial-gradient(circle at 50% 70%,#fff 0 30%,transparent 31%),linear-gradient(160deg,#EFDCD3,#E3BCAE)}
+  .occ .art.o1::after{content:"♥";position:absolute;top:24%;left:0;right:0;text-align:center;font-size:2.6rem;color:#A45F57;opacity:.75}
+  .occ .art.o2{background:radial-gradient(circle at 50% 30%,#fff 0 14%,transparent 15%),linear-gradient(160deg,#F6E3D4,#D99A8C)}
+  .occ .art.o2::after{content:"~ ~ ~";position:absolute;top:52%;left:0;right:0;text-align:center;font-size:1.6rem;color:#A45F57;letter-spacing:.3em;opacity:.8}
+  .occ .art.o3{background:radial-gradient(ellipse at 50% 65%,#EFDCD3 0 34%,transparent 35%),linear-gradient(160deg,#D9A08F,#A45F57)}
+  .occ .art.o3::after{content:"✦";position:absolute;top:30%;left:0;right:0;text-align:center;font-size:2.2rem;color:#F6E3D4;opacity:.9}
+  .occ .txt{padding:22px}
+  .occ h3{font-size:1.35rem;margin-bottom:6px}
+  .occ p{color:var(--ink-soft);font-size:.95rem}
+  @media(max-width:780px){.occ-grid{grid-template-columns:1fr}}
+
+  /* how ordering works — editorial numbered rows */
+  .how .wrap{padding:72px 22px;max-width:900px}
+  .how h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:6px;text-align:left}
+  .how .sub{color:var(--ink-soft);margin-bottom:36px}
+  .step{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:26px 0;border-top:1px solid var(--rose-soft)}
+  .step:last-child{border-bottom:1px solid var(--rose-soft)}
+  .step .n{font-family:'Fraunces',serif;font-style:italic;font-size:2.4rem;color:var(--rose)}
+  .step h3{font-size:1.3rem;margin-bottom:6px}
+  .step p{color:var(--ink-soft)}
+  .step p a{color:var(--rose-deep);font-weight:600}
+
+  /* quote band */
+  .quote-band{background:var(--rose-deep);color:#FFF3EA}
+  .quote-band .wrap{padding:64px 22px;display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+  .quote-band h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
+  .quote-band p{color:#F7E3D6;margin-bottom:0}
+  .quote-card{background:var(--cream);color:var(--ink);border-radius:14px;padding:30px}
+  .quote-card h3{font-size:1.25rem;margin-bottom:8px}
+  .quote-card p{color:var(--ink-soft);font-size:.95rem;margin-bottom:18px}
+  .quote-card .phone{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--rose-deep);text-decoration:none;font-weight:700;display:block;margin-bottom:18px}
+  @media(max-width:780px){.quote-band .wrap{grid-template-columns:1fr}}
+
+  /* visit strip */
+  .visit .wrap{padding:56px 22px;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+  .visit h2{font-size:1.6rem;margin-bottom:10px}
+  .visit address{font-style:normal;color:var(--ink-soft)}
+  .visit address strong{color:var(--ink)}
+  .visit .days{background:#fff;border:1px solid var(--rose-soft);border-radius:12px;padding:18px 22px;font-size:.95rem;color:var(--ink-soft)}
+
+  footer{border-top:1px solid var(--rose-soft);background:#fff}
+  footer .wrap{padding:30px 22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+  footer .concept{font-size:.8rem;color:var(--ink-soft)}
+  footer .fbrand{font-family:'Fraunces',serif;font-weight:700;color:var(--rose-deep)}
+
+  .tap-call{display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:60;background:var(--rose-deep);color:#FFF8F2;text-align:center;text-decoration:none;font-weight:600;font-size:1.05rem;padding:15px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+  @media(max-width:780px){.tap-call{display:block}body{padding-bottom:76px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Cakes <em>&amp;</em> Co</a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('nav.links').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <nav class="links">
+      <a href="#occasions">Occasions</a>
+      <a href="#how">How it works</a>
+      <a href="#quote">Get a quote</a>
+      <a href="#visit">Visit</a>
+      <a class="cta" href="tel:+19052618855">Call us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- gallery-first hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">CUSTOM CAKES · AJAX, ONTARIO</p>
+        <h1>Cakes designed around <em>your</em> occasion — not the other way around.</h1>
+        <p>We&rsquo;re a boutique, female-run cake studio in Ajax. Every cake is made to order: your theme, your flavours, your guest count. Tell us the occasion and we&rsquo;ll design the cake.</p>
+        <div class="cta-row">
+          <a class="btn rose" href="#quote">Get a custom quote</a>
+          <a class="btn line" href="#occasions">Browse occasions</a>
+        </div>
+      </div>
+      <div class="gallery" aria-label="Cake gallery">
+        <div class="tile t1"><span>Weddings</span></div>
+        <div class="tile t2"><span>Birthdays</span></div>
+        <div class="tile t3"><span>Celebrations</span></div>
+        <div class="tile t4"><span>Just because</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="occasions" id="occasions">
+    <div class="wrap">
+      <h2>Pick your occasion</h2>
+      <p class="sub">Every cake below starts as a conversation. Bring a photo, a colour, a theme — or just the date and the guest count.</p>
+      <div class="occ-grid">
+        <article class="occ">
+          <div class="art o1"></div>
+          <div class="txt">
+            <h3>Wedding cakes</h3>
+            <p>Tiered showpieces and dessert tables, designed with you from the first sketch to the final flower.</p>
+          </div>
+        </article>
+        <article class="occ">
+          <div class="art o2"></div>
+          <div class="txt">
+            <h3>Birthday cakes</h3>
+            <p>From first birthdays to fiftieths — character themes, elegant florals, and everything in between.</p>
+          </div>
+        </article>
+        <article class="occ">
+          <div class="art o3"></div>
+          <div class="txt">
+            <h3>Celebrations &amp; events</h3>
+            <p>Baby showers, graduations, anniversaries, corporate events — cakes that match the moment.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <h2>How ordering works</h2>
+      <p class="sub">Three steps, no surprises.</p>
+      <div class="step">
+        <div class="n">1.</div>
+        <div>
+          <h3>Tell us about the occasion</h3>
+          <p>Call <a href="tel:+19052618855">(905) 261-8855</a> with your date, servings, and theme. The earlier the better — wedding cakes book out weeks ahead.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">2.</div>
+        <div>
+          <h3>We design it with you</h3>
+          <p>Flavours, size, colours, details — we sketch the cake around your vision and confirm a quote before anything is baked.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">3.</div>
+        <div>
+          <h3>Pick up in Ajax</h3>
+          <p>Your cake is baked fresh for your date and boxed for safe transport, with handling tips at pickup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-band" id="quote">
+    <div class="wrap">
+      <div>
+        <h2>Every cake is priced on its design.</h2>
+        <p>Size, servings, detail, and delivery all shape the quote — so we price each cake individually after a quick conversation. No two cakes cost the same, and that&rsquo;s the point.</p>
+      </div>
+      <div class="quote-card">
+        <h3>Get your custom quote</h3>
+        <p>Call with your date and occasion — we&rsquo;ll talk through the design and give you a firm quote.</p>
+        <a class="phone" href="tel:+19052618855">(905) 261-8855</a>
+        <a class="btn rose" href="tel:+19052618855">Call for a quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div>
+        <h2>Visit the studio</h2>
+        <address>
+          <strong>Cakes &amp; Co</strong><br>
+          109 Old Kingston Rd, Unit 2<br>
+          Ajax, ON L1T 2Z9<br>
+          <a href="tel:+19052618855">(905) 261-8855</a>
+        </address>
+      </div>
+      <div class="days">
+        <strong>Open five days a week</strong><br>
+        Call ahead for today&rsquo;s hours and to confirm pickup times.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fbrand">Cakes &amp; Co</span>
+    <span class="concept">Concept preview — 109 Old Kingston Rd Unit 2, Ajax · (905) 261-8855</span>
+  </div>
+</footer>
+
+<a class="tap-call" href="tel:+19052618855">Call Cakes &amp; Co</a>
+
+</body>
+</html>

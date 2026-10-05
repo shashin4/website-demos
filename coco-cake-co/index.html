@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coco Cake Co — Custom Occasion Cakes in Pickering | Tianna &amp; Donna</title>
+<meta name="description" content="Coco Cake Co, Pickering: custom occasion cakes by mother-daughter duo Tianna & Donna. Rated 4.8 stars. Call for a custom quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cocoa:#5A3A22;
+    --cocoa-deep:#3E2817;
+    --caramel:#D29A5B;
+    --caramel-soft:#EED3A8;
+    --cream:#F6EDDD;
+    --ink:#3A2A1C;
+    --ink-soft:#7A6552;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.dserif{font-family:'DM Serif Display',serif;font-weight:400;line-height:1.15;text-wrap:balance}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  a{color:inherit}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,237,221,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--caramel-soft)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:13px;padding-bottom:13px}
+  .brand{font-family:'DM Serif Display',serif;font-size:1.45rem;color:var(--cocoa);text-decoration:none}
+  .brand b{color:var(--caramel);font-weight:400}
+  .hamburger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .hamburger span{display:block;width:26px;height:2px;background:var(--cocoa);margin:6px 0;border-radius:2px}
+  nav.links{display:flex;gap:26px;align-items:center}
+  nav.links a{text-decoration:none;font-weight:600;font-size:.94rem;color:var(--cocoa-deep)}
+  nav.links a:hover{color:var(--caramel)}
+  nav.links a.cta{background:var(--cocoa);color:var(--cream);padding:10px 22px;border-radius:8px}
+  nav.links a.cta:hover{background:var(--cocoa-deep)}
+  @media(max-width:780px){
+    .hamburger{display:block}
+    nav.links{position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;align-items:stretch;gap:0;display:none;border-bottom:1px solid var(--caramel-soft)}
+    nav.links.open{display:flex}
+    nav.links a{padding:14px 22px;border-top:1px solid var(--caramel-soft)}
+    nav.links a.cta{margin:12px 22px;text-align:center}
+  }
+
+  /* founder-story-first hero */
+  .hero{background:var(--cocoa-deep);color:var(--cream);overflow:hidden;position:relative}
+  .hero::before{content:"T & D";position:absolute;right:-30px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:'DM Serif Display',serif;font-size:9rem;color:rgba(210,154,91,.08);letter-spacing:.1em;white-space:nowrap}
+  .hero .wrap{position:relative;padding:84px 22px 76px;max-width:760px}
+  .hero .who{font-size:.82rem;font-weight:700;letter-spacing:.3em;color:var(--caramel);margin-bottom:18px}
+  .hero h1{font-size:clamp(2.5rem,6vw,4.2rem);color:#FFF9EF;margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--caramel-soft)}
+  .hero p{font-size:1.12rem;color:#E7D8C0;max-width:36rem;margin-bottom:16px}
+  .hero p strong{color:#FFF3E0}
+  .hero .sig{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.3rem;color:var(--caramel);margin-top:22px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:8px}
+  .btn.caramel{background:var(--caramel);color:var(--cocoa-deep)}
+  .btn.caramel:hover{background:var(--caramel-soft)}
+  .btn.line{border:2px solid rgba(246,237,221,.5);color:var(--cream)}
+  .btn.line:hover{border-color:var(--caramel);color:var(--caramel-soft)}
+
+  /* story detail — two-column editorial */
+  .story .wrap{padding:72px 22px;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .story h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--cocoa-deep);margin-bottom:16px}
+  .story p{color:var(--ink-soft);margin-bottom:14px}
+  .story p strong{color:var(--ink)}
+  .story .col2{border-left:3px solid var(--caramel);padding-left:36px}
+  .story .col2 h3{font-size:1.3rem;color:var(--cocoa-deep);margin-bottom:10px}
+  .story ul{list-style:none;margin-top:6px}
+  .story ul li{padding:10px 0;border-bottom:1px dashed var(--caramel-soft);color:var(--ink-soft)}
+  .story ul li:last-child{border-bottom:0}
+  .story ul li b{color:var(--cocoa-deep)}
+  @media(max-width:780px){.story .wrap{grid-template-columns:1fr;gap:36px}.story .col2{border-left:0;padding-left:0;border-top:3px solid var(--caramel);padding-top:30px}}
+
+  /* occasion gallery — horizontal scroll ribbon */
+  .gallery-sec{background:var(--cocoa);color:var(--cream)}
+  .gallery-sec .wrap{padding:72px 22px}
+  .gallery-sec h2{font-size:clamp(1.8rem,4vw,2.5rem);color:#FFF6E8;margin-bottom:8px}
+  .gallery-sec .sub{color:#DCC9AC;margin-bottom:32px;max-width:34rem}
+  .ribbon{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:18px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory}
+  .cake{scroll-snap-align:start;border-radius:12px;overflow:hidden;background:var(--cocoa-deep);min-height:300px;display:flex;flex-direction:column}
+  .cake .art{height:190px;position:relative;flex-shrink:0}
+  .cake .art.a1{background:radial-gradient(circle at 50% 65%,#EED3A8 0 26%,transparent 27%),radial-gradient(circle at 50% 30%,#fff 0 10%,transparent 11%),linear-gradient(150deg,#8a5f36,#5A3A22)}
+  .cake .art.a2{background:radial-gradient(ellipse at 50% 60%,#F6EDDD 0 32%,transparent 33%),linear-gradient(150deg,#D29A5B,#8a5f36)}
+  .cake .art.a2::after{content:"❀";position:absolute;top:22%;left:0;right:0;text-align:center;font-size:2.4rem;color:#5A3A22;opacity:.75}
+  .cake .art.a3{background:radial-gradient(circle at 35% 60%,#fff 0 16%,transparent 17%),radial-gradient(circle at 65% 60%,#fff 0 16%,transparent 17%),linear-gradient(150deg,#5A3A22,#3E2817)}
+  .cake .art.a3::after{content:"1st";position:absolute;top:30%;left:0;right:0;text-align:center;font-family:'DM Serif Display',serif;font-size:2rem;color:#EED3A8;font-style:italic}
+  .cake .art.a4{background:conic-gradient(from 180deg at 50% 60%,#D29A5B,#F6EDDD,#EED3A8,#D29A5B),#EED3A8}
+  .cake .txt{padding:20px}
+  .cake h3{font-size:1.25rem;color:#FFF3E0;margin-bottom:6px}
+  .cake p{font-size:.92rem;color:#CDBB9C}
+  .gallery-sec .hint{font-size:.82rem;color:#A98F6B;margin-top:14px;letter-spacing:.08em}
+
+  /* order enquiry */
+  .order .wrap{padding:72px 22px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .order h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--cocoa-deep);margin-bottom:14px}
+  .order p{color:var(--ink-soft);margin-bottom:14px}
+  .order-card{background:#fff;border:1px solid var(--caramel-soft);border-radius:14px;padding:34px;box-shadow:0 10px 30px rgba(90,58,34,.08)}
+  .order-card h3{font-size:1.35rem;color:var(--cocoa-deep);margin-bottom:8px}
+  .order-card p{font-size:.95rem;margin-bottom:18px}
+  .order-card .phone{font-family:'DM Serif Display',serif;font-size:1.7rem;color:var(--cocoa);text-decoration:none;display:block;margin-bottom:20px}
+  .btn.cocoa{background:var(--cocoa);color:var(--cream)}
+  .btn.cocoa:hover{background:var(--cocoa-deep)}
+  @media(max-width:780px){.order .wrap{grid-template-columns:1fr;gap:36px}}
+
+  /* trust — real ratings only */
+  .trust{border-top:1px solid var(--caramel-soft);border-bottom:1px solid var(--caramel-soft);background:#FBF5E8}
+  .trust .wrap{padding:48px 22px;display:flex;gap:48px;flex-wrap:wrap;align-items:center;justify-content:center;text-align:center}
+  .t-item .big{font-family:'DM Serif Display',serif;font-size:2.6rem;color:var(--cocoa-deep)}
+  .t-item .stars{color:var(--caramel);font-size:1.2rem;letter-spacing:.15em}
+  .t-item p{font-size:.9rem;color:var(--ink-soft);margin-top:4px}
+
+  /* visit */
+  .visit .wrap{padding:64px 22px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .visit h2{font-size:clamp(1.8rem,4vw,2.4rem);color:var(--cocoa-deep);margin-bottom:14px}
+  .visit address{font-style:normal;color:var(--ink-soft);font-size:1.05rem;margin-bottom:22px}
+  .visit address strong{color:var(--ink)}
+  .hours-note{background:var(--cocoa-deep);color:var(--cream);border-radius:14px;padding:30px}
+  .hours-note h3{font-size:1.3rem;color:var(--caramel-soft);margin-bottom:10px}
+  .hours-note p{color:#DCC9AC;font-size:.97rem;margin-bottom:18px}
+  @media(max-width:780px){.visit .wrap{grid-template-columns:1fr;gap:36px}}
+
+  footer{background:var(--cocoa-deep);color:#B49B78}
+  footer .wrap{padding:32px 22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+  footer .fbrand{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--cream)}
+  footer .concept{font-size:.8rem}
+
+  .tap-call{display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:60;background:var(--cocoa);color:var(--cream);text-align:center;text-decoration:none;font-weight:700;font-size:1.05rem;padding:15px;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.3)}
+  @media(max-width:780px){.tap-call{display:block}body{padding-bottom:76px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Coco <b>Cake Co</b></a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('nav.links').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <nav class="links">
+      <a href="#story">Our story</a>
+      <a href="#cakes">Cakes</a>
+      <a href="#order">Order</a>
+      <a href="#visit">Visit</a>
+      <a class="cta" href="tel:+19054205191">Call us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- founder-story-first hero -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="who">A MOTHER–DAUGHTER BAKERY · PICKERING, ONTARIO</p>
+      <h1>Baked by <em>Tianna &amp; Donna</em> — two generations, one kitchen.</h1>
+      <p>Coco Cake Co is a mother-daughter duo. <strong>Tianna and Donna</strong> bake every custom occasion cake themselves — the recipes, the decorating, the 6 AM mornings before a Saturday pickup. When you call, you talk to the people who&rsquo;ll actually make your cake.</p>
+      <p class="sig">— Tianna &amp; Donna</p>
+      <div class="hero-cta">
+        <a class="btn caramel" href="#order">Order a custom cake</a>
+        <a class="btn line" href="#story">Our story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap">
+      <div>
+        <h2>Two bakers, one family recipe box</h2>
+        <p>Donna baked for family celebrations for years before Tianna joined her at the counter. What started as birthday cakes for people they knew became <strong>Coco Cake Co</strong> — a Pickering cake shop built on word of mouth.</p>
+        <p>It&rsquo;s still just the two of them: designing, baking, and decorating every cake that leaves the kitchen.</p>
+      </div>
+      <div class="col2">
+        <h3>What we make</h3>
+        <ul>
+          <li><b>Custom occasion cakes</b> — birthdays, anniversaries, showers, milestones</li>
+          <li><b>Designed with you</b> — your theme, colours, and servings guide the cake</li>
+          <li><b>Baked to order</b> — fresh for your date, never off a shelf</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-sec" id="cakes">
+    <div class="wrap">
+      <h2>Cakes for the moments that matter</h2>
+      <p class="sub">A few of the occasions we bake for — every cake is designed around your celebration, so call and tell us about yours.</p>
+      <div class="ribbon">
+        <article class="cake"><div class="art a1"></div><div class="txt"><h3>Birthday cakes</h3><p>Themed, floral, or classic — built around the birthday person.</p></div></article>
+        <article class="cake"><div class="art a2"></div><div class="txt"><h3>Wedding cakes</h3><p>Elegant tiers designed with the couple, baked for the big day.</p></div></article>
+        <article class="cake"><div class="art a3"></div><div class="txt"><h3>Milestones</h3><p>First birthdays, graduations, anniversaries — the ones with photos.</p></div></article>
+        <article class="cake"><div class="art a4"></div><div class="txt"><h3>Just because</h3><p>Sometimes a Tuesday needs a cake. We don&rsquo;t judge.</p></div></article>
+      </div>
+      <p class="hint">SWIPE →</p>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <div class="wrap">
+      <div>
+        <h2>Every cake starts with a call</h2>
+        <p>We don&rsquo;t do online carts or fixed price lists — each cake is quoted on its design: size, servings, and detail. Tell us the occasion and the date, and we&rsquo;ll give you a firm quote before anything is baked.</p>
+        <p>Custom cakes take planning, so the earlier you call, the better.</p>
+      </div>
+      <div class="order-card">
+        <h3>Get your custom quote</h3>
+        <p>Call with your date and occasion — you&rsquo;ll talk directly to Tianna or Donna.</p>
+        <a class="phone" href="tel:+19054205191">(905) 420-5191</a>
+        <a class="btn cocoa" href="tel:+19054205191">Call for a quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Ratings">
+    <div class="wrap">
+      <div class="t-item">
+        <div class="big">4.8</div>
+        <div class="stars">★★★★★</div>
+        <p>from 53+ Google reviews</p>
+      </div>
+      <div class="t-item">
+        <div class="big">Top 3</div>
+        <p>cake shop in Pickering<br>(ThreeBestRated)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div>
+        <h2>Find us in Pickering</h2>
+        <address>
+          <strong>Coco Cake Co</strong><br>
+          774 Liverpool Rd<br>
+          Pickering, ON L1W 1R9<br>
+          <a href="tel:+19054205191">(905) 420-5191</a>
+        </address>
+        <a class="btn cocoa" href="https://www.google.com/maps/search/?api=1&query=Coco+Cake+Co+774+Liverpool+Rd+Pickering+ON">Get directions</a>
+      </div>
+      <div class="hours-note">
+        <h3>Bakery hours</h3>
+        <p>We keep limited baking days through the week — call ahead and we&rsquo;ll confirm the current hours and the best pickup time for your cake.</p>
+        <a class="btn caramel" href="tel:+19054205191">Call for current hours</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fbrand">Coco Cake Co</span>
+    <span class="concept">Concept preview — 774 Liverpool Rd, Pickering · (905) 420-5191</span>
+  </div>
+</footer>
+
+<a class="tap-call" href="tel:+19054205191">Call Coco Cake Co</a>
+
+</body>
+</html>

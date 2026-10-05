@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dog-Eared Café — Bookshop Café, Paris ON</title>
+<meta name="description" content="Dog-Eared Café — a bookshop café on the Grand River at 121 Grand River St N, Paris, Ontario. Books, coffee, and lunch. Hosted by Darren and Jeanette. Email dogearedcafe@gmail.com.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f7f1e3; --paper:#fdf9f0; --ink:#1e1710;
+    --brown:#6b4a2e; --brown-deep:#3f2d1b; --line:#ddcfb8;
+    --rust:#a4502a; --muted:#6e5f4a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Newsreader',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:18px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;text-wrap:balance;line-height:1.06}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+  /* masthead utility */
+  .masthead-top{background:var(--ink);color:#e9dfc9;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+  .masthead-top .wrap{display:flex;justify-content:space-between;gap:10px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+  .masthead-top a{color:var(--cream);text-decoration:none;border-bottom:1px solid var(--rust)}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(253,249,240,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--ink)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .brand{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+  .brand .name{font-family:'Fraunces';font-weight:900;font-size:26px;letter-spacing:.01em}
+  .brand .name em{font-style:normal;color:var(--rust)}
+  .brand .tag{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  nav.links{display:flex;gap:26px}
+  nav.links a{text-decoration:none;font-weight:600;font-size:16px;font-family:'Newsreader'}
+  nav.links a:hover{color:var(--rust)}
+  .nav-mail{background:var(--rust);color:#fff;text-decoration:none;font-weight:600;padding:9px 20px;border-radius:2px;font-size:15.5px;font-family:'Newsreader'}
+  .nav-mail:hover{background:var(--brown-deep)}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{display:block;width:26px;height:2.5px;background:var(--ink);margin:5px 0}
+
+  /* masthead hero — newspaper front page */
+  .hero{border-bottom:1px solid var(--ink)}
+  .hero .wrap{padding-top:56px;padding-bottom:52px;position:relative}
+  .dateline{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;gap:18px;flex-wrap:wrap}
+  .hero h1{font-size:clamp(46px,8vw,92px);font-weight:900;max-width:14ch}
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--rust)}
+  .standfirst{font-size:21px;font-style:italic;color:var(--brown-deep);margin-top:16px;max-width:58ch}
+  .stamp{position:absolute;top:56px;right:26px;transform:rotate(9deg);font-family:'Special Elite',monospace;font-size:15px;color:var(--rust);border:3px double var(--rust);border-radius:6px;padding:12px 16px;text-align:center;line-height:1.4;background:rgba(253,249,240,.7)}
+  .hero-foot{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap;align-items:center}
+  .btn-mail{background:var(--ink);color:#fff;text-decoration:none;font-weight:600;padding:13px 28px;border-radius:2px;font-size:17px;display:inline-block}
+  .btn-mail:hover{background:var(--rust)}
+  .btn-ghost{border:1.5px solid var(--ink);text-decoration:none;font-weight:600;padding:11px 26px;border-radius:2px;font-size:17px;display:inline-block}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+
+  section{padding:60px 0}
+  .sec-label{font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:10px}
+  h2.sec{font-size:clamp(30px,4.4vw,46px);font-weight:700;margin-bottom:10px}
+  .rule{border:0;border-top:1px solid var(--ink);margin:26px 0}
+
+  /* hours — prominent bookplate card, early on the page */
+  .hours-plate{background:var(--brown-deep);color:#f2e8d2;border-radius:4px;padding:34px 32px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;position:relative}
+  .hours-plate::before{content:"";position:absolute;inset:10px;border:1px solid rgba(242,232,210,.35);border-radius:2px;pointer-events:none}
+  .hours-plate h2.sec{color:#fff}
+  .hours-plate .kicker2{font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:#d8b98a;font-weight:600;margin-bottom:10px}
+  .hours-table{width:100%;border-collapse:collapse;font-size:17px}
+  .hours-table td{padding:9px 0;border-bottom:1px solid rgba(242,232,210,.25)}
+  .hours-table td:last-child{text-align:right;font-weight:600}
+  .hours-table tr.today td{color:#ffd98a;font-weight:700}
+  .hours-note{font-size:14.5px;color:#c9b891;margin-top:12px;font-style:italic}
+  .hours-side p{color:#dccdaa;margin-bottom:12px}
+
+  /* interwoven books + café — alternating editorial columns */
+  .spread{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink);border-radius:4px;overflow:hidden;margin-top:10px}
+  .spread > div{padding:36px 34px}
+  .spread .books{background:var(--cream)}
+  .spread .cafe{background:var(--paper);border-left:1px solid var(--ink)}
+  .spread h3{font-size:28px;font-weight:700;margin-bottom:12px}
+  .spread h3 .n{color:var(--rust);font-weight:400;font-style:italic}
+  .spread p{color:var(--brown-deep);margin-bottom:12px}
+  .menu-list{list-style:none;margin-top:16px}
+  .menu-list li{padding:10px 0;border-bottom:1px dotted var(--line);display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+  .menu-list li b{font-weight:600}
+  .menu-list li span{font-size:14px;color:var(--muted);font-style:italic;white-space:nowrap}
+  .menu-foot{font-size:14.5px;color:var(--muted);font-style:italic;margin-top:14px}
+  .pullquote{border-left:4px solid var(--rust);padding:6px 0 6px 20px;font-style:italic;font-size:20px;color:var(--brown-deep);margin:18px 0}
+
+  /* events — ledger style */
+  .events{background:var(--cream);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+  .event-row{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .event-row:last-child{border-bottom:0}
+  .event-day{font-family:'Special Elite',monospace;font-size:15px;color:var(--rust);text-transform:uppercase;letter-spacing:.08em}
+  .event-row h3{font-size:24px;font-weight:700;margin-bottom:6px}
+  .event-row p{color:var(--brown-deep);max-width:60ch}
+
+  /* hosts */
+  .hosts{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .hosts blockquote{font-size:22px;font-style:italic;color:var(--brown-deep);border-left:4px solid var(--rust);padding-left:22px}
+
+  /* contact — email-first, no phone */
+  .contact{background:var(--ink);color:#e9dfc9}
+  .contact .sec-label{color:#d8b98a}
+  .contact h2.sec{color:#fff}
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;margin-top:24px}
+  .mail-big{font-family:'Fraunces';font-size:clamp(22px,3.4vw,32px);font-weight:600;color:#fff;text-decoration:none;border-bottom:2px solid var(--rust);word-break:break-all}
+  .mail-big:hover{color:#ffd98a}
+  .contact p{color:#bfae8d;margin-top:14px;max-width:52ch}
+  .addr{border-left:2px solid var(--rust);padding-left:20px}
+  .addr h4{font-family:'Fraunces';font-size:20px;color:#fff;margin-bottom:6px}
+  .addr p{margin:0}
+
+  footer{background:#14100a;color:#8d7d62;font-size:14px}
+  footer .wrap{padding-top:28px;padding-bottom:32px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer a{color:#e9dfc9;text-decoration:none}
+  .concept{font-style:italic;color:#6b5c44}
+
+  @media(max-width:840px){
+    nav.links,.nav-mail{display:none}
+    .burger{display:block}
+    nav.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;padding:18px 22px;gap:16px;border-bottom:1px solid var(--ink)}
+    .stamp{position:static;transform:rotate(-3deg);display:inline-block;margin-top:22px}
+    .hours-plate{grid-template-columns:1fr}
+    .spread{grid-template-columns:1fr}
+    .spread .cafe{border-left:0;border-top:1px solid var(--ink)}
+    .hosts,.contact-grid{grid-template-columns:1fr}
+    .event-row{grid-template-columns:1fr;gap:6px}
+    section{padding:44px 0}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="masthead-top">
+  <div class="wrap">
+    <span>Books · Coffee · Grand River</span>
+    <span><a href="#events">Vodka Fridays</a> · Takeout window open</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Dog-Eared Café home">
+      <span class="name">Dog-Eared <em>Café</em></span>
+      <span class="tag">Bookshop · Paris Ontario</span>
+    </a>
+    <nav class="links" id="navlinks">
+      <a href="#hours">Hours</a>
+      <a href="#shelves">Books &amp; café</a>
+      <a href="#events">Events</a>
+      <a href="#hosts">Your hosts</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-mail" href="mailto:dogearedcafe@gmail.com">Email us</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top" style="padding-top:0;padding-bottom:0">
+  <div class="wrap">
+    <div class="dateline"><span>Paris, Ontario</span><span>On the Grand River</span><span>Est. in the book stacks</span></div>
+    <h1>A bookshop you can <em>sit down</em> in.</h1>
+    <p class="standfirst">The Dog-Eared Café is half bookshop, half café, all the way on the Grand River in Paris, Ontario. Browse the shelves, then stay for a maple oat latte and a breakfast croissant.</p>
+    <div class="stamp">Takeout<br>window<br>open</div>
+    <div class="hero-foot">
+      <a class="btn-mail" href="mailto:dogearedcafe@gmail.com">Email the café</a>
+      <a class="btn-ghost" href="#shelves">See the menu</a>
+    </div>
+  </div>
+</section>
+
+<section id="hours" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="hours-plate">
+      <div>
+        <div class="kicker2">When to come by</div>
+        <h2 class="sec">Open hours</h2>
+        <p class="hours-note">Today's row is highlighted — hours per the café's Google listing.</p>
+      </div>
+      <div class="hours-side">
+        <table class="hours-table" id="hoursTable">
+          <tr data-days="1,2,3,4"><td>Monday – Thursday</td><td>8:00 AM – 6:00 PM</td></tr>
+          <tr data-days="5"><td>Friday</td><td>8:00 AM – 10:00 PM</td></tr>
+          <tr data-days="0,6"><td>Saturday – Sunday</td><td>8:00 AM – 6:00 PM</td></tr>
+        </table>
+        <p class="hours-note">Fridays run late for Vodka Fridays — see below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="shelves">
+  <div class="wrap">
+    <div class="sec-label">Two rooms, one visit</div>
+    <h2 class="sec">Browse, then stay for lunch</h2>
+    <div class="spread">
+      <div class="books">
+        <h3><span class="n">i.</span> The shelves</h3>
+        <p>A proper little bookshop — new and secondhand finds, staff picks, and the kind of browsing where you came in for one book and leave with four.</p>
+        <div class="pullquote">"Inexpensive" is the word regulars use — and they mean it as a compliment.</div>
+        <p>Ask Darren or Jeanette what's good this week. They'll have an opinion, and it'll be right.</p>
+      </div>
+      <div class="cafe">
+        <h3><span class="n">ii.</span> The café</h3>
+        <p>Coffee, breakfast, and lunch from a kitchen that regulars swear by. A few favourites from the reviews:</p>
+        <ul class="menu-list">
+          <li><b>Maple oat latte</b><span>a house favourite</span></li>
+          <li><b>Breakfast croissants</b><span>mornings</span></li>
+          <li><b>Dill chickpea salad sandwich</b><span>lunch</span></li>
+          <li><b>Hot honey hummus</b><span>to share</span></li>
+          <li><b>Chili nachos</b><span>to share</span></li>
+          <li><b>Decadent hot chocolate</b><span>any weather</span></li>
+        </ul>
+        <p class="menu-foot">See the in-store menu for today's full selection and prices.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="wrap">
+    <div class="sec-label">Mark the calendar</div>
+    <h2 class="sec">Happenings at the café</h2>
+    <hr class="rule">
+    <div class="event-row">
+      <div class="event-day">Fridays</div>
+      <div>
+        <h3>Vodka Fridays</h3>
+        <p>The café stays open late on Fridays — until 10 PM — for its Vodka Fridays evenings. Come for the books, stay for the night.</p>
+      </div>
+    </div>
+    <div class="event-row">
+      <div class="event-day">Daily</div>
+      <div>
+        <h3>The takeout window</h3>
+        <p>In a hurry? Grab your coffee and lunch to go from the takeout window — no need to find a table.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hosts">
+  <div class="wrap">
+    <div class="sec-label">Your hosts</div>
+    <h2 class="sec">Darren &amp; Jeanette</h2>
+    <div class="hosts" style="margin-top:20px">
+      <blockquote>"This is the kind of place where the owners remember your order and your reading list."</blockquote>
+      <div>
+        <p style="color:var(--brown-deep)">Darren and Jeanette run the Dog-Eared Café the way a neighbourhood bookshop-café should be run: personally. They host, they recommend, they're behind the counter — and regulars come back as much for them as for the coffee.</p>
+        <p style="margin-top:12px"><a href="mailto:dogearedcafe@gmail.com" style="color:var(--rust);font-weight:600">Say hello by email →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-label">Get in touch</div>
+    <h2 class="sec">No phone, no problem</h2>
+    <div class="contact-grid">
+      <div>
+        <p style="margin-top:0">The café deliberately keeps things email-first — no public phone line. Write to them and they'll get back to you:</p>
+        <p style="margin-top:18px"><a class="mail-big" href="mailto:dogearedcafe@gmail.com">dogearedcafe@gmail.com</a></p>
+      </div>
+      <div class="addr">
+        <h4>Find the café</h4>
+        <p>121 Grand River St N<br>Paris, ON N3L 2R2<br>On the Grand River</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Dog-Eared Café · 121 Grand River St N, Paris ON · <a href="mailto:dogearedcafe@gmail.com">dogearedcafe@gmail.com</a></div>
+    <div class="concept">Concept preview</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger').addEventListener('click',function(){
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navlinks a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});
+  });
+  // highlight today's hours row
+  (function(){
+    var d=new Date().getDay();
+    document.querySelectorAll('#hoursTable tr').forEach(function(tr){
+      var days=tr.dataset.days.split(',').map(Number);
+      if(days.indexOf(d)>-1){tr.classList.add('today');}
+    });
+  })();
+</script>
+</body>
+</html>

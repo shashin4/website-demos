@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit 'N' Ka-Poodle — Dog &amp; Cat Grooming, Oshawa ON</title>
+<meta name="description" content="Kit 'N' Ka-Poodle — family-owned dog and cat grooming at 104 Bloor St E, Oshawa, for 15+ years. 4.8 stars. Call (905) 436-1715 to book with Sharon or Tiffany.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#ee5f45; --coral-deep:#c94a32; --coral-soft:#fdeee8;
+    --butter:#ffd166; --butter-soft:#fff6df;
+    --cream:#fffaf3; --paper:#fffdf8;
+    --ink:#33261f; --muted:#7a6a5f; --line:#ecdcc8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Quicksand',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+  h1,h2,h3{font-family:'Baloo 2',cursive;text-wrap:balance;line-height:1.08;font-weight:700}
+  a{color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  .util{background:var(--ink);color:#fff;font-size:13.5px;font-weight:600}
+  .util .wrap{display:flex;justify-content:space-between;gap:10px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+  .util a{color:var(--butter);text-decoration:none;font-weight:700}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:3px solid var(--butter)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand-badge{width:46px;height:46px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:'Baloo 2';font-weight:800;font-size:15px;line-height:1;text-align:center;flex:none;transform:rotate(-8deg)}
+  .brand-name{font-family:'Baloo 2';font-weight:800;font-size:22px;line-height:1.05}
+  .brand-name small{display:block;font-family:'Quicksand';font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--coral);text-transform:uppercase}
+  nav.links{display:flex;gap:24px}
+  nav.links a{text-decoration:none;font-weight:700;font-size:15.5px}
+  nav.links a:hover{color:var(--coral-deep)}
+  .nav-call{background:var(--coral);color:#fff;text-decoration:none;font-weight:700;padding:10px 22px;border-radius:24px;font-size:15.5px}
+  .nav-call:hover{background:var(--coral-deep)}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{display:block;width:26px;height:3px;background:var(--ink);margin:5px 0;border-radius:2px}
+
+  /* hero — big personality type on butter wash */
+  .hero{background:var(--butter-soft);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-70px;right:-70px;width:260px;height:260px;background:var(--butter);border-radius:50%;opacity:.5}
+  .hero::after{content:"";position:absolute;bottom:-90px;left:8%;width:170px;height:170px;background:var(--coral);border-radius:50%;opacity:.14}
+  .hero .wrap{position:relative;padding-top:64px;padding-bottom:70px;max-width:1100px}
+  .hero h1{font-size:clamp(42px,7vw,78px);font-weight:800}
+  .hero h1 .w1{color:var(--coral)}
+  .hero .lede{font-size:19px;color:var(--muted);margin-top:14px;max-width:54ch;font-weight:500}
+  .hero-meta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap;align-items:center}
+  .stars{background:#fff;border:2px solid var(--line);border-radius:24px;padding:8px 18px;font-weight:700;font-size:15px}
+  .stars .n{color:var(--coral);letter-spacing:2px}
+  .fam{background:var(--ink);color:#fff;border-radius:24px;padding:8px 18px;font-weight:700;font-size:15px}
+  .hero-btns{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+  .btn-call{background:var(--coral);color:#fff;text-decoration:none;font-weight:700;padding:14px 30px;border-radius:30px;font-size:17px;display:inline-block;box-shadow:0 6px 0 var(--coral-deep)}
+  .btn-call:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--coral-deep)}
+  .btn-ghost{border:2.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:700;padding:12px 28px;border-radius:30px;font-size:17px;display:inline-block}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+
+  section{padding:62px 0}
+  .kicker{color:var(--coral-deep);font-weight:700;letter-spacing:.2em;font-size:13px;text-transform:uppercase;margin-bottom:10px}
+  h2.sec{font-size:clamp(30px,4.4vw,46px);margin-bottom:8px}
+  .sec-sub{color:var(--muted);max-width:62ch;margin-bottom:32px}
+
+  /* groomers — personality-first, editorial two-up */
+  .groomers{background:var(--coral-soft)}
+  .g-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+  .g-card{background:#fff;border-radius:26px;padding:30px;border:2px solid var(--line);position:relative;overflow:hidden}
+  .g-card::before{content:"";position:absolute;top:0;left:0;right:0;height:10px;background:var(--butter)}
+  .g-card.alt::before{background:var(--coral)}
+  .g-mono{width:74px;height:74px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:'Baloo 2';font-weight:800;font-size:32px;margin-bottom:16px}
+  .g-card.alt .g-mono{background:var(--ink)}
+  .g-card h3{font-size:30px;font-weight:700}
+  .g-card .role{font-weight:700;color:var(--coral-deep);font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+  .g-card p{color:var(--muted);font-size:16px}
+  .book-line{margin-top:26px;background:#fff;border:2px dashed var(--coral);border-radius:18px;padding:20px 24px;font-size:18px;font-weight:600;text-align:center}
+  .book-line a{color:var(--coral-deep);font-weight:700;text-decoration:none;border-bottom:2px solid var(--butter)}
+
+  /* services — friendly price-board list */
+  .svc-board{background:#fff;border:3px solid var(--ink);border-radius:22px;overflow:hidden}
+  .svc-head{background:var(--ink);color:#fff;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .svc-head h3{font-size:26px}
+  .svc-head span{font-weight:600;font-size:14.5px;color:var(--butter)}
+  .svc-item{display:grid;grid-template-columns:1fr auto;gap:2px 18px;padding:18px 28px;border-bottom:2px dotted var(--line);align-items:baseline}
+  .svc-item:last-child{border-bottom:0}
+  .svc-item b{font-family:'Baloo 2';font-size:21px;font-weight:700}
+  .svc-item p{grid-column:1;color:var(--muted);font-size:15.5px}
+  .svc-item .price{font-weight:700;color:var(--coral-deep);white-space:nowrap;background:var(--coral-soft);padding:6px 14px;border-radius:16px;font-size:14.5px}
+
+  /* request form — butter card */
+  .req{background:var(--butter-soft)}
+  .req-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+  .req-copy p{color:var(--muted);margin-bottom:12px}
+  form.reqf{background:#fff;border:3px solid var(--ink);border-radius:22px;padding:28px}
+  form.reqf h3{font-size:26px;margin-bottom:4px}
+  .form-sub{font-size:14px;color:var(--muted);margin-bottom:14px}
+  label{display:block;font-size:12.5px;font-weight:700;margin:12px 0 5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+  input,select,textarea{width:100%;padding:12px 14px;border:2px solid var(--line);border-radius:12px;font:inherit;font-size:16px;background:var(--paper)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--coral);border-color:var(--coral)}
+  textarea{min-height:88px;resize:vertical}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .btn-submit{background:var(--coral);color:#fff;border:0;font:inherit;font-weight:700;font-size:17px;padding:15px;border-radius:30px;width:100%;margin-top:18px;cursor:pointer;box-shadow:0 5px 0 var(--coral-deep)}
+  .btn-submit:hover{background:var(--coral-deep)}
+  .fnote{font-size:13px;color:var(--muted);margin-top:10px}
+  .fok{display:none;background:#eaf7e4;border:2px solid #4c9a4c;border-radius:14px;padding:20px;font-weight:700}
+
+  /* visit */
+  .visit{background:var(--ink);color:#f3ead9}
+  .visit .kicker{color:var(--butter)}
+  .visit h2.sec{color:#fff}
+  .visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:28px}
+  .visit-card{background:#241b15;border-radius:20px;padding:28px}
+  .visit-card h3{font-size:24px;color:var(--butter);margin-bottom:10px}
+  .visit-card p{color:#cbbfa8;margin-bottom:6px}
+  .visit-card a.tel{font-family:'Baloo 2';font-weight:800;font-size:34px;color:#fff;text-decoration:none}
+  .visit-card a.tel:hover{color:var(--butter)}
+  .hours-line{margin-top:14px;background:#2f241b;border:2px dashed var(--butter);border-radius:12px;padding:14px 16px;font-weight:600}
+  .hours-line a{color:var(--butter);font-weight:700}
+
+  footer{background:#1c140f;color:#a89a83;font-size:14px}
+  footer .wrap{padding-top:28px;padding-bottom:32px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer a{color:#f3ead9;text-decoration:none;font-weight:700}
+  .concept{font-style:italic;color:#7d6f58}
+
+  .tapcall{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:var(--coral);color:#fff;text-align:center;font-weight:700;font-size:18px;text-decoration:none;padding:15px;border-radius:24px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  @media(max-width:840px){
+    nav.links,.nav-call{display:none}
+    .burger{display:block}
+    nav.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;padding:18px 20px;gap:16px;border-bottom:3px solid var(--butter)}
+    .g-grid,.req-grid,.visit-grid,.frow{grid-template-columns:1fr}
+    .tapcall{display:block}
+    footer .wrap{padding-bottom:96px}
+    section{padding:46px 0}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="wrap">
+    <span>Family-owned · same Oshawa shop for 15+ years</span>
+    <a href="tel:+19054361715">(905) 436-1715</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Kit 'N' Ka-Poodle home">
+      <span class="brand-badge">K'N<br>K</span>
+      <span class="brand-name">Kit 'N' Ka-Poodle<small>Oshawa grooming</small></span>
+    </a>
+    <nav class="links" id="navlinks">
+      <a href="#groomers">Our groomers</a>
+      <a href="#services">Services</a>
+      <a href="#request">Book</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="nav-call" href="tel:+19054361715">Call to book</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top" style="padding:0">
+  <div class="wrap">
+    <h1>Good <span class="w1">dogs</span> (and cats) leave here looking <span class="w1">great.</span></h1>
+    <p class="lede">Kit 'N' Ka-Poodle is a family-owned grooming shop at 104 Bloor St E in Oshawa — the same little shop, same caring hands, for over 15 years. Dogs and cats welcome.</p>
+    <div class="hero-meta">
+      <span class="stars"><span class="n">★★★★★</span> 4.8 · 46 Google reviews</span>
+      <span class="fam">Family-owned 15+ years</span>
+    </div>
+    <div class="hero-btns">
+      <a class="btn-call" href="tel:+19054361715">Call (905) 436-1715</a>
+      <a class="btn-ghost" href="#request">Request an appointment</a>
+    </div>
+  </div>
+</section>
+
+<section class="groomers" id="groomers">
+  <div class="wrap">
+    <div class="kicker">The people behind the scissors</div>
+    <h2 class="sec">Meet your groomers</h2>
+    <p class="sec-sub">This is a small shop on purpose — your pet is groomed by someone who knows them by name, not passed down an assembly line.</p>
+    <div class="g-grid">
+      <div class="g-card">
+        <div class="g-mono">S</div>
+        <div class="role">Groomer</div>
+        <h3>Sharon</h3>
+        <p>One half of the Kit 'N' Ka-Poodle team. Call the shop and ask for Sharon by name when you book — she'll remember your dog's quirks better than you do.</p>
+      </div>
+      <div class="g-card alt">
+        <div class="g-mono">T</div>
+        <div class="role">Groomer</div>
+        <h3>Tiffany</h3>
+        <p>The other half of the team, grooming alongside Sharon for years. Ask for Tiffany when you call — she has a soft spot for the nervous first-timers.</p>
+      </div>
+    </div>
+    <div class="book-line">📞 Call and book an appointment with <a href="tel:+19054361715">Sharon or Tiffany</a> — (905) 436-1715</div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="kicker">Services</div>
+    <h2 class="sec">What we do, at competitive prices</h2>
+    <p class="sec-sub">Full grooming for dogs and cats of all breeds. Final pricing depends on size, breed, and coat condition — call for an exact quote.</p>
+    <div class="svc-board">
+      <div class="svc-head"><h3>Grooming services</h3><span>Dogs &amp; cats · all breeds</span></div>
+      <div class="svc-item"><b>Full groom</b><span class="price">Call for pricing</span><p>Bath, haircut to breed standard or your preference, nails, ears.</p></div>
+      <div class="svc-item"><b>Bath &amp; brush-out</b><span class="price">Call for pricing</span><p>Bath, blow-dry, thorough brush-out — between full grooms.</p></div>
+      <div class="svc-item"><b>Poodle &amp; doodle cuts</b><span class="price">Call for pricing</span><p>Our namesake specialty — curly coats done right.</p></div>
+      <div class="svc-item"><b>Cat grooming</b><span class="price">Call for pricing</span><p>Patient, gentle grooming for cats, including long-haired breeds.</p></div>
+      <div class="svc-item"><b>Nail trim</b><span class="price">Call for pricing</span><p>Quick trim — call ahead and we'll fit you in.</p></div>
+      <div class="svc-item"><b>De-matting &amp; de-shedding</b><span class="price">Call for pricing</span><p>For the coats that got away from you this season. No judgment.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="req" id="request">
+  <div class="wrap">
+    <div class="kicker">Book</div>
+    <h2 class="sec">Request an appointment</h2>
+    <div class="req-grid">
+      <div class="req-copy">
+        <p>Send us a request and we'll call you back to confirm a time with Sharon or Tiffany.</p>
+        <p>In a hurry, or booking for today? Calling is fastest: <a href="tel:+19054361715" style="font-weight:700;color:var(--coral-deep)">(905) 436-1715</a>.</p>
+      </div>
+      <div>
+        <form class="reqf" id="reqForm" novalidate>
+          <h3>Appointment request</h3>
+          <p class="form-sub">A request, not a booking — we confirm by phone.</p>
+          <div class="frow">
+            <div><label for="rname">Your name</label><input id="rname" name="name" required autocomplete="name"></div>
+            <div><label for="rphone">Phone</label><input id="rphone" name="phone" type="tel" required autocomplete="tel"></div>
+          </div>
+          <div class="frow">
+            <div><label for="rpet">Pet's name &amp; breed</label><input id="rpet" name="pet" required placeholder="e.g. Biscuit, cockapoo"></div>
+            <div><label for="rgroomer">Preferred groomer</label><select id="rgroomer" name="groomer"><option>No preference</option><option>Sharon</option><option>Tiffany</option></select></div>
+          </div>
+          <label for="rsvc">Service</label>
+          <select id="rsvc" name="service"><option>Full groom</option><option>Bath &amp; brush-out</option><option>Poodle &amp; doodle cut</option><option>Cat grooming</option><option>Nail trim</option><option>De-matting &amp; de-shedding</option></select>
+          <button class="btn-submit" type="submit">Send request</button>
+          <p class="fnote">Concept preview: on the live site this sends your request to the shop.</p>
+          <div class="fok" id="reqOk" role="status">Thanks — your request is noted. We'll call you back to confirm a time. (Demo confirmation.)</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="kicker">Visit</div>
+    <h2 class="sec">Same shop, 15+ years running</h2>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <h3>Find us</h3>
+        <p>104 Bloor St E<br>Oshawa, ON L1H 3M2</p>
+        <div class="hours-line">Hours: call for current hours — <a href="tel:+19054361715">(905) 436-1715</a></div>
+      </div>
+      <div class="visit-card">
+        <h3>Call to book</h3>
+        <a class="tel" href="tel:+19054361715">(905) 436-1715</a>
+        <p style="margin-top:8px">Ask for Sharon or Tiffany by name.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Kit 'N' Ka-Poodle · 104 Bloor St E, Oshawa ON · <a href="tel:+19054361715">(905) 436-1715</a></div>
+    <div class="concept">Concept preview</div>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+19054361715">📞 Call Kit 'N' Ka-Poodle</a>
+
+<script>
+  document.getElementById('burger').addEventListener('click',function(){
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navlinks a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});
+  });
+  document.getElementById('reqForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=e.target;
+    if(!f.name.value.trim()||!f.phone.value.trim()||!f.pet.value.trim()){alert('Please fill in your name, phone, and pet.');return;}
+    f.querySelectorAll('input,select,button,.form-sub,.fnote').forEach(function(el){el.style.display='none';});
+    document.getElementById('reqOk').style.display='block';
+  });
+</script>
+</body>
+</html>

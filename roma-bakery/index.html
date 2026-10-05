@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roma Bakery — Stoney Creek | Est. 1952</title>
+<meta name="description" content="Roma Bakery, Stoney Creek's neighbourhood bakery since 1952. Home of Hamilton's famous slab pizza, a fresh hot table, deli and catering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#B23A28;
+    --red-deep:#8E2B1D;
+    --cream:#F7F0E1;
+    --cream-deep:#EFE3CB;
+    --brown:#2E2018;
+    --brown-soft:#5A4634;
+    --ink:#2E2018;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.slab{font-family:'Alfa Slab One',serif;font-weight:400;line-height:1.15;text-wrap:balance}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  a{color:inherit}
+
+  /* utility hours strip */
+  .utility{background:var(--brown);color:var(--cream);font-size:.82rem;letter-spacing:.02em}
+  .utility .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+  .utility b{font-weight:700;color:#F4D9A0}
+  .utility a.tel{color:#F4D9A0;text-decoration:none;font-weight:700}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(247,240,225,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2px solid var(--brown)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+  .brand{font-family:'Alfa Slab One',serif;font-size:1.35rem;color:var(--red);text-decoration:none;letter-spacing:.01em}
+  .brand small{font-family:'Karla',sans-serif;font-weight:700;font-size:.68rem;color:var(--brown-soft);display:block;letter-spacing:.28em;margin-top:2px}
+  nav.links{display:flex;gap:28px;align-items:center}
+  nav.links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--brown)}
+  nav.links a:hover{color:var(--red)}
+  nav.links a.cta{background:var(--red);color:var(--cream);padding:10px 20px;border-radius:4px;text-decoration:none;font-weight:700}
+  nav.links a.cta:hover{background:var(--red-deep);color:#fff}
+  .hamburger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .hamburger span{display:block;width:26px;height:3px;background:var(--brown);margin:5px 0;border-radius:2px}
+  @media(max-width:760px){
+    .hamburger{display:block}
+    nav.links{position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;align-items:stretch;gap:0;display:none;border-bottom:2px solid var(--brown)}
+    nav.links.open{display:flex}
+    nav.links a{padding:14px 22px;border-top:1px solid var(--cream-deep)}
+    nav.links a.cta{margin:12px 22px;text-align:center}
+  }
+
+  /* hero */
+  .hero{background:var(--red);color:var(--cream);position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent 0 26px,rgba(0,0,0,.05) 26px 28px);pointer-events:none}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:36px;padding:64px 22px 72px;align-items:center}
+  .est-badge{display:inline-block;background:var(--brown);color:#F4D9A0;font-weight:700;font-size:.78rem;letter-spacing:.22em;padding:8px 16px;border-radius:4px;margin-bottom:18px}
+  .hero h1{font-size:clamp(2.2rem,5.5vw,3.9rem);color:#FFF7E6;margin-bottom:16px}
+  .hero p.lede{font-size:1.12rem;max-width:34rem;color:#FBEEDC;margin-bottom:28px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:4px;font-size:1rem}
+  .btn.brown{background:var(--brown);color:var(--cream)}
+  .btn.outline{border:2px solid var(--cream);color:var(--cream)}
+  .btn.brown:hover{background:#1f150f}
+  .btn.outline:hover{background:rgba(255,255,255,.12)}
+  .hero-side{background:var(--brown);color:var(--cream);border-radius:10px;padding:28px;position:relative;z-index:1}
+  .hero-side h3{font-family:'Karla',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.2em;color:#F4D9A0;margin-bottom:14px}
+  .hero-side ul{list-style:none}
+  .hero-side li{padding:9px 0;border-bottom:1px dashed rgba(247,240,225,.25);font-size:.98rem;display:flex;justify-content:space-between;gap:10px}
+  .hero-side li:last-child{border-bottom:0}
+  .hero-side li b{color:#F4D9A0;white-space:nowrap}
+  @media(max-width:760px){.hero .wrap{grid-template-columns:1fr}}
+
+  /* specials board */
+  .specials{background:var(--brown);color:var(--cream)}
+  .specials .wrap{padding:64px 22px}
+  .board{border:3px solid #F4D9A0;border-radius:12px;padding:40px 34px;position:relative;background:#241911}
+  .board h2{color:#F4D9A0;font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:6px}
+  .board .tape{position:absolute;top:-16px;left:50%;transform:translateX(-50%) rotate(-2deg);background:var(--red);color:var(--cream);font-weight:700;font-size:.8rem;letter-spacing:.18em;padding:6px 18px;border-radius:3px}
+  .board p{color:#E9DCC3;max-width:38rem;margin:14px 0 22px}
+  .board .ask{display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:rgba(178,58,40,.16);border:1px dashed #F4D9A0;border-radius:8px;padding:20px 24px}
+  .board .ask p{margin:0;font-size:1.05rem}
+  .board .ask .btn{background:var(--red);color:#fff;white-space:nowrap}
+
+  /* counters */
+  .counters .wrap{padding:64px 22px}
+  .counters h2{font-size:clamp(1.7rem,4vw,2.6rem);color:var(--red-deep);margin-bottom:8px}
+  .counters .intro{color:var(--brown-soft);max-width:36rem;margin-bottom:30px}
+  .counter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--brown);border-radius:10px;overflow:hidden}
+  .counter{padding:30px 26px;background:var(--cream)}
+  .counter:nth-child(2){background:var(--cream-deep);border-left:2px solid var(--brown);border-right:2px solid var(--brown)}
+  .counter .num{font-family:'Alfa Slab One',serif;color:var(--red);font-size:2rem;margin-bottom:8px}
+  .counter h3{font-family:'Karla',sans-serif;font-weight:700;font-size:1.15rem;margin-bottom:8px}
+  .counter p{font-size:.95rem;color:var(--brown-soft)}
+  @media(max-width:760px){.counter-grid{grid-template-columns:1fr}.counter:nth-child(2){border-left:0;border-right:0;border-top:2px solid var(--brown);border-bottom:2px solid var(--brown)}}
+
+  /* story — editorial zigzag */
+  .story{background:var(--cream-deep)}
+  .story .wrap{padding:72px 22px;display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+  .year{font-family:'Alfa Slab One',serif;font-size:clamp(4rem,12vw,8rem);color:var(--red);line-height:1;opacity:.9}
+  .year-sub{font-weight:700;letter-spacing:.3em;font-size:.8rem;color:var(--brown-soft);margin:6px 0 0}
+  .story h2{font-size:clamp(1.7rem,4vw,2.4rem);color:var(--brown);margin-bottom:16px}
+  .story p{margin-bottom:14px;color:var(--brown-soft)}
+  .story p strong{color:var(--brown)}
+  @media(max-width:760px){.story .wrap{grid-template-columns:1fr;gap:24px}}
+
+  /* visit */
+  .visit .wrap{padding:64px 22px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px}
+  .visit h2{font-size:clamp(1.7rem,4vw,2.4rem);color:var(--red-deep);margin-bottom:16px}
+  .visit address{font-style:normal;font-size:1.1rem;margin-bottom:20px}
+  .hours{border:2px solid var(--brown);border-radius:10px;overflow:hidden}
+  .hours h3{background:var(--brown);color:#F4D9A0;font-family:'Karla',sans-serif;font-weight:700;letter-spacing:.15em;font-size:.85rem;padding:12px 20px}
+  .hours ul{list-style:none}
+  .hours li{display:flex;justify-content:space-between;padding:12px 20px;border-bottom:1px solid var(--cream-deep);font-weight:500}
+  .hours li:last-child{border-bottom:0}
+  .hours li.closed{color:var(--red-deep);font-weight:700}
+  .visit .actions{margin-top:24px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn.red{background:var(--red);color:#fff}
+  .btn.ghost{border:2px solid var(--brown);color:var(--brown)}
+  @media(max-width:760px){.visit .wrap{grid-template-columns:1fr}}
+
+  footer{background:var(--brown);color:#D9CBB2}
+  footer .wrap{padding:36px 22px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  footer .concept{font-size:.8rem;opacity:.75}
+  footer .fbrand{font-family:'Alfa Slab One',serif;color:var(--cream);font-size:1.1rem}
+
+  /* persistent mobile call button */
+  .tap-call{display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:60;background:var(--red);color:#fff;text-align:center;text-decoration:none;font-weight:700;font-size:1.05rem;padding:15px;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.28)}
+  @media(max-width:760px){.tap-call{display:block}body{padding-bottom:76px}}
+
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="wrap">
+    <span>Tue–Sat <b>8 AM – 6 PM</b> &nbsp;·&nbsp; Sun <b>8 AM – 5 PM</b> &nbsp;·&nbsp; Closed Mondays</span>
+    <a class="tel" href="tel:+19056623900">(905) 662-3900</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Roma Bakery<small>STONEY CREEK · EST. 1952</small></a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('nav.links').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <nav class="links">
+      <a href="#specials">This Month</a>
+      <a href="#counters">Hot Table &amp; Deli</a>
+      <a href="#story">Our Story</a>
+      <a href="#visit">Visit</a>
+      <a class="cta" href="tel:+19056623900">Call the Bakery</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="est-badge">EST. 1952 — THREE GENERATIONS</span>
+        <h1>Hamilton&rsquo;s famous slab pizza, baked fresh every morning.</h1>
+        <p class="lede">Roma Bakery has been Stoney Creek&rsquo;s neighbourhood bakery for over seventy years — slab pizza by the tray, a hot table at lunch, and a deli counter the regulars plan their week around.</p>
+        <div class="hero-cta">
+          <a class="btn brown" href="#specials">See this month&rsquo;s special</a>
+          <a class="btn outline" href="https://www.google.com/maps/search/?api=1&query=Roma+Bakery+233+Barton+St+Stoney+Creek+ON">Get directions</a>
+        </div>
+      </div>
+      <aside class="hero-side" aria-label="Today at the bakery">
+        <h3>TODAY AT THE BAKERY</h3>
+        <ul>
+          <li><span>Slab pizza, fresh from the oven</span><b>daily</b></li>
+          <li><span>Hot table at lunch</span><b>Tue–Sun</b></li>
+          <li><span>Deli counter</span><b>all day</b></li>
+          <li><span>Catering platters</span><b>call ahead</b></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="specials" id="specials">
+    <div class="wrap">
+      <div class="board">
+        <span class="tape">FRESH OFF THE CHALKBOARD</span>
+        <h2>This month at the counter</h2>
+        <p>Every month there&rsquo;s something new coming out of our ovens — a seasonal special, a holiday tray, or a deal the regulars ask about by name. The board changes, so the best way to catch it is to ask.</p>
+        <div class="ask">
+          <p><strong>Ask in-store about this month&rsquo;s special</strong> — or call ahead and we&rsquo;ll tell you what&rsquo;s on the board today.</p>
+          <a class="btn" href="tel:+19056623900">Call (905) 662-3900</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="counters" id="counters">
+    <div class="wrap">
+      <h2>Three counters, one roof</h2>
+      <p class="intro">Most bakeries do one thing. Roma does lunch, dinner prep, and the weekend spread — all before 6 PM.</p>
+      <div class="counter-grid">
+        <div class="counter">
+          <div class="num">01</div>
+          <h3>The bakery</h3>
+          <p>Slab pizza by the tray or the slice, fresh bread, and baked goods made the way they&rsquo;ve been made here since 1952.</p>
+        </div>
+        <div class="counter">
+          <div class="num">02</div>
+          <h3>The hot table</h3>
+          <p>Hot trays ready at lunch, Tuesday through Sunday. Call in the morning if you want a full tray set aside — it goes fast.</p>
+        </div>
+        <div class="counter">
+          <div class="num">03</div>
+          <h3>The deli &amp; catering</h3>
+          <p>Sliced meats and cheeses at the deli counter, and catering platters for family gatherings — call ahead and we&rsquo;ll put it together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap">
+      <div>
+        <div class="year">1952</div>
+        <p class="year-sub">BAKING EVER SINCE</p>
+      </div>
+      <div>
+        <h2>A Stoney Creek original</h2>
+        <p>Roma Bakery opened its doors in <strong>1952</strong> and never really closed them — three generations later, it&rsquo;s still the same neighbourhood bakery on Barton Street.</p>
+        <p>Today it&rsquo;s run by <strong>Philip Di Filippo and his son Anthony</strong>, carrying on the recipes and the routine: early mornings, full ovens, and regulars who&rsquo;ve been coming in for decades.</p>
+        <p>That&rsquo;s why the slab pizza is famous. Not a trend — just seventy-plus years of doing the same thing right.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div>
+        <h2>Come hungry</h2>
+        <address>
+          <strong>Roma Bakery</strong><br>
+          233 Barton St, Stoney Creek, ON L8E 2K4<br>
+          <a href="tel:+19056623900">(905) 662-3900</a>
+        </address>
+        <div class="actions">
+          <a class="btn red" href="tel:+19056623900">Call the bakery</a>
+          <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Roma+Bakery+233+Barton+St+Stoney+Creek+ON">Get directions</a>
+        </div>
+      </div>
+      <div class="hours">
+        <h3>BAKERY HOURS</h3>
+        <ul>
+          <li><span>Tuesday – Saturday</span><b>8 AM – 6 PM</b></li>
+          <li><span>Sunday</span><b>8 AM – 5 PM</b></li>
+          <li class="closed"><span>Monday</span><b>Closed</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fbrand">Roma Bakery</span>
+    <span class="concept">Concept preview — 233 Barton St, Stoney Creek · (905) 662-3900</span>
+  </div>
+</footer>
+
+<a class="tap-call" href="tel:+19056623900">Call Roma Bakery</a>
+
+</body>
+</html>

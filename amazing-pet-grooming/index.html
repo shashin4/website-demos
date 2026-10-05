@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazing Pet Grooming — Cambridge &amp; Milton ON</title>
+<meta name="description" content="Amazing Pet Grooming — two friendly shops in Cambridge and Milton, ON. Grooming for dogs and cats. 20+ years team experience. 4.6 stars. Call your nearest shop to book.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0f7f7c; --teal-deep:#0a5f5d; --teal-soft:#dff0ee;
+    --sand:#f5ecdb; --sand-deep:#ecdfc4; --paper:#fdfbf5;
+    --ink:#23302e; --muted:#5f6f6c; --line:#ddd2ba;
+    --sun:#f2a93b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+  h1,h2,h3{font-family:'Fredoka',sans-serif;text-wrap:balance;line-height:1.08;font-weight:600}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+
+  .util{background:var(--teal-deep);color:#fff;font-size:13.5px;font-weight:700}
+  .util .wrap{display:flex;justify-content:space-between;gap:10px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+  .util a{color:var(--sand);text-decoration:none}
+  .util a:hover{color:#fff}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(253,251,245,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .paw{width:44px;height:44px;background:var(--teal);border-radius:50% 50% 46% 46%;display:grid;place-items:center;flex:none}
+  .brand-name{font-family:'Fredoka';font-weight:700;font-size:22px;line-height:1.05}
+  .brand-name small{display:block;font-family:'Nunito';font-size:11.5px;font-weight:800;letter-spacing:.2em;color:var(--teal);text-transform:uppercase}
+  nav.links{display:flex;gap:24px}
+  nav.links a{text-decoration:none;font-weight:800;font-size:15.5px}
+  nav.links a:hover{color:var(--teal)}
+  .nav-call{background:var(--teal);color:#fff;text-decoration:none;font-weight:800;padding:10px 20px;border-radius:24px;font-size:15.5px}
+  .nav-call:hover{background:var(--teal-deep)}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{display:block;width:26px;height:3px;background:var(--teal-deep);margin:5px 0;border-radius:2px}
+
+  /* hero — directory style, left aligned with big paw trail */
+  .hero{background:var(--sand);position:relative;overflow:hidden}
+  .hero .wrap{padding-top:56px;padding-bottom:60px;display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+  .hero h1{font-size:clamp(38px,6vw,66px);font-weight:700}
+  .hero h1 .hl{color:var(--teal)}
+  .hero .lede{font-size:18.5px;color:var(--muted);margin-top:14px;max-width:52ch}
+  .stars{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--line);border-radius:24px;padding:8px 16px;font-weight:800;font-size:15px;margin-top:20px}
+  .stars .n{color:var(--sun);letter-spacing:2px}
+  .shop-pick{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+  .shop-pick a{background:var(--teal);color:#fff;text-decoration:none;font-weight:800;padding:14px 22px;border-radius:14px;display:block;line-height:1.35}
+  .shop-pick a:hover{background:var(--teal-deep)}
+  .shop-pick a small{display:block;font-weight:700;font-size:13px;opacity:.85}
+  .paw-field{position:relative;min-height:220px}
+  .paw-field svg{position:absolute;opacity:.5}
+  .paw-field .big{position:relative;opacity:1;margin:0 auto;display:block}
+
+  /* locations — the heart of the directory */
+  section{padding:60px 0}
+  .kicker{color:var(--teal);font-weight:800;letter-spacing:.2em;font-size:13px;text-transform:uppercase;margin-bottom:10px}
+  h2.sec{font-size:clamp(30px,4.2vw,44px);margin-bottom:8px}
+  .sec-sub{color:var(--muted);max-width:64ch;margin-bottom:32px}
+
+  .loc{background:#fff;border:2px solid var(--line);border-radius:22px;overflow:hidden;margin-bottom:32px}
+  .loc-head{display:grid;grid-template-columns:1fr 1fr}
+  .loc-info{padding:34px 30px}
+  .loc-tag{display:inline-block;background:var(--teal-soft);color:var(--teal-deep);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:16px;margin-bottom:14px}
+  .loc-info h3{font-size:32px;font-weight:700;margin-bottom:6px}
+  .loc-info address{font-style:normal;color:var(--muted);margin-bottom:16px}
+  .hours{width:100%;border-collapse:collapse;font-size:15.5px;margin-bottom:16px}
+  .hours td{padding:7px 0;border-bottom:1px dashed var(--line)}
+  .hours td:last-child{text-align:right;font-weight:800}
+  .hours .closed{color:#b0432f}
+  .loc-tel{font-family:'Fredoka';font-weight:700;font-size:30px;color:var(--teal);text-decoration:none}
+  .loc-tel:hover{color:var(--teal-deep)}
+  .loc-form{background:var(--sand);padding:34px 30px;border-left:2px solid var(--line)}
+  .loc-form h4{font-family:'Fredoka';font-size:24px;font-weight:600;margin-bottom:4px}
+  .loc-form .fsub{font-size:14px;color:var(--muted);margin-bottom:14px}
+  label{display:block;font-size:12.5px;font-weight:800;margin:10px 0 4px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+  input,select,textarea{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;font:inherit;font-size:16px;background:#fff}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);border-color:var(--teal)}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .btn-req{background:var(--teal);color:#fff;border:0;font:inherit;font-weight:800;font-size:16px;padding:14px;border-radius:12px;width:100%;margin-top:16px;cursor:pointer}
+  .btn-req:hover{background:var(--teal-deep)}
+  .fnote{font-size:13px;color:var(--muted);margin-top:10px}
+  .fok{display:none;background:#e7f4ec;border:2px solid #3f8f5d;border-radius:12px;padding:18px;font-weight:700;margin-top:12px}
+  .loc:nth-child(odd) .loc-form{background:var(--teal-soft)}
+
+  /* services — dog/cat split rows */
+  .svc-wrap{background:var(--teal-deep);color:#eaf4f2}
+  .svc-wrap .kicker{color:var(--sun)}
+  .svc-wrap h2.sec{color:#fff}
+  .svc-wrap .sec-sub{color:#bcd6d2}
+  .pet-tabs{display:flex;gap:10px;margin-bottom:26px}
+  .pet-tab{border:2px solid #3d7a77;background:transparent;color:#eaf4f2;font:inherit;font-weight:800;font-size:16px;padding:10px 26px;border-radius:24px;cursor:pointer}
+  .pet-tab.active{background:var(--sun);border-color:var(--sun);color:#3a2a0a}
+  .svc-list{display:none}
+  .svc-list.active{display:block}
+  .svc-item{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-bottom:1px solid #2c6d6a;align-items:baseline}
+  .svc-item b{font-family:'Fredoka';font-size:21px;font-weight:600}
+  .svc-item p{grid-column:1;color:#bcd6d2;font-size:15.5px}
+  .svc-item .price{font-weight:800;color:var(--sun);white-space:nowrap}
+  .svc-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+  .svc-cta a{color:#fff;font-weight:800;text-decoration:none;border-bottom:2px solid var(--sun)}
+
+  /* experience strip */
+  .exp{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .exp div{background:#fff;border:2px solid var(--line);border-radius:16px;padding:24px}
+  .exp .num{font-family:'Fredoka';font-weight:700;font-size:44px;color:var(--teal);line-height:1}
+  .exp p{font-size:15.5px;color:var(--muted);margin-top:8px}
+
+  footer{background:var(--teal-deep);color:#bcd6d2;font-size:14px}
+  footer .wrap{padding-top:30px;padding-bottom:34px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer a{color:#fff;text-decoration:none;font-weight:800}
+  .concept{font-style:italic;color:#8fb3af}
+
+  .tapcall{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:#fff;border:2px solid var(--teal);border-radius:14px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.25)}
+  .tapcall div{display:grid;grid-template-columns:1fr 1fr}
+  .tapcall a{text-align:center;font-weight:800;font-size:16px;text-decoration:none;color:var(--teal-deep);padding:15px 8px}
+  .tapcall a:first-child{border-right:2px solid var(--line);background:var(--teal);color:#fff}
+  @media(max-width:860px){
+    nav.links,.nav-call{display:none}
+    .burger{display:block}
+    nav.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;padding:18px 20px;gap:16px;border-bottom:2px solid var(--line)}
+    .hero .wrap{grid-template-columns:1fr}
+    .paw-field{display:none}
+    .loc-head{grid-template-columns:1fr}
+    .loc-form{border-left:0;border-top:2px solid var(--line)}
+    .exp{grid-template-columns:1fr}
+    .tapcall{display:block}
+    footer .wrap{padding-bottom:96px}
+    section{padding:44px 0}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="wrap">
+    <span>Two shops: Cambridge · Milton</span>
+    <span><a href="#cambridge">Cambridge (647) 368-7220</a> &nbsp;·&nbsp; <a href="#milton">Milton (905) 878-9009</a></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Amazing Pet Grooming home">
+      <span class="paw" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><ellipse cx="12" cy="15.5" rx="5.2" ry="4.4"/><ellipse cx="5.4" cy="9.8" rx="2.1" ry="2.7"/><ellipse cx="9.6" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="14.4" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="18.6" cy="9.8" rx="2.1" ry="2.7"/></svg>
+      </span>
+      <span class="brand-name">Amazing Pet Grooming<small>Cambridge · Milton</small></span>
+    </a>
+    <nav class="links" id="navlinks">
+      <a href="#cambridge">Cambridge</a>
+      <a href="#milton">Milton</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="nav-call" href="tel:+16473687220">Call a shop</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top" style="padding:0">
+  <div class="wrap">
+    <div>
+      <h1>Grooming for <span class="hl">dogs &amp; cats</span>, from people who've done it for 20+ years.</h1>
+      <p class="lede">Two neighbourhood shops — one in Cambridge, one in Milton — where your pet gets a calm, careful groom and you get a straight answer about what it needs.</p>
+      <div class="stars"><span class="n">★★★★★</span> 4.6 on Google</div>
+      <div class="shop-pick">
+        <a href="#cambridge">Cambridge<small>383 Elgin St N · (647) 368-7220</small></a>
+        <a href="#milton">Milton<small>264 Bronte St S · (905) 878-9009</small></a>
+      </div>
+    </div>
+    <div class="paw-field" aria-hidden="true">
+      <svg class="big" width="150" height="150" viewBox="0 0 24 24" fill="#0f7f7c"><ellipse cx="12" cy="15.5" rx="5.2" ry="4.4"/><ellipse cx="5.4" cy="9.8" rx="2.1" ry="2.7"/><ellipse cx="9.6" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="14.4" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="18.6" cy="9.8" rx="2.1" ry="2.7"/></svg>
+      <svg style="top:10px;left:10px" width="46" height="46" viewBox="0 0 24 24" fill="#0f7f7c"><ellipse cx="12" cy="15.5" rx="5.2" ry="4.4"/><ellipse cx="5.4" cy="9.8" rx="2.1" ry="2.7"/><ellipse cx="9.6" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="14.4" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="18.6" cy="9.8" rx="2.1" ry="2.7"/></svg>
+      <svg style="bottom:16px;right:6px" width="60" height="60" viewBox="0 0 24 24" fill="#0f7f7c"><ellipse cx="12" cy="15.5" rx="5.2" ry="4.4"/><ellipse cx="5.4" cy="9.8" rx="2.1" ry="2.7"/><ellipse cx="9.6" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="14.4" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="18.6" cy="9.8" rx="2.1" ry="2.7"/></svg>
+      <svg style="top:60px;right:34px" width="34" height="34" viewBox="0 0 24 24" fill="#f2a93b"><ellipse cx="12" cy="15.5" rx="5.2" ry="4.4"/><ellipse cx="5.4" cy="9.8" rx="2.1" ry="2.7"/><ellipse cx="9.6" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="14.4" cy="6.4" rx="2.1" ry="2.7"/><ellipse cx="18.6" cy="9.8" rx="2.1" ry="2.7"/></svg>
+    </div>
+  </div>
+</section>
+
+<section id="locations">
+  <div class="wrap">
+    <div class="kicker">Pick your shop</div>
+    <h2 class="sec">Two locations, same careful hands</h2>
+    <p class="sec-sub">Each shop keeps its own schedule and its own appointment list. Choose the one closest to you — call, or send a request and we'll confirm by phone.</p>
+
+    <article class="loc" id="cambridge">
+      <div class="loc-head">
+        <div class="loc-info">
+          <span class="loc-tag">Cambridge</span>
+          <h3>Elgin Street North</h3>
+          <address>383 Elgin St N, Unit 1<br>Cambridge, ON N1R 8C1</address>
+          <table class="hours">
+            <tr><td>Monday – Friday</td><td>9:00 AM – 3:00 PM</td></tr>
+            <tr><td>Saturday</td><td>8:30 AM – 3:00 PM</td></tr>
+            <tr><td>Sunday</td><td class="closed">Closed</td></tr>
+          </table>
+          <a class="loc-tel" href="tel:+16473687220">(647) 368-7220</a>
+        </div>
+        <div class="loc-form">
+          <h4>Request a Cambridge appointment</h4>
+          <p class="fsub">A request — we'll call back to confirm a time.</p>
+          <form class="reqform" data-loc="Cambridge">
+            <div class="frow">
+              <div><label>Your name</label><input name="name" required autocomplete="name"></div>
+              <div><label>Phone</label><input name="phone" type="tel" required autocomplete="tel"></div>
+            </div>
+            <div class="frow">
+              <div><label>Pet</label><input name="pet" placeholder="e.g. Max, golden retriever" required></div>
+              <div><label>Service</label><select name="service"><option>Full groom</option><option>Bath &amp; tidy</option><option>Nail trim</option><option>De-shedding</option></select></div>
+            </div>
+            <button class="btn-req" type="submit">Request Cambridge appointment</button>
+            <p class="fnote">Concept preview: on the live site this goes straight to the Cambridge shop.</p>
+            <div class="fok" role="status">Thanks — Cambridge will call you back to confirm. (Demo confirmation.)</div>
+          </form>
+        </div>
+      </div>
+    </article>
+
+    <article class="loc" id="milton">
+      <div class="loc-head">
+        <div class="loc-info">
+          <span class="loc-tag">Milton</span>
+          <h3>Bronte Street South</h3>
+          <address>264 Bronte St S, Unit 15<br>Milton, ON L9T 5A3</address>
+          <table class="hours">
+            <tr><td colspan="2" style="color:var(--muted)">Hours vary — please call the shop for current hours.</td></tr>
+          </table>
+          <a class="loc-tel" href="tel:+19058789009">(905) 878-9009</a>
+        </div>
+        <div class="loc-form">
+          <h4>Request a Milton appointment</h4>
+          <p class="fsub">A request — we'll call back to confirm a time.</p>
+          <form class="reqform" data-loc="Milton">
+            <div class="frow">
+              <div><label>Your name</label><input name="name" required autocomplete="name"></div>
+              <div><label>Phone</label><input name="phone" type="tel" required autocomplete="tel"></div>
+            </div>
+            <div class="frow">
+              <div><label>Pet</label><input name="pet" placeholder="e.g. Luna, tabby cat" required></div>
+              <div><label>Service</label><select name="service"><option>Full groom</option><option>Bath &amp; tidy</option><option>Nail trim</option><option>De-shedding</option></select></div>
+            </div>
+            <button class="btn-req" type="submit">Request Milton appointment</button>
+            <p class="fnote">Concept preview: on the live site this goes straight to the Milton shop.</p>
+            <div class="fok" role="status">Thanks — Milton will call you back to confirm. (Demo confirmation.)</div>
+          </form>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="svc-wrap" id="services">
+  <div class="wrap">
+    <div class="kicker">Services</div>
+    <h2 class="sec">What a groom includes</h2>
+    <p class="sec-sub">Every groom is tailored to the breed, coat, and temperament. Prices depend on size and coat condition — call your shop for a quote.</p>
+    <div class="pet-tabs" role="tablist">
+      <button class="pet-tab active" data-pet="dogs" role="tab">Dogs</button>
+      <button class="pet-tab" data-pet="cats" role="tab">Cats</button>
+    </div>
+    <div class="svc-list active" id="svc-dogs">
+      <div class="svc-item"><b>Full groom</b><span class="price">Call for pricing</span><p>Bath, haircut, nail trim, ear cleaning — the complete tidy-up.</p></div>
+      <div class="svc-item"><b>Bath &amp; tidy</b><span class="price">Call for pricing</span><p>Bath, blow-dry, brush-out, and a tidy of face, feet, and sanitary areas.</p></div>
+      <div class="svc-item"><b>Nail trim</b><span class="price">Call for pricing</span><p>Quick, careful nail trim — no appointment needed at quiet times, call ahead.</p></div>
+      <div class="svc-item"><b>De-shedding treatment</b><span class="price">Call for pricing</span><p>Deep coat treatment that cuts the fur tumbleweeds at home.</p></div>
+    </div>
+    <div class="svc-list" id="svc-cats">
+      <div class="svc-item"><b>Cat groom</b><span class="price">Call for pricing</span><p>Gentle, patient grooming for cats — including long-haired breeds.</p></div>
+      <div class="svc-item"><b>Lion cut</b><span class="price">Call for pricing</span><p>Full-body clip that keeps long-haired cats comfortable and mat-free.</p></div>
+      <div class="svc-item"><b>Cat nail trim</b><span class="price">Call for pricing</span><p>Quick trim, handled calmly — call ahead to check timing.</p></div>
+      <div class="svc-item"><b>Ear cleaning</b><span class="price">Call for pricing</span><p>Gentle ear cleaning as part of a groom or on its own.</p></div>
+    </div>
+    <div class="svc-cta">
+      <a href="#cambridge">Book in Cambridge →</a>
+      <a href="#milton">Book in Milton →</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="kicker">About</div>
+    <h2 class="sec">Twenty-plus years of calm, careful grooming</h2>
+    <div class="exp" style="margin-top:28px">
+      <div><div class="num">20+</div><p>Years of combined team experience grooming dogs and cats.</p></div>
+      <div><div class="num">4.6</div><p>Star rating on Google from real customer reviews.</p></div>
+      <div><div class="num">2</div><p>Neighbourhood shops — Cambridge and Milton — each with its own team.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Amazing Pet Grooming · Cambridge <a href="tel:+16473687220">(647) 368-7220</a> · Milton <a href="tel:+19058789009">(905) 878-9009</a></div>
+    <div class="concept">Concept preview</div>
+  </div>
+</footer>
+
+<div class="tapcall"><div>
+  <a href="tel:+16473687220">Call Cambridge</a>
+  <a href="tel:+19058789009">Call Milton</a>
+</div></div>
+
+<script>
+  document.getElementById('burger').addEventListener('click',function(){
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navlinks a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});
+  });
+  document.querySelectorAll('.pet-tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.pet-tab').forEach(function(x){x.classList.remove('active');});
+      document.querySelectorAll('.svc-list').forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      document.getElementById('svc-'+t.dataset.pet).classList.add('active');
+    });
+  });
+  document.querySelectorAll('.reqform').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var n=f.querySelector('[name=name]').value.trim(),
+          p=f.querySelector('[name=phone]').value.trim(),
+          pet=f.querySelector('[name=pet]').value.trim();
+      if(!n||!p||!pet){alert('Please fill in your name, phone, and pet.');return;}
+      f.querySelectorAll('input,select,button,.fsub,.fnote').forEach(function(el){el.style.display='none';});
+      f.querySelector('.fok').style.display='block';
+    });
+  });
+</script>
+</body>
+</html>

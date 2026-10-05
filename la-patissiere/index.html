@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Patissi&egrave;re — French Patisserie &amp; Baking Workshops in Pickering</title>
+<meta name="description" content="La Patissière in Pickering: French patisserie, custom wedding and birthday cakes, and hands-on baking workshops. Call to reserve a workshop seat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#171215;
+    --noir-soft:#241c20;
+    --gold:#C6A15B;
+    --gold-soft:#E4CFA0;
+    --ivory:#F8F4EA;
+    --ink:#2B2327;
+    --ink-soft:#6E5F63;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;font-weight:400}
+  h1,h2,h3,.corm{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.1;text-wrap:balance}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(23,18,21,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ivory)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--gold-soft);text-decoration:none;letter-spacing:.04em}
+  .brand span{font-size:.72rem;display:block;letter-spacing:.42em;color:var(--ivory);font-family:'Jost',sans-serif;font-weight:400}
+  .hamburger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .hamburger span{display:block;width:26px;height:2px;background:var(--ivory);margin:6px 0}
+  nav.links{display:flex;gap:30px;align-items:center}
+  nav.links a{text-decoration:none;font-weight:400;font-size:.95rem;letter-spacing:.06em}
+  nav.links a:hover{color:var(--gold)}
+  nav.links a.cta{border:1px solid var(--gold);color:var(--gold-soft);padding:10px 24px;letter-spacing:.14em;font-size:.85rem}
+  nav.links a.cta:hover{background:var(--gold);color:var(--noir)}
+  @media(max-width:780px){
+    .hamburger{display:block}
+    nav.links{position:absolute;top:100%;left:0;right:0;background:var(--noir);flex-direction:column;align-items:stretch;gap:0;display:none}
+    nav.links.open{display:flex}
+    nav.links a{padding:15px 24px;border-top:1px solid #33272c}
+    nav.links a.cta{margin:14px 24px;text-align:center}
+  }
+
+  /* workshops-first hero */
+  .hero{background:var(--noir);color:var(--ivory);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-120px;right:-120px;width:420px;height:420px;border:1px solid rgba(198,161,91,.35);border-radius:50%}
+  .hero::after{content:"";position:absolute;top:-80px;right:-80px;width:340px;height:340px;border:1px solid rgba(198,161,91,.22);border-radius:50%}
+  .hero .wrap{position:relative;padding:88px 24px 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .eyebrow{font-size:.78rem;letter-spacing:.4em;color:var(--gold);margin-bottom:20px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:500;margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero p{color:#CBBFAE;font-size:1.08rem;max-width:32rem;margin-bottom:32px;font-weight:300}
+  .btn{display:inline-block;text-decoration:none;font-weight:500;letter-spacing:.1em;font-size:.92rem;padding:15px 34px}
+  .btn.gold{background:var(--gold);color:var(--noir)}
+  .btn.gold:hover{background:var(--gold-soft)}
+  .btn.line{border:1px solid rgba(248,244,234,.4);color:var(--ivory)}
+  .btn.line:hover{border-color:var(--gold);color:var(--gold-soft)}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .next-class{border:1px solid rgba(198,161,91,.4);padding:34px 32px;position:relative}
+  .next-class::before{content:"";position:absolute;inset:8px;border:1px solid rgba(198,161,91,.2);pointer-events:none}
+  .next-class h3{font-size:1.7rem;font-weight:500;color:var(--gold-soft);margin-bottom:10px}
+  .next-class p{color:#CBBFAE;font-size:.98rem;margin-bottom:22px;font-weight:300}
+  .next-class .phone{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ivory);text-decoration:none;display:block;margin-bottom:20px}
+  .next-class .phone:hover{color:var(--gold-soft)}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;gap:40px}}
+
+  /* class format strip */
+  .format{background:var(--ivory);border-bottom:1px solid #E7DFD0}
+  .format .wrap{padding:60px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .fmt{padding:6px 34px 6px 0}
+  .fmt + .fmt{border-left:1px solid #DCD2BC;padding-left:34px}
+  .fmt h3{font-size:1.45rem;margin-bottom:8px;color:var(--noir)}
+  .fmt h3 .g{color:var(--gold);font-style:italic}
+  .fmt p{color:var(--ink-soft);font-size:.96rem;font-weight:300}
+  @media(max-width:780px){.format .wrap{grid-template-columns:1fr;gap:28px}.fmt + .fmt{border-left:0;padding-left:0;border-top:1px solid #DCD2BC;padding-top:28px}.fmt{padding:0}}
+
+  /* cakes — split editorial */
+  .cakes .wrap{padding:84px 24px;display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  .cakes .num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--gold);letter-spacing:.1em;margin-bottom:12px}
+  .cakes h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:18px;color:var(--noir)}
+  .cakes p{color:var(--ink-soft);margin-bottom:14px;font-weight:300}
+  .cakes .rule{width:64px;height:2px;background:var(--gold);margin:22px 0}
+  .cake-list{list-style:none}
+  .cake-list li{padding:20px 0;border-bottom:1px solid #E7DFD0;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline}
+  .cake-list li:last-child{border-bottom:0}
+  .cake-list h3{font-size:1.5rem;color:var(--noir);font-weight:600}
+  .cake-list p{font-size:.94rem;margin:4px 0 0}
+  .cake-list .tag{font-size:.78rem;letter-spacing:.2em;color:var(--gold);white-space:nowrap}
+  @media(max-width:780px){.cakes .wrap{grid-template-columns:1fr;gap:36px}}
+
+  /* about band — noir */
+  .about{background:var(--noir);color:var(--ivory)}
+  .about .wrap{padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .about h2{font-size:clamp(2rem,4.5vw,2.9rem);font-weight:500;color:var(--gold-soft);margin-bottom:18px}
+  .about p{color:#CBBFAE;font-weight:300;margin-bottom:14px}
+  .stat{border-left:2px solid var(--gold);padding-left:24px}
+  .stat .big{font-family:'Cormorant Garamond',serif;font-size:3.4rem;color:var(--ivory);line-height:1}
+  .stat p{margin-top:8px;font-size:.95rem}
+  @media(max-width:780px){.about .wrap{grid-template-columns:1fr;gap:36px}}
+
+  /* visit */
+  .visit .wrap{padding:72px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+  .visit h2{font-size:clamp(1.9rem,4vw,2.6rem);color:var(--noir);margin-bottom:16px}
+  .visit address{font-style:normal;color:var(--ink-soft);font-weight:300;font-size:1.05rem;margin-bottom:24px}
+  .visit address strong{color:var(--ink);font-weight:500}
+  .visit .cta-row .btn.line{border-color:var(--noir);color:var(--noir)}
+  .visit .cta-row .btn.line:hover{border-color:var(--gold);color:#8a6a34}
+  .visit-note{background:#fff;border:1px solid #E7DFD0;padding:28px}
+  .visit-note h3{font-size:1.4rem;color:var(--noir);margin-bottom:10px}
+  .visit-note p{color:var(--ink-soft);font-weight:300;font-size:.97rem;margin-bottom:16px}
+  .visit-note .phone{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--noir);text-decoration:none;font-weight:600}
+  @media(max-width:780px){.visit .wrap{grid-template-columns:1fr;gap:36px}}
+
+  footer{background:var(--noir);color:#8f8177}
+  footer .wrap{padding:34px 24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+  footer .fbrand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold-soft)}
+  footer .concept{font-size:.8rem}
+
+  .tap-call{display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:60;background:var(--gold);color:var(--noir);text-align:center;text-decoration:none;font-weight:600;letter-spacing:.08em;font-size:1rem;padding:15px;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+  @media(max-width:780px){.tap-call{display:block}body{padding-bottom:76px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">La Patissi&egrave;re<span>PICKERING</span></a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('nav.links').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <nav class="links">
+      <a href="#workshops">Workshops</a>
+      <a href="#cakes">Cakes</a>
+      <a href="#about">About</a>
+      <a href="#visit">Visit</a>
+      <a class="cta" href="tel:+16475694099">RESERVE A SEAT</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- workshops-first hero -->
+  <section class="hero" id="workshops">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">P&Acirc;TISSERIE · ATELIER · PICKERING</p>
+        <h1>Bake it <em>yourself</em> —<br>we&rsquo;ll show you how.</h1>
+        <p>La Patissi&egrave;re is a French patisserie in Pickering with a working atelier. Alongside custom cakes, we run hands-on baking workshops — small classes, real techniques, and you take home what you make.</p>
+        <div class="cta-row">
+          <a class="btn gold" href="tel:+16475694099">Call to reserve a seat</a>
+          <a class="btn line" href="#cakes">Our cakes</a>
+        </div>
+      </div>
+      <aside class="next-class" aria-label="Workshop information">
+        <h3>The atelier</h3>
+        <p>Paid workshops run through the month — beginner-friendly sessions in a small group, all tools and ingredients provided. Seats are limited, so we take reservations by phone.</p>
+        <a class="phone" href="tel:+16475694099">(647) 569-4099</a>
+        <a class="btn gold" href="tel:+16475694099">Ask about the next class</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="format" aria-label="Workshop format">
+    <div class="wrap">
+      <div class="fmt">
+        <h3><span class="g">i.</span> Small groups</h3>
+        <p>Classes stay intimate, so the instructor can actually watch your technique and correct it.</p>
+      </div>
+      <div class="fmt">
+        <h3><span class="g">ii.</span> Everything provided</h3>
+        <p>Tools, ingredients, apron — arrive empty-handed and leave with a box of what you baked.</p>
+      </div>
+      <div class="fmt">
+        <h3><span class="g">iii.</span> Real French method</h3>
+        <p>The same foundations behind our patisserie counter, taught step by step for home kitchens.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cakes" id="cakes">
+    <div class="wrap">
+      <div>
+        <p class="num">— la carte des g&acirc;teaux</p>
+        <h2>Custom cakes, made to order</h2>
+        <div class="rule"></div>
+        <p>Beyond the workshop calendar, the atelier takes on custom cake commissions — designed around your celebration and baked fresh for the date.</p>
+        <p>Call with your occasion and we&rsquo;ll talk through the design and the quote.</p>
+      </div>
+      <ul class="cake-list">
+        <li>
+          <div><h3>Wedding cakes</h3><p>Tiered cakes designed with the couple, from sketch to delivery day.</p></div>
+          <span class="tag">SUR COMMANDE</span>
+        </li>
+        <li>
+          <div><h3>Birthday &amp; celebration cakes</h3><p>Custom themes, colours, and flavours for milestones large and small.</p></div>
+          <span class="tag">SUR COMMANDE</span>
+        </li>
+        <li>
+          <div><h3>Patisserie counter</h3><p>French pastries and seasonal pieces — ask what&rsquo;s in the case this week.</p></div>
+          <span class="tag">EN BOUTIQUE</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div>
+        <h2>A Pickering patisserie, through and through</h2>
+        <p>La Patissi&egrave;re brings French patisserie craft to Pickering — custom cakes for the GTA&rsquo;s celebrations and an atelier where neighbours learn the techniques behind them.</p>
+        <p>Every piece is made in-house, to order, for a real date on someone&rsquo;s calendar.</p>
+      </div>
+      <div class="stat">
+        <div class="big">500+</div>
+        <p>delighted clients across the GTA — weddings, birthdays, and workshop graduates alike.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div>
+        <h2>Find us in Pickering</h2>
+        <address>
+          <strong>La Patissi&egrave;re</strong><br>
+          1915 Denmar Road<br>
+          Pickering, ON L1V 3E1<br>
+          <a href="tel:+16475694099">(647) 569-4099</a>
+        </address>
+        <div class="cta-row">
+          <a class="btn gold" href="tel:+16475694099">Call us</a>
+          <a class="btn line" href="https://www.google.com/maps/search/?api=1&query=La+Patissiere+1915+Denmar+Road+Pickering+ON">Get directions</a>
+        </div>
+      </div>
+      <div class="visit-note">
+        <h3>Planning a visit?</h3>
+        <p>Call ahead for today&rsquo;s hours, workshop availability, and custom-cake lead times — everything here is made to order.</p>
+        <a class="phone" href="tel:+16475694099">(647) 569-4099</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fbrand">La Patissi&egrave;re</span>
+    <span class="concept">Concept preview — 1915 Denmar Road, Pickering · (647) 569-4099</span>
+  </div>
+</footer>
+
+<a class="tap-call" href="tel:+16475694099">Call La Patissi&egrave;re</a>
+
+</body>
+</html>

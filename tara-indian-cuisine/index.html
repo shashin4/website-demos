@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tara Indian Cuisine — Since 1989, Barrie ON</title>
+<meta name="description" content="Tara Indian Cuisine has served Barrie since 1989. Chef brothers Yar and Nur Mohammad. Lunch buffet, fully licensed, catering. 128 Dunlop St E, Barrie. Call (705) 737-1821.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#faf4e7;
+  --ivory-deep:#f3ead3;
+  --maroon:#6e1e22;
+  --maroon-deep:#521318;
+  --gold:#c08a24;
+  --gold-soft:#e6c87e;
+  --ink:#33200f;
+  --gray:#7a6a52;
+  --line:#e2d3ae;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Mukta',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.65;font-size:16.5px}
+h1,h2,h3,.display{font-family:'Rozha One',serif;font-weight:400;text-wrap:balance;line-height:1.18;color:var(--maroon-deep)}
+a{color:var(--maroon)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* utility bar */
+.util{background:var(--maroon-deep);color:#ecdfc2;font-size:13.5px;padding:9px 0}
+.util .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.util a{color:#f6ecd4;text-decoration:none;font-weight:700}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(250,244,231,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.wordmark{font-family:'Rozha One',serif;font-size:25px;color:var(--maroon-deep);text-decoration:none}
+.wordmark span{color:var(--gold)}
+.nav-links{display:flex;gap:26px;align-items:center;list-style:none}
+.nav-links a{text-decoration:none;color:var(--ink);font-weight:600;font-size:15.5px}
+.nav-links a:hover{color:var(--maroon)}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 22px;font-size:15.5px;border:2px solid transparent;cursor:pointer;transition:background .15s}
+.btn-call{background:var(--maroon);color:#faf4e7}
+.btn-call:hover{background:var(--maroon-deep)}
+.btn-gold{background:var(--gold);color:#2c1a08}
+.btn-gold:hover{background:#a97820}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:26px;height:3px;background:var(--maroon-deep);border-radius:2px;margin:5px 0}
+
+/* hero — deep maroon, ivory type */
+.hero{background:var(--maroon-deep);color:#f2e7cd;padding:76px 0 70px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:280px;height:280px;border:2px solid rgba(230,200,126,.35);border-radius:50%}
+.hero::before{content:"";position:absolute;right:-20px;top:-20px;width:180px;height:180px;border:2px solid rgba(230,200,126,.25);border-radius:50%}
+.hero .since{font-size:14px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:20px}
+.hero h1{color:#faf4e7;font-size:clamp(40px,7vw,72px);max-width:14ch;margin-bottom:22px}
+.hero h1 .g{color:var(--gold-soft)}
+.hero p.lede{font-size:18.5px;max-width:58ch;color:#e4d5b2;margin-bottom:30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{margin-top:34px;padding-top:22px;border-top:1px solid rgba(230,200,126,.3);font-size:15px;color:#dcc99e;display:flex;gap:26px;flex-wrap:wrap}
+.hero-meta strong{color:#faf4e7}
+
+/* story */
+section.block{padding:64px 0}
+.kicker{font-size:13.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
+h2{font-size:clamp(30px,4.6vw,44px);margin-bottom:18px}
+.story-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;margin-top:8px}
+.story-grid p{margin-bottom:16px;color:#4a3820}
+.drop::first-letter{font-family:'Rozha One',serif;font-size:52px;float:left;line-height:.85;margin:6px 10px 0 0;color:var(--maroon)}
+.timeline{border-left:3px solid var(--gold);padding-left:22px;margin-top:6px}
+.timeline div{margin-bottom:22px;position:relative}
+.timeline div::before{content:"";position:absolute;left:-29px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--maroon)}
+.timeline .y{font-family:'Rozha One',serif;font-size:20px;color:var(--maroon)}
+.timeline p{font-size:15.5px;color:#4a3820;margin:0}
+
+/* buffet band */
+.buffet{background:var(--maroon);color:#f6ecd4;border-radius:6px 60px 6px 60px;padding:52px 44px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.buffet h2{color:#faf4e7}
+.buffet p{color:#e6d3a8;margin-bottom:14px}
+.buffet .status{display:inline-block;background:var(--gold);color:#2c1a08;font-weight:700;font-size:14px;padding:8px 18px;border-radius:999px;margin-bottom:18px}
+.buffet .big{font-family:'Rozha One',serif;font-size:clamp(26px,3.6vw,38px);color:#faf4e7;line-height:1.3}
+.buffet .big .g{color:var(--gold-soft)}
+
+/* menu */
+.menu-tabs{display:flex;gap:10px;margin:26px 0 6px}
+.menu-tabs button{font-family:'Mukta',sans-serif;font-weight:700;font-size:15px;padding:11px 24px;border-radius:8px;border:2px solid var(--maroon);background:transparent;color:var(--maroon);cursor:pointer}
+.menu-tabs button.active{background:var(--maroon);color:#faf4e7}
+.menu-list{max-width:680px}
+.menu-item{display:flex;align-items:baseline;gap:14px;padding:18px 0;border-bottom:1px dotted #b49b62}
+.menu-item .n{font-family:'Rozha One',serif;font-size:21px;color:var(--maroon-deep)}
+.menu-item .dots{flex:1;border-bottom:2px dotted #c4a95e;transform:translateY(-6px)}
+.menu-item .p{font-weight:700;font-size:19px;color:var(--maroon-deep);white-space:nowrap}
+.menu-item .d{font-size:14.5px;color:var(--gray);flex-basis:100%;margin-top:2px}
+.price-note{font-size:13.5px;color:var(--gray);font-style:italic;margin-top:16px;max-width:680px}
+
+/* catering */
+.cater{background:var(--ivory-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cater-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:10px}
+.cater-card{background:#fdfaf1;border:1px solid var(--line);border-radius:6px 40px 6px 40px;padding:36px}
+.cater-card h3{font-size:26px;margin-bottom:12px}
+.cater-card p{margin-bottom:16px;color:#4a3820}
+.phone-big{font-family:'Rozha One',serif;font-size:32px;color:var(--maroon);text-decoration:none}
+.phone-big:hover{color:var(--maroon-deep)}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;margin-top:26px}
+.visit-grid address{font-style:normal;font-size:17.5px;line-height:1.9}
+.hours-table{width:100%;border-collapse:collapse;font-size:15.5px}
+.hours-table td{padding:10px 4px;border-bottom:1px solid var(--line)}
+.hours-table td:last-child{text-align:right;font-weight:600}
+.dir{display:inline-block;margin-top:12px;font-weight:700}
+
+footer{background:var(--maroon-deep);color:#cdbd97;padding:42px 0 110px;font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#f2e7cd}
+.concept{font-style:italic;opacity:.75}
+
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:var(--maroon-deep);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.callbar a{display:block;text-align:center;background:var(--gold);color:#2c1a08;font-weight:700;text-decoration:none;border-radius:8px;padding:14px;font-size:17px}
+
+@media(max-width:860px){
+  .story-grid,.cater-grid,.visit-grid,.buffet{grid-template-columns:1fr}
+  .buffet{padding:36px 26px;border-radius:6px 36px 6px 36px}
+}
+@media(max-width:760px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--ivory);flex-direction:column;align-items:flex-start;padding:18px 20px 24px;gap:16px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .nav-cta{display:none}
+  .callbar{display:block}
+  section.block{padding:46px 0}
+  .hero{padding:56px 0 50px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="wrap">
+    <span>Barrie's Indian kitchen <strong style="color:#f6ecd4">since 1989</strong> · Fully licensed</span>
+    <span><a href="tel:+17057371821">(705) 737-1821</a></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="#">Tara <span>Indian Cuisine</span></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">Our story</a></li>
+      <li><a href="#buffet">Lunch buffet</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#catering">Catering</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a href="tel:+17057371821" class="btn btn-call nav-cta">Call for a table</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="since">Est. 1989 · Barrie, Ontario</p>
+      <h1>Two brothers. One tandoor. <span class="g">Thirty-seven years</span> of Barrie dinners.</h1>
+      <p class="lede">Chef brothers Yar and Nur Mohammad have been cooking for Barrie since 1989 — the kind of kitchen people drive in from out of town for, and the kind regulars bring their out-of-town guests to.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="tel:+17057371821">Call (705) 737-1821</a>
+        <a class="btn" href="#buffet" style="border-color:var(--gold-soft);color:#faf4e7">Lunch buffet</a>
+      </div>
+      <div class="hero-meta">
+        <span><strong>4.7</strong> guest rating</span>
+        <span><strong>Fully licensed</strong> dining room</span>
+        <span><strong>Lunch buffet</strong> Mon–Sat</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="block" id="story">
+    <div class="wrap">
+      <p class="kicker">Our story</p>
+      <h2>Barrie's finest, by word of mouth</h2>
+      <div class="story-grid">
+        <div>
+          <p class="drop">When Yar and Nur Mohammad opened Tara Indian Cuisine in 1989, they cooked the way they'd always cooked — and Barrie noticed. Word of mouth carried their name well beyond Dunlop Street; over the years their following has stretched to customers visiting from as far as Europe.</p>
+          <p>The brothers are easy-going hosts who happily adjust a dish to suit your palate — milder, hotter, vegetarian, or something in between. That personal touch is why so many Barrie families have been coming back for decades.</p>
+          <p>Fully licensed, warmly lit, and unhurried: this is the room for anniversary dinners, family celebrations, and the Tuesday night you don't feel like cooking.</p>
+        </div>
+        <div class="timeline">
+          <div><p class="y">1989</p><p>The Mohammad brothers open Tara on Dunlop Street East in Barrie.</p></div>
+          <div><p class="y">The regulars</p><p>Word of mouth builds a following that spans generations of Barrie families — and visitors from overseas.</p></div>
+          <div><p class="y">Today</p><p>Still family-run, still adjusting every plate to the person eating it. Lunch buffet weekdays and Saturdays; catering for gatherings of all sizes.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUFFET -->
+  <section class="block" id="buffet" style="padding-top:0">
+    <div class="wrap">
+      <div class="buffet">
+        <div>
+          <span class="status" id="buffetStatus">Checking buffet…</span>
+          <h2>The lunch buffet</h2>
+          <p>Monday through Saturday, 12:00 PM to 2:30 PM, the buffet is the fastest way to taste the kitchen — a rotating spread of curries, tandoor items, rice, breads and more.</p>
+          <p>Perfect for a work lunch, a first visit, or the indecisive. Come hungry.</p>
+          <a class="btn btn-gold" href="tel:+17057371821">Call ahead for a large table</a>
+        </div>
+        <div>
+          <p class="big">Lunch, <span class="g">solved.</span><br>Mon–Sat, 12:00–2:30.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="block" id="menu" style="padding-top:20px">
+    <div class="wrap">
+      <p class="kicker">From the kitchen &amp; bar</p>
+      <h2>A taste of the menu</h2>
+      <p style="max-width:62ch;color:#4a3820">A few favourites from the full menu — the dining room menu runs much deeper, from tandoor grills to vegetarian classics.</p>
+      <div class="menu-tabs" id="menuTabs" role="tablist" aria-label="Menu categories">
+        <button data-cat="kitchen" class="active">From the kitchen</button>
+        <button data-cat="bar">From the bar</button>
+      </div>
+      <div class="menu-list" id="menuList"></div>
+      <p class="price-note">Menu items and prices subject to change — the printed menu in the dining room is always current.</p>
+    </div>
+  </section>
+
+  <!-- CATERING -->
+  <section class="block cater" id="catering">
+    <div class="wrap">
+      <p class="kicker">Catering &amp; events</p>
+      <h2>Bring Tara to your table</h2>
+      <div class="cater-grid">
+        <div class="cater-card">
+          <h3>Catering for gatherings</h3>
+          <p>Weddings, office lunches, family celebrations — the brothers cater events of all sizes, with menus built around your guests and your budget.</p>
+          <p>Tell us the date, the headcount, and how adventurous your crowd is. We'll take it from there.</p>
+        </div>
+        <div class="cater-card">
+          <h3>Start with a call</h3>
+          <p>There's no form to fill in and no waiting on email — catering starts with a conversation.</p>
+          <a class="phone-big" href="tel:+17057371821">(705) 737-1821</a>
+          <p style="margin-top:14px;font-size:15px">Ask for the brothers — they'll talk you through options themselves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="block" id="visit">
+    <div class="wrap">
+      <p class="kicker">Visit</p>
+      <h2>On Dunlop Street East</h2>
+      <div class="visit-grid">
+        <div>
+          <address>
+            Tara Indian Cuisine<br>
+            128 Dunlop St E<br>
+            Barrie, ON L4M 1A4
+          </address>
+          <p style="margin-top:14px"><a class="phone-big" href="tel:+17057371821" style="font-size:26px">(705) 737-1821</a></p>
+          <a class="dir" href="https://www.google.com/maps/search/?api=1&query=Tara+Indian+Cuisine+128+Dunlop+St+E+Barrie+ON" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+        <div>
+          <table class="hours-table">
+            <tr><td>Monday – Thursday</td><td>12:00–2:30 PM · 5:00–9:30 PM</td></tr>
+            <tr><td>Friday – Saturday</td><td>12:00–2:30 PM · 5:00–10:00 PM</td></tr>
+            <tr><td>Sunday</td><td>5:00–9:30 PM</td></tr>
+          </table>
+          <p style="font-size:13.5px;color:var(--gray);font-style:italic;margin-top:10px">Hours may change on holidays or special occasions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong style="color:#f2e7cd">Tara Indian Cuisine</strong> · 128 Dunlop St E, Barrie ON L4M 1A4<br>
+      <a href="tel:+17057371821">(705) 737-1821</a> · Serving Barrie since 1989
+    </div>
+    <div class="concept">Concept preview — hours and prices as listed on the restaurant's own site.</div>
+  </div>
+</footer>
+
+<div class="callbar"><a href="tel:+17057371821">Call (705) 737-1821</a></div>
+
+<script>
+document.getElementById('burger').addEventListener('click', function(){
+  var l = document.getElementById('navLinks');
+  var open = l.classList.toggle('open');
+  this.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+});
+
+// buffet status: Mon-Sat 12:00-14:30
+(function(){
+  var d=new Date(), day=d.getDay(), t=d.getHours()*60+d.getMinutes();
+  var el=document.getElementById('buffetStatus');
+  if(day>=1&&day<=6&&t>=720&&t<870){ el.textContent='Buffet is on right now · until 2:30 PM'; }
+  else if(day>=1&&day<=6&&t<720){ el.textContent='Buffet today · 12:00–2:30 PM'; }
+  else { el.textContent='Lunch buffet · Mon–Sat, 12:00–2:30 PM'; }
+})();
+
+// menu tabs — real items & prices from the restaurant's own menu
+var MENU = {
+  kitchen:[
+    {n:'Chana Masala', d:'Chickpeas simmered in a spiced tomato sauce — a vegetarian classic.', p:'$17.99'},
+    {n:'Malai Kofta', d:'Soft vegetable dumplings in a rich, creamy sauce.', p:'$18.99'}
+  ],
+  bar:[
+    {n:'Cocktails', d:'Ask your server what\'s pouring tonight.', p:'$7.99'},
+    {n:'Specialty Coffees', d:'A warm finish to the meal, made to order.', p:'$8.99'}
+  ]
+};
+function renderMenu(cat){
+  var html = MENU[cat].map(function(it){
+    return '<div class="menu-item"><span class="n">'+it.n+'</span><span class="dots"></span><span class="p">'+it.p+'</span><span class="d">'+it.d+'</span></div>';
+  }).join('');
+  document.getElementById('menuList').innerHTML = html;
+  document.querySelectorAll('#menuTabs button').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-cat')===cat);
+  });
+}
+document.querySelectorAll('#menuTabs button').forEach(function(b){
+  b.addEventListener('click', function(){ renderMenu(b.getAttribute('data-cat')); });
+});
+renderMenu('kitchen');
+</script>
+</body>
+</html>
