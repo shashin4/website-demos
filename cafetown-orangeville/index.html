@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafetown Orangeville | Cafe &amp; Resto on Broadway</title>
+<meta name="description" content="Cafetown Cafe & Resto, 154 Broadway, Orangeville. Indian-fusion café founded by Sahil and Gurleen. Home of the Paneer Tikka Wrap and Saffron Almond Latte. Call (519) 307-1545.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fbf4e8;
+    --paper:#fffdf8;
+    --espresso:#2a1c11;
+    --espresso-soft:#3d2c1d;
+    --saffron:#de9226;
+    --saffron-deep:#b06f14;
+    --muted:#7a6a55;
+    --line:#e7d9bf;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Cabin,system-ui,-apple-system,sans-serif;
+    background:var(--cream);color:var(--espresso);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Bree Serif",Georgia,serif;text-wrap:balance;line-height:1.15;font-weight:400;letter-spacing:0}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem}
+  section{padding:3.5rem 0}
+  a{color:inherit}
+
+  /* ---------- sticky nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,244,232,.9);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:"Bree Serif",serif;font-size:1.4rem;color:var(--espresso);text-decoration:none}
+  .brand small{display:block;font-family:Cabin,sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--saffron-deep);font-weight:700}
+  .nav-links{display:none;gap:1.5rem;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.94rem}
+  .nav-links a:hover{color:var(--saffron-deep)}
+  .nav-call{display:none;background:var(--espresso);color:var(--cream);text-decoration:none;font-weight:700;padding:.55rem 1.1rem;border-radius:999px;font-size:.9rem}
+  .hamburger{background:none;border:0;cursor:pointer;padding:.5rem;display:flex;flex-direction:column;gap:5px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--espresso);border-radius:2px}
+  .mobile-menu{display:none;border-bottom:1px solid var(--line);background:var(--paper)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:.9rem 1.25rem;text-decoration:none;font-weight:600;border-top:1px solid var(--line)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:4rem 0 3rem}
+  .kicker{font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--saffron-deep);margin-bottom:1rem}
+  .hero h1{font-size:clamp(2.3rem,6vw,3.6rem);margin-bottom:1.1rem}
+  .hero h1 .amp{color:var(--saffron-deep)}
+  .hero .stand{font-size:1.12rem;max-width:36rem}
+  .hero .founders{margin-top:1.1rem;font-size:1.02rem;color:var(--espresso-soft);max-width:36rem}
+  .hero .founders strong{color:var(--espresso)}
+  .rating{display:flex;align-items:center;gap:.6rem;margin:1.3rem 0 .2rem;font-size:.96rem;color:var(--muted)}
+  .stars{color:var(--saffron-deep);letter-spacing:.1em}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:.85rem 1.6rem;border-radius:999px;font-size:1rem;border:2px solid var(--espresso)}
+  .btn-solid{background:var(--espresso);color:var(--cream)}
+  .btn-solid:hover{background:var(--espresso-soft)}
+  .btn-ghost{color:var(--espresso)}
+  .btn-ghost:hover{background:rgba(222,146,38,.12)}
+  .hero-side{margin-top:2.2rem;border-left:4px solid var(--saffron);padding-left:1.4rem;max-width:24rem}
+  .hero-side p{font-size:1rem;font-style:italic;color:var(--espresso-soft)}
+
+  /* ---------- signatures ---------- */
+  .sig{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sig h2{font-size:clamp(1.9rem,4.5vw,2.6rem);margin-bottom:.6rem}
+  .sig .sub{color:var(--muted);margin-bottom:1.8rem;max-width:34rem}
+  .tabs{display:flex;gap:.6rem;margin-bottom:1.6rem}
+  .tab{
+    font-family:Cabin,sans-serif;font-weight:700;font-size:1rem;cursor:pointer;
+    border:2px solid var(--espresso);background:transparent;color:var(--espresso);
+    padding:.6rem 1.6rem;border-radius:999px;
+  }
+  .tab.active{background:var(--espresso);color:var(--cream)}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+  .sig-grid{display:grid;gap:1.4rem}
+  .sig-item{padding-bottom:1.2rem;border-bottom:1px dotted var(--line)}
+  .sig-item h3{font-size:1.45rem;margin-bottom:.25rem}
+  .sig-item .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--saffron-deep);margin-bottom:.35rem}
+  .sig-item p{color:var(--muted);font-size:1rem;max-width:32rem}
+  .sig-foot{margin-top:1.6rem;font-style:italic;color:var(--muted)}
+
+  /* ---------- community strip ---------- */
+  .community .board{display:grid;gap:1.5rem;margin-top:2rem}
+  .board .note-a{background:var(--espresso);color:#f3e9d4;border-radius:6px 18px 6px 18px;padding:1.6rem}
+  .board .note-a h3{color:#ffd98a;margin-bottom:.5rem;font-size:1.4rem}
+  .board .note-b{border:2px dashed var(--saffron-deep);border-radius:18px 6px 18px 6px;padding:1.6rem}
+  .board .note-b h3{color:var(--saffron-deep);margin-bottom:.5rem;font-size:1.4rem}
+  .board .note-c{padding:1.6rem 0}
+  .board .note-c h3{font-size:1.4rem;margin-bottom:.5rem}
+  .board p{font-size:1rem}
+  .community h2{font-size:clamp(1.9rem,4.5vw,2.6rem);margin-bottom:.6rem}
+  .community .sub{color:var(--muted);max-width:36rem}
+
+  /* ---------- hours + location ---------- */
+  .hl{background:var(--espresso);color:#f3e9d4;border-radius:18px 6px 18px 6px;margin:0 .75rem}
+  .hl .wrap{padding-top:3.2rem;padding-bottom:3.2rem}
+  .hl h2{font-size:clamp(1.9rem,4.5vw,2.6rem);margin-bottom:1.4rem;color:#ffd98a}
+  .hl-grid{display:grid;gap:2.5rem}
+  .hours{width:100%;border-collapse:collapse;font-size:1.02rem}
+  .hours td{padding:.5rem 0;border-bottom:1px dotted rgba(243,233,212,.25)}
+  .hours td:last-child{text-align:right}
+  .hl address{font-style:normal;font-size:1.05rem;margin-bottom:1.2rem}
+  .hl .cta-row .btn-ghost{border-color:#ffd98a;color:#ffd98a}
+  .hl .cta-row .btn-ghost:hover{background:rgba(255,217,138,.12)}
+  .hl .btn-warm{background:var(--saffron);border:2px solid var(--saffron);color:var(--espresso)}
+  .hl .btn-warm:hover{background:#e8a23a}
+  .hl .src{font-size:.82rem;opacity:.65;margin-top:1rem}
+
+  /* ---------- order CTA ---------- */
+  .order{padding:4rem 0}
+  .order-box{
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:6px 22px 6px 22px;padding:2.5rem 2rem;
+    display:grid;gap:1.5rem;
+  }
+  .order-box h2{font-size:clamp(2rem,5vw,3rem)}
+  .order-box p{font-size:1.08rem;max-width:34rem;color:var(--espresso-soft)}
+  .order-box .big-call{
+    font-family:"Bree Serif",serif;font-size:1.9rem;color:var(--saffron-deep);
+    text-decoration:none;display:inline-block;margin-top:.4rem;
+  }
+
+  /* ---------- visit ---------- */
+  .visit{background:var(--cream-deep,#f3ead6);border-top:1px solid var(--line)}
+  .visit-grid{display:grid;gap:2rem}
+  .visit h2{font-size:clamp(1.9rem,4.5vw,2.6rem);margin-bottom:1rem}
+  .visit p{margin-bottom:.7rem}
+  .visit .label{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:1.4rem}
+
+  /* ---------- footer / tap-to-call ---------- */
+  footer{background:var(--espresso);color:#d8c7a8;padding:2.2rem 0 6.5rem;font-size:.9rem}
+  footer .wrap{display:grid;gap:.6rem}
+  footer .concept{font-size:.75rem;opacity:.6}
+  .tap-call{
+    position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:60;
+    background:var(--espresso);color:var(--cream);text-decoration:none;font-weight:700;
+    text-align:center;padding:1rem;border-radius:14px;font-size:1.05rem;
+    border:2px solid var(--saffron);
+  }
+
+  @media(min-width:760px){
+    .nav-links{display:flex}
+    .nav-call{display:inline-block}
+    .hamburger{display:none}
+    .mobile-menu{display:none!important}
+    .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:3rem;align-items:start}
+    .hero-side{margin-top:0}
+    .sig-grid{grid-template-columns:1fr 1fr}
+    .community .board{grid-template-columns:1.1fr 1fr 1fr;align-items:stretch}
+    .hl-grid{grid-template-columns:1fr 1fr}
+    .order-box{grid-template-columns:1.2fr .8fr;align-items:center;padding:3rem}
+    .visit-grid{grid-template-columns:1fr 1fr}
+    .tap-call{display:none}
+    footer{padding-bottom:2.2rem}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Cafetown<small>Cafe &amp; Resto</small></a>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#signatures">Signatures</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+15193071545">Call (519) 307-1545</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#story">Our Story</a>
+    <a href="#signatures">Signatures</a>
+    <a href="#community">Community</a>
+    <a href="#hours">Hours</a>
+    <a href="#visit">Visit</a>
+    <a href="tel:+15193071545">Call (519) 307-1545</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- 1. COMMUNITY HERO + FOUNDERS -->
+  <section class="hero" id="story">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Indian-fusion cafe on Broadway, Orangeville</p>
+        <h1>Where coffee meets <span class="amp">community</span></h1>
+        <p class="stand">Cafetown is the cafe Orangeville treats like its living room. Brewed coffee, fresh pastries, and a warm room where regulars are known by name. The menu celebrates Indo-Canadian tradition and invention in the same bite.</p>
+        <p class="founders">Founded by <strong>Sahil and Gurleen</strong>, who set out to build a cafe where two food cultures meet and everybody belongs. It worked: 935 reviewers rate it <strong>4.90</strong>, making it one of the top rated cafes in town.</p>
+        <div class="rating">
+          <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.90 from 935 reviews</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="tel:+15193071545">Call to order</a>
+          <a class="btn btn-ghost" href="#visit">Find us</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <p>"The best chai in town." That is what the regulars say, and the Saffron Almond Latte has its own following. Come taste what the fuss is about.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 2. FUSION SIGNATURES -->
+  <section class="sig" id="signatures">
+    <div class="wrap">
+      <p class="kicker">The menu</p>
+      <h2>House signatures</h2>
+      <p class="sub">Canadian cafe comfort with Indian soul. These are the plates and cups people cross town for.</p>
+      <div class="tabs" role="tablist" aria-label="Menu categories">
+        <button class="tab active" role="tab" aria-selected="true" data-tab="eats">Eats</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="sips">Sips</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-eats" role="tabpanel">
+        <div class="sig-grid">
+          <div class="sig-item">
+            <span class="tag">Crowd favourite</span>
+            <h3>Paneer Tikka Wrap</h3>
+            <p>Charred paneer tikka, cool crunch, wrapped warm. The signature lunch order.</p>
+          </div>
+          <div class="sig-item">
+            <span class="tag">Sweet tooth</span>
+            <h3>Rainbow Burst Cake</h3>
+            <p>A slice of colour with your coffee. Kids ask for it by name.</p>
+          </div>
+          <div class="sig-item">
+            <span class="tag">Sweet tooth</span>
+            <h3>Biscoff Treats</h3>
+            <p>Caramelised biscuit bakes that pair dangerously well with a latte.</p>
+          </div>
+          <div class="sig-item">
+            <span class="tag">Local legend</span>
+            <h3>Italian Chicken Sandwich</h3>
+            <p>Reviewers call it the best Italian chicken sandwich in town.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-sips" role="tabpanel">
+        <div class="sig-grid">
+          <div class="sig-item">
+            <span class="tag">House icon</span>
+            <h3>Saffron Almond Latte</h3>
+            <p>Espresso, saffron, and almond. The drink people photograph before they drink.</p>
+          </div>
+          <div class="sig-item">
+            <span class="tag">Best in town</span>
+            <h3>Indian Masala Tea</h3>
+            <p>Properly brewed chai with warming spices. "The best chai in town," say the regulars.</p>
+          </div>
+          <div class="sig-item">
+            <span class="tag">Classic</span>
+            <h3>Mocha Latte</h3>
+            <p>Chocolatey and creamy, made the way a mocha should be.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="sig-foot">Fresh pastries land daily, and the menu keeps evolving. Ask what is new when you visit.</p>
+    </div>
+  </section>
+
+  <!-- 3. COMMUNITY / TOO GOOD TO GO STRIP -->
+  <section class="community" id="community">
+    <div class="wrap">
+      <p class="kicker">The community board</p>
+      <h2>More than a cafe</h2>
+      <p class="sub">Cafetown shows up for Orangeville, and Orangeville shows up back.</p>
+      <div class="board">
+        <div class="note-a">
+          <h3>Too Good To Go</h3>
+          <p>We pack surprise bags of the day's bakes and treats on the Too Good To Go app, so good food never goes to waste. Check the app in the evening and grab a deal.</p>
+        </div>
+        <div class="note-b">
+          <h3>We are growing</h3>
+          <p>Cafetown is hiring a full-time cook. If you love a busy kitchen and a warmer crew, ask in store or call us.</p>
+        </div>
+        <div class="note-c">
+          <h3>Everyone is welcome</h3>
+          <p>Dogs are welcome, inside and on the patio. Laptop workers camp out here daily, and the TikTok crowd knows us as @cafetown_official. Bring the whole crew.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. HOURS + LOCATION -->
+  <section class="hl" id="hours">
+    <div class="wrap">
+      <h2>Hours and location</h2>
+      <div class="hl-grid">
+        <div>
+          <table class="hours" aria-label="Hours of operation">
+            <tbody>
+              <tr><td>Sunday</td><td>8:00am to 8:00pm</td></tr>
+              <tr><td>Monday to Friday</td><td>7:30am to 7:30pm</td></tr>
+              <tr><td>Saturday</td><td>7:30am to 9:00pm</td></tr>
+            </tbody>
+          </table>
+          <p class="src">Hours as listed on our Google business profile. Holiday hours may differ, call to confirm.</p>
+        </div>
+        <div>
+          <address>
+            154 Broadway<br>
+            Orangeville, ON L9W 1K3<br>
+            <a href="tel:+15193071545">(519) 307-1545</a>
+          </address>
+          <div class="cta-row">
+            <a class="btn btn-warm" href="tel:+15193071545">Call Cafetown</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Cafetown%20154%20Broadway%20Orangeville%20ON" target="_blank" rel="noopener">Get directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ORDER / PICKUP CTA -->
+  <section class="order" id="order">
+    <div class="wrap">
+      <div class="order-box">
+        <div>
+          <p class="kicker">Pickup</p>
+          <h2>Call ahead, skip the wait</h2>
+          <p>Ring us with your order and it will be ready when you walk in. Inexpensive café pricing, vegan and vegetarian options on the menu, and service with a smile from people who remember your usual.</p>
+        </div>
+        <div>
+          <a class="btn btn-solid" href="tel:+15193071545">Call to order</a><br>
+          <a class="big-call" href="tel:+15193071545">(519) 307-1545</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. VISIT -->
+  <section class="visit" id="visit">
+    <div class="wrap visit-grid">
+      <div>
+        <h2>Visit</h2>
+        <p>154 Broadway, Orangeville, ON L9W 1K3</p>
+        <p><a href="tel:+15193071545">(519) 307-1545</a></p>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="tel:+15193071545">Call Cafetown</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Cafetown%20154%20Broadway%20Orangeville%20ON" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+      <div>
+        <p class="label">Good to know</p>
+        <p>Dogs welcome inside and out. Great for working on a laptop. Wheelchair accessible entrance and seating.</p>
+        <p class="label">Find us online</p>
+        <p>TikTok: @cafetown_official, where the day-one videos started it all.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Cafetown Cafe &amp; Resto</strong> &middot; 154 Broadway, Orangeville, ON L9W 1K3 &middot; <a href="tel:+15193071545">(519) 307-1545</a></p>
+    <p class="concept">Concept preview. An independent concept, not affiliated with the business.</p>
+  </div>
+</footer>
+
+<a class="tap-call" href="tel:+15193071545">Call Cafetown: (519) 307-1545</a>
+
+<script>
+  // hamburger
+  var hb = document.getElementById('hamburger');
+  var mm = document.getElementById('mobileMenu');
+  hb.addEventListener('click', function(){
+    var open = mm.classList.toggle('open');
+    hb.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mm.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ mm.classList.remove('open'); });
+  });
+
+  // signature tabs (single signature interaction)
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){
+        t.classList.remove('active');
+        t.setAttribute('aria-selected','false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(function(p){
+        p.classList.remove('active');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

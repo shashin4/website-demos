@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moodie's Bakery | 90 Years of Baking in Niagara Falls</title>
+<meta name="description" content="Moodie's Bakery is a family-run bakery on Queen Street in downtown Niagara Falls. Small-batch breads, the famous Mary Ann cake, and custom celebration cakes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf4e8;
+    --cream-deep:#f2e9d5;
+    --brown:#4a2c17;
+    --brown-deep:#33200f;
+    --ink:#2b1d10;
+    --muted:#6f5d48;
+    --cherry:#b23a30;
+    --cherry-dark:#8e2a23;
+    --line:#e3d5ba;
+    --offblack:#241a10;
+    --offwhite:#faf4e8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Karla',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Fraunces',Georgia,serif;text-wrap:balance;line-height:1.12}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+  /* ---------- sticky nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,244,232,.92);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+  .brand .name{font-family:'Fraunces',serif;font-weight:700;font-size:1.35rem;color:var(--brown-deep)}
+  .brand .est{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .nav-links{display:none;gap:26px;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink)}
+  .nav-links a:hover{color:var(--cherry)}
+  .nav-call{display:none;text-decoration:none;font-weight:700;color:#fff;background:var(--cherry);padding:10px 18px;border-radius:999px;font-size:.92rem}
+  .nav-call:hover{background:var(--cherry-dark)}
+  .burger{display:inline-flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--brown-deep);display:block;transition:transform .2s,opacity .2s}
+  @media(min-width:860px){
+    .nav-links{display:flex}
+    .nav-call{display:inline-block}
+    .burger{display:none}
+  }
+  .mobile-menu{display:none;border-top:1px solid var(--line);background:var(--cream);padding:8px 20px 20px;list-style:none}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;text-decoration:none;font-weight:600;padding:12px 0;border-bottom:1px solid var(--line)}
+  .mobile-menu a:last-child{border-bottom:0;color:var(--cherry)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:44px 0 40px}
+  .hero-grid{display:grid;gap:32px;align-items:center}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+  .kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cherry);font-weight:700;margin-bottom:14px}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.1rem);font-weight:600;color:var(--brown-deep)}
+  .hero h1 em{font-style:italic;color:var(--cherry)}
+  .hero-sub{margin-top:16px;font-size:1.12rem;color:var(--muted);max-width:34rem}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:13px 24px;border-radius:10px;font-size:1rem;transition:transform .15s,background .15s}
+  .btn-solid{background:var(--cherry);color:#fff}
+  .btn-solid:hover{background:var(--cherry-dark)}
+  .btn-outline{border:2px solid var(--brown);color:var(--brown-deep)}
+  .btn-outline:hover{background:var(--brown);color:var(--cream)}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat{flex:1 1 33%;padding:14px 16px 14px 0}
+  .stat + .stat{border-left:1px solid var(--line);padding-left:16px}
+  .stat .num{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:var(--brown-deep)}
+  .stat .lbl{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .hero-photo{position:relative}
+  .hero-photo img{border-radius:14px;border:6px solid #fff;box-shadow:0 12px 30px rgba(74,44,23,.18)}
+  .photo-cap{font-size:.82rem;color:var(--muted);margin-top:10px;font-style:italic}
+
+  /* ---------- heritage strip ---------- */
+  .heritage{background:var(--brown-deep);color:var(--cream);padding:52px 0}
+  .heritage .kicker{color:#e8b04b}
+  .heritage h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:600;margin-bottom:8px}
+  .heritage p.lead{color:#d8c9ae;max-width:44rem;margin-bottom:28px}
+  .era-strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:1px;background:#5c3d22;overflow-x:auto;border:1px solid #5c3d22;border-radius:12px}
+  .era{background:var(--brown-deep);padding:22px;min-width:0}
+  .era .big{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:700;color:#e8b04b;line-height:1}
+  .era h3{font-size:1.1rem;margin:10px 0 6px;color:var(--cream)}
+  .era p{font-size:.92rem;color:#d8c9ae}
+  .strip-hint{font-size:.8rem;color:#a68f6c;margin-top:12px;letter-spacing:.04em}
+
+  /* ---------- bread board ---------- */
+  .board-sec{padding:64px 0}
+  .board-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px}
+  .board-head h2{font-size:clamp(1.8rem,3.8vw,2.6rem);color:var(--brown-deep);font-weight:600}
+  .board-head p{color:var(--muted);max-width:30rem;margin-top:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{border:2px solid var(--line);background:#fff;color:var(--ink);font-weight:700;font-size:.88rem;padding:8px 16px;border-radius:999px;cursor:pointer;font-family:'Karla',sans-serif}
+  .chip[aria-pressed="true"]{background:var(--brown-deep);border-color:var(--brown-deep);color:var(--cream)}
+  .board-grid{display:grid;gap:28px}
+  @media(min-width:900px){.board-grid{grid-template-columns:1fr 1fr;align-items:start}}
+  .chalkboard{
+    background:var(--offblack);
+    color:var(--offwhite);
+    border-radius:16px;
+    padding:30px 28px;
+    border:10px solid #6b4a2c;
+    box-shadow:0 16px 34px rgba(36,26,16,.25);
+  }
+  .chalkboard h3{font-size:1.5rem;color:#f6d98a;margin-bottom:4px}
+  .chalkboard .board-note{font-size:.88rem;color:#cdbf9f;margin-bottom:18px;font-style:italic}
+  .bread-list{list-style:none;display:grid;gap:0}
+  .bread-list li{
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    padding:11px 2px;border-bottom:1px dashed #5a4a35;font-size:1.06rem;
+  }
+  .bread-list li:last-child{border-bottom:0}
+  .bread-list .bname{font-weight:600}
+  .bread-list .tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#f6d98a;border:1px solid #8a734f;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .bread-list li[hidden]{display:none}
+  .board-photo img{border-radius:14px}
+  .board-photo .photo-cap{text-align:left}
+
+  /* ---------- custom cake ---------- */
+  .cake-sec{background:var(--cream-deep);padding:64px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cake-grid{display:grid;gap:34px}
+  @media(min-width:920px){.cake-grid{grid-template-columns:.92fr 1.08fr;align-items:start}}
+  .cake-sec h2{font-size:clamp(1.8rem,3.8vw,2.6rem);color:var(--brown-deep);font-weight:600}
+  .cake-sec .lede{color:var(--muted);margin:12px 0 20px;font-size:1.08rem}
+  .cake-points{list-style:none;display:grid;gap:14px;margin:0 0 24px}
+  .cake-points li{display:flex;gap:12px;align-items:flex-start}
+  .cake-points .tick{flex:0 0 26px;height:26px;border-radius:50%;background:var(--cherry);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem}
+  .cake-photo img{border-radius:14px;border:6px solid #fff;box-shadow:0 12px 30px rgba(74,44,23,.16)}
+  .order-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 10px 26px rgba(74,44,23,.10)}
+  .order-card h3{font-size:1.35rem;color:var(--brown-deep);margin-bottom:6px}
+  .order-card .fine{font-size:.92rem;color:var(--muted);margin-bottom:18px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-weight:700;font-size:.88rem;margin-bottom:6px}
+  .field input,.field select,.field textarea{
+    width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font:inherit;font-size:1rem;background:var(--cream);
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--cherry);border-color:var(--cherry)}
+  .field-row{display:grid;gap:14px}
+  @media(min-width:560px){.field-row{grid-template-columns:1fr 1fr}}
+  .form-msg{display:none;margin-top:14px;padding:14px 16px;border-radius:10px;background:#eef4e6;border:1px solid #b9cba4;color:#33431f;font-size:.95rem}
+  .quote-line{margin-top:14px;font-size:.92rem;color:var(--muted)}
+  .quote-line a{color:var(--cherry);font-weight:700}
+
+  /* ---------- market ---------- */
+  .market-sec{padding:64px 0}
+  .market-sec h2{font-size:clamp(1.8rem,3.8vw,2.6rem);color:var(--brown-deep);font-weight:600}
+  .market-sec .lede{color:var(--muted);margin:10px 0 26px;max-width:40rem}
+  .market-list{list-style:none;display:grid;gap:16px}
+  @media(min-width:760px){.market-list{grid-template-columns:1fr 1fr}}
+  .market{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+  .market .day{flex:0 0 76px;text-align:center;background:var(--cherry);color:#fff;border-radius:10px;padding:12px 8px}
+  .market .day .dow{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+  .market .day .dnum{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:700;line-height:1.1}
+  .market h3{font-size:1.2rem;color:var(--brown-deep);margin-bottom:4px}
+  .market p{font-size:.95rem;color:var(--muted)}
+  .market-note{margin-top:20px;font-size:.95rem;color:var(--muted)}
+  .market-note a{color:var(--cherry);font-weight:700}
+
+  /* ---------- visit ---------- */
+  .visit{background:var(--brown-deep);color:var(--cream);padding:60px 0}
+  .visit h2{font-size:clamp(1.8rem,3.8vw,2.5rem);font-weight:600;margin-bottom:8px}
+  .visit .lede{color:#d8c9ae;margin-bottom:28px;max-width:38rem}
+  .visit-grid{display:grid;gap:26px}
+  @media(min-width:820px){.visit-grid{grid-template-columns:1fr 1fr}}
+  .visit-block h3{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:#e8b04b;margin-bottom:10px}
+  .visit-block address{font-style:normal;font-size:1.15rem;line-height:1.7}
+  .visit-block p{font-size:1.02rem;color:#d8c9ae}
+  .visit-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .btn-cream{background:var(--cream);color:var(--brown-deep)}
+  .btn-cream:hover{background:#fff}
+  .btn-gold{background:#e8b04b;color:var(--brown-deep)}
+  .btn-gold:hover{background:#f3c05e}
+
+  footer{padding:26px 0 96px;background:var(--brown-deep);color:#a68f6c;font-size:.82rem;border-top:1px solid #5c3d22}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+  footer .concept{opacity:.85}
+
+  /* ---------- mobile tap-to-call ---------- */
+  .tapcall{
+    position:fixed;left:12px;right:12px;bottom:12px;z-index:60;
+    background:var(--cherry);color:#fff;text-align:center;text-decoration:none;
+    font-weight:700;font-size:1.05rem;padding:14px;border-radius:12px;
+    box-shadow:0 8px 22px rgba(178,58,48,.4);
+  }
+  @media(min-width:860px){.tapcall{display:none}}
+  @media(min-width:860px){footer{padding-bottom:26px}}
+
+  section{scroll-margin-top:76px}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Moodie's Bakery home">
+      <span class="name">Moodie's Bakery</span>
+      <span class="est">Niagara Falls</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#heritage">Our story</a></li>
+      <li><a href="#bread">Bread board</a></li>
+      <li><a href="#cakes">Custom cakes</a></li>
+      <li><a href="#market">Markets</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+19053588288">Call 905 358 8288</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="#heritage">Our story</a></li>
+    <li><a href="#bread">Bread board</a></li>
+    <li><a href="#cakes">Custom cakes</a></li>
+    <li><a href="#market">Markets</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="tel:+19053588288">Call 905 358 8288</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+
+  <!-- 1. editorial hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Downtown Niagara Falls &middot; 90 years of baking</p>
+        <h1>Ninety years of baking, <em>still warm</em> from the oven.</h1>
+        <p class="hero-sub">Moodie's Bakery is a family-run bakery on Queen Street in downtown Niagara Falls, known for small-batch breads, butter tarts, and the famous Mary Ann cake.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="#bread">See the bread board</a>
+          <a class="btn btn-outline" href="#cakes">Order a custom cake</a>
+        </div>
+        <div class="hero-stats" aria-label="Bakery highlights">
+          <div class="stat"><div class="num">90</div><div class="lbl">Years in the community</div></div>
+          <div class="stat"><div class="num">4.8</div><div class="lbl">From 85+ Google reviews</div></div>
+          <div class="stat"><div class="num">12</div><div class="lbl">Breads on the board</div></div>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://moodiesbakery.ca/wp-content/uploads/2026/04/Breads-768x576.png" alt="Fresh loaves from Moodie's Bakery" width="768" height="576">
+        <figcaption class="photo-cap">Small-batch loaves, straight from the Moodie's counter.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2. heritage timeline strip -->
+  <section class="heritage" id="heritage">
+    <div class="wrap">
+      <p class="kicker">Our story</p>
+      <h2>A downtown institution, one loaf at a time.</h2>
+      <p class="lead">Moodie's has been bringing freshly baked goods to Niagara Falls for 90 years: breads, pastries, cookies, cakes, and the authentic Canadian butter tart, made with quality ingredients and a passion for great taste.</p>
+      <div class="era-strip" role="list" aria-label="Bakery history">
+        <div class="era" role="listitem">
+          <div class="big">90</div>
+          <h3>Years on Queen Street</h3>
+          <p>A downtown Niagara Falls institution, baking for the community since the 1930s.</p>
+        </div>
+        <div class="era" role="listitem">
+          <div class="big">&infin;</div>
+          <h3>The Mary Ann cake</h3>
+          <p>The famous Mary Ann cake: a long-time favourite customers drive across the region for.</p>
+        </div>
+        <div class="era" role="listitem">
+          <div class="big">12</div>
+          <h3>Breads, baked daily</h3>
+          <p>Signature small-batch dough, from just a handful of ingredients, flavoured twelve ways.</p>
+        </div>
+        <div class="era" role="listitem">
+          <div class="big">&hearts;</div>
+          <h3>Celebrations</h3>
+          <p>Custom cakes for birthdays and special occasions, made to be both beautiful and memorable.</p>
+        </div>
+        <div class="era" role="listitem">
+          <div class="big">&#9733;</div>
+          <h3>Today</h3>
+          <p>Find us on Queen Street and at Saturday farmers' markets in Niagara Falls and Welland.</p>
+        </div>
+      </div>
+      <p class="strip-hint">Swipe or scroll sideways to walk through the decades.</p>
+    </div>
+  </section>
+
+  <!-- 3. today's bread board -->
+  <section class="board-sec" id="bread">
+    <div class="wrap">
+      <div class="board-head">
+        <div>
+          <p class="kicker">From the oven</p>
+          <h2>Today's bread board.</h2>
+          <p>Made in small batches and packed with flavour. Each loaf starts with our signature dough of just a handful of ingredients.</p>
+        </div>
+        <div class="chips" role="group" aria-label="Filter breads">
+          <button class="chip" data-filter="all" aria-pressed="true">All breads</button>
+          <button class="chip" data-filter="classic" aria-pressed="false">Classic</button>
+          <button class="chip" data-filter="savoury" aria-pressed="false">Savoury</button>
+          <button class="chip" data-filter="sweet" aria-pressed="false">Sweet</button>
+        </div>
+      </div>
+      <div class="board-grid">
+        <div class="chalkboard" aria-live="polite">
+          <h3>The board</h3>
+          <p class="board-note">Perfect with a bowl of pasta, sandwiches, or just simply buttered.</p>
+          <ul class="bread-list" id="breadList">
+            <li data-cat="classic"><span class="bname">Sourdough</span><span class="tag">Classic</span></li>
+            <li data-cat="classic"><span class="bname">White</span><span class="tag">Classic</span></li>
+            <li data-cat="classic"><span class="bname">Whole Wheat</span><span class="tag">Classic</span></li>
+            <li data-cat="classic"><span class="bname">Multigrain</span><span class="tag">Classic</span></li>
+            <li data-cat="savoury"><span class="bname">Olive &amp; Oregano</span><span class="tag">Savoury</span></li>
+            <li data-cat="savoury"><span class="bname">Roasted Garlic &amp; Rosemary</span><span class="tag">Savoury</span></li>
+            <li data-cat="savoury"><span class="bname">Onion &amp; Sage</span><span class="tag">Savoury</span></li>
+            <li data-cat="savoury"><span class="bname">Cheddar Cheese</span><span class="tag">Savoury</span></li>
+            <li data-cat="savoury"><span class="bname">Jalapeno &amp; Cheese</span><span class="tag">Savoury</span></li>
+            <li data-cat="savoury"><span class="bname">Sundried Tomato</span><span class="tag">Savoury</span></li>
+            <li data-cat="sweet"><span class="bname">Cinnamon &amp; Raisin</span><span class="tag">Sweet</span></li>
+            <li data-cat="sweet"><span class="bname">Chocolate</span><span class="tag">Sweet</span></li>
+          </ul>
+        </div>
+        <figure class="board-photo">
+          <img src="https://moodiesbakery.ca/wp-content/uploads/2026/04/Breads-768x576.png" alt="A selection of Moodie's flavoured breads" width="768" height="576">
+          <figcaption class="photo-cap">From cheddar cheese to roasted garlic &amp; rosemary: the flavoured breads Moodie's is known for.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. custom cake order -->
+  <section class="cake-sec" id="cakes">
+    <div class="wrap cake-grid">
+      <div>
+        <p class="kicker">Celebrations</p>
+        <h2>Cakes made for your occasion.</h2>
+        <p class="lede">From our famous Mary Ann cake to custom cakes made for birthdays, celebrations, and special occasions, our cakes are made to be both beautiful and memorable.</p>
+        <ul class="cake-points">
+          <li><span class="tick">&#10003;</span><span><strong>The famous Mary Ann cake.</strong> The long-time favourite regulars ask for by name.</span></li>
+          <li><span class="tick">&#10003;</span><span><strong>Custom designs.</strong> Birthdays, showers, milestones: tell us the theme and we will bake to it.</span></li>
+          <li><span class="tick">&#10003;</span><span><strong>Baked to order.</strong> Give us a few days' notice so your cake is fresh for the big day.</span></li>
+        </ul>
+        <figure class="cake-photo">
+          <img src="https://moodiesbakery.ca/wp-content/uploads/2026/04/CakeE-1024x768.png" alt="A Moodie's Bakery celebration cake" width="1024" height="768">
+          <figcaption class="photo-cap">One of Moodie's celebration cakes.</figcaption>
+        </figure>
+      </div>
+      <div class="order-card">
+        <h3>Request a custom cake</h3>
+        <p class="fine">Tell us about your celebration and we will call you back to confirm the details.</p>
+        <form id="cakeForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="cname">Your name</label>
+              <input id="cname" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="cphone">Phone number</label>
+              <input id="cphone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cdate">Date needed</label>
+              <input id="cdate" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="csize">Servings (approx.)</label>
+              <select id="csize" name="size">
+                <option>Not sure yet</option>
+                <option>Up to 10</option>
+                <option>10 to 20</option>
+                <option>20 to 40</option>
+                <option>40 or more</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cnotes">Occasion, flavours, theme</label>
+            <textarea id="cnotes" name="notes" rows="4" placeholder="Birthday for a 7-year-old, chocolate, dinosaur theme..."></textarea>
+          </div>
+          <button class="btn btn-solid" type="submit" style="width:100%">Send my cake request</button>
+          <p class="form-msg" id="cakeMsg" role="status">Thanks. This request form is a concept preview, so nothing was sent. On the live site, your details would go straight to the bakery and they would call you back to confirm.</p>
+        </form>
+        <p class="quote-line">Pricing varies by design. <a href="tel:+19053588288">Call 905 358 8288</a> for a quote.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. farmers market schedule -->
+  <section class="market-sec" id="market">
+    <div class="wrap">
+      <p class="kicker">Out and about</p>
+      <h2>Find us at the Saturday markets.</h2>
+      <p class="lede">Alongside the Queen Street shop, Moodie's sets up at farmers' markets on Saturdays. Fresh bread, butter tarts, and pastries, straight from the oven to the stall.</p>
+      <ul class="market-list">
+        <li class="market">
+          <div class="day"><div class="dow">Every</div><div class="dnum">Sat</div></div>
+          <div>
+            <h3>Niagara Falls Farmers' Market</h3>
+            <p>Saturdays, in the morning. Look for the Moodie's table for breads and butter tarts.</p>
+          </div>
+        </li>
+        <li class="market">
+          <div class="day"><div class="dow">Every</div><div class="dnum">Sat</div></div>
+          <div>
+            <h3>Welland Farmers' Market</h3>
+            <p>Saturdays, in the morning. Breads, pastries, and the week's cake selection.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="market-note">Market days can shift with the season. <a href="tel:+19053588288">Call 905 358 8288</a> to confirm where to find us this Saturday.</p>
+    </div>
+  </section>
+
+  <!-- 6. visit -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <p class="kicker" style="color:#e8b04b">Visit</p>
+      <h2>Come by the shop.</h2>
+      <p class="lede">We are a short distance from the Falls, in downtown Niagara Falls. Friendly service, handcrafted baked goods, and a warm, welcoming atmosphere.</p>
+      <div class="visit-grid">
+        <div class="visit-block">
+          <h3>Address</h3>
+          <address>4552 Queen St<br>Niagara Falls, ON L2E 2L5</address>
+          <div class="visit-actions">
+            <a class="btn btn-gold" href="tel:+19053588288">Call 905 358 8288</a>
+            <a class="btn btn-cream" href="https://www.google.com/maps/search/?api=1&amp;query=4552+Queen+St+Niagara+Falls+ON+L2E+2L5">Get directions</a>
+          </div>
+        </div>
+        <div class="visit-block">
+          <h3>Hours &amp; contact</h3>
+          <p><strong style="color:#fff">Call for today's hours.</strong><br>
+          Phone: 905 358 8288<br>
+          Email: cookie@moodiesbakery.ca<br>
+          Instagram: @moodiesbakery_nf (1,075 followers, posting weekly)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Moodie's Bakery</span>
+    <span class="concept">Concept preview &mdash; an independent concept, not affiliated with the business</span>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+19053588288">Call Moodie's: 905 358 8288</a>
+
+<script>
+(function(){
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // Signature interaction: bread board filter
+  var chips = document.querySelectorAll('.chip');
+  var breads = document.querySelectorAll('#breadList li');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      chip.setAttribute('aria-pressed','true');
+      var f = chip.getAttribute('data-filter');
+      breads.forEach(function(b){
+        b.hidden = (f !== 'all' && b.getAttribute('data-cat') !== f);
+      });
+    });
+  });
+
+  // Honest cake request form
+  var form = document.getElementById('cakeForm');
+  var msg = document.getElementById('cakeMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cname');
+    var phone = document.getElementById('cphone');
+    if(!name.value.trim() || !phone.value.trim()){
+      msg.style.display = 'block';
+      msg.textContent = 'Please add your name and phone number so the bakery can call you back. Nothing has been sent; this is a concept preview.';
+      if(!name.value.trim()){ name.focus(); } else { phone.focus(); }
+      return;
+    }
+    msg.style.display = 'block';
+    msg.textContent = 'Thanks' + (name.value.trim() ? ' ' + name.value.trim().split(' ')[0] : '') + '. This request form is a concept preview, so nothing was sent. On the live site, your details would go straight to the bakery and they would call you back to confirm.';
+    form.querySelector('button[type="submit"]').disabled = true;
+  });
+})();
+</script>
+</body>
+</html>

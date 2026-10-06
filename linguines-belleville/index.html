@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linguine's Italian Restaurant, Belleville ON | Family Owned 20+ Years</title>
+<meta name="description" content="Linguine's Italian Restaurant, 257 N Front St, Belleville. Family owned Italian dining for over 20 years, plus a 90-guest banquet hall for weddings and corporate events. Call (613) 962-5444.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f7f0e1;
+    --cream-deep:#efe4cd;
+    --paper:#fbf8f0;
+    --ink:#241a12;
+    --muted:#7d6c55;
+    --red:#b23a28;
+    --red-dark:#8e2c1f;
+    --olive:#6f7a3d;
+    --olive-dark:#59622f;
+    --line:#e0d3b8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Alegreya Sans",system-ui,-apple-system,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:Alegreya,Georgia,serif;text-wrap:balance;line-height:1.12;letter-spacing:-0.01em}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem}
+  section{padding:3.5rem 0}
+  a{color:inherit}
+
+  /* ---------- sticky nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,240,225,.88);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:Alegreya,serif;font-weight:800;font-size:1.35rem;color:var(--red-dark);text-decoration:none}
+  .brand small{display:block;font-family:"Alegreya Sans",sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .nav-links{display:none;gap:1.5rem;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:500;font-size:.95rem}
+  .nav-links a:hover{color:var(--red)}
+  .nav-call{display:none;background:var(--red);color:var(--paper);text-decoration:none;font-weight:700;padding:.55rem 1.1rem;border-radius:999px;font-size:.9rem}
+  .hamburger{background:none;border:0;cursor:pointer;padding:.5rem;display:flex;flex-direction:column;gap:5px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px}
+  .mobile-menu{display:none;border-bottom:1px solid var(--line);background:var(--paper)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:.9rem 1.25rem;text-decoration:none;font-weight:500;border-top:1px solid var(--line)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:4rem 0 3rem}
+  .hero-grid{display:grid;gap:2.5rem}
+  .kicker{font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--olive-dark);margin-bottom:1rem}
+  .hero h1{font-size:clamp(2.4rem,6vw,3.8rem);font-weight:800;color:var(--red-dark);margin-bottom:1rem}
+  .hero h1 em{font-style:italic;font-weight:600}
+  .hero p.stand{font-size:1.12rem;max-width:34rem;color:var(--ink)}
+  .rating{display:flex;align-items:center;gap:.6rem;margin:1.25rem 0;font-size:.95rem;color:var(--muted)}
+  .stars{color:var(--red);letter-spacing:.1em;font-size:1rem}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:.85rem 1.6rem;border-radius:999px;font-size:1rem;border:2px solid var(--red)}
+  .btn-solid{background:var(--red);color:var(--paper)}
+  .btn-solid:hover{background:var(--red-dark)}
+  .btn-ghost{color:var(--red-dark)}
+  .btn-ghost:hover{background:rgba(178,58,40,.08)}
+  .hero-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:14px 4px 14px 4px;
+    padding:1.6rem;
+  }
+  .hero-card h3{font-size:1.25rem;margin-bottom:.8rem;color:var(--olive-dark)}
+  .hero-card dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;font-size:.95rem}
+  .hero-card dt{font-weight:700;color:var(--muted);font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;padding-top:.15rem}
+  .hero-card dd{margin:0}
+
+  /* ---------- banquet ---------- */
+  .banquet{background:var(--olive);color:#f6f2e7;border-radius:22px 6px 22px 6px;margin:0 0.75rem}
+  .banquet .wrap{padding-top:3.5rem;padding-bottom:3.5rem}
+  .banquet h2{font-size:clamp(1.9rem,4.5vw,2.7rem);font-weight:800;margin-bottom:.9rem}
+  .banquet .lede{font-size:1.1rem;max-width:36rem;opacity:.94;margin-bottom:2rem}
+  .banquet-cols{display:grid;gap:2rem}
+  .banquet ul{list-style:none;display:grid;gap:.7rem}
+  .banquet li{padding-left:1.6rem;position:relative;font-size:1.02rem}
+  .banquet li::before{content:"";position:absolute;left:0;top:.55em;width:.65em;height:.65em;border-radius:50%;background:#f6f2e7;opacity:.85}
+  .comp-box{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.25);border-radius:12px 4px 12px 4px;padding:1.4rem 1.5rem;margin-top:2rem}
+  .comp-box strong{font-family:Alegreya,serif;font-size:1.2rem;display:block;margin-bottom:.4rem}
+  .btn-cream{display:inline-block;background:#f6f2e7;color:var(--olive-dark);text-decoration:none;font-weight:700;padding:.85rem 1.6rem;border-radius:999px;margin-top:1.2rem}
+  .btn-cream:hover{background:#ffffff}
+  .banquet .stats{display:flex;gap:2.2rem;margin-top:2rem;flex-wrap:wrap}
+  .banquet .stat b{font-family:Alegreya,serif;font-size:1.9rem;display:block}
+  .banquet .stat span{font-size:.88rem;opacity:.9}
+
+  /* ---------- menu ---------- */
+  .menu-head{display:grid;gap:1rem;margin-bottom:2rem}
+  .menu-head h2{font-size:clamp(1.9rem,4.5vw,2.7rem);color:var(--red-dark);font-weight:800}
+  .menu-head p{max-width:36rem;color:var(--muted);font-size:1.05rem}
+  .accordion{border-top:2px solid var(--ink)}
+  .acc-item{border-bottom:1px solid var(--line)}
+  .acc-btn{
+    width:100%;background:none;border:0;cursor:pointer;text-align:left;
+    display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    padding:1.25rem .25rem;font-family:Alegreya,serif;font-size:1.35rem;font-weight:700;color:var(--ink);
+  }
+  .acc-btn .plus{font-family:"Alegreya Sans",sans-serif;font-size:1.6rem;font-weight:400;color:var(--red);flex-shrink:0;transition:transform .2s}
+  .acc-item.open .acc-btn .plus{transform:rotate(45deg)}
+  .acc-panel{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .acc-panel ul{list-style:none;padding:0 .25rem 1.5rem;display:grid;gap:.5rem}
+  .acc-panel li{display:flex;justify-content:space-between;gap:1rem;font-size:1.05rem;border-bottom:1px dotted var(--line);padding-bottom:.45rem}
+  .acc-panel li .note{color:var(--muted);font-size:.92rem;font-style:italic}
+  .menu-foot{margin-top:1.5rem;color:var(--muted);font-style:italic}
+
+  /* ---------- awards ---------- */
+  .awards{background:var(--red-dark);color:#f7efe0}
+  .awards .wrap{display:grid;gap:1.5rem;padding-top:3rem;padding-bottom:3rem}
+  .awards h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800}
+  .awards p{font-size:1.05rem;max-width:38rem;opacity:.95}
+  .award-line{font-family:Alegreya,serif;font-size:1.5rem;font-weight:700;color:#ffd9a8}
+
+  /* ---------- visit ---------- */
+  .visit-grid{display:grid;gap:2.5rem}
+  .visit h2{font-size:clamp(1.9rem,4.5vw,2.7rem);color:var(--red-dark);font-weight:800;margin-bottom:1.2rem}
+  .hours{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:1rem}
+  .hours td{padding:.45rem 0;border-bottom:1px dotted var(--line)}
+  .hours td:last-child{text-align:right;font-weight:500}
+  .visit p{margin-bottom:.6rem}
+  .visit .label{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:1.4rem}
+  .note-box{background:var(--paper);border:1px solid var(--line);border-radius:4px 14px 4px 14px;padding:1.4rem;margin-top:1.6rem}
+  .note-box h3{font-size:1.15rem;color:var(--olive-dark);margin-bottom:.5rem}
+  .note-box p{font-size:.97rem}
+
+  /* ---------- footer / tap-to-call ---------- */
+  footer{background:var(--ink);color:#d8cbb2;padding:2.2rem 0 6.5rem;font-size:.9rem}
+  footer .wrap{display:grid;gap:.6rem}
+  footer .concept{font-size:.75rem;opacity:.6}
+  .tap-call{
+    position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:60;
+    background:var(--red);color:var(--paper);text-decoration:none;font-weight:700;
+    text-align:center;padding:1rem;border-radius:14px;font-size:1.05rem;
+  }
+  .tap-call:hover{background:var(--red-dark)}
+
+  @media(min-width:760px){
+    .nav-links{display:flex}
+    .nav-call{display:inline-block}
+    .hamburger{display:none}
+    .mobile-menu{display:none!important}
+    .hero-grid{grid-template-columns:1.25fr .85fr;align-items:start}
+    .banquet-cols{grid-template-columns:1fr 1fr}
+    .menu-head{grid-template-columns:1fr 1fr;align-items:end}
+    .visit-grid{grid-template-columns:1fr 1fr}
+    .tap-call{display:none}
+    footer{padding-bottom:2.2rem}
+    .awards .wrap{grid-template-columns:auto 1fr;align-items:center;gap:3rem}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .acc-panel{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Linguine's<small>Belleville, Ontario</small></a>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#banquet">Banquet Hall</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+16139625444">Call (613) 962-5444</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#story">Our Story</a>
+    <a href="#banquet">Banquet Hall</a>
+    <a href="#menu">Menu</a>
+    <a href="#awards">Awards</a>
+    <a href="#visit">Visit</a>
+    <a href="tel:+16139625444">Call (613) 962-5444</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- 1. FAMILY STORY HERO -->
+  <section class="hero" id="story">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Family owned and operated, over 20 years</p>
+        <h1>Linguine's Italian Restaurant <em>in the heart of Belleville</em></h1>
+        <p class="stand">Casual, authentic Italian dining run by the Petrella family and their loyal staff. For more than two decades, Belleville and the Quinte area have come here for generous plates of pasta, long dinners, and celebrations done properly.</p>
+        <div class="rating">
+          <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.6 stars from 180 Google reviews</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="tel:+16139625444">Call to reserve</a>
+          <a class="btn btn-ghost" href="#menu">See the menu</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Quick visit info">
+        <h3>Find us on Front Street</h3>
+        <dl>
+          <dt>Address</dt><dd>257 N Front St, Belleville, ON K8P 3C2<br>next to the Country Inn &amp; Suites</dd>
+          <dt>Hours</dt><dd>Sun to Thu, 4pm to 10pm<br>Fri and Sat, 4pm to 10:30pm</dd>
+          <dt>Phone</dt><dd><a href="tel:+16139625444">(613) 962-5444</a></dd>
+          <dt>Email</dt><dd><a href="mailto:linguinesrestaurant@gmail.com">linguinesrestaurant@gmail.com</a></dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 2. BANQUET & EVENTS HALL -->
+  <section class="banquet" id="banquet" aria-label="Banquet hall">
+    <div class="wrap">
+      <p class="kicker" style="color:#f2e6c9">Private events</p>
+      <h2>A banquet hall built for Belleville's biggest days</h2>
+      <p class="lede">Up to 90 guests, a full licensed bar, and a team that has hosted hundreds of weddings, anniversaries, and corporate evenings. This is the room the Quinte books when it matters.</p>
+      <div class="banquet-cols">
+        <div>
+          <ul>
+            <li>Seats up to 90 guests, with podium, dance floor, projector screen, and full linen settings</li>
+            <li>Full licensed bar and free Wi-Fi throughout the building, ideal for business meetings and conferences</li>
+            <li>Weddings, rehearsals, birthdays, anniversaries, team sporting dinners, and corporate and civic functions</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>Main dining room separately licensed for 116 guests</li>
+            <li>Flexible menu, happy to work around dietary restrictions</li>
+            <li>Steps from the Country Inn &amp; Suites, handy for out-of-town guests</li>
+          </ul>
+        </div>
+      </div>
+      <div class="comp-box">
+        <strong>Hall rental is complimentary</strong>
+        with a group of 30 or more enjoying a meal. Dates for wedding season go first, so call early.
+        <br><a class="btn-cream" href="tel:+16139625444">Call to plan your event</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>90</b><span>guest banquet hall</span></div>
+        <div class="stat"><b>116</b><span>seat main dining room</span></div>
+        <div class="stat"><b>30+</b><span>guests and the hall is on us</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MENU CATEGORIES -->
+  <section id="menu">
+    <div class="wrap">
+      <div class="menu-head">
+        <h2>The menu</h2>
+        <p>Lunch, dinner, and catering. Hearty Italian cooking, generous portions, and recipes the regulars order by name. Ask your server what is coming out of the kitchen today.</p>
+      </div>
+      <div class="accordion" id="menuAccordion">
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false"><span>Antipasti</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc-panel"><ul>
+            <li>Wood plank bruschetta</li>
+          </ul></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false"><span>Pasta</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc-panel"><ul>
+            <li>Linguine bolognese</li>
+            <li>Penne Carbonara</li>
+            <li>Fettuccine alla Katrina</li>
+            <li>Lasagna <span class="note">a guest favourite</span></li>
+          </ul></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false"><span>Secondi</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc-panel"><ul>
+            <li>Chicken Parmesan <span class="note">regulars rave about it</span></li>
+            <li>Chicken Marsala</li>
+            <li>Filet mignon with pasta</li>
+          </ul></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false"><span>Insalata</span><span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc-panel"><ul>
+            <li>Caesar salad</li>
+          </ul></div>
+        </div>
+      </div>
+      <p class="menu-foot">Dessert is served nightly, and takeout is always available. Call for today's specials.</p>
+    </div>
+  </section>
+
+  <!-- 4. AWARDS STRIP -->
+  <section class="awards" id="awards" aria-label="Awards">
+    <div class="wrap">
+      <div>
+        <p class="award-line">Readers Choice Awards</p>
+        <h2>Voted favourite Italian restaurant</h2>
+      </div>
+      <p>Linguine's has won Readers Choice Awards for favourite Italian restaurant, and the family has sponsored the City of Belleville and numerous civic organizations over the years. A hometown place, in every sense.</p>
+    </div>
+  </section>
+
+  <!-- 5. VISIT -->
+  <section id="visit">
+    <div class="wrap visit-grid">
+      <div>
+        <h2>Visit us</h2>
+        <p>257 N Front St, Belleville, ON K8P 3C2<br>next to the Country Inn &amp; Suites</p>
+        <table class="hours" aria-label="Hours of operation">
+          <tbody>
+            <tr><td>Sunday to Thursday</td><td>4:00pm to 10:00pm</td></tr>
+            <tr><td>Friday and Saturday</td><td>4:00pm to 10:30pm</td></tr>
+          </tbody>
+        </table>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="tel:+16139625444">Call to reserve</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Linguine%27s%20Italian%20Restaurant%20257%20N%20Front%20St%20Belleville%20ON" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+      <div>
+        <div class="note-box">
+          <h3>Takeout and delivery</h3>
+          <p>To place a takeout order, call <a href="tel:+16139625444">(613) 962-5444</a>. Prefer delivery? Order pickup through TotalTakeout.ca, which delivers anywhere in Belleville for $6 (tip not included).</p>
+        </div>
+        <p class="label">Email</p>
+        <p><a href="mailto:linguinesrestaurant@gmail.com">linguinesrestaurant@gmail.com</a></p>
+        <p class="label">Groups and banquets</p>
+        <p>Teams, tour groups, and corporate dinners welcome. Call ahead and we will have the room ready.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Linguine's Italian Restaurant</strong> &middot; 257 N Front St, Belleville, ON K8P 3C2 &middot; <a href="tel:+16139625444">(613) 962-5444</a></p>
+    <p class="concept">Concept preview. An independent concept, not affiliated with the business.</p>
+  </div>
+</footer>
+
+<a class="tap-call" href="tel:+16139625444">Call Linguine's: (613) 962-5444</a>
+
+<script>
+  // hamburger
+  var hb = document.getElementById('hamburger');
+  var mm = document.getElementById('mobileMenu');
+  hb.addEventListener('click', function(){
+    var open = mm.classList.toggle('open');
+    hb.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mm.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ mm.classList.remove('open'); });
+  });
+
+  // menu accordion (single signature interaction)
+  var items = document.querySelectorAll('.acc-item');
+  items.forEach(function(item){
+    var btn = item.querySelector('.acc-btn');
+    var panel = item.querySelector('.acc-panel');
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.acc-panel').style.maxHeight = null;
+        o.querySelector('.acc-btn').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+</script>
+</body>
+</html>

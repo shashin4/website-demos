@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Falls Manor | Voted #1 Breakfast in the Niagara Falls Region</title>
+<meta name="description" content="Falls Manor on Lundy's Lane, Niagara Falls: voted #1 breakfast in the region, famous broasted chicken, family-run since 1953. Restaurant and motel. Call (905) 358-3211.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patua+One&family=Zilla+Slab:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1f4a38;
+  --forest-deep:#143326;
+  --cream:#faf4e6;
+  --cream-dim:#f1e8d2;
+  --gold:#b8892f;
+  --gold-soft:#d9b65f;
+  --ink:#242a20;
+  --ink-soft:#57503f;
+  --rule:#d8cbab;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Zilla Slab',serif;color:var(--ink);background:var(--cream);line-height:1.65;font-size:18px}
+h1,h2,h3,.display{font-family:'Patua One',serif;font-weight:400;text-wrap:balance;line-height:1.15}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Sticky frosted nav */
+.site-nav{position:sticky;top:0;z-index:60;background:rgba(250,244,230,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:3px double var(--forest)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:'Patua One',serif;font-size:28px;text-decoration:none;color:var(--forest);line-height:1}
+.brand small{display:block;font-family:'Zilla Slab',serif;font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;font-size:16px;font-weight:600;color:var(--ink)}
+.nav-links a:hover{color:var(--forest)}
+.nav-call{background:var(--forest);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:10px 20px;border:2px solid var(--forest-deep)}
+.nav-call:hover{background:var(--forest-deep)}
+.burger{display:none;background:none;border:2px solid var(--ink);width:46px;height:42px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px auto}
+@media(max-width:880px){
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;gap:0;border-bottom:3px double var(--forest);display:none}
+  .nav-links.open{display:flex}
+  .nav-links li{border-top:1px solid var(--rule)}
+  .nav-links a{display:block;padding:14px 24px}
+  .nav-call{display:none}
+  .burger{display:block}
+}
+
+/* Award hero */
+.hero{background:var(--forest);color:#f6efdc;padding:76px 0 84px}
+.hero .award{font-size:15px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.hero .award::before,.hero .award::after{content:"";flex:1;max-width:120px;height:2px;background:var(--gold)}
+.hero h1{font-size:clamp(54px,8vw,104px);color:#fff;max-width:900px}
+.hero h1 .gold{color:var(--gold-soft)}
+.hero-sub{font-size:21px;color:#d9e2d2;max-width:660px;margin-top:18px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:16px;padding:14px 28px;border:2px solid transparent;cursor:pointer}
+.btn-gold{background:var(--gold);color:#fff;border-color:#8f6c22}
+.btn-gold:hover{background:#8f6c22;border-color:#8f6c22}
+.btn-cream{color:#fff;border-color:rgba(255,255,255,.6)}
+.btn-cream:hover{background:rgba(255,255,255,.12)}
+.btn-forest{background:var(--forest);color:#fff;border-color:var(--forest-deep)}
+.btn-forest:hover{background:var(--forest-deep)}
+.btn-outline-f{color:var(--forest);border-color:var(--forest);background:transparent}
+.btn-outline-f:hover{background:var(--forest);color:#fff}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 34px;margin-top:32px;font-size:15px;color:#c9d4c2}
+.hero-facts strong{color:#fff}
+
+/* Broasted chicken feature */
+.chicken{padding:92px 0;background:var(--cream)}
+.chicken-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+@media(max-width:860px){.chicken-grid{grid-template-columns:1fr;gap:40px}}
+.kicker{font-size:14px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.chicken h2{font-size:clamp(42px,5.5vw,64px);color:var(--forest-deep);margin-bottom:20px}
+.chicken p.body{color:var(--ink-soft);font-size:19px;max-width:540px}
+.chicken p.body + p.body{margin-top:14px}
+.broast-card{background:var(--forest-deep);color:#efe8d4;padding:40px;border:2px solid var(--forest-deep)}
+.broast-card h3{font-size:32px;color:#fff;margin-bottom:6px}
+.broast-card .sub{font-style:italic;color:var(--gold-soft);margin-bottom:22px;font-size:17px}
+.broast-steps{list-style:none;counter-reset:step}
+.broast-steps li{counter-increment:step;padding:16px 0 16px 58px;border-top:1px solid rgba(255,255,255,.22);position:relative;font-size:17px;color:#dfe6d6}
+.broast-steps li::before{content:counter(step);position:absolute;left:0;top:14px;width:40px;height:40px;border:2px solid var(--gold);color:var(--gold-soft);font-family:'Patua One',serif;font-size:20px;display:flex;align-items:center;justify-content:center}
+.broast-steps li strong{color:#fff;display:block;font-size:18px}
+
+/* Motel */
+.motel{background:var(--cream-dim);padding:92px 0;border-top:3px double var(--forest);border-bottom:3px double var(--forest)}
+.motel h2{font-size:clamp(42px,5.5vw,64px);color:var(--forest-deep);margin-bottom:14px}
+.motel .lede{font-size:19px;color:var(--ink-soft);max-width:680px;font-style:italic;margin-bottom:40px}
+.roomkey{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--forest-deep);background:var(--cream)}
+@media(max-width:760px){.roomkey{grid-template-columns:1fr}}
+.roomkey > div{padding:30px;border-right:1px solid var(--rule)}
+.roomkey > div:last-child{border-right:none}
+@media(max-width:760px){.roomkey > div{border-right:none;border-bottom:1px solid var(--rule)}.roomkey > div:last-child{border-bottom:none}}
+.roomkey h3{font-size:24px;color:var(--forest-deep);margin-bottom:12px}
+.roomkey ul{list-style:none;font-size:16px;color:var(--ink-soft)}
+.roomkey li{padding:7px 0;border-bottom:1px dotted var(--rule)}
+.roomkey li:last-child{border-bottom:none}
+.motel-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;align-items:center}
+.motel-note{font-size:15px;color:var(--ink-soft);font-style:italic}
+
+/* Groups */
+.groups{padding:92px 0;background:var(--cream)}
+.groups h2{font-size:clamp(42px,5.5vw,64px);color:var(--forest-deep);margin-bottom:14px}
+.groups .lede{font-size:19px;color:var(--ink-soft);max-width:700px;margin-bottom:36px}
+.groups .lede strong{color:var(--ink)}
+.group-rules{max-width:860px;border-top:2px solid var(--forest-deep)}
+.rule-item{border-bottom:1px solid var(--rule)}
+.rule-q{width:100%;background:none;border:none;text-align:left;font-family:'Patua One',serif;font-size:23px;color:var(--ink);padding:20px 44px 20px 0;cursor:pointer;position:relative}
+.rule-q::after{content:"+";position:absolute;right:4px;top:18px;font-size:30px;color:var(--gold);line-height:1;font-family:'Zilla Slab',serif}
+.rule-item.open .rule-q::after{content:"–"}
+.rule-a{display:none;padding:0 0 24px;color:var(--ink-soft);font-size:17px;max-width:700px}
+.rule-item.open .rule-a{display:block}
+.groups-call{margin-top:40px;background:var(--forest);color:#f6efdc;padding:40px;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+.groups-call h3{font-size:32px;color:#fff}
+.groups-call p{color:#cdd8c8;font-size:17px;margin-top:6px}
+.groups-call .big-tel{font-family:'Patua One',serif;font-size:44px;color:#fff;text-decoration:none;white-space:nowrap}
+.groups-call .big-tel:hover{color:var(--gold-soft)}
+
+/* Heritage strip */
+.heritage{background:var(--forest-deep);color:#e9e2cd;padding:64px 0}
+.heritage-row{display:flex;align-items:center;gap:44px;flex-wrap:wrap}
+.heritage .year{font-family:'Patua One',serif;font-size:88px;color:var(--gold-soft);line-height:1}
+.heritage h2{font-size:clamp(32px,4.5vw,52px);color:#fff;margin-bottom:10px}
+.heritage p{color:#c6cfba;max-width:640px;font-size:18px}
+.heritage .rating{margin-top:14px;font-size:16px;color:#aeb9a0}
+.heritage .rating strong{color:#fff}
+
+/* Visit */
+.visit{padding:88px 0;background:var(--cream)}
+.visit h2{font-size:clamp(42px,5.5vw,64px);color:var(--forest-deep);margin-bottom:28px}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media(max-width:760px){.visit-grid{grid-template-columns:1fr}}
+.visit-block h3{font-size:26px;color:var(--forest-deep);margin-bottom:12px}
+.visit-block address{font-style:normal;font-size:18px;color:var(--ink-soft)}
+.visit-block a.tel{color:var(--forest);font-weight:700;text-decoration:none;font-size:19px}
+.hours{list-style:none;margin-top:6px}
+.hours li{display:flex;justify-content:space-between;max-width:360px;padding:9px 0;border-bottom:1px dotted var(--rule);font-size:16px}
+.visit-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+
+/* Mobile tap-to-call */
+.mobile-call{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;background:var(--forest-deep)}
+.mobile-call a{display:block;text-align:center;color:#fff;text-decoration:none;font-weight:700;font-size:18px;padding:15px}
+@media(max-width:880px){.mobile-call{display:block}body{padding-bottom:58px}}
+
+footer{background:var(--forest-deep);color:#9aa78d;padding:28px 0 92px;font-size:13px}
+@media(min-width:881px){footer{padding-bottom:28px}}
+.foot-row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+footer .concept{font-size:12px;opacity:.75}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important;animation:none !important}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="#top">Falls Manor<small>Restaurant &amp; Motel · Est. 1953</small></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#chicken">Broasted chicken</a></li>
+      <li><a href="#motel">Stay</a></li>
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+19053583211">Call (905) 358-3211</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="award">Reader's Choice Award</p>
+    <h1>Voted <span class="gold">#1 breakfast</span> in the Niagara Falls region.</h1>
+    <p class="hero-sub">Falls Manor is a family-run restaurant and motel on Lundy's Lane, serving Niagara Falls since 1953. Famous broasted chicken, golden dipped pancakes, and the kind of breakfast locals bring visitors to.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#chicken">See the broasted chicken</a>
+      <a class="btn btn-cream" href="tel:+19053583211">Call (905) 358-3211</a>
+    </div>
+    <div class="hero-facts">
+      <span><strong>Family-run</strong> since 1953</span>
+      <span><strong>Restaurant + motel</strong> on Lundy's Lane</span>
+      <span><strong>4.2 on Google</strong>, from 126 reviews</span>
+    </div>
+  </div>
+</header>
+
+<section class="chicken" id="chicken">
+  <div class="wrap chicken-grid">
+    <div>
+      <p class="kicker">The house legend</p>
+      <h2>Niagara's original home of broasted chicken.</h2>
+      <p class="body">Broasting combines pressure cooking with deep frying: the chicken is marinated and breaded, then cooked under pressure so it comes out crunchy outside and juicy inside, sealed in its own natural juices.</p>
+      <p class="body">Guests call it the best broasted chicken around, hands down, and pair it with broasted potatoes, pierogi with onions and bacon, or a stack of golden dipped pancakes. Walk-ins are welcome, and takeout is available if you would rather eat at home.</p>
+    </div>
+    <aside class="broast-card" aria-label="How broasting works">
+      <h3>What "broasted" means</h3>
+      <p class="sub">Pressure cooking meets deep frying.</p>
+      <ol class="broast-steps">
+        <li><strong>Marinated and breaded</strong>Chicken seasoned and breaded the Falls Manor way.</li>
+        <li><strong>Pressure cooked</strong>The pressure seals in natural juices and nutrition while keeping oil out.</li>
+        <li><strong>Served golden</strong>Crunchy on the outside, juicy all the way through.</li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<section class="motel" id="motel">
+  <div class="wrap">
+    <p class="kicker">Stay the night</p>
+    <h2>The motel behind the restaurant.</h2>
+    <p class="lede">Falls Manor is a resort and restaurant in one: eat where the locals eat, then sleep a few steps away. A practical base for the Falls, the casino, and the outlet mall.</p>
+    <div class="roomkey">
+      <div>
+        <h3>The rooms</h3>
+        <ul>
+          <li>Flat-screen TVs with DVD players</li>
+          <li>Free wireless internet</li>
+          <li>Iron, board and kettle in-room</li>
+          <li>Microwave and cot on request</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Around the property</h3>
+        <ul>
+          <li>Outdoor swimming pool</li>
+          <li>Free parking, plenty of it</li>
+          <li>Picnic area and garden</li>
+          <li>Bike trails nearby</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Close to everything</h3>
+        <ul>
+          <li>1.9 mi to Horseshoe Falls</li>
+          <li>Adjacent to Canada One Factory Outlets</li>
+          <li>About 2 mi to the casinos</li>
+          <li>Pets allowed</li>
+        </ul>
+      </div>
+    </div>
+    <div class="motel-ctas">
+      <a class="btn btn-forest" href="tel:+18886939357">Call toll-free 1-888-693-9357</a>
+      <a class="btn btn-outline-f" href="tel:+19053583211">Call (905) 358-3211</a>
+      <span class="motel-note">Book by phone. No online forms, just a real person.</span>
+    </div>
+  </div>
+</section>
+
+<section class="groups" id="groups">
+  <div class="wrap">
+    <p class="kicker">Large groups</p>
+    <h2>Bring the whole bus.</h2>
+    <p class="lede"><strong>Walk-ins are welcome.</strong> Reservations are for large groups of <strong>20 or more</strong> only. To book the private room for your group, call <strong>(905) 358-3211</strong>. The private room is not available Saturday or Sunday.</p>
+    <div class="group-rules">
+      <div class="rule-item">
+        <button class="rule-q" aria-expanded="false">Group rates and who qualifies</button>
+        <div class="rule-a"><p>Special rates and reservations are offered for church groups, senior citizen groups, and international visitor groups. Call ahead with your group size and dates, and the team will arrange the details with you.</p></div>
+      </div>
+      <div class="rule-item">
+        <button class="rule-q" aria-expanded="false">Deposit and cancellation</button>
+        <div class="rule-a"><p>A 50% deposit reserves your group booking, with the balance paid on check-in. Cancel 48 hours before your date for a full refund. Groups need two weeks notice to cancel.</p></div>
+      </div>
+      <div class="rule-item">
+        <button class="rule-q" aria-expanded="false">Motor coaches and rooming lists</button>
+        <div class="rule-a"><p>There is plenty of motor coach parking on site. A rooming list is required two weeks before arrival. There is no charge for baggage handling.</p></div>
+      </div>
+    </div>
+    <div class="groups-call">
+      <div>
+        <h3>Ready to book the private room?</h3>
+        <p>Call and tell us your group size and date. We will confirm everything on the call.</p>
+      </div>
+      <a class="big-tel" href="tel:+19053583211">(905) 358-3211</a>
+    </div>
+  </div>
+</section>
+
+<section class="heritage" aria-label="Our history">
+  <div class="wrap heritage-row">
+    <div class="year">1953</div>
+    <div>
+      <h2>A Niagara Falls icon, family-run for over 70 years.</h2>
+      <p>Falls Manor has been feeding Niagara Falls since 1953: the restaurant the region calls its own, the breakfast that won the Reader's Choice award, and the broasted chicken that started it all. Proudly YWCA-owned and community driven.</p>
+      <p class="rating"><strong>4.2 on Google</strong> from 126 reviews. Moderate prices, local regulars, and tourists who found the right place.</p>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <h2>Find your way to Lundy's Lane</h2>
+    <div class="visit-grid">
+      <div class="visit-block">
+        <h3>Address and phone</h3>
+        <address>7104 Lundy's Lane<br>Niagara Falls, ON L2G 1W2</address>
+        <p style="margin-top:12px"><a class="tel" href="tel:+19053583211">(905) 358-3211</a><br><a class="tel" href="tel:+18886939357">Toll-free 1-888-693-9357</a></p>
+        <div class="visit-ctas">
+          <a class="btn btn-forest" href="https://www.google.com/maps/search/?api=1&query=Falls+Manor+7104+Lundy%27s+Lane+Niagara+Falls+ON" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn-outline-f" href="tel:+19053583211">Call the restaurant</a>
+        </div>
+      </div>
+      <div class="visit-block">
+        <h3>Restaurant hours</h3>
+        <ul class="hours">
+          <li><span>Sunday to Thursday</span><span>7:30 AM to 8:00 PM</span></li>
+          <li><span>Friday to Saturday</span><span>7:30 AM to 9:00 PM</span></li>
+        </ul>
+        <p style="margin-top:14px;font-size:16px;color:var(--ink-soft)">Breakfast served all day. Takeout available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mobile-call"><a href="tel:+19053583211">Tap to call (905) 358-3211</a></div>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>Falls Manor · 7104 Lundy's Lane, Niagara Falls ON · (905) 358-3211</span>
+    <span class="concept">Concept preview – an independent concept, not affiliated with the business.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');burger.setAttribute('aria-expanded','false');});});
+
+  /* Signature interaction: group-rules accordion */
+  document.querySelectorAll('.rule-item').forEach(function(item){
+    var q=item.querySelector('.rule-q');
+    q.addEventListener('click',function(){
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.rule-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.rule-q').setAttribute('aria-expanded','false');});
+      if(!isOpen){item.classList.add('open');q.setAttribute('aria-expanded','true');}
+    });
+  });
+})();
+</script>
+</body>
+</html>

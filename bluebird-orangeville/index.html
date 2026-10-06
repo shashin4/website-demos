@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bluebird Café &amp; Grill | Scratch-Made Italian, Orangeville Since 1982</title>
+<meta name="description" content="Bluebird Café & Grill in downtown Orangeville: scratch-made Italian since 1982, run by Rick and Michelle Arsenault. Call 519-941-3101 to reserve.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7f1e3;
+  --sand:#ece1cb;
+  --dusty:#56768a;
+  --dusty-deep:#3c5a6d;
+  --ink:#28241d;
+  --ink-soft:#6b6152;
+  --rule:#d5c6a8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Spectral',serif;color:var(--ink);background:var(--cream);line-height:1.7;font-size:18px;font-weight:400}
+h1,h2,h3,.display{font-family:'Gloock',serif;font-weight:400;text-wrap:balance;line-height:1.12}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.wrap-narrow{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* Sticky frosted nav */
+.site-nav{position:sticky;top:0;z-index:60;background:rgba(247,241,227,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:'Gloock',serif;font-size:27px;text-decoration:none;color:var(--ink);line-height:1}
+.brand em{font-style:normal;color:var(--dusty-deep)}
+.brand small{display:block;font-family:'Spectral',serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-size:16px;font-weight:500;color:var(--ink)}
+.nav-links a:hover{color:var(--dusty-deep);text-decoration:underline;text-underline-offset:4px}
+.nav-call{border:1px solid var(--dusty-deep);color:var(--dusty-deep);text-decoration:none;font-weight:600;font-size:15px;padding:10px 20px}
+.nav-call:hover{background:var(--dusty-deep);color:#fff}
+.burger{display:none;background:none;border:1px solid var(--ink);width:46px;height:42px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px auto}
+@media(max-width:860px){
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;gap:0;border-bottom:1px solid var(--rule);display:none}
+  .nav-links.open{display:flex}
+  .nav-links li{border-top:1px solid var(--rule)}
+  .nav-links a{display:block;padding:14px 24px}
+  .nav-call{display:none}
+  .burger{display:block}
+}
+
+/* Heritage hero */
+.hero{padding:88px 0 76px;border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:end}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+.hero .since{font-size:15px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--dusty-deep);margin-bottom:20px}
+.hero h1{font-size:clamp(52px,7.5vw,96px);color:var(--ink)}
+.hero h1 em{font-style:italic;color:var(--dusty-deep)}
+.hero .tagline{font-size:22px;font-style:italic;color:var(--ink-soft);margin-top:18px;max-width:560px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:16px;padding:14px 28px;border:1px solid var(--dusty-deep);cursor:pointer}
+.btn-solid{background:var(--dusty-deep);color:#fff}
+.btn-solid:hover{background:var(--ink);border-color:var(--ink)}
+.btn-outline{color:var(--dusty-deep);background:transparent}
+.btn-outline:hover{background:var(--dusty-deep);color:#fff}
+.hero-side{border-left:2px solid var(--dusty);padding-left:32px}
+.hero-side dt{font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+.hero-side dd{font-family:'Gloock',serif;font-size:30px;color:var(--ink);margin:2px 0 20px}
+.hero-side dd:last-child{margin-bottom:0}
+
+/* Story */
+.story{padding:88px 0}
+.story h2{font-size:clamp(40px,5vw,60px);margin-bottom:26px;color:var(--ink)}
+.story-cols{columns:2;column-gap:56px;max-width:1000px}
+@media(max-width:700px){.story-cols{columns:1}}
+.story-cols p{margin-bottom:18px;color:#3d382e}
+.story-cols p:first-child::first-letter{font-family:'Gloock',serif;font-size:64px;float:left;line-height:.9;padding:6px 12px 0 0;color:var(--dusty-deep)}
+.story-sign{margin-top:8px;font-style:italic;font-size:20px;color:var(--dusty-deep)}
+
+/* Menu highlights */
+.menu{background:var(--sand);padding:88px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.menu h2{font-size:clamp(40px,5vw,60px);color:var(--ink);margin-bottom:6px}
+.menu .lede{font-style:italic;color:var(--ink-soft);font-size:19px;margin-bottom:40px;max-width:640px}
+.dishes{display:grid;grid-template-columns:1fr 1fr;gap:0 72px;max-width:1020px}
+@media(max-width:760px){.dishes{grid-template-columns:1fr}}
+.dish{padding:20px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+.dish .n{font-family:'Gloock',serif;font-size:23px;color:var(--ink)}
+.dish .d{font-size:16px;color:var(--ink-soft);font-style:italic;margin-top:2px}
+.dish .p{font-family:'Gloock',serif;font-size:23px;color:var(--dusty-deep);white-space:nowrap}
+.menu .fine{margin-top:30px;font-size:15px;color:var(--ink-soft);max-width:640px}
+.menu-ctas{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+
+/* The Nest */
+.nest{background:var(--dusty-deep);color:#f3ecdd;padding:88px 0}
+.nest-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+@media(max-width:860px){.nest-grid{grid-template-columns:1fr;gap:32px}}
+.nest .eyebrow{font-size:14px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#b9cfda;margin-bottom:16px}
+.nest h2{font-size:clamp(44px,6vw,72px);color:#fff}
+.nest h2 em{font-style:italic}
+.nest p{color:#d9e4ea;font-size:19px;margin-top:18px;max-width:520px}
+.nest .rate-note{font-size:15px;color:#a9c2cf;font-style:italic}
+.nest .btn-outline{border-color:#b9cfda;color:#fff}
+.nest .btn-outline:hover{background:#fff;color:var(--dusty-deep);border-color:#fff}
+.nest-side{border:1px solid rgba(255,255,255,.35);padding:36px}
+.nest-side h3{font-size:30px;color:#fff;margin-bottom:14px}
+.nest-side ul{list-style:none}
+.nest-side li{padding:12px 0;border-bottom:1px dotted rgba(255,255,255,.3);font-size:17px;color:#e6eef3}
+.nest-side li:last-child{border-bottom:none}
+.nest-side li strong{color:#fff;font-weight:600}
+
+/* FAQ */
+.faq{padding:88px 0}
+.faq h2{font-size:clamp(40px,5vw,60px);margin-bottom:8px}
+.faq .lede{font-style:italic;color:var(--ink-soft);margin-bottom:38px;max-width:640px}
+.faq-list{max-width:820px;border-top:1px solid var(--rule)}
+.faq-item{border-bottom:1px solid var(--rule)}
+.faq-q{width:100%;background:none;border:none;text-align:left;font-family:'Gloock',serif;font-size:24px;color:var(--ink);padding:22px 44px 22px 0;cursor:pointer;position:relative}
+.faq-q::after{content:"+";position:absolute;right:4px;top:20px;font-family:'Spectral',serif;font-size:30px;color:var(--dusty-deep);line-height:1}
+.faq-item.open .faq-q::after{content:"–"}
+.faq-a{display:none;padding:0 0 26px;color:#3d382e;font-size:17px;max-width:700px}
+.faq-item.open .faq-a{display:block}
+.faq-a a{color:var(--dusty-deep);font-weight:600}
+
+/* Reserve / visit */
+.reserve{background:var(--cream);border-top:1px solid var(--rule);padding:88px 0}
+.reserve h2{font-size:clamp(40px,5vw,60px);margin-bottom:10px}
+.reserve .lede{font-size:19px;color:var(--ink-soft);max-width:640px;font-style:italic;margin-bottom:36px}
+.reserve-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+@media(max-width:760px){.reserve-grid{grid-template-columns:1fr}}
+.reserve-card{border:1px solid var(--rule);background:#fffdf7;padding:36px}
+.reserve-card h3{font-size:30px;color:var(--dusty-deep);margin-bottom:10px}
+.reserve-card p{font-size:17px;color:#3d382e;margin-bottom:18px}
+.big-tel{font-family:'Gloock',serif;font-size:clamp(30px,4vw,42px);color:var(--ink);text-decoration:none;display:block;margin-bottom:20px}
+.big-tel:hover{color:var(--dusty-deep)}
+.hours{list-style:none;margin-top:4px}
+.hours li{display:flex;justify-content:space-between;max-width:340px;padding:9px 0;border-bottom:1px dotted var(--rule);font-size:16px}
+.reserve address{font-style:normal;font-size:17px;color:#3d382e}
+.reserve-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* Mobile tap-to-call */
+.mobile-call{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;background:var(--dusty-deep)}
+.mobile-call a{display:block;text-align:center;color:#fff;text-decoration:none;font-weight:600;font-size:18px;padding:15px}
+@media(max-width:860px){.mobile-call{display:block}body{padding-bottom:58px}}
+
+footer{background:var(--ink);color:#b7ab93;padding:28px 0 92px;font-size:13px}
+@media(min-width:861px){footer{padding-bottom:28px}}
+.foot-row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+footer .concept{font-size:12px;opacity:.75}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important;animation:none !important}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="#top">Blue<em>bird</em><small>Café &amp; Grill · Orangeville</small></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">Our story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#nest">The Nest</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#reserve">Reserve</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+15199413101">Reserve a table</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="since">Since 1982 · Downtown Orangeville</p>
+        <h1>Scratch-made Italian, <em>served like family.</em></h1>
+        <p class="tagline">Good food. Great people. A little chaos. That has been the Bluebird way for over forty years.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="tel:+15199413101">Call to reserve</a>
+          <a class="btn btn-outline" href="#menu">See menu highlights</a>
+        </div>
+      </div>
+      <dl class="hero-side">
+        <dt>What we cook</dt><dd>Scratch-made Italian</dd>
+        <dt>How we cook it</dt><dd>Wood-fired, fresh to order</dd>
+        <dt>Where</dt><dd>100 Broadway, Orangeville</dd>
+      </dl>
+    </div>
+  </div>
+</header>
+
+<section class="story" id="story">
+  <div class="wrap-narrow">
+    <h2>Rick &amp; Michelle</h2>
+    <div class="story-cols">
+      <p>The Bluebird Café and Grill belongs to Rick and Michelle Arsenault, and you will usually find them on the floor, greeting guests the way they have for years. Their rule has never changed: every dish is prepared in-house and fresh to order, from a kitchen that treats scratch cooking as the only cooking.</p>
+      <p>The room sits in the heart of downtown Orangeville, the kind of place where the owners know the regulars and the regulars bring their friends. Wood-fired flavour, generous pours, and the steady hum of a dining room that has been doing this since 1982. Come hungry, leave happy.</p>
+    </div>
+    <p class="story-sign">Rick &amp; Michelle Arsenault, owners</p>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <h2>From the kitchen</h2>
+    <p class="lede">A few of the plates regulars keep coming back for. The full menu runs from wood-fired pizza to seafood pastas, all made in-house.</p>
+    <div class="dishes">
+      <div class="dish"><div><div class="n">Grilled Shrimp Gorgonzola</div><div class="d">Jumbo shrimp in a gorgonzola brandy sauce</div></div><div class="p">$18</div></div>
+      <div class="dish"><div><div class="n">Grilled Calamari</div><div class="d">Mixed greens, black Kalamata olives, garden tomatoes, scallions</div></div><div class="p">$17</div></div>
+      <div class="dish"><div><div class="n">Santa Margherita Pizza</div><div class="d">Wood-fired, the house favourite</div></div><div class="p"></div></div>
+      <div class="dish"><div><div class="n">Fettuccine Pesce</div><div class="d">Seafood tossed with fettuccine</div></div><div class="p"></div></div>
+      <div class="dish"><div><div class="n">Almond Pesto Pasta</div><div class="d">A regulars' favourite</div></div><div class="p"></div></div>
+      <div class="dish"><div><div class="n">Banana in Phyllo Pastry</div><div class="d">Served with ice cream, the dessert people talk about</div></div><div class="p"></div></div>
+      <div class="dish"><div><div class="n">Peach Blueberry Crumble</div><div class="d">Warm, seasonal, simple</div></div><div class="p"></div></div>
+    </div>
+    <p class="fine">Prices move with the seasons. Call ahead for today's menu and pricing, or ask about gluten-free options when you reserve.</p>
+    <div class="menu-ctas">
+      <a class="btn btn-solid" href="tel:+15199415246">Call for takeout</a>
+      <a class="btn btn-outline" href="#reserve">Reserve a table</a>
+    </div>
+  </div>
+</section>
+
+<section class="nest" id="nest">
+  <div class="wrap nest-grid">
+    <div>
+      <p class="eyebrow">Upstairs at 100 Broadway</p>
+      <h2>The Nest. <em>Dine below, dream above.</em></h2>
+      <p>The Bluebird building holds a second act upstairs: The Nest suites, right above the restaurant. Dinner downstairs, then walk upstairs to your room. It is the easiest night out in Orangeville.</p>
+      <p class="rate-note">Rates and availability change with the season. Call and we will sort it out.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-outline" href="tel:+15199413101">Call about The Nest</a>
+      </div>
+    </div>
+    <div class="nest-side">
+      <h3>Why stay at The Nest</h3>
+      <ul>
+        <li><strong>Location:</strong> upstairs from the Bluebird, in the middle of downtown Orangeville</li>
+        <li><strong>The pairing:</strong> a scratch-made dinner, then no drive home</li>
+        <li><strong>The feel:</strong> a quiet hideaway above a lively dining room</li>
+        <li><strong>To book:</strong> call 519-941-3101 and ask about The Nest suites</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap-narrow">
+    <h2>Questions, answered properly</h2>
+    <p class="lede">Straight answers, no fine print.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Do I need a reservation?</button>
+        <div class="faq-a"><p>Walk-ins are welcome, but reservations are recommended, especially on weekends. Call <a href="tel:+15199413101">519-941-3101</a> and we will hold your table.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How does takeout work?</button>
+        <div class="faq-a"><p>You can order the whole menu for takeaway. Call <a href="tel:+15199415246">519-941-5246</a> for takeout and call-ahead pre-orders, and pick up from the take-out kitchen at the back of the restaurant, off Armstrong Street.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What are your hours?</button>
+        <div class="faq-a"><p>Tuesday to Saturday, 11:30 AM to 9:00 PM. Closed Sunday and Monday.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Do you offer gluten-free options?</button>
+        <div class="faq-a"><p>Yes, the menu includes gluten-free options. Mention it when you call to reserve or order, and the kitchen will guide you.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Where are you located?</button>
+        <div class="faq-a"><p>100 Broadway, in downtown Orangeville, Ontario. The Nest suites are upstairs in the same building.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <div class="wrap">
+    <h2>Reserve your evening</h2>
+    <p class="lede">This place gets busy. A quick call is all it takes.</p>
+    <div class="reserve-grid">
+      <div class="reserve-card">
+        <h3>Dine in</h3>
+        <p>Reservations: <a class="big-tel" href="tel:+15199413101">519-941-3101</a></p>
+        <p>Call and tell us when you would like to come, how many are in your party, and anything we should know. We will confirm your table on the call. No online forms, no waiting.</p>
+        <a class="btn btn-solid" href="tel:+15199413101">Call to reserve</a>
+      </div>
+      <div class="reserve-card">
+        <h3>Takeout</h3>
+        <p>Call-ahead pre-orders: <a class="big-tel" href="tel:+15199415246">519-941-5246</a></p>
+        <p>Order the full menu for pickup from the take-out kitchen at the back of the restaurant, off Armstrong Street.</p>
+        <a class="btn btn-outline" href="tel:+15199415246">Call for takeout</a>
+      </div>
+    </div>
+    <div class="reserve-grid" style="margin-top:40px">
+      <div>
+        <h3 style="font-size:26px;margin-bottom:12px">Hours</h3>
+        <ul class="hours">
+          <li><span>Tuesday to Saturday</span><span>11:30 AM to 9:00 PM</span></li>
+          <li><span>Sunday &amp; Monday</span><span>Closed</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:26px;margin-bottom:12px">Find us</h3>
+        <address>Bluebird Café &amp; Grill<br>100 Broadway, Orangeville, ON L9W 1J9</address>
+        <div class="reserve-ctas">
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Bluebird+Cafe+%26+Grill+100+Broadway+Orangeville+ON" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mobile-call"><a href="tel:+15199413101">Tap to call 519-941-3101</a></div>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>Bluebird Café &amp; Grill · 100 Broadway, Orangeville ON · 519-941-3101</span>
+    <span class="concept">Concept preview – an independent concept, not affiliated with the business.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');burger.setAttribute('aria-expanded','false');});});
+
+  /* Signature interaction: FAQ accordion */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q=item.querySelector('.faq-q');
+    q.addEventListener('click',function(){
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-q').setAttribute('aria-expanded','false');});
+      if(!isOpen){item.classList.add('open');q.setAttribute('aria-expanded','true');}
+    });
+  });
+})();
+</script>
+</body>
+</html>

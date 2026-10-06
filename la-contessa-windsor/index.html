@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Contessa Ristorante | Italian Restaurant on Erie Street, Windsor</title>
+<meta name="description" content="La Contessa is a family owned and operated Italian restaurant on Erie Street in Windsor. All entrees individually prepared by Chef Joanna. Private rooms for weddings, showers, and baptisms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wine:#4a1520;
+    --wine-deep:#33101a;
+    --cream:#f7f0e2;
+    --cream-deep:#efe4cf;
+    --gold:#b98f3f;
+    --gold-soft:#d3ab63;
+    --ink:#2a141b;
+    --muted:#7a6a5e;
+    --muted-wine:#c9ab8f;
+    --line:#e0d2b8;
+    --offblack:#221016;
+    --offwhite:#f7f0e2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.65;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Cormorant Garamond',Georgia,serif;text-wrap:balance;line-height:1.14;font-weight:600}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(51,16,26,.94);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid #5c1f2c;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+  .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--cream)}
+  .brand .name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;letter-spacing:.02em}
+  .brand .sub{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft)}
+  .nav-links{display:none;gap:28px;list-style:none}
+  .nav-links a{text-decoration:none;font-size:.95rem;letter-spacing:.04em;color:var(--cream)}
+  .nav-links a:hover{color:var(--gold-soft)}
+  .nav-call{display:none;text-decoration:none;font-weight:500;letter-spacing:.03em;color:var(--wine-deep);background:var(--gold-soft);padding:10px 20px;border-radius:999px;font-size:.92rem}
+  .nav-call:hover{background:#e2bd72}
+  .burger{display:inline-flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--cream);display:block;transition:transform .2s,opacity .2s}
+  @media(min-width:880px){.nav-links{display:flex}.nav-call{display:inline-block}.burger{display:none}}
+  .mobile-menu{display:none;border-top:1px solid #5c1f2c;background:var(--wine-deep);padding:8px 22px 20px;list-style:none}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;text-decoration:none;color:var(--cream);padding:12px 0;border-bottom:1px solid #5c1f2c;font-size:1.02rem}
+  .mobile-menu a:last-child{border-bottom:0;color:var(--gold-soft)}
+
+  /* ---------- 1. moody editorial hero ---------- */
+  .hero{
+    background:var(--wine-deep);
+    color:var(--cream);
+    padding:70px 0 60px;
+    position:relative;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(120% 90% at 80% 10%, rgba(185,143,63,.10), transparent 55%);
+  }
+  .hero .wrap{position:relative}
+  .hero-eyebrow{font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px}
+  .hero h1{font-size:clamp(3rem,8vw,5.6rem);font-weight:500;letter-spacing:.01em}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero-rule{width:72px;height:2px;background:var(--gold);margin:26px 0}
+  .hero-sub{font-size:1.18rem;font-weight:300;color:#e8d9c2;max-width:36rem}
+  .hero-sub strong{font-weight:500;color:#fff}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .btn{display:inline-block;text-decoration:none;font-weight:500;letter-spacing:.03em;padding:14px 28px;border-radius:999px;font-size:1rem;transition:background .15s}
+  .btn-gold{background:var(--gold-soft);color:var(--wine-deep)}
+  .btn-gold:hover{background:#e2bd72}
+  .btn-line{border:1px solid #8a5f6b;color:var(--cream)}
+  .btn-line:hover{border-color:var(--gold-soft);color:var(--gold-soft)}
+  .hero-meta{margin-top:34px;padding-top:22px;border-top:1px solid #5c1f2c;display:flex;flex-wrap:wrap;gap:8px 34px;font-size:.95rem;color:var(--muted-wine)}
+  .hero-meta .stars{color:var(--gold-soft);letter-spacing:.1em}
+
+  /* ---------- 2. Chef Joanna ---------- */
+  .chef{padding:76px 0}
+  .chef-grid{display:grid;gap:36px}
+  @media(min-width:920px){.chef-grid{grid-template-columns:1fr 1.4fr;gap:56px}}
+  .chef-label{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .chef h2{font-size:clamp(2.2rem,4.6vw,3.2rem);margin:12px 0 0;color:var(--wine)}
+  .chef h2 em{font-style:italic}
+  .chef-copy p{font-size:1.14rem;color:#453a33;margin-bottom:18px;font-weight:300}
+  .chef-copy p:first-child::first-letter{
+    font-family:'Cormorant Garamond',serif;font-size:3.6em;float:left;line-height:.82;
+    padding-right:12px;color:var(--wine);font-weight:600;
+  }
+  .chef-copy blockquote{
+    border-left:3px solid var(--gold);margin:26px 0;padding:4px 0 4px 22px;
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;color:var(--wine);line-height:1.5;
+  }
+  .chef-note{font-size:.95rem;color:var(--muted)}
+  .chef-note a{color:var(--wine);font-weight:500}
+
+  /* ---------- 3. private events (money section) ---------- */
+  .events{background:var(--wine);color:var(--cream);padding:76px 0}
+  .events .wrap{position:relative}
+  .events-head{max-width:46rem;margin-bottom:36px}
+  .events-head .chef-label{color:var(--gold-soft)}
+  .events-head h2{font-size:clamp(2.2rem,4.6vw,3.4rem);margin:12px 0 14px}
+  .events-head h2 em{font-style:italic;color:var(--gold-soft)}
+  .events-head p{font-size:1.12rem;color:#e8d9c2;font-weight:300}
+  .event-grid{display:grid;gap:0;border-top:1px solid #6b2a3a}
+  @media(min-width:760px){.event-grid{grid-template-columns:repeat(3,1fr)}}
+  .event{padding:30px 26px;border-bottom:1px solid #6b2a3a}
+  @media(min-width:760px){.event{border-bottom:0;border-left:1px solid #6b2a3a}.event:first-child{border-left:0}}
+  .event .enum{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold-soft);letter-spacing:.28em}
+  .event h3{font-size:1.55rem;margin:10px 0 8px}
+  .event p{font-size:1rem;color:#e2cfb6;font-weight:300}
+  .event-facts{margin-top:34px;display:grid;gap:14px}
+  @media(min-width:760px){.event-facts{grid-template-columns:repeat(3,1fr)}}
+  .fact{border:1px solid #6b2a3a;border-radius:12px;padding:20px 22px}
+  .fact .fnum{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold-soft)}
+  .fact p{font-size:.96rem;color:#e2cfb6;margin-top:6px}
+  .events-cta{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+  .events-cta .note{font-size:.95rem;color:var(--muted-wine)}
+
+  /* ---------- 4. menu preview ---------- */
+  .menu-sec{padding:76px 0}
+  .menu-head{text-align:left;max-width:44rem;margin-bottom:30px}
+  .menu-head .chef-label{color:var(--gold)}
+  .menu-head h2{font-size:clamp(2rem,4.4vw,3rem);color:var(--wine);margin:12px 0 12px}
+  .menu-head p{color:var(--muted);font-size:1.08rem}
+  .menu-tabs{display:flex;gap:10px;margin-bottom:8px}
+  .tab{border:1px solid var(--line);background:transparent;color:var(--ink);font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.03em;padding:10px 26px;border-radius:999px;cursor:pointer}
+  .tab[aria-selected="true"]{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+  .menu-panel{display:none}
+  .menu-panel.active{display:block}
+  .dish-columns{display:grid;gap:6px 48px}
+  @media(min-width:760px){.dish-columns{grid-template-columns:1fr 1fr}}
+  .dish{display:flex;align-items:baseline;gap:10px;padding:13px 2px;border-bottom:1px solid var(--line)}
+  .dish .dname{font-family:'Cormorant Garamond',serif;font-size:1.32rem;font-weight:600;color:var(--wine);white-space:nowrap}
+  .dish .leader{flex:1;border-bottom:2px dotted #cdbb96;min-width:20px;transform:translateY(-6px)}
+  .menu-foot{margin-top:24px;font-size:.96rem;color:var(--muted)}
+  .menu-foot a{color:var(--wine);font-weight:500}
+
+  /* ---------- 5. reserve CTA ---------- */
+  .reserve{background:var(--wine-deep);color:var(--cream);padding:64px 0;text-align:left}
+  .reserve-grid{display:grid;gap:28px;align-items:center}
+  @media(min-width:860px){.reserve-grid{grid-template-columns:1.4fr 1fr}}
+  .reserve h2{font-size:clamp(2rem,4.4vw,3rem);margin-bottom:10px}
+  .reserve h2 em{font-style:italic;color:var(--gold-soft)}
+  .reserve p{color:#e8d9c2;font-size:1.1rem;font-weight:300;max-width:32rem}
+  .reserve-card{border:1px solid #6b2a3a;border-radius:16px;padding:30px;background:rgba(74,21,32,.6)}
+  .reserve-card .big-num{font-family:'Cormorant Garamond',serif;font-size:2.1rem;color:var(--gold-soft);text-decoration:none;display:block;margin:8px 0 4px}
+  .reserve-card p{font-size:.96rem;color:var(--muted-wine)}
+  .reserve-card .btn{margin-top:16px}
+
+  /* ---------- 6. visit ---------- */
+  .visit{padding:64px 0}
+  .visit h2{font-size:clamp(2rem,4.4vw,3rem);color:var(--wine);margin-bottom:10px}
+  .visit .lede{color:var(--muted);max-width:40rem;margin-bottom:30px;font-size:1.06rem}
+  .visit-grid{display:grid;gap:32px}
+  @media(min-width:860px){.visit-grid{grid-template-columns:1fr 1fr}}
+  .vblock h3{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-family:'Jost',sans-serif;font-weight:500}
+  .vblock address{font-style:normal;font-size:1.18rem;line-height:1.7}
+  .hours{list-style:none;font-size:1.05rem}
+  .hours li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);max-width:340px}
+  .hours li:last-child{border-bottom:0}
+  .hours .d{color:var(--muted)}
+  .vbtns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .btn-wine{background:var(--wine);color:var(--cream)}
+  .btn-wine:hover{background:var(--wine-deep)}
+  .btn-ghost{border:1px solid var(--wine);color:var(--wine)}
+  .btn-ghost:hover{background:var(--wine);color:var(--cream)}
+
+  footer{padding:26px 0 96px;font-size:.84rem;color:var(--muted);border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+  footer .concept{opacity:.8}
+
+  .tapcall{
+    position:fixed;left:12px;right:12px;bottom:12px;z-index:60;
+    background:var(--wine);color:#fff;text-align:center;text-decoration:none;
+    font-weight:500;letter-spacing:.02em;font-size:1.05rem;padding:14px;border-radius:12px;
+    box-shadow:0 8px 22px rgba(51,16,26,.35);border:1px solid #6b2a3a;
+  }
+  @media(min-width:880px){.tapcall{display:none}}
+  @media(min-width:880px){footer{padding-bottom:26px}}
+
+  section{scroll-margin-top:80px}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="La Contessa home">
+      <span class="name">La Contessa</span>
+      <span class="sub">Ristorante</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#chef">Chef Joanna</a></li>
+      <li><a href="#events">Private events</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reserve">Reserve</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+12266740344">Call (226) 674-0344</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="#chef">Chef Joanna</a></li>
+    <li><a href="#events">Private events</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#reserve">Reserve</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="tel:+12266740344">Call (226) 674-0344</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+
+  <!-- 1. moody editorial hero -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero-eyebrow">Erie Street &middot; Windsor, Ontario</p>
+      <h1>La Contessa.<br><em>An Italian table</em> of your own.</h1>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <p class="hero-sub">La Contessa is a family owned and operated Italian restaurant on Erie Street in Windsor. <strong>Every entree is individually prepared by Chef Joanna</strong>, using only the freshest ingredients.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="tel:+12266740344">Call to reserve</a>
+        <a class="btn btn-line" href="#events">Private events</a>
+      </div>
+      <div class="hero-meta">
+        <span><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.59 from 517 reviews</span>
+        <span>Family owned &amp; operated</span>
+        <span>Weddings, showers &amp; baptisms hosted</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Chef Joanna story -->
+  <section class="chef" id="chef">
+    <div class="wrap chef-grid">
+      <div>
+        <p class="chef-label">In the kitchen</p>
+        <h2>Cooked by hand, <em>by Chef Joanna.</em></h2>
+      </div>
+      <div class="chef-copy">
+        <p>Nothing at La Contessa comes off an assembly line. Every entree is individually prepared by Chef Joanna, using only the freshest ingredients, and cooked the way good Italian food demands: with time.</p>
+        <blockquote>Keep in mind &lsquo;good food&rsquo; takes time, so relax, enjoy the ambiance and have one of our signature cocktails.</blockquote>
+        <p>This is a family owned and operated restaurant, and it eats like one. Generous portions, a warm room, and staff who give you time to enjoy your evening without ever feeling rushed.</p>
+        <p class="chef-note">Signature cocktails and a full bar round out the evening. <a href="tel:+12266740344">Call for tonight's specials</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. private events and celebrations -->
+  <section class="events" id="events">
+    <div class="wrap">
+      <div class="events-head">
+        <p class="chef-label">Private events</p>
+        <h2>The room is yours. <em>The cooking is ours.</em></h2>
+        <p>Book your private gathering with La Contessa. Weddings, showers, baptisms, birthdays, communions, rehearsal dinners: two private rooms, set menus created with Chef Joanna, and a team that has hosted them all.</p>
+      </div>
+      <div class="event-grid">
+        <div class="event">
+          <div class="enum">I</div>
+          <h3>Weddings</h3>
+          <p>Rehearsal dinners and receptions in a private room, with set menus planned around your table.</p>
+        </div>
+        <div class="event">
+          <div class="enum">II</div>
+          <h3>Showers &amp; baptisms</h3>
+          <p>Bridal showers, baby showers, and baptisms with room for the whole family, and no rush.</p>
+        </div>
+        <div class="event">
+          <div class="enum">III</div>
+          <h3>Birthdays &amp; more</h3>
+          <p>Milestone birthdays, communions, private meetings: any occasion worth a proper dinner.</p>
+        </div>
+      </div>
+      <div class="event-facts">
+        <div class="fact">
+          <div class="fnum">40&ndash;50</div>
+          <p>Guests in the private room, with set menus created by Chef Joanna and your host.</p>
+        </div>
+        <div class="fact">
+          <div class="fnum">2</div>
+          <p>Private rooms to choose from, plus a screen available for presentations.</p>
+        </div>
+        <div class="fact">
+          <div class="fnum">Sun</div>
+          <p>Open Sundays for private events and parties.</p>
+        </div>
+      </div>
+      <div class="events-cta">
+        <a class="btn btn-gold" href="tel:+12266740344">Call about your event</a>
+        <span class="note">Customized group menus and personalized setups on request.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. menu preview -->
+  <section class="menu-sec" id="menu">
+    <div class="wrap">
+      <div class="menu-head">
+        <p class="chef-label">The menu</p>
+        <h2>Small plates. Hearty entrees.</h2>
+        <p>From arancini and shrimp bomba to veal scallopini and tuscan shrimp tagliatelle, there is something for everyone. Mains arrive with a house salad; prices and nightly features by phone.</p>
+      </div>
+      <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+        <button class="tab" role="tab" aria-selected="true" data-tab="plates">Small plates</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="mains">Entrees</button>
+      </div>
+
+      <div class="menu-panel active" id="panel-plates" role="tabpanel">
+        <div class="dish-columns">
+          <div>
+            <div class="dish"><span class="dname">Arancini</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Shrimp Bomba</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Calamari</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Charcuterie Board</span><span class="leader"></span></div>
+          </div>
+          <div>
+            <div class="dish"><span class="dname">Truffle Fries</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Caesar Salad</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">House Salad</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Soup of the Day</span><span class="leader"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="panel-mains" role="tabpanel">
+        <div class="dish-columns">
+          <div>
+            <div class="dish"><span class="dname">Veal Scallopini</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Chicken Scallopini Milanese</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Chicken Parmesan</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Tuscan Chicken</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Lamb Loin Chops</span><span class="leader"></span></div>
+          </div>
+          <div>
+            <div class="dish"><span class="dname">Spaghetti Carbonara</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Spaghetti &amp; Meatballs</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Cheese Ravioli</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Sacchetti</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Tuscan Shrimp Tagliatelle</span><span class="leader"></span></div>
+            <div class="dish"><span class="dname">Salmon</span><span class="leader"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="menu-foot">Menus change with the seasons. <a href="tel:+12266740344">Call (226) 674-0344</a> for tonight's specials and the full menu.</p>
+    </div>
+  </section>
+
+  <!-- 5. reserve / call CTA -->
+  <section class="reserve" id="reserve">
+    <div class="wrap reserve-grid">
+      <div>
+        <h2>Tonight deserves <em>a good table.</em></h2>
+        <p>Reservations are welcome, walk-ins are too. Call ahead and we will have your table ready.</p>
+      </div>
+      <div class="reserve-card">
+        <span style="font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-wine)">Reservations</span>
+        <a class="big-num" href="tel:+12266740344">(226) 674-0344</a>
+        <p>Call to reserve, or to ask about tonight's menu and the private rooms.</p>
+        <a class="btn btn-gold" href="tel:+12266740344">Call to reserve</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. visit -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <p class="chef-label" style="color:var(--gold)">Find us</p>
+      <h2>On Erie Street.</h2>
+      <p class="lede">In the heart of Windsor's Erie Street, with outdoor seating in season and parking nearby.</p>
+      <div class="visit-grid">
+        <div class="vblock">
+          <h3>Address</h3>
+          <address>780 Erie St E<br>Windsor, ON N9A 3Y2</address>
+          <div class="vbtns">
+            <a class="btn btn-wine" href="tel:+12266740344">Call (226) 674-0344</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=780+Erie+St+E+Windsor+ON+N9A+3Y2">Get directions</a>
+          </div>
+        </div>
+        <div class="vblock">
+          <h3>Dinner hours</h3>
+          <ul class="hours">
+            <li><span class="d">Monday to Thursday</span><span>5pm to 9pm</span></li>
+            <li><span class="d">Friday</span><span>5pm to 10pm</span></li>
+            <li><span class="d">Saturday</span><span>4pm to 10pm</span></li>
+            <li><span class="d">Sunday</span><span>Private events only</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 La Contessa Ristorante</span>
+    <span class="concept">Concept preview &mdash; an independent concept, not affiliated with the business</span>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+12266740344">Call La Contessa: (226) 674-0344</a>
+
+<script>
+(function(){
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // Signature interaction: menu category tabs
+  var tabs = document.querySelectorAll('.tab');
+  var panels = {
+    plates: document.getElementById('panel-plates'),
+    mains: document.getElementById('panel-mains')
+  };
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      tab.setAttribute('aria-selected','true');
+      Object.keys(panels).forEach(function(k){ panels[k].classList.remove('active'); });
+      panels[tab.getAttribute('data-tab')].classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>

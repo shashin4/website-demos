@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automotion Repair And Tire | Family-Run Auto Repair in Stratford, ON</title>
+<meta name="description" content="Automotion Repair And Tire is a family-owned auto repair and tire shop in Stratford, Ontario. TECHNET-authorized facility with nationwide warranty protection. Call (519) 508-7929.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#2b2b2e;
+    --charcoal-deep:#1c1c1f;
+    --orange:#e8590c;
+    --orange-dark:#c74a08;
+    --paper:#f7f5f0;
+    --paper-deep:#efece4;
+    --ink:#26262a;
+    --muted:#6e6a61;
+    --line:#ddd8cc;
+    --offblack:#1c1c1f;
+    --offwhite:#f7f5f0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Lato',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Oswald',sans-serif;text-wrap:balance;line-height:1.14;text-transform:uppercase;letter-spacing:.01em}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+  /* ---------- utility bar ---------- */
+  .util{background:var(--charcoal-deep);color:#d8d4c8;font-size:.82rem;letter-spacing:.04em}
+  .util .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 18px;padding-top:9px;padding-bottom:9px}
+  .util .badge{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#fff}
+  .util .badge .dot{width:10px;height:10px;background:var(--orange);border-radius:50%;flex:0 0 10px}
+  .util a.tel{color:#fff;font-weight:700;text-decoration:none}
+  .util a.tel:hover{color:var(--orange)}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,245,240,.94);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand .mark{width:38px;height:38px;background:var(--orange);color:#fff;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:1.25rem}
+  .brand .name{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.2rem;text-transform:uppercase;letter-spacing:.02em;color:var(--charcoal-deep)}
+  .brand .name small{display:block;font-family:'Lato',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.24em;color:var(--muted)}
+  .nav-links{display:none;gap:26px;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:700;font-size:.95rem;color:var(--ink)}
+  .nav-links a:hover{color:var(--orange)}
+  .nav-call{display:none;text-decoration:none;font-weight:900;color:#fff;background:var(--orange);padding:11px 20px;border-radius:8px;font-size:.95rem}
+  .nav-call:hover{background:var(--orange-dark)}
+  .burger{display:inline-flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--charcoal-deep);display:block;transition:transform .2s,opacity .2s}
+  @media(min-width:880px){.nav-links{display:flex}.nav-call{display:inline-block}.burger{display:none}}
+  .mobile-menu{display:none;border-top:1px solid var(--line);background:var(--paper);padding:8px 20px 20px;list-style:none}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;text-decoration:none;font-weight:700;padding:12px 0;border-bottom:1px solid var(--line)}
+  .mobile-menu a:last-child{border-bottom:0;color:var(--orange)}
+
+  /* ---------- 1. trust hero ---------- */
+  .hero{background:var(--charcoal);color:var(--offwhite);padding:64px 0 56px;position:relative}
+  .hero::before{
+    content:"";position:absolute;top:0;left:0;bottom:0;width:8px;background:var(--orange);
+  }
+  .hero .wrap{position:relative}
+  .technet{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--orange);border-radius:8px;padding:9px 16px;margin-bottom:22px;background:rgba(232,89,12,.08)}
+  .technet .t-name{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.12em;font-size:.92rem;color:#fff}
+  .technet .t-sub{font-size:.78rem;color:#c9c4b6;letter-spacing:.06em}
+  .hero h1{font-size:clamp(2.2rem,5.6vw,3.9rem);font-weight:600;color:#fff;max-width:16em}
+  .hero h1 .accent{color:var(--orange)}
+  .hero-sub{margin-top:16px;font-size:1.14rem;color:#c9c4b6;max-width:36rem}
+  .hero-sub strong{color:#fff}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn{display:inline-block;text-decoration:none;font-weight:900;padding:14px 26px;border-radius:8px;font-size:1rem;transition:background .15s}
+  .btn-orange{background:var(--orange);color:#fff}
+  .btn-orange:hover{background:var(--orange-dark)}
+  .btn-ghostlight{border:2px solid #8a8578;color:#fff}
+  .btn-ghostlight:hover{border-color:#fff}
+  .trust-row{display:flex;flex-wrap:wrap;gap:0;margin-top:34px;border-top:1px solid #4a4a4f;max-width:640px}
+  .trust{flex:1 1 50%;padding:16px 18px 0 0}
+  .trust + .trust{padding-left:18px;border-left:1px solid #4a4a4f}
+  .trust .num{font-family:'Oswald',sans-serif;font-size:1.7rem;font-weight:600;color:#fff}
+  .trust .num .star{color:var(--orange)}
+  .trust .lbl{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:#a9a499}
+
+  /* ---------- 2. services ---------- */
+  .services{padding:68px 0}
+  .services .kicker{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:900;margin-bottom:12px}
+  .services h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:600;color:var(--charcoal-deep);max-width:20em}
+  .services .lede{color:var(--muted);margin:12px 0 34px;max-width:44rem;font-size:1.08rem}
+  .svc-list{border-top:2px solid var(--charcoal-deep)}
+  .svc{border-bottom:2px solid var(--charcoal-deep)}
+  .svc-head{
+    width:100%;background:none;border:0;cursor:pointer;text-align:left;
+    display:grid;grid-template-columns:56px 1fr 32px;gap:16px;align-items:center;
+    padding:20px 4px;font:inherit;
+  }
+  .svc-num{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.5rem;color:var(--orange)}
+  .svc-title{font-family:'Oswald',sans-serif;font-weight:500;font-size:1.3rem;text-transform:uppercase;letter-spacing:.02em;color:var(--charcoal-deep)}
+  .svc-icon{font-size:1.6rem;color:var(--orange);font-weight:400;justify-self:end;transition:transform .2s}
+  .svc-body{max-height:0;overflow:hidden;transition:max-height .28s ease}
+  .svc.open .svc-body{max-height:220px}
+  .svc.open .svc-icon{transform:rotate(45deg)}
+  .svc-body p{padding:0 4px 24px 72px;color:var(--muted);max-width:46rem;font-size:1.02rem}
+  .svc-cta-row{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+  .svc-cta-row .note{color:var(--muted);font-size:.95rem}
+
+  /* ---------- 3. appointment ---------- */
+  .appt{background:var(--charcoal-deep);color:var(--offwhite);padding:68px 0}
+  .appt-grid{display:grid;gap:36px}
+  @media(min-width:940px){.appt-grid{grid-template-columns:1fr 1.1fr;align-items:start}}
+  .appt .kicker{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:900;margin-bottom:12px}
+  .appt h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:600;color:#fff}
+  .appt .lede{color:#c9c4b6;margin:14px 0 22px;font-size:1.08rem}
+  .appt-points{list-style:none;display:grid;gap:12px}
+  .appt-points li{display:flex;gap:12px;align-items:flex-start;color:#c9c4b6}
+  .appt-points .tick{flex:0 0 24px;height:24px;background:var(--orange);color:#fff;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem}
+  .form-card{background:#fff;color:var(--ink);border-radius:14px;padding:28px}
+  .form-card h3{font-size:1.4rem;color:var(--charcoal-deep);margin-bottom:6px}
+  .form-card .fine{font-size:.94rem;color:var(--muted);margin-bottom:18px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-weight:700;font-size:.88rem;margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font:inherit;font-size:1rem;background:var(--paper)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--orange);border-color:var(--orange)}
+  .field-row{display:grid;gap:14px}
+  @media(min-width:560px){.field-row{grid-template-columns:1fr 1fr}}
+  .form-msg{display:none;margin-top:14px;padding:14px 16px;border-radius:10px;background:#eef4e6;border:1px solid #b9cba4;color:#33431f;font-size:.95rem}
+
+  /* ---------- 4. about ---------- */
+  .about{padding:68px 0}
+  .about-grid{display:grid;gap:34px}
+  @media(min-width:940px){.about-grid{grid-template-columns:1.2fr .8fr;gap:52px}}
+  .about .kicker{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:900;margin-bottom:12px}
+  .about h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:600;color:var(--charcoal-deep);margin-bottom:16px}
+  .about p{color:var(--muted);font-size:1.06rem;margin-bottom:16px}
+  .about blockquote{
+    border-left:4px solid var(--orange);padding:4px 0 4px 20px;margin:24px 0;
+    font-size:1.18rem;font-style:italic;color:var(--charcoal-deep);
+  }
+  .warranty{background:var(--paper-deep);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .warranty h3{font-size:1.25rem;color:var(--charcoal-deep);margin-bottom:10px}
+  .warranty ul{list-style:none;display:grid;gap:12px;margin-top:14px}
+  .warranty li{display:flex;gap:10px;align-items:flex-start;font-size:.98rem;color:var(--muted)}
+  .warranty .tick{flex:0 0 22px;height:22px;background:var(--charcoal-deep);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:.72rem}
+
+  /* ---------- 5. visit ---------- */
+  .visit{background:var(--paper-deep);border-top:1px solid var(--line);padding:60px 0}
+  .visit h2{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:600;color:var(--charcoal-deep);margin-bottom:8px}
+  .visit .lede{color:var(--muted);margin-bottom:28px;max-width:40rem}
+  .visit-grid{display:grid;gap:30px}
+  @media(min-width:860px){.visit-grid{grid-template-columns:1fr 1fr}}
+  .vblock h3{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;font-family:'Lato',sans-serif;font-weight:900}
+  .vblock address{font-style:normal;font-size:1.18rem;line-height:1.7}
+  .hours{list-style:none;font-size:1.05rem}
+  .hours li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);max-width:340px}
+  .hours li:last-child{border-bottom:0}
+  .hours .d{color:var(--muted)}
+  .vbtns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .btn-char{background:var(--charcoal-deep);color:#fff}
+  .btn-char:hover{background:var(--charcoal)}
+  .btn-line{border:2px solid var(--charcoal-deep);color:var(--charcoal-deep)}
+  .btn-line:hover{background:var(--charcoal-deep);color:#fff}
+
+  footer{padding:26px 0 96px;background:var(--charcoal-deep);color:#8f8a7e;font-size:.84rem}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+  footer .concept{opacity:.85}
+
+  .tapcall{
+    position:fixed;left:12px;right:12px;bottom:12px;z-index:60;
+    background:var(--orange);color:#fff;text-align:center;text-decoration:none;
+    font-weight:900;font-size:1.05rem;padding:14px;border-radius:10px;
+    box-shadow:0 8px 22px rgba(232,89,12,.45);
+  }
+  @media(min-width:880px){.tapcall{display:none}}
+  @media(min-width:880px){footer{padding-bottom:26px}}
+
+  section{scroll-margin-top:76px}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition:none!important;animation:none!important}
+    .svc-body{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="util" aria-label="Shop info">
+  <div class="wrap">
+    <span class="badge"><span class="dot" aria-hidden="true"></span> TECHNET-authorized service center</span>
+    <span>Mon to Fri, 8:30am to 5:30pm &nbsp;&middot;&nbsp; <a class="tel" href="tel:+15195087929">(519) 508-7929</a></span>
+  </div>
+</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Automotion Repair And Tire home">
+      <span class="mark">A</span>
+      <span class="name">Automotion<small>Repair &amp; Tire</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#appointment">Appointments</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-call" href="tel:+15195087929">(519) 508-7929</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#appointment">Appointments</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="tel:+15195087929">Call (519) 508-7929</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+
+  <!-- 1. trust hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="technet" aria-label="TECHNET authorized">
+        <span class="t-name">TECHNET</span>
+        <span class="t-sub">Authorized Professional Automotive Service facility</span>
+      </div>
+      <h1>Straight talk. Solid repairs. <span class="accent">Back on the road.</span></h1>
+      <p class="hero-sub">Automotion Repair And Tire is a <strong>family owned and operated auto repair and tire shop</strong> in Stratford, Ontario. Certified mechanics, upfront quotes, and no obligation to buy.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-orange" href="#appointment">Request an appointment</a>
+        <a class="btn btn-ghostlight" href="tel:+15195087929">Call (519) 508-7929</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust">
+          <div class="num"><span class="star" aria-hidden="true">&#9733;</span> 4.7</div>
+          <div class="lbl">From 113 Google reviews</div>
+        </div>
+        <div class="trust">
+          <div class="num">Nationwide</div>
+          <div class="lbl">Warranty protection through TECHNET</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. services grid in plain language -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <p class="kicker">What we fix</p>
+      <h2>Car trouble, explained in plain language.</h2>
+      <p class="lede">Full-service repairs and tire sales, all under one roof. Tap any service to see what it covers, in words that make sense.</p>
+      <div class="svc-list">
+        <div class="svc">
+          <button class="svc-head" aria-expanded="false">
+            <span class="svc-num">01</span>
+            <span class="svc-title">Tires: repair, sales &amp; installation</span>
+            <span class="svc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="svc-body"><p>Flat and puncture repair, rotation, balancing, and brand-new tires. Walk-ins are often seen on the spot, and most tire repairs take less than an hour. Don't replace a tire if we can save it.</p></div>
+        </div>
+        <div class="svc">
+          <button class="svc-head" aria-expanded="false">
+            <span class="svc-num">02</span>
+            <span class="svc-title">Brakes</span>
+            <span class="svc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="svc-body"><p>Pads, rotors, and full brake inspections. If your pedal feels soft, your car pulls, or you hear grinding, bring it in and we will tell you exactly what it needs before any work starts.</p></div>
+        </div>
+        <div class="svc">
+          <button class="svc-head" aria-expanded="false">
+            <span class="svc-num">03</span>
+            <span class="svc-title">Muffler &amp; exhaust</span>
+            <span class="svc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="svc-body"><p>Exhaust repair and replacement that is reliable, affordable, and quick. Loud tailpipe? Rattling underneath? We will diagnose it and quote it before touching a bolt.</p></div>
+        </div>
+        <div class="svc">
+          <button class="svc-head" aria-expanded="false">
+            <span class="svc-num">04</span>
+            <span class="svc-title">Diagnostics &amp; check-engine light</span>
+            <span class="svc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="svc-body"><p>State-of-the-art diagnostic testing reads what your car's computer already knows. That means accurate answers and efficient repairs, not guesswork.</p></div>
+        </div>
+        <div class="svc">
+          <button class="svc-head" aria-expanded="false">
+            <span class="svc-num">05</span>
+            <span class="svc-title">Vehicle &amp; emissions inspections</span>
+            <span class="svc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="svc-body"><p>Full condition reports and emissions testing: leaks, rust, OBD monitors, engine efficiency, and exhaust output. If it doesn't pass, our mechanics can handle the repairs too.</p></div>
+        </div>
+        <div class="svc">
+          <button class="svc-head" aria-expanded="false">
+            <span class="svc-num">06</span>
+            <span class="svc-title">Maintenance</span>
+            <span class="svc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="svc-body"><p>Regular service for harsh Ontario conditions: salty roads, potholes, and below-freezing winters. We inspect, advise, and help you schedule what your vehicle actually needs.</p></div>
+        </div>
+      </div>
+      <div class="svc-cta-row">
+        <a class="btn btn-orange" href="tel:+15195087929">Call for a quote</a>
+        <span class="note">Upfront, honest, and obligation-free quotes. That's the way we've always offered them.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. request appointment -->
+  <section class="appt" id="appointment">
+    <div class="wrap appt-grid">
+      <div>
+        <p class="kicker">Book the bay</p>
+        <h2>Request an appointment.</h2>
+        <p class="lede">Tell us about your vehicle and what it needs. We will call you back to confirm a day and time.</p>
+        <ul class="appt-points">
+          <li><span class="tick">&#10003;</span><span>Flexible scheduling, Monday to Friday</span></li>
+          <li><span class="tick">&#10003;</span><span>Upfront quote before any work begins</span></li>
+          <li><span class="tick">&#10003;</span><span>Walk-in tire repairs often done within the hour</span></li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <h3>Appointment request</h3>
+        <p class="fine">No booking is final until we call you back to confirm.</p>
+        <form id="apptForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="aname">Your name</label>
+              <input id="aname" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="aphone">Phone number</label>
+              <input id="aphone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="avehicle">Vehicle (year, make, model)</label>
+            <input id="avehicle" name="vehicle" type="text" placeholder="2018 Honda Civic" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="aservice">Service needed</label>
+              <select id="aservice" name="service">
+                <option>Tires</option>
+                <option>Brakes</option>
+                <option>Muffler / exhaust</option>
+                <option>Diagnostics / check-engine light</option>
+                <option>Inspection</option>
+                <option>Maintenance</option>
+                <option>Not sure, need a diagnosis</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="aday">Preferred day</label>
+              <select id="aday" name="day">
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="anotes">What is going on with the vehicle?</label>
+            <textarea id="anotes" name="notes" rows="3" placeholder="Grinding when I brake, started last week..."></textarea>
+          </div>
+          <button class="btn btn-orange" type="submit" style="width:100%">Send my request</button>
+          <p class="form-msg" id="apptMsg" role="status">Thanks. This request form is a concept preview, so nothing was sent. On the live site, your details would go to the shop and they would call you back to confirm a time.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. about the shop -->
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <p class="kicker">The shop</p>
+        <h2>A family-run garage that explains before it bills.</h2>
+        <p>Automotion Repair And Tire is a family-owned and operated full-service garage in Stratford. Customers stay because the team explains every service, recommendation, and line on the bill in plain language, with no surprise charges at pickup.</p>
+        <blockquote>Upfront, honest, and obligation-free: that's the way we've always offered our quotes, and that's the way it's always going to be.</blockquote>
+        <p>Every person who works on your car is trained and certified, and the shop invests in top-of-the-line diagnostic equipment so repairs are accurate and done right the first time.</p>
+      </div>
+      <div class="warranty">
+        <h3>Covered by TECHNET</h3>
+        <p style="font-size:.98rem">As an authorized TECHNET Professional Automotive Service facility, qualifying repairs come with:</p>
+        <ul>
+          <li><span class="tick">&#10003;</span><span>Nationwide warranty protection on qualifying parts and service</span></li>
+          <li><span class="tick">&#10003;</span><span>Roadside assistance for extra peace of mind</span></li>
+          <li><span class="tick">&#10003;</span><span>Honest estimates that are fair and accurate, before work starts</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. visit -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <p class="kicker" style="font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:900;margin-bottom:12px">Find us</p>
+      <h2>On Mornington Street, Stratford.</h2>
+      <p class="lede">Drop by, or call ahead and we will have the bay ready.</p>
+      <div class="visit-grid">
+        <div class="vblock">
+          <h3>Address</h3>
+          <address>894 Mornington St<br>Stratford, ON N5A 6S2</address>
+          <div class="vbtns">
+            <a class="btn btn-char" href="tel:+15195087929">Call (519) 508-7929</a>
+            <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=894+Mornington+St+Stratford+ON+N5A+6S2">Get directions</a>
+          </div>
+        </div>
+        <div class="vblock">
+          <h3>Hours</h3>
+          <ul class="hours">
+            <li><span class="d">Monday to Friday</span><span>8:30am to 5:30pm</span></li>
+            <li><span class="d">Saturday</span><span>Closed</span></li>
+            <li><span class="d">Sunday</span><span>Closed</span></li>
+          </ul>
+          <p style="margin-top:14px;font-size:.98rem;color:var(--muted)">Email: info@automotionrepairandtire.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Automotion Repair And Tire Inc.</span>
+    <span class="concept">Concept preview &mdash; an independent concept, not affiliated with the business</span>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+15195087929">Call Automotion: (519) 508-7929</a>
+
+<script>
+(function(){
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // Signature interaction: expandable plain-language service rows
+  var svcs = document.querySelectorAll('.svc');
+  svcs.forEach(function(svc){
+    var head = svc.querySelector('.svc-head');
+    var body = svc.querySelector('.svc-body');
+    head.addEventListener('click', function(){
+      var isOpen = svc.classList.contains('open');
+      svcs.forEach(function(s){
+        s.classList.remove('open');
+        s.querySelector('.svc-head').setAttribute('aria-expanded','false');
+        s.querySelector('.svc-body').style.maxHeight = null;
+      });
+      if(!isOpen){
+        svc.classList.add('open');
+        head.setAttribute('aria-expanded','true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+  // open the first service by default
+  if(svcs.length){
+    svcs[0].querySelector('.svc-head').click();
+  }
+
+  // Honest appointment request form
+  var form = document.getElementById('apptForm');
+  var msg = document.getElementById('apptMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('aname');
+    var phone = document.getElementById('aphone');
+    if(!name.value.trim() || !phone.value.trim()){
+      msg.style.display = 'block';
+      msg.textContent = 'Please add your name and phone number so the shop can call you back. Nothing has been sent; this is a concept preview.';
+      if(!name.value.trim()){ name.focus(); } else { phone.focus(); }
+      return;
+    }
+    msg.style.display = 'block';
+    msg.textContent = 'Thanks' + (name.value.trim() ? ' ' + name.value.trim().split(' ')[0] : '') + '. This request form is a concept preview, so nothing was sent. On the live site, your details would go to the shop and they would call you back to confirm a time.';
+    form.querySelector('button[type="submit"]').disabled = true;
+  });
+})();
+</script>
+</body>
+</html>

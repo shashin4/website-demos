@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbour Grounds Cafe: Lakefront Coffee in Grimsby, ON</title>
+<meta name="description" content="Harbour Grounds Cafe in Grimsby, Ontario: specialty coffee on the lakefront, DJ nights, pastries, and drink bundles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#0f3a32;
+    --sea-deep:#0a2923;
+    --sand:#d9b978;
+    --sand-soft:#ecdcb4;
+    --cream:#faf6ec;
+    --ink:#171a18;
+    --ink-soft:#4d5451;
+    --line:rgba(23,26,24,.16);
+    --radius:12px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito Sans',sans-serif;
+    background:var(--cream);color:var(--ink);
+    line-height:1.6;font-size:17px;
+  }
+  h1,h2,h3,.display{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.5px;text-transform:uppercase;text-wrap:balance;line-height:1.08}
+  a{color:inherit}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 22px}
+  .section{padding:70px 0}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,246,236,.93);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand-mark{
+    width:40px;height:40px;border-radius:50%;background:var(--sea);flex:none;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .brand-mark svg{width:22px;height:22px;fill:var(--sand)}
+  .brand-name{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:1px;text-transform:uppercase;line-height:1.1}
+  .brand-sub{display:block;font-family:'Nunito Sans',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:3px;color:var(--ink-soft)}
+  .nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+  .nav-links a{text-decoration:none;font-weight:700;font-size:15px}
+  .nav-links a:hover{color:#8a6a2c}
+  .nav-cta{background:var(--sea);color:var(--cream);padding:10px 20px;border-radius:var(--radius);text-decoration:none;font-weight:800;font-size:15px}
+  .nav-cta:hover{background:var(--sea-deep)}
+  #burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  #burger span{display:block;width:26px;height:3px;background:var(--ink);border-radius:2px;margin:5px 0}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--sea);color:var(--cream);position:relative;overflow:hidden}
+  .hero .wrap{padding:88px 22px 120px;display:grid;grid-template-columns:1.4fr .8fr;gap:48px;align-items:center;position:relative;z-index:2}
+  .hero-kicker{font-size:13px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase;color:var(--sand);margin-bottom:18px}
+  .hero h1{font-size:clamp(46px,7vw,96px);margin-bottom:20px}
+  .hero h1 em{font-style:normal;color:var(--sand)}
+  .hero .lede{font-size:19px;max-width:42ch;color:#e6ddc6;margin-bottom:34px}
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{display:inline-block;text-decoration:none;font-weight:800;font-size:16.5px;padding:15px 30px;border-radius:var(--radius);border:2px solid transparent}
+  .btn-sand{background:var(--sand);color:#241a08}
+  .btn-sand:hover{background:var(--sand-soft)}
+  .btn-ghost{border-color:rgba(250,246,236,.5);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--cream)}
+  .hero-facts{background:var(--sea-deep);border:1px solid rgba(217,185,120,.35);border-radius:16px;padding:28px}
+  .hero-facts .big{font-family:'Anton',sans-serif;font-size:34px;letter-spacing:1px;color:var(--sand);margin-bottom:4px}
+  .hero-facts p{font-size:14.5px;color:#d9d0b8;margin-bottom:16px}
+  .hero-facts a.ig{font-weight:800;color:var(--cream)}
+  .wave{position:absolute;bottom:-1px;left:0;width:100%;height:90px;z-index:1}
+  .wave path{animation:drift 9s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:translateX(0)}to{transform:translateX(-28px)}}
+
+  /* ---------- nights ---------- */
+  .nights{background:var(--sea-deep);color:var(--cream)}
+  .nights .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+  .nights h2{font-size:clamp(34px,4.6vw,58px);margin-bottom:18px}
+  .nights h2 span{color:var(--sand)}
+  .nights p{color:#d9d0b8;font-size:17px;margin-bottom:16px;max-width:52ch}
+  .nights .lineup{border-left:3px solid var(--sand);padding-left:26px;display:grid;gap:20px}
+  .nights .lineup h3{font-size:21px;letter-spacing:1px;color:var(--sand);margin-bottom:4px}
+  .nights .lineup p{font-size:15.5px;margin:0}
+  .nights .ig-note{margin-top:26px;font-size:15px;color:#b9ae93}
+  .nights .ig-note a{color:var(--sand);font-weight:800}
+
+  /* ---------- menu ---------- */
+  .menu{background:var(--cream)}
+  .sec-head{margin-bottom:36px}
+  .sec-head h2{font-size:clamp(32px,4vw,52px);margin-bottom:10px}
+  .sec-head p{color:var(--ink-soft);font-size:16.5px;max-width:60ch}
+  .menu-board{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink);border-radius:16px;overflow:hidden;background:#fffdf6}
+  .board-col{padding:36px 34px}
+  .board-col + .board-col{border-left:2px solid var(--ink)}
+  .board-col h3{font-size:24px;letter-spacing:1.5px;margin-bottom:6px}
+  .board-col .range{font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#8a6a2c;margin-bottom:22px}
+  .board-col ul{list-style:none;display:grid;gap:15px}
+  .board-col li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-size:16.5px}
+  .board-col li .dots{flex:1;border-bottom:2px dotted rgba(23,26,24,.25);transform:translateY(-4px)}
+  .board-col li .pr{font-weight:800;white-space:nowrap}
+  .board-col .foot{margin-top:22px;font-size:14.5px;color:var(--ink-soft)}
+
+  /* ---------- bundles ---------- */
+  .bundles{background:var(--sand-soft);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+  .bundles .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+  .bundle{padding:38px 34px;border:2px solid var(--ink);border-radius:4px;background:#fffdf6}
+  .bundle.alt{border-radius:22px;background:var(--sea);color:var(--cream);border-color:var(--sea)}
+  .bundle h3{font-size:26px;letter-spacing:1px;margin-bottom:12px}
+  .bundle.alt h3{color:var(--sand)}
+  .bundle p{font-size:16px;margin-bottom:20px}
+  .bundle.alt p{color:#d9d0b8}
+  .bundle .ask{display:inline-block;font-weight:800;font-size:15.5px;text-decoration:none;border-bottom:3px solid var(--sand);padding-bottom:2px}
+
+  /* ---------- visit ---------- */
+  .visit .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px}
+  .visit h2{font-size:clamp(32px,4vw,52px);margin-bottom:18px}
+  .visit .addr{font-size:18px;margin-bottom:8px}
+  .visit .addr strong{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:1px;text-transform:uppercase}
+  .visit .hours-note{font-size:16px;color:var(--ink-soft);margin-bottom:26px}
+  .visit-card{background:#fffdf6;border:2px solid var(--ink);border-radius:16px;padding:32px}
+  .visit-card h3{font-size:22px;letter-spacing:1px;margin-bottom:14px}
+  .visit-card .phone{display:block;font-family:'Anton',sans-serif;font-size:34px;letter-spacing:1px;text-decoration:none;color:var(--sea);margin-bottom:10px}
+  .visit-card p{font-size:15px;color:var(--ink-soft);margin-bottom:20px}
+  .btn-outline{border:2px solid var(--sea);color:var(--sea);margin-right:12px;margin-bottom:10px}
+  .btn-outline:hover{background:var(--sea);color:var(--cream)}
+  .btn-sea{background:var(--sea);color:var(--cream)}
+  .btn-sea:hover{background:var(--sea-deep)}
+
+  footer{background:var(--ink);color:#b6aca0;font-size:13.5px;padding:30px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:#d9d0b8}
+
+  .mobile-call{
+    display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:60;
+    background:var(--sea);color:var(--cream);text-decoration:none;
+    font-weight:800;font-size:17px;text-align:center;padding:16px;border-radius:14px;
+    box-shadow:0 10px 26px rgba(0,0,0,.3);
+  }
+
+  @media(max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;padding:60px 22px 110px;gap:34px}
+    .nights .wrap{grid-template-columns:1fr;gap:34px}
+    .menu-board{grid-template-columns:1fr}
+    .board-col + .board-col{border-left:0;border-top:2px solid var(--ink)}
+    .bundles .wrap{grid-template-columns:1fr}
+    .visit .wrap{grid-template-columns:1fr;gap:34px}
+    .nav-links{
+      display:none;position:absolute;top:66px;left:0;right:0;background:var(--cream);
+      flex-direction:column;align-items:stretch;padding:10px 22px 22px;gap:0;
+      border-bottom:1px solid var(--line);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{display:block;padding:13px 4px;border-bottom:1px solid var(--line)}
+    .nav-links .nav-cta{margin-top:12px;text-align:center;border-bottom:0}
+    #burger{display:block}
+    .mobile-call{display:block}
+    body{padding-bottom:78px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 17c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 1 2H3c-.5 0-.5-2 1-2zm1.5-5h13c-.8-1.8-2.6-3-4.7-3H9.2C7.1 9 5.3 10.2 4.5 12zm3-7.5h7v3h-7v-3zM12 2l1.2 2.4h-2.4L12 2z"/></svg>
+      </span>
+      <span class="brand-name">Harbour Grounds<span class="brand-sub">Cafe · Grimsby</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#nights">Nights</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#bundles">Bundles</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a class="nav-cta" href="tel:+19059459266">Call the cafe</a></li>
+    </ul>
+    <button id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="hero-kicker">Lakefront · Grimsby on the Lake</div>
+      <h1>Coffee on the <em>water</em></h1>
+      <p class="lede">Harbour Grounds is Grimsby's lakefront cafe: specialty drinks, fresh pastries, and a room that turns into a DJ night when the sun goes down.</p>
+      <div class="btn-row">
+        <a class="btn btn-sand" href="#menu">See the menu</a>
+        <a class="btn btn-ghost" href="#nights">DJ &amp; espresso martini nights</a>
+      </div>
+    </div>
+    <aside class="hero-facts">
+      <div class="big">2,822</div>
+      <p>followers on Instagram, and counting. Weekly posts, fall menu rolling out now.</p>
+      <a class="ig" href="https://www.instagram.com/harbour.grounds" target="_blank" rel="noopener">@harbour.grounds on Instagram</a>
+    </aside>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,45 C240,85 480,5 720,45 C960,85 1200,5 1440,45 L1440,90 L0,90 Z" fill="#faf6ec"></path>
+  </svg>
+</header>
+
+<section class="section nights" id="nights">
+  <div class="wrap">
+    <div>
+      <h2>DJ nights <span>&amp;</span> espresso martinis</h2>
+      <p>Same room, different energy. On DJ nights the cafe stays open late: a DJ on the decks, espresso martinis behind the bar, and the lake right outside the window.</p>
+      <p class="ig-note">Nights are announced on Instagram, <a href="https://www.instagram.com/harbour.grounds" target="_blank" rel="noopener">@harbour.grounds</a>, as they are booked. Follow along so you do not miss the next one.</p>
+    </div>
+    <div class="lineup">
+      <div>
+        <h3>DJ nights</h3>
+        <p>Late evenings with a DJ set, drinks flowing, and the cafe crowd staying past close.</p>
+      </div>
+      <div>
+        <h3>Espresso martinis</h3>
+        <p>Made with the same espresso as the morning menu. Ask the bar what's pouring on the night.</p>
+      </div>
+      <div>
+        <h3>Private evenings</h3>
+        <p>Planning something? Call the cafe and ask about hosting your evening here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The menu</h2>
+      <p>Specialty drinks and fresh pastries, lakefront. Ask about the fall menu when you visit.</p>
+    </div>
+    <div class="menu-board">
+      <div class="board-col">
+        <h3>Specialty drinks</h3>
+        <div class="range">$4 – $6</div>
+        <ul>
+          <li>Canadian Maple Latte<span class="dots"></span><span class="pr">$4–6</span></li>
+          <li>Pistachio Butter Cream Latte<span class="dots"></span><span class="pr">$4–6</span></li>
+          <li>Strawberry Matcha Latte<span class="dots"></span><span class="pr">$4–6</span></li>
+          <li>Mocha Latte<span class="dots"></span><span class="pr">$4–6</span></li>
+          <li>Cappuccino<span class="dots"></span><span class="pr">$4–6</span></li>
+          <li>Classic Latte<span class="dots"></span><span class="pr">$4–6</span></li>
+        </ul>
+        <p class="foot">Hot or iced. Ask the bar for the seasonal pour.</p>
+      </div>
+      <div class="board-col">
+        <h3>Pastries</h3>
+        <div class="range">Baked fresh</div>
+        <ul>
+          <li>Canelé<span class="dots"></span><span class="pr">$3.50</span></li>
+          <li>Assorted baked goods<span class="dots"></span><span class="pr">Ask</span></li>
+          <li>Gluten-free options<span class="dots"></span><span class="pr">Ask</span></li>
+        </ul>
+        <p class="foot">The case changes daily. Too Good To Go Bakery Surprise Bags are also available through the app while they last.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bundles" id="bundles">
+  <div class="wrap">
+    <div class="bundle">
+      <h3>Prepaid drink bundles</h3>
+      <p>Buy a bundle of drinks ahead of time and redeem them across visits. Perfect for regulars and lakefront regulars-to-be.</p>
+      <a class="ask" href="tel:+19059459266">Ask in store for bundle options</a>
+    </div>
+    <div class="bundle alt">
+      <h3>Cafe merch</h3>
+      <p>Take the harbour home with you. Branded goods for the cafe faithful.</p>
+      <a class="ask" href="tel:+19059459266">Ask in store what's available</a>
+    </div>
+  </div>
+</section>
+
+<section class="section visit" id="visit">
+  <div class="wrap">
+    <div>
+      <h2>Visit</h2>
+      <div class="addr">
+        <strong>Harbour Grounds Cafe</strong><br>
+        420 Winston Rd<br>
+        Grimsby, ON L3M 0H2
+      </div>
+      <p class="hours-note">Call for today's hours.</p>
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Harbour+Grounds+Cafe+420+Winston+Rd+Grimsby+ON" target="_blank" rel="noopener">Get directions</a>
+      <a class="btn btn-sea" href="https://www.instagram.com/harbour.grounds" target="_blank" rel="noopener">Follow @harbour.grounds</a>
+    </div>
+    <div>
+      <div class="visit-card">
+        <h3>Talk to the cafe</h3>
+        <a class="phone" href="tel:+19059459266">(905) 945-9266</a>
+        <p>Questions about the menu, tonight's hours, or the next DJ night? Call and ask.</p>
+        <a class="btn btn-sea" href="tel:+19059459266" style="width:100%;text-align:center">Call the cafe</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Harbour Grounds Cafe · 420 Winston Rd, Grimsby, ON L3M 0H2 · <a href="tel:+19059459266">(905) 945-9266</a></span>
+    <span>Concept preview – an independent concept, not affiliated with the business.</span>
+  </div>
+</footer>
+
+<a class="mobile-call" href="tel:+19059459266">Call · (905) 945-9266</a>
+
+<script>
+  (function(){
+    var burger = document.getElementById('burger');
+    var links = document.getElementById('navLinks');
+    burger.addEventListener('click', function(){ links.classList.toggle('open'); });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ links.classList.remove('open'); });
+    });
+  })();
+</script>
+</body>
+</html>
