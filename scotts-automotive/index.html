@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scott's Automotive — St. Catharines Auto Repair | European Car Specialists</title>
+<meta name="description" content="Scott's Automotive, 260 Oakdale Ave, St. Catharines. European car specialists, fleet services, honest repairs. 4.9 stars from 500+ reviews. Call (905) 341-6996.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf8f3;
+    --paper-2:#f1ece1;
+    --ink:#1b2340;
+    --ink-soft:#3c4568;
+    --navy:#2e375f;
+    --navy-deep:#232a4d;
+    --red:#ee3131;
+    --red-deep:#c42424;
+    --line:#ddd5c2;
+    --mut:#6b6f88;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Work Sans',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--red);color:#fff}
+  h1,h2,h3{font-family:'Archivo',sans-serif;font-weight:800;text-wrap:balance;line-height:1.06;letter-spacing:-.01em}
+  a{color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+  /* trust strip */
+  .trustbar{background:var(--navy-deep);color:#fff;font-size:13.5px;letter-spacing:.06em}
+  .trustbar .wrap{display:flex;gap:26px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap;align-items:center}
+  .trustbar .stars{color:#ffcf4d;letter-spacing:.1em}
+  .trustbar b{font-weight:700}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2px solid var(--ink)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:13px;padding-bottom:13px}
+  .brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;letter-spacing:-.01em;text-decoration:none}
+  .brand .swoosh{color:var(--red)}
+  .links{display:flex;gap:26px;align-items:center}
+  .links a.nl{text-decoration:none;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .links a.nl:hover{color:var(--red)}
+  .btn-quote{background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;padding:12px 22px;border-radius:4px}
+  .btn-quote:hover{background:var(--red-deep)}
+  .burger{display:none;background:none;border:2px solid var(--ink);border-radius:4px;color:var(--ink);font-size:20px;padding:5px 12px;cursor:pointer}
+  @media(max-width:900px){
+    .links{position:fixed;inset:0 0 0 auto;width:min(320px,84vw);background:var(--paper);flex-direction:column;align-items:flex-start;padding:84px 32px;gap:22px;transform:translateX(100%);transition:transform .3s ease;border-left:2px solid var(--ink)}
+    .links.open{transform:none}
+    .burger{display:block}
+    .links a.nl{font-size:17px}
+  }
+
+  /* hero */
+  .hero{padding:70px 0 66px;border-bottom:2px solid var(--ink)}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:start}
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);border-bottom:3px solid var(--red);padding-bottom:6px;margin-bottom:18px}
+  .hero h1{font-size:clamp(42px,5.6vw,72px);margin-bottom:20px}
+  .hero h1 .r{color:var(--red)}
+  .hero p.lede{color:var(--ink-soft);font-size:19px;max-width:46ch;margin-bottom:28px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.07em;text-transform:uppercase;padding:15px 28px;border-radius:4px}
+  .btn.solid{background:var(--red);color:#fff}
+  .btn.solid:hover{background:var(--red-deep)}
+  .btn.line{border:2px solid var(--ink);color:var(--ink)}
+  .btn.line:hover{background:var(--ink);color:#fff}
+  .badges{display:flex;gap:26px;flex-wrap:wrap;margin-top:30px}
+  .badge b{font-family:'Archivo',sans-serif;font-weight:900;font-size:30px;display:block;color:var(--navy)}
+  .badge span{font-size:13.5px;color:var(--mut);letter-spacing:.04em}
+
+  /* quote flow card — signature interaction */
+  .quote-card{border:2px solid var(--ink);border-radius:8px;overflow:hidden;background:#fff;box-shadow:8px 8px 0 var(--navy)}
+  .quote-head{background:var(--navy);color:#fff;padding:18px 26px}
+  .quote-head h2{font-size:24px}
+  .quote-head p{font-size:14px;color:#c9cfe8;margin-top:4px}
+  .step{border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .step button{width:100%;background:none;border:none;text-align:left;padding:20px 26px;cursor:pointer;display:flex;gap:16px;align-items:center;font-family:'Work Sans',sans-serif}
+  .step .n{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#fff;background:var(--red);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+  .step .t{font-weight:700;font-size:17px;color:var(--ink)}
+  .step .t small{display:block;font-weight:400;color:var(--mut);font-size:14px}
+  .step .plus{margin-left:auto;font-size:22px;color:var(--red);font-weight:700;flex:none}
+  .step .detail{display:none;padding:0 26px 22px 82px;color:var(--ink-soft);font-size:15.5px}
+  .step.open .detail{display:block}
+  .step.open .plus{transform:rotate(45deg)}
+  .quote-foot{padding:18px 26px;background:var(--paper-2);font-size:14.5px;color:var(--ink-soft)}
+  .quote-foot a{color:var(--red);font-weight:700}
+
+  /* services — zigzag editorial rows */
+  .services{padding:78px 0}
+  .services h2{font-size:clamp(34px,4.4vw,54px);margin-bottom:10px}
+  .services .sub{color:var(--ink-soft);max-width:64ch;margin-bottom:46px;font-size:18px}
+  .svc-row{display:grid;grid-template-columns:88px 1fr 1fr;gap:30px;align-items:center;padding:30px 0;border-top:1px solid var(--line)}
+  .svc-row:last-child{border-bottom:1px solid var(--line)}
+  @media(max-width:760px){.svc-row{grid-template-columns:1fr;gap:12px}}
+  .svc-row .idx{font-family:'Archivo',sans-serif;font-weight:900;font-size:44px;color:var(--red);opacity:.9}
+  .svc-row h3{font-size:26px;margin-bottom:8px}
+  .svc-row p{color:var(--ink-soft);font-size:16px;max-width:52ch}
+  .svc-row .side{font-size:14px;color:var(--mut);border-left:3px solid var(--red);padding-left:18px}
+  .svc-row .side b{color:var(--ink);display:block;margin-bottom:2px}
+
+  /* reputation band */
+  .rep{background:var(--navy-deep);color:#fff;padding:70px 0}
+  .rep h2{font-size:clamp(32px,4.2vw,52px);margin-bottom:8px}
+  .rep .sub{color:#c9cfe8;margin-bottom:40px;font-size:18px;max-width:64ch}
+  .rep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:860px){.rep-grid{grid-template-columns:1fr}}
+  .rep-card{background:var(--navy);border:1px solid #4a5585;border-radius:8px;padding:30px}
+  .rep-card .stars{color:#ffcf4d;letter-spacing:.12em;font-size:18px;margin-bottom:10px}
+  .rep-card .score{font-family:'Archivo',sans-serif;font-weight:900;font-size:46px}
+  .rep-card p{color:#c9cfe8;font-size:15px;margin-top:6px}
+  .rep-card cite{font-style:normal;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8b94c4}
+
+  /* about */
+  .about{padding:78px 0;border-bottom:2px solid var(--ink)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+  .about h2{font-size:clamp(34px,4.4vw,54px);margin-bottom:18px}
+  .about p{color:var(--ink-soft);margin-bottom:16px;font-size:18px;max-width:54ch}
+  .about p b{color:var(--ink)}
+  .about-card{background:#fff;border:2px solid var(--ink);border-radius:8px;padding:32px;box-shadow:8px 8px 0 var(--red)}
+  .about-card h3{font-size:24px;margin-bottom:12px}
+  .about-card ul{list-style:none}
+  .about-card li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:16px;color:var(--ink-soft)}
+  .about-card li:last-child{border-bottom:none}
+  .about-card li::before{content:"\2713  ";color:var(--red);font-weight:700}
+
+  /* visit */
+  .visit{padding:78px 0}
+  .visit h2{font-size:clamp(34px,4.4vw,54px);margin-bottom:8px}
+  .visit .sub{color:var(--ink-soft);margin-bottom:40px;font-size:18px}
+  .vgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+  @media(max-width:860px){.vgrid{grid-template-columns:1fr}}
+  .vcard{border:2px solid var(--ink);border-radius:8px;background:#fff;padding:32px}
+  .vcard h3{font-size:24px;margin-bottom:16px;color:var(--navy)}
+  .vcard p{font-size:17px;color:var(--ink-soft);line-height:1.75}
+  .vcard p b{color:var(--ink)}
+  .hours{width:100%;border-collapse:collapse;font-size:16.5px;margin-top:6px}
+  .hours td{padding:9px 4px;border-bottom:1px solid var(--line)}
+  .hours tr:last-child td{border-bottom:none}
+  .hours td:last-child{text-align:right;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .fine{font-size:13.5px;color:var(--mut);margin-top:12px}
+
+  footer{background:var(--navy-deep);color:#c9cfe8;padding:34px 0 96px;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer .concept{font-size:12.5px;color:#8b94c4}
+
+  .tapcall{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;background:var(--red);color:#fff;
+    text-align:center;font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+    padding:16px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  @media(max-width:900px){.tapcall{display:block}footer{padding-bottom:112px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="trustbar">
+  <div class="wrap">
+    <span><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>4.9</b> from 500+ reviews</span>
+    <span>European car specialists</span>
+    <span>Fleet &amp; company vehicles welcome</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">SCOTT&rsquo;S <span class="swoosh">AUTOMOTIVE</span></a>
+    <button class="burger" id="burger" aria-label="Open menu">&#9776;</button>
+    <nav class="links" id="menu">
+      <a class="nl" href="#quote">Get a Quote</a>
+      <a class="nl" href="#services">Services</a>
+      <a class="nl" href="#reviews">Reviews</a>
+      <a class="nl" href="#visit">Find Us</a>
+      <a class="btn-quote" href="tel:+19053416996">Call (905) 341-6996</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="quote">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">St. Catharines auto repair</span>
+        <h1>The shop other shops <span class="r">send the hard jobs to.</span></h1>
+        <p class="lede">Scott&rsquo;s Automotive is known across the region for European cars &mdash; BMW, Mercedes and the jobs nobody else wants to touch &mdash; plus honest day-to-day repairs and fleet work for local businesses.</p>
+        <div class="cta-row">
+          <a class="btn solid" href="tel:+19053416996">Call for a Quote</a>
+          <a class="btn line" href="#services">See Services</a>
+        </div>
+        <div class="badges">
+          <div class="badge"><b>4.9&#9733;</b><span>Birdeye &middot; 538 reviews</span></div>
+          <div class="badge"><b>4.91</b><span>Yably &middot; 472 reviews</span></div>
+        </div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-head">
+          <h2>How a quote works here</h2>
+          <p>No forms, no waiting on hold &mdash; three steps, plain language.</p>
+        </div>
+        <div class="step open">
+          <button aria-expanded="true"><span class="n">1</span><span class="t">Call or email the shop<small>(905) 341-6996 &middot; info@scottsauto.ca</small></span><span class="plus">+</span></button>
+          <p class="detail">Talk to a real person. Tell them what the car is doing &mdash; the noise, the light on the dash, the feeling in the wheel. Plain words are fine.</p>
+        </div>
+        <div class="step">
+          <button aria-expanded="false"><span class="n">2</span><span class="t">Have your year, make &amp; model ready<small>It speeds everything up</small></span><span class="plus">+</span></button>
+          <p class="detail">Especially for European cars &mdash; parts and labour vary a lot between models, so the year and trim get you an accurate number faster.</p>
+        </div>
+        <div class="step">
+          <button aria-expanded="false"><span class="n">3</span><span class="t">We confirm the price before any work<small>No surprises on the invoice</small></span><span class="plus">+</span></button>
+          <p class="detail">You approve the number first. If we find anything else once the car is up on the hoist, you hear about it before we touch it.</p>
+        </div>
+        <div class="quote-foot">Ready? <a href="tel:+19053416996">Call (905) 341-6996</a> or <a href="mailto:info@scottsauto.ca">email the shop</a> &mdash; quotes are straightforward and pressure-free.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <h2>What the shop does best.</h2>
+      <p class="sub">Three things keep the bays full at Scott&rsquo;s &mdash; and everything else a car needs in between.</p>
+      <div class="svc-row">
+        <div class="idx">01</div>
+        <div>
+          <h3>European car service</h3>
+          <p>BMW and Mercedes are the house specialty &mdash; the diagnostics, the parts sourcing, the jobs that general shops turn away. If your dealer quote made your eyes water, start here.</p>
+        </div>
+        <div class="side"><b>Good to know</b>Bring your year, make, model and trim &mdash; European pricing varies widely by model.</div>
+      </div>
+      <div class="svc-row">
+        <div class="idx">02</div>
+        <div>
+          <h3>Fleet &amp; company vehicles</h3>
+          <p>Local businesses keep their work vehicles at Scott&rsquo;s &mdash; scheduled maintenance and repairs with minimal downtime, billed the business-friendly way.</p>
+        </div>
+        <div class="side"><b>For operators</b>Ask about priority scheduling for vehicles that earn their keep.</div>
+      </div>
+      <div class="svc-row">
+        <div class="idx">03</div>
+        <div>
+          <h3>Repairs &amp; maintenance</h3>
+          <p>Brakes, tires, oil, diagnostics, the check-engine light you&rsquo;ve been ignoring &mdash; the everyday work, done properly and priced before it starts.</p>
+        </div>
+        <div class="side"><b>Straight talk</b>If it doesn&rsquo;t need doing, you&rsquo;ll be told. That&rsquo;s the whole reputation.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rep" id="reviews">
+    <div class="wrap">
+      <h2>500+ reviews don&rsquo;t lie.</h2>
+      <p class="sub">Scott&rsquo;s is one of the best-reviewed independent shops in the region &mdash; here&rsquo;s the public record.</p>
+      <div class="rep-grid">
+        <div class="rep-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="score">4.9</div>
+          <p>538 customer reviews and counting</p>
+          <cite>Birdeye</cite>
+        </div>
+        <div class="rep-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="score">4.91<span style="font-size:22px;color:#8b94c4">/5</span></div>
+          <p>472 verified ratings</p>
+          <cite>Yably</cite>
+        </div>
+        <div class="rep-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="score">Fleet</div>
+          <p>Trusted with company vehicles by local businesses &mdash; the repeat-customer test that matters most.</p>
+          <cite>Word of mouth</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>The BMW/Mercedes guy has a name.</h2>
+        <p><b>Scott</b> built the shop&rsquo;s name on the cars other mechanics wave through &mdash; European diagnostics and repairs done right, at independent-shop prices instead of dealer prices.</p>
+        <p>The formula that earned 500+ five-star reviews is simple: diagnose it properly, price it before touching it, and tell the customer straight when something <em>doesn&rsquo;t</em> need doing.</p>
+      </div>
+      <div class="about-card">
+        <h3>Why drivers stay</h3>
+        <ul>
+          <li>European-car diagnostics most shops can&rsquo;t do in-house</li>
+          <li>Price confirmed before any work begins</li>
+          <li>Fleet scheduling for business vehicles</li>
+          <li>Straight answers &mdash; no upsell pressure</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <h2>Find the shop.</h2>
+      <p class="sub">On Oakdale Avenue, St. Catharines &mdash; easy in and out for drop-offs.</p>
+      <div class="vgrid">
+        <div class="vcard">
+          <h3>Hours</h3>
+          <table class="hours">
+            <tr><td>Monday &ndash; Friday</td><td>8:00 AM &ndash; 6:00 PM</td></tr>
+            <tr><td>Saturday &ndash; Sunday</td><td>Closed</td></tr>
+          </table>
+          <p class="fine">Hours per the shop &mdash; call <b>(905) 341-6996</b> to confirm before heading over.</p>
+        </div>
+        <div class="vcard">
+          <h3>Contact</h3>
+          <p><b>260 Oakdale Ave</b><br>St. Catharines, ON L2P 2K4<br><b>(905) 341-6996</b><br><a href="mailto:info@scottsauto.ca" style="color:var(--red);font-weight:700">info@scottsauto.ca</a></p>
+          <div class="cta-row" style="margin-top:18px">
+            <a class="btn solid" href="https://www.google.com/maps/search/?api=1&amp;query=Scott%27s+Automotive+260+Oakdale+Ave+St+Catharines+ON" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Scott&rsquo;s Automotive &middot; 260 Oakdale Ave, St. Catharines ON &middot; (905) 341-6996</span>
+    <span class="concept">Concept preview &mdash; demo website, not affiliated with the business.</span>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+19053416996">&#9742; Tap to Call &mdash; Get a Quote</a>
+
+<script>
+  // mobile menu
+  var burger = document.getElementById('burger'),
+      menu = document.getElementById('menu');
+  burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ menu.classList.remove('open'); });
+  });
+  // quote-flow accordion (signature interaction)
+  document.querySelectorAll('.step button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var step = btn.closest('.step'),
+          wasOpen = step.classList.contains('open');
+      document.querySelectorAll('.step').forEach(function(s){
+        s.classList.remove('open');
+        s.querySelector('button').setAttribute('aria-expanded','false');
+      });
+      if (!wasOpen){
+        step.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+</script>
+</body>
+</html>

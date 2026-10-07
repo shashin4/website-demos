@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fran's Chip Shop — Fish &amp; Chips in Kingston, ON | 30+ Years</title>
+<meta name="description" content="Fran's Chip Shop, 83 Aberfoyle Rd #5, Kingston. Battered-to-order fish & chips for 30+ years. Call 613-542-9359 for pickup. Taco Tuesday $10.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0e2a44;
+    --navy-2:#123453;
+    --navy-3:#0a1f33;
+    --paper:#f7f1e1;
+    --paper-dim:#e7dcc2;
+    --tomato:#d9481f;
+    --tomato-deep:#b23412;
+    --ink:#1c1a15;
+    --mut:#8fa3b8;
+    --line:#274b6e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy-3);color:var(--paper);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--tomato);color:#fff}
+  h1,h2,h3,.bebas{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.02em;text-wrap:balance;line-height:1.02}
+  a{color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+  /* announcement bar */
+  .announce{background:var(--tomato);color:#fff;text-align:center;font-weight:700;font-size:15px;letter-spacing:.06em;padding:10px 16px}
+  .announce a{color:#fff}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(10,31,51,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:13px;padding-bottom:13px}
+  .brand{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.04em;text-decoration:none;color:var(--paper)}
+  .brand span{color:var(--tomato)}
+  .links{display:flex;gap:26px;align-items:center}
+  .links a.nl{text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper-dim);font-weight:600}
+  .links a.nl:hover{color:var(--tomato)}
+  .btn-order{background:var(--tomato);color:#fff;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:12px 22px;border-radius:4px}
+  .btn-order:hover{background:var(--tomato-deep)}
+  .burger{display:none;background:none;border:1px solid var(--line);border-radius:4px;color:var(--paper);font-size:20px;padding:6px 12px;cursor:pointer}
+  @media(max-width:860px){
+    .links{position:fixed;inset:0 0 0 auto;width:min(320px,84vw);background:var(--navy-2);flex-direction:column;align-items:flex-start;padding:84px 32px;gap:22px;transform:translateX(100%);transition:transform .3s ease;border-left:1px solid var(--line)}
+    .links.open{transform:none}
+    .burger{display:block}
+    .links a.nl{font-size:17px}
+  }
+
+  /* hero = order board */
+  .hero{background:var(--navy);padding:64px 0 70px;border-bottom:1px solid var(--line)}
+  .hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+  .hero h1{font-size:clamp(52px,7.5vw,104px);max-width:12ch}
+  .hero h1 em{font-style:normal;color:var(--tomato)}
+  .trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .trust span{border:1px solid var(--line);border-radius:20px;padding:7px 16px;font-size:13.5px;letter-spacing:.06em;color:var(--paper-dim);font-weight:600}
+  .trust span b{color:var(--tomato)}
+
+  .orderbox{background:var(--navy-3);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .tabs{display:flex;border-bottom:1px solid var(--line)}
+  .tabs button{flex:1;background:none;border:none;color:var(--mut);font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;padding:18px;cursor:pointer;border-bottom:3px solid transparent}
+  .tabs button.active{color:var(--paper);border-bottom-color:var(--tomato);background:rgba(217,72,31,.08)}
+  .tabpane{display:none;padding:36px 32px}
+  .tabpane.active{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+  @media(max-width:760px){.tabpane.active{grid-template-columns:1fr}}
+  .tabpane h3{font-size:34px;margin-bottom:10px}
+  .tabpane p{color:var(--paper-dim);max-width:44ch;margin-bottom:20px}
+  .tabpane .big{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--tomato);letter-spacing:.03em}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:15px 28px;border-radius:4px;margin-right:10px;margin-top:6px}
+  .btn.solid{background:var(--tomato);color:#fff}
+  .btn.solid:hover{background:var(--tomato-deep)}
+  .btn.line{border:1px solid var(--tomato);color:var(--tomato)}
+  .btn.line:hover{background:rgba(217,72,31,.12)}
+  .eta{background:var(--navy-2);border:1px dashed var(--line);border-radius:6px;padding:22px;font-size:15px;color:var(--paper-dim)}
+  .eta b{color:var(--paper);display:block;font-size:17px;margin-bottom:4px}
+
+  /* menu board */
+  .menu{padding:76px 0;background:var(--paper);color:var(--ink)}
+  .menu .kicker{color:var(--tomato-deep);font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px}
+  .menu h2{font-size:clamp(44px,5.5vw,76px);color:var(--navy-3);margin-bottom:8px}
+  .menu .sub{color:#5c5a52;max-width:62ch;margin-bottom:40px;font-size:18px}
+  .board{display:grid;grid-template-columns:1fr 1fr;gap:0;border:3px solid var(--navy-3);border-radius:8px;overflow:hidden}
+  @media(max-width:760px){.board{grid-template-columns:1fr}}
+  .board-col{padding:10px 0}
+  .board-col:first-child{border-right:3px solid var(--navy-3)}
+  @media(max-width:760px){.board-col:first-child{border-right:none;border-bottom:3px solid var(--navy-3)}}
+  .board-col h3{font-size:26px;letter-spacing:.05em;background:var(--navy-3);color:var(--paper);margin:0 0 6px;padding:12px 28px}
+  .board-col ul{list-style:none}
+  .board-col li{padding:16px 28px;border-bottom:1px dashed #cfc4a6;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+  .board-col li:last-child{border-bottom:none}
+  .item{font-weight:700;font-size:18px}
+  .item small{display:block;font-weight:400;color:#6d6a5e;font-size:14px}
+  .price{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--tomato-deep);white-space:nowrap}
+  .special{margin-top:26px;background:var(--navy-3);color:var(--paper);border-radius:8px;padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .special h3{font-size:34px}
+  .special h3 span{color:var(--tomato)}
+  .special p{color:var(--paper-dim);max-width:52ch}
+  .special .tag{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--tomato);line-height:1}
+
+  /* story */
+  .story{background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:76px 0}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  @media(max-width:900px){.story-grid{grid-template-columns:1fr}}
+  .story h2{font-size:clamp(40px,5vw,68px);margin-bottom:18px}
+  .story h2 em{font-style:normal;color:var(--tomato)}
+  .story p{color:var(--paper-dim);margin-bottom:16px;max-width:52ch;font-size:18px}
+  .quote{background:var(--navy-3);border-left:4px solid var(--tomato);border-radius:0 8px 8px 0;padding:28px 30px}
+  .quote p{font-size:21px;color:var(--paper);font-style:italic;margin-bottom:10px}
+  .quote cite{font-style:normal;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+
+  /* visit */
+  .visit{padding:76px 0}
+  .visit h2{font-size:clamp(40px,5vw,68px);margin-bottom:8px}
+  .visit .sub{color:var(--mut);margin-bottom:40px;font-size:18px}
+  .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:900px){.vgrid{grid-template-columns:1fr}}
+  .vcard{border:1px solid var(--line);border-radius:8px;background:var(--navy);padding:30px}
+  .vcard h3{font-size:26px;letter-spacing:.05em;color:var(--tomato);margin-bottom:14px}
+  .vcard p{color:var(--paper-dim);font-size:16.5px;line-height:1.7}
+  .vcard p b{color:var(--paper)}
+  .vcard a.cta{color:var(--tomato);font-weight:700}
+
+  footer{border-top:1px solid var(--line);padding:32px 0 96px;color:var(--mut);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer .concept{font-size:12.5px}
+
+  .tapcall{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;background:var(--tomato);color:#fff;
+    text-align:center;font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+    padding:16px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  @media(max-width:860px){.tapcall{display:block}footer{padding-bottom:112px}}
+</style>
+</head>
+<body>
+
+<div class="announce">Taco Tuesday &mdash; every Tuesday, just $10 &nbsp;&middot;&nbsp; <a href="tel:+16135429359">Call 613-542-9359</a></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">FRAN&rsquo;S <span>CHIP SHOP</span></a>
+    <button class="burger" id="burger" aria-label="Open menu">&#9776;</button>
+    <nav class="links" id="menu">
+      <a class="nl" href="#order">Order</a>
+      <a class="nl" href="#menu-board">Menu</a>
+      <a class="nl" href="#story">Our Story</a>
+      <a class="nl" href="#visit">Find Us</a>
+      <a class="btn-order" href="tel:+16135429359">Order Pickup</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="order">
+    <div class="wrap">
+      <div class="hero-top">
+        <div>
+          <h1>Battered to order. <em>Wrapped in paper.</em> Gone in minutes.</h1>
+          <div class="trust">
+            <span><b>30+</b> years in Kingston</span>
+            <span>Reviewers call it the <b>best fish &amp; chips</b> in town</span>
+            <span>On <b>DoorDash</b> for delivery</span>
+          </div>
+        </div>
+      </div>
+      <div class="orderbox">
+        <div class="tabs" role="tablist">
+          <button class="active" data-tab="pickup" role="tab">Pickup</button>
+          <button data-tab="delivery" role="tab">Delivery</button>
+        </div>
+        <div class="tabpane active" id="pane-pickup">
+          <div>
+            <h3>Call it in, grab it hot.</h3>
+            <p>Phone your order ahead and it&rsquo;ll be coming out of the fryer as you walk in &mdash; 83 Aberfoyle Rd, west end.</p>
+            <div class="big">613-542-9359</div>
+            <a class="btn solid" href="tel:+16135429359">Call to Order</a>
+          </div>
+          <div class="eta">
+            <b>How pickup works</b>
+            Call ahead with your order &middot; pay at the counter &middot; fish is battered to order, so give it a few minutes at busy times. Dine-in counter also available.
+          </div>
+        </div>
+        <div class="tabpane" id="pane-delivery">
+          <div>
+            <h3>Delivered to your door.</h3>
+            <p>Fran&rsquo;s is live on DoorDash &mdash; pickup and delivery available, DashPass eligible. Same fryer, zero driving.</p>
+            <a class="btn solid" href="https://www.doordash.com/" target="_blank" rel="noopener">Order on DoorDash</a>
+            <a class="btn line" href="tel:+16135429359">Or Call Us</a>
+          </div>
+          <div class="eta">
+            <b>Good to know</b>
+            Delivery times and fees are set by DoorDash at checkout. For the fastest turnaround on big orders, call the shop directly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu-board">
+    <div class="wrap">
+      <p class="kicker">The menu board</p>
+      <h2>Proper chippy food.</h2>
+      <p class="sub">Everything battered and fried to order &mdash; the way a fish &amp; chip shop is supposed to work. Full menu and prices at the counter.</p>
+      <div class="board">
+        <div class="board-col">
+          <h3>From the fryer</h3>
+          <ul>
+            <li><div class="item">Fish &amp; Chips<small>The signature &mdash; battered to order, proper chips.</small></div><div class="price">at counter</div></li>
+            <li><div class="item">Bacon Cheeseburger<small>A local favourite alongside the fish.</small></div><div class="price">at counter</div></li>
+            <li><div class="item">Poutine<small>Done the chippy way.</small></div><div class="price">at counter</div></li>
+          </ul>
+        </div>
+        <div class="board-col">
+          <h3>Weekly special</h3>
+          <ul>
+            <li><div class="item">Taco Tuesday<small>Every Tuesday &mdash; the week&rsquo;s best deal.</small></div><div class="price">$10</div></li>
+            <li><div class="item">Family &amp; group orders<small>Feeding a crew? Call ahead and we&rsquo;ll have it ready.</small></div><div class="price">call us</div></li>
+          </ul>
+        </div>
+      </div>
+      <div class="special">
+        <div>
+          <h3>Taco Tuesday <span>&mdash; $10</span></h3>
+          <p>Every Tuesday at Fran&rsquo;s. Call <b>613-542-9359</b> ahead if you&rsquo;re feeding more than two &mdash; Tuesdays get busy.</p>
+        </div>
+        <div class="tag">$10</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap story-grid">
+      <div>
+        <h2>Kingston&rsquo;s chippy <em>for 30+ years.</em></h2>
+        <p>Fran&rsquo;s opened in the early nineties and became a west-end regular favourite &mdash; the kind of place people drive across town for. In 2014, long-time employee Maggie Bender took the business into her own hands and kept the regulars coming back.</p>
+        <p>The dining room&rsquo;s been renovated since, but the formula hasn&rsquo;t changed: battered-to-order fish, a real fryer, and food wrapped the old way.</p>
+      </div>
+      <div class="quote">
+        <p>&ldquo;The best fish and chips in Kingston &mdash; you can tell they genuinely care.&rdquo;</p>
+        <cite>&mdash; recent reviewer</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <h2>Find us.</h2>
+      <p class="sub">West-end Kingston, on Aberfoyle Road.</p>
+      <div class="vgrid">
+        <div class="vcard">
+          <h3>Address</h3>
+          <p><b>83 Aberfoyle Rd, Unit 5</b><br>Kingston, ON K7M 7B5<br><a class="cta" href="https://www.google.com/maps/search/?api=1&amp;query=Fran%27s+Chip+Shop+83+Aberfoyle+Rd+Kingston+ON" target="_blank" rel="noopener">Get directions &rarr;</a></p>
+        </div>
+        <div class="vcard">
+          <h3>Order &amp; contact</h3>
+          <p><b>613-542-9359</b> &mdash; call for pickup<br><a class="cta" href="mailto:fransfishnchips@outlook.com">fransfishnchips@outlook.com</a><br>Also on DoorDash for delivery.</p>
+        </div>
+        <div class="vcard">
+          <h3>Hours</h3>
+          <p>Hours change with the season &mdash; <b>call <a class="cta" href="tel:+16135429359">613-542-9359</a></b> for today&rsquo;s hours before heading over.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Fran&rsquo;s Chip Shop &middot; 83 Aberfoyle Rd #5, Kingston ON &middot; 613-542-9359</span>
+    <span class="concept">Concept preview &mdash; demo website, not affiliated with the business.</span>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+16135429359">&#9742; Tap to Call &mdash; Order Pickup</a>
+
+<script>
+  // mobile menu
+  var burger = document.getElementById('burger'),
+      menu = document.getElementById('menu');
+  burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ menu.classList.remove('open'); });
+  });
+  // order-path tabs (signature interaction)
+  var tabs = document.querySelectorAll('.tabs button');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabs.forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.tabpane').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('pane-' + btn.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

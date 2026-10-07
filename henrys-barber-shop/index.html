@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henry's Barber Shop — Peterborough's Old-School Barbershop Since 1955</title>
+<meta name="description" content="Henry's Barber Shop, 172 Hunter St W, Peterborough. Traditional cuts and hot-towel shaves since 1955. Walk-ins welcome. Call 705-749-2200.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Pinyon+Script&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14110d;
+    --ink-2:#1e1813;
+    --ink-3:#2a2119;
+    --cream:#f4eddc;
+    --cream-dim:#d9cdb2;
+    --gold:#c9a961;
+    --gold-deep:#a5813f;
+    --line:#3a2f22;
+    --mut:#b3a68c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--cream);font-family:'Karla',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--gold);color:var(--ink)}
+  h1,h2,h3{font-family:'DM Serif Display',serif;font-weight:400;text-wrap:balance;line-height:1.12}
+  .script{font-family:'Pinyon Script',cursive;color:var(--gold);font-weight:400}
+  a{color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+  /* utility strip */
+  .util{background:var(--ink-2);border-bottom:1px solid var(--line);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+  .util .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+  .util b{color:var(--gold);font-weight:600}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(20,17,13,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .brand{font-family:'DM Serif Display',serif;font-size:24px;letter-spacing:.01em;text-decoration:none}
+  .brand em{font-family:'Pinyon Script',cursive;font-style:normal;color:var(--gold);font-size:28px;margin-right:2px}
+  .links{display:flex;gap:28px;align-items:center}
+  .links a.nl{text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);font-weight:500}
+  .links a.nl:hover{color:var(--gold)}
+  .btn-call{background:var(--gold);color:var(--ink);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:12px 22px;border-radius:3px}
+  .btn-call:hover{background:var(--cream)}
+  .burger{display:none;background:none;border:1px solid var(--line);border-radius:3px;color:var(--cream);font-size:20px;padding:6px 12px;cursor:pointer}
+  @media(max-width:860px){
+    .links{position:fixed;inset:0 0 0 auto;width:min(320px,84vw);background:var(--ink-2);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:84px 32px;gap:22px;transform:translateX(100%);transition:transform .3s ease;border-left:1px solid var(--line)}
+    .links.open{transform:none}
+    .burger{display:block}
+    .links a.nl{font-size:17px}
+  }
+
+  /* hero */
+  .hero{padding:72px 0 64px;border-bottom:1px solid var(--line);background:
+    radial-gradient(1100px 420px at 12% -10%, rgba(201,169,97,.10), transparent 60%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
+  .hero .script{font-size:clamp(30px,4vw,44px);display:block;margin-bottom:6px}
+  .hero h1{font-size:clamp(40px,5.4vw,68px);margin-bottom:20px}
+  .hero h1 .g{color:var(--gold);font-style:italic}
+  .hero p.lede{color:var(--cream-dim);font-size:19px;max-width:46ch;margin-bottom:30px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:15px 28px;border-radius:3px}
+  .btn.solid{background:var(--gold);color:var(--ink)}
+  .btn.solid:hover{background:var(--cream)}
+  .btn.ghost{border:1px solid var(--gold);color:var(--gold)}
+  .btn.ghost:hover{background:rgba(201,169,97,.12)}
+  .hero-note{margin-top:26px;font-size:14px;color:var(--mut);letter-spacing:.06em}
+  .hero-note b{color:var(--gold)}
+
+  /* price board — the hero's right half */
+  .board{background:var(--ink-2);border:1px solid var(--gold-deep);border-radius:6px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .board-head{background:var(--gold);color:var(--ink);padding:16px 26px;display:flex;justify-content:space-between;align-items:baseline}
+  .board-head h2{font-size:22px}
+  .board-head span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;font-family:'Karla',sans-serif}
+  .board ul{list-style:none}
+  .board li{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:20px 26px;border-bottom:1px solid var(--line)}
+  .board li:last-child{border-bottom:none}
+  .board .svc{font-weight:600;font-size:18px}
+  .board .svc small{display:block;font-weight:400;color:var(--mut);font-size:14px;margin-top:2px}
+  .board .pr{font-family:'DM Serif Display',serif;font-size:24px;color:var(--gold);white-space:nowrap}
+  .board-foot{padding:16px 26px;font-size:13.5px;color:var(--mut);border-top:1px solid var(--line)}
+
+  /* barber-pole divider — the signature interaction */
+  .pole{height:14px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    background:repeating-linear-gradient(-45deg,var(--gold) 0 18px,var(--ink-2) 18px 36px,var(--cream) 36px 40px,var(--ink-2) 40px 58px);
+    background-size:200% 100%;animation:polemove 14s linear infinite}
+  @keyframes polemove{to{background-position:-200% 0}}
+  @media(prefers-reduced-motion:reduce){.pole{animation:none}html{scroll-behavior:auto}}
+
+  /* chairs roster */
+  .chairs{padding:76px 0}
+  .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
+  .chairs h2{font-size:clamp(32px,4vw,50px);margin-bottom:10px}
+  .chairs .sub{color:var(--cream-dim);max-width:60ch;margin-bottom:44px}
+  .roster{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+  .chair{border:1px solid var(--line);border-radius:6px;padding:28px;background:var(--ink-2);transition:transform .25s ease,border-color .25s ease}
+  .chair:hover{transform:translateY(-5px);border-color:var(--gold-deep)}
+  .chair:nth-child(1){grid-column:span 7}
+  .chair:nth-child(2){grid-column:span 5}
+  .chair:nth-child(3){grid-column:span 5}
+  .chair:nth-child(4){grid-column:span 7}
+  @media(max-width:760px){.chair:nth-child(n){grid-column:span 12}}
+  .chair .no{font-family:'DM Serif Display',serif;font-size:15px;color:var(--gold-deep);letter-spacing:.2em}
+  .chair h3{font-size:27px;margin:8px 0 6px}
+  .chair p{color:var(--cream-dim);font-size:15.5px}
+  .chair .tag{display:inline-block;margin-top:14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-deep);border-radius:20px;padding:5px 14px}
+
+  /* heritage band */
+  .heritage{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:76px 0}
+  .herit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  @media(max-width:960px){.herit-grid{grid-template-columns:1fr}}
+  .heritage h2{font-size:clamp(32px,4vw,50px);margin-bottom:16px}
+  .heritage .script{font-size:34px;display:block;margin-bottom:8px}
+  .heritage p{color:var(--cream-dim);margin-bottom:16px;max-width:52ch}
+  .dates{list-style:none;margin-top:8px}
+  .dates li{display:grid;grid-template-columns:92px 1fr;gap:18px;padding:18px 0;border-bottom:1px dashed var(--line)}
+  .dates li:last-child{border-bottom:none}
+  .dates .yr{font-family:'DM Serif Display',serif;font-size:30px;color:var(--gold)}
+  .dates p{font-size:15.5px;margin:0}
+
+  /* visit */
+  .visit{padding:76px 0}
+  .visit h2{font-size:clamp(32px,4vw,50px);margin-bottom:10px}
+  .visit .sub{color:var(--cream-dim);margin-bottom:44px;max-width:62ch}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);border-radius:6px;background:var(--ink-2);padding:32px}
+  .panel h3{font-size:24px;margin-bottom:18px;color:var(--gold)}
+  .hours{width:100%;border-collapse:collapse;font-size:16px}
+  .hours td{padding:10px 4px;border-bottom:1px solid var(--line)}
+  .hours tr:last-child td{border-bottom:none}
+  .hours td:last-child{text-align:right;color:var(--cream-dim);font-variant-numeric:tabular-nums}
+  .hours .today td{color:var(--gold);font-weight:700}
+  .fine{font-size:13px;color:var(--mut);margin-top:14px}
+  .addr{font-size:19px;line-height:1.7;margin-bottom:8px}
+  .addr b{color:var(--gold)}
+  .vbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:34px 0 90px;color:var(--mut);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer .concept{font-size:12.5px;letter-spacing:.04em}
+
+  /* mobile tap-to-call */
+  .tapcall{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;background:var(--gold);color:var(--ink);
+    text-align:center;font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+    padding:16px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  @media(max-width:860px){.tapcall{display:block}footer{padding-bottom:110px}}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="wrap">
+    <span>Est. 1955 &mdash; Peterborough, Ontario</span>
+    <span><b>172 Hunter St W</b> &nbsp;&middot;&nbsp; 705-749-2200</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><em>H</em>Henry&rsquo;s Barber Shop</a>
+    <button class="burger" id="burger" aria-label="Open menu">&#9776;</button>
+    <nav class="links" id="menu">
+      <a class="nl" href="#services">Services &amp; Prices</a>
+      <a class="nl" href="#chairs">The Chairs</a>
+      <a class="nl" href="#story">Since 1955</a>
+      <a class="nl" href="#visit">Hours &amp; Find Us</a>
+      <a class="btn-call" href="tel:+17057492200">Call to Book</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="script">Tradition still matters.</span>
+        <h1>Peterborough&rsquo;s old-school barbershop, <span class="g">cutting hair since 1955.</span></h1>
+        <p class="lede">Six chairs on Hunter Street West. Straight-razor shaves, honest haircuts, no appointment theatre &mdash; walk in, sit down, leave sharper than you came.</p>
+        <div class="cta-row">
+          <a class="btn solid" href="tel:+17057492200">Call to Book</a>
+          <a class="btn ghost" href="#services">See Services &amp; Prices</a>
+        </div>
+        <p class="hero-note"><b>Walk-ins welcome.</b> Evenings and Saturdays fill up &mdash; calling ahead never hurts.</p>
+      </div>
+      <div class="board" id="services">
+        <div class="board-head"><h2>Services &amp; Prices</h2><span>At the chair</span></div>
+        <ul>
+          <li>
+            <div class="svc">Signature Haircut<small>Consultation, precision cut, hot-lather neck shave, style to finish.</small></div>
+            <div class="pr">from $30</div>
+          </li>
+          <li>
+            <div class="svc">Hot-Towel Straight-Razor Shave<small>The full traditional treatment &mdash; steam, lather, steel, cold towel.</small></div>
+            <div class="pr">$30&ndash;$80</div>
+          </li>
+          <li>
+            <div class="svc">Cut &amp; Shave Combo<small>The whole works in one sitting. Ask your barber for the day&rsquo;s price.</small></div>
+            <div class="pr">in chair</div>
+          </li>
+        </ul>
+        <div class="board-foot">Prices confirmed at the shop &mdash; call <a href="tel:+17057492200" style="color:var(--gold)">705-749-2200</a> for anything not listed.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pole" aria-hidden="true"></div>
+
+  <section class="chairs" id="chairs">
+    <div class="wrap">
+      <p class="kicker">The chairs</p>
+      <h2>Barbers who&rsquo;ve earned their regulars.</h2>
+      <p class="sub">Henry&rsquo;s has been handed down through generations of Peterborough barbers. The names in the chairs today:</p>
+      <div class="roster">
+        <div class="chair">
+          <span class="no">Chair 01</span>
+          <h3>Jay Dymond</h3>
+          <p>Master barber and current owner. Carried the shop forward from its founder and grew it from two chairs to six.</p>
+          <span class="tag">Master Barber</span>
+        </div>
+        <div class="chair">
+          <span class="no">Chair 02</span>
+          <h3>Mike Macdonald</h3>
+          <p>Jay&rsquo;s partner in the shop&rsquo;s rebuild &mdash; the other half of the team that brought Henry&rsquo;s into its next era.</p>
+          <span class="tag">Owner &amp; Barber</span>
+        </div>
+        <div class="chair">
+          <span class="no">Chair 03</span>
+          <h3>Joe</h3>
+          <p>A customer favourite by name in review after review &mdash; &ldquo;always a pleasure.&rdquo;</p>
+          <span class="tag">Barber</span>
+        </div>
+        <div class="chair">
+          <span class="no">Chair 04</span>
+          <h3>Graham</h3>
+          <p>Known for careful, consistent work &mdash; the kind of cut that grows out right.</p>
+          <span class="tag">Barber</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="heritage" id="story">
+    <div class="wrap herit-grid">
+      <div>
+        <span class="script">Since 1955</span>
+        <h2>Seventy years on the same street.</h2>
+        <p>Henry&rsquo;s opened its doors in 1955 and never really left &mdash; the oldest traditional barbershop in the city of Peterborough. The poles, the leather chairs, the hot lather: the ritual hasn&rsquo;t changed because it never needed to.</p>
+        <p>What did change is the room around it. The shop was rebuilt from two chairs to six, so more of downtown can get in the chair &mdash; without losing the unhurried, talk-it-over way a proper barbershop works.</p>
+      </div>
+      <ul class="dates">
+        <li><span class="yr">1955</span><p>Henry&rsquo;s opens on Hunter Street West &mdash; a traditional German-rooted barbershop.</p></li>
+        <li><span class="yr">2010s</span><p>Master barber Jay Dymond and partner Mike Macdonald take the legacy on and refurbish the shop.</p></li>
+        <li><span class="yr">Today</span><p>Six chairs, walk-ins welcome, and the same straight-razor standards as day one.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <p class="kicker">Visit</p>
+      <h2>Hours &amp; find us.</h2>
+      <p class="sub">Downtown Peterborough, two minutes from the bus terminal. Street parking and lots nearby.</p>
+      <div class="visit-grid">
+        <div class="panel">
+          <h3>Opening hours</h3>
+          <table class="hours" id="hoursTable">
+            <tr><td>Monday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
+            <tr><td>Tuesday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
+            <tr><td>Wednesday</td><td>8:00 AM &ndash; 7:00 PM</td></tr>
+            <tr><td>Thursday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
+            <tr><td>Friday</td><td>8:00 AM &ndash; 8:00 PM</td></tr>
+            <tr><td>Saturday</td><td>8:00 AM &ndash; 3:00 PM</td></tr>
+            <tr><td>Sunday</td><td>Closed</td></tr>
+          </table>
+          <p class="fine">Hours per the shop&rsquo;s Google listing &mdash; holiday hours may differ, call to confirm.</p>
+        </div>
+        <div class="panel">
+          <h3>Find the shop</h3>
+          <p class="addr"><b>172 Hunter St W</b><br>Peterborough, ON K9H 2L1<br>705-749-2200<br><a href="mailto:henrysbarbershopinc@gmail.com" style="color:var(--gold)">henrysbarbershopinc@gmail.com</a></p>
+          <div class="vbtns">
+            <a class="btn solid" href="https://www.google.com/maps/search/?api=1&amp;query=Henry%27s+Barber+Shop+172+Hunter+St+W+Peterborough+ON" target="_blank" rel="noopener">Get Directions</a>
+            <a class="btn ghost" href="tel:+17057492200">Call the Shop</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Henry&rsquo;s Barber Shop &middot; 172 Hunter St W, Peterborough ON &middot; 705-749-2200</span>
+    <span class="concept">Concept preview &mdash; demo website, not affiliated with the business.</span>
+  </div>
+</footer>
+
+<a class="tapcall" href="tel:+17057492200">&#9742; Tap to Call</a>
+
+<script>
+  // mobile menu
+  var burger = document.getElementById('burger'),
+      menu = document.getElementById('menu');
+  burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ menu.classList.remove('open'); });
+  });
+  // highlight today's row in the hours table (Mon=1..Sun=0)
+  (function(){
+    var map = {0:6,1:0,2:1,3:2,4:3,5:4,6:5};
+    var rows = document.querySelectorAll('#hoursTable tr');
+    var r = rows[map[new Date().getDay()]];
+    if (r) r.className = 'today';
+  })();
+</script>
+</body>
+</html>
