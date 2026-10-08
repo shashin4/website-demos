@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Human Bean, Cobourg's Coffee House | Organic &amp; Fair-Trade Coffee</title>
+<meta name="description" content="Cobourg's coffee house for organic, fair-trade coffee, all-day breakfast bagels, paninis and desserts. 80 King St W, Cobourg. Open Mon–Sat 7 AM–4 PM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --espresso:#46301F; --espresso-deep:#322114; --copper:#C08045; --copper-deep:#9c6230;
+  --cream:#F7F2E8; --paper:#FFFDF7; --ink:#33291f; --muted:#756a59; --line:#e4d9c2; --radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Mulish',sans-serif;background:var(--cream);color:var(--ink);line-height:1.62;font-size:16.5px}
+h1,h2,h3,.display{font-family:'Bitter',serif;font-weight:600;text-wrap:balance;line-height:1.18}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* sticky nav */
+header.site{position:sticky;top:0;z-index:50;background:rgba(247,242,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;max-width:1180px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand .cup{width:44px;height:44px;border-radius:50%;background:var(--espresso);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:23px}
+.brand .name{font-family:'Bitter',serif;font-weight:700;font-size:19px;line-height:1.05}
+.brand .name small{display:block;font-family:'Mulish',sans-serif;font-weight:800;font-size:10.5px;letter-spacing:2.5px;color:var(--copper-deep);text-transform:uppercase}
+.nav-links{display:flex;gap:24px;list-style:none;font-weight:700;font-size:15px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--ink)}
+.nav-links a:hover{color:var(--copper-deep)}
+.nav-cta{background:var(--espresso);color:#fff!important;padding:11px 22px;border-radius:8px;font-weight:800}
+.nav-cta:hover{background:var(--espresso-deep)}
+.hamburger{display:none;background:none;border:0;font-size:28px;cursor:pointer;color:var(--espresso);padding:4px 8px}
+
+/* hero: hours first */
+.hero{background:linear-gradient(180deg,#efe6d2,var(--cream));padding:64px 0 58px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(36px,4.8vw,54px);margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--copper-deep)}
+.hero p.lede{font-size:18px;color:#4e4232;max-width:46ch;margin-bottom:26px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 28px;border-radius:8px;font-weight:800;text-decoration:none;font-size:16px}
+.btn-primary{background:var(--espresso);color:#fff}
+.btn-primary:hover{background:var(--espresso-deep)}
+.btn-ghost{border:2px solid var(--espresso);color:var(--espresso)}
+.btn-ghost:hover{background:#efe6d2}
+.hours-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 18px 42px -22px rgba(70,48,31,.4)}
+.hours-card .open-badge{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.hours-card .open-badge .dot{width:11px;height:11px;border-radius:50%;background:#4c9a52}
+.hours-card .open-badge.closed .dot{background:#b4452f}
+.hours-card h3{font-size:22px;margin-bottom:14px}
+.hours-list{list-style:none}
+.hours-list li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15.5px}
+.hours-list li:last-child{border-bottom:0}
+.hours-card .fine{margin-top:14px;font-size:13.5px;color:var(--muted)}
+
+/* story */
+.story{padding:72px 0;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.story h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:16px}
+.story p{color:#4e4232;margin-bottom:14px;max-width:52ch}
+.story-values{display:grid;gap:14px;margin-top:22px}
+.value{display:flex;gap:14px;align-items:flex-start}
+.value .v-ico{flex:0 0 44px;height:44px;border-radius:10px;background:#f0e7d2;display:flex;align-items:center;justify-content:center;font-size:22px}
+.value strong{display:block;font-size:16.5px}
+.value span{font-size:15px;color:var(--muted)}
+.quote-card{background:var(--espresso);color:#f4ecdc;border-radius:var(--radius);padding:38px 34px}
+.quote-card blockquote{font-family:'Bitter',serif;font-size:24px;font-style:italic;line-height:1.4;margin-bottom:14px}
+.quote-card cite{font-style:normal;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--copper);font-weight:800}
+
+/* menu: chalkboard */
+.menu{padding:72px 0}
+.menu h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:8px}
+.menu .sub{color:var(--muted);max-width:60ch;margin-bottom:30px}
+.board-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.board{background:#2b241c;color:#f3ecdd;border-radius:var(--radius);padding:34px 32px;border:10px solid #6b4f34;box-shadow:inset 0 0 40px rgba(0,0,0,.45)}
+.board h3{font-family:'Bitter',serif;font-size:24px;color:#f0d9a8;margin-bottom:6px;letter-spacing:1px}
+.board .board-sub{font-size:13.5px;color:#bfae8d;margin-bottom:18px;font-style:italic}
+.board ul{list-style:none}
+.board li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dashed rgba(240,217,168,.25);font-size:16px}
+.board li:last-child{border-bottom:0}
+.board li span:last-child{color:#f0d9a8;font-weight:700;white-space:nowrap}
+.menu-note{margin-top:22px;font-size:14.5px;color:var(--muted);font-style:italic}
+
+/* visit */
+.visit{padding:72px 0;background:var(--paper);border-top:1px solid var(--line)}
+.visit h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:28px}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
+.visit-card{border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:var(--cream)}
+.visit-card h3{font-size:20px;margin-bottom:14px;color:var(--espresso)}
+.visit-card p{font-size:15.5px;margin-bottom:10px}
+.visit-card a{font-weight:700;color:var(--copper-deep)}
+.hours-list.mini li{font-size:14.5px}
+
+footer{background:var(--espresso-deep);color:#cdbfa8;padding:32px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .concept{opacity:.75;font-style:italic}
+
+.tap-call{display:none;position:fixed;bottom:16px;left:16px;right:16px;z-index:60;background:var(--espresso);color:#fff;text-align:center;padding:15px;border-radius:8px;font-weight:800;text-decoration:none;font-size:17px;box-shadow:0 10px 28px rgba(50,33,20,.5)}
+
+@media(max-width:860px){
+  .hero-grid,.story-grid,.board-grid,.visit-grid{grid-template-columns:1fr}
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:18px 22px 26px;gap:16px;border-bottom:1px solid var(--line);display:none;align-items:flex-start}
+  .nav-links.open{display:flex}
+  .hamburger{display:block}
+  .tap-call{display:block}
+  body{padding-bottom:70px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#top">
+      <span class="cup">☕</span>
+      <span class="name">The Human Bean<small>Cobourg's Coffee House</small></span>
+    </a>
+    <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">Our Coffee</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a class="nav-cta" href="tel:+12892520707">Call Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Famous in Cobourg for our <em>organic &amp; fair-trade coffee.</em></h1>
+        <p class="lede">The best in town, by our regulars' vote. Pair it with an all-day breakfast bagel, a grilled panini, or one of our famous date squares, and stay a while in our warm downtown corner.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#menu">See the Menu</a>
+          <a class="btn btn-ghost" href="tel:+12892520707">Call (289) 252-0707</a>
+        </div>
+      </div>
+      <aside class="hours-card" aria-label="Store hours">
+        <span class="open-badge" id="openBadge"><span class="dot"></span><span id="openText">Open now</span></span>
+        <h3>Store hours</h3>
+        <ul class="hours-list">
+          <li><span>Monday – Saturday</span><strong>7:00 AM – 4:00 PM</strong></li>
+          <li><span>Sunday</span><strong>Call to confirm</strong></li>
+        </ul>
+        <p class="fine">80 King St W, Cobourg, right downtown near Victoria Hall.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap story-grid">
+      <div>
+        <h2>100% fair-trade. 100% organic.</h2>
+        <p>Every cup we pour starts with beans that are certified organic and fair-trade. It costs a little more and tastes a lot better, and our regulars have noticed for over a decade.</p>
+        <div class="story-values">
+          <div class="value"><span class="v-ico">🌱</span><div><strong>Certified organic beans</strong><span>No shortcuts in the roast or the cup.</span></div></div>
+          <div class="value"><span class="v-ico">🤝</span><div><strong>Fair-trade sourcing</strong><span>Growers paid fairly, coffee you can feel good about.</span></div></div>
+          <div class="value"><span class="v-ico">🥯</span><div><strong>All-day breakfast bagel</strong><span>Our signature, served till close.</span></div></div>
+        </div>
+      </div>
+      <div class="quote-card">
+        <blockquote>"Famous in Cobourg for its organic and fair-trade coffee, the best in town."</blockquote>
+        <cite>The Human Bean</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <h2>The menu</h2>
+      <p class="sub">Coffee, all-day breakfast, lunch, and desserts, everything made fresh in our downtown kitchen.</p>
+      <div class="board-grid">
+        <div class="board">
+          <h3>Coffee &amp; Drinks</h3>
+          <p class="board-sub">All 100% fair-trade and organic</p>
+          <ul>
+            <li><span>Drip coffee</span><span>Call for pricing</span></li>
+            <li><span>Espresso</span><span>Call for pricing</span></li>
+            <li><span>Cappuccino &amp; lattes</span><span>Call for pricing</span></li>
+            <li><span>Specialty coffee drinks</span><span>Call for pricing</span></li>
+            <li><span>Tea &amp; hot chocolate</span><span>Call for pricing</span></li>
+          </ul>
+        </div>
+        <div class="board">
+          <h3>Food</h3>
+          <p class="board-sub">Served all day</p>
+          <ul>
+            <li><span>All-day breakfast bagel</span><span>Call for pricing</span></li>
+            <li><span>Toasted bagel with Swiss</span><span>Call for pricing</span></li>
+            <li><span>Sandwiches</span><span>Call for pricing</span></li>
+            <li><span>Grilled paninis</span><span>Call for pricing</span></li>
+            <li><span>Grilled lobster wrap</span><span>Call for pricing</span></li>
+            <li><span>California sandwich</span><span>Call for pricing</span></li>
+            <li><span>Soups</span><span>Call for pricing</span></li>
+            <li><span>Date squares &amp; desserts</span><span>Call for pricing</span></li>
+            <li><span>Cookies &amp; scones</span><span>Call for pricing</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="menu-note">Prices change with the seasons. Call ahead and we'll tell you today's.</p>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <h2>Come say hi</h2>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>Hours</h3>
+          <ul class="hours-list mini">
+            <li><span>Mon – Sat</span><strong>7:00 AM – 4:00 PM</strong></li>
+            <li><span>Sunday</span><strong>Call to confirm</strong></li>
+          </ul>
+        </div>
+        <div class="visit-card">
+          <h3>Find us</h3>
+          <p>80 King St W<br>Cobourg, ON K9A 2M3</p>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=80+King+St+W+Cobourg+ON">Get directions →</a></p>
+        </div>
+        <div class="visit-card">
+          <h3>Contact</h3>
+          <p>Phone: <a href="tel:+12892520707">(289) 252-0707</a></p>
+          <p>Email: <a href="mailto:thebean@humanbean.ca">thebean@humanbean.ca</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 The Human Bean · Cobourg, ON</span>
+    <span class="concept">Concept preview: demo site, not affiliated with the business</span>
+  </div>
+</footer>
+
+<a class="tap-call" href="tel:+12892520707">Call (289) 252-0707</a>
+
+<script>
+document.getElementById('menuBtn').addEventListener('click', function(){
+  var l = document.getElementById('navLinks');
+  l.classList.toggle('open');
+  this.setAttribute('aria-expanded', l.classList.contains('open'));
+});
+// Open-now badge from real published hours (Mon-Sat 7:00-16:00)
+(function(){
+  var now = new Date(), d = now.getDay(), h = now.getHours() + now.getMinutes()/60;
+  var open = d >= 1 && d <= 6 && h >= 7 && h < 16;
+  var badge = document.getElementById('openBadge'), txt = document.getElementById('openText');
+  if(!open){ badge.classList.add('closed'); txt.textContent = 'Currently closed'; }
+  else { txt.textContent = 'Open now · till 4 PM'; }
+})();
+</script>
+</body>
+</html>

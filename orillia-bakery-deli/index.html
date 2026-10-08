@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orillia Bakery &amp; Deli, Fresh Bread, Smoked Deli &amp; Party Trays | Orillia, ON</title>
+<meta name="description" content="Family-owned since 1981. Fresh-baked breads, in-house smoked deli meats, custom party trays and full-line catering on Front St S, Orillia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#47704C; --green-deep:#334f38; --wheat:#CFBBA1; --cream:#FAF5EB; --paper:#FFFDF8;
+  --ink:#2b2a26; --muted:#6f6a5e; --red:#9D1111; --line:#e7ddc9; --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:16.5px}
+h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:600;text-wrap:balance;line-height:1.12}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+
+/* top utility bar */
+.topbar{background:var(--green-deep);color:#f4efe2;font-size:13.5px;padding:8px 0}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.topbar a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+
+/* sticky nav */
+header.site{position:sticky;top:0;z-index:50;background:rgba(250,245,235,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:1240px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .badge{width:46px;height:46px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:19px;border:3px double var(--wheat);outline:2px solid var(--green)}
+.brand .name{font-family:'Fraunces',serif;font-weight:700;font-size:20px;line-height:1.05}
+.brand .name small{display:block;font-family:'Karla',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+.nav-links{display:flex;gap:26px;list-style:none;font-weight:600;font-size:15px}
+.nav-links a{text-decoration:none;color:var(--ink)}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:#fff!important;padding:10px 20px;border-radius:999px;font-weight:700}
+.nav-cta:hover{background:var(--green-deep)}
+.hamburger{display:none;background:none;border:0;font-size:28px;cursor:pointer;color:var(--green-deep);padding:4px 8px}
+
+/* hero */
+.hero{background:linear-gradient(180deg,#f3ecda, var(--cream));padding:64px 0 56px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.kicker{font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.hero h1{font-size:clamp(38px,5vw,58px);margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hero p.lede{font-size:18px;color:#4c473b;max-width:44ch;margin-bottom:26px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-deep)}
+.btn-ghost{border:2px solid var(--green);color:var(--green-deep)}
+.btn-ghost:hover{background:#eef2e9}
+.hero-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 18px 40px -22px rgba(51,79,56,.35)}
+.hero-card h3{font-size:22px;margin-bottom:14px;border-bottom:3px double var(--red);padding-bottom:10px}
+.bread-list{list-style:none;display:grid;gap:10px}
+.bread-list li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15.5px}
+.bread-list li:last-child{border-bottom:0}
+.bread-list .price{font-weight:700;color:var(--green-deep);white-space:nowrap}
+.fresh-note{margin-top:14px;font-size:14px;color:var(--muted);font-style:italic}
+
+/* menu board */
+.menu-board{padding:72px 0}
+.menu-board h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:10px}
+.menu-board .sub{color:var(--muted);max-width:62ch;margin-bottom:30px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.tab-btn{background:var(--paper);border:2px solid var(--line);border-radius:999px;padding:11px 24px;font-family:'Karla',sans-serif;font-weight:700;font-size:15.5px;cursor:pointer;color:var(--ink)}
+.tab-btn[aria-selected="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.tab-panel{display:none}
+.tab-panel.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.dish{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.dish h3{font-size:19px;margin-bottom:6px}
+.dish p{font-size:14.5px;color:var(--muted)}
+.dish .tag{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green-deep);background:#eaf0e4;border-radius:6px;padding:4px 10px}
+
+/* catering strip */
+.catering{background:var(--green);color:#f6f2e6;padding:64px 0}
+.catering-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.catering h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:14px}
+.catering p{color:#e9e3d1;max-width:48ch}
+.catering ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+.catering li{display:flex;gap:12px;align-items:flex-start}
+.catering li span.dot{flex:0 0 10px;height:10px;border-radius:50%;background:var(--wheat);margin-top:8px}
+.catering .btn-primary{background:#fff;color:var(--green-deep)}
+.catering .btn-primary:hover{background:var(--wheat)}
+.tray-sizes{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.25);border-radius:var(--radius);padding:28px}
+.tray-sizes h3{font-size:22px;margin-bottom:14px;color:#fff}
+.tray-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.25);font-size:15.5px}
+.tray-row:last-child{border-bottom:0}
+.tray-row strong{color:#fff}
+.tray-row em{font-style:normal;color:var(--wheat);font-weight:600}
+
+/* story */
+.story{padding:72px 0;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.story-year{font-family:'Fraunces',serif;font-size:clamp(64px,8vw,110px);font-weight:700;color:var(--green);line-height:1}
+.story-year small{display:block;font-family:'Karla',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.story h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:14px}
+.story p{color:#4c473b;margin-bottom:14px}
+.story-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.fact{border-left:3px solid var(--red);padding-left:14px}
+.fact strong{display:block;font-size:22px;font-family:'Fraunces',serif;color:var(--green-deep)}
+.fact span{font-size:14px;color:var(--muted)}
+
+/* visit */
+.visit{padding:72px 0}
+.visit h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:30px;text-align:left}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.visit-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.visit-card h3{font-size:21px;margin-bottom:16px;color:var(--green-deep)}
+.hours-list{list-style:none}
+.hours-list li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15.5px}
+.hours-list li:last-child{border-bottom:0}
+.visit-card p{margin-bottom:10px;font-size:15.5px}
+.visit-card a{color:var(--green-deep);font-weight:600}
+
+/* footer */
+footer{background:var(--green-deep);color:#e9e3d1;padding:34px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .concept{opacity:.75;font-style:italic}
+
+/* mobile tap-to-call */
+.tap-call{display:none;position:fixed;bottom:16px;left:16px;right:16px;z-index:60;background:var(--green);color:#fff;text-align:center;padding:15px;border-radius:999px;font-weight:700;text-decoration:none;font-size:17px;box-shadow:0 10px 28px rgba(51,79,56,.45)}
+
+@media(max-width:860px){
+  .hero-grid,.catering-grid,.story-grid,.visit-grid{grid-template-columns:1fr}
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:18px 22px 26px;gap:16px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .hamburger{display:block}
+  .tap-call{display:block}
+  body{padding-bottom:70px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Open today 9:00 AM – 6:00 PM</span>
+    <span><a href="tel:+17053265555">(705) 326-5555</a> &nbsp;·&nbsp; 155 Front St S, Orillia</span>
+  </div>
+</div>
+
+<header class="site">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#top">
+      <span class="badge">O</span>
+      <span class="name">Orillia Bakery<small>&amp; Deli</small></span>
+    </a>
+    <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#board">The Board</a></li>
+      <li><a href="#catering">Trays &amp; Catering</a></li>
+      <li><a href="#story">Since 1981</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a class="nav-cta" href="tel:+17053265555">Call to Order</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Voted Orillia's best since 2010</p>
+        <h1>Bread baked at dawn. <em>Deli smoked in-house.</em></h1>
+        <p class="lede">A family-run bakery and deli on Front Street since 1981, serving Orillia fresh loaves every morning, made-to-order sandwiches, and party trays built for real crowds.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+17053265555">Call to Order</a>
+          <a class="btn btn-ghost" href="#board">See the Board</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Fresh from the ovens today">
+        <h3>From the ovens today</h3>
+        <ul class="bread-list">
+          <li><span>White &amp; whole wheat sandwich loaves</span><span class="price">Call for pricing</span></li>
+          <li><span>Apple cranberry loaf</span><span class="price">Call for pricing</span></li>
+          <li><span>Cheddar-chive-dill loaf</span><span class="price">Call for pricing</span></li>
+          <li><span>Classic sourdough</span><span class="price">Call for pricing</span></li>
+          <li><span>Black Forest ham, smoked in-house</span><span class="price">Call for pricing</span></li>
+          <li><span>Oven-roasted turkey breast</span><span class="price">Call for pricing</span></li>
+        </ul>
+        <p class="fresh-note">Baked fresh every morning. When the board is empty, we're closed.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="menu-board" id="board">
+    <div class="wrap">
+      <h2>The day's board</h2>
+      <p class="sub">What we make here, in our own kitchen: breads from our ovens, meats from our smoker, and trays assembled to order.</p>
+      <div class="tabs" role="tablist" aria-label="Menu categories">
+        <button class="tab-btn" role="tab" aria-selected="true" data-tab="bakery">Bakery</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="deli">Deli</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="sweets">Sweets &amp; Cakes</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-bakery" role="tabpanel">
+        <div class="dish"><h3>Fresh sandwich loaves</h3><p>White, whole wheat, and multigrain, baked every morning.</p><span class="tag">Baked daily</span></div>
+        <div class="dish"><h3>Apple cranberry loaf</h3><p>A house favourite, studded with cranberries and apple.</p><span class="tag">Baked daily</span></div>
+        <div class="dish"><h3>Cheddar-chive-dill loaf</h3><p>Sharp cheddar and fresh herbs in a golden crust.</p><span class="tag">Baked daily</span></div>
+        <div class="dish"><h3>Classic sourdough</h3><p>Slow-fermented for real tang and a crackling crust.</p><span class="tag">Baked daily</span></div>
+        <div class="dish"><h3>100+ gluten-free items</h3><p>One of Orillia's widest gluten-free selections.</p><span class="tag">Gluten-free</span></div>
+        <div class="dish"><h3>Artisan &amp; European specialties</h3><p>Imported cheeses and European grocery favourites.</p><span class="tag">Pantry</span></div>
+      </div>
+
+      <div class="tab-panel" id="tab-deli" role="tabpanel">
+        <div class="dish"><h3>Black Forest ham</h3><p>Smoked in-house, sliced to order.</p><span class="tag">Smoked in-house</span></div>
+        <div class="dish"><h3>Oven-roasted turkey</h3><p>Whole roasted turkey breast, never pressed.</p><span class="tag">Roasted in-house</span></div>
+        <div class="dish"><h3>Kolbassa &amp; csabai</h3><p>Traditional European sausages from our smoker.</p><span class="tag">Smoked in-house</span></div>
+        <div class="dish"><h3>Handmade sandwiches</h3><p>Crafted to order on our own fresh bread.</p><span class="tag">Made to order</span></div>
+        <div class="dish"><h3>Salami selection</h3><p>European-style cured salamis, sliced fresh.</p><span class="tag">Deli counter</span></div>
+        <div class="dish"><h3>Wholesale breads</h3><p>We supply fresh baked goods to local Orillia restaurants.</p><span class="tag">For restaurants</span></div>
+      </div>
+
+      <div class="tab-panel" id="tab-sweets" role="tabpanel">
+        <div class="dish"><h3>Fruit pies</h3><p>Flaky crusts, real fruit fillings, baked in-house.</p><span class="tag">Baked in-house</span></div>
+        <div class="dish"><h3>Pastries &amp; cookies</h3><p>A rotating case of morning pastries and cookies.</p><span class="tag">Baked in-house</span></div>
+        <div class="dish"><h3>Custom cakes</h3><p>Birthday, wedding, and celebration cakes to order.</p><span class="tag">Order ahead</span></div>
+        <div class="dish"><h3>Dessert trays</h3><p>Assorted sweets arranged for 8 to 35 people.</p><span class="tag">Party trays</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="catering" id="catering">
+    <div class="wrap catering-grid">
+      <div>
+        <h2>Party trays, built to order</h2>
+        <p>From office lunches to family gatherings, our trays feed real crowds with the same bread and smoked meats we sell in the shop. Full-line custom catering is available for larger events.</p>
+        <ul>
+          <li><span class="dot"></span><span>Meat trays with in-house smoked cuts</span></li>
+          <li><span class="dot"></span><span>Cheese trays with artisan selections</span></li>
+          <li><span class="dot"></span><span>Meat &amp; cheese nibbler trays</span></li>
+          <li><span class="dot"></span><span>Dessert trays with house-baked sweets</span></li>
+        </ul>
+        <p style="margin-top:24px"><a class="btn btn-primary" href="tel:+17053265555">Call for Tray Pricing</a></p>
+      </div>
+      <div class="tray-sizes">
+        <h3>Tray sizes</h3>
+        <div class="tray-row"><strong>Small</strong><em>Serves 8–12</em></div>
+        <div class="tray-row"><strong>Medium</strong><em>Serves 12–20</em></div>
+        <div class="tray-row"><strong>Large</strong><em>Serves 20–35</em></div>
+        <div class="tray-row"><strong>Custom catering</strong><em>Call for a quote</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap story-grid">
+      <div>
+        <p class="story-year">1981<small>Family-owned since</small></p>
+      </div>
+      <div>
+        <h2>Four decades on Front Street</h2>
+        <p>Jerry Kostur opened the bakery in 1981, and the Kostur family, Lisa and their three sons, has run it ever since. What started as a neighbourhood bakery now smokes its own deli meats, bakes for local restaurants, and caters events across the Orillia area.</p>
+        <p>The recipe hasn't changed: bake it fresh, smoke it yourself, slice it to order.</p>
+        <div class="story-facts">
+          <div class="fact"><strong>45</strong><span>years in business</span></div>
+          <div class="fact"><strong>4.9★</strong><span>Google rating</span></div>
+          <div class="fact"><strong>100+</strong><span>gluten-free items</span></div>
+          <div class="fact"><strong>1</strong><span>family, one location</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <h2>Come by the shop</h2>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>Hours</h3>
+          <ul class="hours-list">
+            <li><span>Monday – Saturday</span><strong>9:00 AM – 6:00 PM</strong></li>
+            <li><span>Sunday</span><strong>9:00 AM – 5:00 PM</strong></li>
+          </ul>
+        </div>
+        <div class="visit-card">
+          <h3>Find us</h3>
+          <p>155 Front St S<br>Orillia, ON L6M 1A1</p>
+          <p>Phone: <a href="tel:+17053265555">(705) 326-5555</a><br>Email: <a href="mailto:office@orilliabakery.ca">office@orilliabakery.ca</a></p>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=155+Front+St+S+Orillia+ON">Get directions →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Orillia Bakery &amp; Deli · 155 Front St S, Orillia, ON</span>
+    <span class="concept">Concept preview: demo site, not affiliated with the business</span>
+  </div>
+</footer>
+
+<a class="tap-call" href="tel:+17053265555">Call (705) 326-5555</a>
+
+<script>
+document.getElementById('menuBtn').addEventListener('click', function(){
+  var l = document.getElementById('navLinks');
+  l.classList.toggle('open');
+  this.setAttribute('aria-expanded', l.classList.contains('open'));
+});
+var btns = document.querySelectorAll('.tab-btn');
+btns.forEach(function(b){
+  b.addEventListener('click', function(){
+    btns.forEach(function(x){ x.setAttribute('aria-selected','false'); });
+    b.setAttribute('aria-selected','true');
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById('tab-' + b.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
